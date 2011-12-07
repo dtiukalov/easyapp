@@ -112,6 +112,16 @@ public class Article {
 		return null;
 	}
 	
+	public static String getOneArticleText(String cid) {
+		Article article = getOneByCid(cid);
+		
+		if (article != null) {
+			return article.getText();
+		}
+		
+		return "";
+	}
+	
 	public static List<Article> getByLikeCid(String cid) {
 		return SimpleDaoTemplate.query("SELECT * FROM web_article WHERE 1 = 1 AND cid like '%" + cid + "%' order by type desc, createtime desc", null,
 				mapping, Article.class);

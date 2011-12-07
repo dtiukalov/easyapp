@@ -6,44 +6,45 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<%@ include file="/app/includes/kindEditor.jsp" %>
-<%
-	String cname = "首页";
-
-	String contentId = request.getParameter("cid");
-	if (contentId != null) {
-		Content content = Content.get(contentId);
-		
-		if (content != null) {
-			cname = content.getName();
-		}
-	}
-%>
-<title><%=cname%></title>
+<script src="js/swfobject_modified.js" type="text/javascript"></script>
+<link href="css/base.css" rel="stylesheet" type="text/css" />
+<link href="css/homepage.css" rel="stylesheet" type="text/css" />
+<title><%=WebUtils.getTitle(request) %></title>
 </head>
 <body>
-	<%@ include file="include/top.jsp" %>
-	<%@ include file="include/navigate.jsp" %>
-	<%
+<div id="beijing">
+<div id="container">
+<%@ include file="include/top.jsp" %>
+<div id="content">
+	<%@ include file="include/navigate.jsp"%>
+    <div class="right">
+    <%
 		Article article = Article.getOneByCid(__aid);
+  	  	String indexStr = request.getParameter("index");
 		String title = "";
 		String text = "";
-		String indexStr = request.getParameter("index");
 		
 		if (article != null) {
 			title = article.getTitle();
+			response.setHeader("title", title);
 			text = article.getText();
 		}
 	%>
-	<div id="center">
-		<p>目录名称：<%=cname%></p>
-		<p>题目：<%=title%></p>
-		<p>内容：</p>
-		<div><%=PaginationUtils.getPageText(text, indexStr)%></div>
-		<div>
-		<%=PaginationUtils.getPagination("content.jsp?cid=" + contentId, indexStr, text) %>
-		</div>
-	</div>
-	<%@ include file="include/foot.jsp" %>
+    	<div class="ybt">
+        <div class="biaoti"><%=title%></div>
+        <div class="weizhi">您所在的位置：<a href="index.jsp">首页</a>&nbsp;|&nbsp;<a href="<%=WebUtils.getLink(__cid, null)%>"><%=__cname %></a>&nbsp;|&nbsp;<%=title%></div>
+        <div class="clear"></div>
+        </div>
+        <div class="ynr">
+        	<div class="neirong"><%=PaginationUtils.getPageText(text, indexStr)%></div>
+       		<div align="right" style="padding-right: 20px">
+			<%=PaginationUtils.getPagination("content.jsp?cid=" + __cid, indexStr, text) %>
+			</div>
+        </div>
+        <div class="ydi"><img src="images/nr_xia.gif" /></div>
+    </div><!--右侧-->
+    <div class="clear"></div>
+</div><!--内容-->
+<%@ include file="include/foot.jsp" %>
 </body>
 </html>

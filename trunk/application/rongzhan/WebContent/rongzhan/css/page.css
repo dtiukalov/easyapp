@@ -1,0 +1,27 @@
+@charset "utf-8";
+/* CSS Document */
+.right .ynr .xwlb {
+	width:715px;
+	margin:0 auto;
+	padding-top:3px;
+}
+.xwlb .xwbt {
+	font-size:18px;
+	text-align:center;
+	color:#9b714b;
+	font-weight:bold;
+	line-height:40px;
+}
+.xwlb .rq {
+	text-align:center;
+	height:28px;
+	background-color:#d3d4d5;
+	line-height:28px;
+	color:#c49c4f;
+	font-size:14px;
+	margin-bottom:3px;
+}
+.xwlb p {
+	text-indent:2em;
+	line-height:20px;
+}

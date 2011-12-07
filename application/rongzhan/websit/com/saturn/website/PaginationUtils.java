@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PaginationUtils {
-	private static final int LIST_PAGINATION_NUM = 10;
+	private static final int LIST_PAGINATION_NUM = 12;
 
 	public static String getPageText(String text, String indexStr) {
 		int index = 1;

@@ -1,0 +1,98 @@
+@charset "utf-8";
+/* CSS Document */
+#content .left {
+	width:263px;
+	float:left;
+	background:#9FC;
+	display:inline;
+}
+.left .gsjs .bt{
+	height:56px;
+	background:url(../images/bt_bg.gif) no-repeat 0 0;
+	color:#9b714c;
+	font-size:18px;
+	font-family:"微软雅黑",Arial, Helvetica, sans-serif;
+	padding-left:65px;
+	overflow:hidden;
+	line-height:56px;
+}
+.left .gsjs .zj {
+	background:url(../images/bt_zj.gif) repeat-y 0 0;
+}
+.left .gsjs .zj .xl{
+	width:242px;
+	height:160px;
+	margin:0 auto 0 12px;
+}
+.left .gsjs .zj .xl .xltiao {
+	background:url(../images/xltiaobt.gif) no-repeat 0 0;
+	width:242px;
+	height:32px;
+}
+.xl .xltiao .dqy{
+	color:#94252a;
+}
+.xltiao h1 a{
+	line-height:32px;
+	padding-left:53px;
+	color:#FFF;
+	font-size:14px;
+}
+.xltiao h1 a:hover {
+	color:#fff100;
+} 
+.left .lxwm {
+	float:left;
+	width:263px;
+}
+.left .lxwmbt {
+	background:url(../images/lxwm_bt.gif) no-repeat 0 0;
+	height:31px;
+	line-height:31px;
+	padding-left:18px;
+}
+.left .lxwmzj {
+	background:url(../images/lxwm_bg.gif) repeat-y 0 0;
+}
+.left .lxwmzj .lx {
+	width:230px;
+	height:150px;
+	margin:0 auto;
+	background:url(../images/dh.gif) no-repeat right bottom;
+}
+.left .lxwmzj p {
+	line-height:20px;
+	text-indent:10px;
+	padding-top:6px;
+}
+#content .right {
+	display:inline;
+	width:741px;
+	float:left;
+	background:#0CC;
+}
+.right .ybt {
+	background:url(../images/nr_bt.gif) no-repeat 0 0;
+	height:37px;
+	line-height:37px;
+	padding-left:13px;
+}
+.ybt .biaoti {
+	display:block;
+	width:84px;
+	float:left;
+}
+.ybt .weizhi {
+	float:left;
+	display:block;
+	width:600px;
+	text-align:right;
+}
+.right .ynr {
+	background:url(../images/nr_zj.gif) repeat-y 0 0;
+}
+.right .ynr .neirong {
+	width:715px;
+	margin:0 auto;
+	padding-top:3px;
+}

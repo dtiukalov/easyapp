@@ -1,3 +1,4 @@
+<%@page import="com.saturn.website.PaginationUtils"%>
 <%@page import="com.saturn.website.Article"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -5,40 +6,52 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<%
-	String cname = "首页";
-
-	String contentId = request.getParameter("cid");
-	if (contentId != null) {
-		Content content = Content.get(contentId);
-		
-		if (content != null) {
-			cname = content.getName();
-		}
-	}
-%>
-<title><%=cname%></title>
+<title><%=WebUtils.getTitle(request) %></title>
+<script src="js/swfobject_modified.js" type="text/javascript"></script>
+<link href="css/base.css" rel="stylesheet" type="text/css" />
+<link href="css/homepage.css" rel="stylesheet" type="text/css" />
+<link href="css/page.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-	<%@ include file="include/top.jsp" %>
+<div id="beijing">
+<div id="container">
+<%@ include file="include/top.jsp" %>
+<div id="content">
 	<%@ include file="include/navigate.jsp" %>
-	<%
-		String did = request.getParameter("did");
-		Article article = Article.get(did);
-		String title = "";
-		String text = "";
-		
-		if (article != null) {
-			title = article.getTitle();
-			text = article.getText();
-		}
-	%>
-	<div id="center">
-		<p>目录名称：<%=cname%></p>
-		<p>题目：<%=title%></p>
-		<p>内容：</p>
-		<div><%=text%></div>
-	</div>
-	<%@ include file="include/foot.jsp" %>
+    <div class="right">
+    	<div class="ybt">
+        <div class="biaoti"><%=__aname%></div>
+        <div class="weizhi">您所在的位置：<a href="index.jsp">首页</a>&nbsp;|&nbsp;<a href="<%=WebUtils.getLink(__cid, null)%>"><%=__cname %></a>&nbsp;|&nbsp;<%=__aname%></div>
+        <div class="clear"></div>
+        </div>
+        <div class="ynr">
+        	<div class="xwlb">
+        	<%
+				String did = request.getParameter("did");
+        		String indexStr = request.getParameter("index");
+				Article article = Article.get(did);
+				String title = "";
+				String text = "";
+				String datetime = "";
+				String source = "";
+				
+				if (article != null) {
+					title = article.getTitle();
+					text = article.getText();
+					datetime = article.getCreateTime();
+					source = article.getOperaterName();
+				}
+			%>
+            	<div class="xwbt"><%=title%></div>
+                <div class="rq">[<%=datetime %>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来源：<%=source %></div>
+           	 	<div><%=PaginationUtils.getPageText(text, indexStr)%></div>
+           	 	<div><%=PaginationUtils.getPagination("detail.jsp?cid=" + __cid + "&aid=" + __aid + "&did=" + did, indexStr, text) %></div>
+            </div>
+        </div>
+        <div class="ydi"><img src="images/nr_xia.gif" /></div>
+    </div><!--右侧-->
+    <div class="clear"></div>
+</div><!--内容-->
+<%@ include file="include/foot.jsp" %>
 </body>
 </html>

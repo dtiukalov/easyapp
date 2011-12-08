@@ -96,7 +96,7 @@
 					rowspan : 2,	
 					formatter : function(value, rec) {
 						return '<span><a href="#" onclick="confirmVO(\'' + rec.id + '\');"><img src="<%=request.getContextPath()%>/app/themes/icons/ok.png" width="16" height="16" border="0" /></a>'+
-						'&nbsp&nbsp<a href="#" onclick="editVO(\'' + rec.id + '\');"><img src="<%=request.getContextPath()%>/app/themes/icons/edit.png" width="16" height="16" border="0" /></a>'+
+						'&nbsp&nbsp<a href="#" onclick="showVO(\'' + rec.id + '\');"><img src="<%=request.getContextPath()%>/app/themes/icons/author.png" width="16" height="16" border="0" /></a>'+
 						'&nbsp&nbsp<a href="#" onclick="deleteVO(\'' + rec.id + '\');"><img src="<%=request.getContextPath()%>/app/themes/icons/back.png" width="14" height="14" border="0" /></a></span>';
 					}
 				} ] ],
@@ -115,7 +115,7 @@
 							$.messager.alert('提示','只能选择一项','info');
 							return;
 						}
-						editVO(rows[0].id);
+						window.location.href='<%=request.getContextPath()%>/app/sldb/person/sub/queryPersonTab.action?id='+rows[0].id;
 						return false;
 					}
 				}, '-', {
@@ -163,6 +163,12 @@
 			    }
 			});
 		});
+		
+		function showVO(id) {
+			var rows = $('#queryTable').datagrid('getSelections');
+			window.location.href='<%=request.getContextPath()%>/app/sldb/person/sub/queryPersonTab.action?id='+rows[0].id;
+			return false;	
+		}
 		
 		function queryVO() {
 			$('#queryTable').datagrid({

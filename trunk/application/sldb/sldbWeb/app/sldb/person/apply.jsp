@@ -163,6 +163,42 @@
 
 						confirmVO(ids.join('__'));
 					}
+				},
+				{
+					id : 'btnadd',
+					text : '家庭成员',
+					iconCls : 'icon-author',
+					handler : function() {
+						var rows = $('#queryTable').datagrid('getSelections');
+						if (rows.length == 0) {
+							$.messager.alert('提示','请选择户主','info');
+							return;
+						} else if (rows.length > 1) {
+							$.messager.alert('提示','只能选择一项','info');
+							return;
+						}
+						window.location.href='<%=request.getContextPath()%>/app/sldb/person/sub/queryPerson.action?id='+rows[0].id; 
+						//查询户主信息
+						return false;//解决IE6的不跳转的bug
+					}
+				},
+				{
+					id : 'btnadd',
+					text : '查看家庭信息',
+					iconCls : 'icon-query-form',
+					handler : function() {
+						var rows = $('#queryTable').datagrid('getSelections');
+						if (rows.length == 0) {
+							$.messager.alert('提示','请选择户主','info');
+							return;
+						} else if (rows.length > 1) {
+							$.messager.alert('提示','只能选择一项','info');
+							return;
+						}
+						window.location.href='<%=request.getContextPath()%>/app/sldb/person/sub/queryPersonTab.action?id='+rows[0].id; 
+						//带参数传入下一个jsp页面
+						return false;//解决IE6的不跳转的bug
+					}
 				}]
 			});
 			
@@ -208,7 +244,7 @@
 		}
 		
 		function editVO(id){
-			window.location.href='<%=request.getContextPath()%>/app/sldb/person/query.action?id='+ id;
+			window.location.href='<%=request.getContextPath()%>/app/sldb/person/query.action?ids='+ id;
 			return false;
 		}
 	</script>

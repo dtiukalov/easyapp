@@ -1,25 +1,30 @@
-<%@page import="java.util.List"%>
-<%@page import="com.saturn.auth.Organization"%>
-<%@page import="com.saturn.auth.User"%>
-<%@page import="com.saturn.app.utils.DateUtils"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>添加申报低保信息</title>
+<title>修改家庭成员信息</title>
 <%@ include file="/app/includes/header.jsp"%>
 <script type="text/javascript">
-	function add() {
-		$('#addForm').submit();
+	function edit() {
+		$('#editForm').submit();
+	}
+	
+	function confirm() {
+		$.messager.confirm('确认申报项', '确认申报该选项', function(result){
+			if (result){
+				window.location.href='<%=request.getContextPath()%>/app/sldb/personSab/confirm.action?ids=${personSab.id}';
+			}
+		});
+		return false;
 	}
 	
 	$(function() {
 		$('#name').focus();
 		
 		$('#type').combobox({
-			value : '城镇低保',
+			value : '${personSab.type}',
 			onHidePanel : function() {
 				$("#combo_type").focus();
 			},
@@ -27,6 +32,7 @@
 		});
 		
 		$('#gender').combobox({
+			value : '${personSab.gender}',
 			onHidePanel : function() {
 				$("#combo_gender").focus();
 			},
@@ -34,6 +40,7 @@
 		});
 		
 		$('#hukou').combobox({
+			value : '${personSab.hukou}',
 			onHidePanel : function() {
 				$("#combo_hukou").focus();
 			},
@@ -41,6 +48,7 @@
 		});
 		
 		$('#home').combobox({
+			value : '${personSab.home}',
 			onHidePanel : function() {
 				$("#combo_home").focus();
 			},
@@ -48,6 +56,7 @@
 		});
 		
 		$('#marry').combobox({
+			value : '${personSab.marry}',
 			onHidePanel : function() {
 				$("#combo_marry").focus();
 			},
@@ -55,6 +64,7 @@
 		});
 		
 		$('#workable').combobox({
+			value : '${personSab.workable}',
 			onHidePanel : function() {
 				$("#combo_workable").focus();
 			},
@@ -62,6 +72,7 @@
 		});
 		
 		$('#idType').combobox({
+			value : '${personSab.idType}',
 			onHidePanel : function() {
 				$("#combo_idType").focus();
 			},
@@ -69,12 +80,15 @@
 		});
 		
 		$('#first').combobox({
+			value : '${personSab.first}',
 			onHidePanel : function() {
 				$("#combo_first").focus();
 			},
 			width : 256
 		});
+		
 		$('#ill').combobox({
+			value : '${personSab.ill}',
 			onHidePanel : function() {
 				$("#combo_ill").focus();
 			},
@@ -82,6 +96,7 @@
 		});
 		
 		$('#deformity').combobox({
+			value : '${personSab.deformity}',
 			onHidePanel : function() {
 				$("#combo_deformity").focus();
 			},
@@ -89,6 +104,7 @@
 		});
 		
 		$('#deformityLevel').combobox({
+			value : '${personSab.deformityLevel}',
 			onHidePanel : function() {
 				$("#combo_deformityLevel").focus();
 			},
@@ -96,6 +112,7 @@
 		});
 		
 		$('#companyType').combobox({
+			value : '${personSab.companyType}',
 			onHidePanel : function() {
 				$("#combo_companyType").focus();
 			},
@@ -103,6 +120,7 @@
 		});
 		
 		$('#trade').combobox({
+			value : '${personSab.trade}',
 			onHidePanel : function() {
 				$("#combo_trade").focus();
 			},
@@ -110,40 +128,33 @@
 		});
 		
 		$('#insurance').combobox({
+			value : '${personSab.insurance}',
 			onHidePanel : function() {
 				$("#combo_insurance").focus();
 			},
 			width : 256
 		});
-		
 	});
 </script>
 </head>
 <body>
-	<%
-		User user = (User)session.getAttribute("authUser");
-		List organizations = Organization.getOrganizationByUser(user.getId());
-		String department = "";
-		if (organizations != null && !organizations.isEmpty()) {
-			department = ((Organization)organizations.get(0)).getName();
-		}
-	%>
-	<div id="panel" class="easyui-panel" title="添加申报低保信息" icon="icon-add-form"
-		collapsible="true" style="padding: 10px;">
-		<form id="addForm" name="addForm"
-			action="<%=request.getContextPath()%>/app/sldb/person/sub/add.action"
+	<div id="panel" class="easyui-panel" title="修改家庭成员信息"
+		icon="icon-edit-form" collapsible="true" style="padding: 10px;">
+
+		<form id="editForm"
+			action="<%=request.getContextPath()%>/app/sldb/person/sub/update.action"
 			method="post">
 			<table class="table-form">
 				<tr>
 					<td style="text-align:right"><span style="color: red">*</span>类型:</td>
 					<td><select id="type" class="easyui-combobox"
-								name="type" url="<%=request.getContextPath()%>/app/system/dict/listDictByType.action?type=sldb.person.type" valueField="id"
+								name="type" url="<%=request.getContextPath()%>/app/system/dict/listDictByType.action?type=sldb.personSab.type" valueField="id"
 								textField="text" editable="false"></select></td>
 					<td><div id="combo_typeTip"></div></td>
 				</tr>
 				<tr>
-					<td style="text-align:right"><span style="color: red">*</span>户主姓名:</td>
-					<td><input id="name" name="name" type="text"></input></td>
+					<td style="text-align:right"><span style="color: red">*</span>姓名:</td>
+					<td><input id="name" name="name" type="text" value="${personSab.name}"></input></td>
 					<td><div id="nameTip"></div></td>
 				</tr>
 				<tr>
@@ -155,12 +166,17 @@
 				</tr>
 				<tr>
 					<td style="text-align:right"><span style="color: red">*</span>身份证号:</td>
-					<td><input id="identify" name="identify" type="text"></input></td>
+					<td><input id="identify" name="identify" type="text" value="${personSab.identify}"></input></td>
 					<td><div id="identifyTip"></div></td>
 				</tr>
 				<tr>
+					<td style="text-align:right"><span style="color: red">*</span>与户主关系:</td>
+					<td><input id="personRelation" name="personRelation" type="text" value="${personSab.personRelation}"></input></td>
+					<td><div id="personRelationTip"></div></td>
+				</tr>
+				<tr>
 					<td style="text-align:right"><span style="color: red">*</span>民族:</td>
-					<td><input id="race" name="race" type="text"></input></td>
+					<td><input id="race" name="race" type="text" value="${personSab.race}"></input></td>
 					<td><div id="raceTip"></div></td>
 				</tr>
 				<tr>
@@ -169,18 +185,6 @@
 								name="hukou" url="<%=request.getContextPath()%>/app/system/dict/listDictByType.action?type=sldb.hukou" valueField="id"
 								textField="text" editable="false"></select></td>
 					<td><div id="combo_hukouTip"></div></td>
-				</tr>
-				<tr>
-					<td style="text-align:right"><span style="color: red">*</span>家庭类别:</td>
-					<td><select id="home" class="easyui-combobox"
-								name="home" url="<%=request.getContextPath()%>/app/system/dict/listDictByType.action?type=sldb.home" valueField="id"
-								textField="text" editable="false"></select></td>
-					<td><div id="combo_homeTip"></div></td>
-				</tr>
-				<tr>
-					<td style="text-align:right"><span style="color: red">*</span>家庭人口:</td>
-					<td><input id="homeSum" name="homeSum" type="text"></input></td>
-					<td><div id="homeSumTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right"><span style="color: red">*</span>婚姻状况:</td>
@@ -254,55 +258,57 @@
 				</tr>
 				<tr>
 					<td style="text-align:right"><span style="color: red">*</span>工作单位:</td>
-					<td><input id="company" name="company" type="text"></input></td>
+					<td><input id="company" name="company" type="text" value="${personSab.company}"></input></td>
 					<td><div id="companyTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right"><span style="color: red">*</span>联系方式:</td>
-					<td><input id="contact" name="contact" type="text"></input></td>
+					<td><input id="contact" name="contact" type="text" value="${personSab.contact}"></input></td>
 					<td><div id="contactTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right"><span style="color: red">*</span>所属街道:</td>
-					<td><input id="street" name="street" type="text"></input></td>
+					<td><input id="street" name="street" type="text" value="${personSab.street}"></input></td>
 					<td><div id="streetTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right"><span style="color: red">*</span>地址:</td>
-					<td><input id="address" name="address" type="text"></input></td>
+					<td><input id="address" name="address" type="text" value="${personSab.address}"></input></td>
 					<td><div id="addressTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right">备注:</td>
-					<td><textarea id="desc" name="desc" rows="5" cols="50"></textarea></td>
+					<td><textarea id="desc" name="desc" rows="5" cols="50">${personSab.desc}</textarea></td>
 					<td><div id="descTip"></div></td>
 				</tr>
 				<tr>
 					<td colspan="3">
 						<div style="padding: 10px;">
-							<a href="#" onclick="add()" class="easyui-linkbutton"
-								iconCls="icon-add">添加</a> <a href="javascript:history.back(-1)"
-								class="easyui-linkbutton" iconCls="icon-cancel">取消</a>
+							<a href="#" class="easyui-linkbutton" iconCls="icon-edit"
+								onclick="edit()">确定</a> <a href="javascript:history.back(-1)"
+								class="easyui-linkbutton" iconCls="icon-cancel">取消</a> 
 						</div>
 					</td>
 				</tr>
 			</table>
-			<input id="createTime" name="createTime" type="hidden" value="<%=DateUtils.getSystemTime()%>"></input>
-			<input id="creater" name="creater" type="hidden" value="<%=user.getId()%>"></input>
-			<input id="createrName" name="createrName" type="hidden" value="<%=user.getName()%>"></input>
-			<input id="createrDepartment" name="createrDepartment"  type="hidden" value="<%=department%>"></input>
-			<input id="state" name="state" type="hidden" value="创建"></input>
+			<input id="id" name="id" type="hidden" value="${personSab.id}"></input>
+			<input id="createTime" name="createTime" type="hidden" value="${personSab.createTime}"></input>
+			<input id="createrName" name="createrName" type="hidden" value="${personSab.createrName}"></input>
+			<input id="createrDepartment" name="createrDepartment"  type="hidden" value="${personSab.createrDepartment}"></input>
+			<input id="creater" name="creater" type="hidden" value="${personSab.creater}"></input>
+			<input id="state" name="state" type="hidden" value="${personSab.state}"></input>
+			<input id="pid" name="pid" type="hidden" value="<%=request.getParameter("pid")%>">
 		</form>
 	</div>
 </body>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$.formValidator.initConfig({
-			formid : "addForm"
+			formid : "editForm"
 		});
 
 		$("#name").formValidator({
-			onfocus : "户主姓名不能为空,不超过50个字符！"
+			onfocus : "姓名不能为空,不超过50个字符！"
 		}).inputValidator({
 			min : 1,
 			max : 50,

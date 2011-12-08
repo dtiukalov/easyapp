@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>添加申报低保信息</title>
+<title>添加家庭成员信息</title>
 <%@ include file="/app/includes/header.jsp"%>
 <script type="text/javascript">
 	function add() {
@@ -128,7 +128,7 @@
 			department = ((Organization)organizations.get(0)).getName();
 		}
 	%>
-	<div id="panel" class="easyui-panel" title="添加申报低保信息" icon="icon-add-form"
+	<div id="panel" class="easyui-panel" title="添加家庭成员信息" icon="icon-add-form"
 		collapsible="true" style="padding: 10px;">
 		<form id="addForm" name="addForm"
 			action="<%=request.getContextPath()%>/app/sldb/person/sub/add.action"
@@ -142,7 +142,7 @@
 					<td><div id="combo_typeTip"></div></td>
 				</tr>
 				<tr>
-					<td style="text-align:right"><span style="color: red">*</span>户主姓名:</td>
+					<td style="text-align:right"><span style="color: red">*</span>姓名:</td>
 					<td><input id="name" name="name" type="text"></input></td>
 					<td><div id="nameTip"></div></td>
 				</tr>
@@ -159,6 +159,11 @@
 					<td><div id="identifyTip"></div></td>
 				</tr>
 				<tr>
+					<td style="text-align:right"><span style="color: red">*</span>与户主关系:</td>
+					<td><input id="personRelation" name="personRelation" type="text" value=""></input></td>
+					<td><div id="personRelationTip"></div></td>
+				</tr>
+				<tr>
 					<td style="text-align:right"><span style="color: red">*</span>民族:</td>
 					<td><input id="race" name="race" type="text"></input></td>
 					<td><div id="raceTip"></div></td>
@@ -169,18 +174,6 @@
 								name="hukou" url="<%=request.getContextPath()%>/app/system/dict/listDictByType.action?type=sldb.hukou" valueField="id"
 								textField="text" editable="false"></select></td>
 					<td><div id="combo_hukouTip"></div></td>
-				</tr>
-				<tr>
-					<td style="text-align:right"><span style="color: red">*</span>家庭类别:</td>
-					<td><select id="home" class="easyui-combobox"
-								name="home" url="<%=request.getContextPath()%>/app/system/dict/listDictByType.action?type=sldb.home" valueField="id"
-								textField="text" editable="false"></select></td>
-					<td><div id="combo_homeTip"></div></td>
-				</tr>
-				<tr>
-					<td style="text-align:right"><span style="color: red">*</span>家庭人口:</td>
-					<td><input id="homeSum" name="homeSum" type="text"></input></td>
-					<td><div id="homeSumTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right"><span style="color: red">*</span>婚姻状况:</td>
@@ -292,6 +285,7 @@
 			<input id="createrName" name="createrName" type="hidden" value="<%=user.getName()%>"></input>
 			<input id="createrDepartment" name="createrDepartment"  type="hidden" value="<%=department%>"></input>
 			<input id="state" name="state" type="hidden" value="创建"></input>
+			<input id="pid" name="pid" type="hidden" value="<%=request.getParameter("id") %>">
 		</form>
 	</div>
 </body>
@@ -302,7 +296,7 @@
 		});
 
 		$("#name").formValidator({
-			onfocus : "户主姓名不能为空,不超过50个字符！"
+			onfocus : "姓名不能为空,不超过50个字符！"
 		}).inputValidator({
 			min : 1,
 			max : 50,

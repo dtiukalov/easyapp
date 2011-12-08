@@ -33,10 +33,11 @@ public class AddAction implements IAction {
 		Import vo = BeanUtils.getBean(request, Import.class);
 		User user = (User)request.getSession().getAttribute("authUser");
 		
-		String type = request.getParameter("type");
+		String type = request.getParameter("type");//获取页面传过来的type值
 		String importDate = DateUtils.getSystemDate().substring(0, 7);
-		
+		//截取系统时间到月例如 2011-12
 		long current = System.currentTimeMillis();
+		//获取系统时间的毫秒数，是时间值 电脑配置非常优秀 每毫秒可以执行N次？？
 		
 		vo.setType(type);
 		vo.setImportDate(importDate);
@@ -68,7 +69,7 @@ public class AddAction implements IAction {
 		
 		File saveDirFile = new File(savePath);
 		if (!saveDirFile.exists()) {
-			saveDirFile.mkdirs();
+			saveDirFile.mkdirs(); //可以在不存在的目录中创建文件夹 mkdir在已存在的目录中创建文件夹
 		}
 
 		FileItemFactory factory = new DiskFileItemFactory();

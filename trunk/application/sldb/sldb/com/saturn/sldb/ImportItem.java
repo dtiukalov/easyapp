@@ -142,7 +142,7 @@ public class ImportItem {
 	}
 
 	public ImportItem(String id, String name, String type, String infoId,
-			String colume, String length) {
+			String colume, String length, String showLength) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -150,6 +150,7 @@ public class ImportItem {
 		this.infoId = infoId;
 		this.colume = colume;
 		this.length = length;
+		this.showLength = showLength;
 	}
 
 	public String getId() {

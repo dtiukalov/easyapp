@@ -10,7 +10,7 @@ public class ImportTest {
 
 	@Test
 	public void testAdd() {
-		Import info = new Import(null, "房产局", "2011-11-28 00:00:00", "admin",
+		Import info = new Import("someId", "房产文件名", "房产局", "2011-11-28 00:00:00", "admin",
 				"admin", "100", "2011-11-28", "/import/test.xls");
 		assertEquals(1, Import.add(info));
 		

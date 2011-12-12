@@ -33,5 +33,4 @@ public class JSONUtilsTest {
 		
 		assertEquals(str, JSONUtils.getDataGridJSON(total, rows, footer));
 	}
-
 }

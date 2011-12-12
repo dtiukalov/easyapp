@@ -31,6 +31,11 @@
 					sortable : true
 				} ] ],
 				columns : [ [ {
+					field : 'name',
+					title : '导入文件名',
+					width : 70,
+					sortable : true
+				}, {
 					field : 'typeName',
 					title : '类型',
 					width : 70,

@@ -32,7 +32,12 @@ import com.saturn.app.utils.DateUtils;
 
 public class Import {
 
+	private static final int IMPORT_TYPE_IDENTIF_CHANGE = 2;
+	private static final int IMPORT_TYPE_ERROR = 0;
+	private static final int IMPORT_TYPE_OK = 1;
+	
 	private String id;
+	private String name;
 	private String type;
 	private String typeName;
 
@@ -91,8 +96,8 @@ public class Import {
 		// 指定插入表名称(tableName)。例子：如user表3个列，tableName=user(id, name, gender)
 		// 根据列的顺序获取值对象的属性值。例子：vo.getId(), vo.getName(), vo.getGender()
 		return SimpleDaoTemplate
-				.update("INSERT INTO sldb_import(id, type, createTime, creater, createrName, sum, importDate, filePath) VALUES(?, ?, ?, ?, ?, ?, ?, ?)",
-						vo.id, vo.type, vo.createTime, vo.creater, vo.createrName,
+				.update("INSERT INTO sldb_import(id, name, type, createTime, creater, createrName, sum, importDate, filePath) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)",
+						vo.id, vo.name, vo.type, vo.createTime, vo.creater, vo.createrName,
 						vo.sum, vo.importDate, vo.filePath);
 	}
 
@@ -163,7 +168,7 @@ public class Import {
 	public static int addRow(HSSFRow row, ImportInfo info, Import vo, String[] columnNames, String[] quotes, int size) {
 		String[] values = new String[size+4];
 		
-		int importType = 1;
+		int importType = IMPORT_TYPE_OK;
 		String importError = "";
 		
 		for (int i = 0; i < size; ++i) {
@@ -186,19 +191,17 @@ public class Import {
 						values[i] = cell.getStringCellValue();
 						break;
 					default:
+						values[i] = "";
 						break;
 					}
 				}
+				
+				
 			} catch (Exception e) {
-				importType = 0;
+				importType = IMPORT_TYPE_ERROR;
 				importError += e.getMessage() + "\n";
 			}
 		}
-		
-		values[size] = vo.getImportDate();
-		values[size+1] = vo.getId();
-		values[size+2] = importType + "";
-		values[size+3] = importError;
 		
 		boolean hasValue = false;
 		for (int i = 0; i < size; ++i) {
@@ -210,6 +213,24 @@ public class Import {
 		}
 		
 		if (hasValue) {
+			for (int i = 0; i < columnNames.length; ++i) {
+				String name = columnNames[i];
+				if (name != null && name.indexOf("identify") > 0) {//身份证校验
+					String value = values[i];
+					
+					if (value != null && value.trim().length() != 18) {
+						importType = IMPORT_TYPE_IDENTIF_CHANGE;
+						importError = value;
+						values[i] = IdCardUtil.to18(value);
+					}
+				}
+			}
+			
+			values[size] = vo.getImportDate();
+			values[size+1] = vo.getId();
+			values[size+2] = importType + "";
+			values[size+3] = importError;
+			
 			return SimpleDaoTemplate.update(
 					"INSERT INTO `" + info.getTableName() + vo.getImportDate() + "` ("
 							+ getStr(columnNames) + ", importDate, iid, importType, importError) VALUES("
@@ -307,8 +328,8 @@ public class Import {
 		// 指定修改列信息(modify)。例子：name=?, value=?
 		// 根据修改列的顺序获取值对象的属性值。例子：vo.getName(), vo.getValue(), vo.getId()
 		return SimpleDaoTemplate
-				.update("UPDATE sldb_import SET type = ?, createTime = ?, creater = ?, createrName = ?, sum = ?, importDate = ?, filePath = ? WHERE id = ?",
-						vo.type, vo.createTime, vo.creater, vo.createrName,
+				.update("UPDATE sldb_import SET name = ?, type = ?, createTime = ?, creater = ?, createrName = ?, sum = ?, importDate = ?, filePath = ? WHERE id = ?",
+						vo.name, vo.type, vo.createTime, vo.creater, vo.createrName,
 						vo.sum, vo.importDate, vo.filePath, vo.id);
 	}
 
@@ -339,12 +360,19 @@ public class Import {
 		// 指定插入表名称(tableName)。例子：如user表，tableName=user
 		Import vo = Import.get(id);
 		ImportInfo info = ImportInfo.get(vo.getType());
-		final String tableName = info.getTableName() + vo.getImportDate();
+		final String tableName;
+		if (info != null){
+			tableName = info.getTableName() + vo.getImportDate();
+		} else {
+			tableName = null;
+		}
 		
 		return SimpleDaoTemplate.update(new ITransaction() {
 			public int execute(Connection connection) {
-				SimpleDaoTemplate.update(connection, "DELETE FROM `" + tableName + "` WHERE iid = ?",
+				if (tableName != null) {
+					SimpleDaoTemplate.update(connection, "DELETE FROM `" + tableName + "` WHERE iid = ?",
 						id);
+				}
 				
 				return SimpleDaoTemplate.update(connection, "DELETE FROM sldb_import WHERE id = ?",
 						id);
@@ -364,10 +392,12 @@ public class Import {
 		super();
 	}
 
-	public Import(String id, String type, String createTime, String creater,
+	public Import(String id, String name, String type, String createTime, String creater,
 			String createrName, String sum, String importDate, String filePath) {
+	
 		super();
 		this.id = id;
+		this.name = name;
 		this.type = type;
 		this.createTime = createTime;
 		this.creater = creater;
@@ -383,6 +413,14 @@ public class Import {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getType() {

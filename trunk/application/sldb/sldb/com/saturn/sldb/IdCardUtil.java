@@ -96,32 +96,4 @@ public class IdCardUtil {
 
 		return false;
 	}
-
-	// public static void main(String[] args){
-	//
-	// IdCardUtil u = new IdCardUtil();
-	// String idCard = "220323881101161";
-	// //idCard = "420106810304041";
-	// u.IdCard15to18(idCard);
-	// //u.IdCart18to15(idCart);
-	// boolean flag = u.checkIDCard(idCard);
-	// System.out.println(idCard + " : " + flag);
-	// }
-	// 220202630828241
-	// 220202195911131317
-	// 220204196401042733
-	// 220204195602252732
-	// 22020419640601271X
-
-	public static void main(String[] args) {
-
-		IdCardUtil u = new IdCardUtil();
-		String idCard = "22020419640601271X";
-		// idCard = "420106810304041";
-		u.to18(idCard);
-		// u.IdCart18to15(idCart);
-		// boolean flag = u.checkIDCard(idCard);
-		System.out.println("身份证15位转18位： " + u.to18(idCard));
-	}
-
 }

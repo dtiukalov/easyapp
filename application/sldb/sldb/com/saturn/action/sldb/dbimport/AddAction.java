@@ -15,7 +15,6 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-import com.saturn.app.db.ListData;
 import com.saturn.app.utils.BeanUtils;
 import com.saturn.app.utils.DateUtils;
 import com.saturn.app.web.IAction;
@@ -94,9 +93,16 @@ public class AddAction implements IAction {
 					if (!fileName.endsWith(".xls")) {
 						return new JsonView(getInfo("上传文件(" + fileName + ")扩展名是不允许的扩展名。\n只允许.xls格式。"));
 					}
+					
+					int index = fileName.lastIndexOf("\\");
+					if (index < 0) {
+						index = 0;
+					}
+					fileName = fileName.substring(index+1);
+					vo.setName(fileName);
 
 					SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");
-					String newFileName = df.format(new Date()) + "_"
+					String newFileName = fileName.substring(0, fileName.length()-4) + "_" + df.format(new Date()) + "_"
 							+ vo.getCreater() + "." + fileExt;
 					
 					savePath += File.separator + newFileName;

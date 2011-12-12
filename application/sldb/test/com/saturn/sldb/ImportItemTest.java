@@ -10,7 +10,7 @@ public class ImportItemTest {
 
 	@Test
 	public void testAdd() {
-		ImportItem info = new ImportItem(null, "test", "test", "10", "数字", "-1");
+		ImportItem info = new ImportItem(null, "test", "test", "10", "数字", "10", "15");
 		assertEquals(1, ImportItem.add(info));
 		
 		info = ImportItem.getAll(info, null, null, null, null).getList().get(0);

@@ -46,6 +46,11 @@
 					width : 60,
 					sortable : true
 				}, {
+					field : 'showLength',
+					title : '显示长度',
+					width : 60,
+					sortable : true
+				}, {
 					field : 'type',
 					title : '类型',
 					width : 70,

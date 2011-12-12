@@ -46,7 +46,7 @@
 				</tr>
 				<tr>
 					<td style="text-align:right"><span style="color: red">*</span>显示长度:</td>
-					<td><input id="showLength" name="showLength" type="text" value="${item.length}"></input></td>
+					<td><input id="showLength" name="showLength" type="text" value="${item.showLength}"></input></td>
 					<td><div id="showLengthTip"></div></td>
 				</tr>
 				<tr>

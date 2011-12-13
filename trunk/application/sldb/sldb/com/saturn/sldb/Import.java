@@ -194,6 +194,12 @@ public class Import {
 						values[i] = "";
 						break;
 					}
+					
+					if (values[i] == null) {
+						values[i] = "";
+					} else {
+						values[i] = values[i].trim();
+					}
 				}
 				
 				
@@ -216,7 +222,7 @@ public class Import {
 			for (int i = 0; i < columnNames.length; ++i) {
 				String name = columnNames[i];
 				if (name != null && name.indexOf("identify") > 0) {//身份证校验
-					String value = values[i];
+					String value = IdCardUtil.filterStr(values[i]);
 					
 					if (value != null && value.trim().length() != 18) {
 						importType = IMPORT_TYPE_IDENTIF_CHANGE;

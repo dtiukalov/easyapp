@@ -96,7 +96,7 @@ public class AddAction implements IAction {
 					
 					int index = fileName.lastIndexOf("\\");
 					if (index < 0) {
-						index = 0;
+						index = -1;
 					}
 					fileName = fileName.substring(index+1);
 					vo.setName(fileName);

@@ -96,4 +96,23 @@ public class IdCardUtil {
 
 		return false;
 	}
+	
+	public static String filterStr(String str) {
+		if (str != null) {
+			int size = str.length();
+			
+			StringBuffer buffer = new StringBuffer();
+			for (int i = 0; i < size; ++i) {
+				char c = str.charAt(i);
+				
+				if ('0' <= c && c <= '9' || c == 'X' || c == 'x') {
+					buffer.append(c);
+				}
+			}
+			
+			return buffer.toString();
+		}
+	
+		return "";
+	}
 }

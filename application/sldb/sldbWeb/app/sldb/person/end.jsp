@@ -190,8 +190,7 @@
 		}
 		
 		function showVO(id) {
-			var rows = $('#queryTable').datagrid('getSelections');
-			window.location.href='<%=request.getContextPath()%>/app/sldb/person/sub/queryPersonTab.action?id='+rows[0].id;
+			window.location.href='<%=request.getContextPath()%>/app/sldb/person/sub/queryPersonTab.action?id='+ id;
 			return false;	
 		}
 		

@@ -20,7 +20,6 @@ public class ListAction implements IAction {
 		DataGridInfo dataGridInfo = new DataGridInfo(request);
 
 		Import vo = BeanUtils.getBean(request, Import.class);
-
 		ListData<Import> data = Import.getAll(vo, dataGridInfo.getStartPage(),
 				dataGridInfo.getRows(), dataGridInfo.getSortId(),
 				dataGridInfo.getOreder());

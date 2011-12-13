@@ -1,5 +1,7 @@
 package com.saturn.sldb;
 
+import java.util.List;
+
 import org.json.JSONObject;
 
 import com.saturn.app.db.DymaticCondition;
@@ -70,6 +72,16 @@ public class ImportInfo {
 				new DymaticCondition().addSimpleCondition(vo, "name")
 						.addCondition("ORDER BY {0} {1}", orderBy, order),
 				mapping, ImportInfo.class, start, offset);
+	}
+	
+	
+	public static List<ImportInfo> getAllList() {
+		//指定值对象类型(VOClass)。例子VOClass=User
+		//指定插入表名称(tableName)。例子：如user表，tableName=user
+		//指定O-R映射规则对象。默认mapping
+		return SimpleDaoTemplate.query("select * from sldb_import_info order by id asc",
+				null,
+				mapping, ImportInfo.class);
 	}
 	
 	public static int remove(final String id) {

@@ -119,6 +119,22 @@
 						return false;
 					}
 				}, '-', {
+					id : 'btnCheck',
+					text : '核对',
+					iconCls : 'icon-ok',
+					handler : function() {
+						var rows = $('#queryTable').datagrid('getSelections');
+						if (rows.length == 0) {
+							$.messager.alert('提示','请选择修改项','info');
+							return;
+						} else if (rows.length > 1) {
+							$.messager.alert('提示','只能选择一项','info');
+							return;
+						}
+						window.location.href='<%=request.getContextPath()%>/app/sldb/check/show.jsp?pid='+rows[0].id;
+						return false;
+					}
+				}, {
 					id : 'btnItem',
 					text : '通过',
 					iconCls : 'icon-ok',

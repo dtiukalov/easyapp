@@ -15,6 +15,12 @@
 			    }
 			});
 			
+			$('#type').combobox({
+				onSelect:function(record){
+					queryVO();
+			    }
+			});
+			
 			$('#hasShow').combobox({
 				onSelect:function(record){
 					queryVO();
@@ -46,6 +52,11 @@
 					field : 'cid',
 					title : '目录标识',
 					width : 100,
+					sortable : true
+				},  {
+					field : 'type',
+					title : '类型',
+					width : 60,
 					sortable : true
 				},  {
 					field : 'sendText',
@@ -167,7 +178,7 @@
 				sortName : 'id',
 				sortOrder : 'asc',
 				remoteSort : true,
-				url : '<%=request.getContextPath()%>/app/website/content/list.action',
+				url : '<%=request.getContextPath()%>/app/website/content/listRoot.action',
 				columns : [[
 					{field : 'id',title : '标识',width : 150, sortable : true},
 					{field : 'name',title : '名称',width : 100, sortable : true},
@@ -191,7 +202,8 @@
 					receiveTime : $('#receiveTime').datebox('getValue'),
 					receiveOperaterName : $('#receiveOperaterName').val(),
 					hasShow : $('#hasShow').combobox('getValue'),
-					state : $('#state').combobox('getValue')
+					state : $('#state').combobox('getValue'),
+					type : $('#type').combobox('getValue')
 			}});
 			
 			$('#queryTable').datagrid("load");
@@ -243,6 +255,10 @@
 					<td>目录标识:</td>
 					<td><select id="cid" name="cid" type="text"></select></td>
 					<td>类型:</td>
+					<td align="left"><select id="type" class="easyui-combobox"
+						name="type" url="<%=request.getContextPath()%>/app/system/dict/listDictByType.action?type=website.message.type" valueField="id"
+						textField="text" mode="remote"></select></td>
+					<td>状态:</td>
 					<td align="left"><select id="state" class="easyui-combobox"
 						name="state" url="<%=request.getContextPath()%>/app/system/dict/listDictByType.action?type=message.state" valueField="id"
 						textField="text" mode="remote"></select></td>

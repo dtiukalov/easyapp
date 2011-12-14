@@ -10,7 +10,7 @@ public class MessageTest {
 
 	@Test
 	public void testAdd() {
-		Message message = new Message(null, "test.new", "website.message.received", "已回复", "visible.true","显示", DateUtils.getSystemTime(), "这个一个测试", "aa@bb.com", "18943630044", "张三", DateUtils.getSystemTime(), "测试成功", "admin", "管理员");
+		Message message = new Message(null, "test.new", "website.message.received", "已回复", "visible.true","显示", DateUtils.getSystemTime(), "这个一个测试", "aa@bb.com", "18943630044", "张三", DateUtils.getSystemTime(), "测试成功", "admin", "管理员", "留言");
 		Message.add(message);
 		
 		message = Message.getAll(message, "0", "1", "id", "desc").getList().get(0);

@@ -28,6 +28,11 @@
 		    }
 		});
 		
+		$('#type').combobox({
+			width : 250,
+			value : "留言"
+		});
+		
 		$('#hasShow').combobox({
 			width : 250,
 			value : "visible.false",
@@ -46,7 +51,7 @@
 			sortName : 'id',
 			sortOrder : 'asc',
 			remoteSort : true,
-			url : '<%=request.getContextPath()%>/app/website/content/list.action',
+			url : '<%=request.getContextPath()%>/app/website/content/listRoot.action',
 			columns : [[
 				{field : 'id',title : '标识',width : 150, sortable : true},
 				{field : 'name',title : '名称',width : 100, sortable : true},
@@ -67,6 +72,13 @@
 					<td style="text-align:right"><span style="color: red">*</span>目录标识:</td>
 					<td><select id="cid" name="cid"></select></td>
 					<td><div id="cidTip"></div></td>
+				</tr>
+				<tr>
+					<td style="text-align:right"><span style="color: red">*</span>类型:</td>
+					<td><select id="type" class="easyui-combobox"
+						name="type" url="<%=request.getContextPath()%>/app/system/dict/listDictByType.action?type=website.message.type" valueField="id"
+						textField="text" editable="false"></select></input></td>
+					<td><div id="typeTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right"><span style="color: red">*</span>留言内容:</td>
@@ -94,7 +106,7 @@
 					<td><div id="receiveTextTip"></div></td>
 				</tr>
 				<tr>
-					<td style="text-align:right"><span style="color: red">*</span>类型:</td>
+					<td style="text-align:right"><span style="color: red">*</span>状态:</td>
 					<td><select id="state" class="easyui-combobox"
 						name="state" url="<%=request.getContextPath()%>/app/system/dict/listDictByType.action?type=message.state" valueField="id"
 						textField="text" editable="false"></select></input></td>

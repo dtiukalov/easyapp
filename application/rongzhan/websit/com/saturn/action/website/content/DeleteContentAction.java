@@ -14,10 +14,11 @@ public class DeleteContentAction implements IAction {
 			HttpServletResponse response) {
 
 		String idStr = request.getParameter("ids");
+		String parentId = request.getParameter("parentId");
 		String[] ids = idStr.split("__");
 		
 		Content.removes(ids);
-		return new JspView("/app/website/content/show.jsp");
+		return new JspView("/app/website/content/show.jsp?parentId=" + parentId);
 	}
 
 	public String requestMapping() {

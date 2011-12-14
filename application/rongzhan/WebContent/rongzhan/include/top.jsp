@@ -14,7 +14,7 @@
 	<div class="nav">
 		<ul>
 			<%
-				List __contents = Content.getChildren("rongzhan");
+				List __contents = Content.getChildren(WebUtils.getRootCid(request));
 				String __id = request.getParameter("cid");
 
 				if (!__contents.isEmpty()) {

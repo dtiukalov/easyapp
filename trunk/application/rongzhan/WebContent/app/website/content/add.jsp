@@ -1,3 +1,4 @@
+<%@page import="com.saturn.website.Content"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <html>
@@ -50,6 +51,26 @@
 				{field : 'hasShowName',title : '显示', width : 120, sortable : true}
 			]]
 		});
+		
+		<%
+			String parentId = request.getParameter("parentId");
+			String text = null;
+			if (parentId != null) {
+				Content content = Content.get(parentId);
+				if (content != null) {
+					text = content.getName();
+				}
+		%>
+			$('#parentId').combogrid("setValue", '<%=parentId%>');
+		<%
+				if (text != null) {
+		%>
+			$('#parentId').combogrid("setText", '<%=text%>');
+		<%
+				}
+			}
+		%>
+		
 	});
 </script>
 </head>

@@ -105,7 +105,17 @@
 						}
 						
 						if (rows.length == 0) {
+						<%
+							if (parentId != null) {
+						%>	
+							window.location.href='<%=request.getContextPath()%>/app/website/content/add.jsp?parentId=<%=parentId%>';
+						<%  
+							} else {
+						%>
 							window.location.href='<%=request.getContextPath()%>/app/website/content/add.jsp?parentId=';
+						<%
+							}
+						%>
 						} else {
 							window.location.href='<%=request.getContextPath()%>/app/website/content/add.jsp?parentId='+rows[0].id;
 						}
@@ -171,12 +181,23 @@
 						
 						$.messager.confirm('确认互换项', '确认互换该选项', function(result){
 							if (result){
+								<%
+									if (parentId != null) {
+								%>
+								window.location.href='<%=request.getContextPath()%>/app/website/content/change.action?parentId=<%=parentId%>&first='+first.id+'&second='+second.id;
+								<%
+									} else {
+								%>
 								window.location.href='<%=request.getContextPath()%>/app/website/content/change.action?first='+first.id+'&second='+second.id;
+								<%
+									}
+								%>
 							}
 						});
 						return false;
 					}
-				}, {
+				}, 
+				/*{
 					id : 'btnToTree',
 					text : '树型显示',
 					iconCls : 'icon-redo',
@@ -184,7 +205,8 @@
 						window.location.href='<%=request.getContextPath()%>/app/website/content/showTree.jsp';
 						return false;//决绝IE6的bug
 					}
-				}, '-'
+				}, */
+				'-'
 				<%
 					if (parentId != null && !"".equals(parentId)) {
 						Content content = Content.get(parentId);

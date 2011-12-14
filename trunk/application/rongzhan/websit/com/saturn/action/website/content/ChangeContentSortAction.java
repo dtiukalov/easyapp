@@ -15,9 +15,14 @@ public class ChangeContentSortAction implements IAction {
 
 		String firstId = request.getParameter("first");
 		String secondId = request.getParameter("second");
+		String parentId = request.getParameter("parentId");
 		
 		Content.changeSort(firstId, secondId);
-		return new JspView("/app/website/content/show.jsp");
+		if (parentId != null) {
+			return new JspView("/app/website/content/show.jsp?parentId=" + parentId);
+		} else {
+			return new JspView("/app/website/content/show.jsp");
+		}
 	}
 
 	public String requestMapping() {

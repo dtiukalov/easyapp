@@ -18,7 +18,7 @@
 	<div class="con1">
     	<div class="gsjj">
         <div class="tu"><img src="images/gsjj_bg.gif" /></div>
-        <%=Article.getOneArticleText("rongzhan.about.introduce")%>
+        <%=WebUtils.getTextWithMax(Article.getOneArticleText("rongzhan.about.introduce"), 390)%>
         </div><!--公司简介-->
         <div class="qiehuan"><img src="images/qhtu.jpg" /></div>
         <div class="ldzc">
@@ -29,7 +29,7 @@
 	            </div>
 	            <div class="newsbg">
 	            	<img src="images/ldzctu.jpg" />
-	                <p><%=Article.getOneArticleText("rongzhan.about.speak")%></p>
+	                <p><%=WebUtils.getTextWithMax(Article.getOneArticleText("rongzhan.about.speak"), 120)%></p>
 	            </div>
 	            <div class="newsx"><img src="images/xw_bottom.gif" /></div>
        		</div>

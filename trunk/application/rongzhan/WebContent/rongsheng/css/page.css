@@ -1,0 +1,122 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+	margin:0;
+	padding:0;
+	list-style:none;
+	font-size:12px;
+	color:#4b4b4b;
+}
+img {
+	border:0;
+}
+a {
+	text-decoration:none;
+}
+a:hover {
+	text-decoration:none;
+	color:#9b714b;
+}
+#content .left {
+	float:left;
+	width:231px;
+	display:inline;
+}
+.left .xl .bt {
+	background:url(../image/xl_bt.gif) no-repeat 0 0;
+	width:231px;
+	height:43px;
+}
+.left .xl .xlmc {
+	width:221px;
+	margin:0 auto;
+}
+.left .xl .xlmc .xlmcbt {
+	height:32px;
+	line-height:34px;
+	background:url(../image/xl_bg.gif) no-repeat 0 0;
+	width:221px;
+	height:32px;
+	margin-top:3px;
+}
+.xlmcbt img {
+	padding-top:5px;
+}
+.xlmcbt h2 a{
+	font-size:14px;
+	padding-left:30px;
+	line-height:32px;
+}
+.xl .bt h1 {
+	width:100px;
+	line-height:43px;
+	color:#FFF;
+	font-size:16px;
+	font-weight:bold;
+	overflow:hidden;
+	display:block;
+	padding-left:12px;
+}
+.left img {
+	margin-bottom:3px;
+}
+#content .right {
+	float:left;
+	width:749px;
+	background:#096;
+	display:inline;
+	margin-bottom:3px;
+}
+.right .nrbt {
+	background:url(../image/nr_bt.gif) no-repeat 0 0;
+	width:749px;
+	height:43px;
+	line-height:43px;
+}
+.nrbt .biaoti {
+	display:block;
+	width:84px;
+	float:left;
+	padding-left:18px;
+	font-family:"微软雅黑",Arial, Helvetica, sans-serif;
+	font-size:16px;
+}
+.nrbt .weizhi {
+	float:left;
+	display:block;
+	width:600px;
+	text-align:right;
+}
+.right .nrzj {
+	background:url(../image/nr_zj.gif) repeat-y 0 0;
+}
+.right .nrzj .neirong {
+	width:715px;
+	margin:0 auto;
+	padding-top:3px;
+}
+.xwlb {
+	width:715px;
+	margin:0 auto;
+	padding-top:3px;
+}
+.xwlb .xwbt {
+	font-size:18px;
+	text-align:center;
+	color:#838383;
+	font-weight:bold;
+	line-height:40px;
+}
+.xwlb .rq {
+	text-align:center;
+	height:28px;
+	background-color:#e4e4e4;
+	line-height:28px;
+	color:#838383;
+	font-size:14px;
+	margin-bottom:3px;
+}
+.xwlb p {
+	text-indent:2em;
+	line-height:20px;
+}

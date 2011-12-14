@@ -29,6 +29,8 @@ public class Message {
 	private String receiveOperater;
 	private String receiveOperaterName;
 	
+	private String type;
+	
 	
 	private static ORMapping<Message> mapping = new ResultORMapping<Message>();
 	
@@ -37,7 +39,7 @@ public class Message {
 		//指定插入表名称(tableName)。例子：如user表3个列，tableName=user(id, name, gender)
 		//根据列的顺序获取值对象的属性值。例子：vo.getId(), vo.getName(), vo.getGender()
 		return SimpleDaoTemplate.update(
-				"INSERT INTO web_message(cid, state, stateName, hasShow, hasShowName, sendTime, sendText, sendEmail, sendPhone, sendName, receiveTime, receiveText, receiveOperater, receiveOperaterName) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", 
+				"INSERT INTO web_message(cid, state, stateName, hasShow, hasShowName, sendTime, sendText, sendEmail, sendPhone, sendName, receiveTime, receiveText, receiveOperater, receiveOperaterName, type) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", 
 				vo.getCid(),
 				
 				vo.getState(),
@@ -54,7 +56,8 @@ public class Message {
 				vo.getReceiveTime(),
 				vo.getReceiveText(),
 				vo.getReceiveOperater(),
-				vo.getReceiveOperaterName()
+				vo.getReceiveOperaterName(),
+				vo.getType()
 		);
 	}
 	
@@ -64,7 +67,7 @@ public class Message {
 		//指定修改列信息(modify)。例子：name=?, value=?
 		//根据修改列的顺序获取值对象的属性值。例子：vo.getName(), vo.getValue(), vo.getId()
 		return SimpleDaoTemplate.update(
-				"UPDATE web_message SET cid = ?, state = ?, stateName = ?, hasShow = ?, hasShowName = ?, sendTime = ?, sendText = ?, sendEmail = ?, sendPhone = ?, sendName = ?, receiveTime = ?, receiveText = ?, receiveOperater = ?, receiveOperaterName = ? WHERE id = ?", 
+				"UPDATE web_message SET cid = ?, state = ?, stateName = ?, hasShow = ?, hasShowName = ?, sendTime = ?, sendText = ?, sendEmail = ?, sendPhone = ?, sendName = ?, receiveTime = ?, receiveText = ?, receiveOperater = ?, receiveOperaterName = ?, type = ? WHERE id = ?", 
 				vo.getCid(),
 				
 				vo.getState(),
@@ -82,6 +85,7 @@ public class Message {
 				vo.getReceiveText(),
 				vo.getReceiveOperater(),
 				vo.getReceiveOperaterName(), 
+				vo.getType(),
 				
 				vo.getId()
 		);
@@ -103,7 +107,7 @@ public class Message {
 		//指定插入表名称(tableName)。例子：如user表，tableName=user
 		//指定O-R映射规则对象。默认mapping
 		return SimpleDaoTemplate.query("SELECT * FROM web_message WHERE 1 = 1",
-				new DymaticCondition().addSimpleCondition(vo, "cid", "state", "hasShow", "sendTime", "sendName", "sendText", "sendPhone", "receiveTime", "receiveText", "receiveOperaterName")
+				new DymaticCondition().addSimpleCondition(vo, "cid", "state", "type", "hasShow", "sendTime", "sendName", "sendText", "sendPhone", "receiveTime", "receiveText", "receiveOperaterName")
 						.addCondition("ORDER BY {0} {1}", orderBy, order),
 				mapping, Message.class, start, offset);
 	}
@@ -145,7 +149,7 @@ public class Message {
 			String hasShow, String hasShowName, String sendTime,
 			String sendText, String sendEmail, String sendPhone,
 			String sendName, String receiveTime, String receiveText,
-			String receiveOperater, String receiveOperaterName) {
+			String receiveOperater, String receiveOperaterName, String type) {
 		
 		super();
 		this.id = id;
@@ -163,6 +167,7 @@ public class Message {
 		this.receiveText = receiveText;
 		this.receiveOperater = receiveOperater;
 		this.receiveOperaterName = receiveOperaterName;
+		this.type = type;
 	}
 
 	public String getId() {
@@ -285,6 +290,14 @@ public class Message {
 		this.receiveOperaterName = receiveOperaterName;
 	}
 	
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
 	@Override
 	public String toString() {
 		return new JSONObject(this).toString();

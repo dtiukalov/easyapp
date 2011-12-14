@@ -1,5 +1,7 @@
 package com.saturn.car;
 
+import java.util.List;
+
 import org.json.JSONObject;
 
 import com.saturn.app.db.DymaticCondition;
@@ -92,6 +94,16 @@ public class NewCar {
 				new DymaticCondition().addSimpleCondition(vo, "cid", "brand", "model", "series", "realPrice", "gift")
 						.addCondition("ORDER BY {0} {1}", orderBy, order),
 				mapping, NewCar.class, start, offset);
+	}
+	
+	
+	public static List<NewCar> getListByCid(String cid) {
+		//指定值对象类型(VOClass)。例子VOClass=User
+		//指定插入表名称(tableName)。例子：如user表，tableName=user
+		//指定O-R映射规则对象。默认mapping
+		return SimpleDaoTemplate.query("SELECT * FROM car_newcar WHERE 1 = 1 and cid = '" + cid + "'",
+				null,
+				mapping, NewCar.class);
 	}
 	
 	public static int remove(final String id) {

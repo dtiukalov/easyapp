@@ -3,10 +3,10 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
-<div id="divTop">
-    <div id="divMenu"></div>
-	<div id="divHeng">
+<div id="container">
+<div id="divtop">
+    <div id="divmenu"></div>
+    <ul class="nav">
 		<%
 		List __contents = Content.getChildren(WebUtils.getRootCid(request));
 		String __id = request.getParameter("cid");
@@ -29,20 +29,18 @@
 						}
 					}
 					String css="";
-					String id="divGhds";
 					if(__id.equals(content.getId())){
 						css = "style=\"color:#F00\"";
 					}
-					if(i == 0){
-						id="divHegu";
-					}
 				%>
-				<div id="<%=id%>"><a href="<%=path+"?cid=" + content.getId()%>" class="aOne"><strong <%=css%>><%=content.getName()%></strong></a></div>
+				<li><a href="<%=path+"?cid=" + content.getId()%>" <%=css%>><%=content.getName()%></a></li>
 				<% 
 				}
 			}
 		}
 	%>
+        </ul>
+        <div class="clear"></div>
 </div>
 </div>
     

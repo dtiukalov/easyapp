@@ -18,7 +18,7 @@
 	<div class="con1">
     	<div class="gsjj">
         <div class="tu"><img src="images/gsjj_bg.gif" /></div>
-        <%=WebUtils.getTextWithMax(Article.getOneArticleText("rongzhan.about.introduce"), 390)%>
+        <%=WebUtils.getTextWithMax(Article.getOneArticleText("rongzhan.about.introduce"), 400)%>
         </div><!--公司简介-->
         <div class="qiehuan"><img src="images/qhtu.jpg" /></div>
         <div class="ldzc">
@@ -40,7 +40,7 @@
     	<div class="qxpp">
         <div class="tt">
         <h1>旗下品牌</h1>
-        <span><a href="companylist.jsp">更多</a></span>
+        <span><a href="companylist.jsp?cid=rongzhan.about&aid=rongzhan.about.company">更多</a></span>
         <div class="clear"></div>
         </div>
         <div class="bg">
@@ -64,16 +64,16 @@
         		<h1>新闻中心</h1>
                 <span><a href="<%=WebUtils.getLink("rongzhan.new", null)%>">更多</a></span>
             </div>
-            <div class="newsbg">
+            <div class="newsbg" style="height: 220px;">
             	<ul>
             	<%
             		List artiles = Article.getByLikeCid("rongzhan.new.");
             		
-            		int size = Math.min(artiles.size(), 10);
+            		int size = Math.min(artiles.size(), 11);
             		for (int i = 0; i < size; ++i) {
             			Article article = (Article) artiles.get(i);
             	%>
-                <li><a href="<%="detail.jsp?cid=rongzhan.new&aid=" +article.getCid()+"&did="+article.getId()%>"><%=article.getTitle()%><%=article.getCreateTime().substring(0, 10) %></a></li>
+                <li><a href="<%="detail.jsp?cid=rongzhan.new&aid=" +article.getCid()+"&did="+article.getId()%>"><div style="margin: 0px;padding: 0px;"><div style="float:left;width:180px;"><%=WebUtils.getTextWithMax(article.getTitle(), 13)%></div><div style="float:left;width: 60px;" align="right"><%=article.getCreateTime().substring(0, 10) %></div></div></a></li>
                 <%
             		}
                 %>

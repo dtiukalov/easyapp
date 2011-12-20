@@ -28,27 +28,7 @@
         </div>
         <div class="ynr">
         	<div class="xwlb">
-        	  <table cellspacing="5" cellpadding="5" width="95%"  height="337px" align="center" border="0">
-        	    <tbody>
-				 	<tr>
-	        	        <td rowspan="3">品牌A(图片、名称等)</td>
-	        	        <td>店A（店面图片、名称、地址、电话、网址)</td>
-	      	        </tr>
-	      	        <tr>
-	        	        <td>店B（店面图片、名称、地址、电话、网址)</td>
-	      	        </tr>
-	      	        <tr>
-	        	        <td>店C（店面图片、名称、地址、电话、网址)</td>
-	      	        </tr>
-	      	        <tr>
-	        	        <td rowspan="2">品牌B(图片、名称等)</td>
-	        	        <td>店AA（店面图片、名称、地址、电话、网址)</td>
-	      	        </tr>
-	      	        <tr>
-	        	        <td>店BB（店面图片、名称、地址、电话、网址)</td>
-	      	        </tr>
-	      	      </tbody>
-	      	    </table>
+        	  <div class="neirong"><img src="images/qixiapinpai.jpg" /></div>
         	</div>
         </div>
         <div class="ydi"><img src="images/nr_xia.gif" /></div>

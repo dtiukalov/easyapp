@@ -178,7 +178,6 @@ a:hover {
 	height:7px;
 }
 .news {
-	background-color:#000;
 	width:269px;
 	float:left;
 }
@@ -207,6 +206,8 @@ a:hover {
 }
 .news .newsbg {
 	background:url(../images/xw_bg.gif) repeat-y 0 0;
+	height: 214px;
+	overflow: hidden;
 }
 .news .newsbg ul {
 	margin-left:15px;

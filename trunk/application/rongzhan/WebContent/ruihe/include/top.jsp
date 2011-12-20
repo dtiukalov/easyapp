@@ -5,7 +5,10 @@
 	pageEncoding="UTF-8"%>
 <div id="container">
 <div id="divtop">
-    <div id="divmenu"></div>
+    <div id="lgmc">
+    	<div id="divmenu"></div>
+        <div class="rh">东风日产融展瑞合专营店</div>
+        </div>
     <ul class="nav">
 		<%
 		List __contents = Content.getChildren(WebUtils.getRootCid(request));

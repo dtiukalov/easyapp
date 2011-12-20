@@ -42,12 +42,12 @@
 				columns : [ [ {
 					field : 'name',
 					title : '导入文件名',
-					width : 70,
+					width : 150,
 					sortable : true
 				}, {
 					field : 'typeName',
 					title : '类型',
-					width : 70,
+					width : 100,
 					sortable : true
 				}, {
 					field : 'createrName',

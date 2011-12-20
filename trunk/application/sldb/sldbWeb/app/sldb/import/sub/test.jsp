@@ -42,12 +42,12 @@
 				columns : [ [ {
 					field : 'name',
 					title : '导入文件名',
-					width : 150,
+					width : 70,
 					sortable : true
 				}, {
 					field : 'typeName',
 					title : '类型',
-					width : 100,
+					width : 70,
 					sortable : true
 				}, {
 					field : 'createrName',
@@ -160,14 +160,14 @@
 		function deleteVO(id){
 			$.messager.confirm('确认删除项', '确认删除该选项', function(result){
 				if (result){
-					window.location.href='<%=request.getContextPath()%>/app/sldb/import/sub/delete.action?to=labour&ids=' + id;
+					window.location.href='<%=request.getContextPath()%>/app/sldb/import/sub/delete.action?to=test&ids=' + id;
 				}
 			});
 			return false;
 		}
 		
 		function editVO(id){
-			window.location.href='<%=request.getContextPath()%>/app/sldb/import/view.jsp?to=sub/labour&id='+ id;
+			window.location.href='<%=request.getContextPath()%>/app/sldb/import/view.jsp?to=sub/test&id='+ id;
 			return false;
 		}
 	</script>
@@ -182,7 +182,7 @@
 					<td><input type="button" id="uploadButton" value="上传文件" style="width:100"/> </td>
 				</tr>
 			</table>
-			<input id="type" name="type" type="hidden" value="12"></input>
+			<input id="type" name="type" type="hidden" value="14"></input>
 		</form>
 	</div>
 	<table id="queryTable"></table>

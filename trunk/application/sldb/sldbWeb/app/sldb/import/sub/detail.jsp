@@ -160,14 +160,14 @@
 		function deleteVO(id){
 			$.messager.confirm('确认删除项', '确认删除该选项', function(result){
 				if (result){
-					window.location.href='<%=request.getContextPath()%>/app/sldb/import/sub/delete.action?to=labour&ids=' + id;
+					window.location.href='<%=request.getContextPath()%>/app/sldb/import/sub/delete.action?to=detail&ids=' + id;
 				}
 			});
 			return false;
 		}
 		
 		function editVO(id){
-			window.location.href='<%=request.getContextPath()%>/app/sldb/import/view.jsp?to=sub/labour&id='+ id;
+			window.location.href='<%=request.getContextPath()%>/app/sldb/import/view.jsp?to=sub/detail&id='+ id;
 			return false;
 		}
 	</script>
@@ -182,7 +182,7 @@
 					<td><input type="button" id="uploadButton" value="上传文件" style="width:100"/> </td>
 				</tr>
 			</table>
-			<input id="type" name="type" type="hidden" value="12"></input>
+			<input id="type" name="type" type="hidden" value="13"></input>
 		</form>
 	</div>
 	<table id="queryTable"></table>

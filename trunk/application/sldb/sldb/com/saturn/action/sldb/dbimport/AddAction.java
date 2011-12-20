@@ -60,7 +60,7 @@ public class AddAction implements IAction {
 				+ vo.getImportDate() + File.separator;
 
 		// 最大文件大小
-		long maxSize = 10000000;// 最大文件10M
+		long maxSize = 20000000;// 最大文件20M
 
 		if (!ServletFileUpload.isMultipartContent(request)) {
 			return new JsonView(getInfo("请选择文件。"));

@@ -37,7 +37,7 @@
 				}, {
 					field : 'id',
 					title : '标识',
-					width : 100,
+					width : 150,
 					sortable : true
 				} ] ],
 				columns : [ [ {
@@ -55,6 +55,20 @@
 					title : '导入类型',
 					width : 70,
 					sortable : true
+				}, {
+					field : 'opt',
+					title : '操作',
+					width : 100,
+					align : 'center',
+					rowspan : 2,	
+					formatter : function(value, rec) {
+						var urlStr = "";
+						if(rec.result == '有' ) {
+						  	urlStr = '<span><a href="#" onclick="showVO(\'' + rec.num + '\');"><img src="<%=request.getContextPath()%>/app/themes/icons/datalist.png" width="16" height="16" border="0" /></a>';
+						  	urlStr += '</span>';
+						}
+						return urlStr;
+					}
 				} ] ],
 				pagination : true,
 				rownumbers : true,
@@ -69,7 +83,7 @@
 				}, {
 					id : 'btnadd',
 					text : '户主',
-					iconCls : 'icon-add',
+					iconCls : 'icon-author',
 					handler : function() {
 						queryVO('<%=request.getContextPath()%>/app/sldb/check/list.action?pid=<%=pid%>');
 						return false;//解决IE6的不跳转的bug
@@ -107,6 +121,11 @@
 			$('#queryTable').datagrid("load");
 		}
 		
+		function showVO(num){
+			window.location.href='<%=request.getContextPath()%>/app/sldb/check/show.action?num='+ num;
+			return false;
+		}
+		
 		function check() {
 			$.ajax({
 				url : '<%=request.getContextPath()%>/app/sldb/check/check.action?pid=<%=pid%>', 
@@ -120,6 +139,7 @@
 							msg:'核对成功',
 							showType:'show'
 						});
+						queryVO();
 					} else {
 						$.messager.show({
 							title:'信息',

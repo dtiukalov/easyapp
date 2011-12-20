@@ -1,5 +1,7 @@
 package com.saturn.website;
 
+import java.util.List;
+
 import org.json.JSONObject;
 
 import com.saturn.app.db.DymaticCondition;
@@ -33,6 +35,11 @@ public class Message {
 	
 	
 	private static ORMapping<Message> mapping = new ResultORMapping<Message>();
+	
+	public static List<Message> getByCid(String cid,String type) {
+		return SimpleDaoTemplate.query("SELECT * FROM web_message WHERE 1 = 1 AND cid = '" + cid + "' AND type = '" + type + "' order by sendtime desc", null,
+				mapping, Message.class);
+	}
 	
 	public static int add(Message vo) {
 		//指定值对象类型(VOClass)。例子：User

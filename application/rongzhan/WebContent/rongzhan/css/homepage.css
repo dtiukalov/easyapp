@@ -3,7 +3,6 @@
 #content .left {
 	width:263px;
 	float:left;
-	background:#9FC;
 	display:inline;
 }
 .left .gsjs .bt{
@@ -21,6 +20,8 @@
 }
 .left .gsjs .zj .xl{
 	width:242px;
+	min-height: 160px;
+	height: auto !important; 
 	height:160px;
 	margin:0 auto 0 12px;
 }
@@ -93,6 +94,9 @@
 }
 .right .ynr .neirong {
 	width:715px;
+	min-height: 610px;
+	height: auto !important; 
+	height: 610px;
 	margin:0 auto;
 	padding-top:3px;
 }

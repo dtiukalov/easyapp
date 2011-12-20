@@ -1,3 +1,4 @@
+<%@page import="com.saturn.website.Message"%>
 <%@page import="com.saturn.app.utils.DateUtils"%>
 <%@page import="com.saturn.website.PaginationUtils"%>
 <%@page import="com.saturn.website.WebUtils"%>
@@ -31,7 +32,16 @@
 		code = __getTestCode();
 		$('#testCodeImage').attr("src", "<%=request.getContextPath()%>/app/system/testcode/test.do?code=" + code);
 		//$('#testCode').val(code);
+		$('#lyform').css("display","none");
 	});
+	
+	function showLyForm(){
+		if("block"==$('#lyform').css("display")){
+			$('#lyform').css("display","none");
+		}else{
+			$('#lyform').css("display","block");
+		}
+	}
 	
 	function submitForm(form) {
 		var testCode = $('#testCode').val();
@@ -76,7 +86,7 @@
 					$("#sendEmail").val('');
 					$("#sendPhone").val('');
 					$('#testCode').val('');
-					
+					$('#lyform').css("display","none");
 					alert('保存成功!');
 				}
 			} 
@@ -93,8 +103,8 @@
         	<div class="weizhi">您所在的位置：<a href="index.jsp">首页</a>&nbsp;|&nbsp;<a href="<%=WebUtils.getLink(__cid, null)%>"><%=__cname %></a>&nbsp;|&nbsp;客户留言</div>
         	<div class="clear"></div>
         </div>
-        <div class="nrzj">
-        	<div class="neirong">
+		<div class="nrzj">
+		<div id="lyform" class="neirong">
         	<form id="addForm"
 				action="<%=request.getContextPath()%>/app/website/message/addByClient.do?to=<%=WebUtils.getRootCid(request)%>"
 				method="post">
@@ -152,6 +162,54 @@
           </table>
         </form>
         </div>
+       			              
+        <%
+        List all = Message.getByCid(WebUtils.getRootCid(request),"留言");
+        		String indexStr = request.getParameter("index");
+        		List messages = PaginationUtils.getPaginationList(all, indexStr);
+        		%>
+        		 <div class="xwlb">
+					   	    <div class="khly">
+					            <h1>&nbsp;留言<span style="color:#F00;">共<%=all.size() %>条留言</span><span><a href="javascript:void(0);" onclick="return showLyForm();">我要留言</a></span></h1>
+					  
+        		<%
+				if (messages != null && !messages.isEmpty()) {
+					
+					for (int i = 0; i < messages.size(); ++i) {
+						Message mess = (Message)messages.get(i);
+						%>
+						<div class="xxhf">
+					                <div class="xx">
+					                <p>来自客户<%=mess.getSendName() %>的提问（<%=mess.getSendTime() %>）</p>
+					                <p><%=mess.getSendText() %></p>
+					                <div class="huifu" style="display:<%="message.state.true".equals(mess.getState())?"block":"none" %>"><table width="551" border="0" cellspacing="0" cellpadding="0" align="center">
+					  <tr>
+					    <td><img src="image/hf_s.gif" width="551" height="25" /></td>
+					  </tr>
+					  <tr>
+					    <td style="background:url(image/hf_z.gif) repeat-y 0 0; text-indent:2em;"><%=mess.getReceiveOperaterName() %>回复：（<%=mess.getReceiveTime() %>）<%=mess.getReceiveText() %></td>
+					  </tr>
+					  <tr>
+					    <td><img src="image/hf_x.gif" width="551" height="12" /></td>
+					  </tr>
+					</table>
+					</div>
+									</div>
+					                </div><!--end_信息加回复-->
+						<%
+					}
+				}
+						%>
+						
+					
+				                <table width="715" border="0" cellspacing="0" cellpadding="0">
+				  <tr>
+				    <td align="center"><%=PaginationUtils.getPagination("cus_message.jsp?cid=" + __cid, indexStr, all) %></td>
+				  </tr>
+				</table>
+		          </div><!--end_客户留言-->
+		         </div><!--end_新闻列表-->
+        	
         </div>
         <div class="nrdi"><img src="image/nr_xia.gif" /></div>
       </div><!--右铡-->

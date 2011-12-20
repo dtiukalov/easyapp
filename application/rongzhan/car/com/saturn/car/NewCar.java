@@ -106,6 +106,15 @@ public class NewCar {
 				mapping, NewCar.class);
 	}
 	
+	public static List<NewCar> getListByModel(String cid, String model) {
+		//指定值对象类型(VOClass)。例子VOClass=User
+		//指定插入表名称(tableName)。例子：如user表，tableName=user
+		//指定O-R映射规则对象。默认mapping
+		return SimpleDaoTemplate.query("SELECT * FROM car_newcar WHERE 1 = 1 and cid = '" + cid + "' and model = '" + model + "'",
+				null,
+				mapping, NewCar.class);
+	}
+	
 	public static int remove(final String id) {
 		//指定插入表名称(tableName)。例子：如user表，tableName=user
 		return SimpleDaoTemplate.update("DELETE FROM car_newcar WHERE id = ?",

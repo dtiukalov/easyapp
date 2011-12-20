@@ -17,10 +17,12 @@ import com.saturn.app.db.SimpleDaoTemplate;
 
 public class IdCheck {
 
+	private String num;
 	private String id;
 	private String key;
 	private String result;
 	private String infoType;
+	private String value;
 
 	private static ORMapping<IdCheck> mapping = new ResultORMapping<IdCheck>();
 
@@ -60,10 +62,10 @@ public class IdCheck {
 		// 指定插入表名称(tableName)。例子：如user表3个列，tableName=user(id, name, gender)
 		// 根据列的顺序获取值对象的属性值。例子：vo.getId(), vo.getName(), vo.getGender()
 		return SimpleDaoTemplate.update(
-				"INSERT INTO sldb_id_check VALUES(?, ?, ?, ?)", vo.id, vo.key,
-				vo.result, vo.infoType);
+				"INSERT INTO sldb_id_check (`id`, `key`, `result`, `infoType`,`value`) VALUES(?, ?, ?, ?, ?)", vo.id, vo.key,
+				vo.result, vo.infoType,vo.value);
 	}
-
+	
 	public static void addAll(List<IdCheck> checks) {
 		for (IdCheck check : checks) {
 			add(check);
@@ -76,6 +78,12 @@ public class IdCheck {
 				id);
 	}
 
+	public static IdCheck get(String num) {
+		return SimpleDaoTemplate.queryOne(
+				"SELECT * FROM sldb_id_check WHERE 1 = 1 AND num = " + num, null,
+				mapping, IdCheck.class);
+	}
+	
 	public static ListData<IdCheck> getAll(String id, String start,
 			String offset, String orderBy, String order) {
 		// 指定值对象类型(VOClass)。例子VOClass=User
@@ -121,11 +129,10 @@ public class IdCheck {
 						+ ")";
 	
 				if (results.isEmpty()) {
-					add(new IdCheck(id, key, "无", info.getId()));
+					add(new IdCheck(id, key, "无", info.getId(),"")); 
 				} else {
 					List<IdCheck> checkResult = getList(results, id, key,
 							info.getId());
-	
 					checks.addAll(checkResult);
 					addAll(checkResult);
 				}
@@ -143,7 +150,8 @@ public class IdCheck {
 		String tableName = info.getTableName() + imp.getImportDate();
 
 		if ((identify == null || "".equals(identify.trim()))
-				&& (name == null || "".equals(name.trim()))) {
+//				&& (name == null || "".equals(name.trim()))) {
+		) {
 			return new ArrayList<HashMap>();
 		}
 		
@@ -159,7 +167,8 @@ public class IdCheck {
 				return SimpleDaoTemplate.query(
 					"SELECT * FROM `" + tableName + "` WHERE 1 = 1",
 					new DymaticCondition().addCondition(" AND identify like '%?%'",
-							identify).addCondition(" AND name like '%?%'", name),
+							identify),
+//							.addCondition(" AND name like '%?%'", name),
 					mappingMap, HashMap.class);
 			}
 		} catch (Exception e) {
@@ -189,25 +198,43 @@ public class IdCheck {
 
 		for (HashMap map : results) {
 			String mapStr = new JSONObject(map).toString();
-			checks.add(new IdCheck(id, key, mapStr, infoType));
+			//checks.add(new IdCheck(id, key, mapStr, infoType));
+			checks.add(new IdCheck(id, key, "有", infoType, mapStr));
 		}
 
 		return checks;
 	}
 	
+	public static List<IdCheck> getValuesByInfoType(String infoType) {
+		List<IdCheck> idCheckValues = SimpleDaoTemplate.query(
+				"select * from sldb_id_check where infoType = '" + infoType, null, mapping,
+						IdCheck.class);
+
+
+		return idCheckValues;
+	}
 	
 
 	public IdCheck() {
 		super();
 	}
 
-	public IdCheck(String id, String key, String result, String infoType) {
+	public IdCheck(String id, String key, String result, String infoType, String value) {
 		super();
 
 		this.id = id;
 		this.key = key;
 		this.result = result;
 		this.infoType = infoType;
+		this.value = value;
+	}
+	
+	public String getNum() {
+		return num;
+	}
+
+	public void setNum(String num) {
+		this.num = num;
 	}
 
 	public String getId() {
@@ -242,6 +269,13 @@ public class IdCheck {
 		this.infoType = infoType;
 	}
 	
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
+	}
 	@Override
 	public String toString() {
 		return new JSONObject(this).toString();

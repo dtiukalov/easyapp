@@ -1,0 +1,239 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+	margin:0;
+	padding:0;
+	list-style:none;
+	font-size:12px;
+	color:#4b4b4b;
+}
+img {
+	border:0;
+}
+a {
+	text-decoration:none;
+}
+a:hover {
+	text-decoration:none;
+	color:#9b714b;
+}
+#content {
+	width:980px;
+	margin:0 auto;
+}
+#content .left {
+	float:left;
+	width:231px;
+	display:inline;
+}
+.left .xl .bt {
+	background:url(../image/xl_bt.gif) no-repeat 0 0;
+	width:231px;
+	height:43px;
+}
+.left .xl .xlmc {
+	width:221px;
+	margin:0 auto;
+}
+.left .xl .xlmc .xlmcbt {
+	height:32px;
+	line-height:34px;
+	background:url(../image/xl_bg.gif) no-repeat 0 0;
+	width:221px;
+	height:32px;
+	margin-top:3px;
+}
+.xlmcbt img {
+	padding-top:5px;
+}
+.xlmcbt h2 a{
+	font-size:14px;
+	padding-left:30px;
+	line-height:32px;
+}
+.xl .bt h1 {
+	width:100px;
+	line-height:43px;
+	color:#FFF;
+	font-size:16px;
+	font-weight:bold;
+	overflow:hidden;
+	display:block;
+	padding-left:12px;
+}
+.left img {
+	margin-bottom:3px;
+}
+#content .right {
+	float:left;
+	width:749px;
+	background:#096;
+	display:inline;
+	margin-bottom:3px;
+}
+.right .nrbt {
+	background:url(../image/nr_bt.gif) no-repeat 0 0;
+	width:749px;
+	height:43px;
+	line-height:43px;
+}
+.nrbt .biaoti {
+	display:block;
+	width:120px;
+	float:left;
+	padding-left:18px;
+	font-family:"微软雅黑",Arial, Helvetica, sans-serif;
+	font-size:16px;
+}
+.nrbt .weizhi {
+	float:left;
+	display:block;
+	width:600px;
+	text-align:right;
+}
+.right .nrzj {
+	background:url(../image/nr_zj.gif) repeat-y 0 0;
+	min-height: 400px;
+	height: auto !important; 
+	height: 400px;
+}
+.right .nrzj .neirong {
+	width:715px;
+	margin:0 auto;
+	padding-top:3px;
+}
+.xwlb {
+	width:715px;
+	margin:0 auto;
+	padding-top:3px;
+}
+.xwlb .xwbt {
+	font-size:18px;
+	text-align:center;
+	color:#838383;
+	font-weight:bold;
+	line-height:40px;
+}
+.xwlb .rq {
+	text-align:center;
+	height:28px;
+	background-color:#e4e4e4;
+	line-height:28px;
+	color:#838383;
+	font-size:14px;
+	margin-bottom:3px;
+}
+.xwlb p {
+	text-indent:2em;
+	line-height:20px;
+}
+/*-------新车报价------*/
+.xcbt td {
+	text-align:center;
+	width:71px;
+	height:25px;
+	line-height:25px;
+}
+.tableline td {
+	border-bottom:1px dashed #999;
+}
+.biaoge {
+	background:url(../image/pb_bt.gif) no-repeat 0 0;
+	width:71px;
+	height:25px;
+	color:#FFF;
+	cursor: pointer;
+}
+.biaoge a {
+	color:#FFF;
+}
+.biaogeh {
+	background:url(../image/pb_bth.png) no-repeat 0 0;
+	width:71px;
+	height:25px;
+	cursor: pointer;
+}
+/*-------end_新车报价------*/
+.trtitle {
+	background:#C1DFFF;
+}
+.tdtitle {
+	background:#ECF5FF;
+}
+.tablebase {
+	border:1px solid #CCC;
+	margin-bottom:3px;
+}
+
+/*-------end_报价详细页------*/
+.khly {
+	border:1px solid #D0E7FF;
+	width:715px;
+}
+.khly h1 {
+	display:block;
+	width:715px;
+	height:25px;
+	background:#ECF5FF;
+	line-height:25px;
+	font-size:14px;
+}
+.khly span {
+	font-size:14px;
+	padding-left:270px;
+}
+.khly .xx {
+	width:715px;
+}
+.xxhf {
+	border-bottom:1px dashed #CCC;
+	margin-bottom:8px;
+}
+.huifu {
+	margin-bottom:5px;
+	width:551px;
+	margin:0px auto 5px auto;
+}
+/*-------end_客户留言------*/
+.wyly {
+	width:545px;
+	height:327px;
+	border:3px solid #526c7d;
+}
+.wyly h1 {
+	display:block;
+	height:30px;
+	line-height:25px;
+	font-size:14px;
+	line-height:30px;
+	overflow:hidden;
+	width:200px;
+	float:left;
+}
+.wylybt {
+	width:545px;
+	height:30px;
+	float:left;
+	background:#ECF5FF;
+}
+.wylybt img {
+	width:27px;
+	height:30px;
+	float:left;
+	padding-left:310px;
+}
+.biao {
+	border-spacing:0 15px;
+	padding-left:35px;
+}
+#select,#select2,#select3,#select4 {
+	width:120px;
+	height:22px;
+}
+.biao .bt{
+	width:85px;
+}
+.bt span {
+	color:#F00;
+	font-weight:bold;
+}

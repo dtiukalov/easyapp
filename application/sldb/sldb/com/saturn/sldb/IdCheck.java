@@ -95,8 +95,66 @@ public class IdCheck {
 						.addCondition("ORDER BY {0} {1}", orderBy, order),
 				mapping, IdCheck.class, start, offset);
 	}
+	
+	@SuppressWarnings("rawtypes")
+	public static List<HashMap> batchCheck(String id, String importDate, String toId, String toImportDate) {
+		ImportInfo info = ImportInfo.get(id);
+		List<HashMap> persons = Import.getAllImportOrderBy(info.getTableName(), importDate, "identify");
+		
+		ImportInfo toInfo = ImportInfo.get(toId);
+		String tableName = toInfo.getTableName();
+		String key = "identify";
+		if (tableName.indexOf("marry") >= 0) {
+			key = "mIdentify";
+		}
+		List<HashMap> others = Import.getAllImportOrderBy(tableName, toImportDate, key);
+		
+		List<HashMap> result = new ArrayList<HashMap>();
+		
+		int firstSize = persons.size();
+		int secondSize = others.size();
+		
+		int first = 0;
+		int second = 0;
+		
+		HashMap firstValue = null;
+		HashMap secondValue = null;
+		
+		while (first < firstSize && second < secondSize) {
+			firstValue = persons.get(first);
+			secondValue = others.get(second);
+			
+			String identify1 = firstValue.get("identify") + "";
+			String identify2 = secondValue.get(key) + "";
 
-	public static String  check(String pid) {
+			int index = identify1.compareTo(identify2);
+			if (index == 0) {
+				if (identify2 != null && !"".equals(identify2)) {
+					result.add(secondValue);
+				}
+				first++;
+				second++;
+			} else if (index > 0) {
+				second++;
+			} else {
+				first++;
+			}
+		}
+		
+		
+//		for (HashMap person : persons) {
+//			String identify = (String)person.get("identify");
+//			String name = (String)person.get("name");
+//			
+//			
+//			
+//			result.addAll(checkTable(identify, name, tableName));
+//		}
+		
+		return result;
+	}
+	
+	public static String check(String pid) {
 		Person person = Person.get(pid);
 		List<PersonSub> subs = PersonSub.getByPid(pid);
 		
@@ -133,6 +191,7 @@ public class IdCheck {
 				} else {
 					List<IdCheck> checkResult = getList(results, id, key,
 							info.getId());
+	
 					checks.addAll(checkResult);
 					addAll(checkResult);
 				}
@@ -149,14 +208,20 @@ public class IdCheck {
 		ImportInfo info = ImportInfo.get(type);
 		String tableName = info.getTableName() + imp.getImportDate();
 
+		return checkTable(identify, name, tableName);
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public static List<HashMap> checkTable(String identify, String name,
+			String tableName) {
+
 		if ((identify == null || "".equals(identify.trim()))
-//				&& (name == null || "".equals(name.trim()))) {
-		) {
+				&& (name == null || "".equals(name.trim()))) {
 			return new ArrayList<HashMap>();
 		}
 		
 		try {
-			if (info.getTableName().indexOf("marry") >= 0) {
+			if (tableName.indexOf("marry") >= 0) {
 				return SimpleDaoTemplate.query(
 						"SELECT * FROM `" + tableName + "` WHERE 1 = 1",
 						new DymaticCondition()
@@ -167,8 +232,7 @@ public class IdCheck {
 				return SimpleDaoTemplate.query(
 					"SELECT * FROM `" + tableName + "` WHERE 1 = 1",
 					new DymaticCondition().addCondition(" AND identify like '%?%'",
-							identify),
-//							.addCondition(" AND name like '%?%'", name),
+							identify).addCondition(" AND name like '%?%'", name),
 					mappingMap, HashMap.class);
 			}
 		} catch (Exception e) {

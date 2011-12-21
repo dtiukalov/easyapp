@@ -48,6 +48,8 @@ public class Import {
 	private String sum;
 	private String importDate;
 	private String filePath;
+	
+	private static ORMapping<Import> mappingEasy = new ResultORMapping<Import>();
 
 	private static ORMapping<Import> mapping = new ResultORMapping<Import>() {
 
@@ -318,6 +320,24 @@ public class Import {
 				mappingMap, HashMap.class, start, offset);
 	}
 	
+	@SuppressWarnings("rawtypes")
+	public static List<HashMap> getAllImport(String tableName, String importDate) {
+		String table = tableName + importDate;
+		
+		return SimpleDaoTemplate.query("SELECT * FROM `" + table + "`",
+				null,
+				mappingMap, HashMap.class);
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public static List<HashMap> getAllImportOrderBy(String tableName, String importDate, String order) {
+		String table = tableName + importDate;
+		
+		return SimpleDaoTemplate.query("SELECT id, " + order + " FROM `" + table + "` order by " + order + " asc",
+				null,
+				mappingMap, HashMap.class);
+	}
+	
 	public static String getStr(String[] vars) {
 		StringBuffer buffer = new StringBuffer();
 		for (String var : vars) {
@@ -360,6 +380,25 @@ public class Import {
 						"createrName", "type", "creater", "createTime").addCondition(
 						"ORDER BY {0} {1}", orderBy, order), mapping,
 				Import.class, start, offset);
+	}
+	
+	public static List<Import> getAllDate(String type) {
+		// 指定值对象类型(VOClass)。例子VOClass=User
+		// 指定插入表名称(tableName)。例子：如user表，tableName=user
+		// 指定O-R映射规则对象。默认mapping
+		if (type == null) {
+			return SimpleDaoTemplate.query(
+					"SELECT distinct importDate, type FROM sldb_import WHERE 1 = 1 order by importdate desc",
+					null,
+					mappingEasy,
+					Import.class);
+		} else {
+			return SimpleDaoTemplate.query(
+					"SELECT distinct importDate, type FROM sldb_import WHERE 1 = 1 and type = '" + type + "' order by importdate desc",
+					null,
+					mappingEasy,
+					Import.class);
+		}
 	}
 
 	public static int remove(final String id) {

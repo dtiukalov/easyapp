@@ -31,4 +31,12 @@ public class JSONUtils {
 		return buffer.toString();
 	}
 	
+	public static String getComboxJSON(List<?> list) {
+		StringBuffer buffer = new StringBuffer();
+
+		buffer.append(list);
+		
+		logger.debug("ComboxJSON:" + buffer.toString());
+		return buffer.toString();
+	}
 }

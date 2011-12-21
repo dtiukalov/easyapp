@@ -1,5 +1,7 @@
 package com.saturn.sldb;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 import org.json.JSONObject;
@@ -22,7 +24,25 @@ public class ImportInfo {
 	
 	private String desc;
 	
-	private static ORMapping<ImportInfo> mapping = new ResultORMapping<ImportInfo>();
+	private String lastImportDate;
+	
+	private static ORMapping<ImportInfo> mapping = new ResultORMapping<ImportInfo>() {
+
+		@Override
+		public void mappingResult(ResultSet rs, ImportInfo t)
+				throws SQLException {
+			
+			super.mappingResult(rs, t);
+			
+			List<Import> imports = Import.getAllDate(t.id);
+			if (imports != null && !imports.isEmpty()) {
+				t.setLastImportDate(imports.get(0).getImportDate());
+			} else {
+				t.setLastImportDate("");
+			}
+		}
+		
+	};
 	
 	public static int add(ImportInfo vo) {
 		//指定值对象类型(VOClass)。例子：User
@@ -69,6 +89,17 @@ public class ImportInfo {
 		//指定插入表名称(tableName)。例子：如user表，tableName=user
 		//指定O-R映射规则对象。默认mapping
 		return SimpleDaoTemplate.query("SELECT * FROM sldb_import_info WHERE 1 = 1",
+				new DymaticCondition().addSimpleCondition(vo, "name")
+						.addCondition("ORDER BY {0} {1}", orderBy, order),
+				mapping, ImportInfo.class, start, offset);
+	}
+	
+	public static ListData<ImportInfo> getAllWithoutMinZheng(ImportInfo vo, String start,
+			String offset, String orderBy, String order) {
+		//指定值对象类型(VOClass)。例子VOClass=User
+		//指定插入表名称(tableName)。例子：如user表，tableName=user
+		//指定O-R映射规则对象。默认mapping
+		return SimpleDaoTemplate.query("SELECT * FROM sldb_import_info WHERE id NOT IN(8, 9)",
 				new DymaticCondition().addSimpleCondition(vo, "name")
 						.addCondition("ORDER BY {0} {1}", orderBy, order),
 				mapping, ImportInfo.class, start, offset);
@@ -154,6 +185,14 @@ public class ImportInfo {
 		this.desc = desc;
 	}
 	
+	public String getLastImportDate() {
+		return lastImportDate;
+	}
+
+	public void setLastImportDate(String lastImportDate) {
+		this.lastImportDate = lastImportDate;
+	}
+
 	@Override
 	public String toString() {
 		return new JSONObject(this).toString();

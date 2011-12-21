@@ -33,7 +33,7 @@
 					}
 					String css="";
 					if(__id.equals(content.getId())){
-						css = "style=\"color:#F00\"";
+						css = "style=\"color: #000\"";
 					}
 				%>
 				<li><a href="<%=path+"?cid=" + content.getId()%>" <%=css%>><%=content.getName()%></a></li>

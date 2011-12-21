@@ -39,7 +39,7 @@
 	});
 	
 	function getCarByModule(module){
-		window.location.href="cus_cars.jsp?cid=ruihe.sall&aid=ruihe.sall.new&model="+module;
+		window.location.href="cus_cars.jsp?cid=<%=WebUtils.getRootCid(request) %>.sall&aid=<%=WebUtils.getRootCid(request) %>.sall.new&model="+module;
 		return;
 	}
 </script>
@@ -104,9 +104,9 @@
 	        					%>
 	        					<tr align="center" height="98px" bgcolor="<%=bgcolor%>">
 							      <td height="82" style="border-top: dashed thin #ababab;border-width:1px;"><img src="<%=car.getImage()!=null?car.getImage():"image/car.gif" %>" width="150" height="86" /></td>
-							      <td style="border-top: dashed thin #ababab;border-width:1px;"><a href="cus_cardetail.jsp?cid=ruihe.sall"><span style="color:#1478c6;"><%=car.getBrandName() %>||<%=car.getModelName() %>||<%=car.getSeriesName() %></span></a></td>
+							      <td style="border-top: dashed thin #ababab;border-width:1px;"><a href="cus_cardetail.jsp?cid=<%=WebUtils.getRootCid(request) %>.sall&model=<%=car.getModel() %>"><span style="color:#1478c6;"><%=car.getBrandName() %>||<%=car.getModelName() %>||<%=car.getSeriesName() %></span></a></td>
 							      <td style="border-top: dashed thin #ababab;border-width:1px;"><span style="color:#da251c;">&nbsp;<%=car.getPrice() %></span></td>
-							      <td style="border-top: dashed thin #ababab;border-width:1px;"><a href="cus_cardetail.jsp?cid=ruihe.sall&model=<%=car.getModel() %>">详情</a></td>
+							      <td style="border-top: dashed thin #ababab;border-width:1px;"><a href="cus_cardetail.jsp?cid=<%=WebUtils.getRootCid(request) %>.sall&model=<%=car.getModel() %>">详情</a></td>
 							      <td style="border-top: dashed thin #ababab;border-width:1px;">
 							      <a href="javascript:void(0);" onclick="addBookCar('bookcar.type.change','<%=car.getBrand() %>','<%=car.getModel() %>','<%=car.getSeries() %>','<%=car.getBrandName() %>','<%=car.getModelName() %>','<%=car.getSeriesName() %>')"><img src="image/dingche.gif"/></a> 
 							      <a href="javascript:void(0);" onclick="addBookCar('bookcar.type.drive','<%=car.getBrand() %>','<%=car.getModel() %>','<%=car.getSeries() %>','<%=car.getBrandName() %>','<%=car.getModelName() %>','<%=car.getSeriesName() %>')"><img src="image/shijia.gif"/></a> 
@@ -118,9 +118,9 @@
 	        		%>
 			        		<tr align="center" height="98px" bgcolor="<%=bgcolor%>">
 						      <td ><span style="border-top: dashed thin #ababab;border-width:1px;"><img src="<%=car.getImage()!=null?car.getImage():"image/car.gif" %>" width="150" height="86" /></span></td>
-						      <td ><a href="cus_cardetail.jsp?cid=ruihe.sall"><span style="color:#1478c6;"><%=car.getBrandName() %>||<%=car.getModelName() %>||<%=car.getSeriesName() %></span></a></td>
+						      <td ><a href="cus_cardetail.jsp?cid=<%=WebUtils.getRootCid(request) %>.sall&model=<%=car.getModel() %>"><span style="color:#1478c6;"><%=car.getBrandName() %>||<%=car.getModelName() %>||<%=car.getSeriesName() %></span></a></td>
 						      <td ><span style="color:#da251c;">&nbsp;<%=car.getPrice() %></span></td>
-						      <td ><a href="cus_cardetail.jsp?cid=ruihe.sall&model=<%=car.getModel() %>">详情</a></td>
+						      <td ><a href="cus_cardetail.jsp?cid=<%=WebUtils.getRootCid(request) %>.sall&model=<%=car.getModel() %>">详情</a></td>
 						      <td >
 						      <a href="javascript:void(0);" onclick="addBookCar('bookcar.type.change','<%=car.getBrand() %>','<%=car.getModel() %>','<%=car.getSeries() %>','<%=car.getBrandName() %>','<%=car.getModelName() %>','<%=car.getSeriesName() %>')"><img src="image/dingche.gif"/></a> 
 						      <a href="javascript:void(0);" onclick="addBookCar('bookcar.type.drive','<%=car.getBrand() %>','<%=car.getModel() %>','<%=car.getSeries() %>','<%=car.getBrandName() %>','<%=car.getModelName() %>','<%=car.getSeriesName() %>')"><img src="image/shijia.gif"/></a> 

@@ -21,7 +21,7 @@
         	<div id="divFyt"><a href="<%="content.jsp?cid="+rootcid+".about&aid="+rootcid+".about.introduce" %>" class="aTwo">更多..</a></div>
             <div id="divTu"></div>
             <div id="divWen" style="overflow: hidden;">
-            	<%=WebUtils.getTextWithMax(Article.getOneArticleText(rootcid+".about.introduce"), 120)%> 
+            	<p>&nbsp;&nbsp;&nbsp;<%=WebUtils.getTextWithMax(Article.getOneArticleText(rootcid+".about.introduce"), 120)%></p> 
             </div>
             <div id="divRug"><a href="<%=WebUtils.getLink(rootcid+".salled", null)%>" class="aGeng">更多..</a></div>
             <div id="divTus"></div>
@@ -78,7 +78,7 @@
             <div id="divDjk">
              <div id="divDuht">
              <%
-            		List artiles_sall = Article.getByLikeCid(rootcid+".sall.offsall");
+            		List artiles_sall = Article.getByLikeCid(rootcid+".new.offsall");
             		int size_sall = Math.min(artiles_sall.size(), 6);
             		for (int i = 0; i < size_sall; ++i) {
             			Article article = (Article) artiles_sall.get(i);
@@ -86,21 +86,21 @@
 		            	%>
 		            	<div id="divLk">
 		                   <div id="divCheng"></div>
-		                   <a href="<%="detail.jsp?cid="+rootcid+".sall&aid=" +article.getCid()+"&did="+article.getId()%>" class="aDai"><strong><%=WebUtils.getTextWithMax(article.getTitle(), 16)%></strong></a>
+		                   <a href="<%="detail.jsp?cid="+rootcid+".new&aid=" +article.getCid()+"&did="+article.getId()%>" class="aDai"><strong><%=WebUtils.getTextWithMax(article.getTitle(), 16)%></strong></a>
 		                </div>
 		                <%
             			}else{
         				%>
         				<div id="divDOki">
 		                   <div id="divLid"></div>
-		                   <a href="<%="detail.jsp?cid="+rootcid+".sall&aid=" +article.getCid()+"&did="+article.getId()%>" class="aty"><strong><%=WebUtils.getTextWithMax(article.getTitle(), 16)%></strong></a>
+		                   <a href="<%="detail.jsp?cid="+rootcid+".new&aid=" +article.getCid()+"&did="+article.getId()%>" class="aty"><strong><%=WebUtils.getTextWithMax(article.getTitle(), 16)%></strong></a>
 		                </div>
                         <%
             			}
             		}
                 %>
              </div>
-             <div id="divWliao"><a href="<%="list.jsp?cid="+rootcid+".sall&aid="+rootcid+".sall.offsall" %>" class="aghne">更多..</a></div>   
+             <div id="divWliao"><a href="<%="list.jsp?cid="+rootcid+".new&aid="+rootcid+".new.offsall" %>" class="aghne">更多..</a></div>   
             </div>  
         </div>
     </div>

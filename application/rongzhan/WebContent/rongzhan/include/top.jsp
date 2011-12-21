@@ -9,7 +9,14 @@
 		<img src="images/logo.jpg" />
 	</div>
 	<div class="ln">
-		<img src="images/qxpp.jpg" />
+		<img src="images/qxpp.jpg" usemap="#Map" />
+		<map name="Map" id="Map">
+		<area shape="rect" coords="620,30,648,58" href="companylist.jsp?cid=rongzhan.about&aid=rongzhan.about.company" />
+		<area shape="rect" coords="660,30,702,60" href="companylist.jsp?cid=rongzhan.about&aid=rongzhan.about.company" />
+		<area shape="rect" coords="716,30,744,58" href="companylist.jsp?cid=rongzhan.about&aid=rongzhan.about.company" />
+		<area shape="rect" coords="758,30,800,58" href="companylist.jsp?cid=rongzhan.about&aid=rongzhan.about.company" />
+		<area shape="rect" coords="815,30,847,60" href="companylist.jsp?cid=rongzhan.about&aid=rongzhan.about.company" />
+		</map>
 	</div>
 	<div class="nav">
 		<ul>

@@ -88,6 +88,7 @@
 					$('#testCode').val('');
 					$('#lyform').css("display","none");
 					alert('保存成功!');
+					window.location.reload();
 				}
 			} 
 		});

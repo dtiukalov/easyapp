@@ -1,66 +1,73 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%@page import="com.saturn.website.PaginationUtils"%>
+<%@page import="com.saturn.website.WebUtils"%>
+<%@page import="com.saturn.website.Article"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
-<link rel="stylesheet" type="text/css" href="style/shouye.css"/>
-<script src="Scripts/swfobject_modified.js" type="text/javascript"></script>
-<link href="style/page.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="js/swfobject_modified.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="css/shouye.css"/>
+<link href="css/page.css" rel="stylesheet" type="text/css" />
+<title><%=WebUtils.getTitle(request) %></title>
 </head>
-
 <body style="margin:0px; padding:0px;">
-<container>
-<div id="divtop">
-  <div id="divmenu"></div>
-  <ul class="nav">
-    <li><a href="#">首页</a></li>
-    <li><a href="#">公司介绍</a></li>
-    <li><a href="#">新闻中心</a></li>
-    <li><a href="#">销售服务</a></li>
-    <li><a href="#">售后服务</a></li>
-    <li><a href="#">保险服务</a></li>
-    <li><a href="#">在线客服</a></li>
-    <li><a href="#">预约服务</a></li>
-  </ul>
-  <div class="clear"></div>
-</div>
-<div id="divFaslh">
-  <object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="980" height="348">
-    <param name="movie" value="index_main.swf" />
-    <param name="quality" value="high" />
-    <param name="wmode" value="opaque" />
-    <param name="swfversion" value="8.0.35.0" />
-    <!-- 此 param 标签提示使用 Flash Player 6.0 r65 和更高版本的用户下载最新版本的 Flash Player。如果您不想让用户看到该提示，请将其删除。 -->
-    <param name="expressinstall" value="Scripts/expressInstall.swf" />
-    <!-- 下一个对象标签用于非 IE 浏览器。所以使用 IECC 将其从 IE 隐藏。 -->
-    <!--[if !IE]>-->
-    <object type="application/x-shockwave-flash" data="index_main.swf" width="980" height="348">
-      <!--<![endif]-->
-      <param name="quality" value="high" />
-      <param name="wmode" value="opaque" />
-      <param name="swfversion" value="8.0.35.0" />
-      <param name="expressinstall" value="Scripts/expressInstall.swf" />
-      <!-- 浏览器将以下替代内容显示给使用 Flash Player 6.0 和更低版本的用户。 -->
-      <div>
-        <h4>此页面上的内容需要较新版本的 Adobe Flash Player。</h4>
-        <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="获取 Adobe Flash Player" width="112" height="33" /></a></p>
-      </div>
-      <!--[if !IE]>-->
-    </object>
-    <!--<![endif]-->
-  </object>
-</div>
-    
-    <div id="content">
+	<%@ include file="include/top.jsp" %>
+	<div id="content">
       <table width="980" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td><table width="715" border="0" cellspacing="0" cellpadding="0">
       <tr>
-    <td height="25px">您所在的位置：<span style="color:#F00">首页</span>&nbsp;|&nbsp;销售服务&nbsp;>&nbsp;新车报价</td>
+    <td height="25px">您所在的位置：<a href="index.jsp"><span style="color:#F00">首页</span></a>&nbsp;|&nbsp;<a href="<%=WebUtils.getLink(WebUtils.getRootCid(request)+".sall", null)%>">销售服务</a>&nbsp;>&nbsp;<a href="cus_cars.jsp?cid=<%=WebUtils.getRootCid(request) %>.sall&aid=<%=WebUtils.getRootCid(request) %>.sall.new">新车报价</a></td>
   </tr>
 </table>
 <div style="width:980px;">
-  <table width="980px" border="1" cellpadding="0" cellspacing="0" class="tablebase" bordercolordark="#FFFFFF">
+<%
+String model = request.getParameter("model");
+if("car.dongfengnissan.gtr".equals(model)){
+%>
+GT-R	
+<%
+}else if("car.dongfengnissan.tianlai".equals(model)){
+%>
+天籁
+<%
+}else if("car.dongfengnissan.xuanyi".equals(model)){
+%>
+轩逸	
+<%
+}else if("car.dongfengnissan.qijun".equals(model)){
+%>
+奇骏	
+<%
+}else if("car.dongfengnissan.xiaoke".equals(model)){
+%>
+逍客
+<%
+}else if("car.dongfengnissan.yida".equals(model)){
+%>
+颐达
+<%
+}else if("car.dongfengnissan.qida".equals(model)){
+%>
+骐达
+<%
+}else if("car.dongfengnissan.liwei".equals(model)){
+%>
+骊威
+<%
+}else if("car.dongfengnissan.yangguang".equals(model)){
+%>
+阳光
+<%
+}else if("car.dongfengnissan.machi".equals(model)){
+%>
+玛驰
+<%
+}else{
+%>
+<table width="980px" border="1" cellpadding="0" cellspacing="0" class="tablebase" bordercolordark="#FFFFFF">
 		 <tr align="center">
 			<td width="135.14286px" class="trtitle">
 				<strong style="font-size:14px;"> 车型</strong>
@@ -890,28 +897,15 @@
 			<td>详细配置请致电咨询</td>
 		  </tr>
 </table>
+<%
+}
+%>
 </div>
 </td>
   </tr>
 </table>
 </div>
-<div id="footer">
-	<ul class="ksdh">
-   	<li><a href="#">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
-   	<li><a href="#">公司介绍</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
-    <li><a href="#">新闻中心</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
-    <li><a href="#">销售服务</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
-    <li><a href="#">售后服务</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
-    <li><a href="#">保险服务</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
-    <li><a href="#">在线客服</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
-    <li><a href="#">预约服务</a>&nbsp;&nbsp;</li>
-  	</ul>
-    <div class="bq">
-<p>版权所有日产（中国）投资有限公司</p>
-<p>地址:长春市景阳大路3862号</p>
-<p>电话:0431-86118811</p>
-    </div>
-</div>
-</div>
+
+<%@ include file="include/foot.jsp" %>
 </body>
 </html>

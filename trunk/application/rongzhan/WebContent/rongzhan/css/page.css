@@ -41,7 +41,7 @@
 }
 .qxppzjnr .left1 {
 	float:left;
-	width:259px;
+	width:229px;
 	display:inline;
 }
 .qxppzjnr .left1  p{
@@ -51,19 +51,20 @@
 	color:#9b724c;
 }
 .left1 .lg {
-	width:259px;
+	width:229px;
 	text-align:center;
+	margin-top:5px;
 }
 .left1 .lgg {
-	width:259px;
+	width:229px;
 	text-align:center;
-	margin-top:180px;
+	margin-top:130px;
 }
 .left1 p {
 	font-weight:bold;
 }
 .qxppzjnr .right1{
-	width:443px;
+	width:463px;
 	float:left;
 	display:inline;
 }
@@ -73,12 +74,12 @@
 .right1 .tupian {
 	width:120px;
 	float:left;
-	margin-top:30px;
+	margin-top:5px;
 }
 .right1 .mingcheng {
-	width:316px;
+	width:336px;
 	float:left;
-	margin-top:25px;
+	margin-top:0px;
 	margin-left:6px;
 	line-height:20px;
 }

@@ -35,7 +35,6 @@
                     	<div class="qxppzjnr">
                 		<div class="left1">
                         	<div class="lg"><img src="images/logo_yqdz.gif" /></div>
-                            <p><span>一汽-大众汽车有限公司（简称一汽-大众）</span>于1991年2月6日成立， 是由中国第一汽车集团公司（60%）...</p>
                         </div><!--左侧-->
                         <div class="right1">
                         	<div class="tupian"><a href="../xinyu/index.jsp" target="_blank"><img src="images/tonghu.jpg" /></a></div>
@@ -58,7 +57,6 @@
 	                    	<div class="qxppzjnr">
 	                		<div class="left1">
 	                        	<div class="lg"><img src="images/logo_yfnd.gif" /></div>
-	                            <p>作为<span>英菲尼迪</span>20周年的献礼之作，这款超级跑车尽现美学菁华：修长的身段与风格大胆的曲面造型，散发着雕塑般的高贵......</p>
 	                        </div><!--左侧-->
 	                        <div class="right1">
 	                        	<div class="tupian"><a href="../xingsheng/index.jsp" target="_blank"><img src="images/xingsheng.jpg" /></a></div>
@@ -79,7 +77,6 @@
 	                    	<div class="qxppzjnr">
 	                		<div class="left1">
 	                        	<div class="lg"><img src="images/logo_ad.gif" /></div>
-	                            <p>“以心悦心”的含义是“以全心全意的卓越服务带给用户发自内心的愉悦”。在服务理念的追求上，<span>奥迪</span>不仅致力于满足...</p>
 	                        </div><!--左侧-->
 	                        <div class="right1">
 	                        	<div class="tupian"><a href="../rongsheng/index.jsp" target="_blank"><img src="images/rongsheng.jpg" /></a></div>
@@ -101,7 +98,6 @@
 	                    	<div class="qxppzjnr">
 	                		<div class="left1">
 	                        	<div class="lgg"><img src="images/logo_richan.gif" /></div>
-	                            <p><span>日产</span>自动车株式会社于1933年在神奈川县横滨市创立，目前， 拥有包括日本在内的分布于全球20个国家与地区的生产基地，为160多个国家与地区提供商品及相关...</p>
 	                        </div><!--左侧-->
 	                        <div class="right1">
 	                        	<div class="01">
@@ -156,7 +152,6 @@
 	                    	<div class="qxppzjnr">
 	                		<div class="left1">
 	                        	<div class="lg"><img src="images/logo_buick.gif" /></div>
-	                            <p><span>别克</span>关怀Buick Care——上海通用汽车创立的中国第一个汽车服务品牌。自创立伊始，始终秉承“比你更关心你”的理念...</p>
 	                        </div><!--左侧-->
 	                        <div class="right1">
 	                        	<div class="tupian"><a href="../xingsheng/index.jsp" target="_blank"><img src="images/suihua.jpg" /></a></div>

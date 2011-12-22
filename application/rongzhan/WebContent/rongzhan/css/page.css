@@ -28,3 +28,60 @@
 	text-indent:2em;
 	line-height:20px;
 }
+/*----旗下品牌---*/
+.neirong .yqdz {
+	width:715px;
+}
+.neirong .qxppzj {
+	background:url(../images/qxpp_zj.gif) repeat-y 0 0;
+}
+.qxppzjnr {
+	width:702px;
+	margin:0 auto;
+}
+.qxppzjnr .left1 {
+	float:left;
+	width:259px;
+	display:inline;
+}
+.qxppzjnr .left1  p{
+	text-indent:2em;
+}
+.left1 p span {
+	color:#9b724c;
+}
+.left1 .lg {
+	width:259px;
+	text-align:center;
+}
+.left1 .lgg {
+	width:259px;
+	text-align:center;
+	margin-top:180px;
+}
+.left1 p {
+	font-weight:bold;
+}
+.qxppzjnr .right1{
+	width:443px;
+	float:left;
+	display:inline;
+}
+.right1 01 {
+	width:443px;
+}
+.right1 .tupian {
+	width:120px;
+	float:left;
+	margin-top:30px;
+}
+.right1 .mingcheng {
+	width:316px;
+	float:left;
+	margin-top:25px;
+	margin-left:6px;
+	line-height:20px;
+}
+.right1 .mingcheng span{
+	color:#F00;
+}

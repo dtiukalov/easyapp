@@ -78,7 +78,7 @@
 				},
 				toolbar : [ {
 					id : 'btnItem',
-					text : '城乡低保批量核对',
+					text : '城镇低保批量核对',
 					iconCls : 'icon-edit',
 					handler : function() {
 						var rows = $('#queryTable').datagrid('getSelections');
@@ -94,6 +94,28 @@
 
 						$.messager.confirm('确认核对项', '确认核对该选项', function(result){
 							window.location.href='<%=request.getContextPath()%>/app/sldb/check/tobeCheck.jsp?type=8&ids='+ ids;
+						});
+						return false;
+					}
+				},'-',
+				{
+					id : 'btnItem',
+					text : '农村低保批量核对',
+					iconCls : 'icon-edit',
+					handler : function() {
+						var rows = $('#queryTable').datagrid('getSelections');
+						if (rows.length == 0) {
+							$.messager.alert('提示','请选择操作 项','info');
+							return;
+						} 
+						
+						var ids = [];
+						for(var i=0;i<rows.length;i++){
+							ids.push(rows[i].id+":"+rows[i].tableName+":"+rows[i].lastImportDate+":"+rows[i].name);
+						}
+
+						$.messager.confirm('确认核对项', '确认核对该选项', function(result){
+							window.location.href='<%=request.getContextPath()%>/app/sldb/check/tobeCheck.jsp?type=9&ids='+ ids;
 						});
 						return false;
 					}

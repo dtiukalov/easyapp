@@ -51,7 +51,7 @@
 		List results = IdCheck.batchCheck(idSource, date, id,
 				importDate);
 
-		HSSFSheet sheet = wb.createSheet(tableName + "(" + importDate
+		HSSFSheet sheet = wb.createSheet(info.getName() + "(" + importDate
 				+ ")");
 		if (results != null && !results.isEmpty()) {
 			HSSFRow row = sheet.createRow(0);
@@ -71,7 +71,8 @@
 				for (int k = 0; k < items.size(); ++k) {
 					ImportItem item = (ImportItem) items.get(k);
 					HSSFCell cell = row.createCell(k);
-					String value = (String) result.get(item.getName());
+// 					String value = (String) result.get(item.getName());
+					String value = (String) result.get(item.getColume());
 					if (value == null) {
 						value = "";
 					}

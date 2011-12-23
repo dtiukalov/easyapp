@@ -51,7 +51,7 @@
 			<div style="padding: 10px;" >
 				<a href="#" class="easyui-linkbutton" onclick="check();" 
 					iconCls="icon-search">确定</a>
-				<a href="#" class="easyui-linkbutton" onclick="clearQueryForm();" 
+				<a href="javascript:history.back(-1)" class="easyui-linkbutton"
 					iconCls="icon-back">返回</a>
 			</div>
 		</div>

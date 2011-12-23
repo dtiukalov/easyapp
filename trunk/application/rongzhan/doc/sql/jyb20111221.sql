@@ -1,7 +1,7 @@
 #修改表car_bookcar 字段 bookTime 类型为 VARCHAR(30)
 
-INSERT INTO `web_content` (`id`, `name`, `english`, `path`, `parentId`, `sort`, `hasShow`, `hasShowName`, `mode`, `modeName`) VALUES 
-  ('rongzhan.about.company','旗下品牌','Company','companylist.jsp','rongzhan.about',322,'visible.true','显示','content.mode.one','单项');
+INSERT INTO `web_content` (`id`, `name`, `english`, `path`, `parentId`, `hasShow`, `hasShowName`, `mode`, `modeName`) VALUES 
+  ('rongzhan.about.company','旗下品牌','Company','companylist.jsp','rongzhan.about','visible.true','显示','content.mode.one','单项');
 COMMIT;
 
 INSERT INTO `app_dict` (`key`, `value`, `type`, `pinyin`) VALUES

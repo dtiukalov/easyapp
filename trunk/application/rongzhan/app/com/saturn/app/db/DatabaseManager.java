@@ -115,7 +115,7 @@ public class DatabaseManager {
 
 		String connectType = dataConfig.getConnectType();
 		String jdbcdriver = dataConfig.getJdbcdriver();
-		String jdbcurl = dataConfig.getJdbcurl();
+		String jdbcurl = dataConfig.getJdbcurl().trim();
 		String username = dataConfig.getUsername();
 		String password = dataConfig.getPassword();
 		String maxActive = dataConfig.getMaxActive();

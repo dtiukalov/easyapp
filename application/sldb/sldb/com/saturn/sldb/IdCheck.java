@@ -99,7 +99,7 @@ public class IdCheck {
 	@SuppressWarnings("rawtypes")
 	public static List<HashMap> batchCheck(String id, String importDate, String toId, String toImportDate) {
 		ImportInfo info = ImportInfo.get(id);
-		List<HashMap> persons = Import.getAllImportOrderBy(info.getTableName(), importDate, "identify");
+		List<HashMap> persons = Import.getIdImportOrderBy(info.getTableName(), importDate, "identify");
 		
 		ImportInfo toInfo = ImportInfo.get(toId);
 		String tableName = toInfo.getTableName();

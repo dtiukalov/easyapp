@@ -330,10 +330,19 @@ public class Import {
 	}
 	
 	@SuppressWarnings("rawtypes")
-	public static List<HashMap> getAllImportOrderBy(String tableName, String importDate, String order) {
+	public static List<HashMap> getIdImportOrderBy(String tableName, String importDate, String order) {
 		String table = tableName + importDate;
 		
 		return SimpleDaoTemplate.query("SELECT id, " + order + " FROM `" + table + "` order by " + order + " asc",
+				null,
+				mappingMap, HashMap.class);
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public static List<HashMap> getAllImportOrderBy(String tableName, String importDate, String order) {
+		String table = tableName + importDate;
+		
+		return SimpleDaoTemplate.query("SELECT * FROM `" + table + "` order by " + order + " asc",
 				null,
 				mappingMap, HashMap.class);
 	}
@@ -377,7 +386,8 @@ public class Import {
 		return SimpleDaoTemplate.query(
 				"SELECT * FROM sldb_import WHERE 1 = 1",
 				new DymaticCondition().addSimpleCondition(vo, "importDate",
-						"createrName", "type", "creater", "createTime").addCondition(
+						"createrName", "creater", "createTime")
+						.addCondition(" AND type = '?'", vo.getType()).addCondition(
 						"ORDER BY {0} {1}", orderBy, order), mapping,
 				Import.class, start, offset);
 	}

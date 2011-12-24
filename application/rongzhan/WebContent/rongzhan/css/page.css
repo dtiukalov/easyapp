@@ -68,8 +68,9 @@
 	float:left;
 	display:inline;
 }
-.right1 01 {
-	width:443px;
+.right1 .r01 {
+	width: 463px;
+	height: 110px;
 }
 .right1 .tupian {
 	width:120px;

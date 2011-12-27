@@ -108,7 +108,7 @@
             			Article article = (Article) artiles_sall.get(i);
 		            	%>
 		            	<tr>
-						    <td width="9%" height="31"><img src="images/<%=i %>.gif" width="19" height="14" /></td>
+						    <td width="9%" height="31"><img src="images/<%=i+1 %>.gif" width="19" height="14" /></td>
 						    <td><a href="<%="detail.jsp?cid="+rootcid+".new&aid=" +article.getCid()+"&did="+article.getId()%>"><%=WebUtils.getTextWithMax(article.getTitle(), 16)%></a></td>
 						    <td width="16%"><img src="images/www6Lucn0012.gif" width="35" height="15" /></td>
 						  </tr>

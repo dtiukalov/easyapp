@@ -20,7 +20,14 @@
 	display:block;
 	display:inline;
 }
+.rzlogo {
+	float:left;
+	width:51px;
+	height:43px;
+	padding-top:13px;
+}
 .rh {
+	width:660px;
 	font-family: "微软雅黑",Arial, Helvetica, sans-serif;
 	font-weight:bold;
 	font-size:24px;
@@ -416,7 +423,6 @@
 #footer p {
 	padding-left:5px;
 	padding-top:5px;
-	width:215px;
 }
 .clear {
 	clear:both;

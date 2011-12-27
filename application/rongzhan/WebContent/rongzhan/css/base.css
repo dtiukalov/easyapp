@@ -58,7 +58,7 @@ a:hover {
 	display:inline;
 }
 .nav ul li a {
-	font-size:16px;
+	font-size:17px;
 	display:block;
 	width:100px;
 	float:left;
@@ -82,19 +82,37 @@ a:hover {
 	display:inline;
 }
 .con1 .gsjj {
+	padding-top:2px;
 	width:379px;
-	height:251px;
+	height:250px;
 	float:left;
+}
+.gsjj .gsjjnr {
+	margin-left:8px;
+	width:365px;
+}
+.gsjjnr .gsjjz {
+	background:url(../images/gsjjz.gif) repeat-y 0 0;
+	width:365px;
+}
+.gsjjzwz {
+	padding-left:3px;
+	padding-right:3px;
+	width:359px;
+	height:238px;
 }
 .gsjj .tu {
 	float:left;
+	padding-left:2px;
 }
 .gsjj p{
 	text-indent:2em;
 	line-height:18px;
 }
 .con1 .qiehuan {
+	padding-top:3px;
 	width:356px;
+	height:250px;
 	float:left;
 }
 .con1 .ldzc {

@@ -17,10 +17,18 @@
 <div id="content">
 	<div class="con1">
     	<div class="gsjj">
-        <div class="tu"><img src="images/gsjj_bg.gif" /></div>
-        <p><%=WebUtils.getTextWithMax(Article.getOneArticleText("rongzhan.about.introduce"), 300)%></p>
+    	<div class="gsjjnr">
+        	<div class="gsjjs"><img src="images/gsjjs.gif" /></div>
+            <div class="gsjjz">
+            <div class="gsjjzwz">
+            <div class="tu"><img src="images/gsjj_bg.gif" /></div>
+        <p><%=WebUtils.getTextWithMax(Article.getOneArticleText("rongzhan.about.introduce"), 280)%></p>
+      </div>
+            </div>
+            <div class="gsjjx"><img src="images/gsjjx.gif" /></div>
+            </div>
         </div><!--公司简介-->
-        <div class="qiehuan"><img src="images/qhtu.jpg" /></div>
+        <div class="qiehuan"><img src="images/qhtu.jpg" style="height:249px;"/></div>
         <div class="ldzc">
         	<div class="news">
 	        	<div class="newst">
@@ -47,10 +55,10 @@
         <div class="zgtu">
         	<div class="jiantou1"><img src="images/iecool_arrow_017z.gif" /></div>
             <div class="zj">
-            	<div class="bk"><a href="companylist.jsp?cid=rongzhan.about&aid=rongzhan.about.company"><img src="images/yqdz.jpg" /></a><p>一汽大众汽车有限公司是由中国第一汽车集团公司和德国大众汽车集团合资经营的大型乘用车生产企业...</p></div>
                 <div class="bk"><a href="companylist.jsp?cid=rongzhan.about&aid=rongzhan.about.company"><img src="images/yfnd.jpg" /></a><p>英菲尼迪作为日产旗下的 豪华车品牌 诞生于1989年，最先在美国上市，英菲尼迪与雷克萨斯、宝马、奔驰在北美市场...</p></div>
                 <div class="bk"><a href="companylist.jsp?cid=rongzhan.about&aid=rongzhan.about.company"><img src="images/yqad.jpg" /></a><p>精粹奥迪全部造车科技与美学感悟，奥迪A1拥有动感、时尚的设计，动力搭载 强劲 高效的1.4TFSI发动机...</p></div>
                 <div class="bk"><a href="companylist.jsp?cid=rongzhan.about&aid=rongzhan.about.company"><img src="images/dfjc.jpg" /></a><p>东风日产“ 感心服务”传承NISSAN品牌人性化创新的DNA， 涵盖人车生活的每一个环节，为您提供...</p></div>
+                <div class="bk"><a href="companylist.jsp?cid=rongzhan.about&aid=rongzhan.about.company"><img src="images/yqdz.jpg" /></a><p>一汽大众汽车有限公司是由中国第一汽车集团公司和德国大众汽车集团合资经营的大型乘用车生产企业...</p></div>
                 <div class="bk"><a href="companylist.jsp?cid=rongzhan.about&aid=rongzhan.about.company"><img src="images/tybk.jpg" /></a><p>别克一个融合了“全球平台欧美技术”的产品科技与服务资源的中高档国际汽车品牌，涵盖八大系列数十款车型...</p></div>
             </div>
             <div class="jiantou2"><img src="images/iecool_arrow_017.gif" /></div>

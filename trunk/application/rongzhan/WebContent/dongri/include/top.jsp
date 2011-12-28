@@ -7,8 +7,8 @@
 <div id="divtop">
     <div id="lgmc">
     	<div id="divmenu"></div>
-        <div class="rh">东风日产融展东日专营店</div>
-        <div class="rzlogo"><a href="../rongzhan/index.jsp"><img src="image/fhrz.png" /></a></div>
+        <div class="rh">哈尔滨融展东日专营店</div>
+        <div class="rzlogo"><a href="../rongzhan/index.jsp"><img src="../rongzhan/images/fhrz.gif" /></a></div>
         </div>
     <ul class="nav">
 		<%

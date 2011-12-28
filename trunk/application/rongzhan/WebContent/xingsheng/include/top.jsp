@@ -7,7 +7,7 @@
 	<div class="top">
     	<div class="logo"><img src="images/logo.gif" /></div>
 		<div class="xs">吉林省融展兴盛汽车销售服务有限公司</div>
-		<div class="rzlogo"><a href="../rongzhan/index.jsp"><img src="images/fhrz.png" /></a></div>
+		<div class="rzlogo"><a href="../rongzhan/index.jsp"><img src="../rongzhan/images/fhrz.gif" /></a></div>
     </div><!--上部分-->
     <div class="nav">
     <ul>

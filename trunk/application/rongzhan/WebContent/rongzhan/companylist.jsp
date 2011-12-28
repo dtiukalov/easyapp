@@ -39,9 +39,10 @@
 	                        <div class="right1">
 	                        	<div class="tupian"><a href="../xingsheng/index.jsp" target="_blank"><img src="images/xingsheng.jpg" /></a></div>
 	                            <div class="mingcheng">
-	                            <p><a href="../xingsheng/index.jsp" target="_blank"><span>吉林省融展兴盛汽车销售服务有限公司</span></a></p>
+	                            <p><a href="../xingsheng/index.jsp" target="_blank"><span>英菲尼迪长春融展兴盛专营店</span></a></p>
 	                            <p>地址：吉林省长春市西新区长沈路3999号</p>
-	                            <p>电话：0431-81971888/85971555</p>
+	                            <p>销售：0431-85971555/85972333</p>
+	                            <p>客服：0431- 81501592</p>
 	                          </div>
 	                        </div><!--右侧-->
 	                        <div class="clear"></div>
@@ -61,8 +62,8 @@
 	                            <div class="mingcheng">
 	                            <p><a href="../rongsheng/index.jsp" target="_blank"><span>通化融晟奥迪专营店</span></a></p>
 	                            <p>地址：通化市新胜北路5888号</p>
-	                            <p>销售热线：0435-3451888/3451999</p>
-	                            <p>服务热线：0435-3632788</p>
+	                            <p>销售：0435-3451888/3451999</p>
+	                            <p>客服：0435-3632788</p>
 								</div>
 	                        </div><!--右侧-->
 	                        <div class="clear"></div>
@@ -83,20 +84,17 @@
 	                            <div class="mingcheng">
 	                            <p><a href="../xingbang/index.jsp" target="_blank"><span>哈尔滨融展兴邦专营店</span></a></p>
 	                            <p>地址：哈尔滨市道外区先锋路3号</p>
-	                            <p>客服电话：0451-82460181</p>
-	                            <p>销售热线：0451-82453997</p>
-	                            <p>售后热线：0451-82453666</p>
-	                            <p>救援预约电话：0451-82453666</p>
+	                            <p>销售：0451-82453997</p>
+	                            <p>客服：0451-82460181</p>
 	                          </div>
 	                          </div><!--右一-->
 	                          <div class="r01">
 	                        	<div class="tupian"><a href="../dongri/index.jsp" target="_blank"><img src="images/hebrf.jpg" /></a></div>
 	                            <div class="mingcheng">
-	                            <p><a href="../dongri/index.jsp" target="_blank"><span>东风日产融展东日专营店</span></a></p>
+	                            <p><a href="../dongri/index.jsp" target="_blank"><span>哈尔滨融展东日专营店</span></a></p>
 	                            <p>地址：哈尔滨市道里区机场路18号</p>
-	                            <p>销售电话：0451-84357777/84348888</p>
-	                            <p>售后服务电话：0451-84302299/84312299</p>
-	                            <p>&nbsp;</p>
+	                            <p>销售：0451-84348888/84357777</p>
+	                            <p>客服：0451-84302992</p>
 	                          </div>
 	                          </div><!--右一-->
 	                          <div class="r01">
@@ -104,20 +102,17 @@
 	                            <div class="mingcheng">
 	                            <p><a href="../ruihe/index.jsp" target="_blank"><span>东风日产融展瑞合专营店</span></a></p>
 	                            <p>地址：吉林市船营区越山路235号</p>
-	                            <p>销售热线：0432-62718999/62718666</p>
-	                            <p>售后服务热线：0432-62717999/62719666</p>
-	                            <p>24小时救援电话：0432-62717999</p>
+	                            <p>销售：0432-62718999/62718666</p>
+	                            <p>客服：0432-62717999/62719666</p>
 	                          </div>
 	                          </div><!--右一-->
 	                          <div class="r01">
 	                        	<div class="tupian"><a href="../suixin/index.jsp" target="_blank"><img src="images/rzsx.jpg" /></a></div>
 	                            <div class="mingcheng">
 	                            <p><a href="../suixin/index.jsp" target="_blank"><span>东风日产绥化融展绥鑫专营店</span></a></p>
-	                            <p>公司地址：绥化市北林区西二环路凤凰城对过</p>
-	                            <p>客服电话：0455-8626662/8626669</p>
-	                            <p>销售热线：0455-8283555/8411333</p>
-	                            <p>售后热线：0455-8561122</p>
-	                            <p>24小时救援电话：13091555900</p>
+	                            <p>地址：绥化市北林区西二环路凤凰城对过</p>
+	                            <p>销售：0455-8283555/8411333</p>
+	                            <p>客服：0455-8626662/8626669</p>
 	                            </div>
 	                          </div><!--右一-->
 	                          <div class="clear"></div>
@@ -139,10 +134,8 @@
                             <div class="mingcheng">
                             <p><a href="../xinyu/index.jsp" target="_blank"><span>通化鑫宇一汽-大众专营店</span></a></p>
                             <p>地址：吉林省通化市新胜北路2355号(通梅零公里)</p>
-                            <p>客服热线：0435-3628519</p>
-                            <p>销售热线：0435-3620866/3620799</p>
-                            <p>售后、救援热线：0435-3611118</p>
-                            <p>预约电话：0435-3623398</p>
+                            <p>销售：0435-3620866/3620799</p>
+                            <p>客服：0435-3628519</p>
                             </div>
                         </div><!--右侧-->
                         <div class="clear"></div>
@@ -162,11 +155,8 @@
 	                            <div class="mingcheng">
 	                            <p><a href="../xingsheng/index.jsp" target="_blank"><span>绥化融展兴盛别克4S店</span></a></p>
 	                            <p>地址：北林区西二环路电力名苑南</p>
-	                            <p>客服热线：0455-8251969</p>
-	                            <p>销售热线：0455-8792123</p>
-	                            <p>服务热线：0455-8251800</p>
-	                            <p>救援热线：0455-8347700</p>
-	                            <p>预约热线：0455-8251800</p>
+	                            <p>销售：0455-8792123</p>
+	                            <p>客服：0455-8251969</p>
 								</div>
 	                        </div><!--右侧-->
 	                        <div class="clear"></div>

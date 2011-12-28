@@ -23,7 +23,7 @@
        		</div>
         	<div class="yfndbg">
             	<div class="js">
-                	<p>&nbsp;&nbsp;&nbsp;<%=WebUtils.getTextWithMax(Article.getOneArticleText(rootcid+".about.introduce"), 120)%></p>
+                	<p>&nbsp;&nbsp;&nbsp;<%=WebUtils.getTextWithMax(Article.getOneArticleText(rootcid+".about.introduce"), 220)%></p>
                 </div>
             </div>
         	<div class="yfndx"><img src="images/yfnd_x.gif" /></div>

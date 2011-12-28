@@ -70,6 +70,8 @@
 }
 .right1 .r01 {
 	width: 463px;
+	min-height: 110px;
+	height: auto !important; 
 	height: 110px;
 }
 .right1 .tupian {
@@ -81,6 +83,7 @@
 	width:336px;
 	float:left;
 	margin-top:0px;
+	padding-top:8px;
 	margin-left:6px;
 	line-height:20px;
 }

@@ -37,7 +37,7 @@
 	            </div>
 	            <div class="newsbg">
 	            	<div class="tu"><img src="images/ldzctu.jpg" /></div>
-	                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=WebUtils.getTextWithMax(Article.getOneArticleText("rongzhan.about.speak"), 120)%></p>
+	                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=WebUtils.getTextWithMax(Article.getOneArticleText("rongzhan.about.speak"), 60)%></p>
 	            </div>
 	            <div class="newsx"><img src="images/xw_bottom.gif" /></div>
        		</div>

@@ -4,3 +4,4 @@
 <img src="image/img01.jpg" />
 <img src="image/img02.jpg" />
 <img src="image/img03.jpg" />
+<img src="image/xingbangdt.jpg" />

@@ -25,6 +25,7 @@ public class PersonState {
 	private String state;
 	private String note;
 	
+	
 	private static ORMapping<PersonState> mapping = new ResultORMapping<PersonState>();
 
 	public static int add(PersonState vo) {
@@ -85,7 +86,7 @@ public class PersonState {
 		//指定插入表名称(tableName)。例子：如user表，tableName=user
 		//指定O-R映射规则对象。默认mapping
 		return SimpleDaoTemplate.query("SELECT * FROM sldb_person_state WHERE 1 = 1",
-				new DymaticCondition().addSimpleCondition(vo, "userId", "state")
+				new DymaticCondition().addSimpleCondition(vo, "pid")
 						.addCondition("ORDER BY {0} {1}", orderBy, order),
 				mapping, PersonState.class, start, offset);
 	}

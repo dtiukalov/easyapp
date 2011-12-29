@@ -131,7 +131,7 @@
 	<div id="panel" class="easyui-panel" title="添加申报低保信息" icon="icon-add-form"
 		collapsible="true" style="padding: 10px;">
 		<form id="addForm" name="addForm"
-			action="<%=request.getContextPath()%>/app/sldb/person/sub/add.action"
+			action="<%=request.getContextPath()%>/app/sldb/person/add.action"
 			method="post">
 			<table class="table-form">
 				<tr>

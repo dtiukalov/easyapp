@@ -155,19 +155,15 @@
 						});
 						return false;
 					}
-				},
-'-'
-				
-				, {
+				},'-', {
 					id : 'btnback',
 					text : '返回',
 					iconCls : 'icon-back',
 					handler : function() {
-						window.location.href='<%=request.getContextPath()%>/app/sldb/person/apply.jsp';
+						window.location.href='javascript:history.back(-1)';
 						return false;//决绝IE6的bug
 					}
-				}
-]
+				}]
 			});
 			
 			$('#gender').combobox({

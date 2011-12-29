@@ -25,7 +25,7 @@ public class AddAction implements IAction {
 	}
 
 	public String requestMapping() {
-		return "/app/sldb/person/sub/add.action";
+		return "/app/sldb/person/add.action";
 	}
 	
 }

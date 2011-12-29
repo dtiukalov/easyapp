@@ -61,29 +61,29 @@ public class IdCheck {
 		// 指定值对象类型(VOClass)。例子：User
 		// 指定插入表名称(tableName)。例子：如user表3个列，tableName=user(id, name, gender)
 		// 根据列的顺序获取值对象的属性值。例子：vo.getId(), vo.getName(), vo.getGender()
-		return SimpleDaoTemplate.update(
-				"INSERT INTO sldb_id_check (`id`, `key`, `result`, `infoType`,`value`) VALUES(?, ?, ?, ?, ?)", vo.id, vo.key,
-				vo.result, vo.infoType,vo.value);
+		return SimpleDaoTemplate
+				.update("INSERT INTO sldb_id_check (`id`, `key`, `result`, `infoType`,`value`) VALUES(?, ?, ?, ?, ?)",
+						vo.id, vo.key, vo.result, vo.infoType, vo.value);
 	}
-	
+
 	public static void addAll(List<IdCheck> checks) {
 		for (IdCheck check : checks) {
 			add(check);
 		}
 	}
-	
+
 	public static int remove(final String id) {
-		//指定插入表名称(tableName)。例子：如user表，tableName=user
-		return SimpleDaoTemplate.update("DELETE FROM sldb_id_check WHERE id = ?",
-				id);
+		// 指定插入表名称(tableName)。例子：如user表，tableName=user
+		return SimpleDaoTemplate.update(
+				"DELETE FROM sldb_id_check WHERE id = ?", id);
 	}
 
 	public static IdCheck get(String num) {
 		return SimpleDaoTemplate.queryOne(
-				"SELECT * FROM sldb_id_check WHERE 1 = 1 AND num = " + num, null,
-				mapping, IdCheck.class);
+				"SELECT * FROM sldb_id_check WHERE 1 = 1 AND num = " + num,
+				null, mapping, IdCheck.class);
 	}
-	
+
 	public static ListData<IdCheck> getAll(String id, String start,
 			String offset, String orderBy, String order) {
 		// 指定值对象类型(VOClass)。例子VOClass=User
@@ -95,78 +95,110 @@ public class IdCheck {
 						.addCondition("ORDER BY {0} {1}", orderBy, order),
 				mapping, IdCheck.class, start, offset);
 	}
-	
-	@SuppressWarnings("rawtypes")
-	public static List<HashMap> batchCheck(String id, String importDate, String toId, String toImportDate) {
-		ImportInfo info = ImportInfo.get(id);
-		List<HashMap> persons = Import.getIdImportOrderBy(info.getTableName(), importDate, "identify");
-		
-		ImportInfo toInfo = ImportInfo.get(toId);
-		String tableName = toInfo.getTableName();
-		String key = "identify";
-		if (tableName.indexOf("marry") >= 0) {
-			key = "mIdentify";
-		}
-		List<HashMap> others = Import.getAllImportOrderBy(tableName, toImportDate, key);
-		
-		List<HashMap> result = new ArrayList<HashMap>();
-		
-		int firstSize = persons.size();
-		int secondSize = others.size();
-		
-		int first = 0;
-		int second = 0;
-		
-		HashMap firstValue = null;
-		HashMap secondValue = null;
-		
-		while (first < firstSize && second < secondSize) {
-			firstValue = persons.get(first);
-			secondValue = others.get(second);
-			
-			String identify1 = firstValue.get("identify") + "";
-			String identify2 = secondValue.get(key) + "";
 
-			int index = identify1.compareTo(identify2);
-			if (index == 0) {
-				if (identify2 != null && !"".equals(identify2)) {
-					result.add(secondValue);
+	@SuppressWarnings("rawtypes")
+	public static HashMap batchCheck(String id, String importDate, String toId,
+			String toImportDate) {
+		ImportInfo info = ImportInfo.get(id);
+		List<HashMap> persons = Import.getAllImportOrderBy(info.getTableName(),
+				importDate, "identify");
+		String key = "identify";
+		List<HashMap> result = new ArrayList<HashMap>();
+		List<HashMap> source = new ArrayList<HashMap>();
+
+		if (id.equals(toId)) {// check oneself
+			if (!persons.isEmpty()) {
+				HashMap first = persons.get(0);
+
+				for (int i = 1; i < persons.size(); ++i) {
+					HashMap second = (HashMap) persons.get(i);
+
+					String firstValue = (String) first.get(key);
+					String secondValue = (String) second.get(key);
+
+					if (firstValue.equals("") || secondValue.equals("")) {
+						first = second;
+						continue;
+					}
+
+					if (firstValue.equals(secondValue)) {
+						result.add(first);
+						source.add(second);
+					} else {
+						first = second;
+					}
 				}
-				first++;
-				second++;
-			} else if (index > 0) {
-				second++;
-			} else {
-				first++;
 			}
+		} else {
+			ImportInfo toInfo = ImportInfo.get(toId);
+			String tableName = toInfo.getTableName();
+
+			if (tableName.indexOf("marry") >= 0) {
+				key = "mIdentify";
+			}
+			List<HashMap> others = Import.getAllImportOrderBy(tableName,
+					toImportDate, key);
+
+			int firstSize = persons.size();
+			int secondSize = others.size();
+
+			int first = 0;
+			int second = 0;
+
+			HashMap firstValue = null;
+			HashMap secondValue = null;
+
+			while (first < firstSize && second < secondSize) {
+				firstValue = persons.get(first);
+				secondValue = others.get(second);
+
+				String identify1 = firstValue.get("identify") + "";
+				String identify2 = secondValue.get(key) + "";
+
+				int index = identify1.compareTo(identify2);
+				if (index == 0) {
+					if (identify2 != null && !"".equals(identify2)) {
+						result.add(secondValue);
+						source.add(firstValue);
+					}
+					first++;
+					second++;
+				} else if (index > 0) {
+					second++;
+				} else {
+					first++;
+				}
+			}
+
+			// for (HashMap person : persons) {
+			// String identify = (String)person.get("identify");
+			// String name = (String)person.get("name");
+			//
+			//
+			//
+			// result.addAll(checkTable(identify, name, tableName));
+			// }
 		}
-		
-		
-//		for (HashMap person : persons) {
-//			String identify = (String)person.get("identify");
-//			String name = (String)person.get("name");
-//			
-//			
-//			
-//			result.addAll(checkTable(identify, name, tableName));
-//		}
-		
-		return result;
+
+		HashMap<String, List<HashMap>> resultMap = new HashMap<String, List<HashMap>>();
+		resultMap.put("result", result);
+		resultMap.put("source", source);
+		return resultMap;
 	}
-	
+
 	public static String check(String pid) {
 		Person person = Person.get(pid);
 		List<PersonSub> subs = PersonSub.getByPid(pid);
-		
+
 		checkOnePerson(pid, person.getIdentify(), person.getName());
-		
+
 		for (PersonSub sub : subs) {
 			checkOnePerson(sub.getId(), sub.getIdentify(), sub.getName());
 		}
-		
+
 		return "true";
 	}
-	
+
 	@SuppressWarnings("rawtypes")
 	public static void checkOnePerson(String pid, String identify, String name) {
 		List<IdCheck> checks = new ArrayList<IdCheck>();
@@ -177,21 +209,22 @@ public class IdCheck {
 		if (getAll(id, null, null, null, null).getTotal() > 0) {
 			remove(id);
 		}
-		
+
 		for (ImportInfo info : infos) {
 			Import importLast = getLastImport(info.getId());
 
 			if (importLast != null) {
-				List<HashMap> results = checkOne(identify, name, importLast.getId());
+				List<HashMap> results = checkOne(identify, name,
+						importLast.getId());
 				String key = info.getName() + "(" + importLast.getImportDate()
 						+ ")";
-	
+
 				if (results.isEmpty()) {
-					add(new IdCheck(id, key, "无", info.getId(),"")); 
+					add(new IdCheck(id, key, "无", info.getId(), ""));
 				} else {
 					List<IdCheck> checkResult = getList(results, id, key,
 							info.getId());
-	
+
 					checks.addAll(checkResult);
 					addAll(checkResult);
 				}
@@ -210,7 +243,7 @@ public class IdCheck {
 
 		return checkTable(identify, name, tableName);
 	}
-	
+
 	@SuppressWarnings("rawtypes")
 	public static List<HashMap> checkTable(String identify, String name,
 			String tableName) {
@@ -219,26 +252,31 @@ public class IdCheck {
 				&& (name == null || "".equals(name.trim()))) {
 			return new ArrayList<HashMap>();
 		}
-		
+
 		try {
 			if (tableName.indexOf("marry") >= 0) {
-				return SimpleDaoTemplate.query(
-						"SELECT * FROM `" + tableName + "` WHERE 1 = 1",
-						new DymaticCondition()
-								.addCondition(" AND (wIdentify like '%{?}%' OR mIdentify like '%?%')", identify)
-								.addCondition(" AND (wName like '%?%' OR mName like '%?%')", name),
-						mappingMap, HashMap.class);
+				return SimpleDaoTemplate
+						.query("SELECT * FROM `" + tableName + "` WHERE 1 = 1",
+								new DymaticCondition()
+										.addCondition(
+												" AND (wIdentify like '%{?}%' OR mIdentify like '%?%')",
+												identify)
+										.addCondition(
+												" AND (wName like '%?%' OR mName like '%?%')",
+												name), mappingMap,
+								HashMap.class);
 			} else {
 				return SimpleDaoTemplate.query(
-					"SELECT * FROM `" + tableName + "` WHERE 1 = 1",
-					new DymaticCondition().addCondition(" AND identify like '%?%'",
-							identify).addCondition(" AND name like '%?%'", name),
-					mappingMap, HashMap.class);
+						"SELECT * FROM `" + tableName + "` WHERE 1 = 1",
+						new DymaticCondition().addCondition(
+								" AND identify like '%?%'", identify)
+								.addCondition(" AND name like '%?%'", name),
+						mappingMap, HashMap.class);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return new ArrayList<HashMap>();
 	}
 
@@ -262,28 +300,27 @@ public class IdCheck {
 
 		for (HashMap map : results) {
 			String mapStr = new JSONObject(map).toString();
-			//checks.add(new IdCheck(id, key, mapStr, infoType));
+			// checks.add(new IdCheck(id, key, mapStr, infoType));
 			checks.add(new IdCheck(id, key, "有", infoType, mapStr));
 		}
 
 		return checks;
 	}
-	
+
 	public static List<IdCheck> getValuesByInfoType(String infoType) {
 		List<IdCheck> idCheckValues = SimpleDaoTemplate.query(
-				"select * from sldb_id_check where infoType = '" + infoType, null, mapping,
-						IdCheck.class);
-
+				"select * from sldb_id_check where infoType = '" + infoType,
+				null, mapping, IdCheck.class);
 
 		return idCheckValues;
 	}
-	
 
 	public IdCheck() {
 		super();
 	}
 
-	public IdCheck(String id, String key, String result, String infoType, String value) {
+	public IdCheck(String id, String key, String result, String infoType,
+			String value) {
 		super();
 
 		this.id = id;
@@ -292,7 +329,7 @@ public class IdCheck {
 		this.infoType = infoType;
 		this.value = value;
 	}
-	
+
 	public String getNum() {
 		return num;
 	}
@@ -332,7 +369,7 @@ public class IdCheck {
 	public void setInfoType(String infoType) {
 		this.infoType = infoType;
 	}
-	
+
 	public String getValue() {
 		return value;
 	}
@@ -340,6 +377,7 @@ public class IdCheck {
 	public void setValue(String value) {
 		this.value = value;
 	}
+
 	@Override
 	public String toString() {
 		return new JSONObject(this).toString();

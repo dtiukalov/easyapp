@@ -54,6 +54,8 @@ public class Person {
 	private String address;
 	private String desc;
 
+	private String userId;
+
 	private static ORMapping<Person> mapping = new ResultORMapping<Person>();
 	private static Map<String, String> stateMap = new HashMap<String, String>();
 
@@ -100,8 +102,8 @@ public class Person {
 				+ "idType = ?, first = ?, ill = ?, deformity = ?, "
 				+ "deformityLevel = ?, companyType = ?, trade = ?, "
 				+ "insurance = ?, company = ?, contact = ?, street = ?, "
-				+ "address = ?, `desc` = ? " + "WHERE id = ?", vo.identify, vo.type,
-				vo.createTime, vo.creater, vo.createrName,
+				+ "address = ?, `desc` = ? " + "WHERE id = ?", vo.identify,
+				vo.type, vo.createTime, vo.creater, vo.createrName,
 				vo.createrDepartment, vo.state, vo.name, vo.gender, vo.race,
 				vo.hukou, vo.home, vo.homeSum, vo.marry, vo.workable,
 				vo.idType, vo.first, vo.ill, vo.deformity, vo.deformityLevel,
@@ -215,6 +217,17 @@ public class Person {
 		}
 	}
 
+	public static ListData<Person> getAllOld(Person vo, String start,
+			String offset, String orderBy, String order) {
+		// 指定值对象类型(VOClass)。例子VOClass=User
+		// 指定插入表名称(tableName)。例子：如user表，tableName=user
+		// 指定O-R映射规则对象。默认mapping
+		return SimpleDaoTemplate
+				.query("select distinct (s.pid), p.* from  sldb_person p ,sldb_person_state s where 1 = 1 and p.id = s.pid",
+						new DymaticCondition().addCondition(
+								"and userId = '?' ", vo.getUserId()), mapping,
+						Person.class, start, offset);
+	}
 
 	public Person(String id, String identify, String type, String createTime,
 			String creater, String createrName, String createrDepartment,
@@ -495,5 +508,13 @@ public class Person {
 	@Override
 	public String toString() {
 		return new JSONObject(this).toString();
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public String getUserId() {
+		return userId;
 	}
 }

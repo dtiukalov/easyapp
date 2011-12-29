@@ -34,15 +34,15 @@
 			<table>
 				<tr align="right">
 					<td><%=name %>:</td>
-					<td><select id="<%=type+"_importDate"%>" class="easyui-combobox"
-					name="<%=type+"_importDate"%>" url="<%=request.getContextPath()%>/app/sldb/import/listImportDate.action?type=<%=type%>" valueField="importDate"
+					<td><select id="<%=type+"_importDateSource"%>" class="easyui-combobox"
+					name="<%=type+"_importDateSource"%>" url="<%=request.getContextPath()%>/app/sldb/import/listImportDate.action?type=<%=type%>" valueField="importDate"
 					textField="importDate" editable="true"></select></td>
 					<input type="hidden" name="idSource" value="<%=type%>"/>
 				</tr>
 			</table>
 			<script type="text/javascript">
 				$(function() {
-					$('#<%=type+"_importDate"%>').combobox({
+					$('#<%=type+"_importDateSource"%>').combobox({
 						width : 256,
 						value : "<%=date%>"
 					});
@@ -88,7 +88,7 @@
 						<td><%=names[i] %>:</td>
 						<td><select id="<%=ids[i]+"_importDate"%>" class="easyui-combobox"
 						name="<%=ids[i]+"_importDate"%>" url="<%=request.getContextPath()%>/app/sldb/import/listImportDate.action?type=<%=ids[i]%>" valueField="importDate"
-						textField="importDate" editable="true" value="<%=importDate[i] %>"></select></td>
+						textField="importDate" editable="true" value="<%=importDate[i]%>"></select></td>
 						<input type="hidden" name="idCheck" value="<%=ids[i] %>"/>
 					</tr>
 				<%  } %>
@@ -97,6 +97,7 @@
 				$(function() {
 				<%	
 					for (int i = 0; i < ids.length; ++i) {
+					
 				%>
 					$('#<%=ids[i]+"_importDate"%>').combobox({
 						width : 256,

@@ -49,7 +49,7 @@
 	<div region="north" split="false"
 		style="height: 100px; overflow: hidden;">
 		<div class="top_img">
-	    <div class="user-info">用户名：${authUser.name}　　           　[<a href="<%=request.getContextPath()%>/app/auth/user/logout.action">退出</a>] </div>
+	    <div class="user-info">用户名：${authUser.name}    　[<a href="<%=request.getContextPath()%>/app/auth/user/logout.action">退出</a>] </div>
 		<div class="menu-info"></div>	
 		</div> 
 	</div>

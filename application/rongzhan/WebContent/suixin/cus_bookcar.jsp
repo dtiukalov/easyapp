@@ -48,6 +48,14 @@ var saturnServerPath = '<%=request.getContextPath()%>';
 	}
 	
 	function submitForm(form) {
+		var testCode = $('#testCode').val();
+		if (testCode.toLowerCase() != code.toLowerCase()) {
+			alert('验证码不正确');
+			
+			$('#testCode').focus();
+			return;
+		}
+		
 		if ($('#phone').val() == '') {
 			alert('请填写电话');
 			$('#phone').focus();
@@ -111,7 +119,8 @@ var saturnServerPath = '<%=request.getContextPath()%>';
 					$('#brandName').val('');
 					$('#modelName').val('');
 					$('#seriesName').val('');
-					
+					$('#testCode').val('');
+					reload();
 					alert('保存成功!');
 				}
 			} 
@@ -163,14 +172,28 @@ var saturnServerPath = '<%=request.getContextPath()%>';
                 <tr align="left">
                   <td height="25px" align="right">预约型号：</td>
                   <td>
-                  <select id="model" name="model" onchange="seriesDict();" style="width:132px;"></select>
+                  <select id="model" name="model" onchange="seriesDict();" style="width:132px;">
+                  <option value=""></option>
+                  </select>
                   </td>
                 </tr>
                 <tr align="left">
                   <td height="25px" align="right">预约系列：</td>
                   <td>
-                  <select id="series" name="series" style="width:132px;"></select>
+                  <select id="series" name="series" style="width:132px;">
+                  <option value=""></option>
+                  </select>
                   </td>
+                </tr>
+                <tr align="left">
+                  <td height="25px" align="right">验证码：</td>
+                  <td colspan="2"><table cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td><input type="text" name="testCode" id="testCode" maxlength="4" size="4"/>
+                        &nbsp; </td>
+                      <td><img id="testCodeImage" alt="点击更换图片" onclick="reload()" style="cursor:pointer;"/></td>
+                    </tr>
+                  </table></td>
                 </tr>
                 <tr>
                   <td>&nbsp;</td>

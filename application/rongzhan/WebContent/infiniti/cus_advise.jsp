@@ -8,8 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="js/swfobject_modified.js" type="text/javascript"></script>
-<link rel="stylesheet" type="text/css" href="css/shouye.css"/>
+<link href="css/base.css" rel="stylesheet" type="text/css" />
 <link href="css/page.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="<%=request.getContextPath()%>/app/js/jquery-1.4.4.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/app/js/formValidator.js"></script>
@@ -83,17 +82,19 @@
 		});
 	}
 </script>
-<body style="margin:0px; padding:0px;">
-	<%@ include file="include/top.jsp" %>
- <div id="content">
-    <%@ include file="include/navigate.jsp" %>
-      <div class="right">
-      	<div class="nrbt">
-        	<div class="biaoti"><%=__aname %></div>
-        	<div class="weizhi">您所在的位置：<a href="index.jsp">首页</a>&nbsp;|&nbsp;<a href="<%=WebUtils.getLink(__cid, null)%>"><%=__cname %></a>&nbsp;|&nbsp;投诉建议</div>
-        	<div class="clear"></div>
+<body>
+<div id="container">
+<%@ include file="include/top.jsp" %>
+<div id="content">  
+	<%@ include file="include/navigate.jsp" %>
+    <div class="right">
+    	<div class="nr">
+        <div class="ybt">
+        <div class="biaoti"><%=__aname %></div>
+        <div class="weizhi">您所在的位置：<a href="index.jsp">首页</a>&nbsp;|&nbsp;<a href="<%=WebUtils.getLink(__cid, null)%>"><%=__cname %></a>&nbsp;|&nbsp;投诉建议</div>
+        <div class="clear"></div>
         </div>
-        <div class="nrzj">
+        <div class="ynr">
         	<div class="neirong">
         	<table border="0" cellpadding="0" cellspacing="0" style="width:90%; margin-left: 30px;">
             <tr>
@@ -149,51 +150,12 @@
           </table>
         </div>
         </div>
-        <div class="nrdi"><img src="image/nr_xia.gif" /></div>
-      </div><!--右铡-->
-      <div class="clear"></div>
-</div>
+        <div class="ydi"><img src="images/nr_xia.gif" /></div>
+        </div>
+    </div><!--右侧-->
+    <div class="clear"></div>
+</div><!--内容-->
 <%@ include file="include/foot.jsp" %>
+</div>
 </body>
-<script type="text/javascript">
-	/*$(document).ready(function() {
-		$.formValidator.initConfig({
-			formid : "addForm"
-		});
-		
-		$("#sendText").formValidator({
-			empty : true,
-			onfocus : "留言内容不超过500字符"
-		}).inputValidator({
-			min : 1,
-			max : 500
-		});
-		
-		$("#sendName").formValidator({
-			empty : true,
-			onfocus : "用户姓名不能为空,不超过50个字符！"
-		}).inputValidator({
-			min : 1,
-			max : 50
-		});
-		
-		$("#sendEmail").formValidator({
-			empty : true,
-			onfocus : "请正确填写邮箱，例如：some@163.com"
-		}).regexValidator({
-			regexp : "email"
-		}).inputValidator({
-			max : 100,
-			onerror : "不超过100个字符"
-		});
-
-		$("#sendPhone").formValidator({
-			empty : true,
-			onfocus : "请正确填写电话(11位)，例如：13566969636"
-		}).inputValidator({
-			max : 100,
-			onerror : "不超过100个字符"
-		});
-	});*/
-</script>
 </html>

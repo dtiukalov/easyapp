@@ -37,9 +37,9 @@
 	                        	<div class="lg"><img src="images/logo_yfnd.gif" /></div>
 	                        </div><!--左侧-->
 	                        <div class="right1">
-	                        	<div class="tupian"><a href="../xingsheng/index.jsp" target="_blank"><img src="images/xingsheng.jpg" /></a></div>
+	                        	<div class="tupian"><a href="../infiniti/index.jsp" target="_blank"><img src="images/xingsheng.jpg" /></a></div>
 	                            <div class="mingcheng">
-	                            <p><a href="../xingsheng/index.jsp" target="_blank"><span>英菲尼迪长春融展兴盛专营店</span></a></p>
+	                            <p><a href="../infiniti/index.jsp" target="_blank"><span>英菲尼迪长春融展兴盛专营店</span></a></p>
 	                            <p>地址：吉林省长春市西新区长沈路3999号</p>
 	                            <p>销售：0431-85971555/85972333</p>
 	                            <p>客服：0431- 81501592</p>

@@ -76,7 +76,7 @@
 					$("#sendEmail").val('');
 					$("#sendPhone").val('');
 					$('#testCode').val('');
-					
+					reload();
 					alert('保存成功!');
 				}
 			} 

@@ -235,11 +235,7 @@
 		}
 		
 		function confirmVO(id){
-			$.messager.confirm('确认申报项', '确认申报该选项', function(result){
-				if (result){
-					window.location.href='<%=request.getContextPath()%>/app/sldb/person/confirm.action?ids=' + id;
-				}
-			});
+			window.location.href='<%=request.getContextPath()%>/app/sldb/person/pass.jsp?ids=' + id;
 			return false;
 		}
 		

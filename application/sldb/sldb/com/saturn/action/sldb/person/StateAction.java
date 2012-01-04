@@ -22,10 +22,6 @@ public class StateAction implements IAction{
 
 		PersonState vo = BeanUtils.getBean(request, PersonState.class);
 		
-		String pid  =  request.getParameter("ids");
-		
-		vo.setPid(pid);
-		
 		ListData<PersonState> data = PersonState.getAll(vo, dataGridInfo.getStartPage(),
 				dataGridInfo.getRows(), dataGridInfo.getSortId(),
 				dataGridInfo.getOreder());

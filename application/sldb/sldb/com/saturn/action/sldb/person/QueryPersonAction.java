@@ -12,7 +12,6 @@ import com.saturn.app.web.easyui.DataGridInfo;
 import com.saturn.app.web.view.JsonView;
 import com.saturn.auth.User;
 import com.saturn.sldb.Person;
-import com.saturn.sldb.PersonState;
 
 public class QueryPersonAction implements IAction{
 

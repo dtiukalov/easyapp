@@ -12,8 +12,10 @@
 	
 </head>
 <script type="text/javascript">
+
 	function check() {
 		$('#checkForm').submit();
+	
 	}
 </script>
 <body>
@@ -32,12 +34,21 @@
 				}
 			%>
 			<table>
+				<tr align="left">
+				<td>核对方式:</td>
+					<td>
+						<select id="way" name="way" class="easyui-combobox">
+							<option value="identify">身份证号</option>
+							<option value="name">姓名</option>
+						</select></td>
+						
+				</tr>
 				<tr align="right">
 					<td><%=name %>:</td>
 					<td><select id="<%=type+"_importDateSource"%>" class="easyui-combobox"
 					name="<%=type+"_importDateSource"%>" url="<%=request.getContextPath()%>/app/sldb/import/listImportDate.action?type=<%=type%>" valueField="importDate"
 					textField="importDate" editable="true"></select></td>
-					<input type="hidden" name="idSource" value="<%=type%>"/>
+					<input type="hidden" id="idSource" name="idSource" value="<%=type%>"/>
 				</tr>
 			</table>
 			<script type="text/javascript">

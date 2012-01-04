@@ -202,20 +202,12 @@
 		}
 		
 		function deleteVO(id){
-			$.messager.confirm('确认驳回项', '确认驳回该选项', function(result){
-				if (result){
-					window.location.href='<%=request.getContextPath()%>/app/sldb/person/refuse.action?ids=' + id;
-				}
-			});
+			window.location.href='<%=request.getContextPath()%>/app/sldb/person/refuse.jsp?ids=' + id;
 			return false;
 		}
 		
 		function confirmVO(id){
-			$.messager.confirm('确认通过项', '确认通过该选项', function(result){
-				if (result){
-					window.location.href='<%=request.getContextPath()%>/app/sldb/person/confirm.action?ids=' + id;
-				}
-			});
+			window.location.href='<%=request.getContextPath()%>/app/sldb/person/pass.jsp?ids=' + id;
 			return false;
 		}
 		

@@ -18,7 +18,7 @@
 				singleSelect : false,//只能选一行
 				url : '<%=request.getContextPath()%>/app/sldb/person/state.action',
 				queryParams : {
-					ids : '<%=request.getParameter("ids")%>'
+					pid : '<%=request.getParameter("pid")%>'
 				},
 				idField : 'id',//唯一标识列
 				sortName : 'id',

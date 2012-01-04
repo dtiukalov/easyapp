@@ -22,33 +22,47 @@
 	<div id="panel" class="easyui-panel" title="户主信息"
 		icon="icon-query-form" collapsible="true" style="padding: 10px;">
 		<div title="家庭成员信息">
-			<div class="easyui-tabs" fit="true" plain="true" style="height:500px;width:150px;">
+			<div class="easyui-tabs"  plain="true" style="height:500px;width:500px;">
 				<div title="${person.name}-户主">
 				<table class="table-form">
+					<tr></tr>
+					<tr></tr>
 					<tr>
 						<td style="text-align:right">户主姓名：</td>
 						<td>${person.name}</td>
 					</tr>
+					<tr></tr>
+					<tr></tr>
 					<tr>
 						<td style="text-align:right">类型：</td>
 						<td>${person.type}</td>
 					</tr>
+					<tr></tr>
+					<tr></tr>
 					<tr>
 						<td style="text-align:right">性别：</td>
 						<td>${person.gender}</td>
 					</tr>
+					<tr></tr>
+					<tr></tr>
 					<tr>
 						<td style="text-align:right">身份证号：</td>
 						<td>${person.identify}</td>
 					</tr>
+					<tr></tr>
+					<tr></tr>
 					<tr>
 						<td style="text-align:right">民族：</td>
 						<td>${person.race}</td>
 					</tr>
+					<tr></tr>
+					<tr></tr>
 					<tr>
 						<td style="text-align:right">户口类别：</td>
 						<td>${person.hukou}</td>
 					</tr>
+					<tr></tr>
+					<tr></tr>
 					<tr>
 						<td style="text-align:right">家庭类别：</td>
 						<td>${person.home}</td>
@@ -57,11 +71,14 @@
 						<td style="text-align:right">家庭人口：</td>
 						<td>${person.homeSum}</td>
 					</tr>
-					
+					<tr></tr>
+					<tr></tr>
 					<tr>
 						<td style="text-align:right">婚姻状况：</td>
 						<td>${person.marry}</td>
 					</tr>
+					<tr></tr>
+					<tr></tr>
 					<tr>
 						<td style="text-align:right">劳动能力：</td>
 						<td>${person.workable}</td>

@@ -333,7 +333,7 @@ public class Import {
 	public static List<HashMap> getIdImportOrderBy(String tableName, String importDate, String order) {
 		String table = tableName + importDate;
 		
-		return SimpleDaoTemplate.query("SELECT id, " + order + " FROM `" + table + "` order by " + order + " asc",
+		return SimpleDaoTemplate.query("SELECT id, " + order + ", name FROM `" + table + "` order by " + order + " asc",
 				null,
 				mappingMap, HashMap.class);
 	}

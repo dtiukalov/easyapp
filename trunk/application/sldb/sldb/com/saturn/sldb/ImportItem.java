@@ -84,7 +84,7 @@ public class ImportItem {
 		//指定插入表名称(tableName)。例子：如user表，tableName=user
 		//指定O-R映射规则对象。默认mapping
 		return SimpleDaoTemplate.query("SELECT * FROM sldb_import_item WHERE 1 = 1",
-				new DymaticCondition().addSimpleCondition(vo, "name", "infoId")
+				new DymaticCondition().addSimpleCondition(vo, "name").addCondition("and infoId='?'", vo.getInfoId())
 						.addCondition("ORDER BY {0} {1}", orderBy, order),
 				mapping, ImportItem.class, start, offset);
 	}

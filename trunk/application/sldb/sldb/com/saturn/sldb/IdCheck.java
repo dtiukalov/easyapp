@@ -99,10 +99,11 @@ public class IdCheck {
 	@SuppressWarnings("rawtypes")
 	public static HashMap batchCheck(String id, String importDate, String toId,
 			String toImportDate) {
-		ImportInfo info = ImportInfo.get(id);
+		ImportInfo info = ImportInfo.get(id);//
 		List<HashMap> persons = Import.getAllImportOrderBy(info.getTableName(),
 				importDate, "identify");
 		String key = "identify";
+		
 		List<HashMap> result = new ArrayList<HashMap>();
 		List<HashMap> source = new ArrayList<HashMap>();
 
@@ -154,8 +155,9 @@ public class IdCheck {
 
 				String identify1 = firstValue.get("identify") + "";
 				String identify2 = secondValue.get(key) + "";
-
+				
 				int index = identify1.compareTo(identify2);
+				
 				if (index == 0) {
 					if (identify2 != null && !"".equals(identify2)) {
 						result.add(secondValue);
@@ -186,6 +188,89 @@ public class IdCheck {
 		return resultMap;
 	}
 
+	@SuppressWarnings("rawtypes")
+	public static HashMap batchCheckByName(String id, String importDate, String toId,
+			String toImportDate) {
+		ImportInfo info = ImportInfo.get(id);
+		List<HashMap> persons = Import.getAllImportOrderBy(info.getTableName(),
+				importDate, "name");
+		String key = "name";
+		
+		List<HashMap> result = new ArrayList<HashMap>();
+		List<HashMap> source = new ArrayList<HashMap>();
+
+		if (id.equals(toId)) {// check oneself
+			if (!persons.isEmpty()) {
+				HashMap first = persons.get(0);
+
+				for (int i = 1; i < persons.size(); ++i) {
+					HashMap second = (HashMap) persons.get(i);
+
+					String firstValue = (String) first.get(key);
+					String secondValue = (String) second.get(key);
+
+					if (firstValue.equals("") || secondValue.equals("")) {
+						first = second;
+						continue;
+					}
+
+					if (firstValue.equals(secondValue)) {
+						result.add(first);
+						source.add(second);
+					} else {
+						first = second;
+					}
+				}
+			}
+		} else {
+			ImportInfo toInfo = ImportInfo.get(toId);
+			String tableName = toInfo.getTableName();
+
+			if (tableName.indexOf("marry") >= 0) {
+				key = "mName";
+			}
+			List<HashMap> others = Import.getAllImportOrderBy(tableName,
+					toImportDate, key);
+
+			int firstSize = persons.size();
+			int secondSize = others.size();
+
+			int first = 0;
+			int second = 0;
+
+			HashMap firstValue = null;
+			HashMap secondValue = null;
+
+			while (first < firstSize && second < secondSize) {
+				firstValue = persons.get(first);
+				secondValue = others.get(second);
+
+				String name1 = firstValue.get("name") + "";
+				String name2 = secondValue.get(key) + "";
+				
+				int index = name1.compareTo(name2);
+				
+				if (index == 0) {
+					if (name2 != null && !"".equals(name2)) {
+						result.add(secondValue);
+						source.add(firstValue);
+					}
+					first++;
+					second++;
+				} else if (index > 0) {
+					second++;
+				} else {
+					first++;
+				}
+			}
+		}
+
+		HashMap<String, List<HashMap>> resultMap = new HashMap<String, List<HashMap>>();
+		resultMap.put("result", result);
+		resultMap.put("source", source);
+		return resultMap;
+	}
+	
 	public static String check(String pid) {
 		Person person = Person.get(pid);
 		List<PersonSub> subs = PersonSub.getByPid(pid);

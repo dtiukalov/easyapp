@@ -4,7 +4,9 @@
 <a href="companylist.jsp?cid=rongzhan.about&aid=rongzhan.about.company"><img src="images/pp_aodi.gif" /></a>
 <a href="companylist.jsp?cid=rongzhan.about&aid=rongzhan.about.company"><img src="images/pp_nissan.gif" /></a>
 <a href="companylist.jsp?cid=rongzhan.about&aid=rongzhan.about.company"><img src="images/pp_yqdz.gif" /></a>
+<a href="companylist.jsp?cid=rongzhan.about&aid=rongzhan.about.company"><img src="images/pp_honda.gif" /></a>
 <a href="companylist.jsp?cid=rongzhan.about&aid=rongzhan.about.company"><img src="images/pp_buick.gif" /></a>
+<a href="companylist.jsp?cid=rongzhan.about&aid=rongzhan.about.company"><img src="images/pp_xfl.gif" /></a>
 <div class="lxwm">
 	<div class="lxwmbt">联系我们</div>
     <div class="lxwmzj">

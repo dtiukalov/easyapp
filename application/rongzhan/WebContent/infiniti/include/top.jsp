@@ -6,7 +6,7 @@
 <div id="header">
 	<div class="top">
     	<div class="logo"><img src="images/logo.gif" /></div>
-		<div class="xs">吉林省融展兴盛汽车销售服务有限公司</div>
+		<div class="xs">英菲尼迪长春融展兴盛专营店</div>
 		<div class="rzlogo"><a href="../rongzhan/index.jsp"><img src="../rongzhan/images/fhrz.gif" /></a></div>
     </div><!--上部分-->
     <div class="nav">

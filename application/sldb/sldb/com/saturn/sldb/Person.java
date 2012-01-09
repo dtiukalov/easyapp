@@ -130,7 +130,8 @@ public class Person {
 				"SELECT * FROM sldb_person WHERE 1 = 1",
 				new DymaticCondition().addSimpleCondition(vo, "state",
 						"identify", "name", "gender", "createrName",
-						"createTime").addCondition("ORDER BY {0} {1}", orderBy,
+						"createTime","creater")
+						.addCondition("ORDER BY {0} {1}", orderBy,
 						order), mapping, Person.class, start, offset);
 	}
 

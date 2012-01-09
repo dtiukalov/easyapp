@@ -16,10 +16,6 @@
 		String id = request.getParameter("id");
 	%>
 	<script type="text/javascript">
-		function refuse(){
-			window.location.href='<%=request.getContextPath()%>/app/sldb/person/refuse.action?ids=' + <%=id%> + '&note=' + $('#note').val();
-			return false;
-		}
 		
 		function setsize(){
 			$('#accordion').width(700).height(350);
@@ -262,8 +258,6 @@
 						<div style="padding: 40px;">
 							<a href="#" class="easyui-linkbutton" onclick="submit();"
 								iconCls="icon-ok">通过</a> 
-							<a href="#" onclick="refuse()"; class="easyui-linkbutton" 
-								iconCls="icon-cancel">驳回</a> 
 							<a href="javascript:history.back(-1)" class="easyui-linkbutton" 
 								iconCls="icon-back">返回</a>
 						</div>

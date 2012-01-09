@@ -6,7 +6,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>申请低保信息</title>
 	<%@ include file="/app/includes/header.jsp"%>
-	
 	<script type="text/javascript">
 		$(function() {
 			$('#queryTable').datagrid({
@@ -195,7 +194,7 @@
 							$.messager.alert('提示','只能选择一项','info');
 							return;
 						}
-						window.location.href='<%=request.getContextPath()%>/app/sldb/person/sub/queryPersonTab.action?id='+rows[0].id; 
+						window.location.href='<%=request.getContextPath()%>/app/sldb/person/sub/queryPersonTab.action?id='+rows[0].id + '&type=0'; 
 						//带参数传入下一个jsp页面
 						return false;//解决IE6的不跳转的bug
 					}

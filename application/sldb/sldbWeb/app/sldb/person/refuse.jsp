@@ -8,7 +8,7 @@
 	<%@ include file="/app/includes/header.jsp"%>
 	<script type="text/javascript">
 	function check() {
-		$('#pass').submit();
+		$('#refuse').submit();
 	}
 	</script>
 </head>
@@ -16,7 +16,7 @@
 	<div id="panel" class="easyui-panel" title="驳回低保理由"
 		icon="icon-query-form" collapsible="true" style="padding: 10px;">
 		
-		<form id="pass" name="pass" method="post" action="<%=request.getContextPath()%>/app/sldb/person/refuse.action">
+		<form id="refuse" name="refuse" method="post" action="<%=request.getContextPath()%>/app/sldb/person/refuse.action">
 		<input type="hidden" id="ids" name="ids" value="<%=request.getParameter("ids")%>">
 			<table>
 				<tr align="right">
@@ -26,7 +26,7 @@
 			</table>
 			<div style="padding: 40px;" >
 				<a href="#" class="easyui-linkbutton" onclick="submit();" 
-					iconCls="icon-search">驳回</a>
+					iconCls="icon-back">驳回</a>
 				<a href="javascript:history.back(-1)" class="easyui-linkbutton"" 
 					iconCls="icon-cancel">取消</a>
 			</div>

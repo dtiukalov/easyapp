@@ -26,7 +26,7 @@
 			</table>
 			<div style="padding: 40px;" >
 				<a href="#" class="easyui-linkbutton" onclick="submit();" 
-					iconCls="icon-search">通过</a>
+					iconCls="icon-ok">通过</a>
 				<a href="javascript:history.back(-1)" class="easyui-linkbutton"" 
 					iconCls="icon-cancel">取消</a>
 			</div>

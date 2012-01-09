@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>首页</title>
+<title>东风日产绥化融展绥鑫专营店</title>
 <script src="js/swfobject_modified.js" type="text/javascript"></script>
 <link rel="stylesheet" type="text/css" href="css/shouye.css" />
 <link rel="stylesheet" type="text/css" href="css/page.css"  />

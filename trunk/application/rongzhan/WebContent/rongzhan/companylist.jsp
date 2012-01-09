@@ -58,9 +58,9 @@
 	                        	<div class="lg"><img src="images/logo_ad.gif" /></div>
 	                        </div><!--左侧-->
 	                        <div class="right1">
-	                        	<div class="tupian"><a href="../rongsheng/index.jsp" target="_blank"><img src="images/rongsheng.jpg" /></a></div>
+	                        	<div class="tupian"><a href="javascript:void(0);" target="_blank"><img src="images/rongsheng.jpg" /></a></div>
 	                            <div class="mingcheng">
-	                            <p><a href="../rongsheng/index.jsp" target="_blank"><span>通化融晟奥迪专营店</span></a></p>
+	                            <p><a href="javascript:void(0);" target="_blank"><span>通化融晟奥迪专营店</span></a></p>
 	                            <p>地址：通化市新胜北路5888号</p>
 	                            <p>销售：0435-3451888/3451999</p>
 	                            <p>客服：0435-3632788</p>
@@ -130,9 +130,9 @@
                         	<div class="lg"><img src="images/logo_yqdz.gif" /></div>
                         </div><!--左侧-->
                         <div class="right1">
-                        	<div class="tupian"><a href="../xinyu/index.jsp" target="_blank"><img src="images/tonghu.jpg" /></a></div>
+                        	<div class="tupian"><a href="javascript:void(0);" target="_blank"><img src="images/tonghu.jpg" /></a></div>
                             <div class="mingcheng">
-                            <p><a href="../xinyu/index.jsp" target="_blank"><span>通化鑫宇一汽-大众专营店</span></a></p>
+                            <p><a href="javascript:void(0);" target="_blank"><span>通化鑫宇一汽-大众专营店</span></a></p>
                             <p>地址：吉林省通化市新胜北路2355号(通梅零公里)</p>
                             <p>销售：0435-3620866/3620799</p>
                             <p>客服：0435-3628519</p>
@@ -148,15 +148,57 @@
 	               		<div class="qxppzj">
 	                    	<div class="qxppzjnr">
 	                		<div class="left1">
+	                        	<div class="lg"><img src="images/logo_hoda.gif" /></div>
+	                        </div><!--左侧-->
+	                        <div class="right1">
+	                        	<div class="tupian"><a href="javascript:void(0);" target="_blank"><img src="images/suihua.jpg" /></a></div>
+	                            <div class="mingcheng">
+	                            <p><a href="javascript:void(0);" target="_blank"><span>东风本田4S店</span></a></p>
+	                            <p>地址：</p>
+	                            <p>销售：</p>
+	                            <p>客服：</p>
+								</div>
+	                        </div><!--右侧-->
+	                        <div class="clear"></div>
+	                		</div><!--旗下品牌内容部分-->
+	                	</div>
+	               		<div class="qxppdi"><img src="images/qxpp_di.gif" /></div>
+	           	 </div><!--一汽大众-->
+	           	 <div class="yqdz">
+	            		<div class="qxpptt"><img src="images/qxpp_tt.gif" /></div>
+	               		<div class="qxppzj">
+	                    	<div class="qxppzjnr">
+	                		<div class="left1">
 	                        	<div class="lg"><img src="images/logo_buick.gif" /></div>
 	                        </div><!--左侧-->
 	                        <div class="right1">
-	                        	<div class="tupian"><a href="../xingsheng/index.jsp" target="_blank"><img src="images/suihua.jpg" /></a></div>
+	                        	<div class="tupian"><a href="javascript:void(0);" target="_blank"><img src="images/suihua.jpg" /></a></div>
 	                            <div class="mingcheng">
-	                            <p><a href="../xingsheng/index.jsp" target="_blank"><span>绥化融展兴盛别克4S店</span></a></p>
+	                            <p><a href="javascript:void(0);" target="_blank"><span>绥化融展兴盛别克4S店</span></a></p>
 	                            <p>地址：北林区西二环路电力名苑南</p>
 	                            <p>销售：0455-8792123</p>
 	                            <p>客服：0455-8251969</p>
+								</div>
+	                        </div><!--右侧-->
+	                        <div class="clear"></div>
+	                		</div><!--旗下品牌内容部分-->
+	                	</div>
+	               		<div class="qxppdi"><img src="images/qxpp_di.gif" /></div>
+	           	 </div><!--一汽大众-->
+	           	 <div class="yqdz">
+	            		<div class="qxpptt"><img src="images/qxpp_tt.gif" /></div>
+	               		<div class="qxppzj">
+	                    	<div class="qxppzjnr">
+	                		<div class="left1">
+	                        	<div class="lg"><img src="images/logo_xfl.gif" /></div>
+	                        </div><!--左侧-->
+	                        <div class="right1">
+	                        	<div class="tupian"><a href="javascript:void(0);" target="_blank"><img src="images/suihua.jpg" /></a></div>
+	                            <div class="mingcheng">
+	                            <p><a href="javascript:void(0);" target="_blank"><span>雪弗兰4S店</span></a></p>
+	                            <p>地址：</p>
+	                            <p>销售：</p>
+	                            <p>客服：</p>
 								</div>
 	                        </div><!--右侧-->
 	                        <div class="clear"></div>

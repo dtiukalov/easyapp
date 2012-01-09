@@ -64,7 +64,7 @@ a:hover {
 	width:980px;
 	height:35px;
 	text-align:center;
-	background:url(../images/top_bg.gif) repeat-x 0 0;
+	background:url(../images/nav_bg.jpg) repeat-x 0 0;
 }
 .nav li {
 	float:left;
@@ -73,6 +73,8 @@ a:hover {
 .nav li a {
 	display:block;
 	width:122px;
+	font-size:16px;
+	font-family:"微软雅黑",Arial, Helvetica, sans-serif;
 }
 .clear {
 	clear:both;

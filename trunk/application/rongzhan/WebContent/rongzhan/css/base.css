@@ -33,7 +33,14 @@ a:hover {
 }
 .ln {
 	float:left;
+	width:451px;
+	height:61px;
+	background:url(../images/rdtx.jpg) no-repeat 0 0;
 }
+.lnn {
+	float:left;
+}
+
 .clear {
 	clear:both;
 }

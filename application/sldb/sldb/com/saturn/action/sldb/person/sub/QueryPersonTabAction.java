@@ -24,7 +24,13 @@ public class QueryPersonTabAction implements IAction{
 		List<PersonSub> voPerson = PersonSub.getByPid(pid);
 		request.setAttribute("person", voP);
 		request.setAttribute("personTab", voPerson);
-		return new JspView("/app/sldb/person/sub/personTab.jsp");
+		
+		String type = request.getParameter("type");
+		if (null != type && "0".equals(type)){
+			return new JspView("/app/sldb/person/sub/tab.jsp");
+		} else {
+			return new JspView("/app/sldb/person/sub/personTab.jsp");
+		}
 	}
 
 	public String requestMapping() {

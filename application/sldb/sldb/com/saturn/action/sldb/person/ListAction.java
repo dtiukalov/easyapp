@@ -10,6 +10,7 @@ import com.saturn.app.web.IAction;
 import com.saturn.app.web.IView;
 import com.saturn.app.web.easyui.DataGridInfo;
 import com.saturn.app.web.view.JsonView;
+import com.saturn.auth.User;
 import com.saturn.sldb.Person;
 
 public class ListAction implements IAction {
@@ -21,6 +22,9 @@ public class ListAction implements IAction {
 
 		Person vo = BeanUtils.getBean(request, Person.class);
 
+		User user = (User)request.getSession().getAttribute("authUser");
+		vo.setCreater(user.getId());
+		
 		ListData<Person> data = Person.getAll(vo, dataGridInfo.getStartPage(),
 				dataGridInfo.getRows(), dataGridInfo.getSortId(),
 				dataGridInfo.getOreder());

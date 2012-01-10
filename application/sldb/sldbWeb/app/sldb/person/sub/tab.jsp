@@ -32,6 +32,9 @@
 			border-bottom-style: dashed;
 			border-bottom-color: #CCCCCC;
 			height:20px;
+			color:black;
+			width:200px;
+			padding-left:20px;
 		}
 	</style>
 	
@@ -42,7 +45,7 @@
 			<div title="家庭信息" selected="true" style="overflow:auto;padding:10px;">
 				<div class="easyui-tabs"  plain="true" fit="true" style="height:500px;width:500px;">
 				<div title="${person.name}-户主">
-				<table class="table-form" style="margin-left:20px;">
+				<table class="table-form" style="margin-left:80px;width:500px;">
 					<tr>
 						<td style="text-align:right">户主姓名：</td>
 						<td >${person.name}</td>

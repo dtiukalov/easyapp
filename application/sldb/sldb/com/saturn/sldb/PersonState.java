@@ -18,6 +18,7 @@ public class PersonState {
 	private String userId;
 	private String userName;
 	private String createTime;
+	private String department;
 
 	private String name;
 	private String identify;
@@ -37,8 +38,8 @@ public class PersonState {
 		//指定插入表名称(tableName)。例子：如user表3个列，tableName=user(id, name, gender)
 		//根据列的顺序获取值对象的属性值。例子：vo.getId(), vo.getName(), vo.getGender()
 		return SimpleDaoTemplate.update(connection,
-				"INSERT INTO sldb_person_state(pid, userId, userName, createTime, name, identify, state, note)" +
-				" VALUES(?, ?, ?, ?, ?, ?, ?, ?)", 
+				"INSERT INTO sldb_person_state(pid, userId, userName, createTime, name, identify, state, note, department)" +
+				" VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)", 
 				vo.pid,
 				vo.userId,
 				vo.userName,
@@ -46,7 +47,8 @@ public class PersonState {
 				vo.name,
 				vo.identify,
 				vo.state,
-				vo.note
+				vo.note,
+				vo.department
 		);
 	}
 	
@@ -107,7 +109,7 @@ public class PersonState {
 	
 	public PersonState(String id, String pid, String userId, String userName,
 			String createTime, String name, String identify, String state,
-			String note) {
+			String note, String department) {
 		super();
 		this.id = id;
 		this.pid = pid;
@@ -118,6 +120,7 @@ public class PersonState {
 		this.identify = identify;
 		this.state = state;
 		this.note = note;
+		this.department = department;
 	}
 
 	public PersonState() {
@@ -199,5 +202,13 @@ public class PersonState {
 	@Override
 	public String toString() {
 		return new JSONObject(this).toString();
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+
+	public String getDepartment() {
+		return department;
 	}
 }

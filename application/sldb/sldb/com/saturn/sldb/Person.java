@@ -136,7 +136,7 @@ public class Person {
 	}
 
 	public static int confirm(final String id, final String userId,
-			final String note) {
+			final String note, final String department) {
 		return SimpleDaoTemplate.update(new ITransaction() {
 			public int execute(Connection connection) {
 
@@ -148,7 +148,7 @@ public class Person {
 				PersonState personState = new PersonState(null, id, userId,
 						user.getName(), DateUtils.getSystemTime(), person
 								.getName(), person.getIdentify(), nextState,
-						note);
+						note, department);
 
 				state(connection, id, nextState);
 				PersonState.add(connection, personState);
@@ -159,16 +159,16 @@ public class Person {
 	}
 
 	public static int confirm(final String[] ids, final String userId,
-			final String note) {
+			final String note, final String department) {
 		for (String id : ids) {
-			confirm(id, userId, note);
+			confirm(id, userId, note, department);
 		}
 
 		return 1;
 	}
 
 	public static int refuse(final String id, final String userId,
-			final String note) {
+			final String note, final String department) {
 		return SimpleDaoTemplate.update(new ITransaction() {
 			public int execute(Connection connection) {
 
@@ -180,7 +180,7 @@ public class Person {
 				PersonState personState = new PersonState(null, id, userId,
 						user.getName(), DateUtils.getSystemTime(), person
 								.getName(), person.getIdentify(), nextState,
-						note);
+						note, department);
 
 				state(connection, id, nextState);
 				PersonState.add(connection, personState);
@@ -191,9 +191,9 @@ public class Person {
 	}
 
 	public static int refuse(final String[] ids, final String userId,
-			final String note) {
+			final String note, final String department) {
 		for (String id : ids) {
-			refuse(id, userId, note);
+			refuse(id, userId, note, department);
 		}
 
 		return 1;

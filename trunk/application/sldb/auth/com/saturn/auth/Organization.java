@@ -87,6 +87,19 @@ public class Organization {
 				mapping, Organization.class);
 	}
 	
+	public static Organization getOneOrganizationByUser(String userId) {
+		//指定值对象类型(VOClass)。例子VOClass=User
+		//指定插入表名称(tableName)。例子：如user表，tableName=user
+		//指定O-R映射规则对象。默认mapping
+		List<Organization> organizations = getOrganizationByUser(userId);
+		if (organizations != null && !organizations.isEmpty()) {
+			return organizations.get(0);
+		}
+		
+		return null;
+	}
+	
+	
 	//获得部门负责职位
 	public static Organization getManager(String oid) {
 		Organization organization = get(oid);

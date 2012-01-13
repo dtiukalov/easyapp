@@ -16,6 +16,11 @@
 		String id = request.getParameter("id");
 	%>
 	<script type="text/javascript">
+	
+		function submit() {
+			$('#pass').submit();
+		}
+		
 		function refuse(){
 			window.location.href='<%=request.getContextPath()%>/app/sldb/person/refuse.action?ids=' + <%=id%> + '&note=' + $('#note').val();
 			return false;

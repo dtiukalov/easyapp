@@ -24,119 +24,102 @@
 		function select(){
 			$('#tab').accordion('select','家庭信息');
 		}
+		
+		function submit() {
+			$('#pass').submit();
+		}
 	</script>
 	
 	<style type="text/css">
-		.table-form tr td {
-			border-bottom-width: 1px;
-			border-bottom-style: dashed;
-			border-bottom-color: #CCCCCC;
-			height:20px;
-			color:black;
+		.table tr td {
+			height:25px;
 			width:200px;
-			padding-left:20px;
+			text-align:left;
+			border-color:#000;
+			
+		}
+		.a {
+			background-color:#EAF3FD;
 		}
 	</style>
 	
 </head>
 <body>
 		<div id="accordion" fit="true" style="overflow:auto;">
-		<div id="tab" class="easyui-accordion" fit="true" style="width:300px;height:550px;">
+		<div id="tab" class="easyui-accordion" fit="true" style="width:300px;height:440px;">
 			<div title="家庭信息" selected="true" style="overflow:auto;padding:10px;">
 				<div class="easyui-tabs"  plain="true" fit="true" style="height:500px;width:500px;">
 				<div title="${person.name}-户主">
-				<table class="table-form" style="margin-left:80px;width:500px;">
+				<table class="table" border="1"; style="width:100%; border-collapse:collapse;">
 					<tr>
-						<td style="text-align:right">户主姓名：</td>
+						<td class="a" style="text-align:right">户主姓名：</td>
 						<td >${person.name}</td>
-					</tr>
-					<tr>
-						<td style="text-align:right">类型：</td>
+						<td class="a" style="text-align:right">类型：</td>
 						<td>${person.type}</td>
 					</tr>
 					<tr>
-						<td style="text-align:right">性别：</td>
+						<td class="a" style="text-align:right">性别：</td>
 						<td>${person.gender}</td>
-					</tr>
-					<tr>
-						<td style="text-align:right">身份证号：</td>
+						<td class="a" style="text-align:right">身份证号：</td>
 						<td>${person.identify}</td>
 					</tr>
 					<tr>
-						<td style="text-align:right">民族：</td>
+						<td class="a" style="text-align:right">民族：</td>
 						<td>${person.race}</td>
-					</tr>
-					<tr>
-						<td style="text-align:right">户口类别：</td>
+						<td class="a" style="text-align:right">户口类别：</td>
 						<td>${person.hukou}</td>
 					</tr>
 					<tr>
-						<td style="text-align:right">家庭类别：</td>
+						<td class="a" style="text-align:right">家庭类别：</td>
 						<td>${person.home}</td>
-					</tr>
-					<tr>
-						<td style="text-align:right">家庭人口：</td>
+						<td class="a" style="text-align:right">家庭人口：</td>
 						<td>${person.homeSum}</td>
 					</tr>
 					<tr>
-						<td style="text-align:right">婚姻状况：</td>
+						<td class="a" style="text-align:right">婚姻状况：</td>
 						<td>${person.marry}</td>
-					</tr>
-					<tr>
-						<td style="text-align:right">劳动能力：</td>
+						<td class="a" style="text-align:right">劳动能力：</td>
 						<td>${person.workable}</td>
 					</tr>
 					<tr>
-						<td style="text-align:right">身份类别：</td>
+						<td class="a" style="text-align:right">身份类别：</td>
 						<td>${person.idType}</td>
-					</tr>
-					<tr>
-						<td style="text-align:right">是否优抚对象：</td>
+						<td class="a" style="text-align:right">是否优抚对象：</td>
 						<td>${person.first}</td>
 					</tr>
 					<tr>
-						<td style="text-align:right">患病种类：</td>
+						<td class="a" style="text-align:right">患病种类：</td>
 						<td>${person.ill}</td>
-					</tr>
-					<tr>
-						<td style="text-align:right">残疾类型：</td>
+						<td class="a" style="text-align:right">残疾类型：</td>
 						<td>${person.deformity}</td>
 					</tr>
 					<tr>
-						<td style="text-align:right">残疾等级：</td>
+						<td class="a" style="text-align:right">残疾等级：</td>
 						<td>${person.deformityLevel}</td>
-					</tr>
-					<tr>
-						<td style="text-align:right">企业类型：</td>
+						<td class="a" style="text-align:right">企业类型：</td>
 						<td>${person.companyType}</td>
 					</tr>
 					<tr>
-						<td style="text-align:right">所属行业：</td>
+						<td class="a" style="text-align:right">所属行业：</td>
 						<td>${person.trade}</td>
-					</tr>
-					<tr>
-						<td style="text-align:right">参加保险类别：</td>
+						<td class="a" style="text-align:right">参加保险类别：</td>
 						<td>${person.insurance}</td>
 					</tr>
 					<tr>
-						<td style="text-align:right">工作单位：</td>
+						<td class="a" style="text-align:right">工作单位：</td>
 						<td>${person.company}</td>
-					</tr>
-					<tr>
-						<td style="text-align:right">联系方式：</td>
+						<td class="a" style="text-align:right">联系方式：</td>
 						<td>${person.contact}</td>
 					</tr>
 					<tr>
-						<td style="text-align:right">所属街道：</td>
+						<td class="a" style="text-align:right">所属街道：</td>
 						<td>${person.street}</td>
-					</tr>
-					<tr>
-						<td style="text-align:right">地址：</td>
+						<td class="a" style="text-align:right">地址：</td>
 						<td>${person.address}</td>
 					</tr>
 					<tr>
-						<td style="text-align:right">备注：</td>
-						<td>${person.desc}</td>
+						<td class="a" style="text-align:right">备注：</td>
+						<td colspan="3">${person.desc}</td>
 					</tr>
 				</table>
 				</div>

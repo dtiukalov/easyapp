@@ -61,14 +61,19 @@
 				}, {
 					field : 'state',
 					title : '审核状态',
-					width : 70,
+					width : 100,
 					sortable : true
 				}, {
 					field : 'note',
 					title : '备注',
 					width : 70,
 					sortable : true
-				} ] ],
+				}, {
+					field : 'department',
+					title : '部门',
+					width : 70,
+					sortable : true
+				}] ],
 				pagination : true,
 				rownumbers : true,
 				toolbar : [{

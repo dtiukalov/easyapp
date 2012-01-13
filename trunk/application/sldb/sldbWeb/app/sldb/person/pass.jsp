@@ -17,7 +17,7 @@
 		icon="icon-query-form" collapsible="true" style="padding: 10px;">
 		
 		<form id="pass" name="pass" method="post" action="<%=request.getContextPath()%>/app/sldb/person/confirm.action">
-		<input type="hidden" id="ids" name="ids" value="<%=request.getParameter("ids")%>">
+		<input type="hidden" id="id" name="id" value="<%=request.getParameter("ids")%>">
 			<table>
 				<tr align="right">
 					<td>原因:</td>

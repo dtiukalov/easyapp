@@ -150,7 +150,7 @@
 							ids.push(rows[i].id);
 						}
 
-						deleteVO(ids.join('__'));
+						confirmVO(ids.join('__'));
 					}
 				}, {
 					id : 'btnrefuse',
@@ -168,7 +168,7 @@
 							ids.push(rows[i].id);
 						}
 
-						confirmVO(ids.join('__'));
+						deleteVO(ids.join('__'));
 					}
 				}]
 			});

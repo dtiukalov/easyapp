@@ -130,9 +130,9 @@
                         	<div class="lg"><img src="images/logo_yqdz.gif" /></div>
                         </div><!--左侧-->
                         <div class="right1">
-                        	<div class="tupian"><a href="javascript:void(0);" target="_blank"><img src="images/tonghu.jpg" /></a></div>
+                        	<div class="tupian"><a href="../xinyu/index.jsp" target="_blank"><img src="images/tonghu.jpg" /></a></div>
                             <div class="mingcheng">
-                            <p><a href="javascript:void(0);" target="_blank"><span>通化鑫宇一汽-大众专营店</span></a></p>
+                            <p><a href="../xinyu/index.jsp" target="_blank"><span>通化鑫宇一汽-大众专营店</span></a></p>
                             <p>地址：吉林省通化市新胜北路2355号(通梅零公里)</p>
                             <p>销售：0435-3620866/3620799</p>
                             <p>客服：0435-3628519</p>

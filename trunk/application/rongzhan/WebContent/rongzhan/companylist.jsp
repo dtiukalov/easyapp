@@ -58,9 +58,9 @@
 	                        	<div class="lg"><img src="images/logo_ad.gif" /></div>
 	                        </div><!--左侧-->
 	                        <div class="right1">
-	                        	<div class="tupian"><a href="javascript:void(0);" target="_blank"><img src="images/rongsheng.jpg" /></a></div>
+	                        	<div class="tupian"><a href="../rongsheng/index.jsp" target="_blank"><img src="images/rongsheng.jpg" /></a></div>
 	                            <div class="mingcheng">
-	                            <p><a href="javascript:void(0);" target="_blank"><span>通化融晟奥迪专营店</span></a></p>
+	                            <p><a href="../rongsheng/index.jsp" target="_blank"><span>通化融晟奥迪专营店</span></a></p>
 	                            <p>地址：通化市新胜北路5888号</p>
 	                            <p>销售：0435-3451888/3451999</p>
 	                            <p>客服：0435-3632788</p>
@@ -172,9 +172,9 @@
 	                        	<div class="lg"><img src="images/logo_buick.gif" /></div>
 	                        </div><!--左侧-->
 	                        <div class="right1">
-	                        	<div class="tupian"><a href="javascript:void(0);" target="_blank"><img src="images/suihua.jpg" /></a></div>
+	                        	<div class="tupian"><a href="../xingsheng/index.jsp" target="_blank"><img src="images/suihua.jpg" /></a></div>
 	                            <div class="mingcheng">
-	                            <p><a href="javascript:void(0);" target="_blank"><span>绥化融展兴盛别克4S店</span></a></p>
+	                            <p><a href="../xingsheng/index.jsp" target="_blank"><span>绥化融展兴盛别克4S店</span></a></p>
 	                            <p>地址：北林区西二环路电力名苑南</p>
 	                            <p>销售：0455-8792123</p>
 	                            <p>客服：0455-8251969</p>

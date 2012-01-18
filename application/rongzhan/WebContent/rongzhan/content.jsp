@@ -31,8 +31,8 @@
 		}
 	%>
     	<div class="ybt">
-        <div class="biaoti"><%=title%></div>
-        <div class="weizhi">您所在的位置：<a href="index.jsp">首页</a>&nbsp;|&nbsp;<a href="<%=WebUtils.getLink(__cid, null)%>"><%=__cname %></a>&nbsp;|&nbsp;<%=title%></div>
+        <div class="biaoti"><%=__aname%></div>
+        <div class="weizhi">您所在的位置：<a href="index.jsp">首页</a>&nbsp;|&nbsp;<a href="<%=WebUtils.getLink(__cid, null)%>"><%=__cname %></a>&nbsp;|&nbsp;<%=__aname%></div>
         <div class="clear"></div>
         </div>
         <div class="ynr">

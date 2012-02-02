@@ -69,6 +69,7 @@
 				</tr>
 			</table>
 			<input id="password" name="password" type="hidden" value="${user.password}"></input>
+			<input id="template" name="template" type="hidden" value="${user.template}"></input>
 		</form>
 	</div>
 </body>

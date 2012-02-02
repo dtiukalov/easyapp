@@ -11,7 +11,7 @@ public class PersonStateTest {
 	@Test
 	public void testAdd() {
 		PersonState info = new PersonState(null, "-1", "admin", "admin", 
-				"2011-11-26 13:00:00", "zhangsan", "220102198112034412", "申报", "");
+				"2011-11-26 13:00:00", "zhangsan", "220102198112034412", "申报", "", "管理部");
 		
 		assertEquals(1, PersonState.add(info));
 		

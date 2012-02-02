@@ -20,6 +20,7 @@ public class User {
 	private String password = "";
 	private String email = "";
 	private String phone = "";
+	private String template = "";
 
 	private static ORMapping<User> mapping = new ResultORMapping<User>();
 
@@ -66,9 +67,9 @@ public class User {
 
 	public static int edit(User user) {
 		return SimpleDaoTemplate
-				.update("UPDATE auth_users SET name = ?, password = ?, email = ?, phone = ? WHERE id = ?",
+				.update("UPDATE auth_users SET name = ?, password = ?, email = ?, phone = ?, template = ? WHERE id = ?",
 						user.getName(), user.getPassword(), user.getEmail(),
-						user.getPhone(), user.getId());
+						user.getPhone(), user.getTemplate(), user.getId());
 	}
 	
 	public static User get(String id) {
@@ -247,6 +248,14 @@ public class User {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	public String getTemplate() {
+		return template;
+	}
+
+	public void setTemplate(String template) {
+		this.template = template;
 	}
 
 	@Override

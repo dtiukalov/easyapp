@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@ include file="../include/include.jsp" %>
 <script src="js/swfobject_modified.js" type="text/javascript"></script>
 <link href="css/base.css" rel="stylesheet" type="text/css" />
 <link href="css/homepage.css" rel="stylesheet" type="text/css" />

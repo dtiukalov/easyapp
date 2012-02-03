@@ -8,6 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@ include file="../include/include.jsp" %>
 <title>哈尔滨融展兴邦专营店</title>
 <script src="js/swfobject_modified.js" type="text/javascript"></script>
 <link rel="stylesheet" type="text/css" href="css/shouye.css" />

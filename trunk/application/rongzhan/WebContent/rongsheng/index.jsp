@@ -11,6 +11,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@ include file="../include/include.jsp" %>
 <title>通化融晟奥迪专营店</title>
 <link href="css/base.css" rel="stylesheet" type="text/css" />
 

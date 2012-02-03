@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@ include file="../include/include.jsp" %>
 <link href="css/base.css" rel="stylesheet" type="text/css" />
 <link href="css/page.css" rel="stylesheet" type="text/css" />
 <title><%=WebUtils.getTitle(request) %></title>

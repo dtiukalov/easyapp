@@ -75,7 +75,7 @@ public class ActionLoaderListener implements ServletContextListener {
 				.getFile()).getAbsolutePath();
 		
 		String className = filePath.replace(classPath, "");
-		className = className.replace("\\", ".");
+		className = className.replace("" + File.separator, ".");
 		className = className.replace(".class", "");
 		return className.substring(1);
 	}

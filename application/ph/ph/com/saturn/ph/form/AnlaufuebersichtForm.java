@@ -28,4 +28,10 @@ public class AnlaufuebersichtForm extends Form {
 	public String getType() {
 		return "";
 	}
+	
+
+	@Override
+	public String getTitle() {
+		return "";
+	}
 }

@@ -20,4 +20,10 @@ public class Form152 extends Form {
 	public String getType() {
 		return "Fahrzeugaufbaustatus";
 	}
+	
+
+	@Override
+	public String getTitle() {
+		return "";
+	}
 }

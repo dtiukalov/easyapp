@@ -4,18 +4,20 @@ import javax.servlet.ServletContext;
 
 import com.saturn.tc.clientx.TCSession;
 import com.saturn.tc.utils.server.EasyDataManagementService;
+import com.saturn.tc.utils.server.EasyQueryService;
 import com.teamcenter.soa.client.model.strong.User;
 
 public class PH {
-	
+
 	public static final String TC_SESSION = "TC_SESSION";
 	public static final String TC_USER = "TC_USER";
-	
+
 	private static TCSession session;
 	private static User user;
 	private static EasyDataManagementService dataService;
+	private static EasyQueryService queryService;
 	private static ServletContext context;
-	
+
 	public static EasyDataManagementService getDataService() {
 		if (PH.dataService == null) {
 			PH.dataService = new EasyDataManagementService(getSession());
@@ -23,16 +25,23 @@ public class PH {
 		return PH.dataService;
 	}
 
+	public static EasyQueryService getQueryService() {
+		if (PH.queryService == null) {
+			PH.queryService = new EasyQueryService(getSession());
+		}
+		return PH.queryService;
+	}
+
 	public static TCSession getSession() {
 		if (session == null) {
-			session = (TCSession)context.getAttribute("TC_SESSION");
+			session = (TCSession) context.getAttribute("TC_SESSION");
 		}
 		return session;
 	}
 
 	public static User getUser() {
 		if (user == null) {
-			user = (User)context.getAttribute("TC_USER");
+			user = (User) context.getAttribute("TC_USER");
 		}
 		return user;
 	}
@@ -42,6 +51,6 @@ public class PH {
 	}
 
 	private PH() {
-		
+
 	}
 }

@@ -1,0 +1,349 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+	margin:0;
+	padding:0;
+	list-style:none;
+	font-size:12px;
+	color:#000;
+	font-family:Arial, Helvetica, sans-serif;
+}
+#container {
+		width:1003px;
+		margin:0 auto;
+}
+#container #nr {
+	width:983px;
+	margin:0 auto;
+}
+#container #top {
+	height:60px;
+	border-bottom:2px solid #000099;
+}
+#top h1 {
+	display:block;
+	line-height:60px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:32px;
+}
+
+#footer .foot {
+	width:983px;
+	float:left;
+	height:18px;
+	border-bottom:2px solid #000099;
+	display:inline;
+}
+
+#footer .ft {
+	width:983px;
+	margin:0 auto;
+	height:99px;
+}
+.ft img {
+	margin-top:22px;
+}
+#footer .ztu {
+	width:200px;
+	float:left;
+	display:inline;
+}
+#footer .page {
+	width:540px;
+	float:left;
+	display:inline;
+}
+.page p {
+	padding-top:60px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
+}
+
+#footer .foot .lanst {
+	float:left;
+	width:610px;
+	display:block;
+}
+.lanstk {
+	display:block;
+	width:160px;
+	height:18px;
+	background: url(/images/bg1.jpg) no-repeat 0 0;
+	color:#fff;
+	text-align:center;
+	float:left;
+	font-size:12px;
+}
+.clear {
+	clear:both;
+}
+
+.lst .ll {
+	width:160px;
+	float:left;
+}
+.ll .s {
+	height:4px;
+	background:url(/images/lus.jpg) no-repeat 0 0;
+	overflow:hidden;
+}
+.ll .z {
+	background:#33434c;
+	color:#FFF;
+	text-align:center;
+	font-size:10px;
+}
+.ll .x {
+	background:url(/images/lux.jpg) no-repeat 0 0;
+	width:160px;
+	height:4px;
+}
+#footer .ylogo {
+	width:173px;
+	height:55px;
+	display:inline;
+	padding-top:2px;
+	float:left;
+}
+.ylogo img {
+	padding-left:53px;
+}
+.clear {
+	clear:both;
+}
+/*--第一页--*/
+#content p {
+	font-size:30px;
+}
+#content p span{
+	font-size:30px;
+	font-weight:bold;
+}
+#banner img {
+	padding-top:5px;
+}
+/*--第三页--*/
+.tb .h {
+	border-bottom:1px dashed #000;
+}
+.tb .phase {
+	border-bottom:2px solid #000;
+}
+.tbo {
+	border-bottom:1px solid #000;
+	margin-top:5px;
+}
+.tbo .la {
+	width:481px;
+	text-indent:4em;
+}
+.tbo .lb {
+	width:250px;
+}
+.tbo .lc {
+	width:235px;
+}
+.tbt .tbto {
+	width:5px;
+	text-align:right;
+	padding-left:10px;
+	line-height:20px;
+}
+.tbt .tbtoo {
+	width:466px;
+	text-indent:1em;
+}
+.tbt .tbtooo {
+	width:250px;
+}
+.tbt .tbtoooo {
+	width:235px;
+}
+.tbt .tbtoooo img {
+	margin-right:20px;
+}
+.tbto sx {
+	border-bottom:1px solid #000;
+}
+.kuang {
+	border:3px solid #2274ac;
+}
+.tbt .xx {
+	border-bottom:3px solid #000;
+}
+/*--第24页--*/
+.pg {
+	border-bottom:4px solid #7f7f7f;
+}
+.pgpg {
+	border-bottom:1px solid #7f7f7f;
+}
+.table {
+	margin-bottom:6px;
+}
+.table h2 {
+	font-size:18px;
+	padding-left:8px;
+	width:170px;
+}
+.tbnr {
+	margin:5px auto auto 8px;
+}
+.tbnrr {
+	margin:5px auto auto 8px;
+
+}
+/*--第一页--*/
+#content {
+	margin:80px auto;
+}
+.linea {
+	border-bottom:5px solid #000;
+}
+.lineb {
+	border-top:5px solid #000;
+}
+.tbnr {
+	border-top:1px solid #000;
+	border-bottom:1px solid #000;
+	margin:2px auto;
+	font-size:16px;
+}
+.tbnr .tbnrtb {
+	border-bottom:1px solid #000;
+}
+/*--第二页--*/
+.tbtb {
+	border-bottom:1px solid #000;
+}
+.tablee {
+	margin:0 auto;
+}
+/*--第三页--*/
+#contentt {
+	margin:30px auto;
+}
+.ed {
+	margin:0 auto;
+}
+.kbg {
+	width:181px;
+	height:102px;
+	background:#c0c0c0;
+	border:1px solid #424242;
+	overflow:hidden;
+}
+.kbgg {
+	width:181px;
+	height:102px;
+	background:#c0c0c0;
+	border:1px solid #424242;
+	margin-top:20px;
+}
+.wz {
+	float:left;
+	width:138px;
+}
+.wz h2 {
+	padding-top:20px;
+	padding-left:5px;
+}
+.he {
+	float:left;
+	width:178px;
+	margin:5px auto;
+}
+.tupian {
+	float:left;
+}
+.clear {
+	clear:both;
+}
+.xx {
+	border-bottom:1px dashed #000;
+}
+.sx {
+	border-bottom:1px solid #000;
+}
+/*--第四页--*/
+.lz {
+	border-bottom:2px solid #000;
+	border-top:2px solid #000;
+}
+.aaa {
+	border-bottom:1px solid #000;
+}
+/*--第五页--*/
+.lc {
+	width:200px;
+}
+/*--第六页--*/
+.lzz {
+	border-bottom:2px solid #000;
+}
+.jc {
+	margin-top:3px;
+}
+.sxx {
+	border-top:1px solid #000;
+}
+
+.psk {
+	background:#00235a;
+}
+.psk {
+	border:1px solid #FFF;
+}
+.pro {
+	background:#91afff;
+}
+.pro {
+	border:1px solid #FFF;
+}
+.proo {
+	background:#aed4f8;
+}
+.proo {
+	border:1px solid #FFF;
+}
+
+/*--3.4ste--*/
+.ok {
+	border:1px solid #999;
+}
+.ok td {
+	border:1px solid #999;
+}
+.tpian {
+	width:980px;
+	height:220px;
+	background:url(../images/fm.png) no-repeat 0 0;
+}
+.an {
+	width:139px;
+	height:76px;
+	padding-top:138px;
+}
+.tpian .lt {
+	width:139px;
+	height:38px;
+	background-color:#cefefe;
+	border-bottom:1px solid #6c7b80;
+	border-top:1px solid #6c7b80;
+	border-right:1px solid #6c7b80;
+}
+.tpian .lt h4 {
+	line-height:38px;
+}
+.tpian .ht {
+	width:139px;
+	height:38px;
+	background-color:#fffea0;
+	border-bottom:1px solid #6c7b80;
+	border-top:1px solid #6c7b80;
+	border-right:1px solid #6c7b80;
+	margin-top:3px;
+}
+.tpian .ht h4 {
+	line-height:38px;
+}

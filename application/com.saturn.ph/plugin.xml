@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension
+         point="com.teamcenter.rac.util.tc_properties">
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+         <view allowMultiple="true"
+            class="com.saturn.ph.views.BrowserView"
+            icon="icons/RAC_browser_16.png"
+            id="com.saturn.ph.views.BrowserView" name="PH Preview"/>
+   </extension>
+
+</plugin>

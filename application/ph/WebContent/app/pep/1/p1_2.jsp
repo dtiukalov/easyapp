@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.HashMap"%>	
 <html>
 
 <head>
@@ -95,9 +99,11 @@
 		          </tr>
 		        </table></td>
 		        <td align="center" valign="bottom" class="b">RPLAN</td>
-		        <td class="c"><p>GMXSMax&nbsp;&nbsp;&nbsp;&nbsp;Mustemannxxx Qukdfjdkfjdkfj Tel kdkf df f<br />
-		          Profkdfldidf;dfuiddkjfdkfjkdfjdk
-		        </p></td>
+		        <td class="c">
+			        <p>GMXSMax&nbsp;&nbsp;&nbsp;&nbsp;Mustemannxxx Qukdfjdkfjdkfj Tel kdkf df f<br />
+			          Profkdfldidf;dfuiddkjfdkfjkdfjdk
+			        </p>
+		        </td>
 		      </tr>
 		    </table></td>
 		  </tr>

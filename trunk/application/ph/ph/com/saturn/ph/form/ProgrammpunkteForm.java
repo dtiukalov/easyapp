@@ -19,5 +19,10 @@ public class ProgrammpunkteForm extends Form {
 	public String getType() {
 		return "";
 	}
+	
+	@Override
+	public String getTitle() {
+		return "";
+	}
 
 }

@@ -15,6 +15,8 @@ public abstract class Form {
 	
 	public abstract String getType();
 	
+	public abstract String getTitle();
+	
 	public Map<String, Object> getValue(String uid, boolean refresh) {
 		ModelObject model = loadModelObject(uid, refresh);
 		Map<String, Object> value = new HashMap<String, Object>();

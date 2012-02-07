@@ -26,4 +26,9 @@ public class PartStatisticForm extends Form {
 	public String getType() {
 		return "";
 	}
+
+	@Override
+	public String getTitle() {
+		return "";
+	}
 }

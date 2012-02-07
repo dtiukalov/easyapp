@@ -1,11 +1,11 @@
-package com.saturn.ph.form;
+package com.saturn.ph.form.p1;
 
 import com.saturn.ph.Form;
 
-public class FormTest extends Form {
+public class FV9_15ProgrammpunkteForm extends Form {
 	
 	private static final String[] attr = {
-		"fv9AA", "fv9BB", "fv9M", "fv9N"
+		"fv9PPCOP", "fv9PPErste", "fv9PPNicht"
 	};
 	
 	public String[] getAttributes() {
@@ -13,16 +13,16 @@ public class FormTest extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/1/p5_2.jsp";
+		return "/app/pep/1/p5_3.jsp";
 	}
 
 	@Override
 	public String getType() {
-		return "FV9Test";
+		return "FV9_15Programmpunkte";
 	}
-	
+
 	@Override
 	public String getTitle() {
-		return "";
+		return "1.5 Programmpunkte";
 	}
 }

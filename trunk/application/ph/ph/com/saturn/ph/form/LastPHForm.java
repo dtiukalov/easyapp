@@ -29,4 +29,9 @@ public class LastPHForm extends Form {
 	public String getJspPath() {
 		return "/app/pep/1/p2_1.jsp";
 	}
+	
+	@Override
+	public String getTitle() {
+		return "";
+	}
 }

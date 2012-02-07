@@ -5,6 +5,8 @@ import java.util.Map;
 
 import com.saturn.ph.form.Form152;
 import com.saturn.ph.form.FormTest;
+import com.saturn.ph.form.p1.FV9_12AktionspunkteForm;
+import com.saturn.ph.form.p1.FV9_15ProgrammpunkteForm;
 
 public class FormManager {
 	
@@ -30,7 +32,15 @@ public class FormManager {
 			return forms.get(type).getJspPath();
 		}
 		
-		return "/ph/index.jsp";
+		return "/app/pep/index.jsp";
+	}
+	
+	public static String getFormTitle(String type) {
+		if (forms.containsKey(type)) {
+			return forms.get(type).getTitle();
+		}
+		
+		return "";
 	}
 	
 	public static void add(Form form) {
@@ -40,5 +50,8 @@ public class FormManager {
 	private static void inital() {
 		add(new Form152());
 		add(new FormTest());
+		
+		add(new FV9_12AktionspunkteForm());
+		add(new FV9_15ProgrammpunkteForm());
 	}
 }

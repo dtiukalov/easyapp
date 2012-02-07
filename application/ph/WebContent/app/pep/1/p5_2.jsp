@@ -13,13 +13,13 @@
 		<%@ include file="/app/pep/include/header.jsp"%>
 		
 		<%
-		//	out.println(request.getAttribute("uid"));
-		//	out.println(request.getAttribute("form"));
+			out.println(request.getAttribute("uid"));
+			out.println(request.getAttribute("form"));
 			
-		//	Map form = (Map)request.getAttribute("form");
+			Map form = (Map)request.getAttribute("form");
 
-			String soll = "[2,7,0, 6, 2,1,6,8,5]";//Web.getNumberListStr(form.get("fv9AA"));
-			String kumSoll = "[2,9,9,15,17,18,24,32,37]";//Web.getNumberListStr(form.get("fv9BB"));
+			String soll = Web.getNumberListStr(form.get("fv9AA"));//"[2,7,0, 6, 2,1,6,8,5]";//Web.getNumberListStr(form.get("fv9AA"));
+			String kumSoll = Web.getNumberListStr(form.get("fv9BB"));//"[2,9,9,15,17,18,24,32,37]";//Web.getNumberListStr(form.get("fv9BB"));
 			String lst = "[]";//Web.getNumberListStr(form.get("fv9AA"));
 			String kumLst = "[]";//Web.getNumberListStr(form.get("fv9BB"));
 			

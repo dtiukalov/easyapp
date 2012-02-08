@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rendering>
+    
+    <page title="DemoFV9" titleKey="DemoFV9">
+            <property name="object_name" />
+            <property name="object_desc" />
+            <property name="object_type" />
+            <property name="fv9M" />
+            <property name="fv9N" />
+            <separator/>
+
+    </page>
+    <page title="¶þÎ¬±í" >
+         <property name="fv9AA" renderingHint="assof9_table" renderingStyle="titled"/>
+    </page>
+
+    <page title="All" titleKey="All">
+        <all type="property"/>
+    </page>
+
+</rendering>

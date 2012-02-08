@@ -35,100 +35,24 @@ import com.teamcenter.rac.kernel.TCSession;
  * 
  */
 public class ArrayPropertyTable extends JTable {
-	protected TCSession session;
+
 	/**
 	 * table enabled
 	 */
 	protected boolean tableEnabled;
+	
 	/**
 	 * table model
 	 */
 	protected ArrayPropertyTableModel tableModel;
 
-	/**
-	 * ArrayPropertyTable construct
-	 * 
-	 * @param session
-	 *            IMAN session
-	 * @param properties
-	 *            array-properties
-	 * @param cellEditable
-	 *            cellEditable
-	 */
-	public ArrayPropertyTable(TCSession session, TCProperty[] properties,
-			boolean cellEditable) {
+	public ArrayPropertyTable () {
 		tableEnabled = false;
-		tableModel = null;
-
-		tableEnabled = cellEditable;
-
-		this.session = session;
-		// set each column can be editable or can not be editable
-		boolean[] enables = new boolean[properties.length];
-		for (int i = 0; i < enables.length; i++)
-			enables[i] = cellEditable;
-		buildTableModel(properties, enables);
-
-		// this.setDefaultRenderer(Object.class, new SelectTableCellRenderer());
 	}
 
-	/**
-	 * ArrayPropertyTable construct
-	 * 
-	 * @param session
-	 *            IMAN session
-	 * @param properties
-	 *            array-properties
-	 */
-	public ArrayPropertyTable(TCSession session, TCProperty[] properties) {
-		this(session, properties, true);
-	}
-
-	/**
-	 * ArrayPropertyTable construct
-	 * 
-	 * @param session
-	 *            IMAN session
-	 * @param properties
-	 *            array-properties
-	 */
-	public ArrayPropertyTable(TCSession session, boolean f,
-			TCProperty[] properties, boolean cellEditable) {
-
-		tableEnabled = false;
-		tableModel = null;
-
-		this.session = session;
-
-		boolean[] enables = new boolean[properties.length];
-		for (int i = 0; i < enables.length; i++)
-			enables[i] = cellEditable;
-		if (f)
-			buildTableModel(properties, enables);
-	}
-
-	/**
-	 * ArrayPropertyTable construct
-	 * 
-	 * @param session
-	 *            IMAN session
-	 * @param properties
-	 *            array-properties
-	 * @param enables
-	 *            column enables
-	 */
-	public ArrayPropertyTable(TCSession session, TCProperty[] properties,
-			boolean[] enables) {
-		tableEnabled = false;
-		tableModel = null;
-
-		this.session = session;
-
-		for (int i = 0; i < enables.length; i++)
-			if (enables[i])
-				tableEnabled = true;
-
-		buildTableModel(properties, enables);
+	@Deprecated
+	public ArrayPropertyTable (TCSession session, TCProperty[] ps) {
+		new Throwable("Deprecated").printStackTrace();
 	}
 
 	/**
@@ -139,7 +63,7 @@ public class ArrayPropertyTable extends JTable {
 	 * @param enables
 	 *            column enables
 	 */
-	public void buildTableModel(TCProperty[] properties, boolean[] enables) {
+	public void buildTableModel(TCProperty[] properties, boolean[] enables, int[] widthes) {
 		Vector columns = new Vector();
 		int rowCount = 0;
 
@@ -147,7 +71,7 @@ public class ArrayPropertyTable extends JTable {
 			// build column and extends column value count
 			if (properties[i].getPropertyDescriptor().isArray()) {
 				ArrayPropertyTableColumn column = new ArrayPropertyTableColumn(
-						properties[i], enables[i]);
+						properties[i], enables[i], widthes[i]);
 				rowCount = column.getRowCount() > rowCount ? column
 						.getRowCount() : rowCount;
 				columns.addElement(column);

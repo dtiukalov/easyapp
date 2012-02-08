@@ -6,22 +6,13 @@
 <%@page import="java.util.HashMap"%>	
 <%@page import="json.JSONArray"%>
 <%
-	Map<String, String> form = new HashMap<String, String>();//(Map<String, String>)request.getAttribute("form");
-	form.put("fv9ReportMeil","ReportMeil");form.put("fv9ReportDept","ReportDept");
-	
-	List<Map<String, String>> list = new ArrayList<Map<String, String>>();
-	
-	int size = list.size();
-	
-	int[] offen = new int[size];
-	int[] ist = new int[size];
-	int[] soll = new int[size];
-	int[] gesamt = new int[size];
-	
-	JSONArray offenarr = new JSONArray();
-	JSONArray istarr = new JSONArray();
-	JSONArray sollarr = new JSONArray();
-	JSONArray gesamtarr = new JSONArray();
+
+	Map form = (Map)request.getAttribute("form");	
+
+	String offenarr = "[177, 0, 4, 9, 159, 0, 2]";//Web.getNumberListStr(form.get("fv9AA"));
+	String istarr = "[2074, 336, 293, 397, 624, 287, 137]";//Web.getNumberListStr(form.get("fv9BB"));
+	String sollarr = "[2248, 336, 297, 406, 783, 287, 139]";//Web.getNumberListStr(form.get("fv9AA"));
+	String gesamtarr = "[2248, 336, 297, 406, 783, 287, 139]";//Web.getNumberListStr(form.get("fv9BB"));
 	
 %>
 <!DOCTYPE HTML>
@@ -85,19 +76,19 @@
 				},
 			    series: [{
 					name: 'P-Offen',
-					data: [177, 0, 4, 9, 159, 0, 2],
+					data: <%=offenarr%>,//[177, 0, 4, 9, 159, 0, 2],
 					color: '#FC827F'
 				}, {
 					name: 'P-Ist',
-					data: [2074, 336, 293, 397, 624, 287, 137],
+					data: <%=istarr%>,//[2074, 336, 293, 397, 624, 287, 137],
 					color: '#85FC84'
 				}, {
 					name: 'P-Soll',
-					data: [2248, 336, 297, 406, 783, 287, 139],
+					data: <%=sollarr%>,//[2248, 336, 297, 406, 783, 287, 139],
 					color: '#7BBFFC'
 				}, {
 					name: 'Gesamt',
-					data: [2248, 336, 297, 406, 783, 287, 139],
+					data: <%=gesamtarr%>,//[2248, 336, 297, 406, 783, 287, 139],
 					color: '#E1E1E1'
 				}]
 			});

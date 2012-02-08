@@ -5,15 +5,13 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<%@ include file="/app/pep/include/header.jsp"%>
-		<title>Highcharts Example</title>
-
 		<script type="text/javascript">
 		
 			var chart;
 			$(document).ready(function() {
 				chart = new Highcharts.Chart({
 					chart: {
-						renderTo: 'container',
+						renderTo: 'chart',
 						defaultSeriesType: 'bar'
 					},
 					title: {
@@ -81,15 +79,16 @@
 		
 	</head>
 	<body>
-		<div id="containerouter">
+		<div id="container">
 			<div id="nr">
-			<div id="top"><h1>3.4 Funktionsmaße nach Bauteilen</h1></div>
-			<div id="top1"><h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Zusammenbauteile (Anzahl FM/Anzahl Messungen)</h4></div>
-			<div id="top2"><h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gesamt: 414 Funktionsmaße</h5></div>
-			<div id="content">
-				<div id="container" style="width: 800px; height: 400px; margin: 0 auto"></div>
+				<div id="top"><h1>3.4 Funktionsmaße nach Bauteilen</h1></div>	
+				<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Zusammenbauteile (Anzahl FM/Anzahl Messungen)</h2>
+				<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gesamt: 414 Funktionsmaße</h5>
+				<div id="content">
+					<div id="chart" style="width: 800px; height: 400px; margin: 0 auto"></div>
+				</div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
-		</div>		
+		</div>	
 	</body>
 </html>

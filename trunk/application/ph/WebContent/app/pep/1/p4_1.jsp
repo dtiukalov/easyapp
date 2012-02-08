@@ -3,7 +3,8 @@
 <%@page import="java.util.Arrays"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.List"%>
-<%@page import="java.util.HashMap"%>		
+<%@page import="java.util.HashMap"%>	
+<%@page import="com.saturn.web.Web"%>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -13,10 +14,14 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<%@ include file="/app/pep/include/header.jsp"%>
 		<%
-		Map<String, String> form = new HashMap<String, String>();//(Map<String, String>)request.getAttribute("form");
+
+	/* 	Map form = (Map)request.getAttribute("form");
+
+		String soll = Web.getNumberListStr(form.get("fv9AA"));//"[2,7,0, 6, 2,1,6,8,5]";//Web.getNumberListStr(form.get("fv9AA"));
+		String kumSoll = Web.getNumberListStr(form.get("fv9BB"));//"[2,9,9,15,17,18,24,32,37]";//Web.getNumberListStr(form.get("fv9BB"));
 
 		form.put("fv9ReportMeil","ReportMeil");form.put("fv9ReportDept","ReportDept");
-
+ */
 			int[] categories = new int[50];
 			int[] a = new int[50];
 			int[] b = new int[50];

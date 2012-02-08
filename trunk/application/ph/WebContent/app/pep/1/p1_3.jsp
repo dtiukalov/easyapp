@@ -75,7 +75,7 @@
     </table></td>
   </tr>
   <tr>
-    <td style="width:904px;hight:400px"><iframe id="ff" name= "ff" frameborder="0"  src="GanttChart2.htm" style="width:1000px;height:300px;"></iframe></td>
+    <td style="width:904px;hight:400px"><iframe id="ff" name= "ff" frameborder="0"  src="GanttChart2.jsp" style="width:1000px;height:300px;"></iframe></td>
   </tr>
   <tr>
     <td><table width="904" height="50px" border="0" cellspacing="0" cellpadding="0">

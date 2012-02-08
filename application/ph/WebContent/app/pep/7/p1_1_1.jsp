@@ -7,34 +7,34 @@
 <%
 	Map form = (Map)request.getAttribute("form");
 	String fv9ProductstandStatus = "绿";
-	String fv9ProdStatusCom = "- DMU von 1.6L MQ200、AQ250 in KW46/11 abgenommen- DMU von 1.4T MQ250、DQ200 in KW49/11 abgenommen- Versuch Gsmt-fzg. planmäßig im Ablauf, aktuell keine Funktionsfehler ";
+	String fv9ProdStatusComC = "- DMU von 1.6L MQ200、AQ250 in KW46/11 abgenommen- DMU von 1.4T MQ250、DQ200 in KW49/11 abgenommen- Versuch Gsmt-fzg. planmäßig im Ablauf, aktuell keine Funktionsfehler ";
 	
 	String fv9FunktionStatus = "绿";
-	String fv9FunktionCom = "- HT-Wzg können die VFF-Produktion erfüllen- Umbau der Anlagen von Karosseriebau und Montage ist zum Frühlingsfest geplant, sie können die Produktion von VFF II erfüllen- Die Lackierung sind mehrere Standorte betroffen, Einarbeitungsplan ist in Erstellung";
+	String fv9FunktionComC = "- HT-Wzg können die VFF-Produktion erfüllen- Umbau der Anlagen von Karosseriebau und Montage ist zum Frühlingsfest geplant, sie können die Produktion von VFF II erfüllen- Die Lackierung sind mehrere Standorte betroffen, Einarbeitungsplan ist in Erstellung";
 	
 	String fv9ProduktionStatus = "黄";
-	String fv9ProduktionCom = "- HT-Wzg können die VFF-Produktion erfüllen- Umbau der Anlagen von Karosseriebau und Montage ist zum Frühlingsfest geplant, sie können die Produktion von VFF II erfüllen- Die Lackierung sind mehrere Standorte betroffen, Einarbeitungsplan ist in Erstellung";
+	String fv9ProduktionComC = "- HT-Wzg können die VFF-Produktion erfüllen- Umbau der Anlagen von Karosseriebau und Montage ist zum Frühlingsfest geplant, sie können die Produktion von VFF II erfüllen- Die Lackierung sind mehrere Standorte betroffen, Einarbeitungsplan ist in Erstellung";
 	
 	String fv9BeschaffStatus = "红";
-	String fv9BeschaffCom = "- Alle Teile zu VFF verfügbar - I-Tafel, Miko, TVKL, Sitze sind terminkritisch";
+	String fv9BeschaffComC = "- Alle Teile zu VFF verfügbar - I-Tafel, Miko, TVKL, Sitze sind terminkritisch";
 	
 	String fv9QualitStatus = "红";
-	String fv9QualitCom = "- B-Frei-Termin Interieur drei Wochen verspätet als Plan- I-Tafel, MiKo, TVK und Sitze sind zum 0S keine Note 3.";
+	String fv9QualitComC = "- B-Frei-Termin Interieur drei Wochen verspätet als Plan- I-Tafel, MiKo, TVK und Sitze sind zum 0S keine Note 3.";
 	
 	String fv9VertriebStatus = "绿";
-	String fv9VertriebCom = "- Volumen, Preis, MIX sind auf Basis PR60.1- Markt Clinic ist in KW07/12 geplant";
+	String fv9VertriebComC = "- Volumen, Preis, MIX sind auf Basis PR60.1- Markt Clinic ist in KW07/12 geplant";
 	
 	String fv9FinanzenStatus = "黄";
-	String fv9FinanzenCom = "- Das KPE Ø-Palette zu SOP+1 betraegt 12.3%.- Die Kapitalrendite liegt bei 63.8% (JV-Ebene).";
+	String fv9FinanzenComC = "- Das KPE Ø-Palette zu SOP+1 betraegt 12.3%.- Die Kapitalrendite liegt bei 63.8% (JV-Ebene).";
 	
 	String fv9GewichtStatus = "绿";
-	String fv9GewichtCom = "- Leergewicht und CO2- Emissionen liegen im Soll";
+	String fv9GewichtComC = "- Leergewicht und CO2- Emissionen liegen im Soll";
 	
 	String fv9DokuStatus = "黄";
-	String fv9DokuCom = "Die B-Freigaben sind in KW 41/2011 abgeschlossen, für 307-Bauteile sind die Zeichnungen in Pflege- BMG/OTS Plan wurde erstellt, davon 9 Bauteile vor 0S nicht BMG-frei möglich";
+	String fv9DokuComC = "Die B-Freigaben sind in KW 41/2011 abgeschlossen, für 307-Bauteile sind die Zeichnungen in Pflege- BMG/OTS Plan wurde erstellt, davon 9 Bauteile vor 0S nicht BMG-frei möglich";
 	
 	String fv9TermineStatus = "黄";
-	String fv9TermineCom = "- VFF KW05/12;PVS KW13/12;SOP: KW38/12.";
+	String fv9TermineComC = "- VFF KW05/12;PVS KW13/12;SOP: KW38/12.";
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -78,7 +78,7 @@
 		</td>
 	    <td valign="top" class="pgpg" style="width:70%;">
 	    	<div class="tbnrr">
-	    		<%=fv9ProdStatusCom%>
+	    		<%=fv9ProdStatusComC%>
 			</div>
 		</td>
 	  </tr>
@@ -103,7 +103,7 @@
 		</td>
 	    <td valign="top" class="pgpg" style="width:70%;">
 	    	<div class="tbnrr">
-	    		<%=fv9FunktionCom %>
+	    		<%=fv9FunktionComC %>
 			</div>
 		</td>
 	  </tr>
@@ -128,7 +128,7 @@
 		</td>
 	    <td valign="top" class="pgpg" style="width:70%;">
 	    	<div class="tbnrr">
-	    	<%=fv9ProduktionCom%>
+	    	<%=fv9ProduktionComC%>
 			</div>
 		</td>
 	  </tr>
@@ -153,7 +153,7 @@
 		</td>
 	    <td valign="top" class="pgpg" style="width:70%;">
 	    	<div class="tbnrr">
-	    	<%=fv9BeschaffCom %>
+	    	<%=fv9BeschaffComC %>
 			</div>
 		</td>
 	  </tr>
@@ -178,7 +178,7 @@
 		</td>
 	    <td valign="top" class="pgpg" style="width:70%;">
 	    	<div class="tbnrr">
-				<%=fv9QualitCom%>
+				<%=fv9QualitComC%>
 			</div>
 		</td>
 	  </tr>
@@ -203,7 +203,7 @@
 		</td>
 	    <td valign="top" class="pgpg" style="width:70%;">
 	    	<div class="tbnrr">
-				<%=fv9VertriebCom %>
+				<%=fv9VertriebComC %>
 			</div>
 		</td>
 	  </tr>
@@ -228,7 +228,7 @@
 		</td>
 	    <td valign="top" class="pgpg" style="width:70%;">
 	    	<div class="tbnrr">
-	    		<%=fv9FinanzenCom%>
+	    		<%=fv9FinanzenComC%>
 			</div>
 		</td>
 	  </tr>
@@ -253,7 +253,7 @@
 		</td>
 	    <td valign="top" class="pgpg" style="width:70%;">
 	    	<div class="tbnrr">
-				<%=fv9GewichtCom %>	
+				<%=fv9GewichtComC %>	
 			</div>
 		</td>
 	  </tr>
@@ -278,7 +278,7 @@
 		</td>
 	    <td valign="top" class="pgpg" style="width:70%;">
 	    	<div class="tbnrr">
-				<%=fv9DokuCom %>
+				<%=fv9DokuComC %>
 			</div>
 		</td>
 	  </tr>
@@ -303,7 +303,7 @@
 		</td>
 	    <td valign="top" class="pgpg" style="width:70%;">
 	    	<div class="tbnrr">
-				<%=fv9TermineCom %>
+				<%=fv9TermineComC %>
 			</div>
 		</td>
 	  </tr>

@@ -58,7 +58,7 @@
 			    </td>
 	   			 <td valign="top" class="pgpg"><div class="tbnrr"><%=fv9LogistikStatMab[i] %></div>
 				</td>
-		</tr>
+			</tr>
 			  <% 
 		  }
 		  %>

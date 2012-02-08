@@ -114,10 +114,10 @@
 	<body>
 		<div id="container">
 			<div id="nr">
-				<div id="top"><h1>4.3 Hausteile ZP7</h1></div>
+				<div id="top"><h1>4.2 Hausteile ZP5</h1></div>
 				
 				<div id="subtitle">
-					<h1>Teilestatus zu VFF ZP7 (KT)</h1>
+					<h1>Teilestatus zu VFF ZP5 KT</h1>
 				</div>
 				<div id="legend">
 					<li><img src="/ph/app/pep/images/legend_white.png" width="13" height="13">

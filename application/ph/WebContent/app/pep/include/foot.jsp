@@ -15,6 +15,7 @@
 	String next = "下一页";
 	String prev = "上一页";
 	
+	System.out.println(next+prev);
 	if (indexes != null) {
 		int pageSize = indexes.size();
 		
@@ -39,7 +40,7 @@
 	    	<p>
 	    		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	    		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	    		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Seite1
+	    		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Seite<%=current %> &nbsp;&nbsp;<%=prev %>&nbsp;|&nbsp;<%=next %>
 	    	</p>
 	    </div>
 	    <div class="ylogo"><img src="/ph/app/pep/images/yiqilogo.jpg" /></div>

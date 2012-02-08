@@ -84,6 +84,7 @@ a:hover {
 	background:#FFF;
 }
 .con1 {
+	width:1004px;
 	height:251px;
 	margin-bottom:6px;
 	display:inline;
@@ -100,7 +101,7 @@ a:hover {
 }
 .gsjjnr .gsjjz {
 	background:url(../images/gsjjz.gif) repeat-y 0 0;
-	width:365px;
+	width:367px;
 }
 .gsjjzwz {
 	padding-left:3px;
@@ -118,8 +119,12 @@ a:hover {
 }
 .con1 .qiehuan {
 	padding-top:3px;
-	width:356px;
+	width:312px;
 	height:250px;
+	float:left;
+}
+.qiehuan .news {
+	width:312px;
 	float:left;
 }
 .con1 .ldzc {
@@ -137,12 +142,12 @@ a:hover {
 }
 .con2 {}
 .qxpp {
-	width:735px;
+	width:1004px;
 	float:left;
 }
 .qxpp .tt{
 	background:url(../images/qxpp_bg.gif) no-repeat 0 0;
-	width:735px;
+	width:1004px;
 	height:31px;
 }
 .tt h1 {
@@ -164,8 +169,8 @@ a:hover {
 	margin:0px 6px 0px 0px;
 }
 .zgtu {
-	width:720px;
-	height:215px;
+	width:985px;
+	height:102px;
 	margin-left:10px;
 	padding-top:5px;
 }
@@ -176,14 +181,14 @@ a:hover {
 }
 .zgtu .zj {
 	float:left;
-	width:714px;
+	width:978px;
 }
 .zgtu .zj .bk {
 	width:132px;
-	height:213px;
+	height:100px;
 	border:1px solid #f2f2f3;
 	float:left;
-	margin-left:7px;
+	margin-left:5px;
 	text-align:center;
 }
 .zgtu .zj .bk  p{
@@ -199,7 +204,7 @@ a:hover {
 	background:url(../images/bg.gif) repeat-y 0 0;
 }
 .qxpp .xia {
-	width:735px;
+	width:1004px;
 	height:7px;
 }
 .news {
@@ -208,7 +213,7 @@ a:hover {
 }
 .newst {
 	background:url(../images/xw_title.gif) no-repeat 0 0;
-	width:269px;
+	width:312px;
 	height:31px;
 }
 .newst h1 {
@@ -231,7 +236,8 @@ a:hover {
 }
 .news .newsbg {
 	background:url(../images/xw_bg.gif) repeat-y 0 0;
-	height: 214px;
+	height: 212px;
+	width:312px;
 	overflow: hidden;
 }
 .news .newsbg ul {
@@ -239,6 +245,10 @@ a:hover {
 }
 .news .newsbg ul li {
 	line-height:20px;
+}
+.lzc {
+	padding-left: 4px;
+	width:300px;
 }
 #content {
 	width:1004px;

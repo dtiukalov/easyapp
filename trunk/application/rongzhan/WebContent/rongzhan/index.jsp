@@ -29,16 +29,40 @@
             <div class="gsjjx"><img src="images/gsjjx.gif" /></div>
             </div>
         </div><!--公司简介-->
-        <div class="qiehuan"><img src="images/qhtu.jpg" style="height:249px;"/></div>
-        <div class="ldzc">
+        <div class="qiehuan">
+        <div class="news">
+        	<div class="newst">
+        		<h1>新闻中心</h1>
+                <span><a href="<%=WebUtils.getLink("rongzhan.new", null)%>">更多</a></span>
+            </div>
+            <div class="newsbg">
+            	<ul>
+            	<%
+            		List artiles = Article.getByLikeCid("rongzhan.new.");
+            		
+            		int size = Math.min(artiles.size(), 10);
+            		for (int i = 0; i < size; ++i) {
+            			Article article = (Article) artiles.get(i);
+            	%>
+                <li><a href="<%="detail.jsp?cid=rongzhan.new&aid=" +article.getCid()+"&did="+article.getId()%>"><div style="margin: 0px;padding: 0px;"><div style="float:left;width:210px;"><%=WebUtils.getTextWithMax(article.getTitle(), 16)%></div><div style="float:left;width: 60px;" align="right"><%=article.getCreateTime().substring(0, 10) %></div></div></a></li>
+                <%
+            		}
+                %>
+                </ul>
+            </div>
+            <div class="newsx"><img src="images/xw_bottom.gif" /></div>
+        </div>
+        </div>
+        <div class="qiehuan">
         	<div class="news">
 	        	<div class="newst">
 	        		<h1>领导致辞</h1>
 	                <span><a href="<%=WebUtils.getLink("rongzhan.about", null)%>">更多</a></span>
 	            </div>
 	            <div class="newsbg">
-	            	<div class="tu"><img src="images/ldzctu.jpg" /></div>
-	                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=WebUtils.getTextWithMax(Article.getOneArticleText("rongzhan.about.speak"), 60)%></p>
+	            	<div class="lzc"><img src="images/ldzctu.jpg" />
+	            	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=WebUtils.getTextWithMax(Article.getOneArticleText("rongzhan.about.speak"), 60)%></p>
+	            	</div>
 	            </div>
 	            <div class="newsx"><img src="images/xw_bottom.gif" /></div>
        		</div>
@@ -54,42 +78,21 @@
         </div>
         <div class="bg">
         <div class="zgtu">
-        	<div class="jiantou1"><img src="images/iecool_arrow_017z.gif" /></div>
             <div class="zj">
-                <div class="bk"><a href="companylist.jsp?cid=rongzhan.about&aid=rongzhan.about.company"><img src="images/yfnd.jpg" /></a><p>英菲尼迪作为日产旗下的 豪华车品牌 诞生于1989年，最先在美国上市，英菲尼迪与雷克萨斯、宝马、奔驰在北美市场...</p></div>
-                <div class="bk"><a href="companylist.jsp?cid=rongzhan.about&aid=rongzhan.about.company"><img src="images/yqad.jpg" /></a><p>精粹奥迪全部造车科技与美学感悟，奥迪A1拥有动感、时尚的设计，动力搭载 强劲 高效的1.4TFSI发动机...</p></div>
-                <div class="bk"><a href="companylist.jsp?cid=rongzhan.about&aid=rongzhan.about.company"><img src="images/dfjc.jpg" /></a><p>东风日产“ 感心服务”传承NISSAN品牌人性化创新的DNA， 涵盖人车生活的每一个环节，为您提供...</p></div>
-                <div class="bk"><a href="companylist.jsp?cid=rongzhan.about&aid=rongzhan.about.company"><img src="images/yqdz.jpg" /></a><p>一汽大众汽车有限公司是由中国第一汽车集团公司和德国大众汽车集团合资经营的大型乘用车生产企业...</p></div>
-                <div class="bk"><a href="companylist.jsp?cid=rongzhan.about&aid=rongzhan.about.company"><img src="images/tybk.jpg" /></a><p>别克一个融合了“全球平台欧美技术”的产品科技与服务资源的中高档国际汽车品牌，涵盖八大系列数十款车型...</p></div>
+                <div class="bk"><a href="companylist.jsp?cid=rongzhan.about&aid=rongzhan.about.company"><img src="images/yfnd.jpg" /></a></div>
+                <div class="bk"><a href="companylist.jsp?cid=rongzhan.about&aid=rongzhan.about.company"><img src="images/yqad.jpg" /></a></div>
+                <div class="bk"><a href="companylist.jsp?cid=rongzhan.about&aid=rongzhan.about.company"><img src="images/dfjc.jpg" /></a></div>
+                <div class="bk"><a href="companylist.jsp?cid=rongzhan.about&aid=rongzhan.about.company"><img src="images/yqdz.jpg" /></a></div>
+                <div class="bk"><a href="companylist.jsp?cid=rongzhan.about&aid=rongzhan.about.company"><img src="images/honda.gif" /></a></div>
+                <div class="bk"><a href="companylist.jsp?cid=rongzhan.about&aid=rongzhan.about.company"><img src="images/tybk.jpg" /></a></div>
+                 <div class="bk"><a href="companylist.jsp?cid=rongzhan.about&aid=rongzhan.about.company"><img src="images/xfl.gif" /></a></div>
             </div>
-            <div class="jiantou2"><img src="images/iecool_arrow_017.gif" /></div>
             <div class="clear"></div>
         </div>
         </div><!--中间内容区-->
         <div class="xia"><img src="images/xia.gif" /></div>
         </div><!--旗下品牌-->
-        <div class="news">
-        	<div class="newst">
-        		<h1>新闻中心</h1>
-                <span><a href="<%=WebUtils.getLink("rongzhan.new", null)%>">更多</a></span>
-            </div>
-            <div class="newsbg" style="height: 220px;">
-            	<ul>
-            	<%
-            		List artiles = Article.getByLikeCid("rongzhan.new.");
-            		
-            		int size = Math.min(artiles.size(), 11);
-            		for (int i = 0; i < size; ++i) {
-            			Article article = (Article) artiles.get(i);
-            	%>
-                <li><a href="<%="detail.jsp?cid=rongzhan.new&aid=" +article.getCid()+"&did="+article.getId()%>"><div style="margin: 0px;padding: 0px;"><div style="float:left;width:180px;"><%=WebUtils.getTextWithMax(article.getTitle(), 13)%></div><div style="float:left;width: 60px;" align="right"><%=article.getCreateTime().substring(0, 10) %></div></div></a></li>
-                <%
-            		}
-                %>
-                </ul>
-            </div>
-            <div class="newsx"><img src="images/xw_bottom.gif" /></div>
-        </div>
+        
     </div><!--第二行-->
     <div class="clear"></div>
 </div><!--内容-->

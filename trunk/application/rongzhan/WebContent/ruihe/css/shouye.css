@@ -257,6 +257,15 @@
 }
 #divFay {
 	width:272px;
+	height:223px;
+	float:left;
+	margin-left:10px;
+	margin-top:8px;/**/
+	background:url(../image/news.jpg) no-repeat;
+}
+/*视频*/
+#divView {
+	width:272px;
 	height:203px;
 	float:left;
 	margin-left:10px;
@@ -292,7 +301,8 @@
 	margin-top:5px;
 }
 #divDjk {
-	width:638px;
+	/*width:638px;*/
+	width:364px;
 	height:229px;
 	float:left;
 	background:url(../image/youhui.jpg) no-repeat;
@@ -389,6 +399,12 @@
 *margin-top:3px;
 }
 #divWliao {
+	float: right;
+    height: 13px;
+    margin-top: 8px;
+    width: 36px;
+	
+	/*
 	width:36px;
 	height:13px;
 	float:left;
@@ -397,6 +413,7 @@
 *margin-top:209px;
 	margin-left:201px;
 *margin-left:201px;
+*/
 }
 .aghne {
 	font-size:12px;

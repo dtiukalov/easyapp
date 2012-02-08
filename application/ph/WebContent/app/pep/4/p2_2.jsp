@@ -117,24 +117,24 @@
 				<div id="top"><h1>4.2 Hausteile ZP5</h1></div>
 				
 				<div id="subtitle">
-					<h1>Teilestatus zu VFF ZP5 KT/HT</h1>
+					<h1>Teilestatus zu VFF ZP5 HT</h1>
 				</div>
 				<div id="legend">
-					<li><img src="/pep/app/pep/images/legend_white.png" width="13" height="13">
+					<li><img src="/ph/app/pep/images/legend_white.png" width="13" height="13">
 					&nbsp;PT-Teile/Alternativteile
-					<li><img src="/pep/app/pep/images/legend_lightgreen.png" width="13" height="13">
+					<li><img src="/ph/app/pep/images/legend_lightgreen.png" width="13" height="13">
 					&nbsp;Teile aus Serienwerkzeug
-					<li><img src="/pep/app/pep/images/legend_green.png" width="13" height="13">
+					<li><img src="/ph/app/pep/images/legend_green.png" width="13" height="13">
 					&nbsp;Note 3
-					<li><img src="/pep/app/pep/images/legend_black.png" width="13" height="13">
+					<li><img src="/ph/app/pep/images/legend_black.png" width="13" height="13">
 					&nbsp;Note 1
-					<li><img src="/pep/app/pep/images/legend_red.png" width="13" height="13">
+					<li><img src="/ph/app/pep/images/legend_red.png" width="13" height="13">
 					&nbsp;Note 6
 				</div>
 				<div id="left">
 					<div id="chart"></div>
 					<div id="time">
-						<img src="/pep/app/pep/4/bottom.jpg" width="400" height="70">
+						<img src="/ph/app/pep/4/bottom.jpg" width="400" height="70">
 					</div>
 				</div>
 				<div id="right">

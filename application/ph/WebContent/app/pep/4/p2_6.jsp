@@ -9,7 +9,7 @@
 	<body>
 		<div id="container">
 			<div id="nr">
-			<div id="top"><h1>4.3 Teilequalität ZP7 (KT) (图片)</h1></div>
+			<div id="top"><h1>4.2 Teilequalität ZP5 (KT) (图片)</h1></div>
 			<div id="content">
 				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto">
 					<img src = "/ph/app/pep/4/zp5_ht.jpg">

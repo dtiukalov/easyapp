@@ -103,20 +103,20 @@
 	<body>
 		<div id="container">
 			<div id="nr">
-				<div id="top"><h1>4.2 Teileverfügbarkeit fuer HT/KT von ZP7</h1></div>
+				<div id="top"><h1>4.2 Teileverfügbarkeit fuer KT von ZP5</h1></div>
 				<div id="left">
 					<div id="chart"></div>
-					<div id="time"><img src="/pep/app/pep/4/bottom.jpg" width="400" height="70"></div>
+					<div id="time"><img src="/ph/app/pep/4/bottom.jpg" width="400" height="70"></div>
 				</div>
 				<div id="right">
 					<div id="legend" style="margin-top: 40px;">
-						<li><img src="/pep/app/pep/images/legend_lightgreen.png" width="13" height="13">
+						<li><img src="/ph/app/pep/images/legend_lightgreen.png" width="13" height="13">
 						&nbsp;Teile aus Serienwerkzeug
-						<li><img src="/pep/app/pep/images/legend_green.png" width="13" height="13">
+						<li><img src="/ph/app/pep/images/legend_green.png" width="13" height="13">
 						&nbsp;Note 3
-						<li><img src="/pep/app/pep/images/legend_black.png" width="13" height="13">
+						<li><img src="/ph/app/pep/images/legend_black.png" width="13" height="13">
 						&nbsp;Note 1
-						<li><img src="/pep/app/pep/images/legend_red.png" width="13" height="13">
+						<li><img src="/ph/app/pep/images/legend_red.png" width="13" height="13">
 						&nbsp;Note 6
 					</div>
 					<table width="100%" style="margin-top: 30px;">

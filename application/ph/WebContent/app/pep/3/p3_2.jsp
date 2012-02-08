@@ -19,7 +19,7 @@
 							<td>
 								<table>
 									<tr>
-										<td><img width="26" height="67" src = "/pep/app/pep/images/yellowLight.jpg"></td>
+										<td><img width="26" height="67" src = "<%=request.getContextPath()%>/app/pep/images/yellowLight.jpg"></td>
 										<td>
 											<table>
 												<tr><td>&nbsp;</td></tr>
@@ -33,7 +33,7 @@
 							<td>
 								<table>
 									<tr>
-										<td><img width="26" height="67" src = "/pep/app/pep/images/yellowLight.jpg"></td>
+										<td><img width="26" height="67" src = "<%=request.getContextPath()%>/app/pep/images/yellowLight.jpg"></td>
 										<td>
 											<table>
 												<tr><td>&nbsp;</td></tr>
@@ -47,7 +47,7 @@
 							<td>
 								<table>
 									<tr>
-										<td><img width="26" height="67" src = "/pep/app/pep/images/yellowLight.jpg"></td>
+										<td><img width="26" height="67" src = "<%=request.getContextPath()%>/app/pep/images/yellowLight.jpg"></td>
 										<td>
 											<table>
 												<tr><td>&nbsp;</td></tr>
@@ -61,7 +61,7 @@
 						</tr>
 						<tr>
 							<td colspan="4">
-							<img src = "/pep/app/pep/images/car2.jpg" >
+							<img src = "<%=request.getContextPath()%>/app/pep/images/car2.jpg" >
 							</td>
 						</tr>
 						<tr>
@@ -69,7 +69,7 @@
 							<td>
 								<table>
 									<tr>
-										<td><img width="26" height="67" src = "/pep/app/pep/images/yellowLight.jpg"></td>
+										<td><img width="26" height="67" src = "<%=request.getContextPath()%>/app/pep/images/yellowLight.jpg"></td>
 										<td>
 											<table>
 												<tr><td>&nbsp;</td></tr>
@@ -83,7 +83,7 @@
 							<td>
 								<table>
 									<tr>
-										<td><img width="26" height="67" src = "/pep/app/pep/images/yellowLight.jpg"></td>
+										<td><img width="26" height="67" src = "<%=request.getContextPath()%>/app/pep/images/yellowLight.jpg"></td>
 										<td>
 											<table>
 												<tr><td>&nbsp;</td></tr>
@@ -97,7 +97,7 @@
 							<td>
 								<table>
 									<tr>
-										<td><img width="26" height="67" src = "/pep/app/pep/images/yellowLight.jpg"></td>
+										<td><img width="26" height="67" src = "<%=request.getContextPath()%>/app/pep/images/yellowLight.jpg"></td>
 										<td>
 											<table>
 												<tr><td>&nbsp;</td></tr>

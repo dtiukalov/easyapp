@@ -30,19 +30,19 @@
 <div id="footer">
 	<div class="foot">
 		<div class="lanst">&nbsp;</div>
-		<div class="lanstk"><%//(String)form.get("fv9ReportDept") %></div>
+		<div class="lanstk">Produkt Management</div>
 		<div class="clear"></div>
     </div>
 	<div class="ft">
-		<div class="ztu"><img src="<%=request.getContextPath()%>/app/pep/images/footerlogo.jpg" /></div>
+		<div class="ztu"><img src="/ph/app/pep/images/footerlogo.jpg" /></div>
 	    <div class="page">
 	    	<p>
 	    		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	    		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	    		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Seite<%=current %> &nbsp;&nbsp;<%=prev %>&nbsp;|&nbsp;<%=next %>
+	    		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Seite1
 	    	</p>
 	    </div>
-	    <div class="ylogo"><img src="<%=request.getContextPath()%>/app/pep/images/yiqilogo.jpg" /></div>
+	    <div class="ylogo"><img src="/ph/app/pep/images/yiqilogo.jpg" /></div>
 	    <div class="clear"></div>
     </div>
 </div>

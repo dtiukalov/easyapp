@@ -1,11 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="com.saturn.web.Web"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.HashMap"%>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <%@ include file="/app/pep/include/header.jsp"%>
 </head>
-
+<%
+		Map form = (Map)request.getAttribute("form");
+out.print(Web.getStrListStr(form.get("fv9KarosserStyle")));
+out.print(Web.getNumberListStr(form.get("fv9KarosserStatus")));
+out.print(Web.getStrListStr(form.get("fv9KarossStatusCom")));
+out.print(Web.getNumberListStr(form.get("fv9KarossStatusMab")));
+		String[] fv9KarosserStyle = Web.getStrListStr(form.get("fv9KarosserStyle")).split(",");
+		String[] fv9KarosserStatus = Web.getNumberListStr(form.get("fv9KarosserStatus")).split(",");
+		String[] fv9KarossStatusCom = Web.getStrListStr(form.get("fv9KarossStatusCom")).split(",");
+		String[] fv9KarossStatusMab = Web.getNumberListStr(form.get("fv9KarossStatusMab")).split(",");
+		
+		List<Map<String,String>> list = new ArrayList<Map<String,String>>();
+		
+		for(int i=0; i<fv9KarosserStyle.length; i++){
+			Map<String,String> map = new HashMap<String,String>();
+			map.put("fv9KarosserStyle",fv9KarosserStyle[i]);
+			map.put("fv9KarosserStatus",fv9KarosserStatus[i]);
+			map.put("fv9KarossStatusCom",fv9KarossStatusCom[i]);
+			map.put("fv9KarossStatusMab",fv9KarossStatusMab[i]);
+			list.add(map);
+		}
+%>
 <body>
 <div id="container">
 	<div id="nr">
@@ -18,6 +44,30 @@
 		    <td width="433" class="pg"><h2>Maßnahmen</h2></td>
 		  </tr>
 		  
+		  <%
+		  if(list != null){
+			  for(int j=0; j<list.size(); j++){
+				  Map<String,String> value = new HashMap<String,String>();
+			  %>
+			  <tr>
+			    <td valign="top" class="pgpg" style="width:239px;">
+				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
+					  <tr>
+			   			 <td valign="top"><h2><%=value.get("fv9KarosserStyle") %></h2></td>
+					   	 <td><img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" /></td>
+					  </tr>
+					</table>
+				</td>
+	    		<td valign="top" class="pgpg"><div class="tbnrr"><%=value.get("fv9KarossStatusCom")  %>
+				   </div>
+			    </td>
+	   			 <td valign="top" class="pgpg"><div class="tbnrr"><%=value.get("fv9KarossStatusMab")  %></div>
+				</td>
+		</tr>
+			  <%
+			  }
+		  }
+		  %>
 		<tr>
 			    <td valign="top" class="pgpg" style="width:239px;">
 				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">

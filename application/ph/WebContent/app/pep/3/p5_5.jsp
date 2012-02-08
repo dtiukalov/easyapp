@@ -109,7 +109,7 @@
 	<body>
 		<div id="container">
 			<div id="nr">
-			<div id="top"><h1>3.5 Nacharbeit Abbaustatus2233</h1></div>
+			<div id="top"><h1>3.5 Nacharbeit Abbaustatus</h1></div>
 			<div id="content">
 				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto"></div>
 			</div>

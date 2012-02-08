@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<%@ include file="/app/pep/include/header.jsp"%>
-		<script type="text/javascript">
+			<script type="text/javascript">
 		var chart;
 		$(document).ready(function() {
 		
@@ -252,16 +253,15 @@
 			});
 		});
 		</script>
-		
 	</head>
-	
 	<body>
 		<div id="container">
 			<div id="nr">
-			<div id="top"><h1>3.5 Maßnahmen zur Verbesserung der Audit-Ergebnisse</h1></div>
-			
-			<div id="content">
-				<div id="chart" style="width: 500px; height: 400px; margin: 0 auto;"></div>
+				<div id="top"><h1>3.5 Maßnahmen zur Verbesserung der Audit-Ergebnisse</h1></div>	
+				<div id="content">
+					<div id="chart" style="width: 400px; height: 400px; margin: 0 auto; float: left;"></div>
+					<div id="table" style="width: 400px; height: 400px; margin: 0 auto; float: left;">&nbsp;</div>
+				</div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

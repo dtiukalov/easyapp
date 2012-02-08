@@ -1,5 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.HashMap"%>	
+<%@page import="json.JSONArray"%>
+<%
+	Map form = (Map)request.getAttribute("form");	
+
+	String[] fv9KarosserStyle = new String[]{"Unterbau I ","Unterbau II","Seitenteil","Aufbau I, II, III","Anbauteile1"};
+	String[] fv9KarosserStatus = new String[]{"绿","绿","绿","绿","黄"};
+	String[] fv9KarossStatusCom = new String[]{
+			"合同已签订，设备清单已完成,<br /> 设备正在制造中; <br />Vertrag schon unterschrieben， Anlageliste fertig,  <br />Anlagen sind in Prozess der Bearbeitungen.",
+			"合同已签订，设备清单已完成,<br /> 设备正在制造中; <br />Vertrag schon unterschrieben， Anlageliste fertig,  <br />Anlagen sind in Prozess der Bearbeitungen.",
+			"合同已签订，设备清单已完成,<br /> 设备正在制造中; <br />Vertrag schon unterschrieben， Anlageliste fertig,  <br />Anlagen sind in Prozess der Bearbeitungen.",
+			"合同已签订，设备清单已完成,<br /> 设备正在制造中; <br />Vertrag schon unterschrieben， Anlageliste fertig,  <br />Anlagen sind in Prozess der Bearbeitungen.",
+			"合同已签订，设备清单已完成,<br />设备正在制造中;压合设备预计KW07/12到货 <br />Vertrag schon unterschrieben， Anlageliste fertig, Anlagen sind in Prozess der Bearbeitungen,<br />Falzanlagen vor Ort im KW07/12"
+			};
+	String[] fv9KarossStatusMab = new String[]{"","","","",
+			"1.采用滚边压合的方法生产阶段装车所需的前后盖总成；Fertigung Zsb FK/HK fuer VFF mit Methoden Roboter-Rollfalzen<br />2.压缩供应商运输周期,确保压合设备KW07/12到达现场； Verkuerzen der Transportzeit von Lieferant, um die Falzanlagen in KW07/12 in vor Ort sicherzustellen "};
+	
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -18,92 +39,34 @@
 		    <td width="433" class="pg"><h2>Maßnahmen</h2></td>
 		  </tr>
 		  
-		<tr>
+		<%
+		  for(int i=0; i<fv9KarosserStyle.length; i++){
+			  %>
+			  <tr>
 			    <td valign="top" class="pgpg" style="width:239px;">
 				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
 					  <tr>
-			   			 <td valign="top"><h2>Unterbau I </h2></td>
-					   	 <td><img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" /></td>
+			   			 <td valign="top"><h2> <%=fv9KarosserStyle[i] %></h2></td>
+					   	 <td>
+					   	  <% if(fv9KarosserStatus[i].equals("绿")){%>
+							    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" />
+						<%} else if(fv9KarosserStatus[i].equals("黄")){%>
+							    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" width="30" height="70" />	
+						<%} else if(fv9KarosserStatus[i].equals("红")){%>
+								   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="30" height="70" /> 
+						<%}%>
+					   	 </td>
 					  </tr>
 					</table>
 				</td>
-	    		<td valign="top" class="pgpg"><div class="tbnrr">合同已签订，设备清单已完成,<br />
-				  设备正在制造中; <br />
-				  Vertrag schon unterschrieben， Anlageliste fertig,  <br />
-				   Anlagen sind in Prozess der Bearbeitungen.
-				   </div>
+	    		<td valign="top" class="pgpg"><div class="tbnrr"><%=fv9KarossStatusCom[i] %></div>
 			    </td>
-	   			 <td valign="top" class="pgpg"><div class="tbnrr"></div>
+	   			 <td valign="top" class="pgpg"><div class="tbnrr"><%=fv9KarossStatusMab[i] %></div>
 				</td>
-		</tr>
-		
-		<tr>
-			    <td valign="top" class="pgpg">
-			    	<table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
-					      <tr>
-					        <td valign="top"><h2>Unterbau II</h2></td>
-					        <td><img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" /></td>
-					      </tr>
-			    	</table>
-			    </td>
-		    	<td valign="top" class="pgpg"><div class="tbnrr">合同已签订，设备清单已完成,<br />
-				  设备正在制造中; <br />
-				  Vertrag schon unterschrieben， Anlageliste fertig,  <br />
-				   Anlagen sind in Prozess der Bearbeitungen.</div></td>
-		    	<td valign="top" class="pgpg"><div class="tbnrr"></div></td>
-		</tr>
-		
-		<tr>
-		    <td valign="top" class="pgpg">
-			    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
-			      <tr>
-			        <td valign="top"><h2>Seitenteil</h2></td>
-			        <td><img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" /></td>
-			      </tr>
-			    </table></td>
-		    <td valign="top" class="pgpg"><div class="tbnrr">合同已签订，设备清单已完成,<br />
-				  设备正在制造中; <br />
-				  Vertrag schon unterschrieben， Anlageliste fertig,  <br />
-				   Anlagen sind in Prozess der Bearbeitungen.</div></td>
-		    <td valign="top" class="pgpg"><div class="tbnrr">                                   	    
-		    </div></td>
-		</tr>
-		
-		<tr>
-		    <td valign="top" class="pgpg">
-			    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
-			      <tr>
-			        <td valign="top"><h2>Aufbau I, II, III</h2></td>
-			        <td><img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" /></td>
-			      </tr>
-			    </table>
-		    </td>
-		    <td valign="top" class="pgpg"><div class="tbnrr">合同已签订，设备清单已完成,<br />
-				  设备正在制造中; <br />
-				  Vertrag schon unterschrieben， Anlageliste fertig,  <br />
-				   Anlagen sind in Prozess der Bearbeitungen.</div></td>
-		    <td valign="top" class="pgpg"><div class="tbnrr"></div></td>
-		</tr>
-		
-		<tr>
-		    <td valign="top" class="pg">
-			    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
-			      <tr>
-			        <td valign="top"><h2>Anbauteile1</h2></td>
-			        <td><img src="<%=request.getContextPath()%>/app/pep/images/hong.jpg" width="30" height="70" /></td>
-			      </tr>
-			    </table>
-		    </td>
-		    <td valign="top" class="pg"><div class="tbnrr">合同已签订，设备清单已完成,<br />
-				  设备正在制造中;压合设备预计KW07/12到货 <br />
-				   Vertrag schon unterschrieben， Anlageliste fertig, Anlagen sind in Prozess der Bearbeitungen,<br />
-				   Falzanlagen vor Ort im KW07/12</div></td>
-		    <td valign="top" class="pg"><div class="tbnrr">1.采用滚边压合的方法生产阶段装车所需的前后盖总成；
-Fertigung Zsb FK/HK fuer VFF mit Methoden Roboter-Rollfalzen<br />2.压缩供应商运输周期,确保压合设备KW07/12到达现场； 
-Verkuerzen der Transportzeit von Lieferant, um die Falzanlagen in KW07/12 in vor Ort sicherzustellen 
-
-		    </td>
-		</tr>
+			</tr>
+			  <% 
+		  }
+		  %>
 		
 	</table>
 	</div>

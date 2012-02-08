@@ -80,15 +80,6 @@
 	                        	<div class="lgg"><img src="images/logo_richan.gif" /></div>
 	                        </div><!--左侧-->
 	                        <div class="right1">
-	                        	<div class="r01">
-	                        	<div class="tupian"><a href="../xingbang/index.jsp" target="_blank"><img src="images/xingbang.jpg" /></a></div>
-	                            <div class="mingcheng">
-	                            <p><a href="../xingbang/index.jsp" target="_blank"><span>哈尔滨融展兴邦专营店</span></a></p>
-	                            <p>地址：哈尔滨市道外区先锋路3号</p>
-	                            <p>销售：0451-82453997</p>
-	                            <p>客服：0451-82460181</p>
-	                          </div>
-	                          </div><!--右一-->
 	                          <div class="r01">
 	                        	<div class="tupian"><a href="../dongri/index.jsp" target="_blank"><img src="images/hebrf.jpg" /></a></div>
 	                            <div class="mingcheng">
@@ -96,6 +87,15 @@
 	                            <p>地址：哈尔滨市道里区机场路18号</p>
 	                            <p>销售：0451-84348888/84357777</p>
 	                            <p>客服：0451-84302992</p>
+	                          </div>
+	                          </div><!--右一-->
+	                          <div class="r01">
+	                        	<div class="tupian"><a href="../xingbang/index.jsp" target="_blank"><img src="images/xingbang.jpg" /></a></div>
+	                            <div class="mingcheng">
+	                            <p><a href="../xingbang/index.jsp" target="_blank"><span>哈尔滨融展兴邦专营店</span></a></p>
+	                            <p>地址：哈尔滨市道外区先锋路3号</p>
+	                            <p>销售：0451-82453997</p>
+	                            <p>客服：0451-82460181</p>
 	                          </div>
 	                          </div><!--右一-->
 	                          <div class="r01">

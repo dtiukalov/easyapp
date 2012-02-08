@@ -50,6 +50,36 @@
         
         <div id="divYou">
         	<div id="divRjg"></div>
+            <div id="divView">
+            	<embed src=" http://static.youku.com/v1.0.0149/v/swf/qplayer_rtmp.swf?VideoIDS=XMzM2OTcyMjM2&winType=adshow&isAutoPlay=true" quality="high" width="272" height="203" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" isAutoPlay="true"></embed>
+            </div>
+            <div id="divDjk">
+            <div id="divWliao"><a href="<%="list.jsp?cid="+rootcid+".new&aid="+rootcid+".new.offsall" %>" class="aghne">更多..</a></div>
+             <div id="divDuht">
+             <%
+            		List artiles_sall = Article.getByLikeCid(rootcid+".new.offsall");
+            		int size_sall = Math.min(artiles_sall.size(), 6);
+            		for (int i = 0; i < size_sall; ++i) {
+            			Article article = (Article) artiles_sall.get(i);
+            			if(i==0){
+		            	%>
+		            	<div id="divLk">
+		                   <div id="divCheng"></div>
+		                   <a href="<%="detail.jsp?cid="+rootcid+".new&aid=" +article.getCid()+"&did="+article.getId()%>" class="aDai"><strong><%=WebUtils.getTextWithMax(article.getTitle(), 16)%></strong></a>
+		                </div>
+		                <%
+            			}else{
+        				%>
+        				<div id="divDOki">
+		                   <div id="divLid"></div>
+		                   <a href="<%="detail.jsp?cid="+rootcid+".new&aid=" +article.getCid()+"&did="+article.getId()%>" class="aty"><strong><%=WebUtils.getTextWithMax(article.getTitle(), 16)%></strong></a>
+		                </div>
+                        <%
+            			}
+            		}
+                %>
+             </div>
+            </div>
             <div id="divFay">
             	<div id="divGfy"><a href="<%=WebUtils.getLink(rootcid+".new", null)%>" class="ahgh">更多..</a></div>
             	<%
@@ -75,33 +105,6 @@
             		}
                 %>
                 
-            </div>
-            <div id="divDjk">
-             <div id="divDuht">
-             <%
-            		List artiles_sall = Article.getByLikeCid(rootcid+".new.offsall");
-            		int size_sall = Math.min(artiles_sall.size(), 6);
-            		for (int i = 0; i < size_sall; ++i) {
-            			Article article = (Article) artiles_sall.get(i);
-            			if(i==0){
-		            	%>
-		            	<div id="divLk">
-		                   <div id="divCheng"></div>
-		                   <a href="<%="detail.jsp?cid="+rootcid+".new&aid=" +article.getCid()+"&did="+article.getId()%>" class="aDai"><strong><%=WebUtils.getTextWithMax(article.getTitle(), 16)%></strong></a>
-		                </div>
-		                <%
-            			}else{
-        				%>
-        				<div id="divDOki">
-		                   <div id="divLid"></div>
-		                   <a href="<%="detail.jsp?cid="+rootcid+".new&aid=" +article.getCid()+"&did="+article.getId()%>" class="aty"><strong><%=WebUtils.getTextWithMax(article.getTitle(), 16)%></strong></a>
-		                </div>
-                        <%
-            			}
-            		}
-                %>
-             </div>
-             <div id="divWliao"><a href="<%="list.jsp?cid="+rootcid+".new&aid="+rootcid+".new.offsall" %>" class="aghne">更多..</a></div>   
             </div>  
         </div>
     </div>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<preferences>
+  <category name="RenderingDemo">
+    <category_description></category_description>
+    <preference name="FV9Test.fv9AA:columns" type="String" array="true" disabled="false">
+      <preference_description>
+     	</preference_description>
+      <context name="Teamcenter">
+        <value>fv9AA#20</value>
+        <value>fv9BB#30</value>
+      </context>
+    </preference>
+    <preference name="FV9Test.fv9AA:minHeight" type="Integer" array="false" disabled="false">
+      <preference_description>
+     	</preference_description>
+      <context name="Teamcenter">
+        <value>150</value>
+      </context>
+    </preference>
+    <preference name="FV9Test.fv9AA:maxHeight" type="Integer" array="false" disabled="false">
+      <preference_description>
+     	</preference_description>
+      <context name="Teamcenter">
+        <value>300</value>
+      </context>
+    </preference>
+    <preference name="FV9Test.fv9AA:maxWidth" type="Integer" array="false" disabled="false">
+      <preference_description>
+     	</preference_description>
+      <context name="Teamcenter">
+        <value>550</value>
+      </context>
+    </preference>
+  </category>
+</preferences>

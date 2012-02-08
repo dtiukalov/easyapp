@@ -48,42 +48,20 @@ public class ArrayPropertyTableColumn {
      * ArrayPropertyTableColumn construct
      * 
      * @param property
-     */
-
-    public ArrayPropertyTableColumn(TCProperty property) {
-        this(property, true);
-    }
-
-    /**
-     * ArrayPropertyTableColumn construct
-     * 
-     * @param property
      *            IMAN property
      * @param enabled
      *            column enabled
      */
-    public ArrayPropertyTableColumn(TCProperty property, boolean enabled) 
+    public ArrayPropertyTableColumn(TCProperty property) {
+    	this(property, false, 80);
+    }
+    
+    public ArrayPropertyTableColumn(TCProperty property, boolean enabled, int width) 
     {
         this.property = property;
         this.enabled = enabled;
         try {
-            // set default column width
-            if (property.getPropertyType() == TCProperty.PROP_string)
-                columnWidth = property.getPropertyDescriptor().getMaxStringLength();
-            else if (property.getPropertyType() == TCProperty.PROP_logical)
-                columnWidth = 5;
-            else
-                columnWidth = 12;
-
-            if (columnWidth < 3)
-                columnWidth = 3;
-            if (columnWidth > 60)
-                columnWidth = 60;
-
-            int w = getColumnWidth(property.getPropertyName());
-            if (w > 0)
-                columnWidth = w;
-
+            columnWidth = width;
             values = loadValue();
             loadValues = new Object[values.length];
             System.arraycopy(values, 0, loadValues, 0, values.length);

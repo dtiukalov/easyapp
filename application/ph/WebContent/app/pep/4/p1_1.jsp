@@ -15,6 +15,7 @@
 		var chart1;
 		var chart2;
 	<%
+		Map form = (Map)request.getAttribute("form");
 		int fv9Nominiert = 200; //已定厂
 		int fv9Nichtnominiert = 33;//	未定厂
 		int Gesamt = fv9Nominiert + fv9Nichtnominiert;	
@@ -78,11 +79,11 @@
 						}]
 				}]
 			});
-			<%
+		<%
 
 			Integer[] fv9KWNo = new Integer[]{9, 11, 13};//周数
 			Integer[] fv9KWNumber = new Integer[]{4,6,4};//数量
-			String[] fv9KWCom = new String[]{"x:*** y:***","x:*** y:***","x:*** y:***"};//备注
+			String[] fv9KWCom = new String[]{"-x:*** <br/>-y:***","-x:***<br/> -y:***","-x:*** <br/>-y:***"};//备注
 			int fv9KritischeNomini = 1;//	有风险
 			
 			StringBuffer buffer = new StringBuffer("[");
@@ -130,9 +131,7 @@
 				},
 				tooltip: {
 					formatter: function() {
-						return '<b>'+ this.x +'</b><br/>'+
-							 this.series.name +': '+ this.y +'<br/>'+
-							 'Total: '+ this.point.stackTotal;
+						return '<b>'+  this.point.desc +'</b>';
 					}
 				},
 				plotOptions: {
@@ -149,7 +148,8 @@
 					data: [{ 
 							y: <%=total%>, 
 							low:0,
-							color: '#E53110'
+							color: '#E53110',
+							desc:'titletest'
 						}, 
 						<%
 						int temp = 0;
@@ -163,14 +163,16 @@
 						{
 						 	y: <%=fv9KWNumber[i]%>, 
 					 		low: <%=temp%>,
-					 		color: '#E53110'
+					 		color: '#E53110',
+					 		desc: '<%=fv9KWCom[i]%>'
 						},
 						<%}
 						%>
 						{
 							y: <%=fv9KritischeNomini%>,
 							low:<%=temp - fv9KritischeNomini%>,
-							color: '#E53110'
+							color: '#E53110',
+							desc: '-x:*** <br/>-y:***'
 						}]
 				}]
 			});

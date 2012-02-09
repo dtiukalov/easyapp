@@ -1,496 +1,325 @@
-@charset "utf-8";
-/* CSS Document */
 * {
-	margin:0;
-	padding:0;
-	list-style:none;
-	font-size:12px;
-	color:#000;
-	font-family:Arial, Helvetica, sans-serif;
-	
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, Helvetica, sans-serif; COLOR: #000; FONT-SIZE: 12px; LIST-STYLE-IMAGE: none; PADDING-TOP: 0px
 }
 #content {
-	margin:0px auto;
-	padding:25px auto;
-	height:500px;
-	overflow: hidden;
-	/*
-	vertical-align: middle;
-	top:10%;
-	position: relative;
-	*/
-	
+	MARGIN: 0px auto; HEIGHT: 642px; OVERFLOW: hidden
 }
-
 #container {
-	width: 950px;
-	height: 690px;
-	margin:0 auto;
+	MARGIN: 0px auto; WIDTH: 950px; HEIGHT: 720px
 }
 #container #nr {
-	width:950px;
-	margin:0 auto;
+	MARGIN: 0px auto; WIDTH: 950px
 }
 #container #top {
-	height:80px;
-	border-bottom:2px solid #000099;
-	overflow: hidden;
+	BORDER-BOTTOM: #000099 2px solid; height:50px; OVERFLOW: hidden
 }
-#top h1 {
-	display:block;
-	line-height:60px;
-	font-family:Arial, Helvetica, sans-serif;
-	font-size:32px;
-	
+#top H1 {
+	FONT-FAMILY: Arial, Helvetica, sans-serif; FONT-SIZE: 32px; margin-top:12px;
 }
 #footer {
-	width:950px;
-	height:80px;
-}
-#footer .foot {
-	width:950px;
-	float:left;
-	height:18px;
-	border-bottom:2px solid #000099;
-	display:inline;
+	WIDTH: 950px; HEIGHT: 50px;
+	BORDER-TOP: #000099 2px solid;
 }
 #footer .ft {
-	width:950px;
-	margin:0 auto;
-	height:80px;
-}
-.ft img {
-	margin-top:22px;
+	MARGIN: 0px auto; WIDTH: 950px; HEIGHT: 50px
 }
 #footer .ztu {
-	width:200px;
-	height: 55px;
-	float:left;
-	display:inline;
+	WIDTH: 200px; DISPLAY: inline; FLOAT: left;
 }
 #footer .page {
-	width:500px;
-	float:left;
-	display:inline;
+	WIDTH: 420px; DISPLAY: inline; FLOAT: left
 }
-#footer .foot .lanst {
-	float:left;
-	width:610px;
-	display:block;
+#footer .page .Previous {
+	text-align:center;
+}
+.lanstk {
+	TEXT-ALIGN: center; background:#93C; WIDTH: 160px; DISPLAY: block;FLOAT: left; HEIGHT: 18px; COLOR: #fff; FONT-SIZE: 12px; background:url(bg1.jpg) no-repeat 0 0;
 }
 #footer .ylogo {
-	width:173px;
-	height:55px;
-	display:inline;
-	padding-top:2px;
-	float:left;
+	FLOAT: left;
 }
-.page p {
-	padding-top:60px;
-	font-family:Arial, Helvetica, sans-serif;
-	font-size:16px;
-}
-
-
-.lanstk {
-	display:block;
-	width:160px;
-	height:18px;
-	background: url(/images/bg1.jpg) no-repeat 0 0;
-	color:#fff;
-	text-align:center;
-	float:left;
-	font-size:12px;
+.page P {
+	FONT-FAMILY: Arial, Helvetica, sans-serif; FONT-SIZE: 16px; text-align:center; display:block; height:23px;
 }
 .clear {
-	clear:both;
+	CLEAR: both
 }
 .lst .lanse {
-	width:310px;
-	height:39px;
-	background:#aed4f8;
+	WIDTH: 310px; BACKGROUND: #aed4f8; HEIGHT: 39px
 }
 .lst .lansez {
-	width:310px;
-	height:39px;
-	background:#8994a0;
-	margin-left:80px;
+	WIDTH: 310px; BACKGROUND: #8994a0; HEIGHT: 39px; MARGIN-LEFT: 80px
 }
 .lst .lansea {
-	width:230px;
-	height:39px;
-	background:#aed4f8;
-	margin-left:380px;
+	WIDTH: 230px; BACKGROUND: #aed4f8; HEIGHT: 39px; MARGIN-LEFT: 380px
 }
 .lst .lanses {
-	width:310px;
-	height:39px;
-	background:#00235a;
-	margin-left:130px;
-	float:left;
-	display:inline;
+	WIDTH: 310px; DISPLAY: inline; BACKGROUND: #00235a; FLOAT: left; HEIGHT: 39px; MARGIN-LEFT: 130px
 }
 .lst .lansess {
-	width:110px;
-	float:left;
-	height:39px;
-	background:#91afff;
+	WIDTH: 110px; BACKGROUND: #91afff; FLOAT: left; HEIGHT: 39px
 }
 .lst .lanseza {
-	width:250px;
-	height:39px;
-	background:#8994a0;
-	margin-left:450px;
+	WIDTH: 250px; BACKGROUND: #8994a0; HEIGHT: 39px; MARGIN-LEFT: 450px
 }
 .lst .lansesa {
-	width:200px;
-	height:39px;
-	background:#00235a;
-	margin-left:520px;
-	float:left;
-	display:inline;
+	WIDTH: 200px; DISPLAY: inline; BACKGROUND: #00235a; FLOAT: left; HEIGHT: 39px; MARGIN-LEFT: 520px
 }
 .lst .lansessa {
-	width:110px;
-	float:left;
-	height:39px;
-	background:#91afff;
-	display:inline;
+	WIDTH: 110px; DISPLAY: inline; BACKGROUND: #91afff; FLOAT: left; HEIGHT: 39px
 }
 .lst .ll {
-	width:160px;
-	float:left;
+	WIDTH: 160px; FLOAT: left
 }
 .zp {
-	background:#000;
-	margin:0 auto;
-	width:907px;
+	MARGIN: 0px auto; WIDTH: 907px; BACKGROUND: #000
 }
-.zp span {
-	text-decoration: underline;
+.zp SPAN {
+	TEXT-DECORATION: underline
 }
-.zp td{
-	background:#fff;
-	line-height:15px;
+.zp TD {
+	LINE-HEIGHT: 15px; BACKGROUND: #fff
 }
 .ll .s {
-	height:4px;
-	background:url(/images/lus.jpg) no-repeat 0 0;
-	overflow:hidden;
+	BACKGROUND: url(/images/lus.jpg) no-repeat 0px 0px; HEIGHT: 4px; OVERFLOW: hidden
 }
 .ll .z {
-	background:#33434c;
-	color:#FFF;
-	text-align:center;
-	font-size:10px;
+	TEXT-ALIGN: center; BACKGROUND: #33434c; COLOR: #fff; FONT-SIZE: 10px
 }
 .ll .x {
-	background:url(/images/lux.jpg) no-repeat 0 0;
-	width:160px;
-	height:4px;
+	WIDTH: 160px; BACKGROUND: url(/images/lux.jpg) no-repeat 0px 0px; HEIGHT: 4px
 }
-.one{
-	border-right:1px solid #000;
+.one {
+	BORDER-RIGHT: #000 1px solid
 }
-.two{
-	border-right:1px solid #000;
-	border-bottom:1px solid #000;
+.two {
+	BORDER-BOTTOM: #000 1px solid; BORDER-RIGHT: #000 1px solid
 }
 .three {
-	border-bottom:1px solid #000;
+	BORDER-BOTTOM: #000 1px solid
 }
-.three span {
-	text-decoration: underline;
+.three SPAN {
+	TEXT-DECORATION: underline
 }
 .hd {
-	background:#000;
-	border-bottom:1px solid #000;
+	BORDER-BOTTOM: #000 1px solid; BACKGROUND: #000
 }
-.hd td{
-	background:#fff;
-	border-right:1px solid #000;
-}
-
-.ylogo img {
-	padding-left:53px;
+.hd TD {
+	BACKGROUND: #fff; BORDER-RIGHT: #000 1px solid
 }
 .x {
-	border-bottom:4px solid #000;
+	BORDER-BOTTOM: #000 4px solid
 }
-/*--第一页--*/
-#content p {
-	font-size:30px;
+#content P {
+	FONT-SIZE: 30px
 }
-#content p span{
-	font-size:30px;
-	font-weight:bold;
+#content P SPAN {
+	FONT-SIZE: 30px; FONT-WEIGHT: bold
 }
-#banner img {
-	padding-top:5px;
+#banner IMG {
+	PADDING-TOP: 5px
 }
 .bt {
-	background:#000;
+	BACKGROUND: #000
 }
-.bt td {
-	background:#FFF;
-	font-size:20px;
-	font-weight:bold;
+.bt TD {
+	BACKGROUND: #fff; FONT-SIZE: 20px; FONT-WEIGHT: bold
 }
 .tab {
-	background:#000;
-	font-size:8px;
+	BACKGROUND: #000; FONT-SIZE: 8px
 }
-.tab td{
-	background:#fff;
-	width:20px;
+.tab TD {
+	WIDTH: 20px; BACKGROUND: #fff
 }
 .tab .a {
-	background:#ffffc0;
-	text-align:center;
+	TEXT-ALIGN: center; BACKGROUND: #ffffc0
 }
-.tab .kkk p {
-	font-size:8px;
-	overflow:hidden;
+.tab .kkk P {
+	FONT-SIZE: 8px; OVERFLOW: hidden
 }
-.tab p {
-	font-size:8px;
+.tab P {
+	FONT-SIZE: 8px
 }
 .tiao {
-	width:630px;
-	background:#033;
-	overflow:hidden;
+	WIDTH: 630px; BACKGROUND: #033; OVERFLOW: hidden
 }
-/*--第三页--*/
 .tb .h {
-	border-bottom:1px dashed #000;
+	BORDER-BOTTOM: #000 1px dashed
 }
 .tb .phase {
-	border-bottom:2px solid #000;
+	BORDER-BOTTOM: #000 2px solid
 }
 .tbo {
-	border-bottom:1px solid #000;
-	margin-top:5px;
+	BORDER-BOTTOM: #000 1px solid; MARGIN-TOP: 5px
 }
 .tbo .la {
-	width:481px;
-	text-indent:4em;
+	TEXT-INDENT: 4em; WIDTH: 481px
 }
 .tbo .lb {
-	width:250px;
+	WIDTH: 250px
 }
 .tbo .lc {
-	width:235px;
+	WIDTH: 235px
 }
 .tbt .tbto {
-	width:5px;
-	text-align:right;
-	padding-left:10px;
-	line-height:20px;
+	TEXT-ALIGN: right; LINE-HEIGHT: 20px; PADDING-LEFT: 10px; WIDTH: 5px
 }
 .tbt .tbtoo {
-	width:466px;
-	text-indent:1em;
+	TEXT-INDENT: 1em; WIDTH: 466px
 }
 .tbt .tbtooo {
-	width:250px;
+	WIDTH: 250px
 }
 .tbt .tbtoooo {
-	width:235px;
+	WIDTH: 235px
 }
-.tbt .tbtoooo img {
-	margin-right:20px;
+.tbt .tbtoooo IMG {
+	MARGIN-RIGHT: 20px
 }
 .tbto sx {
-	border-bottom:1px solid #000;
+	BORDER-BOTTOM: #000 1px solid
 }
 .kuang {
-	border:3px solid #2274ac;
+	BORDER-BOTTOM: #2274ac 3px solid; BORDER-LEFT: #2274ac 3px solid; BORDER-TOP: #2274ac 3px solid; BORDER-RIGHT: #2274ac 3px solid
 }
 .tbt .xx {
-	border-bottom:3px solid #000;
+	BORDER-BOTTOM: #000 3px solid
 }
-/*--第24页--*/
 .pg {
-	border-bottom:4px solid #7f7f7f;
+	BORDER-BOTTOM: #7f7f7f 4px solid
 }
 .pgpg {
-	border-bottom:1px solid #7f7f7f;
+	BORDER-BOTTOM: #7f7f7f 1px solid
 }
 .table {
-	margin-bottom:6px;
+	MARGIN-BOTTOM: 6px
 }
-.table h2 {
-	font-size:18px;
-	padding-left:8px;
-	width:170px;
+.table H2 {
+	PADDING-LEFT: 8px; WIDTH: 170px; FONT-SIZE: 18px
 }
 .tbnr {
-	margin:5px auto auto 8px;
+	MARGIN: 5px auto auto 8px
 }
 .tbnrr {
-	margin:5px auto auto 8px;
-
+	MARGIN: 5px auto auto 8px
 }
-/*--第一页--*/
-
 .line {
-	border-bottom:3px solid #7f7f7f;
-	margin-top:2px;
+	BORDER-BOTTOM: #7f7f7f 3px solid; MARGIN-TOP: 2px
 }
 .linea {
-	border-bottom:5px solid #000;
+	BORDER-BOTTOM: #000 5px solid
 }
 .lineb {
-	border-top:5px solid #000;
+	BORDER-TOP: #000 5px solid
 }
 .tbnr {
-	border-top:1px solid #000;
-	border-bottom:1px solid #000;
-	margin:2px auto;
-	font-size:16px;
+	BORDER-BOTTOM: #000 1px solid; MARGIN: 2px auto; FONT-SIZE: 16px; BORDER-TOP: #000 1px solid
 }
 .tbnr .tbnrtb {
-	border-bottom:1px solid #000;
+	BORDER-BOTTOM: #000 1px solid
 }
-/*--第二页--*/
-.db td{
-	font-size:12px;
+.db TD {
+	FONT-SIZE: 12px
 }
 .tbtb {
-	border-bottom:1px solid #000;
+	BORDER-BOTTOM: #000 1px solid
 }
 .tablee {
-	margin:0 auto;
+	MARGIN: 0px auto
 }
-.xb td {
-	font-size:16px;
-	font-weight:bold;
+.xb TD {
+	FONT-SIZE: 16px; FONT-WEIGHT: bold
 }
-/*--第三页--*/
 #contentt {
-	margin:30px auto;
+	MARGIN: 30px auto
 }
 .ed {
-	margin:0 auto;
+	MARGIN: 0px auto
 }
 .kbg {
-	width:181px;
-	height:102px;
-	background:#c0c0c0;
-	border:1px solid #424242;
-	overflow:hidden;
+	BORDER-BOTTOM: #424242 1px solid; BORDER-LEFT: #424242 1px solid; WIDTH: 181px; BACKGROUND: #c0c0c0; HEIGHT: 102px; OVERFLOW: hidden; BORDER-TOP: #424242 1px solid; BORDER-RIGHT: #424242 1px solid
 }
 .kbgg {
-	width:181px;
-	height:102px;
-	background:#c0c0c0;
-	border:1px solid #424242;
-	margin-top:20px;
+	BORDER-BOTTOM: #424242 1px solid; BORDER-LEFT: #424242 1px solid; MARGIN-TOP: 20px; WIDTH: 181px; BACKGROUND: #c0c0c0; HEIGHT: 102px; BORDER-TOP: #424242 1px solid; BORDER-RIGHT: #424242 1px solid
 }
 .wz {
-	float:left;
-	width:138px;
+	WIDTH: 138px; FLOAT: left
 }
-.wz h2 {
-	padding-top:20px;
-	padding-left:5px;
+.wz H2 {
+	PADDING-LEFT: 5px; PADDING-TOP: 20px
 }
 .he {
-	float:left;
-	width:178px;
-	margin:5px auto;
+	MARGIN: 5px auto; WIDTH: 178px; FLOAT: left
 }
 .tupian {
-	float:left;
+	FLOAT: left
 }
 .clear {
-	clear:both;
+	CLEAR: both
 }
 .xx {
-	border-bottom:1px dashed #000;
+	BORDER-BOTTOM: #000 1px dashed
 }
 .sx {
-	border-bottom:1px solid #000;
+	BORDER-BOTTOM: #000 1px solid
 }
-/*--第四页--*/
 .lz {
-	border-bottom:2px solid #000;
-	border-top:2px solid #000;
+	BORDER-BOTTOM: #000 2px solid; BORDER-TOP: #000 2px solid
 }
 .aaa {
-	border-bottom:1px solid #000;
+	BORDER-BOTTOM: #000 1px solid
 }
-/*--第五页--*/
 .lc {
-	width:200px;
+	WIDTH: 200px
 }
-/*--第六页--*/
 .lzz {
-	border-bottom:2px solid #000;
+	BORDER-BOTTOM: #000 2px solid
 }
 .jc {
-	margin-top:3px;
+	MARGIN-TOP: 3px
 }
 .sxx {
-	border-top:1px solid #000;
-}
-
-.psk {
-	background:#00235a;
+	BORDER-TOP: #000 1px solid
 }
 .psk {
-	border:1px solid #FFF;
+	BACKGROUND: #00235a
+}
+.psk {
+	BORDER-BOTTOM: #fff 1px solid; BORDER-LEFT: #fff 1px solid; BORDER-TOP: #fff 1px solid; BORDER-RIGHT: #fff 1px solid
 }
 .pro {
-	background:#91afff;
+	BACKGROUND: #91afff
 }
 .pro {
-	border:1px solid #FFF;
+	BORDER-BOTTOM: #fff 1px solid; BORDER-LEFT: #fff 1px solid; BORDER-TOP: #fff 1px solid; BORDER-RIGHT: #fff 1px solid
 }
 .proo {
-	background:#aed4f8;
+	BACKGROUND: #aed4f8
 }
 .proo {
-	border:1px solid #FFF;
+	BORDER-BOTTOM: #fff 1px solid; BORDER-LEFT: #fff 1px solid; BORDER-TOP: #fff 1px solid; BORDER-RIGHT: #fff 1px solid
 }
-
-/*--3.4ste--*/
 .ok {
-	border:1px solid #999;
+	BORDER-BOTTOM: #999 1px solid; BORDER-LEFT: #999 1px solid; BORDER-TOP: #999 1px solid; BORDER-RIGHT: #999 1px solid
 }
-.ok td {
-	border:1px solid #999;
+.ok TD {
+	BORDER-BOTTOM: #999 1px solid; BORDER-LEFT: #999 1px solid; BORDER-TOP: #999 1px solid; BORDER-RIGHT: #999 1px solid
 }
 .tpian {
-	width:980px;
-	height:220px;
-	background:url(../images/fm.png) no-repeat 0 0;
+	WIDTH: 980px; BACKGROUND: url(../images/fm.png) no-repeat 0px 0px; HEIGHT: 220px
 }
 .an {
-	width:139px;
-	height:76px;
-	padding-top:138px;
+	WIDTH: 139px; HEIGHT: 76px; PADDING-TOP: 138px
 }
 .tpian .lt {
-	width:139px;
-	height:38px;
-	background-color:#cefefe;
-	border-bottom:1px solid #6c7b80;
-	border-top:1px solid #6c7b80;
-	border-right:1px solid #6c7b80;
+	BORDER-BOTTOM: #6c7b80 1px solid; BACKGROUND-COLOR: #cefefe; WIDTH: 139px; HEIGHT: 38px; BORDER-TOP: #6c7b80 1px solid; BORDER-RIGHT: #6c7b80 1px solid
 }
-.tpian .lt h4 {
-	line-height:38px;
+.tpian .lt H4 {
+	LINE-HEIGHT: 38px
 }
 .tpian .ht {
-	width:139px;
-	height:38px;
-	background-color:#fffea0;
-	border-bottom:1px solid #6c7b80;
-	border-top:1px solid #6c7b80;
-	border-right:1px solid #6c7b80;
-	margin-top:3px;
+	BORDER-BOTTOM: #6c7b80 1px solid; BACKGROUND-COLOR: #fffea0; MARGIN-TOP: 3px; WIDTH: 139px; HEIGHT: 38px; BORDER-TOP: #6c7b80 1px solid; BORDER-RIGHT: #6c7b80 1px solid
 }
-.tpian .ht h4 {
-	line-height:38px;
+.tpian .ht H4 {
+	LINE-HEIGHT: 38px
 }

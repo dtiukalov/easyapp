@@ -4,6 +4,7 @@
 <%@page import="java.util.HashMap"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -13,6 +14,11 @@
 		<script type="text/javascript">
 		var chart1;
 		var chart2;
+	<%
+		int fv9Nominiert = 200; //已定厂
+		int fv9Nichtnominiert = 33;//	未定厂
+		int Gesamt = fv9Nominiert + fv9Nichtnominiert;	
+	%>
 		$(document).ready(function() {
 			chart1 = new Highcharts.Chart({
 				chart: {
@@ -23,7 +29,7 @@
 					text: 'Anzahl Teile nach TEVON'
 				},
 				xAxis: {
-					categories: ["Gesamt", "Nominiert", "Nicht<br>nominiert"], 
+					categories: ["Gesamt", "Nominiert", "Nicht<br>nominiert"]
 				},
 				yAxis: {
 					min: 0,
@@ -58,21 +64,42 @@
 					name: '',
 					showInLegend: false,
 					data: [{ 
-							y: 233, 
+							y: <%=Gesamt%>, 
 							low:0,
 							color: '#CFD7D9'
 						}, {
-						 	y: 200, 
-						 	low:33,
+						 	y: <%=fv9Nominiert%>, 
+						 	low:<%=fv9Nichtnominiert%>,
 							color: '#333333'
 						}, {
-							y: 33,
+							y: <%=fv9Nichtnominiert%>,
 							low:0,
 							color: '#013C66'
 						}]
 				}]
 			});
+			<%
+
+			Integer[] fv9KWNo = new Integer[]{9, 11, 13};//周数
+			Integer[] fv9KWNumber = new Integer[]{4,6,4};//数量
+			String[] fv9KWCom = new String[]{"x:*** y:***","x:*** y:***","x:*** y:***"};//备注
+			int fv9KritischeNomini = 1;//	有风险
 			
+			StringBuffer buffer = new StringBuffer("[");
+			buffer.append("\"" + "Kritische<br>Nominierungen" + "\",");
+			int total = 0;
+			
+			for(int i=0; i<fv9KWNo.length; i++){
+				buffer.append("\"" + "KW" + fv9KWNo[i].toString() + "\",");
+				total = fv9KWNumber[i] + total;
+			}
+			
+			buffer.append("\"" + "später" + "\",");
+			buffer.deleteCharAt(buffer.length()-1);
+			buffer.append("]");
+			String categories = buffer.toString();
+			total = fv9KritischeNomini + total;
+		%>
 			chart2 = new Highcharts.Chart({
 				chart: {
 					renderTo: 'chart2',
@@ -85,7 +112,7 @@
 					title: {
 						text: 'Geplante Nominierungen'
 					},
-					categories: ["Kritische<br>Nominierungen", 'KW09', 'KW11', 'KW13', 'später'], 
+					categories: <%=categories%>//["Kritische<br>Nominierungen", 'KW09', 'KW11', 'KW13', 'später'] 
 				},
 				yAxis: {
 					min: 0,
@@ -120,24 +147,29 @@
 					name: '',
 					showInLegend: false,
 					data: [{ 
-							y: 15, 
+							y: <%=total%>, 
 							low:0,
 							color: '#E53110'
-						}, {
-						 	y: 4, 
-						 	low:11,
-							color: '#E53110'
-						}, {
-							y: 6,
-							low:5,
-							color: '#E53110'
-						}, {
-						 	y: 4, 
-						 	low:1,
-							color: '#E53110'
-						}, {
-							y: 1,
-							low:0,
+						}, 
+						<%
+						int temp = 0;
+						for(int i=0; i<fv9KWNumber.length; i++){
+							if(i == 0){
+						 		temp = total - fv9KWNumber[i];
+						 	} else {
+						 		temp = temp - fv9KWNumber[i];
+						 	}
+						%>
+						{
+						 	y: <%=fv9KWNumber[i]%>, 
+					 		low: <%=temp%>,
+					 		color: '#E53110'
+						},
+						<%}
+						%>
+						{
+							y: <%=fv9KritischeNomini%>,
+							low:<%=temp - fv9KritischeNomini%>,
 							color: '#E53110'
 						}]
 				}]

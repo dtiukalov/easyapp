@@ -6,6 +6,8 @@
 <%@page import="java.util.HashMap"%>	
 <%
 	Map form = (Map)request.getAttribute("form");
+	String fv9ProjectStatus = "";
+
 	String fv9ProductstandStatus = "绿";
 	String fv9ProdStatusCom = "- DMU von 1.6L MQ200、AQ250 in KW46/11 abgenommen- DMU von 1.4T MQ250、DQ200 in KW49/11 abgenommen- Versuch Gsmt-fzg. planmäßig im Ablauf, aktuell keine Funktionsfehler ";
 	
@@ -283,7 +285,7 @@
 					</td>
 				  </tr>
 				  
-				  	  <tr>
+				  <tr>
 				    <td valign="top" class="pgpg" style="width:30%">
 				    
 				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">

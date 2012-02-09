@@ -11,11 +11,12 @@
 
 	String[] fv9LogistikStyle = new String[]{"Inbound<br />入厂物流","Inhouse<br />工厂物流","Behälter<br />器具"};
 	String[] fv9LogistikStatus = new String[]{"绿","绿","黄"};
-	String[] fv9LogistikStatCom = new String[]{"1.&nbsp;&nbsp;Inboundlogistik 入厂物流<br />&nbsp;&nbsp;Vorgaben fuer LKW Inbound erstellt; <br />Grobplanung abgeschlossen卡车入厂物流路线起草；粗略规划已结束",
+	String[] fv9LogistikStCom_CN = new String[]{"1.&nbsp;&nbsp;Inboundlogistik 入厂物流<br />&nbsp;&nbsp;Vorgaben fuer LKW Inbound erstellt; <br />Grobplanung abgeschlossen卡车入厂物流路线起草；粗略规划已结束",
 											   "1.&nbsp;&nbsp;Logistikplanung Karobau(Status gruen)焊装物流规划（绿灯）<br />&nbsp;&nbsp;Grobplanung in Arbeit 正在进行粗略规划<br />2.&nbsp;&nbsp; Logsitikplanung Montage(Status gelb)总装物流规划（绿灯）<br />Planung in arbeit",
 											   "&nbsp;&nbsp;Beginn mit Planung der esten stufigen  Verpackung in KW50/11开始具体零件的详细包装规划"};
-	String[] fv9LogistikStatMab = new String[]{"","","专用器具样件设计（KW06/12需有零件样件）<br />Design der Bemusterung des spezifischen Behaelter in KW06/12"};
-	
+	String[] fv9LogistikStCom_GM = new String[]{};
+	String[] fv9LogistikMab_CN = new String[]{"","","专用器具样件设计（KW06/12需有零件样件）<br />Design der Bemusterung des spezifischen Behaelter in KW06/12"};
+	String[] fv9LogistikMab_GM = new String[]{};
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -54,9 +55,9 @@
 					  </tr>
 					</table>
 				</td>
-	    		<td valign="top" class="pgpg"><div class="tbnrr"><%=fv9LogistikStatCom[i] %></div>
+	    		<td valign="top" class="pgpg"><div class="tbnrr"><%=fv9LogistikStCom_CN[i] %></div>
 			    </td>
-	   			 <td valign="top" class="pgpg"><div class="tbnrr"><%=fv9LogistikStatMab[i] %></div>
+	   			 <td valign="top" class="pgpg"><div class="tbnrr"><%=fv9LogistikMab_CN[i] %></div>
 				</td>
 			</tr>
 			  <% 

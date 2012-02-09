@@ -18,11 +18,25 @@
 					text: 'B-Fehler pro Fahrzeug'
 				},
 				xAxis: {
-					categories: ['KW15','16','17','18','19','20']
+					tickLength: 0,
+					lineColor: 'black',
+					categories: ['KW15','16','17','18','19','20'],
+					labels: {
+							style: {
+								 padding:'10px',
+								 font: 'normal 12px Verdana, sans-serif',
+								 color: 'black'
+							}
+					}
 				},
 				yAxis: {
-					min: 0,
-					max: 12
+					gridLineWidth: 0,
+					labels: {
+						enabled:false
+					},
+					title: {
+						text:""
+					}
 				},
 				tooltip: {
 					formatter: function() {
@@ -33,20 +47,30 @@
 				plotOptions: {
 					column: {
 						stacking: 'normal',
+						borderColor:'black',
+						borderWidth:1,
 						dataLabels: {
-							enabled: true
+							enabled: true,
+							style : {
+								fontWeight: 'bold',
+								fontSize:'10px'
+							},
+							color: 'black'
 						}
 					}
 				},
 				legend: {
-						enabled: true
+					layout: 'vertical',
+					enabled: true,
+					borderWidth:1
 				},
 			    series: [{
 					name: 'Soll',
+					showInLegend: false,
 					data: [{ 
 							y: 0, 
 							low: 0,
-							color: 'white'
+							color: '#009C0E'
 						},{ 
 							y: 2, 
 							low: 8,
@@ -67,48 +91,56 @@
 							y: 1, 
 							low:0,
 							color: '#009C0E'
-						}]
+						}],
+						dataLabels: {
+							enabled: true,
+							style : {
+								fontWeight: 'bold',
+								fontSize:'10px'
+							},
+							color: 'white'
+						}
 				},{
-					name: 'Projekt',
-					data: [{ 
-						y: 1, 
-						low: 0,
-						color: '#99CC00'
-					}]
-				},{
-					name: 'Kaufteile',
-					data: [{ 
-						y: 1, 
-						low: 1,
-						color: '#AED4F8'
-					}]
-				},{
-					name: 'Montage',
+					name: 'Presswerk',
+					color: '#BBC2C5',
 					data: [{ 
 						y: 2, 
-						low: 2,
-						color: '#00235A'
-					}]
-				},{
-					name: 'Lack',
-					data: [{ 
-						y: 2, 
-						low: 4,
-						color: '#0000FF'
+						low: 8
 					}]
 				},{
 					name: 'Karosseriebau',
+					color: '#AED4F8',
 					data: [{ 
 						y: 2, 
-						low: 6,
-						color: '#AED4F8'
+						low: 6
 					}]
 				},{
-					name: 'Presswerk',
+					name: 'Lack',
+					color: '#0000FF',
 					data: [{ 
 						y: 2, 
-						low: 8,
-						color: '#BBC2C5'
+						low: 4
+					}]
+				},{
+					name: 'Montage',
+					color: '#00235A',
+					data: [{ 
+						y: 2, 
+						low: 2
+					}]
+				},{
+					name: 'Kaufteile',
+					color: '#AED4F8',
+					data: [{ 
+						y: 1, 
+						low: 1
+					}]
+				},{
+					name: 'Projekt',
+					color: '#98CB00',
+					data: [{ 
+						y: 1, 
+						low: 0
 					}]
 				}]
 			});
@@ -120,7 +152,7 @@
 			<div id="nr">
 				<div id="top"><h1>3.5 Maßnahmen zur Abarbeitung der B-Fehler Audit ZP8</h1></div>	
 				<div id="content">
-					<div id="chart" style="width: 400px; height: 400px; margin: 0 auto; float: left;"></div>
+					<div id="chart" style="width: 400px; height: 500px; margin: 0 auto; float: left;"></div>
 					<div id="table" style="width: 400px; height: 400px; margin: 0 auto; float: left;">&nbsp;</div>
 				</div>
 			</div>

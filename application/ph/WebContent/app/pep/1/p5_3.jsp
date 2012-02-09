@@ -13,11 +13,11 @@
 		
 		<%
 		Map form = (Map)request.getAttribute("form");
-		String kwarr = "[5,6,7,8,9,10,11]";
-		String soll = "[2,7,0, 6, 2,1,6,8,5]";//Web.getNumberListStr(form.get("fv9AA"));
+		String kws = "[2,3,4,5,6,7,8,9,10]";
+		String soll = "[2,7,0,6,2,1,6,8,5]";//Web.getNumberListStr(form.get("fv9AA"));
 		String kumSoll = "[2,9,9,15,17,18,24,32,37]";//Web.getNumberListStr(form.get("fv9BB"));
-		String lst = "[]";//Web.getNumberListStr(form.get("fv9AA"));
-		String kumLst = "[]";//Web.getNumberListStr(form.get("fv9BB"));
+		String lst = "[1,6,0,6,1,1,5,8,5]";//Web.getNumberListStr(form.get("fv9AA"));
+		String kumLst = "[1,7,7,13,14,15,20,28,33]";//Web.getNumberListStr(form.get("fv9BB"));
 			
 		%>
 		<script type="text/javascript">
@@ -33,7 +33,7 @@
 					text: 'Fahrzeugbauprogramm ZP8'
 				},
 				xAxis: {
-					categories: <%=kwarr%>//[5,6,7,8,9,10,11]  
+					categories: <%=kws%>//[5,6,7,8,9,10,11]  
 				},
 				yAxis: {
 					title: {

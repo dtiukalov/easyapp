@@ -108,7 +108,7 @@
 	BACKGROUND: #fff; BORDER-RIGHT: #000 1px solid
 }
 .x {
-	BORDER-BOTTOM: #000 4px solid
+	BORDER-BOTTOM: #000 4px solid; font-size: 10px; height: 50px; vertical-align: bottom;
 }
 #content P {
 	FONT-SIZE: 30px

@@ -14,7 +14,7 @@
 		<div id="top"><h1>1.1 Projektterminplan  (图片)</h1></div>
 		<div id="content">
 			<div id="chart" style="width: 800px; height: 400px; margin: 0 auto">
-				<img src = "/ph/app/pep/1/Projektterminplan.png" width="800" height="400">
+				<img src = "/ph/app/pep/1/FV9_Projektterminplan.jpg" width="800" height="400">
 			</div>
 		</div>
 		<%@ include file="/app/pep/include/foot.jsp"%>

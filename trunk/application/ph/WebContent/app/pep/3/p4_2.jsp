@@ -5,38 +5,62 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<%@ include file="/app/pep/include/header.jsp"%>
+		<title>Highcharts Example</title>
+		
+		
+		<!-- 1. Add these JavaScript inclusions in the head of your page -->
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+		<script type="text/javascript" src="../js/highcharts.js"></script>
+		
+		<!-- 1a) Optional: add a theme file -->
+		<!--
+			<script type="text/javascript" src="../js/themes/gray.js"></script>
+		-->
+		
+		<!-- 1b) Optional: the exporting module -->
+		<script type="text/javascript" src="../js/modules/exporting.js"></script>
+		
+		
+		<!-- 2. Add the JavaScript to initialize the chart on document ready -->
 		<script type="text/javascript">
 		
 			var chart;
 			$(document).ready(function() {
 				chart = new Highcharts.Chart({
 					chart: {
-						renderTo: 'chart',
+						renderTo: 'content',
 						defaultSeriesType: 'bar'
 					},
 					title: {
 						text: ''
 					},
 					xAxis: {
+						tickLength: 0,
+						lineColor: 'black',
 						categories: ['Aufbau (122/2)', 'Unterbau (98/5)', 'Seitenteil li. (24/5)', 'Seitenteil re. (24/5)', 'Tür vo. li. (21/5)', 'Tür vo. re. (21/3)', 'Tür hi. li. (21/5)', 'Tür hi. re. (21/2)', 'Frontklappe (14/1)', 'Rückwandklappe (21/3)', 'SAD Dach (13/2)', 'ZP5 Karo. (14/1)']
 					},
 					yAxis: {
-						min: 0,
+						gridLineWidth: 0,
+						labels: {
+							enabled:false
+						},
 						title: {
-							text: ''
+							text: ""
 						},
 						stackLabels: {
 							enabled: true,
 							style: {
-								fontWeight: 'bold',
-								color: (Highcharts.theme && Highcharts.theme.textColor) || '#333333'
+								color: 'black'
 							}
 						}
 					},
 					legend: {
-						verticalAlign: 'bottom',
+						layout: 'vertical',
+						verticalAlign: 'right',
+						x:210,
+						y:300,
 						borderColor: '#CCC',
-						borderWidth: 1,
+						borderWidth: 0,
 						shadow: false,
 						backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColorSolid) || 'white',
 						reversed: true
@@ -51,16 +75,23 @@
 					plotOptions: {
 						series: {
 							stacking: 'normal',
+							borderColor: 'black',
 							dataLabels: {
 								enabled: true,
-								color: '#CCCCCC'
+								align: 'center',
+								y:5,
+								style : {
+									fontWeight: 'bold',
+									fontSize:'8px'
+								},
+								color: 'black'
 							}
 						}
 					},
 				        series: [{
 						name: 'AK: Abweichung Toleranz > 100 %',
 						color: '#E63110',
-						data: [2, 2, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0]
+						data: [2, 2, 5, 4, 2, 6, 2, 4, 3, 4, 4, 5]
 					}, {
 						name: 'BK: 75% < Abweichung Toleranz < 100 ',
 						color: '#F9A700',
@@ -68,7 +99,15 @@
 					}, {
 						name: 'i.O.: Abweichung Toleranz < 75 %',
 						color: '#009C0E',
-						data: [110, 91, 19, 23, 15, 17, 16, 17, 8, 16, 8, 13]
+						data: [110, 91, 19, 23, 15, 17, 16, 17, 8, 16, 8, 13],
+						dataLabels: {
+							enabled: true,
+							style : {
+								fontWeight: 'bold',
+								fontSize:'10px'
+							},
+							color: 'white'
+						}
 					}]
 				});
 				

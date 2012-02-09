@@ -50,14 +50,7 @@
 								 padding:'5px',
 								 font: 'normal 14px Arial, sans-serif',
 								 fontWeight: 'bold'
-							}},
-						stackLabels: {
-							enabled: true,
-							style: {
-								fontWeight: 'bold',
-								color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
-							}
-						}
+							}}
 					},
 					/* legend: {
 						layout: 'vertical',

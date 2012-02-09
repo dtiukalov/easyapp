@@ -52,18 +52,6 @@
 								 fontWeight: 'bold'
 							}}
 					},
-					/* legend: {
-						layout: 'vertical',
-						align: 'right',
-						x: 0,
-						verticalAlign: 'top',
-						y: 0,
-						floating: true,
-						backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColorSolid) || 'white',
-						borderColor: '#CCC',
-						borderWidth: 1,
-						shadow: false
-					}, */
 					legend:{
 						layout: 'vertical',
 						align: 'center',

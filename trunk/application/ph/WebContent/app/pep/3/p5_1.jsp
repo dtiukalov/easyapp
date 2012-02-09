@@ -127,7 +127,15 @@
 					data: [{ 
 						y: 2, 
 						low: 2
-					}]
+					}],
+					dataLabels: {
+						enabled: true,
+						style : {
+							fontWeight: 'bold',
+							fontSize:'10px'
+						},
+						color: 'white'
+					}
 				},{
 					name: 'Kaufteile',
 					color: '#AED4F8',

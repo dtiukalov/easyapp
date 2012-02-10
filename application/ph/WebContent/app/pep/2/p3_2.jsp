@@ -72,7 +72,7 @@
 <body>		
 		<div id="containerouter">
 			<div id="nr">
-			<div id="top"><h1>2.3 Fehlerabbaustatus</h1></div>
+			<div id="top"><h1>2.3 Fehlerabbaustatus  (图片)</h1></div>
 			<div id="top1"><h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VWXXX, KWXX, anlaufrelevante Fehler</h4></div>
 			<div id="container" style="width: 800px; height: 400px; margin: 0 auto"></div>
 			

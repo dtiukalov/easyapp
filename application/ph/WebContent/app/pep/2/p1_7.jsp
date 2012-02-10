@@ -156,7 +156,7 @@
 <body>		
 		<div id="container">
 			<div id="nr">
-			<div id="top"><h1>2.1 P-Freigaben</h1></div>
+			<div id="top"><h1>2.1 BMG</h1></div>
 			<div id="top1"><h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LC BMG-Teile von ES Teileliste (KW48/11)</h4></div>
 			<div id="top2" align="right"><h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STATUS: <%=status %></h4></div>
 			<div id="content">

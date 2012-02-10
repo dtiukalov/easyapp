@@ -16,19 +16,47 @@
 						text: ' '
 					},
 					xAxis: {
-						categories: ['KW  4', '5', '6', '7', '8', '9', '10', '11', '12', '13',  '14']
+						lineWidth:2,
+						lineColor:'black',
+						tickColor:'black',
+						labels: {
+							y:25,
+							style: {
+								color:'black'
+							}
+						},
+						categories: ['4', '5', '6', '7', '8', '9', '10', '11', '12', '13',  '14']
 					},
 					yAxis: {
 						min: 0,
 						max: 4000,
+						lineWidth:2,
+						gridLineWidth: 0,
+						tickWidth:2,
+						tickColor:'black',
+						lineColor:'black',
 						title: {
-							text: 'Nacharbeitszeit [min]'
+							rotation:0,
+							text: 'Nacharbeitszeit [min]',
+							x:-12,
+							y:-180,
+							style: {
+								color:'gray',
+								fontSize:'12px'
+							}
+						},
+						labels: {
+							style: {
+								color:'black'
+							}
 						},
 						stackLabels: {
 							enabled: true,
+							y:-15,
 							style: {
 								fontWeight: 'bold',
-								color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+								color: 'black',
+								fontSize:'10px'
 							}
 						}
 					},
@@ -37,8 +65,9 @@
 						align: 'right',
 						verticalAlign: 'top',
 						x: -10,
-						y: 100,
-						borderWidth: 0
+						y: 60,
+						borderWidth: 0,
+						shadow:false
 					},
 					tooltip: {
 						formatter: function() {
@@ -50,10 +79,16 @@
 					plotOptions: {
 						column: {
 							stacking: 'normal',
+							shadow: false,
+							borderColor:'black',
+							borderWidth:0,
 							dataLabels: {
 								enabled: true,
-								color: 'white',
-								font: 'normal 10px  Verdana'
+								style : {
+									fontWeight: 'bold',
+									fontSize:'10px'
+								},
+								color: 'white'
 							}
 						}
 					},
@@ -66,7 +101,15 @@
 						type: 'column',
 						name: 'Presswerk',
 						data: [480, 500, 250, 250, 250],
-						color: '#BBC2C5'
+						color: '#BBC2C5',
+						dataLabels: {
+							enabled: true,
+							style : {
+								fontWeight: 'bold',
+								fontSize:'8px'
+							},
+							color: 'black'
+						}
 					}, {
 						type: 'column',
 						name: 'Karosseriebau',
@@ -91,7 +134,19 @@
 						type: 'spline',
 						name: 'Prognose',
 						data: [3500, 3500, 3400, 3300, 3200, 3000, 2500, 2500, 2500, 2250, 2000],
-						color: '#027F01'
+						color: '#A6DD00',
+						marker: {
+							enabled: false,
+							shadow:false,
+							states: {
+								hover: {
+									enabled: true,
+									symbol: 'circle',
+									radius: 5,
+									lineWidth: 1
+								}
+							}
+						}
 					}]
 				});
 			});
@@ -102,7 +157,7 @@
 			<div id="nr">
 			<div id="top"><h1>3.5 Nacharbeit Abbaustatus</h1></div>
 			<div id="content">
-				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto"></div>
+				<div id="chart" style="width: 950px; height: 400px; margin: 0 auto"></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

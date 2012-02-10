@@ -2,7 +2,9 @@ package com.saturn.tc.utils;
 
 import java.io.File;
 
-import com.saturn.tc.clientx.TCSession;
+import javax.servlet.http.HttpServletRequest;
+
+import com.saturn.ph.PH;
 import com.saturn.tc.utils.server.EasyDataManagementService;
 import com.saturn.tc.utils.server.EasyFileManagementService;
 import com.teamcenter.soa.client.FileManagementUtility;
@@ -12,10 +14,19 @@ import com.teamcenter.soa.client.model.strong.ImanFile;
 import com.teamcenter.soa.exceptions.NotLoadedException;
 
 public class DatasetUtils {
+	public static String getDatasetByUid(String uid, HttpServletRequest request){
+		Dataset dataset = (Dataset)PH.getDataService().loadModelObject(uid);
+		
+		String date =  DateUtils.getSysDate();
+		String datasetpath = "attachment" +File.separator+ date +File.separator;
+		
+		String path = request.getRealPath("/") + datasetpath;
+		return  File.separator + datasetpath + downloadDatasetFromTc(dataset ,path);
+	}
 
-	public static String downloadDatasetFromTc(TCSession session, Dataset dataset, String directory) {
-		EasyDataManagementService dms = new EasyDataManagementService(session);
-		EasyFileManagementService fms = new EasyFileManagementService(session);
+	public static String downloadDatasetFromTc( Dataset dataset, String directory) {
+		EasyDataManagementService dms = PH.getDataService();
+		EasyFileManagementService fms = PH.getFileService();
 		FileManagementUtility fileUtility = fms.newUtility();
 		
 		try {
@@ -31,18 +42,12 @@ public class DatasetUtils {
 				
 				if (files.length > 0) {
 					ImanFile file = (ImanFile) files[0];
-
-					String fileName = file.get_file_name();
-					int index = fileName.lastIndexOf("_");
-					if (index >= 0 && index < fileName.length() - 1) {
-						fileName = fileName.substring(index+1);
-					}
-					String location = directory + File.separator + fileName;
-					fileUtility.getFileToLocation(file, location, null, null);
-					
-					String realname = directory + File.separator + file.get_original_file_name();
+				
+					String location = directory + File.separator + file.get_original_file_name();
 					File f = new File(location);
-					f.renameTo(new File(realname));
+					if(!f.exists()){
+						fileUtility.getFileToLocation(file, location, null, null);
+					}
 					
 					return file.get_original_file_name();
 				}
@@ -53,4 +58,6 @@ public class DatasetUtils {
 		
 		return "";
 	}
+	
+	
 }

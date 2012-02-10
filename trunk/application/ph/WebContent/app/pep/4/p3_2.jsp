@@ -138,55 +138,59 @@
 		<div id="container">
 			<div id="nr">
 				<div id="top"><h1>4.3 Hausteile ZP7</h1></div>
-				
-				<div id="subtitle">
-					<h1>Teilestatus zu VFF ZP7 (KT)</h1>
-				</div>
-				<div id="legend">
-					<li><img src="/ph/app/pep/images/legend_white.png" width="13" height="13">
-					&nbsp;PT-Teile/Alternativteile
-					<li><img src="/ph/app/pep/images/legend_lightgreen.png" width="13" height="13">
-					&nbsp;Teile aus Serienwerkzeug
-					<li><img src="/ph/app/pep/images/legend_green.png" width="13" height="13">
-					&nbsp;Note 3
-					<li><img src="/ph/app/pep/images/legend_black.png" width="13" height="13">
-					&nbsp;Note 1
-					<li><img src="/ph/app/pep/images/legend_red.png" width="13" height="13">
-					&nbsp;Note 6
-				</div>
-				<div id="left">
-					<div id="chart"></div>
-					<div id="time">
-						<img src="/ph/app/pep/4/bottom.jpg" width="400" height="70">
+				<div id="content" >
+		    		<div id="subtitle">
+						<h1>Teilestatus zu VFF ZP7 KT</h1>
+					</div>
+					<div id="legend">
+						<li><img src="/ph/app/pep/images/legend_white.png" width="13" height="13">
+						&nbsp;PT-Teile/Alternativteile
+						<li><img src="/ph/app/pep/images/legend_lightgreen.png" width="13" height="13">
+						&nbsp;Teile aus Serienwerkzeug
+						<li><img src="/ph/app/pep/images/legend_green.png" width="13" height="13">
+						&nbsp;Note 3
+						<li><img src="/ph/app/pep/images/legend_black.png" width="13" height="13">
+						&nbsp;Note 1
+						<li><img src="/ph/app/pep/images/legend_red.png" width="13" height="13">
+						&nbsp;Note 6
+					</div>
+					<div id="left">
+						<div id="chart"></div>
+						<div id="time">
+							<img src="/ph/app/pep/4/bottom.jpg" width="400" height="70">
+						</div>
+					</div>
+					<div id="right">
+						<table width="100%">
+							<tr>
+								<td colspan="4" style="text-align: left;font-weight: bolder; height: 36px;border-bottom: 1px solid;">Top</td>
+							</tr>
+							<tr>
+								<td width="34%" style="font-weight: bolder;height: 36px;border-bottom: 2px solid;">Kritische Umfänge</td>
+								<td width="22%" style="font-weight: bolder;text-align: center;border-bottom: 2px solid;">Einzelteile</td>
+								<td width="22%" style="font-weight: bolder;text-align: center;border-bottom: 2px solid;">VSI N3</td>
+								<td width="22%" style="font-weight: bolder;text-align: center;border-bottom: 2px solid;">VSI N1</td>
+							</tr>
+							<%
+								for(int i=0; i<fv9TopKrisUmf.length; i++) {
+							%>		
+							<tr>
+								<td style="height: 36px;border-bottom: 1px solid;"><%=fv9TopKrisUmf[i]%></td>
+								<td style="text-align: center;border-bottom: 1px solid;"><%=fv9TopEinNum[i]%></td>
+								<td style="text-align: center;border-bottom: 1px solid;"><%=fv9TopVSIN3[i]%></td>
+								<td style="text-align: center;border-bottom: 1px solid;"><%=fv9TopVSISWZ[i]%></td>
+							</tr>
+							<%
+							}
+							%>
+						</table>
 					</div>
 				</div>
-				<div id="right">
-					<table width="100%">
-						<tr>
-							<td colspan="4" style="text-align: left;font-weight: bolder; height: 36px;border-bottom: 1px solid;">Top</td>
-						</tr>
-						<tr>
-							<td width="34%" style="font-weight: bolder;height: 36px;border-bottom: 2px solid;">Kritische Umfänge</td>
-							<td width="22%" style="font-weight: bolder;text-align: center;border-bottom: 2px solid;">Einzelteile</td>
-							<td width="22%" style="font-weight: bolder;text-align: center;border-bottom: 2px solid;">VSI N3</td>
-							<td width="22%" style="font-weight: bolder;text-align: center;border-bottom: 2px solid;">VSI N1</td>
-						</tr>
-						<%
-							for(int i=0; i<fv9TopKrisUmf.length; i++) {
-						%>		
-						<tr>
-							<td style="height: 36px;border-bottom: 1px solid;"><%=fv9TopKrisUmf[i]%></td>
-							<td style="text-align: center;border-bottom: 1px solid;"><%=fv9TopEinNum[i]%></td>
-							<td style="text-align: center;border-bottom: 1px solid;"><%=fv9TopVSIN3[i]%></td>
-							<td style="text-align: center;border-bottom: 1px solid;"><%=fv9TopVSISWZ[i]%></td>
-						</tr>
-						<%
-						}
-						%>
-					</table>
-				</div>
+				
+				<div class="clear"></div>
+				<%@ include file="/app/pep/include/foot.jsp"%>
 			</div>
-			<%@ include file="/app/pep/include/foot.jsp"%>
+			
 		</div>	
 	</body>
 </html>

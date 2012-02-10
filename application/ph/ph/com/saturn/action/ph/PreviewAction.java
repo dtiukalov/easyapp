@@ -10,6 +10,7 @@ import com.saturn.app.web.view.JspView;
 import com.saturn.ph.FormManager;
 import com.saturn.ph.PH;
 import com.teamcenter.soa.client.model.ModelObject;
+import com.teamcenter.soa.exceptions.NotLoadedException;
 
 public class PreviewAction implements IAction {
 
@@ -28,6 +29,14 @@ public class PreviewAction implements IAction {
 		}
 
 		String type = object.getType().getName();
+		if(type.equalsIgnoreCase("JPEG")){
+			try {
+				type = object.getProperty("object_name").getDisplayableValue();
+			} catch (NotLoadedException e) {
+				e.printStackTrace();
+			}
+		}
+		
 		request.setAttribute("uid", uid);
 		request.setAttribute("form", FormManager.getFormValue(type, uid, true));
 		

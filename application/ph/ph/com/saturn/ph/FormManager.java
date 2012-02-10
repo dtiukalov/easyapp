@@ -7,6 +7,7 @@ import com.saturn.ph.form.Form152;
 import com.saturn.ph.form.FormTest;
 import com.saturn.ph.form.p1.FV9_12AktionspunkteForm;
 import com.saturn.ph.form.p1.FV9_15ProgrammpunkteForm;
+import com.saturn.ph.form.p4.FV9_44Dataset;
 
 public class FormManager {
 	
@@ -53,5 +54,7 @@ public class FormManager {
 		
 		add(new FV9_12AktionspunkteForm());
 		add(new FV9_15ProgrammpunkteForm());
+		
+		add(new FV9_44Dataset());
 	}
 }

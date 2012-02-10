@@ -12,7 +12,7 @@
 	
 	<%
 	String uid = (String)request.getAttribute("uid");
-	String src = request.getContextPath()+  DatasetUtils.getDatasetByUid(uid, request);
+	String src =  DatasetUtils.getDatasetByUid(uid, request);
 	%>
 	<body>
 		<div id="container">

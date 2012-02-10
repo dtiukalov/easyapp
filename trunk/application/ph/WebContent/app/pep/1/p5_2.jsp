@@ -30,7 +30,6 @@
 			String kumLst = "[]";
 			if(fv9KWNo != null ){
 				kws = Web.getNumberListStr(fv9KWNo);
-				out.print(kws);
 			}
 			if(solllist != null ){
 				int temp1 = 0;

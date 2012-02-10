@@ -5,24 +5,24 @@ import com.saturn.ph.Form;
 public class FV9_24StatusAEKOForm extends Form {
 	
 	private static final String[] attr = {
-		"fv9Aktion", "fv9Verantwortlich", "fv9Termin", "fv9PHStatus"
+		"fv9KWNo", "fv9AekoAbgesch", "fv9AekoSmall2Woch", "fv9AekoBig2Woch"
 	};
-	
+
 	public String[] getAttributes() {
 		return attr;
 	}
 
 	public String getJspPath() {
-		return "/app/pep/1/p2_1.jsp";
+		return "/app/pep/2/p4_1.jsp";
 	}
 
 	@Override
 	public String getType() {
-		return "FV9_12Aktionspunkte";
+		return "FV9_24StatusAEKO";
 	}
 
 	@Override
 	public String getTitle() {
-		return "1.2 Aktionspunkte";
+		return "2.4 Status ÄKO";
 	}
 }

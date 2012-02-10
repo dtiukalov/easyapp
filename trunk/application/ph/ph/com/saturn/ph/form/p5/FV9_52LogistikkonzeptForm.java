@@ -5,7 +5,9 @@ import com.saturn.ph.Form;
 public class FV9_52LogistikkonzeptForm extends Form {
 	
 	private static final String[] attr = {
-		"fv9LogistikStyle", "fv9LogistikStatus", "fv9LogistikStatCom", "fv9LogistikStatMab"
+		"fv9LogistikStyle", "fv9LogistikStatus"
+		, "fv9LogistikStCom_CN", "fv9LogistikStCom_GM"
+		, "fv9LogistikMab_CN", "fv9LogistikMab_GM"
 	};
 
 	public String[] getAttributes() {
@@ -18,7 +20,7 @@ public class FV9_52LogistikkonzeptForm extends Form {
 
 	@Override
 	public String getType() {
-		return "FV9_52Logistikkonzept";
+		return "FV9_52Logiskonzept";
 	}
 
 	@Override

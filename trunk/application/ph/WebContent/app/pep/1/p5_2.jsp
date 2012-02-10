@@ -13,13 +13,52 @@
 		<%@ include file="/app/pep/include/header.jsp"%>
 		
 		<%
-			
 			Map form = (Map)request.getAttribute("form");
-			String kws = "[2,3,4,5,6,7,8,9,10]";
-			String soll = "[2,7,0,6,2,1,6,8,5]";//Web.getNumberListStr(form.get("fv9AA"));
-			String kumSoll = "[2,9,9,15,17,18,24,32,37]";//Web.getNumberListStr(form.get("fv9BB"));
-			String lst = "[1,6,0,6,1,1,5,8,5]";//Web.getNumberListStr(form.get("fv9AA"));
-			String kumLst = "[1,7,7,13,14,15,20,28,33]";//Web.getNumberListStr(form.get("fv9BB"));
+			
+			//String kws = Web.getNumberListStr(form.get("fv9KWNo"));
+			List<String> fv9KWNo = (List<String>)form.get("fv9KWNo");
+			List<String> solllist = (List<String>)form.get("fv9ZP5NumSoll");
+			List<String> lstlist = (List<String>)form.get("fv9ZP5Numlst");
+			
+			List<Integer> kumSolllist = new ArrayList<Integer>(solllist.size());
+			List<Integer> kumLstlist = new ArrayList<Integer>(solllist.size());
+			
+			String kws = "[]";
+			String soll = "[]";
+			String kumSoll = "[]";
+			String lst = "[]";
+			String kumLst = "[]";
+			if(fv9KWNo != null ){
+				kws = Web.getNumberListStr(fv9KWNo);
+				out.print(kws);
+			}
+			if(solllist != null ){
+				int temp1 = 0;
+				for(int i=0; i<solllist.size(); i++){
+					if(i == 0){
+						temp1 = Integer.parseInt(solllist.get(i)) ;
+					}else{
+						temp1 = temp1 + Integer.parseInt(solllist.get(i));
+					}
+					kumSolllist.add(temp1);
+				}
+				soll = Web.getNumberListStr(solllist);
+				kumSoll = Web.getNumberListStr(kumSolllist);
+			}
+			
+			if(lstlist != null ){
+				int temp2 = 0;
+				for(int i=0; i<lstlist.size(); i++){
+					if(i == 0){
+						temp2 = Integer.parseInt(lstlist.get(i));
+					}else{
+						temp2 = temp2 + Integer.parseInt(lstlist.get(i));
+					}
+					kumLstlist.add(temp2);
+				}
+				lst = Web.getNumberListStr(lstlist);
+				kumLst = Web.getNumberListStr(kumLstlist);
+			}
 			
 		%>
 		<script type="text/javascript">

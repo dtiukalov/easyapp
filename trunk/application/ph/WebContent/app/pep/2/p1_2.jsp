@@ -5,14 +5,52 @@
 <%@page import="java.util.Map"%>
 <%@page import="java.util.HashMap"%>	
 <%@page import="json.JSONArray"%>
+<%@page import="com.saturn.web.Web"%>
 <%
 
 	Map form = (Map)request.getAttribute("form");	
 
-	String offenarr = "[177, 0, 4, 9, 159, 0, 2]";//Web.getNumberListStr(form.get("fv9AA"));
-	String istarr = "[2074, 336, 293, 397, 624, 287, 137]";//Web.getNumberListStr(form.get("fv9BB"));
-	String sollarr = "[2248, 336, 297, 406, 783, 287, 139]";//Web.getNumberListStr(form.get("fv9AA"));
-	String gesamtarr = "[2248, 336, 297, 406, 783, 287, 139]";//Web.getNumberListStr(form.get("fv9BB"));
+	//从TC中取出数据
+	String[] fv9PFMajor = {"Ausstattung", "Elektrik", "Fahrwerk", "Getriebe", "Karosserie", "Motor", "1:3:4"}; //专业
+	Integer[] fv9PFGesamtNum = {247, 153, 134, 0, 95, 192, 35};
+	Integer[] fv9PFSollNum = {247, 153, 134, 0, 95, 192, 35};
+	Integer[] fv9PFlstNum = {85, 121, 122, 0, 17, 180, 29};
+	
+	//汇总
+	String[] major = new String[fv9PFMajor.length+1];
+	Integer[] gesamt = new Integer[fv9PFMajor.length+1];
+	Integer[] soll = new Integer[fv9PFMajor.length+1];
+	Integer[] ist = new Integer[fv9PFMajor.length+1];
+	Integer[] offen = new Integer[fv9PFMajor.length+1];
+	
+	if (fv9PFMajor.length > 0){
+		int gesamtSum = 0; 
+		int sollSum = 0;
+		int istSum = 0;
+		int offenSum = 0;
+		for(int i=0; i<fv9PFMajor.length-1; i++) {
+			major[i] = fv9PFMajor[i];  
+			gesamt[i] = fv9PFGesamtNum[i];  
+			soll[i] = fv9PFSollNum[i];  
+			ist[i] = fv9PFlstNum[i];  
+			offen[i] = fv9PFSollNum[i] - fv9PFlstNum[i];  //计算偏差
+			gesamtSum += gesamt[i]; 
+			sollSum += soll[i];  
+			istSum += ist[i];  
+			offenSum += offen[i];
+		}
+		major[major.length-1] = "Gesamt";  
+		gesamt[major.length-1] = gesamtSum;  
+		soll[major.length-1] = sollSum;  
+		ist[major.length-1] = istSum;  
+		offen[major.length-1] = offenSum;  
+	}
+	
+	String majorArr = Web.getStrFromStringArray(major);
+	String offenArr = Web.getStrFromIntArray(offen);
+	String istArr = Web.getStrFromIntArray(ist);
+	String sollArr = Web.getStrFromIntArray(soll);
+	String gesamtArr = Web.getStrFromIntArray(gesamt);
 	
 %>
 <!DOCTYPE HTML>
@@ -35,15 +73,7 @@
 					text: 'Anzahl Teile nach TEVON'
 				},
 				xAxis: {
-					categories: [
-						'GESAMT', 
-						'AGGREGATE', 
-						'FAHRWEAK', 
-						'KAROSSERIE', 
-						'AUSSTATTUNG', 
-						'ELEKTRIK', 
-						'1:3:4'
-					]
+					categories: <%=majorArr%>
 				},
 				yAxis: {
 					min: 0,
@@ -76,19 +106,19 @@
 				},
 			    series: [{
 					name: 'P-Offen',
-					data: <%=offenarr%>,//[177, 0, 4, 9, 159, 0, 2],
+					data: <%=offenArr%>,//[177, 0, 4, 9, 159, 0, 2],
 					color: '#FC827F'
 				}, {
 					name: 'P-Ist',
-					data: <%=istarr%>,//[2074, 336, 293, 397, 624, 287, 137],
+					data: <%=istArr%>,//[2074, 336, 293, 397, 624, 287, 137],
 					color: '#85FC84'
 				}, {
 					name: 'P-Soll',
-					data: <%=sollarr%>,//[2248, 336, 297, 406, 783, 287, 139],
+					data: <%=sollArr%>,//[2248, 336, 297, 406, 783, 287, 139],
 					color: '#7BBFFC'
 				}, {
 					name: 'Gesamt',
-					data: <%=gesamtarr%>,//[2248, 336, 297, 406, 783, 287, 139],
+					data: <%=gesamtArr%>,//[2248, 336, 297, 406, 783, 287, 139],
 					color: '#E1E1E1'
 				}]
 			});

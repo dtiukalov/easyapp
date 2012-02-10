@@ -1,173 +1,82 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page import="java.util.Arrays"%>
-<%@page import="java.util.Map"%>
-<%@page import="java.util.List"%>
-<%@page import="java.util.HashMap"%>	
-	
-	<% Map form = (Map)request.getAttribute("form");
-	String fv9PartSource = "";//	零件分类
-	int fv9TotalNum	= 0;//总数
-	int fv9CKDCOPNum = 0;//	CKD/COP
-		
-	String teilestName = "['TBT VFF', 'Beginn VFF', 'Ende VFF', 'Beginn PVS', 'Beginn 0-S', 'Beginn SOP']";//	名称
-	String teileAusSerien = "[33, 32, 4, 0, 0, 0]";//Web.getNumberListStr(form.get("fv9AA"));
-	String note3 = "[2, 3, 30, 27, 0, 0]";//Web.getNumberListStr(form.get("fv9BB"));
-	String note1 = "[1, 1, 2, 9, 36, 36]";//Web.getNumberListStr(form.get("fv9BB"));
-	String note6 = "[0, 0, 0, 0, 0, 0]";//Web.getNumberListStr(form.get("fv9BB"));
-	
-	String[]  topKrisUmf = new String[]{"FK aussen","FK aussen","FK aussen","FK aussen","FK aussen","FK aussen","FK aussen"};//Web.getNumberListStr(form.get("fv9BB"));	问题零件范围
-	Integer[]  topEinNum =  new Integer[]{1,1,1,1,1,1,1};//Web.getNumberListStr(form.get("fv9BB"));	单件数量
-	String[] topVSIN3 =  new String[]{"KW16_12","KW16_12","KW16_12","KW16_12","KW16_12","KW16_12","KW16_12"};//Web.getNumberListStr(form.get("fv9BB"));	预测小批量模具时间
-	String[] topVSISWZ =  new String[]{"KW30_12","KW30_12","KW30_12","KW30_12","KW30_12","KW30_12","KW30_12"};//Web.getNumberListStr(form.get("fv9BB"));	预测3分时间
-
-%>
 <!DOCTYPE HTML>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<%@ include file="/app/pep/include/header.jsp"%>
-		<style type="text/css">
-			#left{
-				width: 400px; height: 500px; margin: 0 auto; float: left;
-			}
-			#left chart{
-				width: 400px; height: 400px; margin: 0 auto; float: left;
-			}
-			#left time{
-				width: 400px; height: 100px; margin: 0 auto; float: left;
-			}
-			#right {
-				width: 400px; height: 500px; margin: 0 auto; float: left;margin-left: 10px;
-			}
-			#right legend {
-				width: 400px; height: 100px; margin: 0 auto; float: left; padding-left: 10px;
-			}
-		</style>
-		<script type="text/javascript">
-			var chart;
-			$(document).ready(function() {
-				chart = new Highcharts.Chart({
-					chart: {
-						renderTo: 'chart',
-						defaultSeriesType: 'column'
-					},
-					title: {
-						text: ' '
-					},
-					xAxis: {
-						categories: <%=teilestName%>
-						
-					},
-					yAxis: {
-						min: 0,
-						title: {
-							text: ' '
-						},
-						stackLabels: {
-							enabled: true,
-							style: {
-								fontWeight: 'bold',
-								color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
-							}
-						}
-					},
-					legend: {
-						enabled: false,
-						align: 'center',
-						x: 0,
-						verticalAlign: 'top',
-						y: 0,
-						floating: true,
-						backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColorSolid) || 'white',
-						borderColor: '#CCC',
-						borderWidth: 1,
-						shadow: false
-					},
-					tooltip: {
-						formatter: function() {
-							return '<b>'+ this.x +'</b><br/>'+
-								 this.series.name +': '+ this.y +'<br/>'+
-								 'Total: '+ this.point.stackTotal;
-						}
-					},
-					plotOptions: {
-						column: {
-							stacking: 'normal',
-							dataLabels: {
-								enabled: false,
-								color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
-							}
-						}
-					},	
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>4.2 Ampelblatte ZP5</title>
+	<%@ include file="/app/pep/include/header.jsp"%>
+</head>
 
-				    series: [{
-						name: 'Teile aus Serienwerkzeug',
-						data: <%=teileAusSerien%>,
-						color: '#CCFFCC'
-					}, {
-						name: 'Note 3',
-						data: <%=note3%>,
-						color: '#00FF00'
-					}, {
-						name: 'Note 1',
-						data: <%=note1%>,
-						color: '#003300'
-					}, {
-						name: 'Note 6',
-						data: <%=note6%>,
-						color: '#FF0000'
-					}]
-				});
-			});
-				
-		</script>
-	</head>
-	<body>
-		<div id="container">
-			<div id="nr">
-				<div id="top"><h1>4.2 Teileverfügbarkeit fuer HT von ZP5</h1></div>
-				<div id="left">
-					<div id="chart"></div>
-					<div id="time"><img src="/ph/app/pep/4/bottom.jpg" width="400" height="70"></div>
-				</div>
-				<div id="right">
-					<div id="legend" style="margin-top: 40px;">
-						<li><img src="/ph/app/pep/images/legend_lightgreen.png" width="13" height="13">
-						&nbsp;Teile aus Serienwerkzeug
-						<li><img src="/ph/app/pep/images/legend_green.png" width="13" height="13">
-						&nbsp;Note 3
-						<li><img src="/ph/app/pep/images/legend_black.png" width="13" height="13">
-						&nbsp;Note 1
-						<li><img src="/ph/app/pep/images/legend_red.png" width="13" height="13">
-						&nbsp;Note 6
-					</div>
-					<table width="100%" style="margin-top: 30px;">
-						<tr>
-							<td colspan="4" style="text-align: left;font-weight: bolder; height: 36px;border-bottom: 1px solid;">Top</td>
-						</tr>
-						<tr>
-							<td width="34%" style="font-weight: bolder;height: 36px;border-bottom: 2px solid;">Kritische Umfänge</td>
-							<td width="22%" style="font-weight: bolder;text-align: center;border-bottom: 2px solid;">Einzelteile</td>
-							<td width="22%" style="font-weight: bolder;text-align: center;border-bottom: 2px solid;">VSI N3</td>
-							<td width="22%" style="font-weight: bolder;text-align: center;border-bottom: 2px solid;">VSI N1</td>
-						</tr>
-						<%	
-							for(int i=0; i<topKrisUmf.length; i++) {
-						%>		
-						<tr>
-							<td style="height: 36px;border-bottom: 1px solid;"><%=topKrisUmf[i] %></td>
-							<td style="text-align: center;border-bottom: 1px solid;"><%=topEinNum[i] %></td>
-							<td style="text-align: center;border-bottom: 1px solid;"><%=topVSIN3[i] %></td>
-							<td style="text-align: center;border-bottom: 1px solid;"><%=topVSISWZ[i] %></td>
-						</tr>
-						<%
-						}
-						%>
-					</table>
-				</div>
-			</div>
-			<%@ include file="/app/pep/include/foot.jsp"%>
-		</div>	
-	</body>
+<body>
+	<div id="container">
+		<div id="nr">
+		<div id="top"><h1>4.2  Ampelblatte ZP5</h1>
+		</div>
+	    <div id="content"><table width="100%" border="0" cellspacing="1" cellpadding="1" class="zp">
+	  <tr>
+	    <td valign="top">Bauteil:18G.823.031.A/18G.827.025.C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Teilbenennung:Zsb.Frontklappe/Zsb.Heckklappe</span><br />
+	          Zuständig:Yu Lijian(FAW-VW T-PL-PP-2) / Lu Weihu(Shanghai Comau)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>&nbsp;Lieferant:Shanghai Comau</strong><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fahrzeugklasse: New Bora FL
+	
+	</td>
+	  </tr>
+	  <tr>
+	    <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+	      <tr>
+	        <td width="30%" class="two">&nbsp;&nbsp;Problem / Bild</td>
+	        <td width="51%" class="two"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+	          <tr>
+	            <td width="90%">&nbsp;&nbsp;Massnahme</td>
+	            <td width="10%">Termin</td>
+	          </tr>
+	        </table></td>
+	        <td width="19%" align="center" class="three"><span>Bewertung</span></td>
+	      </tr>
+	      <tr>
+	        <td valign="top" class="one">
+	        	&nbsp;&nbsp;Falzanlagen fuer Zsb.FK/HK koennen nicht vor &nbsp;&nbsp;Ort ankommen zum Anfang VFF<br />
+	          .&nbsp;&nbsp;前后盖的压合设备不能在VFF的开始阶段到达现场
+	          <p><img src="../images/tupian.jpg" width="267" height="203" />
+	        </td>
+	        <td valign="top" class="one">
+	        	&nbsp;&nbsp;1.采用滚边压合的方法生产阶段装车所需的前后盖总成；<br />
+	          &nbsp;&nbsp;Fertigung Zsb FK/HK fuer VFF mit Methoden Roboter-Rollfalzen<br />
+	          <br />
+	          &nbsp;&nbsp;2压缩供应商运输周期,确保压合设备KW07/12到达现场； <br />
+	            &nbsp;&nbsp;Verkuerzen der Transportzeit von Lieferant, um die Falzanlagen in KW07/12 in vor &nbsp;&nbsp;Ort sicherzustellen
+	         </td>
+	        <td valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" class="hd">
+	          <tr>
+	            <td width="55%" rowspan="2" align="center" valign="middle"><img src="../images/hong.jpg" width="51" height="109" /><br />
+	              VFF</td>
+	            <td width="15%" height="71"><img src="../images/pvs.png" width="17" height="36" /></td>
+	            <td width="15%" ><img src="../images/0s.png" width="17" height="35" /></td>
+	            <td width="15%" style="border-right:1px solid #FFF;"><img src="../images/sop.png" width="17" height="36" /></td>
+	          </tr>
+	          <tr>
+	            <td height="41" style="background:#00ff00; border-top:1px solid #000;"></td>
+	            <td height="41"style="background:#00ff00; border-top:1px solid #000;">&nbsp;</td>
+	            <td height="41"style="background:#00ff00; border-top:1px solid #000; border-right:1px solid #00ff00;">&nbsp;</td>
+	          </tr>
+	          </table>
+	          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+	            <tr>
+	              <td><strong>&nbsp;&nbsp;&nbsp;&nbsp;Verschiebung <br />
+	                &nbsp;&nbsp;&nbsp;&nbsp;ggü. PH vom 14.Sep. <br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;von   nach<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Note 3   10 <img src="../images/2012-01-15_123537.png" width="12" height="11" />16<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;Note 1    24 <img src="../images/2012-01-15_123537.png" width="12" height="11" />30</strong></td>
+	            </tr>
+	          </table></td>
+	      </tr>
+	    </table></td>
+	  </tr>
+	  <tr>
+	    <td valign="top"><img src="../images/2012-01-15_112201.png" width="907" height="109" /></td>
+	  </tr>
+	</table>
+	</div>
+	    <%@ include file="/app/pep/include/foot.jsp"%>
+	</div>
+</body>
 </html>

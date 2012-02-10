@@ -1,5 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="java.util.Arrays"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.HashMap"%>	
+	
+	<% Map form = (Map)request.getAttribute("form");
+	String fv9PartSource = "";//	零件分类
+	int fv9TotalNum	= 0;//总数
+	int fv9CKDCOPNum = 0;//	CKD/COP
+		
+	String fv9TeilestName = "['TBT VFF', 'Beginn VFF', 'Ende VFF', 'Beginn PVS', 'Beginn 0-S', 'Beginn SOP', 'CKD/COP']";//	名称
+	String fv9TeileFehlend = "[0, 0, 0, 0, 0, 0, 0]";//Web.getNumberListStr(form.get("fv9AA"));
+	String fv9TeileAusSerien = "[6, 6, 6, 4, 0, 0, 0]";//Web.getNumberListStr(form.get("fv9AA"));
+	String fv9TeileNote3 = "[0, 0, 0, 2, 4, 0, 0]";//Web.getNumberListStr(form.get("fv9BB"));
+	String fv9TeileNote1 = "[0, 0, 0, 0, 2, 6, 0]";//Web.getNumberListStr(form.get("fv9BB"));
+	String fv9TeileNote6 = "[0, 0, 0, 0, 0, 0, 0]";//Web.getNumberListStr(form.get("fv9BB"));
+	
+	String[]  fv9TopKrisUmf = new String[]{"FK aussen","FK aussen","FK aussen","FK aussen","FK aussen","FK aussen","FK aussen"};//Web.getNumberListStr(form.get("fv9BB"));	问题零件范围
+	Integer[]  fv9TopEinNum =  new Integer[]{1,1,1,1,1,1,1};//Web.getNumberListStr(form.get("fv9BB"));	单件数量
+	String[] fv9TopVSIN3 =  new String[]{"KW16_12","KW16_12","KW16_12","KW16_12","KW16_12","KW16_12","KW16_12"};//Web.getNumberListStr(form.get("fv9BB"));	预测小批量模具时间
+	String[] fv9TopVSISWZ =  new String[]{"KW30_12","KW30_12","KW30_12","KW30_12","KW30_12","KW30_12","KW30_12"};//Web.getNumberListStr(form.get("fv9BB"));	预测3分时间
+
+%>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -41,7 +64,7 @@
 						text: ' '
 					},
 					xAxis: {
-						categories: ['TBT VFF', 'Beginn VFF', 'Ende VFF', 'Beginn PVS', 'Beginn 0-S', 'Beginn SOP', 'CKD/COP']
+						categories: <%=fv9TeilestName%>
 						
 					},
 					yAxis: {
@@ -87,23 +110,23 @@
 					},
 				    series: [{
 						name: 'PT-Teile/Alternativteile',
-						data: [0, 0, 0, 0, 0, 0, 0],
+						data: <%=fv9TeileFehlend%>,
 						color: '#FFFFFF'
 					}, {
 						name: 'Teile aus Serienwerkzeug',
-						data: [6, 6, 6, 4, 0, 0, 0],
+						data: <%=fv9TeileAusSerien%>,
 						color: '#CCFFCC'
 					}, {
 						name: 'Note 3',
-						data: [0, 0, 0, 2, 4, 0, 0],
+						data: <%=fv9TeileNote3%>,
 						color: '#00FF00'
 					}, {
 						name: 'Note 1',
-						data: [0, 0, 0, 0, 2, 6, 0],
+						data: <%=fv9TeileNote1%>,
 						color: '#003300'
 					}, {
 						name: 'Note 6',
-						data: [0, 0, 0, 0, 0, 0, 0],
+						data: <%=fv9TeileNote6%>,
 						color: '#FF0000'
 					}]
 				});
@@ -149,13 +172,13 @@
 							<td width="22%" style="font-weight: bolder;text-align: center;border-bottom: 2px solid;">VSI N1</td>
 						</tr>
 						<%
-							for(int i=0; i<7; i++) {
+							for(int i=0; i<fv9TopKrisUmf.length; i++) {
 						%>		
 						<tr>
-							<td style="height: 36px;border-bottom: 1px solid;">FK aussen</td>
-							<td style="text-align: center;border-bottom: 1px solid;">1</td>
-							<td style="text-align: center;border-bottom: 1px solid;">KW16_12</td>
-							<td style="text-align: center;border-bottom: 1px solid;">KW30_12</td>
+							<td style="height: 36px;border-bottom: 1px solid;"><%=fv9TopKrisUmf[i]%></td>
+							<td style="text-align: center;border-bottom: 1px solid;"><%=fv9TopEinNum[i]%></td>
+							<td style="text-align: center;border-bottom: 1px solid;"><%=fv9TopVSIN3[i]%></td>
+							<td style="text-align: center;border-bottom: 1px solid;"><%=fv9TopVSISWZ[i]%></td>
 						</tr>
 						<%
 						}

@@ -1,5 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="java.util.Arrays"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.HashMap"%>	
+	
+	<% Map form = (Map)request.getAttribute("form");
+	String fv9PartSource = "";//	零件分类
+	int fv9TotalNum	= 0;//总数
+	int fv9CKDCOPNum = 0;//	CKD/COP
+		
+	String teilestName = "['TBT VFF', 'Beginn VFF', 'Ende VFF', 'Beginn PVS', 'Beginn 0-S', 'Beginn SOP']";//	名称
+	String teileAusSerien = "[33, 32, 4, 0, 0, 0]";//Web.getNumberListStr(form.get("fv9AA"));
+	String note3 = "[2, 3, 30, 27, 0, 0]";//Web.getNumberListStr(form.get("fv9BB"));
+	String note1 = "[1, 1, 2, 9, 36, 36]";//Web.getNumberListStr(form.get("fv9BB"));
+	String note6 = "[0, 0, 0, 0, 0, 0]";//Web.getNumberListStr(form.get("fv9BB"));
+	
+	String[]  topKrisUmf = new String[]{"FK aussen","FK aussen","FK aussen","FK aussen","FK aussen","FK aussen","FK aussen"};//Web.getNumberListStr(form.get("fv9BB"));	问题零件范围
+	Integer[]  topEinNum =  new Integer[]{1,1,1,1,1,1,1};//Web.getNumberListStr(form.get("fv9BB"));	单件数量
+	String[] topVSIN3 =  new String[]{"KW16_12","KW16_12","KW16_12","KW16_12","KW16_12","KW16_12","KW16_12"};//Web.getNumberListStr(form.get("fv9BB"));	预测小批量模具时间
+	String[] topVSISWZ =  new String[]{"KW30_12","KW30_12","KW30_12","KW30_12","KW30_12","KW30_12","KW30_12"};//Web.getNumberListStr(form.get("fv9BB"));	预测3分时间
+
+%>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -34,7 +56,7 @@
 						text: ' '
 					},
 					xAxis: {
-						categories: ['TBT VFF', 'Beginn VFF', 'Ende VFF', 'Beginn PVS', 'Beginn 0-S', 'Beginn SOP']
+						categories: <%=teilestName%>
 						
 					},
 					yAxis: {
@@ -80,19 +102,19 @@
 					},
 				    series: [{
 						name: 'Teile aus Serienwerkzeug',
-						data: [33, 32, 4, 0, 0, 0],
+						data: <%=teileAusSerien%>,
 						color: '#CCFFCC'
 					}, {
 						name: 'Note 3',
-						data: [2, 3, 30, 27, 0, 0],
+						data: <%=note3%>,
 						color: '#00FF00'
 					}, {
 						name: 'Note 1',
-						data: [1, 1, 2, 9, 36, 36],
+						data: <%=note1%>,
 						color: '#003300'
 					}, {
 						name: 'Note 6',
-						data: [0, 0, 0, 0, 0, 0],
+						data: <%=note6%>,
 						color: '#FF0000'
 					}]
 				});
@@ -130,13 +152,13 @@
 							<td width="22%" style="font-weight: bolder;text-align: center;border-bottom: 2px solid;">VSI N1</td>
 						</tr>
 						<%
-							for(int i=0; i<6; i++) {
+							for(int i=0; i<topKrisUmf.length; i++) {
 						%>		
 						<tr>
-							<td style="height: 36px;border-bottom: 1px solid;">FK aussen</td>
-							<td style="text-align: center;border-bottom: 1px solid;">1</td>
-							<td style="text-align: center;border-bottom: 1px solid;">KW16_12</td>
-							<td style="text-align: center;border-bottom: 1px solid;">KW30_12</td>
+							<td style="height: 36px;border-bottom: 1px solid;"><%=topKrisUmf[i] %></td>
+							<td style="text-align: center;border-bottom: 1px solid;"><%=topEinNum[i] %></td>
+							<td style="text-align: center;border-bottom: 1px solid;"><%=topVSIN3[i] %></td>
+							<td style="text-align: center;border-bottom: 1px solid;"><%=topVSISWZ[i] %></td>
 						</tr>
 						<%
 						}

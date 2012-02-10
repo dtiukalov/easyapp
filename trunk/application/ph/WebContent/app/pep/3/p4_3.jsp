@@ -74,6 +74,7 @@
 			    series: [{
 					name: 'Anzahl Änderungen',
 					data: [{ 
+							
 							y: 20, 
 							low: 352,
 							color: '#F9A700'

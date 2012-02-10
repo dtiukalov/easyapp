@@ -9,15 +9,15 @@
 		<style type="text/css">
 			
 			.left{
-				width: 100px; height: 150px;float: left;margin: 0 auto;
-				vertical-align: middle;padding-top: 55px;
+				width: 100px; height: 50px;float: left;margin: 0 auto;
+				vertical-align: middle;padding-top: 35px;
 			}
 			.title{
 				width: 90px; height: 40px; float: left; margin: 0 auto; text-align: center;vertical-align: middle;padding-top: 20px;
 				font-weight: bolder;color: white;
 			}
 			.chart{
-				width: 700px; height: 150px; margin: 0 auto; float: left;
+				width: 700px; height: 120px; margin: 0 auto; float: left;
 			}
 			.clear{
 				width: 100%;height: 1px;margin: 0 auto; float: left;
@@ -50,18 +50,34 @@
 						text: ' '
 					},
 					xAxis: {
+						lineWidth:1,
+						tickWidth:1,
+						lineColor:'black',
+						tickColor:'black',
+						labels: {
+							enabled:false
+						},
 						categories: <%=Arrays.toString(categories)%>
 					},
 					yAxis: {
-						min: 0,
+						gridLineWidth:0,
+						lineWidth:1,
+						tickWidth:1,
+						lineColor:'black',
+						tickColor:'black',
 						title: {
 							text: ' '
 						},
 						stackLabels: {
 							enabled: true,
+							y:1,
 							style: {
-								fontWeight: 'bold',
-								color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+								color: 'black'
+							}
+						},
+						labels: {
+							style:{
+								color:'black'
 							}
 						}
 					},
@@ -78,10 +94,12 @@
 					plotOptions: {
 						column: {
 							stacking: 'normal',
+							shadow: false,
+							borderColor:'black',
+							borderWidth:1,
 							dataLabels: {
-								enabled: true,
-								color: 'white',
-								font: 'normal 10px  Verdana'
+								enabled: false
+								//verticalAlign:'bottom',
 							}
 						}
 					},
@@ -89,12 +107,24 @@
 						type: 'column',
 						name: 'aus Straßenfahrt',
 						data: [161, 87, 105, 86, 103, 130, 90, 100, 110, 80, 90, 70, 70, 80, 85],
-						color: '#Presswerk'
+						color: '#003C65'
 					}, {
 						type: 'spline',
 						name: 'Prognose',
 						color: '#99CC00',
-						data: <%=Arrays.toString(lines1)%>
+						data: <%=Arrays.toString(lines1)%>,
+						marker: {
+							enabled: false,
+							shadow:false,
+							states: {
+								hover: {
+									enabled: true,
+									symbol: 'circle',
+									radius: 5,
+									lineWidth: 1
+								}
+							}
+						}
 					},{
 						data: [[2.5, 0], [2.5001, 180]],
 			//			color: 'black',
@@ -154,20 +184,40 @@
 						text: ' '
 					},
 					xAxis: {
+						lineWidth:1,
+						tickWidth:1,
+						lineColor:'black',
+						tickColor:'black',
+						labels: {
+							enabled:false
+						},
 						categories: <%=Arrays.toString(categories)%>
 					},
 					yAxis: {
 						min: 0,
+						gridLineWidth:0,
+						lineWidth:1,
+						tickWidth:1,
+						lineColor:'black',
+						tickColor:'black',
 						title: {
 							text: ' '
 						},
 						stackLabels: {
 							enabled: true,
+							y:1,
 							style: {
-								fontWeight: 'bold',
-								color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+								color: 'black'
+							}
+						},
+						labels: {
+							style:{
+								color:'black'
 							}
 						}
+					},
+					legend: {
+						enabled: false
 					},
 					legend: {
 						enabled: false
@@ -182,10 +232,17 @@
 					plotOptions: {
 						column: {
 							stacking: 'normal',
+							shadow: false,
+							borderColor:'black',
+							borderWidth:1,
 							dataLabels: {
-								enabled: true,
-								color: 'white',
-								font: 'normal 10px  Verdana'
+								enabled: false,
+								style : {
+									fontWeight: 'bold',
+									fontSize:'10px',
+									align:'top'
+								},
+								color: '#4C5258'
 							}
 						}
 					},
@@ -198,7 +255,19 @@
 						type: 'spline',
 						name: 'Prognose',
 						color: '#99CC00',
-						data: <%=Arrays.toString(lines2)%>
+						data: <%=Arrays.toString(lines2)%>,
+						marker: {
+							enabled: false,
+							shadow:false,
+							states: {
+								hover: {
+									enabled: true,
+									symbol: 'circle',
+									radius: 5,
+									lineWidth: 1
+								}
+							}
+						}
 					},{
 						data: [[2.5, 0], [2.5001, 400]],
 			//			color: 'black',
@@ -258,18 +327,35 @@
 						text: ' '
 					},
 					xAxis: {
+						lineWidth:1,
+						tickWidth:1,
+						lineColor:'black',
+						tickColor:'black',
+						labels: {
+							enabled:false
+						},
 						categories: <%=Arrays.toString(categories)%>
 					},
 					yAxis: {
 						min: 0,
+						gridLineWidth:0,
+						lineWidth:1,
+						tickWidth:1,
+						lineColor:'black',
+						tickColor:'black',
 						title: {
 							text: ' '
 						},
 						stackLabels: {
 							enabled: true,
+							y:1,
 							style: {
-								fontWeight: 'bold',
-								color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+								color: 'black'
+							}
+						},
+						labels: {
+							style:{
+								color:'black'
 							}
 						}
 					},
@@ -286,10 +372,17 @@
 					plotOptions: {
 						column: {
 							stacking: 'normal',
+							shadow: false,
+							borderColor:'black',
+							borderWidth:1,
 							dataLabels: {
-								enabled: true,
-								color: 'white',
-								font: 'normal 10px  Verdana'
+								enabled: false,
+								style : {
+									fontWeight: 'bold',
+									fontSize:'10px',
+									align:'top'
+								},
+								color: '#4C5258'
 							}
 						}
 					},
@@ -302,7 +395,19 @@
 						type: 'spline',
 						name: 'Prognose',
 						color: '#99CC00',
-						data: <%=Arrays.toString(lines3)%>
+						data: <%=Arrays.toString(lines3)%>,
+						marker: {
+							enabled: false,
+							shadow:false,
+							states: {
+								hover: {
+									enabled: true,
+									symbol: 'circle',
+									radius: 5,
+									lineWidth: 1
+								}
+							}
+						}
 					},{
 						data: [[2.5, 0], [2.5001, 180]],
 			//			color: 'black',
@@ -362,18 +467,35 @@
 						text: ' '
 					},
 					xAxis: {
+						lineWidth:1,
+						tickWidth:1,
+						lineColor:'black',
+						tickColor:'black',
+						labels: {
+							enabled:false
+						},
 						categories: <%=Arrays.toString(categories)%>
 					},
 					yAxis: {
 						min: 0,
+						gridLineWidth:0,
+						lineWidth:1,
+						tickWidth:1,
+						lineColor:'black',
+						tickColor:'black',
 						title: {
 							text: ' '
 						},
 						stackLabels: {
 							enabled: true,
+							y:1,
 							style: {
-								fontWeight: 'bold',
-								color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+								color: 'black'
+							}
+						},
+						labels: {
+							style:{
+								color:'black'
 							}
 						}
 					},
@@ -390,10 +512,17 @@
 					plotOptions: {
 						column: {
 							stacking: 'normal',
+							shadow: false,
+							borderColor:'black',
+							borderWidth:1,
 							dataLabels: {
-								enabled: true,
-								color: 'white',
-								font: 'normal 10px  Verdana'
+								enabled: false,
+								style : {
+									fontWeight: 'bold',
+									fontSize:'10px',
+									align:'top'
+								},
+								color: '#4C5258'
 							}
 						}
 					},
@@ -406,7 +535,19 @@
 						type: 'spline',
 						name: 'Prognose',
 						color: '#99CC00',
-						data: <%=Arrays.toString(lines4)%>
+						data: <%=Arrays.toString(lines4)%>,
+						marker: {
+							enabled: false,
+							shadow:false,
+							states: {
+								hover: {
+									enabled: true,
+									symbol: 'circle',
+									radius: 5,
+									lineWidth: 1
+								}
+							}
+						}
 					},{
 						data: [[2.5, 0], [2.5001, 380]],
 			//			color: 'black',
@@ -466,18 +607,35 @@
 						text: ' '
 					},
 					xAxis: {
+						lineWidth:1,
+						tickWidth:1,
+						lineColor:'black',
+						tickColor:'black',
+						labels: {
+							enabled:false
+						},
 						categories: <%=Arrays.toString(categories)%>
 					},
 					yAxis: {
 						min: 0,
+						gridLineWidth:0,
+						lineWidth:1,
+						tickWidth:1,
+						lineColor:'black',
+						tickColor:'black',
 						title: {
 							text: ' '
 						},
 						stackLabels: {
 							enabled: true,
+							y:1,
 							style: {
-								fontWeight: 'bold',
-								color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+								color: 'black'
+							}
+						},
+						labels: {
+							style:{
+								color:'black'
 							}
 						}
 					},
@@ -494,10 +652,17 @@
 					plotOptions: {
 						column: {
 							stacking: 'normal',
+							shadow: false,
+							borderColor:'black',
+							borderWidth:1,
 							dataLabels: {
-								enabled: true,
-								color: 'white',
-								font: 'normal 10px  Verdana'
+								enabled: false,
+								style : {
+									fontWeight: 'bold',
+									fontSize:'10px',
+									align:'top'
+								},
+								color: '#4C5258'
 							}
 						}
 					},
@@ -510,7 +675,19 @@
 						type: 'spline',
 						name: 'Prognose',
 						color: '#99CC00',
-						data: <%=Arrays.toString(lines5)%>
+						data: <%=Arrays.toString(lines5)%>,
+						marker: {
+							enabled: false,
+							shadow:false,
+							states: {
+								hover: {
+									enabled: true,
+									symbol: 'circle',
+									radius: 5,
+									lineWidth: 1
+								}
+							}
+						}
 					},{
 						data: [[2.5, 0], [2.5001, 800]],
 			//			color: 'black',
@@ -570,31 +747,31 @@
 			<div id="top"><h1>3.5 Nacharbeit Abbaustatus</h1></div>
 			<div id="content">
 				<div class="left">
-					<div class="title" style="background-color: #003C65">Presswerk</div>
+					<div class="title" style="border: solid black 1px;background-color: #003C65">Presswerk</div>
 				</div>
 				<div id="chart1" class="chart"></div>
 				<div class="clear">&nbsp;</div>
 				
 				<div class="left">
-					<div class="title" style="background-color: #AED4F8">Karosseriebau</div>
+					<div class="title" style="color:black;border: solid black 1px;background-color: #AED4F8;">Karosseriebau</div>
 				</div>
 				<div id="chart2" class="chart"></div>
 				<div class="clear">&nbsp;</div>
 				
 				<div class="left">
-					<div class="title" style="background-color: #8994A0">Lackiererei</div>
+					<div class="title" style="border: solid black 1px;background-color: #8994A0">Lackiererei</div>
 				</div>
 				<div id="chart3" class="chart"></div>
 				<div class="clear">&nbsp;</div>
 				
 				<div class="left">
-					<div class="title" style="background-color: #CFD7D9">Montage</div>
+					<div class="title" style="color:black;border: solid black 1px;background-color: #CFD7D9">Montage</div>
 				</div>
 				<div id="chart4" class="chart"></div>
 				<div class="clear">&nbsp;</div>
 				
 				<div class="left">
-					<div class="title" style="background-color: #3366FF">Kaufteile</div>
+					<div class="title" style="border: solid black 1px;background-color: #3366FF">Kaufteile</div>
 				</div>
 				<div id="chart5" class="chart"></div>
 				<div class="clear">&nbsp;</div>

@@ -9,7 +9,7 @@
 	<body>
 		<div id="container">
 			<div id="nr">
-			<div id="top"><h1>3.3 Baubarkeit Gesamtfahrzeug</h1></div>
+			<div id="top"><h1>3.3 Baubarkeit Gesamtfahrzeug  (图片)</h1></div>
 			<div id="content">
 				<div id="chart" style="width: 800px; height: 450px; margin: 0 auto; ">
 				<center>

@@ -11,7 +11,7 @@
 <body>
 	<div id="container">
 		<div id="nr">
-		<div id="top"><h1>3.3 Problemblatt</h1>
+		<div id="top"><h1>3.3 Problemblatt  (图片)</h1>
 		</div>
 	    <div id="content"><table width="100%" border="0" cellspacing="1" cellpadding="1" class="zp">
 	  <tr>

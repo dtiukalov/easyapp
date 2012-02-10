@@ -108,7 +108,7 @@
 	<body>
 		<div id="container">
 			<div id="nr">
-			<div id="top"><h1>2.3 Softwarefehlerentwicklung</h1></div>
+			<div id="top"><h1>2.3 Softwarefehlerentwicklung  (图片)</h1></div>
 			<div id="content">
 				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto"></div>
 			</div>

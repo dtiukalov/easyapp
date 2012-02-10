@@ -9,7 +9,7 @@
 <body>
 <div id="container">
 	<div id="nr">
-	<div id="top"><h1>7.2  Beschluss 决策申请</h1>
+	<div id="top"><h1>7.2  Beschluss 决策申请  (图片)</h1>
 	</div>
     <div id="contentt"><table width="100%" border="0" cellspacing="8" cellpadding="0">
   <tr>

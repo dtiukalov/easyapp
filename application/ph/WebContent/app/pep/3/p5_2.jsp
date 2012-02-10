@@ -18,22 +18,30 @@
 					text: 'Fehlerpunkte/Fahrzeug'
 				},
 				xAxis: [{
-					categories: ['KW15','16','17','18','19','20']
-				},{ // mirror axis on right side
-						opposite: true,
-						reversed: false,
-						categories: ['(2,1)','','','','','(1,5)'],
-						linkedTo: 0,
-						title: {
-							text: '2011 Anzahl neuer ÄKOs'
+					tickLength: 0,
+					lineColor: 'black',
+					categories: ['KW15','16','17','18','19','20'],
+					labels: {
+						style: {
+							 padding:'10px',
+							 font: 'normal 12px Verdana, sans-serif',
+							 color: 'black'
 						}
+				}
 				}],
 				yAxis: {
-					min: 0,
-					max: 700,
-					dataLabels: {
+					gridLineWidth: 0,
+					labels: {
+						enabled:false
+					},
+					title: {
+						text:""
+					},
+					stackLabels: {
 						enabled: true,
-						color: '#333333'
+						style: {
+							color: 'black'
+						}
 					}
 				},
 				tooltip: {
@@ -45,14 +53,24 @@
 				plotOptions: {
 					column: {
 						stacking: 'normal',
+						shadow: false,
+						borderColor:'black',
+						borderWidth:1,
 						dataLabels: {
 							enabled: true,
-							color: '#333333'
+							style : {
+								fontWeight: 'bold',
+								fontSize:'10px'
+							},
+							color: 'black'
 						}
 					}
 				},
 				legend: {
-						enabled: true
+						shadow: false,
+						enabled: true,
+						layout: 'vertical'
+						
 				},
 			    series: [{
 					name: 'Soll',
@@ -82,34 +100,6 @@
 							color: 'white'
 						}]
 				},{
-					name: 'Projekt',
-					data: [{ 
-							y: 40, 
-							low: 0
-						},{ 
-							y: 0, 
-							low: 0
-						}, {
-						 	y: 0, 
-						 	low: 0
-						}, {
-							y: 0,
-							low: 0
-						}, {
-							y: 0,
-							low: 0
-						},{ 
-							y: 40, 
-							low: 0
-						}],
-					color: '#99CC00',
-					type: 'column',
-					dashStyle: 'dash',
-					marker: {enabled: false},
-					lineWidth: 1,
-					shadow: false,
-					enableMouseTracking: false
-				},{
 					name: 'Kaufteile',
 					data: [{ 
 							y: 119, 
@@ -137,6 +127,7 @@
 					lineWidth: 1,
 					shadow: false,
 					enableMouseTracking: false
+					
 				},{
 					name: 'Montage',
 					data: [{ 
@@ -243,6 +234,35 @@
 							low: 380
 						}],
 					color: '#BBC2C5',
+					type: 'column',
+					dashStyle: 'dash',
+					marker: {enabled: false},
+					lineWidth: 1,
+					shadow: false,
+					enableMouseTracking: false
+				},
+				{
+					name: 'Projekt',
+					data: [{ 
+							y: 40, 
+							low: 0
+						},{ 
+							y: 0, 
+							low: 0
+						}, {
+						 	y: 0, 
+						 	low: 0
+						}, {
+							y: 0,
+							low: 0
+						}, {
+							y: 0,
+							low: 0
+						},{ 
+							y: 40, 
+							low: 0
+						}],
+					color: '#99CC00',
 					type: 'column',
 					dashStyle: 'dash',
 					marker: {enabled: false},

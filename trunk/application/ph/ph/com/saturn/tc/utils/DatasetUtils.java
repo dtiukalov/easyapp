@@ -21,7 +21,7 @@ public class DatasetUtils {
 		String datasetpath = "attachment" +File.separator+ date +File.separator;
 		
 		String path = request.getRealPath("/") + datasetpath;
-		return  File.separator + datasetpath + downloadDatasetFromTc(dataset ,path);
+		return  request.getContextPath()+ File.separator + datasetpath + downloadDatasetFromTc(dataset ,path);
 	}
 
 	public static String downloadDatasetFromTc( Dataset dataset, String directory) {

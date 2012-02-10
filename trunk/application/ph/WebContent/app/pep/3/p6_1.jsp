@@ -23,84 +23,48 @@
 						text: ' '
 					},
 					xAxis: {
+						lineColor:'#747474',
+						gridLineWidth:1,
+						gridLineColor:'#747474',
+						tickLength:13,
+						tickColor:'#747474',
 						categories: <%=Arrays.toString(categories)%>,
-						plotBands: [{ // Light air
-							from: 0,
-							to: 3,
-							color: 'rgba(68, 170, 213, 0.1)',
-							label: {
-								text: 'PVS',
-								style: {
-									color: '#606060',
-									font: 'normal 15px Verdana, sans-serif'
-								},
-								y : 290
+						plotBands: [{
+							from: -100,
+							to: 100,
+							color: '#C0C0C0'
+						}],
+						labels:{
+							style:{
+								color:'black'
 							}
-						}, { // Light breeze
-							from: 3,
-							to: 5,
-							color: '#EFEFEF',
-							label: {
-								text: '0S',
-								style: {
-									color: '#606060',
-									left: '40px',
-									top: '100px',
-									font: 'normal 15px Verdana, sans-serif'
-								},
-								y : 290
-								
-							}
-						}, { // Light breeze
-							from: 5,
-							to: 7,
-							color: 'rgba(68, 170, 213, 0.1)',
-							label: {
-								text: 'TPPA',
-								style: {
-									color: '#606060',
-									font: 'normal 15px Verdana, sans-serif'
-								},
-								y : 290
-							}
-						}, { // Light breeze
-							from: 7,
-							to: 9,
-							color: '#EFEFEF',
-							label: {
-								text: 'SOP',
-								style: {
-									color: '#606060',
-									font: 'normal 15px Verdana, sans-serif'
-								},
-								y : 290
-							}
-						}]
+						}
 					},
 					yAxis: {
 						min: 0,
 						max: 120,
+						tickWidth:1,
+						gridLineColor:'#747474',
+						tickColor:'#747474',
+						lineWidth:1,
+						lineColor:'#747474',
 						title: {
 							text: ' '
 						},
-						stackLabels: {
-							enabled: true,
-							style: {
-								fontWeight: 'bold',
-								color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+						labels:{
+							style:{
+								color:'black'
 							}
 						}
 					},
 					legend: {
-						enabled: true,
-						align: 'center',
+						layout: 'vertical',
+						align: 'left',
+						verticalAlign: 'bottom',
 						x: 0,
-						verticalAlign: 'top',
 						y: 0,
-						floating: true,
-						backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColorSolid) || 'white',
-						borderColor: '#CCC',
 						borderWidth: 1,
+						borderRadius: 0,
 						shadow: false
 					},
 					tooltip: {
@@ -113,10 +77,10 @@
 					plotOptions: {
 						column: {
 							stacking: 'normal',
-							dataLabels: {
-								enabled: false,
-								color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
-							}
+							shadow: false,
+							borderColor:'black',
+							borderWidth:1,
+							groupPadding: 0.11
 						}
 					},
 				    series: [{
@@ -138,7 +102,7 @@
 						type: 'column',
 						name: 'Maßnahmen definiert',
 						data: [18, 20, 22, 25, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
-						color: '#9E6943'
+						color: '#AAD42A'
 					}, {
 						type: 'column',
 						name: 'i.O.',
@@ -152,18 +116,37 @@
 					}, {
 						type: 'spline',
 						name: 'Prognose in Planung',
-						color: '#0000FF',
+						color: '#0000FE',
+						lineWidth:1,
+						shadow:false,
+						marker: {
+							radius : 3
+						},
 						data: [55, 58, 60, 61, 65, 75, 90, 100, 102, 104, 105, 105, 106, 107, 107, 108, 109, 110, 110, 110, 110]
 					}, {
-						type: 'spline',
+						type: 'line',
 						name: 'Ziel',
 						color: '#993300',
+						lineWidth:1,
+						shadow:false,
+						marker: {
+							enabled: true,
+							symbol : 'triangle',
+							radius : 3
+						},
 						data: [110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110]
 					}, {
-						type: 'spline',
+						type: 'line',
 						name: 'Prognose i.O.',
 						color: '#008000',
-						dashStyle: 'shortdot',
+						lineWidth:1,
+						shadow:false,
+						marker: {
+							enabled: true,
+							shadow:false,
+							symbol : 'circle',
+							radius : 3
+						},
 						data: [26, 28, 32, 42, 52, 63, 71, 80, 89, 93, 94, 95, 97, 98, 99, 100, 101, 102, 103, 104, 105]
 					}, {
 						data: [[1, 0], [1.0001, 2500]],

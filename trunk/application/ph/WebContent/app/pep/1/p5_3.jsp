@@ -1,11 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@page import="com.saturn.web.Web"%>
 <%@page import="java.util.Arrays"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.HashMap"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -13,53 +13,14 @@
 		<%@ include file="/app/pep/include/header.jsp"%>
 		
 		<%
-		Map form = (Map)request.getAttribute("form");
-		
-		//String kws = Web.getNumberListStr(form.get("fv9KWNo"));
-		List<String> fv9KWNo = (List<String>)form.get("fv9KWNo");
-		List<String> solllist = (List<String>)form.get("fv9ZP8NumSoll");
-		List<String> lstlist = (List<String>)form.get("fv9ZP8Numlst");
-		
-		List<Integer> kumSolllist = new ArrayList<Integer>(solllist.size());
-		List<Integer> kumLstlist = new ArrayList<Integer>(solllist.size());
-		
-		String kws = "[]";
-		String soll = "[]";
-		String kumSoll = "[]";
-		String lst = "[]";
-		String kumLst = "[]";
-		if(fv9KWNo != null ){
-			kws = Web.getNumberListStr(fv9KWNo);
-		}
-		if(solllist != null ){
-			int temp1 = 0;
-			for(int i=0; i<solllist.size(); i++){
-				if(i == 0){
-					temp1 = Integer.parseInt(solllist.get(i)) ;
-				}else{
-					temp1 = temp1 + Integer.parseInt(solllist.get(i));
-				}
-				kumSolllist.add(temp1);
-			}
-			soll = Web.getNumberListStr(solllist);
-			kumSoll = Web.getNumberListStr(kumSolllist);
-		}
-		
-		if(lstlist != null ){
-			int temp2 = 0;
-			for(int i=0; i<lstlist.size(); i++){
-				if(i == 0){
-					temp2 = Integer.parseInt(lstlist.get(i));
-				}else{
-					temp2 = temp2 + Integer.parseInt(lstlist.get(i));
-				}
-				kumLstlist.add(temp2);
-			}
-			lst = Web.getNumberListStr(lstlist);
-			kumLst = Web.getNumberListStr(kumLstlist);
-		}
-		
-		
+			
+			Map form = (Map)request.getAttribute("form");
+			String kws = Web.getNumberListStr(form.get("fv9KWNo"));  
+			String soll = Web.getNumberListStr(form.get("fv9ZP8NumSoll"));
+			String sumSoll = Web.getSumNumberListStr(form.get("fv9ZP8NumSoll"));
+			String ist = Web.getNumberListStr(form.get("fv9ZP8Numlst"));
+			String sumIst = Web.getSumNumberListStr(form.get("fv9ZP8Numlst"));
+			
 		%>
 		<script type="text/javascript">
 		
@@ -114,17 +75,17 @@
 					type: 'column',
 					name: 'Lst',
 					color: '#0000FF',
-					data:  <%=lst%>
+					data:  <%=ist%>
 				}, {
 					type: 'spline',
 					name: 'Kum Soll',
 					color: '#009C0E',
-					data: <%=kumSoll%>
+					data: <%=sumSoll%>
 				}, {
 					type: 'spline',
 					name: 'Kum Lst',
 					color: '#0000FF',
-					data:  <%=kumLst%>
+					data:  <%=sumIst%>
 				}]
 			});
 			

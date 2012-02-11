@@ -5,8 +5,21 @@
 <%@page import="java.util.HashMap"%>	
 <%
 	Map form = (Map)request.getAttribute("form");
-
-	Integer[] fv9KWNoarr = new Integer[]          {39,40,42,43,44,45,46,47,48,49,52,54};//"['40', '42', '43', '44', '45', '46', '47', '48', '49']";
+	String fv9KWNo = Web.getNumberListStrSubFirst(form.get("fv9KWNo"));
+	String fv9AekoAbgesch = Web.getNumberListStrSubFirst(form.get("fv9AekoAbgesch"));
+	String fv9AekoSmall2Woch = Web.getNumberListStrSubFirst(form.get("fv9AekoSmall2Woch"));
+	String fv9AekoBig2Woch = Web.getNumberListStrSubFirst(form.get("fv9AekoBig2Woch"));
+	System.out.println(fv9KWNo);
+	System.out.println(fv9AekoAbgesch);
+	System.out.println(fv9AekoSmall2Woch);
+	System.out.println(fv9AekoBig2Woch);
+	List<String> sumList = Web.SumList((List<String>)form.get("fv9AekoAbgesch"), 
+			(List<String>)form.get("fv9AekoSmall2Woch"),
+			(List<String>)form.get("fv9AekoBig2Woch"));
+	String deviationa = Web.compareByKW(sumList);
+	
+	/*
+	Integer[] fv9KWNoarr = new Integer[]{39,40,42,43,44,45,46,47,48,49,52,54};//"['40', '42', '43', '44', '45', '46', '47', '48', '49']";
 	Integer[] fv9AekoAbgescharr = new Integer[]   {1, 5,  5, 7,10,15,16,16,17,18,18,9};//"[5,5,7,10,15,16,16,17,18,18]";//已关闭的AEKO
 	Integer[] fv9AekoSmall2Wocharr = new Integer[]{1, 1,  2, 2, 1, 1, 0, 5, 3, 3, 4,8};//"[1,2,2,1,1,0,5,3,3,4]";//(< 2 Wochen)在计划中的AEKO(短于2周)
 	Integer[] fv9AekoBig2Wocharr = new Integer[]  {1, 1,  1, 1, 0, 0, 0, 0, 2, 1, 1,7};//"[1,1,1,0,0,0,0,2,1,0]";//> 2 Wochen	
@@ -68,7 +81,7 @@
 	AekoSmall2Woch.append("]");
 	AekoBig2Woch.append("]");
 	value.append("]");
-
+*/
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
@@ -93,12 +106,12 @@
 						text: 'Anzahl Änderungen'
 					},
 					xAxis: [{
-						categories: <%=KWNo.toString()%>
+						categories: <%=fv9KWNo%>
 						
 					},{ // mirror axis on right side
 						opposite: false,
 						reversed: false,
-						categories: <%=value%>,
+						categories: <%=deviationa%>,
 						linkedTo: 0,
 						title: {
 							text: '2011 Anzahl neuer ÄKOs'
@@ -149,11 +162,11 @@
 				    series: [
 				     {
 						name: 'ÄKO,AeA  im Durchlauf (> 2 Wochen)',
-						data: <%=AekoBig2Woch.toString()%>,
+						data: <%=fv9AekoBig2Woch%>,
 						color: '#E63110'
 					}, {
 						name: 'ÄKO,AeA im Durchlauf (< 2 Wochen)',
-						data: <%=AekoSmall2Woch.toString()%>,
+						data: <%=fv9AekoSmall2Woch%>,
 						color: '#F9A700'
 					},{
 						name: 'ÄKO,AeA Vorschau',
@@ -161,7 +174,7 @@
 						color: 'white'
 					},{
 						name: 'ÄKO,AeA abgeschlossen',
-						data: <%=AekoAbgesch.toString()%>,
+						data: <%=fv9AekoAbgesch%>,
 						color: '#009C0E'
 					},{
 						name: 'Prognosen',

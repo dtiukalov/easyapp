@@ -17,7 +17,7 @@ public class TcSessionListener implements ServletContextListener {
 	
 	private static final String TC_USERNAME_DEFAULT = "infodba";
 	private static final String TC_PASSWORD_DEFAULT = "infodba";
-	private static final String TC_URL_DEFAULT = "http://localhost:7001/tc";
+	private static final String TC_URL_DEFAULT = "http://utc12:7001/tc";
 
 	public void contextInitialized(ServletContextEvent event) {
 		ServletContext context = event.getServletContext();

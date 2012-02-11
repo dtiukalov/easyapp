@@ -9,7 +9,12 @@ public class PHManager {
 
 	private static final String[] VFF = {
 		"FV9_12Aktionspunkte",
-		"FV9_15Programmpunkte"
+		"FV9_15Programmpunkte",
+		"FV9_15FahrzeugaufZP5",
+		"FV9_15FahrzeugaufZP8",
+		"FV9_24StatusAEKO",
+		"FV9_24AEKOUmsetz",
+		"FV9_52Logistikkonzept"
 	};
 	
 	private static final Map<String, String[]> roadmaps = new HashMap<String, String[]>();

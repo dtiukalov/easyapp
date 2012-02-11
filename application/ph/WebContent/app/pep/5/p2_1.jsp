@@ -9,14 +9,11 @@
 
 	Map form = (Map)request.getAttribute("form");	
 
-	String[] fv9LogistikStyle = new String[]{"Inbound<br />入厂物流","Inhouse<br />工厂物流","Behälter<br />器具"};
-	String[] fv9LogistikStatus = new String[]{"绿","绿","黄"};
-	String[] fv9LogistikStCom_CN = new String[]{"1.&nbsp;&nbsp;Inboundlogistik 入厂物流<br />&nbsp;&nbsp;Vorgaben fuer LKW Inbound erstellt; <br />Grobplanung abgeschlossen卡车入厂物流路线起草；粗略规划已结束",
-											   "1.&nbsp;&nbsp;Logistikplanung Karobau(Status gruen)焊装物流规划（绿灯）<br />&nbsp;&nbsp;Grobplanung in Arbeit 正在进行粗略规划<br />2.&nbsp;&nbsp; Logsitikplanung Montage(Status gelb)总装物流规划（绿灯）<br />Planung in arbeit",
-											   "&nbsp;&nbsp;Beginn mit Planung der esten stufigen  Verpackung in KW50/11开始具体零件的详细包装规划"};
-	String[] fv9LogistikStCom_GM = new String[]{};
-	String[] fv9LogistikMab_CN = new String[]{"","","专用器具样件设计（KW06/12需有零件样件）<br />Design der Bemusterung des spezifischen Behaelter in KW06/12"};
-	String[] fv9LogistikMab_GM = new String[]{};
+	List<String> fv9LogistikStyle = (List<String>)form.get("fv9LogistikStyle");
+	List<String> fv9LogistikStatus = (List<String>)form.get("fv9LogistikStatus");
+	List<String> fv9LogistikStCom_GM = (List<String>)form.get("fv9LogistikStCom_GM");
+	List<String> fv9LogistikMab_GM = (List<String>)form.get("fv9LogistikMab_GM");
+	
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -36,28 +33,54 @@
 		    <td width="433" class="pg"><h2>Nächste Schritte下一阶段</h2></td>
 		  </tr>
 		  <%
-		  for(int i=0; i<fv9LogistikStyle.length; i++){
+		  for(int i=0; i<fv9LogistikStyle.size(); i++){
 			  %>
 			  <tr>
 			    <td valign="top" class="pgpg" style="width:239px;">
 				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
 					  <tr>
-			   			 <td valign="top"><h2> <%=fv9LogistikStyle[i] %></h2></td>
+			   			 <td valign="top"><h2> <%=fv9LogistikStyle.get(i) %></h2></td>
 					   	 <td>
-					   	  <% if(fv9LogistikStatus[i].equals("绿")){%>
+					   		<% if(("绿").equals(fv9LogistikStatus.get(i))){%>
 							    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" />
-						<%} else if(fv9LogistikStatus[i].equals("黄")){%>
+							<%} else if(("黄").equals(fv9LogistikStatus.get(i))){%>
 							    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" width="30" height="70" />	
-						<%} else if(fv9LogistikStatus[i].equals("红")){%>
+							<%} else if(("红").equals(fv9LogistikStatus.get(i))){%>
 								   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="30" height="70" /> 
-						<%}%>
+							<%}%>
 					   	 </td>
 					  </tr>
 					</table>
 				</td>
-	    		<td valign="top" class="pgpg"><div class="tbnrr"><%=fv9LogistikStCom_CN[i] %></div>
+	    		<td valign="top" class="pgpg">
+	    			<div class="tbnrr">
+	    			<%
+	    				if (fv9LogistikStCom_GM.get(i) != null && !"".equals(fv9LogistikStCom_GM.get(i))) {
+	    			%>
+	    				<%=fv9LogistikStCom_GM.get(i) %>
+	    			<%
+	    				} else {
+   					%>
+   	    				&nbsp;
+   	    			<%		
+	    				}
+	    			%>
+	    			</div>
 			    </td>
-	   			 <td valign="top" class="pgpg"><div class="tbnrr"><%=fv9LogistikMab_CN[i] %></div>
+	   			<td valign="top" class="pgpg">
+	   			 	<div class="tbnrr">
+	   			 	<%
+	    				if (fv9LogistikMab_GM.get(i) != null && !"".equals(fv9LogistikMab_GM.get(i))) {
+	    			%>
+	    				<%=fv9LogistikMab_GM.get(i) %>
+	    			<%
+	    				} else {
+   					%>
+   	    				&nbsp;
+   	    			<%		
+	    				}
+	    			%>
+	   			 	</div>
 				</td>
 			</tr>
 			  <% 

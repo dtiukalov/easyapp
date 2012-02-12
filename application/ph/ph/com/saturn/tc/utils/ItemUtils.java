@@ -48,9 +48,18 @@ public class ItemUtils {
 				for (String relation : relations) {
 					ModelObject[] objects = itemRev.getProperty(relation).getModelObjectArrayValue();
 					PH.getDataService().getProperties(objects, "object_type");
+					PH.getDataService().getProperties(objects, "object_name");
 					for (ModelObject modelObject : objects) {
 						String uid = modelObject.getUid();
 						String type = modelObject.getType().getName();
+						
+						if(type.equalsIgnoreCase("JPEG")){
+							try {
+								type = modelObject.getProperty("object_name").getDisplayableValue();
+							} catch (NotLoadedException e) {
+								e.printStackTrace();
+							}
+						}
 						
 						if (ids.containsKey(type)) {
 							Object obj = ids.get(type);

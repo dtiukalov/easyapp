@@ -10,47 +10,69 @@
 
 	Map form = (Map)request.getAttribute("form");	
 
-	//从TC中取出数据
-	String[] fv9PFMajor = {"Ausstattung", "Elektrik", "Fahrwerk", "Getriebe", "Karosserie", "Motor", "1:3:4"}; //专业
-	Integer[] fv9PFGesamtNum = {247, 153, 134, 0, 95, 192, 35};
-	Integer[] fv9PFSollNum = {247, 153, 134, 0, 95, 192, 35};
-	Integer[] fv9PFlstNum = {85, 121, 122, 0, 17, 180, 29};
+	//专业组
+	List fv9PFMajor = new ArrayList(); // form.get("fv9PFMajor");
+	fv9PFMajor.add("AGGREGATE");
+	fv9PFMajor.add("FAHRWEAK");
+	fv9PFMajor.add("KAROSSERIE");
+	fv9PFMajor.add("AUSSTATTUNG");
+	fv9PFMajor.add("ELEKTRIK");
+	fv9PFMajor.add("1:3:4"); 
+	fv9PFMajor.add("Gesamt"); 
+	String PFMajor = Web.getStrListStr(fv9PFMajor) ;
+	System.out.println("PFMajor = " + PFMajor);
 	
-	//汇总
-	String[] major = new String[fv9PFMajor.length+1];
-	Integer[] gesamt = new Integer[fv9PFMajor.length+1];
-	Integer[] soll = new Integer[fv9PFMajor.length+1];
-	Integer[] ist = new Integer[fv9PFMajor.length+1];
-	Integer[] offen = new Integer[fv9PFMajor.length+1];
-	
-	if (fv9PFMajor.length > 0){
-		int gesamtSum = 0; 
-		int sollSum = 0;
-		int istSum = 0;
-		int offenSum = 0;
-		for(int i=0; i<fv9PFMajor.length-1; i++) {
-			major[i] = fv9PFMajor[i];  
-			gesamt[i] = fv9PFGesamtNum[i];  
-			soll[i] = fv9PFSollNum[i];  
-			ist[i] = fv9PFlstNum[i];  
-			offen[i] = fv9PFSollNum[i] - fv9PFlstNum[i];  //计算偏差
-			gesamtSum += gesamt[i]; 
-			sollSum += soll[i];  
-			istSum += ist[i];  
-			offenSum += offen[i];
-		}
-		major[major.length-1] = "Gesamt";  
-		gesamt[major.length-1] = gesamtSum;  
-		soll[major.length-1] = sollSum;  
-		ist[major.length-1] = istSum;  
-		offen[major.length-1] = offenSum;  
+	//Gesamt
+	List fv9PFGesamtNum = new ArrayList(); //(List)form.get("fv9PFGesamtNum");
+	fv9PFGesamtNum.add(247);
+	fv9PFGesamtNum.add(153);
+	fv9PFGesamtNum.add(134);
+	fv9PFGesamtNum.add(95);
+	fv9PFGesamtNum.add(192);
+	fv9PFGesamtNum.add(35);
+	int pfGesamt = 0;
+	for (int i=0; i<fv9PFGesamtNum.size(); i++) {
+		pfGesamt += (Integer)fv9PFGesamtNum.get(i);
 	}
+	fv9PFGesamtNum.add(pfGesamt);
+	String PFGesamtNum = Web.getNumberListStr(fv9PFGesamtNum);
 	
-	String majorArr = Web.getStrFromStringArray(major);
-	String offenArr = Web.getStrFromIntArray(offen);
-	String istArr = Web.getStrFromIntArray(ist);
-	String sollArr = Web.getStrFromIntArray(soll);
-	String gesamtArr = Web.getStrFromIntArray(gesamt);
+	//Soll
+	List fv9PFSollNum = new ArrayList(); //(List)form.get("fv9PFSollNum");
+	fv9PFSollNum.add(247);
+	fv9PFSollNum.add(153);
+	fv9PFSollNum.add(134);
+	fv9PFSollNum.add(95);
+	fv9PFSollNum.add(192);
+	fv9PFSollNum.add(35);
+	int pfSoll = 0;
+	for (int i=0; i<fv9PFSollNum.size(); i++) {
+		pfSoll += (Integer)fv9PFSollNum.get(i);
+	}
+	fv9PFSollNum.add(pfSoll);
+	String PFSollNum = Web.getNumberListStr(fv9PFSollNum);
+
+	//Ist
+	List fv9PFlstNum = new ArrayList(); //(List)form.get("fv9PFlstNum");
+	fv9PFlstNum.add(85);
+	fv9PFlstNum.add(121);
+	fv9PFlstNum.add(122);
+	fv9PFlstNum.add(17);
+	fv9PFlstNum.add(180);
+	fv9PFlstNum.add(29);
+	int pflst = 0;
+	for (int i=0; i<fv9PFlstNum.size(); i++) {
+		pfSoll += (Integer)fv9PFlstNum.get(i);
+	}
+	fv9PFlstNum.add(pfSoll);
+	String PFlstNum = Web.getNumberListStr(fv9PFlstNum);
+
+	//offen
+	List fv9PFoffenNum = new ArrayList();
+	for(int i=0; i<fv9PFSollNum.size(); i++){
+		fv9PFoffenNum.add((Integer)((Integer)fv9PFSollNum.get(i) - (Integer)fv9PFlstNum.get(i)));
+	}
+	String PFoffenNum = Web.getStrListStr(fv9PFoffenNum);
 	
 %>
 <!DOCTYPE HTML>
@@ -73,7 +95,7 @@
 					text: 'Anzahl Teile nach TEVON'
 				},
 				xAxis: {
-					categories: <%=majorArr%>
+					categories: <%=PFMajor%>
 				},
 				yAxis: {
 					min: 0,
@@ -106,19 +128,19 @@
 				},
 			    series: [{
 					name: 'P-Offen',
-					data: <%=offenArr%>,//[177, 0, 4, 9, 159, 0, 2],
+					data: <%=PFoffenNum%>,//[177, 0, 4, 9, 159, 0, 2],
 					color: '#FC827F'
 				}, {
 					name: 'P-Ist',
-					data: <%=istArr%>,//[2074, 336, 293, 397, 624, 287, 137],
+					data: <%=PFlstNum%>,//[2074, 336, 293, 397, 624, 287, 137],
 					color: '#85FC84'
 				}, {
 					name: 'P-Soll',
-					data: <%=sollArr%>,//[2248, 336, 297, 406, 783, 287, 139],
+					data: <%=PFSollNum%>,//[2248, 336, 297, 406, 783, 287, 139],
 					color: '#7BBFFC'
 				}, {
 					name: 'Gesamt',
-					data: <%=gesamtArr%>,//[2248, 336, 297, 406, 783, 287, 139],
+					data: <%=PFGesamtNum%>,//[2248, 336, 297, 406, 783, 287, 139],
 					color: '#E1E1E1'
 				}]
 			});

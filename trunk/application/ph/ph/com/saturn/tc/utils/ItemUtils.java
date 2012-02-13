@@ -19,6 +19,8 @@ public class ItemUtils {
 		"FV9QAPH_Rel",
 		"FV9SUPH_Rel",
 		"FV9TEPH_Rel",
+		"FV9VSCPH_Rel",
+		"FV9SCPH_Rel"
 	};
 	
 	private ItemUtils() {

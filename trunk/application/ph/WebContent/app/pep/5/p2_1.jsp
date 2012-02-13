@@ -4,11 +4,10 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.HashMap"%>	
-<%@page import="json.JSONArray"%>
+<%@page import="com.saturn.ph.FormManager"%>
 <%
 
 	Map form = (Map)request.getAttribute("form");	
-
 	List<String> fv9LogistikStyle = (List<String>)form.get("fv9LogistikStyle");
 	List<String> fv9LogistikStatus = (List<String>)form.get("fv9LogistikStatus");
 	List<String> fv9LogistikStCom_GM = (List<String>)form.get("fv9LogistikStCom_GM");
@@ -24,7 +23,7 @@
 <body>
 <div id="container">
 	<div id="nr">
-	<div id="top"><h1>5.2 Logistikkonzept</h1></div>
+	<div id="top"><h1><%=FormManager.getFormTitle("FV9_52Logiskonzept") %></h1></div>
     <div id="content">
     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 		  <tr>

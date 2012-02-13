@@ -1,6 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.HashMap"%>
 <!DOCTYPE HTML>
+<%
+	Map form = (Map)request.getAttribute("form");
+
+	String fv9KWNo = "['36', '37', '41', '42', '43', '44', '46', '2', '3', '4', '8', '9', '10', '11', ' ', 'Prognose zu Meilenstein XXX']";	
+	String fv9FunktionSmall75 = "[33, 30, 22, 14, 13, 7, 6, 4, 3, 2, 1, 1, null, null, null, 1]";	//AK
+	String fv9FunktionSmall100 = "[13, 12, 14, 14, 13, 10, 11, 12, 11, 10, 10, 8, null, null, null, 4]";	//BK
+	String fv9FunktionBig100 = "[54, 58, 64, 72, 74, 83, 83, 84, 86, 88, 89, 91, null, null, null, 95]";	//i.O
+%>
+
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -35,7 +46,7 @@
 								 font: 'normal 12px Verdana, sans-serif'
 							}
 						},
-						categories: ['36', '37', '41', '42', '43', '44', '46', '2', '3', '4', '8', '9', '10', '11', ' ', 'Prognose zu Meilenstein XXX']
+						categories: <%=fv9KWNo%>
 					},
 					yAxis: {
 						min: 0,
@@ -85,11 +96,11 @@
 				    series: [{
 						name: 'AK: Abweichung Toleranz > 100 %',
 						color: '#E63110',
-						data: [33, 30, 22, 14, 13, 7, 6, 4, 3, 2, 1, 1, null, null, null, 1]
+						data:  <%=fv9FunktionSmall75%>
 					}, {
 						name: 'BK: 75% < Abweichung Toleranz < 100 %',
 						color: '#F9A700',
-						data: [13, 12, 14, 14, 13, 10, 11, 12, 11, 10, 10, 8, null, null, null, 4]
+						data:  <%=fv9FunktionSmall100%>
 					}, {
 						name: 'i.O.: Abweichung Toleranz < 75 %',
 						color: '#009C0E',
@@ -101,7 +112,7 @@
 							},
 							color: 'white'
 						},
-						data: [54, 58, 64, 72, 74, 83, 83, 84, 86, 88, 89, 91, null, null, null, 95]
+						data:  <%=fv9FunktionBig100%>
 					}, {
 						type: 'spline',
 						name: 'Zielwert',

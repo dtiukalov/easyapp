@@ -4,8 +4,8 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>3.5 Nacharbeit Abbaustatus</title>
 		<%@ include file="/app/pep/include/header.jsp"%>
-		<title>3.5 Nacharbeitpunkte????</title>
 		<script type="text/javascript">
 		var chart;
 			$(document).ready(function() {
@@ -156,7 +156,7 @@
 	<body>
 		<div id="container">
 			<div id="nr">
-			<div id="top"><h1>3.5 Nacharbeitpunkte</h1></div>
+			<div id="top"><h1>3.5 Nacharbeit Abbaustatus</h1></div>
 			<div id="content">
 				<div id="chart" style="width: 950px; height: 400px; margin: 0 auto"></div>
 			</div>

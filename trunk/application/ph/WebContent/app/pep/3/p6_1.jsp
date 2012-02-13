@@ -1,16 +1,85 @@
-<%@page import="java.util.Arrays"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.HashMap"%>	
+<%@page import="json.JSONArray"%>
+<%@page import="com.saturn.web.Web"%>
 <!DOCTYPE HTML>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<%@ include file="/app/pep/include/header.jsp"%>
 		<%
-		int[] categories = new int[19];
-		for(int i=0; i<19; i++) {
-			categories[i] = i+22;
-		}
+		
+		Map form = (Map)request.getAttribute("form");	
+
+		List KWNo = new ArrayList(); //(List)form.get("fv9KWNo"); //周数
+		List InPlanung = new ArrayList(); // (List)form.get("fv9InPlanung");  //计划中
+		List MabnaNichtErarb = new ArrayList(); //(List)form.get("fv9MabnaNichtErarb"); //为制定措施
+		List MabnaWerdenDef = new ArrayList(); // (List)form.get("fv9MabnaWerdenDef"); //将要制定措施
+		List MabnaDef = new ArrayList();// (List)form.get("fv9MabnaDef"); //已制定措施
+		List IO = new ArrayList(); // (List)form.get("fv9IO");  //i.O.
+		List PrognosePlan = new ArrayList(); //(List)form.get("fv9PrognosePlan"); //计划预测
+		List Zeil = new ArrayList();  //(List)form.get("fv9Zeil"); //目标
+		List PrognoseIO = new ArrayList();  //(List)form.get("fv9PrognoseIO");  //预测i.O.
+		
+		KWNo.add(20);KWNo.add(21);KWNo.add(22);KWNo.add(23);KWNo.add(24);
+		KWNo.add(25);KWNo.add(26);KWNo.add(27);KWNo.add(28);KWNo.add(29);
+		KWNo.add(30);KWNo.add(31);KWNo.add(32);KWNo.add(33);KWNo.add(34);
+		KWNo.add(35);KWNo.add(36);KWNo.add(37);KWNo.add(38);KWNo.add(39);
+		
+		InPlanung.add(0);InPlanung.add(0);InPlanung.add(0);InPlanung.add(49);InPlanung.add(null);
+		InPlanung.add(null);InPlanung.add(null);InPlanung.add(null);InPlanung.add(null);InPlanung.add(null);
+		InPlanung.add(null);InPlanung.add(null);InPlanung.add(null);InPlanung.add(null);InPlanung.add(null);
+		InPlanung.add(null);InPlanung.add(null);InPlanung.add(null);InPlanung.add(null);InPlanung.add(null);
+		
+		MabnaNichtErarb.add(0);MabnaNichtErarb.add(0);MabnaNichtErarb.add(1);MabnaNichtErarb.add(1);MabnaNichtErarb.add(null);
+		MabnaNichtErarb.add(null);MabnaNichtErarb.add(null);MabnaNichtErarb.add(null);MabnaNichtErarb.add(null);MabnaNichtErarb.add(null);
+		MabnaNichtErarb.add(null);MabnaNichtErarb.add(null);MabnaNichtErarb.add(null);MabnaNichtErarb.add(null);MabnaNichtErarb.add(null);
+		MabnaNichtErarb.add(null);MabnaNichtErarb.add(null);MabnaNichtErarb.add(null);MabnaNichtErarb.add(null);MabnaNichtErarb.add(null);
+		
+		MabnaWerdenDef.add(27);MabnaWerdenDef.add(23);MabnaWerdenDef.add(22);MabnaWerdenDef.add(17);MabnaWerdenDef.add(null);
+		MabnaWerdenDef.add(null);MabnaWerdenDef.add(null);MabnaWerdenDef.add(null);MabnaWerdenDef.add(null);MabnaWerdenDef.add(null);
+		MabnaWerdenDef.add(null);MabnaWerdenDef.add(null);MabnaWerdenDef.add(null);MabnaWerdenDef.add(null);MabnaWerdenDef.add(null);
+		MabnaWerdenDef.add(null);MabnaWerdenDef.add(null);MabnaWerdenDef.add(null);MabnaWerdenDef.add(null);MabnaWerdenDef.add(null);
+		
+		MabnaDef.add(18);MabnaDef.add(20);MabnaDef.add(22);MabnaDef.add(25);MabnaDef.add(null);
+		MabnaDef.add(null);MabnaDef.add(null);MabnaDef.add(null);MabnaDef.add(null);MabnaDef.add(null);
+		MabnaDef.add(null);MabnaDef.add(null);MabnaDef.add(null);MabnaDef.add(null);MabnaDef.add(null);
+		MabnaDef.add(null);MabnaDef.add(null);MabnaDef.add(null);MabnaDef.add(null);MabnaDef.add(null);
+		
+		IO.add(10);IO.add(14);IO.add(15);IO.add(18);IO.add(null);
+		IO.add(null);IO.add(null);IO.add(null);IO.add(null);IO.add(null);
+		IO.add(null);IO.add(null);IO.add(null);IO.add(null);IO.add(null);
+		IO.add(null);IO.add(null);IO.add(null);IO.add(null);IO.add(null);
+		
+		PrognosePlan.add(55);PrognosePlan.add(58);PrognosePlan.add(60);PrognosePlan.add(61);PrognosePlan.add(65);
+		PrognosePlan.add(75);PrognosePlan.add(90);PrognosePlan.add(100);PrognosePlan.add(102);PrognosePlan.add(104);
+		PrognosePlan.add(105);PrognosePlan.add(105);PrognosePlan.add(106);PrognosePlan.add(107);PrognosePlan.add(107);
+		PrognosePlan.add(108);PrognosePlan.add(109);PrognosePlan.add(110);PrognosePlan.add(110);PrognosePlan.add(110);
+		
+		Zeil.add(110);Zeil.add(110);Zeil.add(110);Zeil.add(110);Zeil.add(110);
+		Zeil.add(110);Zeil.add(110);Zeil.add(110);Zeil.add(110);Zeil.add(110);
+		Zeil.add(110);Zeil.add(110);Zeil.add(110);Zeil.add(110);Zeil.add(110);
+		Zeil.add(110);Zeil.add(110);Zeil.add(110);Zeil.add(110);Zeil.add(110);
+		
+		PrognoseIO.add(26);PrognoseIO.add(28);PrognoseIO.add(32);PrognoseIO.add(42);PrognoseIO.add(52);
+		PrognoseIO.add(63);PrognoseIO.add(71);PrognoseIO.add(80);PrognoseIO.add(89);PrognoseIO.add(93);
+		PrognoseIO.add(94);PrognoseIO.add(95);PrognoseIO.add(97);PrognoseIO.add(98);PrognoseIO.add(99);
+		PrognoseIO.add(100);PrognoseIO.add(101);PrognoseIO.add(102);PrognoseIO.add(103);PrognoseIO.add(104);
+		
+		String fv9KWNo = Web.getNumberListStr(KWNo);
+		String fv9InPlanung = Web.getNumberListStr(InPlanung);
+		String fv9MabnaNichtErarb = Web.getNumberListStr(MabnaNichtErarb);
+		String fv9MabnaWerdenDef = Web.getNumberListStr(MabnaWerdenDef);
+		String fv9MabnaDef = Web.getNumberListStr(MabnaDef);
+		String fv9IO = Web.getNumberListStr(IO);
+		String fv9PrognosePlan = Web.getNumberListStr(PrognosePlan);
+		String fv9Zeil = Web.getNumberListStr(Zeil);
+		String fv9PrognoseIO = Web.getNumberListStr(PrognoseIO);
+		
 		%>
 		<script type="text/javascript">
 		var chart;
@@ -28,7 +97,7 @@
 						gridLineColor:'#747474',
 						tickLength:13,
 						tickColor:'#747474',
-						categories: <%=Arrays.toString(categories)%>,
+						categories: <%=fv9KWNo%>,
 						plotBands: [{
 							from: -100,
 							to: 100,
@@ -86,33 +155,28 @@
 				    series: [{
 						type: 'column',
 						name: 'in Planung',
-						data: [0, 0, 0, 40, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+						data: <%=fv9InPlanung%>,
 						color: '#0000FF'
 					}, {
 						type: 'column',
 						name: 'Maßnahmen nicht erarbeitet',
-						data: [0, 0, 1, 1, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+						data: <%=fv9MabnaNichtErarb%>,
 						color: '#FF0000'
 					}, {
 						type: 'column',
 						name: 'Maßnahmen werden definiert',
-						data: [27, 23, 22, 17, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+						data: <%=fv9MabnaWerdenDef%>,
 						color: '#FFFF00'
 					}, {
 						type: 'column',
 						name: 'Maßnahmen definiert',
-						data: [18, 20, 22, 25, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+						data: <%=fv9MabnaDef%>,
 						color: '#AAD42A'
 					}, {
 						type: 'column',
 						name: 'i.O.',
-						data: [10, 14, 15, 18, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+						data: <%=fv9IO%>,
 						color: '#008000'
-					}, {
-						type: 'spline',
-						name: ' ',
-						color: '#00FF00',
-						data: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
 					}, {
 						type: 'spline',
 						name: 'Prognose in Planung',
@@ -122,7 +186,7 @@
 						marker: {
 							radius : 3
 						},
-						data: [55, 58, 60, 61, 65, 75, 90, 100, 102, 104, 105, 105, 106, 107, 107, 108, 109, 110, 110, 110, 110]
+						data: <%=fv9PrognosePlan%>
 					}, {
 						type: 'line',
 						name: 'Ziel',
@@ -134,7 +198,7 @@
 							symbol : 'triangle',
 							radius : 3
 						},
-						data: [110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110]
+						data: <%=fv9Zeil%>
 					}, {
 						type: 'line',
 						name: 'Prognose i.O.',
@@ -147,7 +211,7 @@
 							symbol : 'circle',
 							radius : 3
 						},
-						data: [26, 28, 32, 42, 52, 63, 71, 80, 89, 93, 94, 95, 97, 98, 99, 100, 101, 102, 103, 104, 105]
+						data: <%=fv9PrognoseIO%>
 					}, {
 						data: [[1, 0], [1.0001, 2500]],
 			//			color: 'black',
@@ -207,13 +271,108 @@
 			});
 		</script>
 	</head>
+
 	<body>
 		<div id="container">
 			<div id="nr">
-			<div id="top"><h1>4.3 Teilequalität ZP7 (HT/KT)</h1></div>
+			<div id="top"><h1>3.6 Vorschau 2-Tagesproduktion</h1></div>
 			<div id="content">
 				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto"></div>
-				<div style="width: 800px; margin: 0 auto;text-align: center;margin-top: 20px;">下面含有表格</div>
+				<div style="width: 800px; margin: 0 auto;text-align: center; margin-top: 20px;">
+				<table border="1" >
+					<tr>
+						<td width="245">&nbsp;</td>
+						<%
+						for (int j=0; j<KWNo.size(); j++) {
+						%>
+							<td><%=KWNo.get(j) %></td>
+						<%
+						}
+						%>
+					</tr>
+					<tr>
+						<td width="245">&nbsp;</td>
+						<%
+						for (int j=0; j<InPlanung.size(); j++) {
+						%>
+							<td><%if (InPlanung.get(j) != null){out.print(InPlanung.get(j));} else {out.print("&nbsp;");}%></td>
+						<%
+						}
+						%>
+					</tr>
+					<tr>
+						<td width="245">&nbsp;</td>
+						<%
+						for (int j=0; j<MabnaNichtErarb.size(); j++) {
+						%>
+							<td><%if (MabnaNichtErarb.get(j) != null){out.print(MabnaNichtErarb.get(j));} else {out.print("&nbsp;");}%></td>
+						<%
+						}
+						%>
+					</tr>
+					<tr>
+						<td width="245">&nbsp;</td>
+						<%
+						for (int j=0; j<MabnaWerdenDef.size(); j++) {
+						%>
+							<td><%if (MabnaWerdenDef.get(j) != null){out.print(MabnaWerdenDef.get(j));} else {out.print("&nbsp;");}%></td>
+						<%
+						}
+						%>
+					</tr>
+					<tr>
+						<td width="245">&nbsp;</td>
+						<%
+						for (int j=0; j<MabnaDef.size(); j++) {
+						%>
+							<td><%if (MabnaDef.get(j) != null){out.print(MabnaDef.get(j));} else {out.print("&nbsp;");}%></td>
+						<%
+						}
+						%>
+					</tr>
+					<tr>
+						<td width="245">&nbsp;</td>
+						<%
+						for (int j=0; j<IO.size(); j++) {
+						%>
+							<td><%if (IO.get(j) != null){out.print(IO.get(j));} else {out.print("&nbsp;");}%></td>
+						<%
+						}
+						%>
+					</tr>
+					<tr>
+						<td width="245">&nbsp;</td>
+						<%
+						for (int j=0; j<PrognosePlan.size(); j++) {
+						%>
+							<td><%if (PrognosePlan.get(j) != null){out.print(PrognosePlan.get(j));} else {out.print("&nbsp;");}%></td>
+						<%
+						}
+						%>
+					</tr>
+					<tr>
+						<td width="245">&nbsp;</td>
+						<%
+						for (int j=0; j<Zeil.size(); j++) {
+						%>
+							<td><%if (Zeil.get(j) != null){out.print(Zeil.get(j));} else {out.print("&nbsp;");}%></td>
+						<%
+						}
+						%>
+					</tr>
+					<tr>
+						<td width="245">&nbsp;</td>
+						<%
+						for (int j=0; j<PrognoseIO.size(); j++) {
+						%>
+							<td><%if (PrognoseIO.get(j) != null){out.print(PrognoseIO.get(j));} else {out.print("&nbsp;");}%></td>
+						<%
+						}
+						%>
+					</tr>
+				</table>
+				
+				</div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

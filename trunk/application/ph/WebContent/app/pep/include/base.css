@@ -39,7 +39,7 @@
 	FLOAT: left;
 }
 .page P {
-	FONT-FAMILY: Arial, Helvetica, sans-serif; FONT-SIZE: 16px; text-align:center; display:block; height:23px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif; FONT-SIZE: 16px; text-align:center; display:block; height:23px; vertical-align: bottom;
 }
 .clear {
 	CLEAR: both

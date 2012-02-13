@@ -14,48 +14,36 @@
 	</head>
 	<body>
 		<%
-			Map values = new HashMap();
-			Map map1 = new HashMap();
-			Map map2 = new HashMap();
-			Map map3 = new HashMap();
-			Map map4 = new HashMap();
-			Map map5 = new HashMap();
+			Map form = (Map)request.getAttribute("form");		
+		
+			List fv9ErprobStyle = new ArrayList(); //(List)form.get("fv9ErprobStyle");
+			List fv9ErprobStatus = new ArrayList();  //(List)form.get("fv9ErprobStatus");
+			List fv9ErprobStCom_GM = new ArrayList();  //(List)form.get("fv9ErprobStCom_GM");
+			List fv9ErprobNachSch_GM = new ArrayList();  //(List)form.get("fv9ErprobNachSch_GM");
 			
-			List list11 = new ArrayList<String>(); list11.add("DMU von 1.61/MQ200 und 1.6K/AQ250 abgenommen.");list11.add("DMU von 1.4L/MQ200 und 1.4K/AQ250 abgenommen.");
-			List list12 = new ArrayList<String>(); list12.add("");
+			fv9ErprobStyle.add("Geometris che Absicherung");
+			fv9ErprobStyle.add("Gesamtfzg.-Erprobung");
+			fv9ErprobStyle.add("Vorstellung SoFa/WiFa");
+			fv9ErprobStyle.add("Fahrzeug-Dauerlauf");
+			fv9ErprobStyle.add("Versychtrafer management");
 			
-			List list21 = new ArrayList<String>(); list21.add("Defrosterprobung am Fahrzugmit"); list21.add("Wasserrfurchfahrt von 1.4T i.O. in KW25/11.");
-			List list22 = new ArrayList<String>(); list22.add("Stauberprobung Ergebnis in KW50/11.");
+			fv9ErprobStatus.add("绿");
+			fv9ErprobStatus.add("黄");
+			fv9ErprobStatus.add("黄");
+			fv9ErprobStatus.add("绿");
+			fv9ErprobStatus.add("绿");
 			
-			List list31 = new ArrayList<String>();
-			List list32 = new ArrayList<String>();
+			fv9ErprobStCom_GM.add("DMU von 1.61/MQ200 und 1.6K/AQ250 abgenommen.<br>DMU von 1.4L/MQ200 und 1.4K/AQ250 abgenommen.");
+			fv9ErprobStCom_GM.add("Defrosterprobung am Fahrzugmit.<br>Wasserrfurchfahrt von 1.4T i.O. in KW25/11.<br>Stauberprobung Ergebnis in KW50/11.");
+			fv9ErprobStCom_GM.add("Defrosterprobung am Fahrzugmit.<br>Wasserrfurchfahrt von 1.4T i.O. in KW25/11.<br>Stauberprobung Ergebnis in KW50/11.");
+			fv9ErprobStCom_GM.add("Defrosterprobung am Fahrzugmit.<br>Wasserrfurchfahrt von 1.4T i.O. in KW25/11.<br>Stauberprobung Ergebnis in KW50/11.");
+			fv9ErprobStCom_GM.add("Defrosterprobung am Fahrzugmit.<br>Wasserrfurchfahrt von 1.4T i.O. in KW25/11.<br>Stauberprobung Ergebnis in KW50/11.");
 			
-			List list41 = new ArrayList<String>();
-			List list42 = new ArrayList<String>();
-			
-			List list51 = new ArrayList<String>();
-			List list52 = new ArrayList<String>();
-			
-			map1.put("Aktueller Status", list11);
-			map1.put("Nachste Status", list12);
-			
-			map2.put("Aktueller Status", list21);
-			map2.put("Nachste Status", list22);
-			
-			map3.put("Aktueller Status", list31);
-			map3.put("Nachste Status", list32);
-			
-			map4.put("Aktueller Status", list41);
-			map4.put("Nachste Status", list42);
-			
-			map5.put("Aktueller Status", list51);
-			map5.put("Nachste Status", list52);
-			
-			values.put("Geometris che Absicherung", map1);
-			values.put("Gesamtfzg.-Erprobung", map2);
-			values.put("Vorstellung SoFa/WiFa", map3);
-			values.put("Fahrzeug-Dauerlauf", map4);
-			values.put("Versychtrafer management", map5);
+			fv9ErprobNachSch_GM.add("Stauberprobung Ergebnis in KW50/11.");
+			fv9ErprobNachSch_GM.add("Stauberprobung Ergebnis in KW50/11.");
+			fv9ErprobNachSch_GM.add("Stauberprobung Ergebnis in KW50/11.");
+			fv9ErprobNachSch_GM.add("Stauberprobung Ergebnis in KW50/11.");
+			fv9ErprobNachSch_GM.add("Stauberprobung Ergebnis in KW50/11.");
 			
 		%>
 		<div id="container">
@@ -75,17 +63,37 @@
 				        </td>
 			        </tr>
 			        <%
-			        	Iterator it = values.entrySet().iterator();
-			        	while (it.hasNext()) {
-			        		Map.Entry value = (Map.Entry)it.next();
-			        		
-			        %>		
-			        <tr>
+						if (fv9ErprobStyle != null && fv9ErprobStyle.size() >0) {
+							for (int i=0; i<fv9ErprobStyle.size(); i++){
+								String Style = (String)fv9ErprobStyle.get(i);
+								String status = (String)fv9ErprobStatus.get(i);
+								String stcom_gm = (String)fv9ErprobStCom_GM.get(i);
+								String nachsch_gm = (String)fv9ErprobNachSch_GM.get(i);
+					%>
+					 <tr>
 			          <td width="19%">
 				          <div class="kbg">
 				          	<div class="he">
-					          	<div class="wz"><h2><%=value.getKey() %></h2></div>
-					          	<div class="tupian"><img src="../images/2012-01-17_125230.png" /></div>
+					          	<div class="wz"><h2><%=Style %></h2></div>
+					          	<div class="tupian">
+					          	<%
+					          	if ("红".equals(status)) {
+					          	%>
+					          		<img src="../images/red.png" />
+					          	<%
+					          	}
+					          	if ("黄".equals(status)) {
+					          	%>
+					          		<img src="../images/yellow.png" />
+					          	<%
+						        }
+					          	if ("绿".equals(status)) {
+					          	%>
+					          		<img src="../images/green.png" />
+					          	<%
+					          	}
+					          	%>
+					          	</div>
 					          	<div class="clear"></div>
 					          </div>
 				          </div>
@@ -95,51 +103,19 @@
 			              <td height="25">
 			              	<table width="98%" border="0" cellspacing="2" cellpadding="0">
 					            <tr>
-					              <td width="49%" height="25">
-					              <%
-					              	Map tempmap = (HashMap)value.getValue();
-					              	List templist1 = (ArrayList)tempmap.get("Aktueller Status");
-					              	List templist2 = (ArrayList)tempmap.get("Nachste Status");
-					              	
-					              	if (templist1 != null && templist1.size() > 0) {
-					              		for(String temp : (List<String>)templist1) {
-					              %>
-					              		·<%=temp %><br />
-					              <%		
-					              		}
-					              	} else {
-					              %>
-						           		&nbsp;
-						          <%	
-					              	}
-					              %>
-					              
-					              </td>
-					              <td width="51%" valign="top">
-					               <%
-					              	if (templist2 != null && templist2.size() > 0) {
-					              		for(String temp : (List<String>)templist2) {
-					              %>
-					              		·<%=temp %><br />
-					              <%		
-					              		}
-					              	} else {
-					              %>
-						           		&nbsp;
-						          <%	
-					              	}
-					              %>
-					              </td>
+					              <td width="49%" height="25"><%=stcom_gm %></td>
+					              <td width="51%" valign="top"><%=nachsch_gm %></td>
 					            </tr>
 					          </table>
 			              </td>
 			            </tr>
 			          </table></td>
 			        </tr>
-			        <%
-			        	}
-			        %>
-			        
+					<%
+							}
+						}
+			        %>		
+			       
 			        
 			      </table>
 			</div>

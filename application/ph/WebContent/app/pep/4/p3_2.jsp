@@ -64,16 +64,29 @@
 						text: ' '
 					},
 					xAxis: {
+						lineColor:'black',
+						lineWidth:2,
+						tickWidth:0,
+						labels:{
+							y:20,
+							style:{
+								color:'black'
+							}
+						},
 						categories: <%=fv9TeilestName%>
 						
 					},
 					yAxis: {
 						min: 0,
+						gridLineWidth:0,
 						title: {
 							text: ' '
 						},
+						labels:{
+							enabled:false
+						},
 						stackLabels: {
-							enabled: true,
+							enabled: false,
 							style: {
 								fontWeight: 'bold',
 								color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
@@ -102,9 +115,16 @@
 					plotOptions: {
 						column: {
 							stacking: 'normal',
+							shadow: false,
+							borderWidth:1,
+							borderColor:'black',
 							dataLabels: {
-								enabled: false,
-								color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+								enabled: true,
+								style : {
+									fontWeight: 'bold',
+									fontSize:'12px'
+								},
+								color: 'black'
 							}
 						}
 					},
@@ -119,11 +139,27 @@
 					}, {
 						name: 'Note 3',
 						data: <%=fv9TeileNote3%>,
-						color: '#00FF00'
+						color: '#00FF00',
+						dataLabels: {
+							enabled: true,
+							style : {
+								fontWeight: 'bold',
+								fontSize:'12px'
+							},
+							color: 'white'
+						}
 					}, {
 						name: 'Note 1',
 						data: <%=fv9TeileNote1%>,
-						color: '#003300'
+						color: '#003300',
+						dataLabels: {
+							enabled: true,
+							style : {
+								fontWeight: 'bold',
+								fontSize:'12px'
+							},
+							color: 'white'
+						}
 					}, {
 						name: 'Note 6',
 						data: <%=fv9TeileNote6%>,

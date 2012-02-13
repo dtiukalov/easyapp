@@ -79,17 +79,17 @@
 					          	<%
 					          	if ("红".equals(status)) {
 					          	%>
-					          		<img src="../images/red.png" />
+					          		<img src="../images/redStatus.png" />
 					          	<%
 					          	}
 					          	if ("黄".equals(status)) {
 					          	%>
-					          		<img src="../images/yellow.png" />
+					          		<img src="../images/yellowStatus.png" />
 					          	<%
 						        }
 					          	if ("绿".equals(status)) {
 					          	%>
-					          		<img src="../images/green.png" />
+					          		<img src="../images/greenStatus.png" />
 					          	<%
 					          	}
 					          	%>

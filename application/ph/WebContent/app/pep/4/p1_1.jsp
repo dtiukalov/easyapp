@@ -27,22 +27,41 @@
 					defaultSeriesType: 'column'
 				},
 				title: {
-					text: 'Anzahl Teile nach TEVON'
+					text: 'Anzahl Teile nach TEVON',
+					style:{
+						color:'black'
+					}
 				},
 				xAxis: {
+					lineColor:'black',
+					lineWidth:2,
+					tickWidth:0,
+					labels:{
+						y:20,
+						style:{
+							color:'black'
+						}
+					},
 					categories: ["Gesamt", "Nominiert", "Nicht<br>nominiert"]
 				},
 				yAxis: {
 					min: 0,
 					max: 250,
+					gridLineWidth:0,
 					title: {
-						text: ''
+						text: ' '
+					},
+					labels:{
+						enabled: false,
+						style:{
+							color:'black'
+						}
 					},
 					stackLabels: {
 						enabled: true,
 						style: {
 							fontWeight: 'bold',
-							color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+							color:'black'
 						}
 					}
 				},
@@ -56,8 +75,15 @@
 				plotOptions: {
 					column: {
 						stacking: 'normal',
+						shadow: false,
 						dataLabels: {
-							enabled: true
+							enabled: false,
+							style : {
+								fontWeight: 'bold',
+								fontSize:'10px',
+								align:'top'
+							},
+							color: '#4C5258'
 						}
 					}
 				},
@@ -110,22 +136,41 @@
 					text: ' '
 				},
 				xAxis: {
+					lineColor:'black',
+					lineWidth:2,
+					tickWidth:0,
+					labels:{
+						y:20,
+						style:{
+							color:'black'
+						}
+					},
 					title: {
-						text: 'Geplante Nominierungen'
+						text: 'Geplante Nominierungen',
+						style:{
+							color:'black'
+						}
 					},
 					categories: <%=categories%>//["Kritische<br>Nominierungen", 'KW09', 'KW11', 'KW13', 'später'] 
 				},
 				yAxis: {
 					min: 0,
 					max: 20,
+					gridLineWidth:0,
 					title: {
-						text: ''
+						text: ' '
+					},
+					labels:{
+						enabled: false,
+						style:{
+							color:'black'
+						}
 					},
 					stackLabels: {
 						enabled: true,
 						style: {
 							fontWeight: 'bold',
-							color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+							color: 'black'
 						}
 					}
 				},
@@ -137,8 +182,15 @@
 				plotOptions: {
 					column: {
 						stacking: 'normal',
+						shadow: false,
 						dataLabels: {
-							enabled: true
+							enabled: false,
+							style : {
+								fontWeight: 'bold',
+								fontSize:'10px',
+								align:'top'
+							},
+							color: '#4C5258'
 						}
 					}
 				},
@@ -189,7 +241,7 @@
 			<div id="content">
 				<div style="width: 50px; height: 400px; margin: 0 auto; float: left;"></div>
 				<div id="chart1" style="width: 250px; height: 400px; margin: 0 auto; float: left;"></div>
-				<div id="chart2" style="width: 600px; height: 400px; margin: 0 auto; float: left;"></div>
+				<div id="chart2" style="width: 600px; height: 400px; margin: 0 auto; float: left;margin-top:20px"></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

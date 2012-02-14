@@ -2,7 +2,7 @@ package com.saturn.ph.form.p4;
 
 import com.saturn.ph.Form;
 
-public class FV9_42TeilequalitaetZP5HTDataset extends Form {
+public class FV9_42AmpelblatteZP5Dataset extends Form {
 	
 	private static final String[] attr = {};
 	
@@ -11,16 +11,16 @@ public class FV9_42TeilequalitaetZP5HTDataset extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/4/p2_1.jsp";
+		return "/app/pep/4/p2_4.jsp";
 	}
 
 	@Override
 	public String getType() {
-		return "4.2TeilequalitaetZP5HT";
+		return "4.2AmpelblatteZP5";
 	}
 
 	@Override
 	public String getTitle() {
-		return "4.2 Teilequalität ZP5 (HT) (图片)";
+		return "4.2 Ampelblatte ZP5";
 	}
 }

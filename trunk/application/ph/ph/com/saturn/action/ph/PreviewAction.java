@@ -38,6 +38,7 @@ public class PreviewAction implements IAction {
 		}
 		
 		request.setAttribute("uid", uid);
+		request.setAttribute("type", type);
 		request.setAttribute("form", FormManager.getFormValue(type, uid, true));
 		
 		return new JspView(FormManager.getJspPath(type));

@@ -1,8 +1,8 @@
-package com.saturn.ph.form.p1;
+package com.saturn.ph.form.p4;
 
 import com.saturn.ph.Form;
 
-public class FV9_13Dataset extends Form {
+public class FV9_43AmpelblatteZP7Dataset extends Form {
 	
 	private static final String[] attr = {};
 	
@@ -11,16 +11,16 @@ public class FV9_13Dataset extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/1/p3_1.jsp";
+		return "/app/pep/4/p3_4.jsp";
 	}
 
 	@Override
 	public String getType() {
-		return "1.3 Anlauforganisation – Fahrzeugbau";
+		return "4.3AmpelblatteZP7";
 	}
 
 	@Override
 	public String getTitle() {
-		return "1.3 Anlauforganisation – Fahrzeugbau";
+		return "4.3 Ampelblatte ZP7";
 	}
 }

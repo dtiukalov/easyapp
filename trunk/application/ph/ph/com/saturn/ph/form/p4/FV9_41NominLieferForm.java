@@ -5,24 +5,25 @@ import com.saturn.ph.Form;
 public class FV9_41NominLieferForm extends Form {
 	
 	private static final String[] attr = {
-		"fv9Aktion", "fv9Verantwortlich", "fv9Termin", "fv9PHStatus"
+		"fv9Nominiert", "fv9Nichtnominiert", "fv9KritischeNomini", "fv9KWNo",
+		"fv9KWNumber","fv9KWCom"
 	};
-	
+
 	public String[] getAttributes() {
 		return attr;
 	}
 
 	public String getJspPath() {
-		return "/app/pep/1/p2_1.jsp";
+		return "/app/pep/4/p1_1.jsp";
 	}
 
 	@Override
 	public String getType() {
-		return "FV9_12Aktionspunkte";
+		return "FV9_41NominLiefer";
 	}
 
 	@Override
 	public String getTitle() {
-		return "1.2 Aktionspunkte";
+		return "4.1 Nominierungen/Lieferantenstatus";
 	}
 }

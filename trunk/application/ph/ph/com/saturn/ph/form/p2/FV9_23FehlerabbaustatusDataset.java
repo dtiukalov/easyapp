@@ -11,7 +11,7 @@ public class FV9_23FehlerabbaustatusDataset extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/2/p3_1.jsp";
+		return "/app/pep/2/p3_2.jsp";
 	}
 
 	@Override

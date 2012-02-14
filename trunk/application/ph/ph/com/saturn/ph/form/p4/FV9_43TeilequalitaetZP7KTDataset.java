@@ -2,7 +2,7 @@ package com.saturn.ph.form.p4;
 
 import com.saturn.ph.Form;
 
-public class FV9_43ProblemblattDataset extends Form {
+public class FV9_43TeilequalitaetZP7KTDataset extends Form {
 	
 	private static final String[] attr = {};
 	
@@ -16,11 +16,11 @@ public class FV9_43ProblemblattDataset extends Form {
 
 	@Override
 	public String getType() {
-		return "4.3 Problemblatt";
+		return "4.3TeilequalitatZP7KT";
 	}
 
 	@Override
 	public String getTitle() {
-		return "4.3 Problemblatt";
+		return "4.3 Teilequalität ZP7 (KT) (图片)";
 	}
 }

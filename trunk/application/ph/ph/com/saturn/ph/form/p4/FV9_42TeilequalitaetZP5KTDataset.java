@@ -11,16 +11,16 @@ public class FV9_42TeilequalitaetZP5KTDataset extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/4/p2_1.jsp";
+		return "/app/pep/4/p2_5.jsp";
 	}
 
 	@Override
 	public String getType() {
-		return "4.2 Teilequalitaet ZP5 (KT) ";
+		return "4.2TeilequalitaetZP5KT";
 	}
 
 	@Override
 	public String getTitle() {
-		return "4.2 Teilequalitaet ZP5 (KT) ";
+		return "4.2 Teilequalität ZP5 (KT) (图片)";
 	}
 }

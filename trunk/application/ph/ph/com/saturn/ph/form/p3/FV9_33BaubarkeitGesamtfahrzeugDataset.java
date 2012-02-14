@@ -11,7 +11,7 @@ public class FV9_33BaubarkeitGesamtfahrzeugDataset extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/3/p3_1.jsp";
+		return "/app/pep/3/p3_2.jsp";
 	}
 
 	@Override

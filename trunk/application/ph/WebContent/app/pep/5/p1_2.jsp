@@ -8,17 +8,34 @@
 <%
 	Map form = (Map)request.getAttribute("form");	
 
-	String[] fv9KarosserStyle = new String[]{"Unterbau I ","Unterbau II","Seitenteil","Aufbau I, II, III","Anbauteile1"};
-	String[] fv9KarosserStatus = new String[]{"绿","绿","绿","绿","黄"};
-	String[] fv9KarossStatusCom = new String[]{
-			"合同已签订，设备清单已完成,<br /> 设备正在制造中; <br />Vertrag schon unterschrieben， Anlageliste fertig,  <br />Anlagen sind in Prozess der Bearbeitungen.",
-			"合同已签订，设备清单已完成,<br /> 设备正在制造中; <br />Vertrag schon unterschrieben， Anlageliste fertig,  <br />Anlagen sind in Prozess der Bearbeitungen.",
-			"合同已签订，设备清单已完成,<br /> 设备正在制造中; <br />Vertrag schon unterschrieben， Anlageliste fertig,  <br />Anlagen sind in Prozess der Bearbeitungen.",
-			"合同已签订，设备清单已完成,<br /> 设备正在制造中; <br />Vertrag schon unterschrieben， Anlageliste fertig,  <br />Anlagen sind in Prozess der Bearbeitungen.",
-			"合同已签订，设备清单已完成,<br />设备正在制造中;压合设备预计KW07/12到货 <br />Vertrag schon unterschrieben， Anlageliste fertig, Anlagen sind in Prozess der Bearbeitungen,<br />Falzanlagen vor Ort im KW07/12"
-			};
-	String[] fv9KarossStatusMab = new String[]{"","","","",
-			"1.采用滚边压合的方法生产阶段装车所需的前后盖总成；Fertigung Zsb FK/HK fuer VFF mit Methoden Roboter-Rollfalzen<br />2.压缩供应商运输周期,确保压合设备KW07/12到达现场； Verkuerzen der Transportzeit von Lieferant, um die Falzanlagen in KW07/12 in vor Ort sicherzustellen "};
+	List<String> fv9KarosserStyle = new ArrayList<String>();//(List<String>)form.get("fv9KarosserStyle");
+	List<String> fv9KarosserStatus = new ArrayList<String>();//(List<String>)form.get("fv9KarosserStatus");
+	List<String> fv9KarossStatusCom = new ArrayList<String>();//(List<String>)form.get("fv9KarossStatusCom");
+	List<String> fv9KarossStatusMab = new ArrayList<String>();//(List<String>)form.get("fv9KarossStatusMab");
+	
+	fv9KarosserStyle.add("Unterbau I ");
+	fv9KarosserStyle.add("Unterbau II");
+	fv9KarosserStyle.add("Seitenteil");
+	fv9KarosserStyle.add("Aufbau I, II, III");
+	fv9KarosserStyle.add("Anbauteile1");
+	
+	fv9KarosserStatus.add("绿");
+	fv9KarosserStatus.add("绿");
+	fv9KarosserStatus.add("绿");
+	fv9KarosserStatus.add("绿");
+	fv9KarosserStatus.add("黄");
+	
+	fv9KarossStatusCom.add("合同已签订，设备清单已完成,设备正在制造中;Vertrag schon unterschrieben， Anlageliste fertig,  Anlagen sind in Prozess der Bearbeitungen.");
+	fv9KarossStatusCom.add("合同已签订，设备清单已完成,设备正在制造中;Vertrag schon unterschrieben， Anlageliste fertig,  Anlagen sind in Prozess der Bearbeitungen.");
+	fv9KarossStatusCom.add("合同已签订，设备清单已完成,设备正在制造中;Vertrag schon unterschrieben， Anlageliste fertig,  Anlagen sind in Prozess der Bearbeitungen.");
+	fv9KarossStatusCom.add("合同已签订，设备清单已完成,设备正在制造中;Vertrag schon unterschrieben， Anlageliste fertig,  Anlagen sind in Prozess der Bearbeitungen.");
+	fv9KarossStatusCom.add("合同已签订，设备清单已完成,设备正在制造中;压合设备预计KW07/12到货Vertrag schon unterschrieben， Anlageliste fertig, Anlagen sind in Prozess der Bearbeitungen,Falzanlagen vor Ort im KW07/12");
+	
+	fv9KarossStatusMab.add("");
+	fv9KarossStatusMab.add("");
+	fv9KarossStatusMab.add("");
+	fv9KarossStatusMab.add("");
+	fv9KarossStatusMab.add("1.采用滚边压合的方法生产阶段装车所需的前后盖总成；Fertigung Zsb FK/HK fuer VFF mit Methoden Roboter-Rollfalzen2.压缩供应商运输周期,确保压合设备KW07/12到达现场； Verkuerzen der Transportzeit von Lieferant, um die Falzanlagen in KW07/12 in vor Ort sicherzustellen ");
 	
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -40,28 +57,28 @@
 		  </tr>
 		  
 		<%
-		  for(int i=0; i<fv9KarosserStyle.length; i++){
+		  for(int i=0; i<fv9KarosserStyle.size(); i++){
 			  %>
 			  <tr>
 			    <td valign="top" class="pgpg" style="width:239px;">
 				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
 					  <tr>
-			   			 <td valign="top"><h2> <%=fv9KarosserStyle[i] %></h2></td>
+			   			 <td valign="top"><h2> <%= fv9KarosserStyle.get(i) %></h2></td>
 					   	 <td>
-					   	  <% if(fv9KarosserStatus[i].equals("绿")){%>
+					   	  <% if(fv9KarosserStatus.get(i).equals("绿")){%>
 							    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" />
-						<%} else if(fv9KarosserStatus[i].equals("黄")){%>
+						<%} else if(fv9KarosserStatus.get(i).equals("黄")){%>
 							    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" width="30" height="70" />	
-						<%} else if(fv9KarosserStatus[i].equals("红")){%>
+						<%} else if(fv9KarosserStatus.get(i).equals("红")){%>
 								   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="30" height="70" /> 
 						<%}%>
 					   	 </td>
 					  </tr>
 					</table>
 				</td>
-	    		<td valign="top" class="pgpg"><div class="tbnrr"><%=fv9KarossStatusCom[i] %></div>
+	    		<td valign="top" class="pgpg"><div class="tbnrr"><%=fv9KarossStatusCom.get(i) %></div>
 			    </td>
-	   			 <td valign="top" class="pgpg"><div class="tbnrr"><%=fv9KarossStatusMab[i] %></div>
+	   			 <td valign="top" class="pgpg"><div class="tbnrr"><%=fv9KarossStatusMab.get(i) %></div>
 				</td>
 			</tr>
 			  <% 

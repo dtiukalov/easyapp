@@ -18,7 +18,7 @@ public class FV9_15ProgrammpunkteForm extends Form {
 
 	@Override
 	public String getType() {
-		return "FV9_15Programmpunkte";
+		return "FV9_15Programmpunk";
 	}
 
 	@Override

@@ -2,27 +2,28 @@ package com.saturn.ph.form.p3;
 
 import com.saturn.ph.Form;
 
-public class FV9_31PrufMSBockCubingForm extends Form {
+public class FV9_35FehlerDenGewForm extends Form {
 	
 	private static final String[] attr = {
-		"fv9Aktion", "fv9Verantwortlich", "fv9Termin", "fv9PHStatus"
+		"fv9KWNo", "fv9AuditErstang", "fv9TargetProg", "fv9AuditZweit",
+		"fv9KonzAuditMitNA","fv9AuditMax","fv9AuditMin"
 	};
-	
+
 	public String[] getAttributes() {
 		return attr;
 	}
 
 	public String getJspPath() {
-		return "/app/pep/1/p2_1.jsp";
+		return "/app/pep/3/p5_1.jsp";
 	}
 
 	@Override
 	public String getType() {
-		return "FV9_12Aktionspunkte";
+		return "FV9_35AuditNoteZP8";
 	}
 
 	@Override
 	public String getTitle() {
-		return "1.2 Aktionspunkte";
+		return "3.5 Fehlerpunkte in den Gewerken";
 	}
 }

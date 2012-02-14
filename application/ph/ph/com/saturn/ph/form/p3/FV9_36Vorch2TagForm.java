@@ -5,7 +5,8 @@ import com.saturn.ph.Form;
 public class FV9_36Vorch2TagForm extends Form {
 	
 	private static final String[] attr = {
-		"fv9Aktion", "fv9Verantwortlich", "fv9Termin", "fv9PHStatus"
+		"fv9KWNo", "fv9InPlanung", "fv9MabnaNichtErarb", "fv9MabnaWerdenDef",
+		"fv9MabnaDef", "fv9IO", "fv9PrognosePlan", "fv9Zeil","fv9PrognoseIO"
 	};
 	
 	public String[] getAttributes() {
@@ -13,16 +14,16 @@ public class FV9_36Vorch2TagForm extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/1/p2_1.jsp";
+		return "/app/pep/3/p6_1.jsp";
 	}
 
 	@Override
 	public String getType() {
-		return "FV9_12Aktionspunkte";
+		return "FV9_36Vorch2Tag";
 	}
 
 	@Override
 	public String getTitle() {
-		return "1.2 Aktionspunkte";
+		return "3.6 Vorschau 2-Tagesproduktion";
 	}
 }

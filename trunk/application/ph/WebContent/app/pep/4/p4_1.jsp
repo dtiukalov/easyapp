@@ -9,8 +9,8 @@
 	</head>
 	
 	<%
-	String uid = (String)request.getAttribute("uid");
-	String src =  DatasetUtils.getDatasetByUid(uid, request);
+	//String uid = (String)request.getAttribute("uid");
+	String src =  "/ph/app/pep/4/zp3zp4.jpg";//DatasetUtils.getDatasetByUid(uid, request);
 	%>
 	<body>
 		<div id="container">

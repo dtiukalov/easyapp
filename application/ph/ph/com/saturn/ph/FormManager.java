@@ -10,7 +10,7 @@ import com.saturn.ph.form.p1.FV9_15FahrzeugaufZP8Form;
 import com.saturn.ph.form.p1.FV9_15ProgrammpunkteForm;
 import com.saturn.ph.form.p2.FV9_24AEKOUmsetzForm;
 import com.saturn.ph.form.p2.FV9_24StatusAEKOForm;
-import com.saturn.ph.form.p4.FV9_44Dataset;
+import com.saturn.ph.form.p4.FV9_44AggregateverfuegbarkeitDataset;
 import com.saturn.ph.form.p5.FV9_52LogistikkonzeptForm;
 
 public class FormManager {
@@ -63,6 +63,6 @@ public class FormManager {
 		add(new FV9_24StatusAEKOForm());
 		add(new FV9_52LogistikkonzeptForm());
 		
-		add(new FV9_44Dataset());
+		add(new FV9_44AggregateverfuegbarkeitDataset());
 	}
 }

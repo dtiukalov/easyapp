@@ -1,5 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="com.saturn.web.Web"%>	
+<%
+	Map form = (Map)request.getAttribute("form");
+	
+	String fv9KWNo = "['4', '5', '6', '7', '8', '9', '10', '11', '12', '13',  '14']" ; //	周数
+	//Web.getNumberListStr(form.get("fv9KWNo"));
+	String fv9MontageNum = "[1730, 1830, 1390, 1110, 1230]" ; //		总装
+	//Web.getNumberListStr(form.get("fv9MontageNum"));
+	String fv9LackNum = "[290, 220, 210, 240, 300]" ; //		油漆
+	//Web.getNumberListStr(form.get("fv9LackNum"));
+	String fv9KauftNum = "[200, 200, 200, 200, 200]" ; //		外购件
+	//Web.getNumberListStr(form.get("fv9KauftNum"));
+	String fv9KarossNum = "[500, 550, 250, 200, 220]" ; //		焊装
+	//Web.getNumberListStr(form.get("fv9KarossNum"));
+	String fv9PresswerkNum = "[480, 500, 250, 250, 250]" ; //		冲压
+	//Web.getNumberListStr(form.get("fv9PresswerkNum"));
+	String fv9AusStrNum = "[200, 200, 200, 200, 200]" ; //	
+	//Web.getNumberListStr(form.get("fv9AusStrNum"));
+	String fv9Prognose = "[3500, 3500, 3400, 3300, 3200, 3000, 2500, 2500, 2500, 2250, 2000]" ; //		预测
+	//Web.getNumberListStr(form.get("fv9Prognose"));
+	
+%>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -26,7 +50,7 @@
 								color:'black'
 							}
 						},
-						categories: ['4', '5', '6', '7', '8', '9', '10', '11', '12', '13',  '14']
+						categories: <%=fv9KWNo%>
 					},
 					yAxis: {
 						min: 0,
@@ -93,15 +117,16 @@
 							}
 						}
 					},
+					
 				    series: [{
 						type: 'column',
 						name: 'aus Straßenfahrt',
-						data: [200, 200, 200, 200, 200],
+						data: <%=fv9AusStrNum%>,
 						color: '#4A6F8A'
 					}, {
 						type: 'column',
 						name: 'Presswerk',
-						data: [480, 500, 250, 250, 250],
+						data: <%=fv9PresswerkNum%>,
 						color: '#BBC2C5',
 						dataLabels: {
 							enabled: true,
@@ -114,27 +139,27 @@
 					}, {
 						type: 'column',
 						name: 'Karosseriebau',
-						data: [500, 550, 250, 200, 220],
+						data: <%=fv9KarossNum%>,
 						color: '#AED4F8'
 					}, {
 						type: 'column',
 						name: 'Kaufteil',
-						data: [200, 200, 200, 200, 200],
+						data: <%=fv9KauftNum%>,
 						color: '#91AFFF'
 					}, {
 						type: 'column',
 						name: 'Lack',
-						data: [290, 220, 210, 240, 300],
+						data: <%=fv9LackNum%>,
 						color: '#BBC2C5'
 					}, {
 						type: 'column',
 						name: 'Montage',
-						data: [1730, 1830, 1390, 1110, 1230],
+						data: <%=fv9MontageNum%>,
 						color: '#00235A'
 					}, {
 						type: 'spline',
 						name: 'Prognose',
-						data: [3500, 3500, 3400, 3300, 3200, 3000, 2500, 2500, 2500, 2250, 2000],
+						data: <%=fv9Prognose%>,
 						color: '#A6DD00',
 						marker: {
 							enabled: false,

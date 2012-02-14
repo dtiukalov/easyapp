@@ -25,6 +25,30 @@
 			}
 		</style>
 		<%
+		String fv9KWNo = "[26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40]";//	周数
+		//Web.getNumberListStr(form.get("fv9KWNo"));
+		String fv9Fahrzeuge = "[3,4,4,4,4,4,4,4,4,4,4,4,4,4,4]";//		车辆数量
+		//Web.getNumberListStr(form.get("fv9Fahrzeuge"));
+		String fv9PresswerkNum = "[161, 87, 105, 86, 103, 130, 90, 100, 110, 80, 90, 70, 70, 80, 85]";//		冲压车间
+		String fv9PresswerkProg = "[4,4,4,4,4,4,4,4,4,4,4,4,4,4,4]";//		冲压车间预测值
+		//Web.getNumberListStr(form.get("fv9PresswerkNum"));
+		//Web.getNumberListStr(form.get("fv9PresswerkProg"));
+		String fv9KarossNum = "[417, 265, 265, 273, 263, 330, 250, 270, 310, 250, 290, 310, 290, 260, 230]";//		焊装车间
+		String fv9KarossProg = "[]";//		焊装车间预测值
+		//Web.getNumberListStr(form.get("fv9KarossNum"));
+		//Web.getNumberListStr(form.get("fv9KarossProg"));
+		String fv9LackNum = "[186, 160, 87, 105, 120, 30, 140, 40, 70, 80, 80, 80, 60, 55, 50]";//		油漆车间
+		String fv9LackProg = "[]";//		油漆车间预测值
+		//Web.getNumberListStr(form.get("fv9LackNum"));
+		//Web.getNumberListStr(form.get("fv9LackProg"));
+		String fv9MontageNum = "[363, 180, 158, 127, 110, 80, 110, 60, 130, 70, 50, 60, 80, 60, 60]";//		总装车间
+		String fv9MontageProg = "[]";//		总装车间预测值
+		//Web.getNumberListStr(form.get("fv9MontageNum"));
+		//Web.getNumberListStr(form.get("fv9MontageProg"));
+		String fv9KaufteileNum = "[800, 467, 460, 390, 347, 320, 280, 320, 220, 290, 300, 260, 250, 250, 150]";//		外购件
+		String fv9KaufteileProg = "[]";//		外购件预测值
+		//Web.getNumberListStr(form.get("fv9KaufteileNum"));
+		//Web.getNumberListStr(form.get("fv9KaufteileProg"));
 		int[] categories = new int[15];
 		int[] lines1 = new int[15];
 		int[] lines2 = new int[15];
@@ -58,7 +82,7 @@
 						labels: {
 							enabled:false
 						},
-						categories: <%=Arrays.toString(categories)%>
+						categories: <%=fv9KWNo%>
 					},
 					yAxis: {
 						gridLineWidth:0,
@@ -107,13 +131,13 @@
 				    series: [{
 						type: 'column',
 						name: 'aus Straßenfahrt',
-						data: [161, 87, 105, 86, 103, 130, 90, 100, 110, 80, 90, 70, 70, 80, 85],
+						data: <%=fv9PresswerkNum%>,
 						color: '#003C65'
 					}, {
 						type: 'spline',
 						name: 'Prognose',
 						color: '#99CC00',
-						data: <%=Arrays.toString(lines1)%>,
+						data: <%=fv9PresswerkProg%>,
 						marker: {
 							enabled: false,
 							shadow:false,
@@ -192,7 +216,7 @@
 						labels: {
 							enabled:false
 						},
-						categories: <%=Arrays.toString(categories)%>
+						categories: <%=fv9KWNo%>
 					},
 					yAxis: {
 						min: 0,
@@ -250,13 +274,13 @@
 				    series: [{
 						type: 'column',
 						name: 'aus Straßenfahrt',
-						data: [417, 265, 265, 273, 263, 330, 250, 270, 310, 250, 290, 310, 290, 260, 230],
+						data: <%=fv9KarossNum%>,
 						color: '#AED4F8'
 					}, {
 						type: 'spline',
 						name: 'Prognose',
 						color: '#99CC00',
-						data: <%=Arrays.toString(lines2)%>,
+						data: <%=fv9KarossProg%>,
 						marker: {
 							enabled: false,
 							shadow:false,
@@ -335,7 +359,7 @@
 						labels: {
 							enabled:false
 						},
-						categories: <%=Arrays.toString(categories)%>
+						categories: <%=fv9KWNo%>
 					},
 					yAxis: {
 						min: 0,
@@ -390,13 +414,13 @@
 				    series: [{
 						type: 'column',
 						name: 'aus Straßenfahrt',
-						data: [186, 160, 87, 105, 120, 30, 140, 40, 70, 80, 80, 80, 60, 55, 50],
+						data: <%=fv9LackNum%>,
 						color: '#8994A0'
 					}, {
 						type: 'spline',
 						name: 'Prognose',
 						color: '#99CC00',
-						data: <%=Arrays.toString(lines3)%>,
+						data: <%=fv9LackProg%>,
 						marker: {
 							enabled: false,
 							shadow:false,
@@ -475,7 +499,7 @@
 						labels: {
 							enabled:false
 						},
-						categories: <%=Arrays.toString(categories)%>
+						categories: <%=fv9KWNo%>
 					},
 					yAxis: {
 						min: 0,
@@ -530,13 +554,13 @@
 				    series: [{
 						type: 'column',
 						name: 'aus Straßenfahrt',
-						data: [363, 180, 158, 127, 110, 80, 110, 60, 130, 70, 50, 60, 80, 60, 60],
+						data: <%=fv9MontageNum%>,
 						color: '#CFD7D9'
 					}, {
 						type: 'spline',
 						name: 'Prognose',
 						color: '#99CC00',
-						data: <%=Arrays.toString(lines4)%>,
+						data: <%=fv9MontageProg%>,
 						marker: {
 							enabled: false,
 							shadow:false,
@@ -607,16 +631,19 @@
 					title: {
 						text: ' '
 					},
-					xAxis: {
+					xAxis: [{
 						lineWidth:1,
 						tickWidth:1,
 						lineColor:'black',
 						tickColor:'black',
 						labels: {
-							enabled:false
+							enabled:true
 						},
-						categories: <%=Arrays.toString(categories)%>
-					},
+						categories: <%=fv9KWNo%>
+					},{
+						categories: <%=fv9Fahrzeuge%>,
+						enabled: true
+					}],
 					yAxis: {
 						min: 0,
 						gridLineWidth:0,
@@ -670,13 +697,13 @@
 				    series: [{
 						type: 'column',
 						name: 'aus Straßenfahrt',
-						data: [800, 467, 460, 390, 347, 320, 280, 320, 220, 290, 300, 260, 250, 250, 150],
+						data: <%=fv9KaufteileNum%>,
 						color: '#3366FF'
 					}, {
 						type: 'spline',
 						name: 'Prognose',
 						color: '#99CC00',
-						data: <%=Arrays.toString(lines5)%>,
+						data: <%=fv9KaufteileProg%>,
 						marker: {
 							enabled: false,
 							shadow:false,

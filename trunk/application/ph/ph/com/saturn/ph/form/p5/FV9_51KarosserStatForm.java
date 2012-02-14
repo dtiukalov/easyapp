@@ -2,10 +2,12 @@ package com.saturn.ph.form.p5;
 
 import com.saturn.ph.Form;
 
-public class FV9_51PreKarLackStatusForm extends Form {
+public class FV9_51KarosserStatForm extends Form {
 	
 	private static final String[] attr = {
-		"fv9KarosserStyle", "fv9KarosserStatus", "fv9KarossStatusCom", "fv9KarossStatusMab"
+		"fv9KarosserStyle", "fv9KarosserStatus", 
+		"fv9KarossStCom_CN", "fv9KarossStCom_GM",
+		"fv9KarossMab_CN", "fv9KarossMab_GM"
 	};
 
 	public String[] getAttributes() {
@@ -18,11 +20,11 @@ public class FV9_51PreKarLackStatusForm extends Form {
 
 	@Override
 	public String getType() {
-		return "FV9_51KarosserStatus";
+		return "FV9_51KarosserStat";
 	}
 
 	@Override
 	public String getTitle() {
-		return " 5.1 Status Karosseriebau ";
+		return "5.1 Status Karosseriebau";
 	}
 }

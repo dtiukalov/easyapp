@@ -16,11 +16,11 @@
 		<%
 			
 			Map form = (Map)request.getAttribute("form");
-			String kws = Web.getNumberListStr(form.get("fv9KWNo"));  
-			String soll = Web.getNumberListStr(form.get("fv9ZP5NumSoll"));
-			String sumSoll = Web.getSumNumberListStr(form.get("fv9ZP5NumSoll"));
-			String ist = Web.getNumberListStr(form.get("fv9ZP5Numlst"));
-			String sumIst = Web.getSumNumberListStr(form.get("fv9ZP5Numlst"));
+			String kws = "[2,3,4,5,6,7,8,9,10]";//Web.getNumberListStr(form.get("fv9KWNo"));  
+			String soll = "[2,7,0,6,2,1,6,8,5]";//Web.getNumberListStr(form.get("fv9ZP5NumSoll"));
+			String sumSoll = "[2,9,9,15,17,18,24,32,37]";//Web.getSumNumberListStr(form.get("fv9ZP5NumSoll"));
+			String ist = "[]";//Web.getNumberListStr(form.get("fv9ZP5Numlst"));
+			String sumIst = "[]";//Web.getSumNumberListStr(form.get("fv9ZP5Numlst"));
 			
 		%>
 		<script type="text/javascript">

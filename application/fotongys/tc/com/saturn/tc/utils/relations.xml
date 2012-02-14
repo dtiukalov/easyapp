@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RELATIONS>   
+	<RELATION>　　    
+		<en_US>view</en_US>　　    
+		<zh_CN>view</zh_CN>   
+	</RELATION>   
+	<RELATION>　　    
+		<en_US>IMAN_specification</en_US>　　    
+		<zh_CN>规格</zh_CN>   
+	</RELATION>   
+  
+	<RELATION>　　    
+		<en_US>IMAN_reference</en_US>　　    
+		<zh_CN>引用</zh_CN>   
+	</RELATION>   
+ 
+	<RELATION>　　    
+		<en_US>TC_Attaches</en_US>　　    
+		<zh_CN>附加</zh_CN>   
+	</RELATION>   
+<!--	<RELATION>　　    
+		<en_US>IMAN_requirement</en_US>　　    
+		<zh_CN>需求</zh_CN>   
+	</RELATION> 
+	<RELATION>　　    
+		<en_US>TC_WorkContext_Relation</en_US>　　    
+		<zh_CN>工作关联</zh_CN>   
+	</RELATION>  		
+	
+ 	<RELATION>　　    
+		<en_US>VisItemRevCreatedSnapshot2D</en_US>　　    
+		<zh_CN>2D快照</zh_CN>   
+	</RELATION> 
+	<RELATION>　　    
+		<en_US>IMAN_3D_snap_shot</en_US>　　    
+		<zh_CN>3D 快照</zh_CN>   
+	</RELATION>  
+	<RELATION>　　    
+		<en_US>BOM_Rollup</en_US>　　    
+		<zh_CN>BOM 累积</zh_CN>   
+	</RELATION>  
+	<RELATION>　　    
+		<en_US>IMAN_Rendering</en_US>　　    
+		<zh_CN>渲染</zh_CN>   
+	</RELATION> 
+	<RELATION>　　    
+		<en_US>IMAN_external_object_link</en_US>　　    
+		<zh_CN>外部代理关系</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>TC_CAE_Criteria</en_US>　　    
+		<zh_CN>CAE 准则关系</zh_CN>   
+	</RELATION>  
+	<RELATION>　　    
+		<en_US>TC_CAE_Include</en_US>　　    
+		<zh_CN>CAE 包含关系</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>TC_CAE_Param</en_US>　　    
+		<zh_CN>CAE 参数关系</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>TC_CAE_Defining</en_US>　　    
+		<zh_CN>CAE 定义关系</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>TC_CAE_Source</en_US>　　    
+		<zh_CN>CAE 源关系</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>TC_CAE_Target</en_US>　　    
+		<zh_CN>CAE 目标关系</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>TC_CAE_Results</en_US>　　    
+		<zh_CN>CAE 结果关系</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>EC_snapshot_rel</en_US>　　    
+		<zh_CN>EC 快照</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>HasParticipant</en_US>　　    
+		<zh_CN>HasParticipant</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>IMAN_Simulation</en_US>　　    
+		<zh_CN>NX 仿真</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>SimplifiedRendering</en_US>　　    
+		<zh_CN>SimplifiedRendering</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>TCEng_rdv_plmxml_configured</en_US>　　    
+		<zh_CN>TCEng_rdv_plmxml_configured</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>TCEng_rdv_plmxml_unconfigured</en_US>　　    
+		<zh_CN>TCEng_rdv_plmxml_unconfigured</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>TC_ProductManual</en_US>　　    
+		<zh_CN>TC_ProductManual</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>IMAN_UG_scenario</en_US>　　    
+		<zh_CN>UG Scenario</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>IMAN_UG_udf</en_US>　　    
+		<zh_CN>UG UDF</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>IMAN_UG_wave_position</en_US>　　    
+		<zh_CN>UG WAVE 位置</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>IMAN_UG_wave_geometry</en_US>　　    
+		<zh_CN>UG WAVE 几何</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>IMAN_UG_wave_part_link</en_US>　　    
+		<zh_CN>UG WAVE 零件链接</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>IMAN_UG_promotion</en_US>　　    
+		<zh_CN>UG 提升</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>IMAN_UG_expression</en_US>　　    
+		<zh_CN>UG 表达式</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>VisMarkup</en_US>　　    
+		<zh_CN>VisMarkup</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>VisSession</en_US>　　    
+		<zh_CN>VisSession</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>TC_Generic_Architecture</en_US>　　    
+		<zh_CN>一般架构</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>LocationInCompany</en_US>　　    
+		<zh_CN>位置</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>IMAN_classification</en_US>　　    
+		<zh_CN>分类</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>IMAN_aliasid</en_US>　　    
+		<zh_CN>别名 ID</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>EC_affected_item_rel</en_US>　　    
+		<zh_CN>受影响的零组件</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>EC_reference_item_rel</en_US>　　    
+		<zh_CN>引用零组件</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>IMAN_snapshot</en_US>　　    
+		<zh_CN>快照</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>ContactInCompany</en_US>　　    
+		<zh_CN>联系人</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>IMAN_manifestation</en_US>　　    
+		<zh_CN>表现</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>EC_solution_item_rel</en_US>　　    
+		<zh_CN>解决方案零组件</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>EC_addressed_by_rel</en_US>　　    
+		<zh_CN>起因</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>FND_TraceLink</en_US>　　    
+		<zh_CN>跟踪链接</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>IMAN_Motion</en_US>　　    
+		<zh_CN>运动</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>EC_problem_item_rel</en_US>　　    
+		<zh_CN>问题零组件</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>TC_Validation</en_US>　　    
+		<zh_CN>验证</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>IMAN_MEWorkInstruction</en_US>　　    
+		<zh_CN>工作指导</zh_CN>   
+	</RELATION>
+		<RELATION>　　    
+		<en_US>IMAN_MEMfgModel</en_US>　　    
+		<zh_CN>制造模型</zh_CN>   
+	</RELATION>
+	<RELATION>　　    
+		<en_US>Fnd0StruObjAttrOverride</en_US>　　    
+		<zh_CN>属性替代</zh_CN>   
+	</RELATION>
+ -->
+</RELATIONS>

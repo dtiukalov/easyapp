@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.saturn.ph.form.p1.FV9_12AktionspunkteForm;
-import com.saturn.ph.form.p1.FV9_14Dataset;
+import com.saturn.ph.form.p1.FV9_14AnlaufkurveDataset;
 import com.saturn.ph.form.p1.FV9_15FahrzeugaufZP5Form;
 import com.saturn.ph.form.p1.FV9_15FahrzeugaufZP8Form;
 import com.saturn.ph.form.p1.FV9_15ProgrammpunkteForm;
@@ -55,7 +55,7 @@ public class FormManager {
 	private static void inital() {
 		
 		add(new FV9_12AktionspunkteForm());
-		add(new FV9_14Dataset());
+		add(new FV9_14AnlaufkurveDataset());
 		add(new FV9_15ProgrammpunkteForm());
 		add(new FV9_15FahrzeugaufZP5Form());
 		add(new FV9_15FahrzeugaufZP8Form());

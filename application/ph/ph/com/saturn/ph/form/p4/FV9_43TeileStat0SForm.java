@@ -17,16 +17,16 @@ public class FV9_43TeileStat0SForm extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/4/p2_1.jsp";
+		return "/app/pep/4/p3_2.jsp";
 	}
 
 	@Override
 	public String getType() {
-		return "FV9_42TeileStat0S";
+		return "FV9_43TeileStat0S";
 	}
 
 	@Override
 	public String getTitle() {
-		return "4.2 Teilestatus zu 0S ZP5 (HT) ";
+		return "4.3 Teilestatus zu 0S ZP7HT";
 	}
 }

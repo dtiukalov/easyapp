@@ -1,28 +1,28 @@
-package com.saturn.ph.form.p4;
+package com.saturn.ph.form.p2;
 
 import com.saturn.ph.Form;
 
-public class FV9_43TerSichtZP7KTForm extends Form {
+public class FV9_21PFreigabeForm extends Form {
 	
 	private static final String[] attr = {
-		"fv9Aktion", "fv9Verantwortlich", "fv9Termin", "fv9PHStatus"
+		"fv9PFMajor", "fv9PFGesamtNum", "fv9PFSollNum", "fv9PFlstNum"
 	};
-	
+
 	public String[] getAttributes() {
 		return attr;
 	}
 
 	public String getJspPath() {
-		return "/app/pep/1/p2_1.jsp";
+		return "/app/pep/2/p1_2.jsp";
 	}
 
 	@Override
 	public String getType() {
-		return "FV9_12Aktionspunkte";
+		return "FV9_21PFreigabe";
 	}
 
 	@Override
 	public String getTitle() {
-		return "1.2 Aktionspunkte";
+		return "2.1 P-Freigaben";
 	}
 }

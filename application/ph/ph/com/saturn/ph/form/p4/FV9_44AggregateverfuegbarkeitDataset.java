@@ -16,7 +16,7 @@ public class FV9_44AggregateverfuegbarkeitDataset extends Form {
 
 	@Override
 	public String getType() {
-		return "4.4 Aggregateverfuegbarkeit ZP3/ZP4";
+		return "4.4AggregateverfuegbarkeitZP3/ZP4";
 	}
 
 	@Override

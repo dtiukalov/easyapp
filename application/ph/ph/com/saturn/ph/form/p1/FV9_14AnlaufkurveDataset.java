@@ -1,8 +1,8 @@
-package com.saturn.ph.form.p7;
+package com.saturn.ph.form.p1;
 
 import com.saturn.ph.Form;
 
-public class FV9_72Dataset extends Form {
+public class FV9_14AnlaufkurveDataset extends Form {
 	
 	private static final String[] attr = {};
 	
@@ -11,16 +11,16 @@ public class FV9_72Dataset extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/7/p2_1.jsp";
+		return "/app/pep/1/p4_1.jsp";
 	}
 
 	@Override
 	public String getType() {
-		return "7.2 Beschluss";
+		return "1.4Anlaufkurve";
 	}
 
 	@Override
 	public String getTitle() {
-		return "7.2 Beschluss";
+		return "1.4Anlaufkurve";
 	}
 }

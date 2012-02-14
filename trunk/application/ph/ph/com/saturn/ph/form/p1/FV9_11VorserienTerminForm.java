@@ -5,7 +5,14 @@ import com.saturn.ph.Form;
 public class FV9_11VorserienTerminForm extends Form {
 	
 	private static final String[] attr = {
-		"fv9Aktion", "fv9Verantwortlich", "fv9Termin", "fv9PHStatus"
+		"fv9VFFTBTZP5", "fv9VFFTBTZP7", "fv9VFFVorStart", "fv9VFFVorEnd",
+		"fv9VFFVorBatches","fv9VFFVorFzg","fv9VFFAbsMeter","fv9VFFAbsStart",
+		"fv9VFFAbsEnd","fv9PVSTBTZP5","fv9PVSTBTZP7","fv9PVSVorStart",
+		"fv9PVSVorEnd","fv9PVSVorBatches","fv9PVSVorFzg","fv9PVSAbsMeter",
+		"fv9PVSAbsStart","fv9PVSAbsEnd","fv90STBTZP5","fv90STBTZP7",
+		"fv90SVorStart","fv90SVorEnd","fv90SVorBatches","fv90SVorFzg",
+		"fv90SAbsMeter","fv90SAbsStart","fv90SAbsEnd","fv9TPPA_ME",
+		"fv9QFTPPA_Kunde"
 	};
 	
 	public String[] getAttributes() {
@@ -13,16 +20,16 @@ public class FV9_11VorserienTerminForm extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/1/p2_1.jsp";
+		return "/app/pep/1/p1_4.jsp";
 	}
 
 	@Override
 	public String getType() {
-		return "FV9_12Aktionspunkte";
+		return "FV9_11VorserienTer";
 	}
 
 	@Override
 	public String getTitle() {
-		return "1.2 Aktionspunkte";
+		return "1.1 Vorserienterminplan";
 	}
 }

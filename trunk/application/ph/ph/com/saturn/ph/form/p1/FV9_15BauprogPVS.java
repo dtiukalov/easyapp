@@ -1,0 +1,34 @@
+package com.saturn.ph.form.p1;
+
+import com.saturn.ph.Form;
+
+public class FV9_15BauprogPVS extends Form {
+	
+	private static final String[] attr = {
+		"fv9Stufe", 
+		"fv9FahrSoll", "fv9Fahrlst",
+		"fv9KarossSoll", "fv9Karosslst", 
+		"fv9KarossStart","fv9KarossEnd", 
+		"fv9LackStart", "fv9LackEnd",
+		"fv9MontageStart", "fv9MontageEnd", 
+		"fv9ObergabeStart","fv9ObergabeEnd"
+	};
+
+	public String[] getAttributes() {
+		return attr;
+	}
+
+	public String getJspPath() {
+		return "/app/pep/1/p5_3.jsp";
+	}
+
+	@Override
+	public String getType() {
+		return "FV9_15BauprogPVS";
+	}
+
+	@Override
+	public String getTitle() {
+		return "1.5 Bauprogramm PVS";
+	}
+}

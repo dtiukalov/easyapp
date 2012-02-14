@@ -2,27 +2,25 @@ package com.saturn.ph.form.p1;
 
 import com.saturn.ph.Form;
 
-public class FV9_15BauprogrammForm extends Form {
+public class FV9_13Dataset extends Form {
 	
-	private static final String[] attr = {
-		"fv9PPCOP", "fv9PPErste", "fv9PPNicht"
-	};
+	private static final String[] attr = {};
 	
 	public String[] getAttributes() {
 		return attr;
 	}
 
 	public String getJspPath() {
-		return "/app/pep/1/p5_3.jsp";
+		return "/app/pep/1/p3_1.jsp";
 	}
 
 	@Override
 	public String getType() {
-		return "FV9_15Programmpunkte";
+		return "1.3 Anlauforganisation – Fahrzeugbau";
 	}
 
 	@Override
 	public String getTitle() {
-		return "1.5 Programmpunkte";
+		return "1.3 Anlauforganisation – Fahrzeugbau";
 	}
 }

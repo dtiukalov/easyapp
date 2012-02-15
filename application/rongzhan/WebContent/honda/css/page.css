@@ -1,0 +1,243 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+	margin:0;
+	padding:0;
+	list-style:none;
+	font-size:12px;
+	color:#4b4b4b;
+}
+img {
+	border:0;
+}
+a {
+	text-decoration:none;
+}
+a:hover {
+	text-decoration:none;
+	color:#f80005;
+}
+#content {
+	margin-bottom:7px;
+}
+.clear {
+	clear:both;
+}
+.left {
+	width:231px;
+	float:left;
+	display:inline;
+}
+.left .gsjs .bt{
+	height:53px;
+	background:url(../images/bt_bg.gif) no-repeat 0 0;
+	color:#f80005;
+	font-size:18px;
+	font-family:"微软雅黑",Arial, Helvetica, sans-serif;
+	overflow:hidden;
+	line-height:56px;
+	padding-left:15px;
+}
+.left .gsjs .zj {
+	background:url(../images/bt_zj.gif) repeat-y 0 0;
+	width:231px;
+}
+.left .gsjs .zj .xl{
+	width:220px;
+	background:#063;
+	margin:0 auto;
+}
+.left .gsjs .zj .xl .xltiao {
+	background:url(../images/xltiaobt.gif) no-repeat 0 0;
+	width:220px;
+}
+.xl .xltiao .dqy{
+	color:#000;
+}
+.xltiao h1 a{
+	line-height:32px;
+	padding-left:43px;
+	color:#ooo;
+	font-size:14px;
+}
+.xltiao h1 a:hover {
+	color:#f80005;
+}
+.right {
+	width:749px;
+	float:left;
+	display:inline;
+}
+.nr {
+	width:742px;
+	margin-left:7px;
+	background:#036;
+}
+.right .ybt {
+	background:url(../images/nr_bt.gif) no-repeat 0 0;
+	height:37px;
+	line-height:37px;
+	padding-left:13px;
+}
+.ybt .biaoti {
+	display:block;
+	width:100px;
+	float:left;
+	font-size:16px;
+	font-family: "微软雅黑",Arial, Helvetica, sans-serif;
+}
+.ybt .weizhi {
+	float:left;
+	display:block;
+	width:600px;
+	text-align:right;
+}
+.right .ynr {
+	background:url(../images/nr_zj.gif) repeat-y 0 0;
+	min-height: 500px;
+	height: auto !important; 
+	height: 500px;
+}
+.right .ynr .neirong {
+	width:726px;
+	margin:0 auto;
+    min-height:290px;
+}
+.xcbt {
+	margin:0 auto;
+}
+.xcbt .td {
+	width:72px;
+	height:25px;
+	line-height:25px;
+}
+.tableline td {
+	border-bottom:1px dashed #999;
+}
+.biaoge {
+	background:url(../images/pb_bt.gif) no-repeat 0 0;
+	margin-left:10px;
+	width:71px;
+	height:25px;
+	color:#FFF;
+	text-align: center;
+}
+.biaoge a {
+	color:#FFF;
+}
+.biaogeh {
+	background:url(../images/pb_bth.png) no-repeat 0 0;
+	width:71px;
+	height:25px;
+	line-height:25px;
+	text-align:center;
+}
+/*--新闻详细页--*/
+.xwlb {
+	width:715px;
+	margin:0 auto;
+	padding-top:3px;
+}
+.xwlb .xwbt {
+	font-size:18px;
+	text-align:center;
+	color:#838383;
+	font-weight:bold;
+	line-height:40px;
+}
+.xwlb .rq {
+	text-align:center;
+	height:28px;
+	background-color:#e4e4e4;
+	line-height:28px;
+	color:#838383;
+	font-size:14px;
+	margin-bottom:3px;
+}
+.xwlb p {
+	text-indent:2em;
+	line-height:20px;
+}
+.khly {
+	border:1px solid #cecece;
+	width:715px;
+}
+.khly h1 {
+	display:block;
+	width:715px;
+	height:25px;
+	background:#cecece;
+	line-height:25px;
+	font-size:14px;
+}
+.khly span {
+	font-size:14px;
+	padding-left:270px;
+}
+.khly .xx {
+	width:715px;
+}
+.xxhf {
+	border-bottom:1px dashed #CCC;
+	margin-bottom:8px;
+}
+.huifu {
+	margin-bottom:5px;
+	width:551px;
+	margin:0px auto 5px auto;
+}
+/*-------end_客户留言------*/
+.wyly {
+	width:545px;
+	height:327px;
+	border:3px solid #666;
+}
+.wyly h1 {
+	display:block;
+	height:30px;
+	line-height:25px;
+	font-size:14px;
+	line-height:30px;
+	overflow:hidden;
+	width:200px;
+	float:left;
+}
+.wylybt {
+	width:545px;
+	height:30px;
+	float:left;
+	background:#cecece;
+}
+.wylybt img {
+	width:27px;
+	height:30px;
+	float:left;
+	padding-left:310px;
+}
+.biao {
+	border-spacing:0 15px;
+	padding-left:35px;
+}
+#select,#select2,#select3,#select4 {
+	width:120px;
+	height:22px;
+}
+.biao .bt{
+	width:85px;
+}
+.bt span {
+	color:#F00;
+	font-weight:bold;
+}
+/*--新车报价--*/
+.trtitle {
+	background:#cecece;
+}
+.tdtitle {
+	background:#e9e6e6;
+}
+.tablebase {
+	border:1px solid #CCC;
+	margin-bottom:3px;
+}
+/*-------end_报价详细页------*/

@@ -16,7 +16,7 @@ public class FV9_61LaunchplanungDataset extends Form {
 
 	@Override
 	public String getType() {
-		return "6.1 Launchplanung";
+		return "6.1Launchplanung";
 	}
 
 	@Override

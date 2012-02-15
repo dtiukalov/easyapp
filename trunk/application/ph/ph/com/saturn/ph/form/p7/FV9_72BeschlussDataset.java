@@ -16,7 +16,7 @@ public class FV9_72BeschlussDataset extends Form {
 
 	@Override
 	public String getType() {
-		return "7.2 Beschluss";
+		return "7.2Beschluss";
 	}
 
 	@Override

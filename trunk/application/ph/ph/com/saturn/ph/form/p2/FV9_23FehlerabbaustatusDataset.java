@@ -16,7 +16,7 @@ public class FV9_23FehlerabbaustatusDataset extends Form {
 
 	@Override
 	public String getType() {
-		return "2.3 Fehlerabbaustatus";
+		return "2.3Fehlerabbaustatus";
 	}
 
 	@Override

@@ -17,8 +17,8 @@
 	String fv9TeileNote1 = "[0, 0, 0, 0, 2, 6, 0]";//Web.getNumberListStr(form.get("fv9BB"));
 	String fv9TeileNote6 = "[0, 0, 0, 0, 0, 0, 0]";//Web.getNumberListStr(form.get("fv9BB"));
 	
-	String[]  fv9TopKrisUmf = new String[]{"FK aussen","FK aussen","FK aussen","FK aussen","FK aussen","FK aussen","FK aussen"};//Web.getNumberListStr(form.get("fv9BB"));	问题零件范围
-	Integer[]  fv9TopEinNum =  new Integer[]{1,1,1,1,1,1,1};//Web.getNumberListStr(form.get("fv9BB"));	单件数量
+	String[] fv9TopKrisUmf = new String[]{"FK aussen","FK aussen","FK aussen","FK aussen","FK aussen","FK aussen","FK aussen"};//Web.getNumberListStr(form.get("fv9BB"));	问题零件范围
+	Integer[] fv9TopEinNum =  new Integer[]{1,1,1,1,1,1,1};//Web.getNumberListStr(form.get("fv9BB"));	单件数量
 	String[] fv9TopVSIN3 =  new String[]{"KW16_12","KW16_12","KW16_12","KW16_12","KW16_12","KW16_12","KW16_12"};//Web.getNumberListStr(form.get("fv9BB"));	预测小批量模具时间
 	String[] fv9TopVSISWZ =  new String[]{"KW30_12","KW30_12","KW30_12","KW30_12","KW30_12","KW30_12","KW30_12"};//Web.getNumberListStr(form.get("fv9BB"));	预测3分时间
 
@@ -172,53 +172,55 @@
 		<div id="container">
 			<div id="nr">
 				<div id="top"><h1>4.2 Hausteile ZP5</h1></div>
-				
-				<div id="subtitle">
-					<h1>Teilestatus zu VFF ZP5 HT</h1>
-				</div>
-				<div id="legend">
-					<li><img src="/ph/app/pep/images/legend_white.png" width="13" height="13">
-					&nbsp;PT-Teile/Alternativteile
-					<li><img src="/ph/app/pep/images/legend_lightgreen.png" width="13" height="13">
-					&nbsp;Teile aus Serienwerkzeug
-					<li><img src="/ph/app/pep/images/legend_green.png" width="13" height="13">
-					&nbsp;Note 3
-					<li><img src="/ph/app/pep/images/legend_black.png" width="13" height="13">
-					&nbsp;Note 1
-					<li><img src="/ph/app/pep/images/legend_red.png" width="13" height="13">
-					&nbsp;Note 6
-				</div>
-				<div id="left">
-					<div id="chart"></div>
-					<div id="time">
-						<img src="/ph/app/pep/4/bottom.jpg" width="400" height="70">
+				<div id="content">
+					<div id="subtitle">
+						<h1>Teilestatus zu VFF ZP5 HT</h1>
+					</div>
+					<div id="legend">
+						<li><img src="/ph/app/pep/images/legend_white.png" width="13" height="13">
+						&nbsp;PT-Teile/Alternativteile
+						<li><img src="/ph/app/pep/images/legend_lightgreen.png" width="13" height="13">
+						&nbsp;Teile aus Serienwerkzeug
+						<li><img src="/ph/app/pep/images/legend_green.png" width="13" height="13">
+						&nbsp;Note 3
+						<li><img src="/ph/app/pep/images/legend_black.png" width="13" height="13">
+						&nbsp;Note 1
+						<li><img src="/ph/app/pep/images/legend_red.png" width="13" height="13">
+						&nbsp;Note 6
+					</div>
+					<div id="left">
+						<div id="chart"></div>
+						<div id="time">
+							<img src="/ph/app/pep/4/bottom.jpg" width="400" height="70">
+						</div>
+					</div>
+					<div id="right">
+						<table width="100%">
+							<tr>
+								<td colspan="4" style="text-align: left;font-weight: bolder; height: 36px;border-bottom: 1px solid;">Top</td>
+							</tr>
+							<tr>
+								<td width="34%" style="font-weight: bolder;height: 36px;border-bottom: 2px solid;">Kritische Umfänge</td>
+								<td width="22%" style="font-weight: bolder;text-align: center;border-bottom: 2px solid;">Einzelteile</td>
+								<td width="22%" style="font-weight: bolder;text-align: center;border-bottom: 2px solid;">VSI SWZ</td>
+								<td width="22%" style="font-weight: bolder;text-align: center;border-bottom: 2px solid;">VSI N3</td>
+							</tr>
+							<%
+								for(int i=0; i<fv9TopKrisUmf.length; i++) {
+							%>		
+							<tr>
+								<td style="height: 36px;border-bottom: 1px solid;"><%=fv9TopKrisUmf[i]%></td>
+								<td style="text-align: center;border-bottom: 1px solid;"><%=fv9TopEinNum[i]%></td>
+								<td style="text-align: center;border-bottom: 1px solid;"><%=fv9TopVSISWZ[i]%></td>
+								<td style="text-align: center;border-bottom: 1px solid;"><%=fv9TopVSIN3[i]%></td>
+							</tr>
+							<%
+							}
+							%>
+						</table>
 					</div>
 				</div>
-				<div id="right">
-					<table width="100%">
-						<tr>
-							<td colspan="4" style="text-align: left;font-weight: bolder; height: 36px;border-bottom: 1px solid;">Top</td>
-						</tr>
-						<tr>
-							<td width="34%" style="font-weight: bolder;height: 36px;border-bottom: 2px solid;">Kritische Umfänge</td>
-							<td width="22%" style="font-weight: bolder;text-align: center;border-bottom: 2px solid;">Einzelteile</td>
-							<td width="22%" style="font-weight: bolder;text-align: center;border-bottom: 2px solid;">VSI N3</td>
-							<td width="22%" style="font-weight: bolder;text-align: center;border-bottom: 2px solid;">VSI N1</td>
-						</tr>
-						<%
-							for(int i=0; i<fv9TopKrisUmf.length; i++) {
-						%>		
-						<tr>
-							<td style="height: 36px;border-bottom: 1px solid;"><%=fv9TopKrisUmf[i]%></td>
-							<td style="text-align: center;border-bottom: 1px solid;"><%=fv9TopEinNum[i]%></td>
-							<td style="text-align: center;border-bottom: 1px solid;"><%=fv9TopVSIN3[i]%></td>
-							<td style="text-align: center;border-bottom: 1px solid;"><%=fv9TopVSISWZ[i]%></td>
-						</tr>
-						<%
-						}
-						%>
-					</table>
-				</div>
+				
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

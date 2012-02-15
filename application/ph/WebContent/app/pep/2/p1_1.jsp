@@ -9,7 +9,7 @@
 	<%@ include file="/app/pep/include/header.jsp"%>
 	<title></title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<%@ include file="/app/pep/include/header.jsp"%>
+
 	<%
 		Map<String, Object> form = new HashMap<String, Object>();
 		Map<String, Object> MBT = new HashMap<String, Object>();

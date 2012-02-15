@@ -93,7 +93,6 @@
 	int[] Obergabe = {DateUtils.getWeekNumBetweenStartAndEnd("2012-01-11 00:00", "2012-01-30 00:00"), 
 			DateUtils.getWeekNumBetweenStartAndEnd("2012-03-01 00:00", "2012-03-28 00:00"),
 			DateUtils.getWeekNumBetweenStartAndEnd("2012-03-26 00:00", "2012-04-15 00:00")};
-	//http://localhost:8080/ph/app/pep/do/preview.do?uid=wRL9yykp6MzGwB
 %>
 	<title><%=title %></title>
 </head>

@@ -87,7 +87,14 @@
 					xAxis: {
 						tickLength: 0,
 						lineColor: 'black',
-						categories: <%=fv9FunctionStyle%>
+						lineWidth:2,
+						categories: <%=fv9FunctionStyle%>,
+						labels:{
+							style:{
+								fontSize:'14px',
+								color:'black'
+							}
+						}
 					},
 					yAxis: {
 						gridLineWidth: 0,
@@ -100,7 +107,8 @@
 						stackLabels: {
 							enabled: true,
 							style: {
-								color: 'black'
+								color: 'black',
+								fontSize:'14px'
 							}
 						}
 					},
@@ -112,7 +120,6 @@
 						borderColor: '#CCC',
 						borderWidth: 0,
 						shadow: false,
-						backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColorSolid) || 'white',
 						reversed: true
 					},
 					tooltip: {
@@ -132,7 +139,7 @@
 								y:5,
 								style : {
 									fontWeight: 'bold',
-									fontSize:'8px'
+									fontSize:'10px'
 								},
 								color: 'black'
 							}
@@ -153,7 +160,7 @@
 							enabled: true,
 							style : {
 								fontWeight: 'bold',
-								fontSize:'10px'
+								fontSize:'12px'
 							},
 							color: 'white'
 						}

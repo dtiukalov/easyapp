@@ -23,18 +23,23 @@
 				chart = new Highcharts.Chart({
 					chart: {
 						renderTo: 'chart',
-						defaultSeriesType: 'column'
+						defaultSeriesType: 'column',
+						marginTop:120
 					},
 					title: {
-						text: 'In Prozent'
+						text: 'In Prozent',
+						style:{
+							color:'black'
+						},
+						align:'left'
 					},
 					subtitle: {
 						text: ' '
 					}, 
 					xAxis: {
-						//lineWidth:1,
+						lineWidth:1,
 						tickLength: 0,
-						//lineColor:'black',
+						lineColor:'black',
 						title: {
 							text: ' '
 						},
@@ -43,7 +48,8 @@
 					//		align: 'right',
 							style: {
 								 padding:'5px',
-								 font: 'normal 12px Verdana, sans-serif'
+								 fontSize: '14px',
+								 color:'black'
 							}
 						},
 						categories: <%=fv9KWNo%>
@@ -51,12 +57,18 @@
 					yAxis: {
 						min: 0,
 						max: 100,
+						lineWidth:1,
+						lineColor:'black',
 						showLastLabel: true,
-						//gridLineWidth: 0,
-						//lineWidth:1,
-						//lineColor:'black',
+						gridLineWidth: 0,
+						labels:{
+							style:{
+								color:'black',
+								fontSize:'12px'
+							}
+						},
 						title: {
-							text: 'Anzahl',
+							text: '',
 							style: {
 								 padding:'5px',
 								 font: 'normal 14px Arial, sans-serif',
@@ -64,10 +76,11 @@
 							}}
 					},
 					legend:{
+						borderWidth:0,
 						layout: 'vertical',
 						align: 'center',
-						verticalAlign: 'bottom',
-						x: 0,
+						verticalAlign: 'top',
+						x: 250,
 						y: 0,
 						width: 270
 					},
@@ -228,7 +241,7 @@
 			<div id="nr">
 			<div id="top"><h1>3.4 Funktionsmaße</h1></div>
 			<div id="content">
-				<div id="chart" style="width: 800px; height: 450px; margin: 0 auto"></div>
+				<div id="chart" style="width: 800px; height: 500px; margin: 0 auto"></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

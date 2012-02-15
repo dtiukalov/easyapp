@@ -35,7 +35,8 @@
 			$(document).ready(function() {
 				chart = new Highcharts.Chart({
 					chart: {
-						renderTo: 'chart'
+						renderTo: 'chart',
+						marginTop:60
 					},
 					title: {
 						text: ' '
@@ -67,8 +68,8 @@
 							x:-12,
 							y:-180,
 							style: {
-								color:'gray',
-								fontSize:'12px'
+								color:'black',
+								fontSize:'14px'
 							}
 						},
 						labels: {

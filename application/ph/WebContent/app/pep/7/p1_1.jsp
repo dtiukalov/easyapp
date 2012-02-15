@@ -4,7 +4,11 @@
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.HashMap"%>	
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ include file="/app/pep/include/header.jsp"%>
 <%
+	title = "7.1 Reifegradspiegel";
 	Map form = (Map)request.getAttribute("form");
 	String fv9ProjectStatus = "";
 
@@ -38,16 +42,15 @@
 	String fv9TermineStatus = "黄";
 	String fv9TermineCom = "- VFF KW05/12;PVS KW13/12;SOP: KW38/12.";
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-<%@ include file="/app/pep/include/header.jsp"%>
+<title><%=title %></title>
 </head>
 
 <body>
 <div id="container">
 	<div id="nr">
-	<div id="top"><h1>7.1 Reifegradspiegel</h1></div>
+	<div id="top"><h1><%=title %></h1></div>
     <div id="content">
      <div class="laguage">
     	<p>

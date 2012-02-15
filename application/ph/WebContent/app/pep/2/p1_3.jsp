@@ -33,25 +33,40 @@
 				chart1 = new Highcharts.Chart({
 				chart: {
 					renderTo: 'chart1',
-					defaultSeriesType: 'column'
+					defaultSeriesType: 'column',
+					marginRight:1
 				},
 				title: {
-					text: 'Anzahl Teile nach TEVON'
+					text: ''
 				},
 				xAxis: {
-					categories: <%=categories1%>
+					lineColor:'black',
+					tickPosition:'inside',
+					tickColor:'black',
+					categories: <%=categories1%>,
+					labels:{
+						enabled:false,
+						y:20,
+						style:{
+							color:'black'
+						}
+					}
 				},
 				yAxis: {
 					min: 0,
 					max: 120,
+					gridLineWidth: 0,
+					lineWidth:1,
+					lineColor:'black',
+					tickWidth:1,
+					tickPosition:'inside',
+					tickColor:'black',
 					title: {
 						text: ''
 					},
-					stackLabels: {
-						enabled: true,
-						style: {
-							fontWeight: 'bold',
-							color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+					labels:{
+						style:{
+							color:'black'
 						}
 					}
 				},
@@ -65,8 +80,19 @@
 				plotOptions: {
 					column: {
 						stacking: 'normal',
+						borderColor: 'black',
+						pointPadding: 0.001,
+						groupPadding: 0.01,
+						shadow:false,
 						dataLabels: {
-							enabled: true
+							enabled: true,
+							style : {
+								fontWeight: 'bold',
+								fontSize:'12px'
+							},
+							color: 'white',
+							rotation: -90,
+							x:5
 						}
 					}
 				},
@@ -96,29 +122,53 @@
 			chart2 = new Highcharts.Chart({
 					chart: {
 						renderTo: 'chart2',
-						defaultSeriesType: 'column'
+						defaultSeriesType: 'column',
+						marginLeft:1
 					},
 					title: {
 						text: ' '
 					},
 					xAxis: {
-						categories: <%=categories2%>
+						categories: <%=categories2%>,
+						lineColor:'black',
+						lineWidth:1,
+						tickWidth:0,
+						labels:{
+							y:20,
+							style:{
+								color:'black'
+							}
+						}
 						
 					},
 					yAxis: {
 						min: 0,
+						max: 120,
+						gridLineWidth: 0,
 						title: {
 							text: ' '
 						},
+						labels: {
+							enabled:false
+						},
 						stackLabels: {
-							enabled: true,
+							enabled: false,
 							style: {
 								fontWeight: 'bold',
 								color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
 							}
 						}
 					},
-					
+					legend: {
+						layout: 'vertical',
+						verticalAlign: 'top',
+						align:'right',
+						x:0,
+						y:0,
+						shadow: false,
+						borderColor:'black',
+						reversed: true
+					},
 					tooltip: {
 						formatter: function() {
 							return '<b>'+ this.x +'</b><br/>'+
@@ -129,9 +179,17 @@
 					plotOptions: {
 						column: {
 							stacking: 'normal',
+							pointPadding: 0.001,
+							groupPadding: 0.01,
+							borderColor: 'black',
+							shadow:false,
 							dataLabels: {
 								enabled: true,
-								color:  '#333333'
+								style : {
+									fontWeight: 'bold',
+									fontSize:'10px'
+								},
+								color: 'black'
 							}
 						}
 					},
@@ -143,11 +201,11 @@
 					}, {
 						name: 'in arbeit',
 						data: <%=inarbeit%>,
-						color: '#FFCC00'
+						color: '#FECC00'
 					},{
 						name: 'AWE',
 						data: <%=awe%>,
-						color: '#FFFFFF'
+						color: '#FEFECC'
 					}]
 				});
 		});
@@ -161,8 +219,8 @@
 			<div id="top2" align="right"><h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STATUS: <%=status %></h4></div>
 			<div id="content">
 				<div style="width: 50px; height: 400px; margin: 0 auto; float: left;"></div>
-				<div id="chart1" style="width: 250px; height: 300px; margin: 0 auto; float: left;"></div>
-				<div id="chart2" style="width: 600px; height: 300px; margin: 0 auto; float: left;"></div>
+				<div id="chart1" style="width: 150px; height: 300px; float: left;margin-top:-2px"></div>
+				<div id="chart2" style="width: 600px; height: 310px; float: left;"></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

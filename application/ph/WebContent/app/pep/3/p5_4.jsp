@@ -16,16 +16,22 @@
 					defaultSeriesType: 'column'
 				},
 				title: {
-					text: 'B-Fehler pro Fahrzeug'
+					text: 'B-Fehler pro Fahrzeug',
+					style:{
+						color:'black',
+						fontSize:'18px'
+					},
+				align:'left'
 				},
 				xAxis: {
 					tickLength: 0,
 					lineColor: 'black',
+					lineWidth:2,
 					categories: ['KW15','16','17','18','19','20'],
 					labels: {
 							style: {
 								 padding:'10px',
-								 font: 'normal 12px Verdana, sans-serif',
+								 fontSize: '16px',
 								 color: 'black'
 							}
 					}
@@ -54,7 +60,7 @@
 							enabled: true,
 							style : {
 								fontWeight: 'bold',
-								fontSize:'10px'
+								fontSize:'12px'
 							},
 							color: 'black'
 						}
@@ -62,7 +68,7 @@
 				},
 				legend: {
 					layout: 'vertical',
-					enabled: true,
+					enabled: false,
 					borderWidth:1
 				},
 			    series: [{
@@ -97,7 +103,7 @@
 							enabled: true,
 							style : {
 								fontWeight: 'bold',
-								fontSize:'10px'
+								fontSize:'12px'
 							},
 							color: 'white'
 						}
@@ -161,7 +167,7 @@
 			<div id="nr">
 				<div id="top"><h1>3.5 Maßnahmen zur Abarbeitung der B-Fehler Audit ZP8</h1></div>	
 				<div id="content">
-					<div id="chart" style="width: 400px; height: 500px; margin: 0 auto; float: left;"></div>
+					<div id="chart" style="width: 400px; height: 400px; margin: 0 auto; float: left;"></div>
 					<div id="table" style="width: 400px; height: 400px; margin: 0 auto; float: left;">&nbsp;</div>
 				</div>
 			</div>

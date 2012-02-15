@@ -35,22 +35,41 @@
 					defaultSeriesType: 'column'
 				},
 				title: {
-					text: 'Modellpflegepunkte'
+					text: 'Modellpflegepunkte',
+					style:{
+						color:'black',
+						fontSize:'26px',
+						fontWeight: 'bold'
+					}
 				},
 				xAxis: {
+					tickWidth:1,
+					tickColor:'gray',
+					lineColor:'gray',
+					labels:{
+						y:30,
+						style:{
+							color:'black',
+							fontSize:'16px'
+						}
+					},
 					categories: ["Genehmigt MOP-Punkte zum ...(Fahrzeug)", "PP COP, Ersteinsatz in anderen Projekten", "PP Ersteinsatz...(Fahrzeug)", "PP nicht relevant oder Steuerungspunkte"] 
 				},
 				yAxis: {
 					min: 0,
 					max: 350,
+					gridLineWidth:0,
+					tickWidth:1,
+					lineWidth:1,
+					lineColor:'gray',
+					tickColor:'gray',
 					title: {
 						text: ''
 					},
-					stackLabels: {
-						enabled: true,
-						style: {
-							fontWeight: 'bold',
-							color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+					labels:{
+						style:{
+							color:'black',
+							fontSize:'14px'
 						}
 					}
 				},
@@ -75,8 +94,16 @@
 				plotOptions: {
 					column: {
 						stacking: 'normal',
+						borderWidth:2,
+						borderColor:'black',
+						shadow:false,
 						dataLabels: {
-							enabled: true
+							enabled: true,
+							style:{
+								fontWeight: 'bold',
+								fontSize:'18px'
+							},
+							color:'black'
 						}
 					}
 				},

@@ -69,7 +69,7 @@
 		keys[index2+1] = "Status 485"; values[index2+1] = num2; lows[index2+1] = lows[index1+1]-values[index2+1];
 		keys[index3+1] = "Status 487/496"; values[index3+1] = num3; lows[index3+1] = lows[index2+1]-values[index3+1];
 		keys[index4+1] = "Status 800"; values[index4+1] = num4; lows[index4+1] = lows[index3+1]-values[index4+1];
-		keys[5] = "genehmigt/ techn. i.O."; values[5] = num5+num6+num7+num8+num9; lows[5] = 0;
+		keys[5] = "genehmigt/ techn.i.O."; values[5] = num5+num6+num7+num8+num9; lows[5] = 0;
 		keys[index5+2] = "VFF"; values[index5+2] = num5; lows[index5+2] = values[5] - values[index5+2];
 		keys[index6+2] = "PVS"; values[index6+2] = num6; lows[index6+2] = lows[index5+2]-values[index6+2];
 		keys[index7+2] = "0-Serie"; values[index7+2] = num7; lows[index7+2] = lows[index6+2]-values[index7+2];
@@ -96,33 +96,58 @@
 					defaultSeriesType: 'column'
 				},
 				title: {
-					text: 'Anzahl Änderungen'
+					text: 'Anzahl Änderungen',
+					style:{
+						color:'black',
+						fontSize:'20px'
+					},
+					align:'left',
+					y:20
 				},
 				xAxis: {
+					lineWidth:0,
+					tickWidth:0,
+					labels:{
+						y:30,
+						style:{
+							color:'black',
+							fontSize:'14px'
+						}
+					},
 					categories: <%=categories%>
 				},
 				yAxis: {
 					min: 0,
 					max: 25,
+					gridLineWidth:0,
+					tickWidth:1,
+					tickPosition:'inside',
+					lineWidth:1,
+					lineColor:'gray',
+					tickColor:'gray',
 					title: {
 						text: ''
+					},
+					labels:{
+						style:{
+							color:'black',
+							fontSize:'14px'
+						}
 					},
 					stackLabels: {
 						enabled: true,
 						style: {
 							fontWeight: 'bold',
-							color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+							fontSize:'14px',
+							color: 'black'
 						}
 					}
 				},
 				legend: {
 					align: 'right',
-					x: -100,
 					verticalAlign: 'top',
 					y: 20,
 					floating: true,
-					backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColorSolid) || 'white',
-					borderColor: '#CCC',
 					borderWidth: 1,
 					shadow: false
 				},
@@ -136,8 +161,10 @@
 				plotOptions: {
 					column: {
 						stacking: 'normal',
+						borderWidth:0,
+						shadow:false,
 						dataLabels: {
-							enabled: true
+							enabled: false
 						}
 					}
 				},
@@ -154,7 +181,7 @@
 			<div id="nr">
 			<div id="top"><h1>2.4 ÄKO-Umsetzungsstatus (Genehmigungsstand)</h1></div>
 			<div id="content">
-				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto;"></div>
+				<div id="chart" style="width: 800px; height: 450px; margin: 0 auto;"></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

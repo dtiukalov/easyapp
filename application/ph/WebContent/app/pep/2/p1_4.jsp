@@ -96,27 +96,55 @@
 					defaultSeriesType: 'column'
 				},
 				title: {
-					text: 'Anzahl Teile nach TEVON'
+					text: 'Anzahl Teile nach TEVON',
+					style:{
+						color:'black'
+					},
+					align:'left'
 				},
 				xAxis: {
-					categories: <%=BFMajor%>
+					gridLineWidth:1,
+					gridLineColor:'#404040',
+					categories: <%=BFMajor%>,
+					lineColor:'#404040',
+					lineWidth:2,
+					tickWidth:0,
+					tickColor:'#404040',
+					labels:{
+						y:20,
+						style:{
+							color:'black'
+						}
+					}
 				},
 				yAxis: {
 					min: 0,
+					lineWidth:1,
+					gridLineColor:'#404040',
+					lineColor:'#404040',
+					tickWidth:1,
+					tickColor:'#404040',
 					title: {
-						text: 'ANZAHL TITLE (ohne Doppelpos)'
+						text: 'ANZAHL TITLE (ohne Doppelpos)',
+						style:{
+							color:'black'
+						}
+					},
+					labels:{
+						style:{
+							color:'black'
+						}
 					}
 				},
 				legend: {
 					layout: 'vertical',
-					backgroundColor: '#FFFFFF',
 					align: 'right',
-					verticalAlign: 'top',
-					x: 0,
-					y: 0,
-					floating: true,
+					verticalAlign: 'center',
+					borderWidth: 1,
+					borderColor:'#404040',
 					shadow: false,
-					borderWidth:0
+					//x: 235,
+					y: 60
 				},
 				tooltip: {
 					formatter: function() {
@@ -126,8 +154,11 @@
 				},
 				plotOptions: {
 					column: {
-						pointPadding: 0.2,
-						borderWidth: 0
+						pointPadding: 0.1,
+						borderWidth: 1,
+						borderColor:'black',
+						groupPadding: 0.01,
+						shadow:false
 					}
 				},
 			    series: [{

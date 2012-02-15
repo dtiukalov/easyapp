@@ -16,7 +16,12 @@
 					defaultSeriesType: 'column'
 				},
 				title: {
-					text: 'Fehlerpunkte/Fahrzeug'
+					text: 'Fehlerpunkte/Fahrzeug',
+					style:{
+						fontSize:'18px',
+						color:'black'
+					},
+					align:'left'
 				},
 				xAxis: [{
 					tickLength: 0,
@@ -41,7 +46,8 @@
 					stackLabels: {
 						enabled: true,
 						style: {
-							color: 'black'
+							color: 'black',
+							fontWeight: 'bold'
 						}
 					}
 				},
@@ -68,10 +74,13 @@
 					}
 				},
 				legend: {
-						shadow: false,
-						enabled: true,
-						layout: 'vertical'
-						
+					layout: 'vertical',
+					align: 'center',
+					verticalAlign: 'top',
+					x: 100,
+					y: 20,
+					borderWidth: 1,
+					shadow:false
 				},
 			    series: [{
 					name: 'Soll',
@@ -280,7 +289,7 @@
 			<div id="nr">
 				<div id="top"><h1>3.5 Maßnahmen zur Verbesserung der Audit-Ergebnisse</h1></div>	
 				<div id="content">
-					<div id="chart" style="width: 400px; height: 400px; margin: 0 auto; float: left;"></div>
+					<div id="chart" style="width: 400px; height: 500px; margin: 0 auto; float: left;"></div>
 					<div id="table" style="width: 400px; height: 400px; margin: 0 auto; float: left;">&nbsp;</div>
 				</div>
 			</div>

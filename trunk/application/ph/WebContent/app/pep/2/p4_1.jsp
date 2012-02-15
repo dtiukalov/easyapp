@@ -39,30 +39,65 @@
 						defaultSeriesType: 'column'
 					},
 					title: {
-						text: 'Anzahl Änderungen'
+						text: 'Anzahl Änderungen',
+						style:{
+							color:'black',
+							fontSize:'20px'
+						}
 					},
 					xAxis: [{
-						categories: <%=fv9KWNo%>
-						
+						lineColor:'black',
+						tickWidth:0,
+						lineWidth:2,
+						categories: <%=fv9KWNo%>,
+						labels:{
+							enabled:true,
+							y:20,
+							style:{
+								color:'black',
+								fontSize:'12px'
+							}
+						}
 					},{ // mirror axis on right side
 						opposite: false,
 						reversed: false,
 						categories: <%=deviationa%>,
 						linkedTo: 0,
+						lineColor:'black',
+						lineWidth:2,
+						tickWidth:0,
+						labels:{
+							y:20,
+							style:{
+								color:'black',
+								fontSize:'12px'
+							}
+						},
 						title: {
-							text: '2011 Anzahl neuer ÄKOs'
+							text: '2011 Anzahl neuer ÄKOs',
+							style:{
+								color:'black'
+							}
 						}
 					}],
 					yAxis: {
-						min: 0,
+						gridLineWidth: 0,
 						title: {
-							text: ' '
+							text: ''
+						},
+						labels:{
+							enabled:false,
+							style:{
+								color:'black'
+							}
 						},
 						stackLabels: {
 							enabled: true,
+							y:-15,
 							style: {
 								fontWeight: 'bold',
-								color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+								color: 'black',
+								fontSize:'12px'
 							}
 						}
 					},
@@ -72,10 +107,8 @@
 						align: 'right',
 						verticalAlign: 'top',
 						x: -10,
-						y: 100,
-						backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColorSolid) || 'white',
-						borderWidth: 1,
-						borderColor: '#CCC',
+						y: 220,
+						borderWidth: 0,
 						shadow: false
 					},
 					
@@ -89,9 +122,15 @@
 					plotOptions: {
 						column: {
 							stacking: 'normal',
+							borderColor: 'black',
+							shadow:false,
 							dataLabels: {
 								enabled: true,
-								color:  '#333333'
+								style : {
+									fontWeight: 'bold',
+									fontSize:'12px'
+								},
+								color: 'black'
 							}
 						}
 					},
@@ -99,7 +138,15 @@
 				     {
 						name: 'ÄKO,AeA  im Durchlauf (> 2 Wochen)',
 						data: <%=fv9AekoBig2Woch%>,
-						color: '#E63110'
+						color: '#E63110',
+						dataLabels: {
+							enabled: true,
+							style : {
+								fontWeight: 'bold',
+								fontSize:'12px'
+							},
+							color: 'white'
+						}
 					}, {
 						name: 'ÄKO,AeA im Durchlauf (< 2 Wochen)',
 						data: <%=fv9AekoSmall2Woch%>,

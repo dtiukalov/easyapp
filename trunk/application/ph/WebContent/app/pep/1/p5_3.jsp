@@ -18,8 +18,8 @@
 			String kws = "[2,3,4,5,6,7,8,9,10]";//Web.getNumberListStr(form.get("fv9KWNo"));  
 			String soll =  "[]";//Web.getNumberListStr(form.get("fv9ZP8NumSoll"));
 			String sumSoll =  "[]";//Web.getSumNumberListStr(form.get("fv9ZP8NumSoll"));
-			String ist = "[2,7,0,6,2,1,6,8,5]";//Web.getNumberListStr(form.get("fv9ZP8Numlst"));
-			String sumIst = "[2,9,9,15,17,18,24,32,37]";//Web.getSumNumberListStr(form.get("fv9ZP8Numlst"));
+			String ist = "[1,1,2,2,3,4,5]";//Web.getNumberListStr(form.get("fv9ZP8Numlst"));
+			String sumIst = "[1,3,5,7,10,14,19]";//Web.getSumNumberListStr(form.get("fv9ZP8Numlst"));
 			
 		%>
 		<script type="text/javascript">
@@ -29,21 +29,73 @@
 			chart = new Highcharts.Chart({
 				chart: {
 					renderTo: 'chart',
-					zoomType: 'xy'
+					zoomType: 'xy',
+					marginTop:60
 				},
 				title: {
-					text: 'Fahrzeugbauprogramm ZP8'
+					text: 'Fahrzeugbauprogramm ZP8',
+					style:{
+						fontSize:'20px',
+						color:'black',
+						fontWeight: 'bold'
+					},
+					align:'left'
 				},
 				xAxis: {
+					tickPosition:'inside',
+					lineWidth:1,
+					lineColor:'gray',
+					tickWidth:1,
+					ticlColor:'gray',
+					labels:{
+						y:30,
+						style:{
+							fontSize:'14px',
+							color:'black',
+							fontWeight: 'bold'
+						}
+					},
 					categories: <%=kws%>//[5,6,7,8,9,10,11]  
 				},
 				yAxis: {
+					min:0,
+					max:20,
+					lineWidth:1,
+					lineColor:'gray',
+					tickWidth:1,
+					ticlColor:'gray',
+					tickPosition:'inside',
 					title: {
 						text: 'Anzahl Fzg.',
 						style: {
-							color: '#333333'
+							color: 'black',
+							fontSize:'14px'
+						}
+					},
+					labels:{
+						style:{
+							fontSize:'14px',
+							color:'black',
+							fontWeight: 'bold'
+						}
+					},
+					stackLabels: {
+						enabled: true,
+						y:-15,
+						style: {
+							fontWeight: 'bold',
+							color: 'black',
+							fontSize:'14px'
 						}
 					}
+				},
+				legend: {
+					align: 'center',
+					verticalAlign: 'top',
+					x: 200,
+					y: 0,
+					borderWidth: 0,
+					shadow:false
 				},
 				tooltip: {
 					formatter: function() {
@@ -60,8 +112,16 @@
 						enableMouseTracking: true
 					},
 					column: {
+						stacking: 'normal',
+						shadow: false,
+						borderColor:'black',
 						dataLabels: {
-							enabled: true
+							enabled: false,
+							style : {
+								fontWeight: 'bold',
+								fontSize:'10px'
+							},
+							color: '#224325'
 						},
 						enableMouseTracking: true
 					}
@@ -69,23 +129,31 @@
 				series: [{
 					type: 'column',
 					name: 'Soll',
-					color: '#009C0E',
+					color: '#0000FF',
 					data: <%=soll%>
 				}, {
 					type: 'column',
 					name: 'Lst',
-					color: '#0000FF',
+					color: '#009C0E',
 					data:  <%=ist%>
 				}, {
 					type: 'spline',
 					name: 'Kum Soll',
 					color: '#009C0E',
-					data: <%=sumSoll%>
+					data: <%=sumIst%>,
+					dataLabels: {
+						enabled: true,
+						style : {
+							fontWeight: 'bold',
+							fontSize:'16px'
+						},
+						color: 'black'
+					}
 				}, {
 					type: 'spline',
 					name: 'Kum Lst',
 					color: '#0000FF',
-					data:  <%=sumIst%>
+					data:  <%=sumSoll%>
 				}]
 			});
 			

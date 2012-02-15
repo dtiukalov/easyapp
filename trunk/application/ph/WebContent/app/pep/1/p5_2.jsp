@@ -23,35 +23,85 @@
 			String sumIst = "[]";//Web.getSumNumberListStr(form.get("fv9ZP5Numlst"));
 			
 		%>
-		<script type="text/javascript">
+<script type="text/javascript">
 		
 		var chart;
 		$(document).ready(function() {
 			chart = new Highcharts.Chart({
 				chart: {
 					renderTo: 'chart',
-					zoomType: 'xy'
+					zoomType: 'xy',
+					marginTop:60
 				},
 				title: {
-					text: 'Fahrzeugbauprogramm ZP5'
+					text: 'Fahrzeugbauprogramm ZP5',
+					style:{
+						fontSize:'20px',
+						color:'black',
+						fontWeight: 'bold'
+					},
+					align:'left'
 				},
 				xAxis: {
-					categories: <%=kws%>
+					tickPosition:'inside',
+					lineWidth:1,
+					lineColor:'gray',
+					tickWidth:1,
+					ticlColor:'gray',
+					labels:{
+						y:30,
+						style:{
+							fontSize:'14px',
+							color:'black',
+							fontWeight: 'bold'
+						}
+					},
+					categories: <%=kws%>//[5,6,7,8,9,10,11]  
 				},
 				yAxis: {
+					min:0,
+					max:40,
+					lineWidth:1,
+					lineColor:'gray',
+					tickWidth:1,
+					ticlColor:'gray',
+					tickPosition:'inside',
 					title: {
 						text: 'Anzahl Fzg.',
-						
 						style: {
-							color: '#333333'							
+							color: 'black',
+							fontSize:'14px'
+						}
+					},
+					labels:{
+						style:{
+							fontSize:'14px',
+							color:'black',
+							fontWeight: 'bold'
+						}
+					},
+					stackLabels: {
+						enabled: true,
+						style: {
+							fontWeight: 'bold',
+							color: 'black',
+							fontSize:'14px'
 						}
 					}
 				},
+				legend: {
+					align: 'center',
+					verticalAlign: 'top',
+					x: 200,
+					y: 0,
+					borderWidth: 0,
+					shadow:false
+				},
 				tooltip: {
 					formatter: function() {
-						return '<b>'+ this.x +'</b><br/>'+
-							 this.series.name +': '+ this.y +'<br/>'+
-							 'Total: '+ this.point.stackTotal;
+						var s = ''+
+								this.x  +'KW : '+ this.y;
+						return s;
 					}
 				},
 				plotOptions: {
@@ -62,8 +112,16 @@
 						enableMouseTracking: true
 					},
 					column: {
+						stacking: 'normal',
+						shadow: false,
+						borderColor:'black',
 						dataLabels: {
-							enabled: true
+							enabled: false,
+							style : {
+								fontWeight: 'bold',
+								fontSize:'10px'
+							},
+							color: '#224325'
 						},
 						enableMouseTracking: true
 					}
@@ -73,23 +131,33 @@
 					name: 'Soll',
 					color: '#009C0E',
 					data: <%=soll%>
-				},{
+				}, {
 					type: 'column',
-					name: 'lst',
+					name: 'Lst',
 					color: '#0000FF',
-					data: <%=ist%>
+					data:  <%=ist%>
 				}, {
 					type: 'spline',
 					name: 'Kum Soll',
 					color: '#009C0E',
-					data: <%=sumSoll%>
+					data: <%=sumSoll%>,
+					dataLabels: {
+						enabled: true,
+						style : {
+							fontWeight: 'bold',
+							fontSize:'16px'
+						},
+						color: 'black'
+					}
 				}, {
 					type: 'spline',
-					name: 'Kum lst',
+					name: 'Kum Lst',
 					color: '#0000FF',
-					data: <%=sumIst%>
+					data:  <%=sumIst%>
 				}]
 			});
+			
+			
 		});
 		</script>
 		

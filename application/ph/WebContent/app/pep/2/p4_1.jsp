@@ -3,32 +3,30 @@
 <%@page import="com.saturn.web.Web"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.HashMap"%>	
-<%
-	Map form = (Map)request.getAttribute("form");
-	String fv9KWNo = "[40,42,43,44,45,46,47,48,49]";// Web.getNumberListStrSubFirst(form.get("fv9KWNo"));
-	String fv9AekoAbgesch = "[5,5,7,10,15,16,16,17,18]";//Web.getNumberListStrSubFirst(form.get("fv9AekoAbgesch"));
-	String fv9AekoSmall2Woch = "[1,2,2,1,1,0,5,3,3]";//Web.getNumberListStrSubFirst(form.get("fv9AekoSmall2Woch"));
-	String fv9AekoBig2Woch = "[1,1,1,0,0,0,0,2,1]";//Web.getNumberListStrSubFirst(form.get("fv9AekoBig2Woch"));
-	/* 	System.out.println(fv9KWNo);
-	System.out.println(fv9AekoAbgesch);
-	System.out.println(fv9AekoSmall2Woch);
-	System.out.println(fv9AekoBig2Woch);
-	List<String> sumList = Web.SumList((List<String>)form.get("fv9AekoAbgesch"), 
-			(List<String>)form.get("fv9AekoSmall2Woch"),
-			(List<String>)form.get("fv9AekoBig2Woch")); */
-	String deviationa = "[0,1,2,1,5,0,5,1,0]";//Web.compareByKW(sumList);
-	
-%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
-		<script type="text/javascript" src="<%=request.getContextPath()%>/app/js/jquery-1.4.4.min.js"></script>
-		<script type="text/javascript" src="<%=request.getContextPath()%>/app/js/highcharts2.1.9/highcharts.src2.1.4.js"></script>
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/app/pep/include/base.css"></link>
 		<%@ include file="/app/pep/include/header.jsp"%>
-		
-		<title>Insert title here</title>
+		<%
+			title = "2.4 Status ÄKO";
+			Map form = (Map)request.getAttribute("form");
+			String fv9KWNo = "[40,42,43,44,45,46,47,48,49]";// Web.getNumberListStrSubFirst(form.get("fv9KWNo"));
+			String fv9AekoAbgesch = "[5,5,7,10,15,16,16,17,18]";//Web.getNumberListStrSubFirst(form.get("fv9AekoAbgesch"));
+			String fv9AekoSmall2Woch = "[1,2,2,1,1,0,5,3,3]";//Web.getNumberListStrSubFirst(form.get("fv9AekoSmall2Woch"));
+			String fv9AekoBig2Woch = "[1,1,1,0,0,0,0,2,1]";//Web.getNumberListStrSubFirst(form.get("fv9AekoBig2Woch"));
+			/* 	System.out.println(fv9KWNo);
+			System.out.println(fv9AekoAbgesch);
+			System.out.println(fv9AekoSmall2Woch);
+			System.out.println(fv9AekoBig2Woch);
+			List<String> sumList = Web.SumList((List<String>)form.get("fv9AekoAbgesch"), 
+					(List<String>)form.get("fv9AekoSmall2Woch"),
+					(List<String>)form.get("fv9AekoBig2Woch")); */
+			String deviationa = "[0,1,2,1,5,0,5,1,0]";//Web.compareByKW(sumList);
+			
+		%>
+		<title><%=title %></title>
 
 		<script type="text/javascript">
 		var chart;
@@ -171,7 +169,7 @@
 <body>		
 		<div id="container">
 			<div id="nr">
-			<div id="top"><h1>2.4 Status ÄKO </h1></div>
+			<div id="top"><h1><%=title %> </h1></div>
 			<div id="chart" style="width: 800px; height: 400px; margin: 0 auto;"></div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

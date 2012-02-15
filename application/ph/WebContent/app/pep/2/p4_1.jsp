@@ -13,9 +13,13 @@
 			title = "2.4 Status ÄKO";
 			Map form = (Map)request.getAttribute("form");
 			String fv9KWNo = "[40,42,43,44,45,46,47,48,49]";// Web.getNumberListStrSubFirst(form.get("fv9KWNo"));
+			//假数据
 			String fv9AekoAbgesch = "[5,5,7,10,15,16,16,17,18]";//Web.getNumberListStrSubFirst(form.get("fv9AekoAbgesch"));
+			//假数据
 			String fv9AekoSmall2Woch = "[1,2,2,1,1,0,5,3,3]";//Web.getNumberListStrSubFirst(form.get("fv9AekoSmall2Woch"));
+			//假数据
 			String fv9AekoBig2Woch = "[1,1,1,0,0,0,0,2,1]";//Web.getNumberListStrSubFirst(form.get("fv9AekoBig2Woch"));
+			//假数据
 			/* 	System.out.println(fv9KWNo);
 			System.out.println(fv9AekoAbgesch);
 			System.out.println(fv9AekoSmall2Woch);
@@ -24,7 +28,7 @@
 					(List<String>)form.get("fv9AekoSmall2Woch"),
 					(List<String>)form.get("fv9AekoBig2Woch")); */
 			String deviationa = "[0,1,2,1,5,0,5,1,0]";//Web.compareByKW(sumList);
-			
+			//假数据
 		%>
 		<title><%=title %></title>
 

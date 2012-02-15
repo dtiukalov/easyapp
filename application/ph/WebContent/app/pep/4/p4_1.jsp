@@ -2,20 +2,22 @@
 	pageEncoding="UTF-8"%>
 <%@page import="com.saturn.tc.utils.DatasetUtils"%>
 <!DOCTYPE HTML>
+<%@ include file="/app/pep/include/header.jsp"%>
+<%
+	//String uid = (String)request.getAttribute("uid");
+	title = "4.4 Aggregateverfügbarkeit ZP3/ZP4";//假数据
+	String src = "/ph/app/pep/4/zp3zp4.jpg";//DatasetUtils.getDatasetByUid(uid, request);
+	//假数据
+%>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<%@ include file="/app/pep/include/header.jsp"%>
+		<title><%=title %> </title>
 	</head>
-	
-	<%
-	//String uid = (String)request.getAttribute("uid");
-	String src =  "/ph/app/pep/4/zp3zp4.jpg";//DatasetUtils.getDatasetByUid(uid, request);
-	%>
 	<body>
 		<div id="container">
 			<div id="nr">
-			<div id="top"><h1>4.4 Aggregateverfügbarkeit ZP3/ZP4(图片)</h1></div>
+			<div id="top"><h1><%=title %></h1></div>
 			<div id="content">
 				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto">
 					<img src = "<%=src%>" >

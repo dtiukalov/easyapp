@@ -19,26 +19,26 @@
 		Map form = (Map)request.getAttribute("form");
 
 		List<String> fv9StyleName = new ArrayList<String>();//(List<String>)form.get("fv9StyleName");
-		fv9StyleName.add("Planungs durchlauf");
-		fv9StyleName.add("Status 485");
-		fv9StyleName.add("Status 487/496");
-		fv9StyleName.add("Status 800");
-		fv9StyleName.add("VFF");
-		fv9StyleName.add("PVS");
-		fv9StyleName.add("0-Serie");
-		fv9StyleName.add("SOP");
-		fv9StyleName.add("Offen");
+		fv9StyleName.add("Planungs durchlauf");//假数据
+		fv9StyleName.add("Status 485");//假数据
+		fv9StyleName.add("Status 487/496");//假数据
+		fv9StyleName.add("Status 800");//假数据
+		fv9StyleName.add("VFF");//假数据
+		fv9StyleName.add("PVS");//假数据
+		fv9StyleName.add("0-Serie");//假数据
+		fv9StyleName.add("SOP");//假数据
+		fv9StyleName.add("Offen");//假数据
 		List<String> fv9StyleNum = new ArrayList<String>();//(List<String>)form.get("fv9StyleNum");
-		fv9StyleNum.add("4");
-		fv9StyleNum.add("0");
-		fv9StyleNum.add("5");
-		fv9StyleNum.add("13");
-		fv9StyleNum.add("18");
-		fv9StyleNum.add("17");
-		fv9StyleNum.add("1");
-		fv9StyleNum.add("0");
-		fv9StyleNum.add("0");
-		fv9StyleNum.add("0");
+		fv9StyleNum.add("4");//假数据
+		fv9StyleNum.add("0");//假数据
+		fv9StyleNum.add("5");//假数据
+		fv9StyleNum.add("13");//假数据
+		fv9StyleNum.add("18");//假数据
+		fv9StyleNum.add("17");//假数据
+		fv9StyleNum.add("1");//假数据
+		fv9StyleNum.add("0");//假数据
+		fv9StyleNum.add("0");//假数据
+		fv9StyleNum.add("0");//假数据
 		int index1 = fv9StyleName.indexOf("Planungs durchlauf");
 		int index2 = fv9StyleName.indexOf("Status 485");
 		int index3 = fv9StyleName.indexOf("Status 487/496");

@@ -8,12 +8,14 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Iterator"%>
+
 <!DOCTYPE HTML>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<%@ include file="/app/pep/include/header.jsp"%>
 		<%
+		title = "2.4 ÄKO-Umsetzungsstatus";
 		Map form = (Map)request.getAttribute("form");
 
 		List<String> fv9StyleName = new ArrayList<String>();//(List<String>)form.get("fv9StyleName");
@@ -175,11 +177,12 @@
 			});
 		});
 		</script>
+		<title><%=title %></title>
 	</head>
 	<body>
 		<div id="container">
 			<div id="nr">
-			<div id="top"><h1>2.4 ÄKO-Umsetzungsstatus (Genehmigungsstand)</h1></div>
+			<div id="top"><h1><%=title %></h1></div>
 			<div id="content">
 				<div id="chart" style="width: 800px; height: 450px; margin: 0 auto;"></div>
 			</div>

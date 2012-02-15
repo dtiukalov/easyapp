@@ -5,8 +5,11 @@
 <%@page import="java.util.Map"%>
 <%@page import="java.util.HashMap"%>	
 <%@page import="com.saturn.ph.FormManager"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ include file="/app/pep/include/header.jsp"%>
 <%
-
+	title = "5.2 Logistikkonzept";
 	Map form = (Map)request.getAttribute("form");	
 	List<String> fv9LogistikStyle = new ArrayList<String>();//(List<String>)form.get("fv9LogistikStyle");
 	List<String> fv9LogistikStatus = new ArrayList<String>();//(List<String>)form.get("fv9LogistikStatus");
@@ -30,16 +33,15 @@
 	fv9LogistikMab_GM.add("专用器具样件设计（KW06/12需有零件样件）Design der Bemusterung des spezifischen Behaelter in KW06/12");
 	
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-<%@ include file="/app/pep/include/header.jsp"%>
+<title><%=title %></title>
 </head>
 
 <body>
 <div id="container">
 	<div id="nr">
-	<div id="top"><h1><%=FormManager.getFormTitle("FV9_52Logiskonzept") %></h1></div>
+	<div id="top"><h1><%=title %></h1></div>
     <div id="content">
     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 		  <tr>

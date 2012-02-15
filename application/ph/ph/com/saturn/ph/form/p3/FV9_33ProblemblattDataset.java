@@ -16,7 +16,7 @@ public class FV9_33ProblemblattDataset extends Form {
 
 	@Override
 	public String getType() {
-		return "3.3 Problemblatt";
+		return "3.3Problemblatt";
 	}
 
 	@Override

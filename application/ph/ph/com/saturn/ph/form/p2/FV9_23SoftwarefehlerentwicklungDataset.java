@@ -16,7 +16,7 @@ public class FV9_23SoftwarefehlerentwicklungDataset extends Form {
 
 	@Override
 	public String getType() {
-		return "2.3 Softwarefehlerentwicklung";
+		return "2.3Softwarefehlerentwicklung";
 	}
 
 	@Override

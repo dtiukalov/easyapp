@@ -323,3 +323,25 @@
 .tpian .ht H4 {
 	LINE-HEIGHT: 38px
 }
+.table-top {
+	border-bottom:1px solid #000;
+	height: 43px;
+}
+.table-Kritischetop {
+	width:100%;
+	margin-top: 30px;
+}
+.table-th td{
+	height:30px; vertical-align: bottom;
+}
+.table-td td{
+	height:25px; vertical-align: bottom;
+}
+.sep1{
+	border-bottom:2px solid #000; height: 1px; margin: 0px;
+}
+.sep2{
+	border-bottom:1px solid #000;; height: 1px; margin: 0px;
+}
+
+

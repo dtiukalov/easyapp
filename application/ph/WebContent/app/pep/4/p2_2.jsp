@@ -195,24 +195,30 @@
 						</div>
 					</div>
 					<div id="right">
-						<table width="100%">
+						<table class="table-Kritischetop">
 							<tr>
-								<td colspan="4" style="text-align: left;font-weight: bolder; height: 36px;border-bottom: 1px solid;">Top</td>
+								<td colspan="4" class="table-top">Top</td>
+							</tr>
+							<tr class="table-th">
+								<td width="34%">Kritische Umfänge</td>
+								<td width="22%" style="text-align: center;">Einzelteile</td>
+								<td width="22%" style="text-align: center;">VSI SWZ</td>
+								<td width="22%" style="text-align: center;">VSI N3</td>
 							</tr>
 							<tr>
-								<td width="34%" style="font-weight: bolder;height: 36px;border-bottom: 2px solid;">Kritische Umfänge</td>
-								<td width="22%" style="font-weight: bolder;text-align: center;border-bottom: 2px solid;">Einzelteile</td>
-								<td width="22%" style="font-weight: bolder;text-align: center;border-bottom: 2px solid;">VSI SWZ</td>
-								<td width="22%" style="font-weight: bolder;text-align: center;border-bottom: 2px solid;">VSI N3</td>
+								<td colspan="4" class="sep1"></td>
 							</tr>
 							<%
 								for(int i=0; i<fv9TopKrisUmf.length; i++) {
 							%>		
+							<tr class="table-td">
+								<td><%=fv9TopKrisUmf[i]%></td>
+								<td style="text-align: center;"><%=fv9TopEinNum[i]%></td>
+								<td style="text-align: center;"><%=fv9TopVSISWZ[i]%></td>
+								<td style="text-align: center;"><%=fv9TopVSIN3[i]%></td>
+							</tr>
 							<tr>
-								<td style="height: 36px;border-bottom: 1px solid;"><%=fv9TopKrisUmf[i]%></td>
-								<td style="text-align: center;border-bottom: 1px solid;"><%=fv9TopEinNum[i]%></td>
-								<td style="text-align: center;border-bottom: 1px solid;"><%=fv9TopVSISWZ[i]%></td>
-								<td style="text-align: center;border-bottom: 1px solid;"><%=fv9TopVSIN3[i]%></td>
+								<td colspan="4" class="sep2"></td>
 							</tr>
 							<%
 							}

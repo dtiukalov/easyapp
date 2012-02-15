@@ -29,7 +29,8 @@
 					title: {
 						text: 'In Prozent',
 						style:{
-							color:'black'
+							color:'black',
+							fontSize:'18px'
 						},
 						align:'left'
 					},
@@ -46,6 +47,7 @@
 						labels: {
 					//		rotation: -45,
 					//		align: 'right',
+							y:20,
 							style: {
 								 padding:'5px',
 								 fontSize: '14px',

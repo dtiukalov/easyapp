@@ -50,14 +50,20 @@
 					defaultSeriesType: 'column'
 				},
 				title: {
-					text: 'Gesamt: 414 Funktionsmaße'
+					text: 'Gesamt: 414 Funktionsmaße',
+					style:{
+						color:'black'
+					},
+					align:'left'
 				},
 				xAxis: {
 					labels: {
+							y:20,
 							style: {
-								padding:'8px',
-								 font: 'normal 10px Arial, sans-serif',
-								 color:'black'
+								 padding:'8px',
+								 color:'black',
+								 fontSize:'14px',
+								 fontWeight: 'bold'
 							}
 						},
 					tickLength: 0,
@@ -93,7 +99,7 @@
 							enabled: true,
 							style : {
 								fontWeight: 'bold',
-								fontSize:'10px'
+								fontSize:'14px'
 							},
 							color: 'black'
 						}
@@ -160,7 +166,6 @@
 		<div id="container">
 			<div id="nr">
 				<div id="top"><h1>3.4 Funktionsmaße außerhalb der Toleranz</h1></div>	
-				<h2>Gesamt: 414 Funktionsmaße</h2>
 				<div id="content">
 					<div id="chart" style="width: 800px; height: 400px; margin: 0 auto"></div>
 				</div>

@@ -139,7 +139,7 @@
 								y:5,
 								style : {
 									fontWeight: 'bold',
-									fontSize:'10px'
+									fontSize:'12px'
 								},
 								color: 'black'
 							}

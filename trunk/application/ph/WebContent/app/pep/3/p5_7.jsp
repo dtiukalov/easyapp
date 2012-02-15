@@ -45,9 +45,10 @@
 						lineColor:'black',
 						tickColor:'black',
 						labels: {
-							y:25,
+							y:30,
 							style: {
-								color:'black'
+								color:'black',
+								fontSize:'16px'
 							}
 						},
 						categories: <%=fv9KWNo%>
@@ -72,7 +73,8 @@
 						},
 						labels: {
 							style: {
-								color:'black'
+								color:'black',
+								fontSize:'16px'
 							}
 						},
 						stackLabels: {
@@ -81,7 +83,7 @@
 							style: {
 								fontWeight: 'bold',
 								color: 'black',
-								fontSize:'10px'
+								fontSize:'12px'
 							}
 						}
 					},
@@ -107,11 +109,12 @@
 							shadow: false,
 							borderColor:'black',
 							borderWidth:0,
+							groupPadding: 0.1,
 							dataLabels: {
 								enabled: true,
 								style : {
 									fontWeight: 'bold',
-									fontSize:'10px'
+									fontSize:'12px'
 								},
 								color: 'white'
 							}
@@ -132,7 +135,7 @@
 							enabled: true,
 							style : {
 								fontWeight: 'bold',
-								fontSize:'8px'
+								fontSize:'12px'
 							},
 							color: 'black'
 						}

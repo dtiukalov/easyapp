@@ -14,7 +14,7 @@
 		<%@ include file="/app/pep/include/header.jsp"%>
 		
 		<%
-			
+			title = "1.5 Fahrzeugaufbaustatus";
 			Map form = (Map)request.getAttribute("form");
 			String kws = "[2,3,4,5,6,7,8,9,10]";//Web.getNumberListStr(form.get("fv9KWNo"));  
 			String soll = "[2,7,0,6,2,1,6,8,5]";//Web.getNumberListStr(form.get("fv9ZP5NumSoll"));
@@ -160,12 +160,12 @@
 			
 		});
 		</script>
-		
+		<title><%=title %> </title>
 	</head>
 	<body>
 		<div id="container">
 			<div id="nr">
-			<div id="top"><h1>1.5 Fahrzeugaufbaustatus</h1></div>
+			<div id="top"><h1><%=title %></h1></div>
 			<div id="content">
 				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto"></div>
 			</div>

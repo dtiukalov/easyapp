@@ -16,10 +16,15 @@
 			title = "1.5 Fahrzeugaufbaustatus";
 			Map form = (Map)request.getAttribute("form");
 			String kws = "[2,3,4,5,6,7,8,9,10]";//Web.getNumberListStr(form.get("fv9KWNo"));  
+			//假数据
 			String soll =  "[]";//Web.getNumberListStr(form.get("fv9ZP8NumSoll"));
+			//假数据
 			String sumSoll =  "[]";//Web.getSumNumberListStr(form.get("fv9ZP8NumSoll"));
+			//假数据
 			String ist = "[1,1,2,2,3,4,5]";//Web.getNumberListStr(form.get("fv9ZP8Numlst"));
+			//假数据
 			String sumIst = "[1,3,5,7,10,14,19]";//Web.getSumNumberListStr(form.get("fv9ZP8Numlst"));
+			//假数据
 			
 		%>
 		<script type="text/javascript">

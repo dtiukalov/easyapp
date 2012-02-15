@@ -16,22 +16,24 @@
 	List<String> fv9LogistikStCom_GM = new ArrayList<String>();//(List<String>)form.get("fv9LogistikStCom_GM");
 	List<String> fv9LogistikMab_GM = new ArrayList<String>();//(List<String>)form.get("fv9LogistikMab_GM");
 	
-	fv9LogistikStyle.add("Inbound 入厂物流");
-	fv9LogistikStyle.add("Inhouse工厂物流");
-	fv9LogistikStyle.add("Behälter器具");
+	fv9LogistikStyle.add("Inbound 入厂物流");//假数据
+	fv9LogistikStyle.add("Inhouse工厂物流");//假数据
+	fv9LogistikStyle.add("Behälter器具");//假数据
 	
-	fv9LogistikStatus.add("绿");
-	fv9LogistikStatus.add("绿");
-	fv9LogistikStatus.add("黄");
+	fv9LogistikStatus.add("绿");//假数据
+	fv9LogistikStatus.add("绿");//假数据
+	fv9LogistikStatus.add("黄");//假数据
 	
 	fv9LogistikStCom_GM.add("1.Inboundlogistik 入厂物流Vorgaben fuer LKW Inbound erstellt; Grobplanung abgeschlossen卡车入厂物流路线起草；粗略规划已结束");
+	//假数据
 	fv9LogistikStCom_GM.add("1.Logistikplanung Karobau(Status gruen)焊装物流规划（绿灯）Grobplanung in Arbeit 正在进行粗略规划2.Logsitikplanung Montage(Status gelb)总装物流规划（绿灯）Planung in arbeit");
+	//假数据
 	fv9LogistikStCom_GM.add("Beginn mit Planung der esten stufigen  Verpackung in KW50/11开始具体零件的详细包装规划");
-	
-	fv9LogistikMab_GM.add("");
-	fv9LogistikMab_GM.add("");
+	//假数据
+	fv9LogistikMab_GM.add("");//假数据
+	fv9LogistikMab_GM.add("");//假数据
 	fv9LogistikMab_GM.add("专用器具样件设计（KW06/12需有零件样件）Design der Bemusterung des spezifischen Behaelter in KW06/12");
-	
+	//假数据
 %>
 
 <head>

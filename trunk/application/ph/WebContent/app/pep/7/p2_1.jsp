@@ -7,8 +7,9 @@
 <%@ include file="/app/pep/include/header.jsp"%>
 <%
 	//String uid = (String)request.getAttribute("uid");
-	title = "7.2  Beschluss 决策申请";
+	title = "7.2  Beschluss 决策申请";//假数据
 	String src = "/ph/app/pep/7/FV9_72Beschluss.jpg";//DatasetUtils.getDatasetByUid(uid, request);
+	//假数据
 %>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">

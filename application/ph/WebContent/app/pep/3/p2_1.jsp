@@ -15,22 +15,12 @@
 <%
 	Map form = (Map)request.getAttribute("form");
 
-	List<String> fv9FugRadName = new ArrayList<String>();   // (List<String>)form.get("fv9FugRadName"); 名称 
-	List<String> fv9FugRadStatus = new ArrayList<String>();  //(List<String>)form.get("fv9FugRadStatus");  状态
-	List<String> fv9FugRadCom_CN = new ArrayList<String>();//(List<String>)form.get("fv9FugRadCom_CN");  状态描述_中文
-	List<String> fv9FugRadCom_GM = new ArrayList<String>();//(List<String>)form.get("fv9FugRadCom_GM");  状态描述_德文
-	List<String> fv9FugRadMabnh_CN = new ArrayList<String>();//(List<String>)form.get("fv9FugRadMabnh_CN");  措施_中文
-	List<String> fv9FugRadMabnh_GM = new ArrayList<String>();//(List<String>)form.get("fv9FugRadMabnh_GM");  措施_德文 
-
-	fv9FugRadName.add("Fugen-/<br />Radienplan");
-	fv9FugRadStatus.add("绿");
-	fv9FugRadCom_GM.add("...");
-	fv9FugRadMabnh_GM.add("...");
-
-	fv9FugRadName.add("Toleranzanalyse<br />( Gutanteile)");
-	fv9FugRadStatus.add("绿");
-	fv9FugRadCom_GM.add("...");
-	fv9FugRadMabnh_GM.add("...");
+	List<String> fv9FugRadName = (List<String>)form.get("fv9FugRadName"); //名称 
+	List<String> fv9FugRadStatus = (List<String>)form.get("fv9FugRadStatus"); // 状态
+	List<String> fv9FugRadCom_CN = (List<String>)form.get("fv9FugRadCom_CN");  //状态描述_中文
+	List<String> fv9FugRadCom_GM = (List<String>)form.get("fv9FugRadCom_GM");  //状态描述_德文
+	List<String> fv9FugRadMabnh_CN = (List<String>)form.get("fv9FugRadMabnh_CN");  //措施_中文
+	List<String> fv9FugRadMabnh_GM = (List<String>)form.get("fv9FugRadMabnh_GM");  //措施_德文 
 
 %>
 <body>

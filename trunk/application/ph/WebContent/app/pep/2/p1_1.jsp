@@ -7,11 +7,46 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<%@ include file="/app/pep/include/header.jsp"%>
-	<title></title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
 
 	<%
+		title = "";
 		Map<String, Object> form = new HashMap<String, Object>();
+		
+		List<String>  fv9FreigabeStyle = (List<String>)form.get("fv9FreigabeStyle");
+			fv9FreigabeStyle.add("MBT");
+			fv9FreigabeStyle.add("FAKOM");
+			fv9FreigabeStyle.add("Stuckliste");
+			fv9FreigabeStyle.add("P/B-Freigaben");
+			fv9FreigabeStyle.add("BMG");
+		List<String>  fv9FreigabeStatus = (List<String>)form.get("fv9FreigabeStatus");
+			fv9FreigabeStatus.add("绿");
+			fv9FreigabeStatus.add("绿");
+			fv9FreigabeStatus.add("黄");
+			fv9FreigabeStatus.add("黄");
+			fv9FreigabeStatus.add("黄");
+		List<String>  fv9AnzahlNum = (List<String>)form.get("fv9AnzahlNum");
+			fv9AnzahlNum.add("0");
+			fv9AnzahlNum.add("0");
+			fv9AnzahlNum.add("711");
+			fv9AnzahlNum.add("719");
+			fv9AnzahlNum.add("120");
+		List<String>  fv9FreigSollNum = (List<String>)form.get("fv9FreigSollNum");
+			fv9FreigSollNum.add("38");
+			fv9FreigSollNum.add("526");
+			fv9FreigSollNum.add("711");
+			fv9FreigSollNum.add("719");
+			fv9FreigSollNum.add("120");
+		List<String>  fv9FreiglstNum = (List<String>)form.get("fv9FreiglstNum");
+			fv9FreiglstNum.add("38");
+			fv9FreiglstNum.add("524");
+			fv9FreiglstNum.add("679");
+			fv9FreiglstNum.add("412");
+			fv9FreiglstNum.add("3");
+		List<String>  fv9FreigCom_CN = (List<String>)form.get("fv9FreigCom_CN");
+		List<String>  fv9FreigCom_GM = (List<String>)form.get("fv9FreigCom_GM");
+		
+		
 		Map<String, Object> MBT = new HashMap<String, Object>();
 		Map<String, Object> FAKOM = new HashMap<String, Object>();
 		Map<String, Object> Stuckliste = new HashMap<String, Object>();
@@ -45,7 +80,7 @@
 		form.put("fv9ReportDept", "Entwicklung");
 		
 	%>
-
+<title><%=title %></title>
 </head>
 <body>
 	<div id="container">

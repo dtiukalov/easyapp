@@ -18,12 +18,14 @@ import javax.mail.internet.MimeMultipart;
 
 public class EmailUtils {
 
-
+	public static String host = "smtp.163.com";
+	public static String fromEmail = "foton_suppliers@163.com";
+	public static String fromPass = "foton888";
 	
 	public static void sendMailToPerson(String toEmail, String subject, String content) {
-		String host = "smtp.163.com";
-		String fromEmail = "foton_suppliers@163.com";
-		String fromPass = "foton888";
+//		String host = "smtp.163.com";
+//		String fromEmail = "foton_suppliers@163.com";
+//		String fromPass = "foton888";
 
 //		发送邮件的邮箱服务器属性设置
 		Properties props = new Properties();

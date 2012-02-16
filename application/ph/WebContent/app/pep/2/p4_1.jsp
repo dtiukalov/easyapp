@@ -288,8 +288,10 @@
 		<div id="container">
 			<div id="nr">
 			<div id="top"><h1><%=title %> </h1></div>
-			<div id="chart1" style="width: 600px; height: 400px; margin: 0 auto; float: left;"></div>
-			<div id="chart2" style="width: 200px; height: 400px; margin: 0 auto; float: left;"></div>
+			<div id="content">
+				<div id="chart1" style="width: 600px; height: 400px; margin: 0 auto; float: left;"></div>
+				<div id="chart2" style="width: 200px; height: 400px; margin: 0 auto; float: left;"></div>
+			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	
 </body>

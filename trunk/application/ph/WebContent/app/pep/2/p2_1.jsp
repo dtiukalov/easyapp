@@ -10,45 +10,19 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<%@ include file="/app/pep/include/header.jsp"%>
-
-	</head>
-	<body>
+		<title><%=title %></title>
 		<%
 			Map form = (Map)request.getAttribute("form");		
-		
-			List fv9ErprobStyle = new ArrayList(); //(List)form.get("fv9ErprobStyle");
-			List fv9ErprobStatus = new ArrayList();  //(List)form.get("fv9ErprobStatus");
-			List fv9ErprobStCom_GM = new ArrayList();  //(List)form.get("fv9ErprobStCom_GM");
-			List fv9ErprobNachSch_GM = new ArrayList();  //(List)form.get("fv9ErprobNachSch_GM");
-			
-			fv9ErprobStyle.add("Geometris che Absicherung");
-			fv9ErprobStyle.add("Gesamtfzg.-Erprobung");
-			fv9ErprobStyle.add("Vorstellung SoFa/WiFa");
-			fv9ErprobStyle.add("Fahrzeug-Dauerlauf");
-			fv9ErprobStyle.add("Versychtrafer management");
-			
-			fv9ErprobStatus.add("绿");
-			fv9ErprobStatus.add("黄");
-			fv9ErprobStatus.add("黄");
-			fv9ErprobStatus.add("绿");
-			fv9ErprobStatus.add("绿");
-			
-			fv9ErprobStCom_GM.add("DMU von 1.61/MQ200 und 1.6K/AQ250 abgenommen.<br>DMU von 1.4L/MQ200 und 1.4K/AQ250 abgenommen.");
-			fv9ErprobStCom_GM.add("Defrosterprobung am Fahrzugmit.<br>Wasserrfurchfahrt von 1.4T i.O. in KW25/11.<br>Stauberprobung Ergebnis in KW50/11.");
-			fv9ErprobStCom_GM.add("Defrosterprobung am Fahrzugmit.<br>Wasserrfurchfahrt von 1.4T i.O. in KW25/11.<br>Stauberprobung Ergebnis in KW50/11.");
-			fv9ErprobStCom_GM.add("Defrosterprobung am Fahrzugmit.<br>Wasserrfurchfahrt von 1.4T i.O. in KW25/11.<br>Stauberprobung Ergebnis in KW50/11.");
-			fv9ErprobStCom_GM.add("Defrosterprobung am Fahrzugmit.<br>Wasserrfurchfahrt von 1.4T i.O. in KW25/11.<br>Stauberprobung Ergebnis in KW50/11.");
-			
-			fv9ErprobNachSch_GM.add("Stauberprobung Ergebnis in KW50/11.");
-			fv9ErprobNachSch_GM.add("Stauberprobung Ergebnis in KW50/11.");
-			fv9ErprobNachSch_GM.add("Stauberprobung Ergebnis in KW50/11.");
-			fv9ErprobNachSch_GM.add("Stauberprobung Ergebnis in KW50/11.");
-			fv9ErprobNachSch_GM.add("Stauberprobung Ergebnis in KW50/11.");
-			
+			List<String> fv9ErprobStyle = (List)form.get("fv9ErprobStyle"); //实验及路试
+			List<String> fv9ErprobStatus = (List)form.get("fv9ErprobStatus"); //实验及路试状态
+			List<String> fv9ErprobStCom_GM = (List)form.get("fv9ErprobStCom_GM"); //当前状态描述-德文
+			List<String> fv9ErprobNachSch_GM = (List)form.get("fv9ErprobNachSch_GM"); //下一步工作描述-德文
 		%>
+	</head>
+	<body>
 		<div id="container">
 			<div id="nr">
-			<div id="top"><h1>2.2 Erprobung und Dauerlauf</h1></div>
+			<div id="top"><h1><%=title %></h1></div>
 			<div id="contentt">
 				<table width="96%" border="0" cellspacing="5" cellpadding="0" class="ed">
 			        <tr>
@@ -116,7 +90,6 @@
 						}
 			        %>		
 			       
-			        
 			      </table>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>

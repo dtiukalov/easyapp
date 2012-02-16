@@ -343,5 +343,7 @@
 .sep2{
 	border-bottom:1px solid #000;; height: 1px; margin: 0px;
 }
-
+.freigaben td{
+	width: 76px; height: 15px;font-size: 10px;
+}
 

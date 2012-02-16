@@ -5,7 +5,8 @@ import com.saturn.ph.Form;
 public class FV9_24StatusAEKOForm extends Form {
 	
 	private static final String[] attr = {
-		"fv9KWNo", "fv9AekoAbgesch", "fv9AekoSmall2Woch", "fv9AekoBig2Woch"
+		"fv9KWNo", "fv9AekoAbgesch", "fv9AekoSmall2Woch", "fv9AekoBig2Woch",
+		"fv9PronoseAbgesch", "fv9PronoseSmall2Woch", "fv9PronoseBig2Woch"
 	};
 
 	public String[] getAttributes() {

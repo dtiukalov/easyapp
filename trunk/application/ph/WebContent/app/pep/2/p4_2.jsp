@@ -14,31 +14,13 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<%@ include file="/app/pep/include/header.jsp"%>
+		<title><%=title %></title>
 		<%
-		title = "2.4 ÄKO-Umsetzungsstatus";
 		Map form = (Map)request.getAttribute("form");
 
-		List<String> fv9StyleName = new ArrayList<String>();//(List<String>)form.get("fv9StyleName");
-		fv9StyleName.add("Planungs durchlauf");//假数据
-		fv9StyleName.add("Status 485");//假数据
-		fv9StyleName.add("Status 487/496");//假数据
-		fv9StyleName.add("Status 800");//假数据
-		fv9StyleName.add("VFF");//假数据
-		fv9StyleName.add("PVS");//假数据
-		fv9StyleName.add("0-Serie");//假数据
-		fv9StyleName.add("SOP");//假数据
-		fv9StyleName.add("Offen");//假数据
-		List<String> fv9StyleNum = new ArrayList<String>();//(List<String>)form.get("fv9StyleNum");
-		fv9StyleNum.add("4");//假数据
-		fv9StyleNum.add("0");//假数据
-		fv9StyleNum.add("5");//假数据
-		fv9StyleNum.add("13");//假数据
-		fv9StyleNum.add("18");//假数据
-		fv9StyleNum.add("17");//假数据
-		fv9StyleNum.add("1");//假数据
-		fv9StyleNum.add("0");//假数据
-		fv9StyleNum.add("0");//假数据
-		fv9StyleNum.add("0");//假数据
+		List<String> fv9StyleName = (List<String>)form.get("fv9StyleName");
+		List<String> fv9StyleNum = (List<String>)form.get("fv9StyleNum");
+		
 		int index1 = fv9StyleName.indexOf("Planungs durchlauf");
 		int index2 = fv9StyleName.indexOf("Status 485");
 		int index3 = fv9StyleName.indexOf("Status 487/496");
@@ -177,7 +159,6 @@
 			});
 		});
 		</script>
-		<title><%=title %></title>
 	</head>
 	<body>
 		<div id="container">

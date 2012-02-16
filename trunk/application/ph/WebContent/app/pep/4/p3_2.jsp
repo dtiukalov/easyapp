@@ -29,34 +29,18 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<%@ include file="/app/pep/include/header.jsp"%>
 		<style type="text/css">
-			#subtitle {
-				width: 400px; height: 100px; margin: 0 auto; float: left; 
-			}
 			#subtitle h1{
 				font-family:Arial, Helvetica, sans-serif;
 				font-size:24px;
 			}
 			#left {
-				width: 500px; height: 500px; margin: 0 auto; float: left;
+				width: 800px; height: 500px; margin: 0 auto; float: left;
 			}
 			#left chart{
-				width: 400px; height: 400px; margin: 0 auto; float: left;
+				width: 500px; height: 400px; margin: 0 auto; float: left;
 			}
 			#left time{
 				width: 400px; height: 100px; margin: 0 auto; float: left;
-			}
-			#right {
-				width: 400px; height: 500px; margin: 0 auto; float: left; padding: 10px;
-			}
-			.div {
-				width: 400px; border: 2px solid #000000;margin-top:100px;float: right;margin-right:20px;
-			}
-			.div div {
-				height: 20px;border-bottom-width: 2px;border-bottom-style: solid;border-bottom-color: #000000;
-			}
-			.div table td {
-				border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: #000000;
-				width: 125px;font-family: "宋体";font-size: 12px;line-height: 20px;color: #000000;text-indent: 35px
 			}
 		</style>
 		<script type="text/javascript">
@@ -65,7 +49,8 @@
 				chart = new Highcharts.Chart({
 					chart: {
 						renderTo: 'chart',
-						defaultSeriesType: 'column'
+						defaultSeriesType: 'column',
+						marginLeft:150
 					},
 					title: {
 						text: ' '
@@ -101,15 +86,13 @@
 						}
 					},
 					legend: {
-						enabled: false,
-						align: 'center',
+						enabled: true,
+						layout: 'vertical',
+						align: 'right',
 						x: 0,
 						verticalAlign: 'top',
 						y: 0,
-						floating: true,
-						backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColorSolid) || 'white',
-						borderColor: '#CCC',
-						borderWidth: 1,
+						borderWidth: 0,
 						shadow: false
 					},
 					tooltip: {
@@ -185,65 +168,9 @@
 					<div id="left">
 						<div id="chart"></div>
 						<div id="time">
-							<img src="/ph/app/pep/4/bottom.jpg" width="400" height="70">
+							<img src="/ph/app/pep/4/bottom.jpg" width="400" height="70" style="margin-left:150px;">
 						</div>
 					</div>
-					<div class="div">
-								<div>
-								  <table width="400" cellspacing="0">
-								    <tr>
-								      <td>Top</td>
-								      <td></td>
-								      <td></td>
-								      <td></td>
-								    </tr>
-								  </table>
-								</div>
-								<table width="400" cellspacing="0">
-								  <tr>
-								    <td>1</td>
-								    <td>1</td>
-								    <td>1</td>
-								    <td>1</td>
-								  </tr>
-								  <tr>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								  </tr>
-								  <tr>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								  </tr>
-								  <tr>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								  </tr>
-								  <tr>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								  </tr>
-								  <tr>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								  </tr>
-								  <tr>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								  </tr>
-								</table>
-							</div>
 				</div>
 				
 				<div class="clear"></div>

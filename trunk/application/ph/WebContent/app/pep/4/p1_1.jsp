@@ -4,22 +4,24 @@
 <%@page import="java.util.HashMap"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ include file="/app/pep/include/header.jsp"%>
 <!DOCTYPE HTML>
+<%
+	title = "4.1 Nominierungen/Lieferantenstatus";
+	Map form = (Map)request.getAttribute("form");
+	int fv9Nominiert = 200; // (Integer) form.get("fv9Nominiert");已定厂 
+	int fv9Nichtnominiert = 33;//	 (Integer) form.get("fv9Nichtnominiert");未定厂
+	int Gesamt = fv9Nominiert + fv9Nichtnominiert;	
+
+%>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<%@ include file="/app/pep/include/header.jsp"%>
-		
+		<title><%=title %> </title>
 		<script type="text/javascript">
 		var chart1;
 		var chart2;
-	<%
-		Map form = (Map)request.getAttribute("form");
-		int fv9Nominiert = 200; //已定厂
-		int fv9Nichtnominiert = 33;//	未定厂
-		int Gesamt = fv9Nominiert + fv9Nichtnominiert;	
-	%>
+	
 		$(document).ready(function() {
 			chart1 = new Highcharts.Chart({
 				chart: {
@@ -107,10 +109,10 @@
 			});
 		<%
 
-			Integer[] fv9KWNo = new Integer[]{9, 11, 13};//周数
-			Integer[] fv9KWNumber = new Integer[]{4,6,4};//数量
-			String[] fv9KWCom = new String[]{"-x:*** <br/>-y:***","-x:***<br/> -y:***","-x:*** <br/>-y:***"};//备注
-			int fv9KritischeNomini = 1;//	有风险
+			Integer[] fv9KWNo = new Integer[]{9, 11, 13};//(List<String>)form.get("fv9KWNo")	周数
+			Integer[] fv9KWNumber = new Integer[]{4,6,4};//(List<String>)form.get("fv9KWNumber")	数量
+			String[] fv9KWCom = new String[]{"-x:*** <br/>-y:***","-x:***<br/> -y:***","-x:*** <br/>-y:***"};//(List<String>)form.get("fv9KWCom")	备注
+			int fv9KritischeNomini = 1;//(Integer) form.get("fv9KritischeNomini");	 有风险
 			
 			StringBuffer buffer = new StringBuffer("[");
 			buffer.append("\"" + "Kritische<br>Nominierungen" + "\",");
@@ -237,7 +239,7 @@
 	<body>
 		<div id="container">
 			<div id="nr">
-			<div id="top"><h1>4.1 Nominierungen/Lieferantenstatus</h1></div>
+			<div id="top"><h1><%=title %></h1></div>
 			<div id="content">
 				<div style="width: 50px; height: 400px; margin: 0 auto; float: left;"></div>
 				<div id="chart1" style="width: 250px; height: 400px; margin: 0 auto; float: left;"></div>

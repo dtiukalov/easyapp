@@ -6,6 +6,32 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<%@ include file="/app/pep/include/header.jsp"%>
 		<title>3.5 Maßnahmen zur Abarbeitung der B-Fehler Audit ZP8</title>
+		<style type="text/css">
+			.div {
+					width: 350px;
+					margin-top:30px;
+					margin-left:30px;
+				}
+			.div div {
+					height: 35px;
+					border-bottom-width: 2px;
+					border-bottom-style: solid;
+					border-bottom-color: #000000;
+				}
+			.div table td {
+					border-bottom-width: 1px;
+					border-bottom-style: solid;
+					border-bottom-color: #000000;
+					font-family: "宋体";
+					font-size: 12px;
+					line-height: 35px;
+					color: #000000;
+					text-indent: 10px;
+				}
+			#content{
+				margin-left:100px;
+			}
+		</style>
 		<script type="text/javascript">
 		var chart;
 		$(document).ready(function() {
@@ -168,7 +194,36 @@
 				<div id="top"><h1>3.5 Maßnahmen zur Abarbeitung der B-Fehler Audit ZP8</h1></div>	
 				<div id="content">
 					<div id="chart" style="width: 400px; height: 400px; margin: 0 auto; float: left;"></div>
-					<div id="table" style="width: 400px; height: 400px; margin: 0 auto; float: left;">&nbsp;</div>
+					<div id="table" style="width: 400px; height: 400px; margin: 0 auto; float: left;">&nbsp;
+					<div class="div">
+								<div>
+								  <table width="350" cellspacing="0">
+								    <tr>
+								      <td><font size="14px">Wichtigste Maßnahmen</font></td>
+								      <td></td>
+								      <td></td>
+								      <td></td>
+								    </tr>
+								  </table>
+								</div>
+								<table width="350" cellspacing="0">
+								<% 
+									for(int i=0; i<5; i++){
+								%>
+									  <tr>
+									    <td width="50" rowspan="2"></td>
+									    <td>111</td>
+								      </tr>
+									  <tr>
+									    <td>&nbsp;</td>
+  									  </tr>
+								   <%
+									}
+								  %>
+								</table>
+							</div>
+					</div>
+					</div>
 				</div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>

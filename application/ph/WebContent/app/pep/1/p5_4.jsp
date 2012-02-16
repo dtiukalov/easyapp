@@ -6,23 +6,19 @@
 <%@page import="java.util.HashMap"%>
 
 <!DOCTYPE HTML>
-<%@ include file="/app/pep/include/header.jsp"%>
 <html>
-	<%
-		title = "1.5 Programmpunkte";
-		Map<String, Object> form = new HashMap<String, Object>();//(Map<String, String>)request.getAttribute("form");
-		
-		form.put("fv9PPCOP", 120); //假数据
-		form.put("fv9PPErste", 70);//假数据
-		form.put("fv9PPNicht", 110);//假数据
-		
-		Integer fv9PPCOP = (Integer)form.get("fv9PPCOP");
-		Integer fv9PPErste = (Integer)form.get("fv9PPErste");			
-		Integer fv9PPNicht = (Integer)form.get("fv9PPNicht");
-		Integer fv9Genehmigt = fv9PPCOP + fv9PPErste + fv9PPNicht;			
-	%>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<%@ include file="/app/pep/include/header.jsp"%>
+		<title><%=title %></title>
+		<%
+			Map form = (Map)request.getAttribute("form");
+
+			Integer fv9PPCOP = Integer.parseInt((String)form.get("fv9PPCOP"));
+			Integer fv9PPErste = Integer.parseInt((String)form.get("fv9PPErste"));
+			Integer fv9PPNicht = Integer.parseInt((String)form.get("fv9PPNicht"));
+			Integer fv9Genehmigt = fv9PPCOP + fv9PPErste + fv9PPNicht;			
+		%>
 		<script type="text/javascript">
 		var chart;
 		$(document).ready(function() {
@@ -128,14 +124,14 @@
 			});
 		});
 		</script>
-		<title><%=title %></title>
+		
 	</head>
 	<body>
 		<div id="container">
 			<div id="nr">
 			<div id="top"><h1><%=title %></h1></div>
 			<div id="content">
-				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto"></div>
+				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto; margin-top: 30px;"></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

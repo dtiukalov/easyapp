@@ -9,6 +9,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<%@ include file="/app/pep/include/header.jsp"%>
+	<title><%=title %></title>
 	<style type="text/css">
 	.coo .tab {
 		background:#000;
@@ -64,7 +65,7 @@
 <body>	
 	<div id="container">
 		<div id="nr">
-		<div id="top"><h1>1.1 Projektterminplanh</h1></div>
+		<div id="top"><h1><%=title %></h1></div>
 		<p></p>
 		<div class="coo"><table width="986" border="0" cellpadding="1" cellspacing="1" class="tab">
 		  <tr>
@@ -79,7 +80,12 @@
 		    </table></td>
 		  </tr>
 		  <tr>
-		    <td style="width:904px;hight:400px"><iframe id="ff" name= "ff" frameborder="0"  src="GanttChart1.jsp" style="width:1000px;height:200px;"></iframe></td>
+		    <td style="width:904px;hight:400px">
+		    <iframe id="ff" name= "ff" frameborder="0"  
+			    src="<%=request.getContextPath() %>/app/pep/1/GanttChart1.jsp" 
+			    style="width:1000px;height:200px;">
+		    </iframe>
+		    </td>
 		  </tr>
 		  <tr>
 		    <td><table width="904" height="50px" border="0" cellspacing="0" cellpadding="0">

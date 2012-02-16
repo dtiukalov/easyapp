@@ -9,39 +9,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <%@ include file="/app/pep/include/header.jsp"%>
 <head>
-<%
-	
-	Map form = (Map)request.getAttribute("form");
-	title = "1.2 Aktionspunkte aus letzter Pilothalle";
-	
-	List<String> fv9Aktion_CN = new ArrayList<String>();//(List<String>)form.get("fv9Aktion_CN");
-	
-	List<String> fv9Aktion_GM = new ArrayList<String>();//(List<String>)form.get("fv9Aktion_GM");
-	fv9Aktion_GM.add("Benennung/Ergebnis");fv9Aktion_GM.add("Benennung/Ergebnis");fv9Aktion_GM.add("Benennung/Ergebnis");
-	
-	List<String> fv9Verantwortlich = new ArrayList<String>();//(List<String>)form.get("fv9Verantwortlich");
-	fv9Verantwortlich.add("Name (OE)");fv9Verantwortlich.add("Name (OE)");fv9Verantwortlich.add("Name (OE)");
-	
-	List<String> fv9Termin = new ArrayList<String>();//(List<String>)form.get("fv9Termin");
-	fv9Termin.add("KWXX/Y");fv9Termin.add("KWXX/Y");fv9Termin.add("KWXX/Y");
-	
-	List<String> fv9Status = new ArrayList<String>();//(List<String>)form.get("fv9Status");
-	fv9Status.add("offen");fv9Status.add("erledigt");fv9Status.add("offen");
-%>
-
-<title></title>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<script type="text/javascript">
-		</script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title><%=title %></title>
+	<%
+		
+		Map form = (Map)request.getAttribute("form");
+	
+//		List<String> fv9Aktion_CN = (List<String>)form.get("fv9Aktion_CN");
+		
+		List<String> fv9Aktion_GM = (List<String>)form.get("fv9Aktion_GM");
+		
+		List<String> fv9Verantwortlich = (List<String>)form.get("fv9Verantwortlich");
+		
+		List<String> fv9Termin = (List<String>)form.get("fv9Termin");
+		
+		List<String> fv9Status = (List<String>)form.get("fv9Status");
+	%>
+	
 </head>
 	<body>
 		<div id="container">
 			<div id="nr">
 			<div id="top"><h1><%=title %></h1></div>	
 			<div id="content">
-				<div id="datatable" style="width: 800px; height: 350px; margin: 0 auto">
+				<div id="datatable" style="width: 800px; height: 600px; margin: 0 auto; margin-top: 30px;">
 					<table width="80%" cellspacing="2" rules="rows" >
 						<tr style="border-bottom:2px solid #333333;">
 							<td width="35%">Aktion</td>

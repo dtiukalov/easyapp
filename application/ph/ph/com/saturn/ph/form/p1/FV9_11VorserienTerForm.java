@@ -2,7 +2,7 @@ package com.saturn.ph.form.p1;
 
 import com.saturn.ph.Form;
 
-public class FV9_11VorserienTerminForm extends Form {
+public class FV9_11VorserienTerForm extends Form {
 	
 	private static final String[] attr = {
 		"fv9VFFTBTZP5", "fv9VFFTBTZP7", "fv9VFFVorStart", "fv9VFFVorEnd",

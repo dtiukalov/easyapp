@@ -13,31 +13,15 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<%@ include file="/app/pep/include/header.jsp"%>
+	<title><%=title %></title>
 <%
-	title =  "1.5  Bauprogramm ";
 	Map form = (Map)request.getAttribute("form");
 
-	List<String> fv9Stufe = new ArrayList<String>(); // (List<String>)form.get("fv9Status");
-	fv9Stufe.add("1");//假数据
-	fv9Stufe.add("2");//假数据
-	fv9Stufe.add("3");//假数据
-	List<String> fv9FahrSoll = new ArrayList<String>(); // (List<String>)form.get("fv9FahrSoll");
-	fv9FahrSoll.add("7");//假数据
-	fv9FahrSoll.add("8");//假数据
-	fv9FahrSoll.add("9");//假数据
-	List<String> fv9Fahrlst = new ArrayList<String>();  // (List<String>)form.get("fv9Fahrlst");
-	fv9Fahrlst.add("6");//假数据
-	fv9Fahrlst.add("8");//假数据
-	fv9Fahrlst.add("8");//假数据
-	List<String> fv9KarossSoll = new ArrayList<String>(); // (List<String>)form.get("fv9KarossSoll");
-	fv9KarossSoll.add("6");//假数据
-	fv9KarossSoll.add("8");//假数据
-	fv9KarossSoll.add("8");//假数据
-	List<String> fv9Karosslst = new ArrayList<String>(); // (List<String>)form.get("fv9Karosslst");
-	fv9Karosslst.add("5");//假数据
-	fv9Karosslst.add("7");//假数据
-	fv9Karosslst.add("8");//假数据
-
+	List<String> fv9Stufe = (List<String>)form.get("fv9Stufe");
+	List<String> fv9FahrSoll = (List<String>)form.get("fv9FahrSoll");
+	List<String> fv9Fahrlst = (List<String>)form.get("fv9Fahrlst");
+	List<String> fv9KarossSoll = (List<String>)form.get("fv9KarossSoll");
+	List<String> fv9Karosslst = (List<String>)form.get("fv9Karosslst");
 	//Todo:看取回来的时间数据格式再做调整
 	Date[] fv9KarossStart = {DateUtils.getDate(2011, 12, 10), DateUtils.getDate(2011, 12, 30), DateUtils.getDate(2012, 2, 1)};
 	//(List<String>)form.get("fv9KarossStart");
@@ -116,6 +100,7 @@
 		        </tr>
 		        <%
 		        if (fv9Stufe.size() > 0) {
+		        	System.out.println("fv9Stufe = " + fv9Stufe.size());
 		        	for(int i=0; i<fv9Stufe.size(); i++) {
 		        %>		
 		        <tr>

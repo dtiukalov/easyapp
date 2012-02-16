@@ -1,5 +1,6 @@
 <%@page import="com.saturn.tc.foton.gys.Attachment"%>
 <%@page import="java.util.List"%>
+<%@page import="java.io.File"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -23,15 +24,13 @@
 		<center>
 			下载打包完毕！请<a href="<%=request.getContextPath() + hrefstr%>">保存</a>
 		</center>
-			
 			<% 
 			} else {
+				//hrefstr =  hrefstr.replace("/", File.separator);
 			%>
 		<center>
-			已从服务器上下载完毕！请<a href="<%=hrefstr%>">保存</a>
+			出错了！请重新登陆下载
 		</center>
-				
-				
 			<%	
 			}
 		%>

@@ -81,7 +81,7 @@
 						ids.push(rows[i].uid);
 					}					
 										
-					$.messager.confirm('确认下载项', '确认下载选择的数据集', function(result){
+					$.messager.confirm('确认下载项', '确认下载吗?', function(result){
 						if (result){
 							window.open('<%=request.getContextPath()%>/app/tc/foton/gys/download.action?uid=${mail.mailuid}&ids=' + ids);
 						}

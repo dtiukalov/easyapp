@@ -5,9 +5,7 @@
 <%@ include file="/app/pep/include/header.jsp"%>
 <%
 	//String uid = (String)request.getAttribute("uid");
-	title = "2.3 Softwarefehlerentwicklung";//假数据
 	String src = "/ph/app/pep/2/FV9_23Softwarefehlerentwicklung.jpg";//DatasetUtils.getDatasetByUid(uid, request);
-	//假数据
 %>
 <html>
 	<head>

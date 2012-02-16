@@ -2,7 +2,7 @@ package com.saturn.ph.form.p2;
 
 import com.saturn.ph.Form;
 
-public class FV9_21BFAbarbueberschForm extends Form {
+public class FV9_21BFAbarbueberscForm extends Form {
 	
 	private static final String[] attr = {
 		"fv9BFreigType", "fv9BFreigTypeNum", 
@@ -19,7 +19,7 @@ public class FV9_21BFAbarbueberschForm extends Form {
 
 	@Override
 	public String getType() {
-		return "FV9_21BFAbarbuebersch";
+		return "FV9_21BFAbarbuebersc";
 	}
 
 	@Override

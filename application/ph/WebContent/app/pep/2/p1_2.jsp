@@ -7,80 +7,60 @@
 <%@page import="json.JSONArray"%>
 <%@page import="com.saturn.web.Web"%>
 <!DOCTYPE HTML>
-<%@ include file="/app/pep/include/header.jsp"%>
-<%
-	title = "2.1 P-Freigaben";
-	Map form = (Map)request.getAttribute("form");	
-	
-	//专业组
-	List<String> fv9PFMajor = new ArrayList<String>(); // (List<String>) form.get("fv9PFMajor");
-	fv9PFMajor.add("AGGREGATE");
-	fv9PFMajor.add("FAHRWEAK");
-	fv9PFMajor.add("KAROSSERIE");
-	fv9PFMajor.add("AUSSTATTUNG");
-	fv9PFMajor.add("ELEKTRIK");
-	fv9PFMajor.add("1:3:4"); 
-	fv9PFMajor.add("Gesamt"); 
-	String PFMajor = Web.getStrListStr(fv9PFMajor) ;
-	System.out.println("PFMajor = " + PFMajor);
-	
-	//Gesamt
-	List fv9PFGesamtNum = new ArrayList(); //(List) form.get("fv9PFGesamtNum");
-	fv9PFGesamtNum.add(247);
-	fv9PFGesamtNum.add(153);
-	fv9PFGesamtNum.add(134);
-	fv9PFGesamtNum.add(95);
-	fv9PFGesamtNum.add(192);
-	fv9PFGesamtNum.add(35);
-	int pfGesamt = 0;
-	for (int i=0; i<fv9PFGesamtNum.size(); i++) {
-		pfGesamt += (Integer)fv9PFGesamtNum.get(i);
-	}
-	fv9PFGesamtNum.add(pfGesamt);
-	String PFGesamtNum = Web.getNumberListStr(fv9PFGesamtNum);
-	
-	//Soll
-	List fv9PFSollNum = new ArrayList(); //(List) form.get("fv9PFSollNum");
-	fv9PFSollNum.add(247);
-	fv9PFSollNum.add(153);
-	fv9PFSollNum.add(134);
-	fv9PFSollNum.add(95);
-	fv9PFSollNum.add(192);
-	fv9PFSollNum.add(35);
-	int pfSoll = 0;
-	for (int i=0; i<fv9PFSollNum.size(); i++) {
-		pfSoll += (Integer)fv9PFSollNum.get(i);
-	}
-	fv9PFSollNum.add(pfSoll);
-	String PFSollNum = Web.getNumberListStr(fv9PFSollNum);
 
-	//Ist
-	List fv9PFlstNum = new ArrayList(); //(List) form.get("fv9PFlstNum");
-	fv9PFlstNum.add(85);
-	fv9PFlstNum.add(121);
-	fv9PFlstNum.add(122);
-	fv9PFlstNum.add(17);
-	fv9PFlstNum.add(180);
-	fv9PFlstNum.add(29);
-	int pflst = 0;
-	for (int i=0; i<fv9PFlstNum.size(); i++) {
-		pfSoll += (Integer)fv9PFlstNum.get(i);
-	}
-	fv9PFlstNum.add(pfSoll);
-	String PFlstNum = Web.getNumberListStr(fv9PFlstNum);
-
-	//offen
-	List fv9PFoffenNum = new ArrayList();
-	for(int i=0; i<fv9PFSollNum.size(); i++){
-		fv9PFoffenNum.add((Integer)((Integer)fv9PFSollNum.get(i) - (Integer)fv9PFlstNum.get(i)));
-	}
-	String PFoffenNum = Web.getStrListStr(fv9PFoffenNum);
-	
-%>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<%@ include file="/app/pep/include/header.jsp"%>
 		<title><%=title %></title>
+	<%
+		Map form = (Map)request.getAttribute("form");	
+		
+		//专业组
+		List<String> fv9PFMajor = (List<String>) form.get("fv9PFMajor");
+		fv9PFMajor.add("Gesamt"); 
+		String PFMajor = Web.getStrListStr(fv9PFMajor) ;
+		System.out.println("PFMajor = " + PFMajor);
+		
+		//Gesamt
+		List<String> fv9PFGesamtNum = (List<String>) form.get("fv9PFGesamtNum");
+		int pfGesamt = 0;
+		for (int i=0; i<fv9PFGesamtNum.size(); i++) {
+			pfGesamt += Integer.parseInt(fv9PFGesamtNum.get(i));
+		}
+		fv9PFGesamtNum.add(pfGesamt+"");
+		String PFGesamtNum = Web.getNumberListStr(fv9PFGesamtNum);
+		
+		//Soll
+		List<String> fv9PFSollNum = (List<String>) form.get("fv9PFSollNum");
+		int pfSoll = 0;
+		for (int i=0; i<fv9PFSollNum.size(); i++) {
+			pfSoll += Integer.parseInt(fv9PFSollNum.get(i));
+		}
+		fv9PFSollNum.add(pfSoll+"");
+		String PFSollNum = Web.getNumberListStr(fv9PFSollNum);
+		System.out.println("PFSollNum = " + PFSollNum);
+	
+		//Ist
+		List<String> fv9PFlstNum = (List<String>) form.get("fv9PFlstNum");
+		int pflst = 0;
+		for (int i=0; i<fv9PFlstNum.size(); i++) {
+			pflst += Integer.parseInt(fv9PFlstNum.get(i));
+		}
+		fv9PFlstNum.add(pflst+"");
+		String PFlstNum = Web.getNumberListStr(fv9PFlstNum);
+		System.out.println("PFlstNum = " + PFlstNum);
+		
+		//offen
+		List<Integer> fv9PFoffenNum = new ArrayList<Integer>();
+		for(int i=0; i<fv9PFSollNum.size(); i++){
+			int soll = Integer.parseInt(fv9PFSollNum.get(i));
+			int ist = Integer.parseInt(fv9PFlstNum.get(i));
+			fv9PFoffenNum.add(soll - ist);
+		}
+		String PFoffenNum = Web.getNumberListStr(fv9PFoffenNum);
+		
+	%>
 		<script type="text/javascript">
 		
 		var chart;
@@ -179,7 +159,7 @@
 			
 		});
 		</script>
-		
+
 	</head>
 	<body>
 		<div id="container">
@@ -187,6 +167,60 @@
 			<div id="top"><h1><%=title %></h1></div>
 			<div id="content">
 				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto"></div>
+				<div id="table" style="width: 800px; height: 400px; margin: 0 auto">
+					<table class="freigaben" border="1">
+						<tr>
+							<td>&nbsp;</td>
+							<%
+							for (int i=0; i<fv9PFMajor.size(); i++){
+							%>
+							<td><%= fv9PFMajor.get(i)%></td>
+							<%
+							}
+							%>
+						</tr>
+						<tr>
+							<td>Pos.Gesamt</td>
+							<%
+							for (int i=0; i<fv9PFGesamtNum.size(); i++){
+							%>
+							<td><%= fv9PFGesamtNum.get(i)%></td>
+							<%
+							}
+							%>
+						</tr>
+						<tr>
+							<td>P - Soll</td>
+							<%
+							for (int i=0; i<fv9PFSollNum.size(); i++){
+							%>
+							<td><%= fv9PFSollNum.get(i)%></td>
+							<%
+							}
+							%>
+						</tr>
+						<tr>
+							<td>P - Ist</td>
+							<%
+							for (int i=0; i<fv9PFlstNum.size(); i++){
+							%>
+							<td><%= fv9PFlstNum.get(i)%></td>
+							<%
+							}
+							%>
+						</tr>
+						<tr>
+							<td>P - Offen</td>
+							<%
+							for (int i=0; i<fv9PFoffenNum.size(); i++){
+							%>
+							<td><%= fv9PFoffenNum.get(i)%></td>
+							<%
+							}
+							%>
+						</tr>
+					</table>
+				</div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

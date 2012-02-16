@@ -5,7 +5,7 @@ import com.saturn.ph.Form;
 public class FV9_21BMGForm extends Form {
 	
 	private static final String[] attr = {
-		"fv9BMG_Major", "fv9BMG_GesamtNum", "fv9BMG_SollNum", "fv9BMG_lstNum"
+		"fv9BMGMajor", "fv9BMGGesamtNum", "fv9BMGSollNum", "fv9BMGlstNum"
 	};
 
 	public String[] getAttributes() {

@@ -7,84 +7,60 @@
 <%@page import="json.JSONArray"%>
 <%@page import="com.saturn.web.Web"%>
 <!DOCTYPE HTML>
-<%@ include file="/app/pep/include/header.jsp"%>
-<%
-	title = "2.1 B-Freigaben";
-	Map form = (Map)request.getAttribute("form");	
 
-	//专业组
-	List fv9BF_Major = new ArrayList(); // (List<String>)form.get("fv9BF_Major");
-	fv9BF_Major.add("AGGREGATE");
-	fv9BF_Major.add("FAHRWEAK");
-	fv9BF_Major.add("KAROSSERIE");
-	fv9BF_Major.add("AUSSTATTUNG");
-	fv9BF_Major.add("ELEKTRIK");
-	fv9BF_Major.add("1:3:4"); 
-	fv9BF_Major.add("Gesamt"); 
-	String BFMajor = Web.getStrListStr(fv9BF_Major) ;
-	System.out.println("BFMajor = " + BFMajor);
-	
-	//Gesamt
-	List fv9BF_GesamtNum = new ArrayList(); //(List)form.get("fv9BF_GesamtNum");
-	fv9BF_GesamtNum.add(336);
-	fv9BF_GesamtNum.add(297);
-	fv9BF_GesamtNum.add(406);
-	fv9BF_GesamtNum.add(783);
-	fv9BF_GesamtNum.add(287);
-	fv9BF_GesamtNum.add(139);
-	int BF_Gesamt = 0;
-	for (int i=0; i<fv9BF_GesamtNum.size(); i++) {
-		BF_Gesamt += (Integer)fv9BF_GesamtNum.get(i);
-	}
-	fv9BF_GesamtNum.add(BF_Gesamt);
-	String BF_GesamtNum = Web.getNumberListStr(fv9BF_GesamtNum);
-	System.out.println("BF_GesamtNum = " + BF_GesamtNum);
-	
-	//Soll
-	List fv9BF_SollNum = new ArrayList(); //(List)form.get("fv9BF_SollNum");
-	fv9BF_SollNum.add(336);
-	fv9BF_SollNum.add(297);
-	fv9BF_SollNum.add(406);
-	fv9BF_SollNum.add(783);
-	fv9BF_SollNum.add(287);
-	fv9BF_SollNum.add(139);
-	int BF_Soll = 0;
-	for (int i=0; i<fv9BF_SollNum.size(); i++) {
-		BF_Soll += (Integer)fv9BF_SollNum.get(i);
-	}
-	fv9BF_SollNum.add(BF_Soll);
-	String BF_SollNum = Web.getNumberListStr(fv9BF_SollNum);
-	System.out.println("BF_SollNum = " + BF_SollNum);
-	
-	//Ist
-	List fv9BF_lstNum = new ArrayList(); //(List)form.get("fv9BF_lstNum");
-	fv9BF_lstNum.add(336);
-	fv9BF_lstNum.add(293);
-	fv9BF_lstNum.add(397);
-	fv9BF_lstNum.add(642);
-	fv9BF_lstNum.add(287);
-	fv9BF_lstNum.add(137);
-	int BF_lst = 0;
-	for (int i=0; i<fv9BF_lstNum.size(); i++) {
-		BF_lst += (Integer)fv9BF_lstNum.get(i);
-	}
-	fv9BF_lstNum.add(BF_lst);
-	String BF_lstNum = Web.getNumberListStr(fv9BF_lstNum);
-	System.out.println("BF_lstNum = " + BF_lstNum);
-	
-	//offen
-	List fv9bfoffenNum = new ArrayList();
-	for(int i=0; i<fv9BF_SollNum.size(); i++){
-		fv9bfoffenNum.add((Integer)((Integer)fv9BF_SollNum.get(i) - (Integer)fv9BF_lstNum.get(i)));
-	}
-	String BF_OffenNum = Web.getNumberListStr(fv9bfoffenNum);
-	System.out.println("BF_OffenNum = " + BF_OffenNum);
-	
-%>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<%@ include file="/app/pep/include/header.jsp"%>
 		<title><%=title %></title>
+	<%
+		Map form = (Map)request.getAttribute("form");	
+	
+		//专业组
+		List<String> fv9BFMajor = (List<String>) form.get("fv9BFMajor");
+		fv9BFMajor.add("Gesamt"); 
+		String BFMajor = Web.getStrListStr(fv9BFMajor) ;
+		System.out.println("BFMajor = " + BFMajor);
+		
+		//Gesamt
+		List<String> fv9BFGesamtNum = (List<String>) form.get("fv9BFGesamtNum");
+		int bfGesamt = 0;
+		for (int i=0; i<fv9BFGesamtNum.size(); i++) {
+			bfGesamt += Integer.parseInt(fv9BFGesamtNum.get(i));
+		}
+		fv9BFGesamtNum.add(bfGesamt+"");
+		String BFGesamtNum = Web.getNumberListStr(fv9BFGesamtNum);
+		
+		//Soll
+		List<String> fv9BFSollNum = (List<String>) form.get("fv9BFSollNum");
+		int bfSoll = 0;
+		for (int i=0; i<fv9BFSollNum.size(); i++) {
+			bfSoll += Integer.parseInt(fv9BFSollNum.get(i));
+		}
+		fv9BFSollNum.add(bfSoll+"");
+		String BFSollNum = Web.getNumberListStr(fv9BFSollNum);
+		System.out.println("BF_SollNum = " + BFSollNum);
+	
+		//Ist
+		List<String> fv9BFlstNum = (List<String>) form.get("fv9BFlstNum");
+		int pflst = 0;
+		for (int i=0; i<fv9BFlstNum.size(); i++) {
+			pflst += Integer.parseInt(fv9BFlstNum.get(i));
+		}
+		fv9BFlstNum.add(pflst+"");
+		String BFlstNum = Web.getNumberListStr(fv9BFlstNum);
+		System.out.println("BF_lstNum = " + BFlstNum);
+		
+		//offen
+		List<Integer> fv9BFOffenNum = new ArrayList<Integer>();
+		for(int i=0; i<fv9BFMajor.size(); i++){
+			int soll = Integer.parseInt(fv9BFSollNum.get(i));
+			int ist = Integer.parseInt(fv9BFlstNum.get(i));
+			fv9BFOffenNum.add(soll - ist);
+		}
+		String BFOffenNum = Web.getNumberListStr(fv9BFOffenNum);
+		
+	%>
 		<script type="text/javascript">
 		
 		var chart;
@@ -161,20 +137,20 @@
 					}
 				},
 			    series: [{
-					name: 'P-Offen',
-					data: <%=BF_OffenNum%>,//[177, 0, 4, 9, 159, 0, 2],
+					name: 'B-Offen',
+					data: <%=BFOffenNum%>,
 					color: '#FC827F'
 				}, {
-					name: 'P-Ist',
-					data: <%=BF_lstNum%>,//[2074, 336, 293, 397, 624, 287, 137],
+					name: 'B-Ist',
+					data: <%=BFlstNum%>,
 					color: '#85FC84'
 				}, {
-					name: 'P-Soll',
-					data: <%=BF_SollNum%>,//[2248, 336, 297, 406, 783, 287, 139],
+					name: 'B-Soll',
+					data: <%=BFSollNum%>,
 					color: '#7BBFFC'
 				}, {
 					name: 'Gesamt',
-					data: <%=BF_GesamtNum%>,//[2248, 336, 297, 406, 783, 287, 139],
+					data: <%=BFGesamtNum%>,
 					color: '#E1E1E1'
 				}]
 			});
@@ -190,6 +166,60 @@
 			<div id="top"><h1><%=title %></h1></div>
 			<div id="content">
 				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto"></div>
+				<div id="table" style="width: 800px; height: 400px; margin: 0 auto">
+					<table class="freigaben" border="1">
+						<tr>
+							<td>&nbsp;</td>
+							<%
+							for (int i=0; i<fv9BFMajor.size(); i++){
+							%>
+							<td><%= fv9BFMajor.get(i)%></td>
+							<%
+							}
+							%>
+						</tr>
+						<tr>
+							<td>Pos.Gesamt</td>
+							<%
+							for (int i=0; i<fv9BFGesamtNum.size(); i++){
+							%>
+							<td><%= fv9BFGesamtNum.get(i)%></td>
+							<%
+							}
+							%>
+						</tr>
+						<tr>
+							<td>B - Soll</td>
+							<%
+							for (int i=0; i<fv9BFSollNum.size(); i++){
+							%>
+							<td><%= fv9BFSollNum.get(i)%></td>
+							<%
+							}
+							%>
+						</tr>
+						<tr>
+							<td>B - Ist</td>
+							<%
+							for (int i=0; i<fv9BFlstNum.size(); i++){
+							%>
+							<td><%= fv9BFlstNum.get(i)%></td>
+							<%
+							}
+							%>
+						</tr>
+						<tr>
+							<td>B - Offen</td>
+							<%
+							for (int i=0; i<fv9BFOffenNum.size(); i++){
+							%>
+							<td><%= fv9BFOffenNum.get(i)%></td>
+							<%
+							}
+							%>
+						</tr>
+					</table>
+				</div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

@@ -2,11 +2,11 @@ package com.saturn.ph.form.p2;
 
 import com.saturn.ph.Form;
 
-public class FV9_21BMGAbarbueberschForm extends Form {
+public class FV9_21PFAbarbueberscForm extends Form {
 	
 	private static final String[] attr = {
-		"fv9BMGType", "fv9BMGNum",
-		"fv9BMGKWNo", "fv9BMGSoll", "fv9BMGAWE", "fv9BMGInArbeirt"
+		"fv9PFreigType", "fv9PFreigTypeNum", "fv9PFKWNo", "fv9PFreiSoll",
+		"fv9PFAWE", "fv9PFInArbeirt"
 	};
 
 	public String[] getAttributes() {
@@ -14,16 +14,16 @@ public class FV9_21BMGAbarbueberschForm extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/2/p1_7.jsp";
+		return "/app/pep/2/p1_3.jsp";
 	}
 
 	@Override
 	public String getType() {
-		return "FV9_21BMGAbarbuebersch";
+		return "FV9_21PFAbarbuebersc";
 	}
 
 	@Override
 	public String getTitle() {
-		return "2.1 BMG";
+		return "2.1 P-Freigaben";
 	}
 }

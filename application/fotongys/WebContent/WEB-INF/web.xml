@@ -22,7 +22,21 @@
 	    <param-name>host</param-name>
 	    <param-value>http://localhost:7001/tc</param-value>
   	</context-param>
-	
+  	
+	<context-param>
+	    <param-name>emailHost</param-name>
+	    <param-value>pop.163.com</param-value>
+  	</context-param>
+	<context-param>
+	    <param-name>fromEmail</param-name>
+	    <param-value>foton_suppliers@163.com</param-value>
+  	</context-param>
+	<context-param>
+	    <param-name>fromPass</param-name>
+	    <param-value>foton888</param-value>
+  	</context-param>
+  	
+  	
 	<filter>
 		<filter-name>encoding</filter-name>
 		<filter-class>com.saturn.app.web.filter.EncodingFilter</filter-class>

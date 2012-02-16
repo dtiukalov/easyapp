@@ -37,10 +37,10 @@
 				font-size:24px;
 			}
 			#legend {
-				width: 400px; height: 100px; margin: 0 auto; float: left; padding-left: 150px;
+				width: 400px; height: 100px; margin-top:30px;float: left; padding-left: 150px;
 			}
 			#left {
-				width: 400px; height: 500px; margin: 0 auto; float: left;
+				width: 500px; height: 400px; margin: 0 auto; float: left;
 			}
 			#left chart{
 				width: 400px; height: 400px; margin: 0 auto; float: left;
@@ -49,8 +49,15 @@
 				width: 400px; height: 100px; margin: 0 auto; float: left;
 			}
 			#right {
-				width: 400px; height: 500px; margin: 0 auto; float: left; padding: 10px;
+				width: 400px; height: 400px; margin: 0 auto; float: right; padding: 10px;margin-right:20px;
 			}
+			.div {width: 400px;
+			}
+			.div div {height: 50px;border-bottom-width: 2px;border-bottom-style: solid;border-bottom-color: #000000;
+				}
+			.div table td {border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: #000000;
+					width: 125px;font-family: "宋体";font-size: 12px;line-height: 50px;color: #000000;text-indent: 35px
+				}
 		</style>
 		<script type="text/javascript">
 			var chart;
@@ -195,35 +202,62 @@
 						</div>
 					</div>
 					<div id="right">
-						<table class="table-Kritischetop">
-							<tr>
-								<td colspan="4" class="table-top">Top</td>
-							</tr>
-							<tr class="table-th">
-								<td width="34%">Kritische Umfänge</td>
-								<td width="22%" style="text-align: center;">Einzelteile</td>
-								<td width="22%" style="text-align: center;">VSI SWZ</td>
-								<td width="22%" style="text-align: center;">VSI N3</td>
-							</tr>
-							<tr>
-								<td colspan="4" class="sep1"></td>
-							</tr>
-							<%
-								for(int i=0; i<fv9TopKrisUmf.length; i++) {
-							%>		
-							<tr class="table-td">
-								<td><%=fv9TopKrisUmf[i]%></td>
-								<td style="text-align: center;"><%=fv9TopEinNum[i]%></td>
-								<td style="text-align: center;"><%=fv9TopVSISWZ[i]%></td>
-								<td style="text-align: center;"><%=fv9TopVSIN3[i]%></td>
-							</tr>
-							<tr>
-								<td colspan="4" class="sep2"></td>
-							</tr>
-							<%
-							}
-							%>
-						</table>
+						 <div class="div">
+								<div>
+								  <table width="400" cellspacing="0">
+								    <tr>
+								      <td>1</td>
+								      <td>1</td>
+								      <td>1</td>
+								      <td>1</td>
+								    </tr>
+								  </table>
+								</div>
+								<table width="400" cellspacing="0">
+								  <tr>
+								    <td>1</td>
+								    <td>1</td>
+								    <td>1</td>
+								    <td>1</td>
+								  </tr>
+								  <tr>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								  </tr>
+								  <tr>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								  </tr>
+								  <tr>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								  </tr>
+								  <tr>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								  </tr>
+								  <tr>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								  </tr>
+								  <tr>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								  </tr>
+								</table>
+							</div>
 					</div>
 				</div>
 				

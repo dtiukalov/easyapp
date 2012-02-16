@@ -29,18 +29,12 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<%@ include file="/app/pep/include/header.jsp"%>
 		<style type="text/css">
-			#subtitle {
-				width: 400px; height: 100px; margin: 0 auto; float: left; 
-			}
 			#subtitle h1{
 				font-family:Arial, Helvetica, sans-serif;
 				font-size:24px;
 			}
-			#legend {
-				width: 400px; height: 100px; margin: 0 auto; float: left; padding-left: 150px;
-			}
 			#left {
-				width: 400px; height: 500px; margin: 0 auto; float: left;
+				width: 500px; height: 400px; margin: 0 auto; float: left;
 			}
 			#left chart{
 				width: 400px; height: 400px; margin: 0 auto; float: left;
@@ -48,8 +42,15 @@
 			#left time{
 				width: 400px; height: 100px; margin: 0 auto; float: left;
 			}
-			#right {
-				width: 400px; height: 500px; margin: 0 auto; float: left; padding: 10px;
+			.div {
+				width: 400px; border: 2px solid #000000;margin-top:100px;float: right;margin-right:20px;
+			}
+			.div div {
+				height: 20px;border-bottom-width: 2px;border-bottom-style: solid;border-bottom-color: #000000;
+			}
+			.div table td {
+				border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: #000000;
+				width: 125px;font-family: "宋体";font-size: 12px;line-height: 20px;color: #000000;text-indent: 35px
 			}
 		</style>
 		<script type="text/javascript">
@@ -95,14 +96,14 @@
 					},
 					legend: {
 						enabled: false,
-						align: 'center',
-						x: 0,
+						align: 'right',
+						layout: 'vertical',
+						x: 100,
 						verticalAlign: 'top',
 						y: 0,
 						floating: true,
-						backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColorSolid) || 'white',
 						borderColor: '#CCC',
-						borderWidth: 1,
+						borderWidth: 0,
 						shadow: false
 					},
 					tooltip: {
@@ -181,54 +182,70 @@
 	<body>
 		<div id="container">
 			<div id="nr">
-				<div id="top"><h1>4.2 Hausteile ZP5</h1></div>
+				<div id="top"><h1>4.2 Teileverfügbarkeit fuer KT von ZP5</h1></div>
 				<div id="content" >
-		    		<div id="subtitle">
-						<h1>Teilestatus zu VFF ZP5 KT</h1>
-					</div>
-					<div id="legend">
-						<li><img src="/ph/app/pep/images/legend_white.png" width="13" height="13">
-						&nbsp;PT-Teile/Alternativteile
-						<li><img src="/ph/app/pep/images/legend_lightgreen.png" width="13" height="13">
-						&nbsp;Teile aus Serienwerkzeug
-						<li><img src="/ph/app/pep/images/legend_green.png" width="13" height="13">
-						&nbsp;Note 3
-						<li><img src="/ph/app/pep/images/legend_black.png" width="13" height="13">
-						&nbsp;Note 1
-						<li><img src="/ph/app/pep/images/legend_red.png" width="13" height="13">
-						&nbsp;Note 6
-					</div>
 					<div id="left">
 						<div id="chart"></div>
 						<div id="time">
 							<img src="/ph/app/pep/4/bottom.jpg" width="400" height="70">
 						</div>
 					</div>
-					<div id="right">
-						<table width="100%">
-							<tr>
-								<td colspan="4" style="text-align: left;font-weight: bolder; height: 36px;border-bottom: 1px solid;">Top</td>
-							</tr>
-							<tr>
-								<td width="34%" style="font-weight: bolder;height: 36px;border-bottom: 2px solid;">Kritische Umfänge</td>
-								<td width="22%" style="font-weight: bolder;text-align: center;border-bottom: 2px solid;">Einzelteile</td>
-								<td width="22%" style="font-weight: bolder;text-align: center;border-bottom: 2px solid;">VSI N3</td>
-								<td width="22%" style="font-weight: bolder;text-align: center;border-bottom: 2px solid;">VSI N1</td>
-							</tr>
-							<%
-								for(int i=0; i<fv9TopKrisUmf.length; i++) {
-							%>		
-							<tr>
-								<td style="height: 36px;border-bottom: 1px solid;"><%=fv9TopKrisUmf[i]%></td>
-								<td style="text-align: center;border-bottom: 1px solid;"><%=fv9TopEinNum[i]%></td>
-								<td style="text-align: center;border-bottom: 1px solid;"><%=fv9TopVSIN3[i]%></td>
-								<td style="text-align: center;border-bottom: 1px solid;"><%=fv9TopVSISWZ[i]%></td>
-							</tr>
-							<%
-							}
-							%>
-						</table>
-					</div>
+						<div class="div">
+								<div>
+								  <table width="400" cellspacing="0">
+								    <tr>
+								      <td>Top</td>
+								      <td></td>
+								      <td></td>
+								      <td></td>
+								    </tr>
+								  </table>
+								</div>
+								<table width="400" cellspacing="0">
+								  <tr>
+								    <td>1</td>
+								    <td>1</td>
+								    <td>1</td>
+								    <td>1</td>
+								  </tr>
+								  <tr>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								  </tr>
+								  <tr>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								  </tr>
+								  <tr>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								  </tr>
+								  <tr>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								  </tr>
+								  <tr>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								  </tr>
+								  <tr>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								    <td>&nbsp;</td>
+								  </tr>
+								</table>
+							</div>
 				</div>
 				
 				<div class="clear"></div>

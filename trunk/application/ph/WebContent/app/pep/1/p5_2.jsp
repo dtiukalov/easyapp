@@ -12,22 +12,18 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<%@ include file="/app/pep/include/header.jsp"%>
-		
+		<title><%=title %></title>
 		<%
-			title = "1.5 Fahrzeugaufbaustatus";
+			
 			Map form = (Map)request.getAttribute("form");
-			String kws = "[2,3,4,5,6,7,8,9,10]";//Web.getNumberListStr(form.get("fv9KWNo")); 
-			//假数据
-			String soll = "[2,7,0,6,2,1,6,8,5]";//Web.getNumberListStr(form.get("fv9ZP5NumSoll"));
-			//假数据
-			String sumSoll = "[2,9,9,15,17,18,24,32,37]";//Web.getSumNumberListStr(form.get("fv9ZP5NumSoll"));
-			//假数据
-			String ist = "[]";//Web.getNumberListStr(form.get("fv9ZP5Numlst"));
-			//假数据
-			String sumIst = "[]";//Web.getSumNumberListStr(form.get("fv9ZP5Numlst"));
-			//假数据
+			String kws = Web.getNumberListStr(form.get("fv9KWNo"));  
+			String soll = Web.getNumberListStr(form.get("fv9ZP5NumSoll"));
+			String sumSoll = Web.getSumNumberListStr(form.get("fv9ZP5NumSoll"));
+			String ist = Web.getNumberListStr(form.get("fv9ZP5Numlst"));
+			String sumIst = Web.getSumNumberListStr(form.get("fv9ZP5Numlst"));
+			
 		%>
-<script type="text/javascript">
+		<script type="text/javascript">
 		
 		var chart;
 		$(document).ready(function() {
@@ -35,7 +31,7 @@
 				chart: {
 					renderTo: 'chart',
 					zoomType: 'xy',
-					marginTop:60
+					marginTop: 60
 				},
 				title: {
 					text: 'Fahrzeugbauprogramm ZP5',
@@ -64,7 +60,6 @@
 				},
 				yAxis: {
 					min:0,
-					max:40,
 					lineWidth:1,
 					lineColor:'gray',
 					tickWidth:1,
@@ -103,8 +98,7 @@
 				},
 				tooltip: {
 					formatter: function() {
-						var s = ''+
-								this.x  +'KW : '+ this.y;
+						var s = 'KW ' + this.x  + ' : ' + this.y;
 						return s;
 					}
 				},
@@ -116,7 +110,6 @@
 						enableMouseTracking: true
 					},
 					column: {
-						stacking: 'normal',
 						shadow: false,
 						borderColor:'black',
 						dataLabels: {
@@ -135,11 +128,11 @@
 					name: 'Soll',
 					color: '#009C0E',
 					data: <%=soll%>
-				}, {
+				},{
 					type: 'column',
-					name: 'Lst',
+					name: 'lst',
 					color: '#0000FF',
-					data:  <%=ist%>
+					data: <%=ist%>
 				}, {
 					type: 'spline',
 					name: 'Kum Soll',
@@ -155,16 +148,22 @@
 					}
 				}, {
 					type: 'spline',
-					name: 'Kum Lst',
+					name: 'Kum lst',
 					color: '#0000FF',
-					data:  <%=sumIst%>
+					data: <%=sumIst%>,
+					dataLabels: {
+						enabled: true,
+						style : {
+							fontWeight: 'bold',
+							fontSize:'16px'
+						},
+						color: 'black'
+					}
 				}]
 			});
-			
-			
 		});
 		</script>
-		<title><%=title %> </title>
+		
 	</head>
 	<body>
 		<div id="container">

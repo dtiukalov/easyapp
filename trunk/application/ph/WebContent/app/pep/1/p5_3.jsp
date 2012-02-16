@@ -11,21 +11,14 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<%@ include file="/app/pep/include/header.jsp"%>
-		
+		<title><%=title %></title>
 		<%
-			title = "1.5 Fahrzeugaufbaustatus";
 			Map form = (Map)request.getAttribute("form");
-			String kws = "[2,3,4,5,6,7,8,9,10]";//Web.getNumberListStr(form.get("fv9KWNo"));  
-			//假数据
-			String soll =  "[]";//Web.getNumberListStr(form.get("fv9ZP8NumSoll"));
-			//假数据
-			String sumSoll =  "[]";//Web.getSumNumberListStr(form.get("fv9ZP8NumSoll"));
-			//假数据
-			String ist = "[1,1,2,2,3,4,5]";//Web.getNumberListStr(form.get("fv9ZP8Numlst"));
-			//假数据
-			String sumIst = "[1,3,5,7,10,14,19]";//Web.getSumNumberListStr(form.get("fv9ZP8Numlst"));
-			//假数据
-			
+			String kws = Web.getNumberListStr(form.get("fv9KWNo"));  
+			String soll =  Web.getNumberListStr(form.get("fv9ZP8NumSoll"));
+			String sumSoll =  Web.getSumNumberListStr(form.get("fv9ZP8NumSoll"));
+			String ist = Web.getNumberListStr(form.get("fv9ZP8Numlst"));
+			String sumIst = Web.getSumNumberListStr(form.get("fv9ZP8Numlst"));
 		%>
 		<script type="text/javascript">
 		
@@ -64,7 +57,6 @@
 				},
 				yAxis: {
 					min:0,
-					max:20,
 					lineWidth:1,
 					lineColor:'gray',
 					tickWidth:1,
@@ -117,7 +109,6 @@
 						enableMouseTracking: true
 					},
 					column: {
-						stacking: 'normal',
 						shadow: false,
 						borderColor:'black',
 						dataLabels: {
@@ -158,7 +149,15 @@
 					type: 'spline',
 					name: 'Kum Lst',
 					color: '#0000FF',
-					data:  <%=sumSoll%>
+					data:  <%=sumSoll%>,
+					dataLabels: {
+						enabled: true,
+						style : {
+							fontWeight: 'bold',
+							fontSize:'16px'
+						},
+						color: 'black'
+					}
 				}]
 			});
 			

@@ -1,33 +1,78 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="java.util.Arrays"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.List"%>
-<%@page import="java.util.HashMap"%>	
-	
-	<% Map form = (Map)request.getAttribute("form");
-	String fv9PartSource = "";//	零件分类
-	int fv9TotalNum	= 0;//总数
-	int fv9CKDCOPNum = 0;//	CKD/COP
-		
-	String fv9TeilestName = "['TBT VFF', 'Beginn VFF', 'Ende VFF', 'Beginn PVS', 'Beginn 0-S', 'Beginn SOP', 'CKD/COP']";//	名称
-	String fv9TeileFehlend = "[0, 0, 0, 0, 0, 0, 0]";//Web.getNumberListStr(form.get("fv9AA"));
-	String fv9TeileAusSerien = "[6, 6, 6, 4, 0, 0, 0]";//Web.getNumberListStr(form.get("fv9AA"));
-	String fv9TeileNote3 = "[0, 0, 0, 2, 4, 0, 0]";//Web.getNumberListStr(form.get("fv9BB"));
-	String fv9TeileNote1 = "[0, 0, 0, 0, 2, 6, 0]";//Web.getNumberListStr(form.get("fv9BB"));
-	String fv9TeileNote6 = "[0, 0, 0, 0, 0, 0, 0]";//Web.getNumberListStr(form.get("fv9BB"));
-	
-	String[] fv9TopKrisUmf = new String[]{"FK aussen","FK aussen","FK aussen","FK aussen","FK aussen","FK aussen","FK aussen"};//Web.getNumberListStr(form.get("fv9BB"));	问题零件范围
-	Integer[] fv9TopEinNum =  new Integer[]{1,1,1,1,1,1,1};//Web.getNumberListStr(form.get("fv9BB"));	单件数量
-	String[] fv9TopVSIN3 =  new String[]{"KW16_12","KW16_12","KW16_12","KW16_12","KW16_12","KW16_12","KW16_12"};//Web.getNumberListStr(form.get("fv9BB"));	预测小批量模具时间
-	String[] fv9TopVSISWZ =  new String[]{"KW30_12","KW30_12","KW30_12","KW30_12","KW30_12","KW30_12","KW30_12"};//Web.getNumberListStr(form.get("fv9BB"));	预测3分时间
-
-%>
+<%@page import="java.util.HashMap"%>
+<%@page import="com.saturn.web.Web"%>	
 <!DOCTYPE HTML>
+<%@ include file="/app/pep/include/header.jsp"%>
+	<% 
+	type = "FV9_42TeileStat0S";//FV9_42TeileStatVFF FV9_42TeileStatPVS  假数据
+								 
+	String jieduan = "meiyouzhi";
+	if(type.contains("VFF")){
+		jieduan = "VFF";
+	} else if(type.contains("PVS")){
+		jieduan = "PVS";
+	} else if(type.contains("0S")){
+		jieduan = "0S";
+	}
+	
+	title = "4.2 Hausteile ZP5";
+	Map form = (Map)request.getAttribute("form");
+	String fv9PartSource = "";//	(String)form.get("fv9PartSource");零件分类
+	int fv9TotalNum	= 0;//	(Integer)form.get("fv9TotalNum");		总数
+	int fv9CKDCOPNum = 0;//	(Integer)form.get("fv9CKDCOPNum");		CKD/COP
+	
+	String fv9TeilestName = "['TBT VFF', 'Beginn VFF', 'Ende VFF', 'Beginn PVS', 'Beginn 0-S', 'Beginn SOP', 'CKD/COP']";//	名称
+	//Web.getStrListStr(form.get("fv9TeilestName"));
+	String fv9TeileFehlend = "[0, 0, 0, 0, 0, 0, 0]";
+	//Web.getNumberListStr(form.get("fv9TeileFehlend"));
+	String fv9TeileAusSerien = "[6, 6, 6, 4, 0, 0, 0]";
+	//Web.getNumberListStr(form.get("fv9TeileAusSerien"));
+	String fv9TeileNote3 = "[0, 0, 0, 2, 4, 0, 0]";
+	//Web.getNumberListStr(form.get("fv9TeileNote3"));
+	String fv9TeileNote1 = "[0, 0, 0, 0, 2, 6, 0]";
+	//Web.getNumberListStr(form.get("fv9TeileNote1"));
+	String fv9TeileNote6 = "[0, 0, 0, 0, 0, 0, 0]";
+	//Web.getNumberListStr(form.get("fv9TeileNote6"));
+	 
+	List<String> fv9TopKrisUmf = new ArrayList<String>();//问题零件范围
+	//(List<String>)form.get("fv9TopKrisUmf");
+	fv9TopKrisUmf.add("FK aussen");
+	fv9TopKrisUmf.add("FK aussen");
+	fv9TopKrisUmf.add("FK aussen");
+	fv9TopKrisUmf.add("FK aussen");
+
+	List<String> fv9TopEinNum = new ArrayList<String>();//	单件数量
+	//(List<String>)form.get("fv9TopEinNum");
+	fv9TopEinNum.add("1");
+	fv9TopEinNum.add("1");
+	fv9TopEinNum.add("1");
+	fv9TopEinNum.add("1");
+
+	List<String> fv9TopVSIN3 = new ArrayList<String>();//预测小批量模具时间
+	//(List<String>)form.get("fv9TopVSIN3");
+	fv9TopVSIN3.add("KW16_12");
+	fv9TopVSIN3.add("KW16_12");
+	fv9TopVSIN3.add("KW16_12");
+	fv9TopVSIN3.add("KW16_12");
+
+	List<String> fv9TopVSIN1 = new ArrayList<String>();//	预测3分时间
+	//(List<String>)form.get("fv9TopVSIN1");
+	fv9TopVSIN1.add("KW30_12");
+	fv9TopVSIN1.add("KW30_12");
+	fv9TopVSIN1.add("KW30_12");
+	fv9TopVSIN1.add("KW30_12");
+%>
+
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<%@ include file="/app/pep/include/header.jsp"%>
+			<title><%=title %> </title>
+		
 		<style type="text/css">
 			#subtitle {
 				width: 400px; height: 100px; margin: 0 auto; float: left; 
@@ -37,10 +82,10 @@
 				font-size:24px;
 			}
 			#legend {
-				width: 400px; height: 100px; margin-top:30px;float: left; padding-left: 150px;
+				width: 400px; height: 100px; margin: 0 auto; float: left; padding-left: 150px;
 			}
 			#left {
-				width: 500px; height: 400px; margin: 0 auto; float: left;
+				width: 400px; height: 500px; margin: 0 auto; float: left;
 			}
 			#left chart{
 				width: 400px; height: 400px; margin: 0 auto; float: left;
@@ -49,15 +94,8 @@
 				width: 400px; height: 100px; margin: 0 auto; float: left;
 			}
 			#right {
-				width: 400px; height: 400px; margin: 0 auto; float: right; padding: 10px;margin-right:20px;
+				width: 400px; height: 500px; margin: 0 auto; float: left; padding: 10px;
 			}
-			.div {width: 400px;
-			}
-			.div div {height: 50px;border-bottom-width: 2px;border-bottom-style: solid;border-bottom-color: #000000;
-				}
-			.div table td {border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: #000000;
-					width: 125px;font-family: "宋体";font-size: 12px;line-height: 50px;color: #000000;text-indent: 35px
-				}
 		</style>
 		<script type="text/javascript">
 			var chart;
@@ -178,10 +216,10 @@
 	<body>
 		<div id="container">
 			<div id="nr">
-				<div id="top"><h1>4.2 Hausteile ZP5</h1></div>
+				<div id="top"><h1><%=title %></h1></div>
 				<div id="content">
 					<div id="subtitle">
-						<h1>Teilestatus zu VFF ZP5 HT</h1>
+						<h1>Teilestatus zu <%=jieduan %> ZP5 HT</h1>
 					</div>
 					<div id="legend">
 						<li><img src="/ph/app/pep/images/legend_white.png" width="13" height="13">
@@ -202,62 +240,29 @@
 						</div>
 					</div>
 					<div id="right">
-						 <div class="div">
-								<div>
-								  <table width="400" cellspacing="0">
-								    <tr>
-								      <td>1</td>
-								      <td>1</td>
-								      <td>1</td>
-								      <td>1</td>
-								    </tr>
-								  </table>
-								</div>
-								<table width="400" cellspacing="0">
-								  <tr>
-								    <td>1</td>
-								    <td>1</td>
-								    <td>1</td>
-								    <td>1</td>
-								  </tr>
-								  <tr>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								  </tr>
-								  <tr>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								  </tr>
-								  <tr>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								  </tr>
-								  <tr>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								  </tr>
-								  <tr>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								  </tr>
-								  <tr>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								    <td>&nbsp;</td>
-								  </tr>
-								</table>
-							</div>
+						<table width="100%">
+							<tr>
+								<td colspan="4" style="text-align: left;font-weight: bolder; height: 36px;border-bottom: 1px solid;">Top</td>
+							</tr>
+							<tr>
+								<td width="34%" style="font-weight: bolder;height: 36px;border-bottom: 2px solid;">Kritische Umfänge</td>
+								<td width="22%" style="font-weight: bolder;text-align: center;border-bottom: 2px solid;">Einzelteile</td>
+								<td width="22%" style="font-weight: bolder;text-align: center;border-bottom: 2px solid;">VSI SWZ</td>
+								<td width="22%" style="font-weight: bolder;text-align: center;border-bottom: 2px solid;">VSI N3</td>
+							</tr>
+							<%
+								for(int i=0; i<fv9TopKrisUmf.size(); i++) {
+							%>		
+							<tr>
+								<td style="height: 36px;border-bottom: 1px solid;"><%=fv9TopKrisUmf.get(i)%></td>
+								<td style="text-align: center;border-bottom: 1px solid;"><%=fv9TopEinNum.get(i)%></td>
+								<td style="text-align: center;border-bottom: 1px solid;"><%=fv9TopVSIN1.get(i)%></td>
+								<td style="text-align: center;border-bottom: 1px solid;"><%=fv9TopVSIN3.get(i)%></td>
+							</tr>
+							<%
+							}
+							%>
+						</table>
 					</div>
 				</div>
 				

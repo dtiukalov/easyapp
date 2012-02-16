@@ -31,7 +31,7 @@
 		<div class="login_text">
 			<form id="loginForm" name="form1" method="post"
 			action="<%=request.getContextPath()%>/app/tc/login.do">
-			用户名： <input name="name" type="text" value="lijialun"/> <br /> <br />
+			用户名： <input name="name" type="text" value=""/> <br /> <br />
 			密&nbsp;&nbsp;码： <input name="password" type="password" value="" /><br /> <br /> 
 			<input name="Submit" type="button" class="login_ok" onclick="login()" value="登录" />
 			</form>	

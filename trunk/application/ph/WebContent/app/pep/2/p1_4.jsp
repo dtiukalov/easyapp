@@ -6,12 +6,14 @@
 <%@page import="java.util.HashMap"%>	
 <%@page import="json.JSONArray"%>
 <%@page import="com.saturn.web.Web"%>
+<!DOCTYPE HTML>
+<%@ include file="/app/pep/include/header.jsp"%>
 <%
-
+	title = "2.1 B-Freigaben";
 	Map form = (Map)request.getAttribute("form");	
-	
+
 	//专业组
-	List fv9BF_Major = new ArrayList(); // form.get("fv9BF_Major");
+	List fv9BF_Major = new ArrayList(); // (List<String>)form.get("fv9BF_Major");
 	fv9BF_Major.add("AGGREGATE");
 	fv9BF_Major.add("FAHRWEAK");
 	fv9BF_Major.add("KAROSSERIE");
@@ -79,13 +81,10 @@
 	System.out.println("BF_OffenNum = " + BF_OffenNum);
 	
 %>
-<!DOCTYPE HTML>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<%@ include file="/app/pep/include/header.jsp"%>
-		
-
+		<title><%=title %></title>
 		<script type="text/javascript">
 		
 		var chart;
@@ -188,7 +187,7 @@
 	<body>
 		<div id="container">
 			<div id="nr">
-			<div id="top"><h1>2.1 B-Freigaben</h1></div>
+			<div id="top"><h1><%=title %></h1></div>
 			<div id="content">
 				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto"></div>
 			</div>

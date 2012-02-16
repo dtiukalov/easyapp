@@ -6,12 +6,14 @@
 <%@page import="java.util.HashMap"%>	
 <%@page import="json.JSONArray"%>
 <%@page import="com.saturn.web.Web"%>
+<!DOCTYPE HTML>
+<%@ include file="/app/pep/include/header.jsp"%>
 <%
-
+	title = "2.1 P-Freigaben";
 	Map form = (Map)request.getAttribute("form");	
-
+	
 	//专业组
-	List fv9PFMajor = new ArrayList(); // form.get("fv9PFMajor");
+	List<String> fv9PFMajor = new ArrayList<String>(); // (List<String>) form.get("fv9PFMajor");
 	fv9PFMajor.add("AGGREGATE");
 	fv9PFMajor.add("FAHRWEAK");
 	fv9PFMajor.add("KAROSSERIE");
@@ -23,7 +25,7 @@
 	System.out.println("PFMajor = " + PFMajor);
 	
 	//Gesamt
-	List fv9PFGesamtNum = new ArrayList(); //(List)form.get("fv9PFGesamtNum");
+	List fv9PFGesamtNum = new ArrayList(); //(List) form.get("fv9PFGesamtNum");
 	fv9PFGesamtNum.add(247);
 	fv9PFGesamtNum.add(153);
 	fv9PFGesamtNum.add(134);
@@ -38,7 +40,7 @@
 	String PFGesamtNum = Web.getNumberListStr(fv9PFGesamtNum);
 	
 	//Soll
-	List fv9PFSollNum = new ArrayList(); //(List)form.get("fv9PFSollNum");
+	List fv9PFSollNum = new ArrayList(); //(List) form.get("fv9PFSollNum");
 	fv9PFSollNum.add(247);
 	fv9PFSollNum.add(153);
 	fv9PFSollNum.add(134);
@@ -53,7 +55,7 @@
 	String PFSollNum = Web.getNumberListStr(fv9PFSollNum);
 
 	//Ist
-	List fv9PFlstNum = new ArrayList(); //(List)form.get("fv9PFlstNum");
+	List fv9PFlstNum = new ArrayList(); //(List) form.get("fv9PFlstNum");
 	fv9PFlstNum.add(85);
 	fv9PFlstNum.add(121);
 	fv9PFlstNum.add(122);
@@ -75,13 +77,10 @@
 	String PFoffenNum = Web.getStrListStr(fv9PFoffenNum);
 	
 %>
-<!DOCTYPE HTML>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<%@ include file="/app/pep/include/header.jsp"%>
-		
-
+		<title><%=title %></title>
 		<script type="text/javascript">
 		
 		var chart;
@@ -185,7 +184,7 @@
 	<body>
 		<div id="container">
 			<div id="nr">
-			<div id="top"><h1>2.1 P-Freigaben</h1></div>
+			<div id="top"><h1><%=title %></h1></div>
 			<div id="content">
 				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto"></div>
 			</div>

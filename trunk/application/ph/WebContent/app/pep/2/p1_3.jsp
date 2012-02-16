@@ -4,27 +4,51 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.HashMap"%>	
-<%@page import="json.JSONArray"%>
+<%@page import="com.saturn.web.Web"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ include file="/app/pep/include/header.jsp"%>
 <%
 
+	//Map form = (Map)request.getAttribute("form");	
+	//String status = "08.12.2011";
+	//String categories1 = "['Gesamt 120', 'CKD3', 'SKD1', 'LC116']";//Web.getNumberListStr(form.get("fv9AA"));
+	title = "2.1 P-Freigaben";
 	Map form = (Map)request.getAttribute("form");	
 
 	String status = "08.12.2011";
-	String categories1 = "['Gesamt 120', 'CKD3', 'SKD1', 'LC116']";//Web.getNumberListStr(form.get("fv9AA"));
-	String categories2 = "['13', '15', '17', '19', '21', '23', '25', '27', '29', '30', '31', '33', '34', '35', '36', '37', '38', '39', '40']";//Web.getNumberListStr(form.get("fv9BB"));
-	String BMGfreiSoll = "[1,2,5,6,9,27,30,31,34,72,107,107,107,107,107,111,111,116,116]";//Web.getNumberListStr(form.get("fv9AA"));
-	String inarbeit = "[115, 113, 111, 110, 107,89,86,85,82,44,9,0,0,0, 0, 0, 0, 0,  0]";//Web.getNumberListStr(form.get("fv9AA"));
-	String awe = "[0,0,0,0,0,0,0,0,0,0,0,9,9,9,9,5,5,0,0]";//Web.getNumberListStr(form.get("fv9BB"));
 	
+	List<String> fv9PFreigType = new ArrayList<String>();//(List<String>)form.get("fv9PFreigType");
+		fv9PFreigType.add("CKD3");
+		fv9PFreigType.add("SKD1");
+		fv9PFreigType.add("LC116");
+	List<Integer> fv9PFreigTypeNum = new ArrayList<Integer>();//(List<Integer>)form.get("fv9PFreigTypeNum");
+		fv9PFreigTypeNum.add(2);
+		fv9PFreigTypeNum.add(2);
+		fv9PFreigTypeNum.add(116);
+	List<String> cate1 = new ArrayList<String>();
+	cate1.add("Gesamt 120");
+	int gesamt = 0;
+	for(int i=0; i<fv9PFreigTypeNum.size(); i++){
+		gesamt = gesamt + fv9PFreigTypeNum.get(i);
+		cate1.add(fv9PFreigType.get(i));
+	}
+
+	String categories1 = Web.getStrListStr(cate1);
+	String categories2 = "['13', '15', '17', '19', '21', '23', '25', '27', '29', '30', '31', '33', '34', '35', '36', '37', '38', '39', '40']";
+	//Web.getStrListStr(form.get("fv9PFKWNo"));
+	String BMGfreiSoll = "[1,2,5,6,9,27,30,31,34,72,107,107,107,107,107,111,111,116,116]";
+	//Web.getStrListStr(form.get("fv9PFreiSoll"));
+	String inarbeit = "[115, 113, 111, 110, 107,89,86,85,82,44,9,0,0,0, 0, 0, 0, 0,  0]";
+	//Web.getStrListStr(form.get("fv9PFInArbeirt"));
+	String awe = "[0,0,0,0,0,0,0,0,0,0,0,9,9,9,9,5,5,0,0]";
+	//Web.getStrListStr(form.get("fv9PFAWE"));	
 %>	
 	
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
-		<%@ include file="/app/pep/include/header.jsp"%>
 		
-		<title>Insert title here</title>
+		<title><%=title %></title>
 
 		<script type="text/javascript">
 		var chart1;
@@ -103,19 +127,24 @@
 							y: 120, 
 							low:0,
 							color: '#0200FE'
-						}, {
-						 	y: 2, 
-						 	low:118,
-							color: '#0200FE'
-						}, {
-							y: 2,
-							low:116,
-							color: '#0200FE'
-						}, {
-							y: 116,
-							low:0,
-							color: '#FF00FE'
-						}]
+						}
+					
+					<%	
+					int temp = 0;
+					String color = "\"#0200FE\"";
+					for(int j=0; j<fv9PFreigTypeNum.size(); j++){
+						temp = temp + fv9PFreigTypeNum.get(j);
+						if(j == fv9PFreigTypeNum.size() - 1){
+							color = "\"#FF00FE\"";
+						}
+					%>
+					,{
+					 	y: <%=fv9PFreigTypeNum.get(j)%>, 
+					 	low:<%=gesamt - temp%>,
+					 	color: <%=color%>
+					}
+					<%}%>
+					]
 				}]
 			});
 			
@@ -214,7 +243,7 @@
 <body>		
 		<div id="container">
 			<div id="nr">
-			<div id="top"><h1>2.1 P-Freigaben</h1></div>
+			<div id="top"><h1><%=title %></h1></div>
 			<div id="top1"><h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LC BMG-Teile von ES Teileliste (KW48/11)</h4></div>
 			<div id="top2" align="right"><h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STATUS: <%=status %></h4></div>
 			<div id="content" style="margin-left:50px">

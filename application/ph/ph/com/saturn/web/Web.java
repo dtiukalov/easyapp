@@ -8,7 +8,7 @@ import sun.net.www.content.text.plain;
 
 public class Web {
 	public static void main(String[] args) {
-		
+	
 	}
 	
 	public static String compareByKW(List<String> list) {
@@ -137,4 +137,22 @@ public class Web {
 		
 		return list + "";
 	}
+	
+	public static int[] getIntArrByStringlist(List<String> list) {
+		int[] result = null;
+		
+		if (list == null) {
+			return null;
+		}
+		
+		if (list instanceof List) {
+			result = new int[list.size()];
+			for (int i=0; i< result.length; i++) {
+				result[i] = Integer.parseInt(((List<String>) list).get(i));
+			}
+		}
+		
+		return result;
+	}
+
 }

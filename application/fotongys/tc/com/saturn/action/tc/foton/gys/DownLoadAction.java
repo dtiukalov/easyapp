@@ -80,7 +80,7 @@ public class DownLoadAction implements IAction {
 			}
 		}
 		Mail vo = Mail.getByUid(request, session, mailuid);
-		if (attachments.size() > 1) {
+	//	if (attachments.size() > 1) {
 			this.tempPath = request.getRealPath("/") + ATTACHMENT_ROOT + File.separator + userUid
 					+ File.separator;
 			String zipName = "";
@@ -105,9 +105,9 @@ public class DownLoadAction implements IAction {
 					+ ".zip");
 			request.setAttribute("zipdone", zipdone);
 			return new JspView("/app/tc/downsuccess.jsp");
-		} else if (attachments.size() == 1) {
+	//	} else if (attachments.size() == 1) {
 			// 处理单个数据集的下载
-			updateMail(request, session, mailuid, attachments);
+	//		updateMail(request, session, mailuid, attachments);
 			/*
 			 * String filePath = (String) request.getParameter("filename");
 			 * String path = ""; String datasetPath = attachments.get(0); path =
@@ -115,8 +115,10 @@ public class DownLoadAction implements IAction {
 			 * request.getSession().getServletContext() .getRealPath("/") +
 			 * File.separator + filePath; } path = path.replace("/", "\\");
 			 */
-			request.setAttribute("zipPath", attachments.get(0));
-			return new JspView("/app/tc/downsuccess.jsp");
+			//String attachPath = attachments.get(0).substring(attachments.get(0).indexOf("tcattachments"));
+	//		request.setAttribute("zipPath", attachments.get(0));
+			
+	//		return new JspView("/app/tc/downsuccess.jsp");
 			// response.setContentType("application/zip");
 			// 设置内容作为附件下载，并且名字为：export.zip
 			// OutputStream out = null;
@@ -143,10 +145,10 @@ public class DownLoadAction implements IAction {
 			// ---------------------------------1---------------------------------------------
 			// return null;
 			// return new JspView("/app/tc/show.jsp");
-		} else {
-			return null;
+	//	} else {
+	//		return null;
 			// return new JspView("/app/tc/main.jsp");
-		}
+	//	}
 
 	}
 
@@ -169,6 +171,7 @@ public class DownLoadAction implements IAction {
 			List<String> datasetNames = attachments;
 			if (datasetNames != null && datasetNames.size() > 0) {
 				for (String datasetName : datasetNames) {
+					datasetName = datasetName.substring(datasetName.lastIndexOf(File.separator) + 1);
 					content += "《" + datasetName + "》   ";
 				}
 

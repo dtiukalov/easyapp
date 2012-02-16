@@ -25,7 +25,6 @@ public class ListAction implements IAction {
 		String datetime = request.getParameter("datetime");
 		
 		String userId = (String)request.getSession().getAttribute("TC_uid");
-		
 		List<Mail> mails = Mail.getAll(request,session, userId, fromUser, title, hasDownload, datetime);
 
 		return new JsonView(JSONUtils.getDataGridJSON(mails.size(),

@@ -24,12 +24,11 @@ public class TCLoginAction implements IAction {
 		String password = (String) request.getParameter("password");
 		String host = WorkspaceUtils.HOST;
 		TCSession tcsession = new TCSession(host);
-
+		
 		User user = null;
 
 		try {
 			user = tcsession.login(name, password);
-
 			request.getSession().setAttribute("TC_USER", user);
 			request.getSession().setAttribute("authUser", user);
 			request.getSession().setAttribute("TC_uid", user.getUid());

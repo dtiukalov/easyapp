@@ -30,7 +30,7 @@
 		<div id="nr">
 		<div id="top"><h1><%=title %></h1></div>	
 		<div id="content">
-			<div id="datatable" style="width: 800px; height: 350px; margin: 0 auto;margin-top: 30px;">
+			<div id="datatable" style="width: 800px; height: 350px; margin: 80px 150px;">
 				<table width="80%" cellspacing="2" rules="rows" >
 					<tr style="border-bottom:2px solid #333333;">
 						<td></td>

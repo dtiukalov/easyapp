@@ -204,7 +204,7 @@
 							enabled: true,
 							style : {
 								fontWeight: 'bold',
-								fontSize:'10px'
+								fontSize:'12px'
 							},
 							color: 'black'
 						}
@@ -232,12 +232,11 @@
 		<div id="container">
 			<div id="nr">
 			<div id="top"><h1><%=title %></h1></div>
-			<div id="top1"><h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LC BMG-Teile von ES Teileliste (KW48/11)</h4></div>
+			<div id="top1" style="margin-top:20px"><h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LC BMG-Teile von ES Teileliste (KW48/11)</h2></div>
 			<div id="top2" align="right"><h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STATUS: <%=status %></h4></div>
-			<div id="content" style="margin-left:50px">
-				<div style="width: 50px; height: 400px; margin: 0 auto; float: left;"></div>
-				<div id="chart1" style="width: 150px; height: 285px; float: left;margin-top:23px"></div>
-				<div id="chart2" style="width: 600px; height: 320px; float: left;"></div>
+			<div id="content" style="margin:50px 120px;height:450px;">
+				<div id="chart1" style="width: 200px; height: 285px; float: left;margin-top:23px"></div>
+				<div id="chart2" style="width: 500px; height: 320px; float: left;"></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

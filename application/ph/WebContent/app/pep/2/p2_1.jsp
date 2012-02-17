@@ -23,7 +23,7 @@
 		<div id="container">
 			<div id="nr">
 			<div id="top"><h1><%=title %></h1></div>
-			<div id="contentt">
+			<div id="content" style="height:600px">
 				<table width="96%" border="0" cellspacing="5" cellpadding="0" class="ed">
 			        <tr>
 			        	<td width="19%">&nbsp;</td>

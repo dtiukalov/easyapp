@@ -5,9 +5,13 @@
 <%@page import="java.util.Map"%>
 <%@page import="java.util.HashMap"%>	
 <%@page import="json.JSONArray"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<%@ include file="/app/pep/include/header.jsp"%>
 <%
 	Map form = (Map)request.getAttribute("form");	
-
+	title = "5.1 Status Karosseriebau";
 	List<String> fv9KarosserStyle = new ArrayList<String>();//(List<String>)form.get("fv9KarosserStyle");
 	List<String> fv9KarosserStatus = new ArrayList<String>();//(List<String>)form.get("fv9KarosserStatus");
 	List<String> fv9KarossStatusCom = new ArrayList<String>();//(List<String>)form.get("fv9KarossStatusCom");
@@ -38,16 +42,13 @@
 	fv9KarossStatusMab.add("1.采用滚边压合的方法生产阶段装车所需的前后盖总成；Fertigung Zsb FK/HK fuer VFF mit Methoden Roboter-Rollfalzen2.压缩供应商运输周期,确保压合设备KW07/12到达现场； Verkuerzen der Transportzeit von Lieferant, um die Falzanlagen in KW07/12 in vor Ort sicherzustellen ");
 	
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<%@ include file="/app/pep/include/header.jsp"%>
+<title><%=title %></title>
 </head>
 
 <body>
 <div id="container">
 	<div id="nr">
-	<div id="top"><h1>5.1 Status Karosseriebau</h1></div>
+	<div id="top"><h1><%=title %></h1></div>
     <div id="content">
     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 		  <tr>

@@ -2,7 +2,7 @@ package com.saturn.ph.form.p3;
 
 import com.saturn.ph.Form;
 
-public class FV9_35AuditZP8MontageForm extends Form {
+public class FV9_35AuditZP8MontForm extends Form {
 	
 	private static final String[] attr = {
 		"fv9KWNo", "fv9PresswerkNum", "fv9KonzernNum", "fv9PrognoseNum",
@@ -20,7 +20,7 @@ public class FV9_35AuditZP8MontageForm extends Form {
 
 	@Override
 	public String getType() {
-		return "FV9_35AuditZP8Montage";
+		return "FV9_35AuditZP8Mont";
 	}
 
 	@Override

@@ -29,7 +29,7 @@
 %>
 <div id="footer">
 	<div class="foot">
-		<div class="lanst">&nbsp;<a href="<%=request.getContextPath() %>/app/pep/catalogue.jsp">目录</a></div>
+		<div class="lanst">&nbsp;</div>
 		<div class="lanstk">Produkt Management</div>
 		<div class="clear"></div>
     </div>

@@ -12,35 +12,46 @@
 	Map form = (Map)request.getAttribute("form");
 	String fv9ProjectStatus = "";
 
-	String fv9ProductstandStatus = "绿";
+	String fv9ProductstandStatus = (String) form.get("fv9ProductstandStatus");//"绿";  
+	out.println("111" + fv9ProductstandStatus);
 	String fv9ProdStatusCom = "- DMU von 1.6L MQ200、AQ250 in KW46/11 abgenommen- DMU von 1.4T MQ250、DQ200 in KW49/11 abgenommen- Versuch Gsmt-fzg. planmäßig im Ablauf, aktuell keine Funktionsfehler ";
+	// (String) form.get("fv9ProdStatusCom");
 	//假数据
-	String fv9FunktionStatus = "绿";
+	String fv9FunktionStatus = "绿";// (String) form.get("fv9FunktionStatus");
 	String fv9FunktionCom = "- HT-Wzg können die VFF-Produktion erfüllen- Umbau der Anlagen von Karosseriebau und Montage ist zum Frühlingsfest geplant, sie können die Produktion von VFF II erfüllen- Die Lackierung sind mehrere Standorte betroffen, Einarbeitungsplan ist in Erstellung";
+	// (String) form.get("fv9FunktionCom");
 	//假数据
-	String fv9ProduktionStatus = "黄";
+	String fv9ProduktionStatus = "黄";// (String) form.get("fv9ProduktionStatus");
 	String fv9ProduktionCom = "- HT-Wzg können die VFF-Produktion erfüllen- Umbau der Anlagen von Karosseriebau und Montage ist zum Frühlingsfest geplant, sie können die Produktion von VFF II erfüllen- Die Lackierung sind mehrere Standorte betroffen, Einarbeitungsplan ist in Erstellung";
+	// (String) form.get("fv9ProduktionCom");
 	//假数据
-	String fv9BeschaffStatus = "红";
+	String fv9BeschaffStatus = "红";// (String) form.get("fv9BeschaffStatus");
 	String fv9BeschaffCom = "- Alle Teile zu VFF verfügbar - I-Tafel, Miko, TVKL, Sitze sind terminkritisch";
+	// (String) form.get("fv9BeschaffCom");
 	//假数据
-	String fv9QualitStatus = "红";
+	String fv9QualitStatus = "红";// (String) form.get("fv9QualitStatus");
 	String fv9QualitCom = "- B-Frei-Termin Interieur drei Wochen verspätet als Plan- I-Tafel, MiKo, TVK und Sitze sind zum 0S keine Note 3.";
+	// (String) form.get("fv9QualitCom");
 	//假数据
-	String fv9VertriebStatus = "绿";
+	String fv9VertriebStatus = "绿";// (String) form.get("fv9VertriebStatus");
 	String fv9VertriebCom = "- Volumen, Preis, MIX sind auf Basis PR60.1- Markt Clinic ist in KW07/12 geplant";
+	// (String) form.get("fv9VertriebCom");
 	//假数据
-	String fv9FinanzenStatus = "黄";
+	String fv9FinanzenStatus = "黄";// (String) form.get("fv9FinanzenStatus");
 	String fv9FinanzenCom = "- Das KPE Ø-Palette zu SOP+1 betraegt 12.3%.- Die Kapitalrendite liegt bei 63.8% (JV-Ebene).";
+	// (String) form.get("fv9FinanzenCom");
 	//假数据
-	String fv9GewichtStatus = "绿";
+	String fv9GewichtStatus = "绿";// (String) form.get("fv9GewichtStatus");
 	String fv9GewichtCom = "- Leergewicht und CO2- Emissionen liegen im Soll";
+	// (String) form.get("fv9GewichtCom");
 	//假数据
-	String fv9DokuStatus = "黄";
+	String fv9DokuStatus = "黄";// (String) form.get("fv9DokuStatus");
 	String fv9DokuCom = "Die B-Freigaben sind in KW 41/2011 abgeschlossen, für 307-Bauteile sind die Zeichnungen in Pflege- BMG/OTS Plan wurde erstellt, davon 9 Bauteile vor 0S nicht BMG-frei möglich";
+	// (String) form.get("fv9DokuCom");
 	//假数据
-	String fv9TermineStatus = "黄";
+	String fv9TermineStatus = "黄";// (String) form.get("fv9TermineStatus");
 	String fv9TermineCom = "- VFF KW05/12;PVS KW13/12;SOP: KW38/12.";
+	// (String) form.get("fv9TermineCom");
 	//假数据
 %>
 

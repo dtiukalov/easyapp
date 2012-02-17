@@ -54,7 +54,7 @@
     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 		  <tr>
 		    <td width="239" class="pg">&nbsp;</td>
-		    <td width="311" cla="pg"><h2>Status</h2></td>
+		    <td width="311" class="pg"><h2>Status</h2></td>
 		    <td width="433" class="pg"><h2>Maßnahmen</h2></td>
 		  </tr>
 		  

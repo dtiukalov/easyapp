@@ -3,9 +3,14 @@
 <%@page import="java.util.Map"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="com.saturn.web.Web"%>	
+<%@ include file="/app/pep/include/header.jsp"%>
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <%
 	Map form = (Map)request.getAttribute("form");
-	
+	title = "3.5 Nacharbeit Abbaustatus";
 	String fv9KWNo = "['4', '5', '6', '7', '8', '9', '10', '11', '12', '13',  '14']" ; //	周数
 	//Web.getNumberListStr(form.get("fv9KWNo"));
 	String fv9MontageNum = "[1730, 1830, 1390, 1110, 1230]" ; //		总装
@@ -24,12 +29,8 @@
 	//Web.getNumberListStr(form.get("fv9Prognose"));
 	
 %>
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>3.5 Nacharbeit Abbaustatus</title>
-		<%@ include file="/app/pep/include/header.jsp"%>
+		<title><%=title %></title>
+		
 		<script type="text/javascript">
 		var chart;
 			$(document).ready(function() {
@@ -185,7 +186,7 @@
 	<body>
 		<div id="container">
 			<div id="nr">
-			<div id="top"><h1>3.5 Nacharbeit Abbaustatus</h1></div>
+			<div id="top"><h1><%=title %></h1></div>
 			<div id="content">
 				<div id="chart" style="width: 950px; height: 400px; margin: 0 auto"></div>
 			</div>

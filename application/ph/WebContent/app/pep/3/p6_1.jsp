@@ -7,12 +7,13 @@
 <%@page import="json.JSONArray"%>
 <%@page import="com.saturn.web.Web"%>
 <!DOCTYPE HTML>
+<%@ include file="/app/pep/include/header.jsp"%>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<%@ include file="/app/pep/include/header.jsp"%>
-		<%
 		
+		<%
+		title = "3.6 Vorschau 2-Tagesproduktion";
 		Map form = (Map)request.getAttribute("form");	
 
 		List KWNo = new ArrayList(); //(List)form.get("fv9KWNo"); //周数
@@ -30,7 +31,7 @@
 		KWNo.add(30);KWNo.add(31);KWNo.add(32);KWNo.add(33);KWNo.add(34);
 		KWNo.add(35);KWNo.add(36);KWNo.add(37);KWNo.add(38);KWNo.add(39);
 		
-		InPlanung.add(0);InPlanung.add(0);InPlanung.add(0);InPlanung.add(49);InPlanung.add(null);
+		InPlanung.add("0");InPlanung.add("0");InPlanung.add("0");InPlanung.add("49");InPlanung.add(null);
 		InPlanung.add(null);InPlanung.add(null);InPlanung.add(null);InPlanung.add(null);InPlanung.add(null);
 		InPlanung.add(null);InPlanung.add(null);InPlanung.add(null);InPlanung.add(null);InPlanung.add(null);
 		InPlanung.add(null);InPlanung.add(null);InPlanung.add(null);InPlanung.add(null);InPlanung.add(null);
@@ -270,12 +271,13 @@
 				});
 			});
 		</script>
+		<title><%=title %></title>
 	</head>
 
 	<body>
 		<div id="container">
 			<div id="nr">
-			<div id="top"><h1>3.6 Vorschau 2-Tagesproduktion</h1></div>
+			<div id="top"><h1><%=title %></h1></div>
 			<div id="content">
 				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto"></div>
 				<div style="width: 800px; margin: 0 auto;text-align: center; margin-top: 20px;">

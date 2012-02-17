@@ -115,7 +115,7 @@
 			<div id="nr">
 			<div id="top"><h1>3.5 Audit ZP8 – Gewerk: Presswerk</h1></div>
 			<div id="content">
-				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto"></div>
+				<div id="chart" style="width: 800px; height: 400px; margin: 30px auto"></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

@@ -189,11 +189,11 @@
 		</script>
 	</head>
 	<body>
-		<div id="container">
+		<div id="container" style="height:600px">
 			<div id="nr">
 				<div id="top"><h1>3.5 Maßnahmen zur Abarbeitung der B-Fehler Audit ZP8</h1></div>	
-				<div id="content">
-					<div id="chart" style="width: 400px; height: 400px; margin: 0 auto; float: left;"></div>
+				<div id="content" >
+					<div id="chart" style="width: 400px; height: 400px; margin: 50px auto; float: left;"></div>
 					<div id="table" style="width: 400px; height: 400px; margin: 0 auto; float: left;">&nbsp;
 					<div class="div">
 								<div>

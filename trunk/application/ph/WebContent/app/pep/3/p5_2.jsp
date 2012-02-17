@@ -773,7 +773,7 @@
 		<div id="container">
 			<div id="nr">
 			<div id="top"><h1>3.5 Fehlerpunkte in den Gewerken</h1></div>
-			<div id="content">
+			<div id="content" style="height:622px">
 				<div class="left">
 					<div class="title" style="border: solid black 1px;background-color: #003C65">Presswerk</div>
 				</div>

@@ -39,9 +39,9 @@ public class LoadAction implements IAction {
 		List<String> indexes = PHManager.getIndexes(roadmap, formIds);
 		
 		request.getSession().setAttribute("indexes", indexes);
-		//request.setAttribute("current", "1");
-		//return new JspView(indexes.get(0));
-		return new JspView("/app/pep/catalogue.jsp");
+		request.setAttribute("current", "1");
+		return new JspView(indexes.get(0));
+		//return new JspView("/app/pep/catalogue.jsp");
 	}
 	
 }

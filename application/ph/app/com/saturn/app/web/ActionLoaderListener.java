@@ -44,7 +44,7 @@ public class ActionLoaderListener implements ServletContextListener {
 		while (!dirs.isEmpty()) {
 			File dir = dirs.removeFirst();
 			addSubDirs(dir, dirs);
-			print(actionClass, dir);
+			print(actionClass, dir, actionRootPath);
 		}
 		
 		return actionClass;
@@ -60,21 +60,33 @@ public class ActionLoaderListener implements ServletContextListener {
 		}
 	}
 
-	private void print(List<String> actionClass, File dir) {
+	private void print(List<String> actionClass, File dir, String actionRootPath) {
 		File[] file = FileUtils.getSubFile(dir, ".class");
 
 		if (file != null) {
 			for (int i = 0; i < file.length; i++) {
-				actionClass.add(getClassFullName(file[i].getAbsolutePath()));
+				actionClass.add(getClassFullName(file[i].getAbsolutePath(), actionRootPath));
 			}
 		}
 	}
 
-	public String getClassFullName(String filePath) {
+	public String getClassFullName(String filePath, String actionRootPath) {
 		String classPath = new File(ActionLoaderListener.class.getResource("/")
 				.getFile()).getAbsolutePath();
 		
-		String className = filePath.replace(classPath, "");
+		String className = null;
+		if (filePath.startsWith(classPath)) {
+			className = filePath.replace(classPath, "");
+		} else {
+			actionRootPath = actionRootPath.replace("/", File.separator);
+			if (!filePath.startsWith(actionRootPath)) {
+				int index = filePath.indexOf(actionRootPath);
+				if (index != -1) {
+					className = filePath.substring(index);
+				}
+			}
+		}
+		
 		className = className.replace(File.separatorChar + "", ".");
 		className = className.replace(".class", "");
 		return className.substring(1);

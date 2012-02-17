@@ -3,8 +3,9 @@
 <%@page import="java.util.Map"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="com.saturn.web.Web"%>	
-<%@ include file="/app/pep/include/header.jsp"%>
+
 <!DOCTYPE HTML>
+<%@ include file="/app/pep/include/header.jsp"%>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -188,7 +189,7 @@
 			<div id="nr">
 			<div id="top"><h1><%=title %></h1></div>
 			<div id="content">
-				<div id="chart" style="width: 950px; height: 400px; margin: 50px auto"></div>
+				<div id="chart" style="width: 950px; height: 400px; margin: 0 auto"></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

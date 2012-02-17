@@ -29,48 +29,51 @@
 	<div id="container">
 		<div id="nr">
 		<div id="top"><h1><%=title %></h1></div>	
-		<div id="datatable" style="width: 800px; height: 350px; margin: 0 auto;margin-top: 30px;">
-			<table width="80%" cellspacing="2" rules="rows" >
-				<tr style="border-bottom:2px solid #333333;">
-					<td></td>
-					<td>Kennzahlen</td>
-					<td>Bemerkung</td>	
-				</tr>
-				<%
-				for(int i=0; i<fv9FreigabeStyle.size(); i++) {
-					String imagePath = "../images/";	
-					if ("红".equals(fv9FreigabeStatus.get(i))) {
-						imagePath += "light_red.jpg";
-					}
-					if ("黄".equals(fv9FreigabeStatus.get(i))) {
-						imagePath += "light_yellow.jpg";
-					}
-					if ("绿".equals(fv9FreigabeStatus.get(i))) {
-						imagePath += "light_green.jpg";
-					}
-				%>
-				<tr border="2" style="border-collapse: collapse" bordercolor="#333333">
-					<td  width="30%" ><%=fv9FreigabeStyle.get(i) %>
-						<img src="<%=imagePath %>" align="right" border=0 width=50 height=56> 
-					</td>
-					<td  width="22%">
-						<table>
-							<tr><td>Anzahl</td><td>&nbsp;=&nbsp;</td><td><%=fv9AnzahlNum.get(i) %></td></tr>
-							<tr><td>Soll</td><td>&nbsp;=&nbsp;</td><td><%=fv9FreigSollNum.get(i) %></td></tr>
-							<tr><td>Ist</td><td>&nbsp;=&nbsp;</td><td><%=fv9FreiglstNum.get(i) %></td></tr>
-							<tr><td>offen</td><td>&nbsp;=&nbsp;</td><td><%=fv9OffenNum.get(i)%></td></tr>
-						</table>
-					</td>
-					<td  width="48%" >
-						<%= fv9FreigCom_GM.get(i)%>
-					</td>
-				</tr>
-				<%		
-					}
-				%>
-				
-			</table>
+		<div id="content">
+			<div id="datatable" style="width: 800px; height: 350px; margin: 0 auto;margin-top: 30px;">
+				<table width="80%" cellspacing="2" rules="rows" >
+					<tr style="border-bottom:2px solid #333333;">
+						<td></td>
+						<td>Kennzahlen</td>
+						<td>Bemerkung</td>	
+					</tr>
+					<%
+					for(int i=0; i<fv9FreigabeStyle.size(); i++) {
+						String imagePath = "../images/";	
+						if ("红".equals(fv9FreigabeStatus.get(i))) {
+							imagePath += "light_red.jpg";
+						}
+						if ("黄".equals(fv9FreigabeStatus.get(i))) {
+							imagePath += "light_yellow.jpg";
+						}
+						if ("绿".equals(fv9FreigabeStatus.get(i))) {
+							imagePath += "light_green.jpg";
+						}
+					%>
+					<tr border="2" style="border-collapse: collapse" bordercolor="#333333">
+						<td  width="30%" ><%=fv9FreigabeStyle.get(i) %>
+							<img src="<%=imagePath %>" align="right" border=0 width=50 height=56> 
+						</td>
+						<td  width="22%">
+							<table>
+								<tr><td>Anzahl</td><td>&nbsp;=&nbsp;</td><td><%=fv9AnzahlNum.get(i) %></td></tr>
+								<tr><td>Soll</td><td>&nbsp;=&nbsp;</td><td><%=fv9FreigSollNum.get(i) %></td></tr>
+								<tr><td>Ist</td><td>&nbsp;=&nbsp;</td><td><%=fv9FreiglstNum.get(i) %></td></tr>
+								<tr><td>offen</td><td>&nbsp;=&nbsp;</td><td><%=fv9OffenNum.get(i)%></td></tr>
+							</table>
+						</td>
+						<td  width="48%" >
+							<%= fv9FreigCom_GM.get(i)%>
+						</td>
+					</tr>
+					<%		
+						}
+					%>
+					
+				</table>
+			</div>
 		</div>
+		
 		<%@ include file="/app/pep/include/foot.jsp"%>
 	</div>	
 </body>

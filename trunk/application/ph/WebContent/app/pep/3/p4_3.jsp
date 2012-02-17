@@ -1,30 +1,82 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="com.saturn.web.Web"%>
+<%@page import="java.util.Arrays"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.HashMap"%>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<%@ include file="/app/pep/include/header.jsp"%>
+		<title><%=title %></title>
 		<%
+		Map form = (Map)request.getAttribute("form");
 		
-		Integer fv9FuncInTolRed = 42;//		公差范围内的数量(红色)
-		Integer fv9FuncInTolYellow = 20;//		公差范围内的数量(黄色)
-		Integer fv9FuncInTolGreen = 352;//		公差范围内的数量(绿色)
+//		小于0.5mm
+		int fv9FuncSmall05 = 0;
+		if (!"".equals((String)form.get("fv9FuncSmall05")) && 
+				(String)form.get("fv9FuncSmall05") != null) {
+			fv9FuncSmall05 = Integer.parseInt((String)form.get("fv9FuncSmall05"));
+		}
+		String fv9FuncSmall05Com = (String)form.get("fv9FuncSmall05Com");//		备注
+//		小于1.0mm
+		int fv9FuncSmall10 = 0;
+		if (!"".equals((String)form.get("fv9FuncSmall10")) &&
+				(String)form.get("fv9FuncSmall10") != null) {
+			fv9FuncSmall10 = Integer.parseInt((String)form.get("fv9FuncSmall10"));
+		}
+		String fv9FuncSmall10Com = (String)form.get("fv9FuncSmall10Com");//		备注
+//		小于1.5mm
+		int fv9FuncSmall15 = 0;
+		if (!"".equals((String)form.get("fv9FuncSmall15")) && 
+				(String)form.get("fv9FuncSmall15") != null) {
+			fv9FuncSmall15 = Integer.parseInt((String)form.get("fv9FuncSmall15"));
+		}
+		String fv9FuncSmall15Com = (String)form.get("fv9FuncSmall15Com");//		备注
+//		小于2.0mm
+		int fv9FuncSmall20 = 0;
+		if (!"".equals((String)form.get("fv9FuncSmall20")) &&
+				(String)form.get("fv9FuncSmall20") != null) {
+			fv9FuncSmall20 = Integer.parseInt((String)form.get("fv9FuncSmall20"));
+		}
+		String fv9FuncSmall20Com = (String)form.get("fv9FuncSmall20Com");//		备注
+//		大于2.0mm
+		int fv9FuncBig20 = 0;
+		if (!"".equals((String)form.get("fv9FuncBig20")) &&
+				(String)form.get("fv9FuncBig20") != null) {
+			fv9FuncBig20 = Integer.parseInt((String)form.get("fv9FuncBig20"));
+		}
+		String fv9FuncBig20Com = (String)form.get("fv9FuncBig20Com");//		备注
 		
-		Integer fv9FuncSmall05 = 23;//	小于0.5mm
-		String fv9FuncSmall05Com = "X: *** <br/> Y: ***";//		备注
-		Integer fv9FuncSmall10 = 13;//		小于1.0mm
-		String fv9FuncSmall10Com = "X: *** <br/> Y: ***";//		备注
-		Integer fv9FuncSmall15 = 1;//		小于1.5mm
-		String fv9FuncSmall15Com = "X: *** <br/> Y: ***";//		备注
-		Integer fv9FuncSmall20 = 2;//		小于2.0mm
-		String fv9FuncSmall20Com = "X: *** <br/> Y: ***Small20";//		备注
-		String fv9FuncBig20Com = "X: *** <br/> Y: ***Big20";//		大于2.0mm公差的备注
+//		公差范围内的数量(红色)
+		Integer fv9FuncInTolRed = 0;
+		fv9FuncInTolRed += fv9FuncSmall05;
+		fv9FuncInTolRed += fv9FuncSmall10;
+		fv9FuncInTolRed += fv9FuncSmall15;
+		fv9FuncInTolRed += fv9FuncSmall20;
+		fv9FuncInTolRed += fv9FuncBig20;
+								;
+//		公差范围内的数量(黄色)
+		Integer fv9FuncInTolYellow = 0;
+		if (!"".equals((String)form.get("fv9FuncInTolYellow"))) {
+			fv9FuncInTolYellow = Integer.parseInt((String)form.get("fv9FuncInTolYellow"));
+		}
+		
+//		公差范围内的数量(绿色)
+		int fv9FuncInTolGreen = 0;
+		if (!"".equals(!"".equals((String)form.get("fv9FuncInTolGreen")))) {
+			fv9FuncInTolGreen = Integer.parseInt((String)form.get("fv9FuncInTolGreen"));
+		}
+		
+		int gesamt = fv9FuncInTolGreen + fv9FuncInTolYellow + fv9FuncInTolRed;
 		
 		int y1 = fv9FuncInTolYellow;
 		int low1 = fv9FuncInTolGreen;
 		
-		int y2 = y1 + fv9FuncSmall05;
+		int y2 = fv9FuncSmall05;
 		int low2 = low1 + y1;
 		
 		int y3 = fv9FuncSmall10;
@@ -36,7 +88,7 @@
 		int y5 = fv9FuncSmall20;
 		int low5 = low4 + y4;
 		
-		int y6 = (fv9FuncInTolRed-fv9FuncSmall05-fv9FuncSmall10-fv9FuncSmall15-fv9FuncSmall20);
+		int y6 = fv9FuncBig20;
 		int low6 = low5 + y5;
 		
 		%>
@@ -50,7 +102,7 @@
 					defaultSeriesType: 'column'
 				},
 				title: {
-					text: 'Gesamt: 414 Funktionsmaße',
+					text: 'Gesamt: <%=gesamt%> Funktionsmaße',
 					style:{
 						color:'black'
 					},
@@ -165,7 +217,7 @@
 	<body>
 		<div id="container">
 			<div id="nr">
-				<div id="top"><h1>3.4 Funktionsmaße außerhalb der Toleranz</h1></div>	
+				<div id="top"><h1><%=title %></h1></div>	
 				<div id="content">
 					<div id="chart" style="width: 800px; height: 400px; margin: 0 auto"></div>
 				</div>

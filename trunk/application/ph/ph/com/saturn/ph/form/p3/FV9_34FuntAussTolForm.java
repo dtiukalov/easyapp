@@ -5,9 +5,12 @@ import com.saturn.ph.Form;
 public class FV9_34FuntAussTolForm extends Form {
 	
 	private static final String[] attr = {
-		"fv9FuncInTolGreen", "fv9FuncSmall05", "fv9FuncSmall05Com", "fv9FuncSmall10",
-		"fv9FuncSmall10Com", "fv9FuncSmall15", "fv9FuncSmall15Com", "fv9FuncSmall20",
-		"fv9FuncSmall20Com","fv9FuncBig20Com"
+		"fv9FuncInTolGreen", "fv9FuncInTolYellow", 
+		"fv9FuncSmall05", "fv9FuncSmall05Com", 
+		"fv9FuncSmall10", "fv9FuncSmall10Com", 
+		"fv9FuncSmall15", "fv9FuncSmall15Com", 
+		"fv9FuncSmall20", "fv9FuncSmall20Com",
+		"fv9FuncBig20", "fv9FuncBig20Com"
 	};
 
 	public String[] getAttributes() {

@@ -42,7 +42,7 @@
 		var chart1;
 		var chart2;
 		$(document).ready(function() {
-				chart1 = new Highcharts.Chart({
+			chart1 = new Highcharts.Chart({
 				chart: {
 					renderTo: 'chart1',
 					defaultSeriesType: 'column',
@@ -137,94 +137,94 @@
 			});
 			
 			chart2 = new Highcharts.Chart({
-					chart: {
-						renderTo: 'chart2',
-						defaultSeriesType: 'column',
-						marginLeft:1
-					},
+				chart: {
+					renderTo: 'chart2',
+					defaultSeriesType: 'column',
+					marginLeft:1
+				},
+				title: {
+					text: ' '
+				},
+				xAxis: {
+					categories: <%=categories2%>,
+					lineColor:'black',
+					lineWidth:1,
+					tickWidth:0,
+					labels:{
+						y:20,
+						style:{
+							color:'black'
+						}
+					}
+					
+				},
+				yAxis: {
+					min: 0,
+					max: 120,
+					gridLineWidth: 0,
 					title: {
 						text: ' '
 					},
-					xAxis: {
-						categories: <%=categories2%>,
-						lineColor:'black',
-						lineWidth:1,
-						tickWidth:0,
-						labels:{
-							y:20,
-							style:{
-								color:'black'
-							}
-						}
-						
+					labels: {
+						enabled:false
 					},
-					yAxis: {
-						min: 0,
-						max: 120,
-						gridLineWidth: 0,
-						title: {
-							text: ' '
-						},
-						labels: {
-							enabled:false
-						},
-						stackLabels: {
-							enabled: false,
-							style: {
+					stackLabels: {
+						enabled: false,
+						style: {
+							fontWeight: 'bold',
+							color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+						}
+					}
+				},
+				legend: {
+					layout: 'vertical',
+					verticalAlign: 'top',
+					align:'right',
+					x:0,
+					y:0,
+					shadow: false,
+					borderColor:'black',
+					reversed: true
+				},
+				tooltip: {
+					formatter: function() {
+						return '<b>'+ this.x +'</b><br/>'+
+							 this.series.name +': '+ this.y +'<br/>'+
+							 'Total: '+ this.point.stackTotal;
+					}
+				},
+				plotOptions: {
+					column: {
+						stacking: 'normal',
+						pointPadding: 0.001,
+						groupPadding: 0.01,
+						borderColor: 'black',
+						shadow:false,
+						dataLabels: {
+							enabled: true,
+							style : {
 								fontWeight: 'bold',
-								color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
-							}
+								fontSize:'10px'
+							},
+							color: 'black'
 						}
-					},
-					legend: {
-						layout: 'vertical',
-						verticalAlign: 'top',
-						align:'right',
-						x:0,
-						y:0,
-						shadow: false,
-						borderColor:'black',
-						reversed: true
-					},
-					tooltip: {
-						formatter: function() {
-							return '<b>'+ this.x +'</b><br/>'+
-								 this.series.name +': '+ this.y +'<br/>'+
-								 'Total: '+ this.point.stackTotal;
-						}
-					},
-					plotOptions: {
-						column: {
-							stacking: 'normal',
-							pointPadding: 0.001,
-							groupPadding: 0.01,
-							borderColor: 'black',
-							shadow:false,
-							dataLabels: {
-								enabled: true,
-								style : {
-									fontWeight: 'bold',
-									fontSize:'10px'
-								},
-								color: 'black'
-							}
-						}
-					},
-				    series: [
-				    {
-						name: 'BMG frei Soll',
-						data: <%=BMGfreiSoll%>,
-						color: '#00FF00'
-					}, {
-						name: 'in arbeit',
-						data: <%=inarbeit%>,
-						color: '#FFCC00'
-					}, {
-						name: 'AWE',
-						data: <%=awe%>,
-						color: '#FFFFCC'
-					}]
-				});
+					}
+				},
+			    series: [
+			    {
+					name: 'BMG frei Soll',
+					data: <%=BMGfreiSoll%>,
+					color: '#00FF00'
+				}, {
+					name: 'in arbeit',
+					data: <%=inarbeit%>,
+					color: '#FFCC00'
+				}, {
+					name: 'AWE',
+					data: <%=awe%>,
+					color: '#FFFFCC'
+				}]
+			});
 		});
 		</script>
 </head>

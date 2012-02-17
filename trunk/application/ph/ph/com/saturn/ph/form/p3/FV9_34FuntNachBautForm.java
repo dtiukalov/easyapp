@@ -5,7 +5,7 @@ import com.saturn.ph.Form;
 public class FV9_34FuntNachBautForm extends Form {
 	
 	private static final String[] attr = {
-		"fv9FunctionStyle", "fv9StylePoint", "fv9FunctionAK", "fv9FunctionBK","fv9FunctionIO"
+		"fv9FunctionStyle", "fv9StylePoint", "fv9FunctionAK", "fv9FunctionBK", "fv9FunctionIO"
 	};
 
 	public String[] getAttributes() {

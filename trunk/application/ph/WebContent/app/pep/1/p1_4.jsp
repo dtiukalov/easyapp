@@ -5,6 +5,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<%@ include file="/app/pep/include/header.jsp"%>
+	<title><%=title %></title>
 	<style type="text/css">
 	.coo .tab {
 		background:#000;
@@ -60,53 +61,57 @@
 <body>	
 	<div id="container">
 		<div id="nr">
-		<div id="top"><h1>1.1 Vorserienterminplan</h1></div>
-		<p></p>
-		<div class="coo"><table width="986" border="0" cellpadding="1" cellspacing="1" class="tab">
-  <tr>
-    <td width="982"><table width="931"  height="60" border="0" cellpadding="0" cellspacing="0" class="taba">
-      <tr>
-        <td width="260" class="lg"><img src="../images/logo.jpg"/></td>
-        <td width="384" class="bt"><h3>aktuelle Vorlage Meilensteinubersicht</h3>
-        <h3>SOP MM/YYYY</h3></td>
-        <td width="287" class="bz"><p><span>Status:</span></p>
-          <p>Ausgabe:xx.xx.10</p></td>
-      </tr>
-    </table></td>
-  </tr>
-  <tr>
-    <td style="width:904px;hight:400px">
-    <iframe id="ff" name= "ff" frameborder="0"  
-    src="<%=request.getContextPath() %>/app/pep/1/GanttChart3.jsp" style="width:1000px;height:300px;">
-    </iframe>
-    </td>
-  </tr>
-  <tr>
-    <td><table width="904" height="50px" border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td class="a"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td>Legende:</td>
-          </tr>
-          <tr>
-            <td><table width="300" border="0" cellspacing="3" cellpadding="0">
-              <tr>
-                <td width="78"><div class="ka">Producktidefinition</div></td>
-                <td width="107"><div class="kb">Konzept und Serienentericklung</div></td>
-                <td width="103"><div class="kc">Serienvorboreitung</div></td>
-              </tr>
-            </table></td>
-          </tr>
-        </table></td>
-        <td align="center" valign="bottom" class="b">RPLAN</td>
-        <td class="c"><p>GMXSMax&nbsp;&nbsp;&nbsp;&nbsp;Mustemannxxx Qukdfjdkfjdkfj Tel kdkf df f<br />
-          Profkdfldidf;dfuiddkjfdkfjkdfjdk
-        </p></td>
-      </tr>
-    </table></td>
-  </tr>
-</table>
-</div>
+		<div id="top"><h1><%=title %></h1></div>
+		
+		<div id="content">
+			<p></p>
+					<div class="coo"><table width="986" border="0" cellpadding="1" cellspacing="1" class="tab">
+			  <tr>
+			    <td width="982"><table width="931"  height="60" border="0" cellpadding="0" cellspacing="0" class="taba">
+			      <tr>
+			        <td width="260" class="lg"><img src="../images/logo.jpg"/></td>
+			        <td width="384" class="bt"><h3>aktuelle Vorlage Meilensteinubersicht</h3>
+			        <h3>SOP MM/YYYY</h3></td>
+			        <td width="287" class="bz"><p><span>Status:</span></p>
+			          <p>Ausgabe:xx.xx.10</p></td>
+			      </tr>
+			    </table></td>
+			  </tr>
+			  <tr>
+			    <td style="width:904px;hight:400px">
+			    <iframe id="ff" name= "ff" frameborder="0"  
+			    src="<%=request.getContextPath() %>/app/pep/1/GanttChart3.jsp" style="width:1000px;height:300px;">
+			    </iframe>
+			    </td>
+			  </tr>
+			  <tr>
+			    <td><table width="904" height="50px" border="0" cellspacing="0" cellpadding="0">
+			      <tr>
+			        <td class="a"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			          <tr>
+			            <td>Legende:</td>
+			          </tr>
+			          <tr>
+			            <td><table width="300" border="0" cellspacing="3" cellpadding="0">
+			              <tr>
+			                <td width="78"><div class="ka">Producktidefinition</div></td>
+			                <td width="107"><div class="kb">Konzept und Serienentericklung</div></td>
+			                <td width="103"><div class="kc">Serienvorboreitung</div></td>
+			              </tr>
+			            </table></td>
+			          </tr>
+			        </table></td>
+			        <td align="center" valign="bottom" class="b">RPLAN</td>
+			        <td class="c"><p>GMXSMax&nbsp;&nbsp;&nbsp;&nbsp;Mustemannxxx Qukdfjdkfjdkfj Tel kdkf df f<br />
+			          Profkdfldidf;dfuiddkjfdkfjkdfjdk
+			        </p></td>
+			      </tr>
+			    </table></td>
+			  </tr>
+			</table>
+			</div>
+		</div>
+		
 		<%@ include file="/app/pep/include/foot.jsp"%>
 	</div>	
 </body>

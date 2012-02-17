@@ -50,7 +50,7 @@
 <div id="container">
 	<div id="nr">
 	<div id="top"><h1><%=title %></h1></div>
-    <div id="content">
+    <div id="content" style="margin-top:20px;">
     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 		  <tr>
 		    <td width="239" class="pg">&nbsp;</td>

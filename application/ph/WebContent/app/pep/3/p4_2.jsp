@@ -22,6 +22,13 @@
 			List<String> bK = (List<String>)form.get("fv9FunctionBK");
 			List<String> iO = (List<String>)form.get("fv9FunctionIO");
 			
+			int gesamt = 0;
+			for(int i=0; i<aK.size(); i++) {
+				gesamt += Integer.parseInt(aK.get(i));
+				gesamt += Integer.parseInt(bK.get(i));
+				gesamt += Integer.parseInt(iO.get(i));
+			}
+			
 			List<String> functionStylelist = new ArrayList<String>();
 			List<String> sum = Web.SumList(aK,bK,iO);
 			
@@ -146,7 +153,7 @@
 			<div id="nr">
 				<div id="top"><h1><%=title %></h1></div>	
 				<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Zusammenbauteile (Anzahl FM/Anzahl Messungen)</h2>
-				<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gesamt: 414 Funktionsmaße</h5>
+				<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gesamt: <%=gesamt %> Funktionsmaße</h5>
 				<div id="content">
 					<div id="chart" style="width: 800px; height: 400px; margin: 0 auto"></div>
 				</div>

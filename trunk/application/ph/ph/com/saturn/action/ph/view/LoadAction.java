@@ -1,5 +1,6 @@
 package com.saturn.action.ph.view;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -13,6 +14,7 @@ import com.saturn.app.web.view.JspView;
 import com.saturn.ph.PH;
 import com.saturn.ph.PHManager;
 import com.saturn.tc.utils.ItemUtils;
+import com.teamcenter.soa.client.model.ModelObject;
 import com.teamcenter.soa.client.model.strong.Item;
 
 public class LoadAction implements IAction {
@@ -37,7 +39,9 @@ public class LoadAction implements IAction {
 		List<String> indexes = PHManager.getIndexes(roadmap, formIds);
 		
 		request.getSession().setAttribute("indexes", indexes);
-		request.setAttribute("current", "1");
-		return new JspView(indexes.get(0));
+		//request.setAttribute("current", "1");
+		//return new JspView(indexes.get(0));
+		return new JspView("/app/pep/catalogue.jsp");
 	}
+	
 }

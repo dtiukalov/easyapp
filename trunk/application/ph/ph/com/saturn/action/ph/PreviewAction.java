@@ -22,6 +22,13 @@ public class PreviewAction implements IAction {
 			HttpServletResponse response) {
 
 		String uid = (String)request.getParameter("uid");
+		Integer current = Integer.parseInt(request.getParameter("current").toString());
+		if(current != null){
+			int curr = current.intValue();
+			if(curr >= 0){
+				request.setAttribute("current", String.valueOf(curr));
+			}
+		}
 		ModelObject object = PH.getDataService().loadModelObjectRefresh(uid);
 		
 		if (object == null) {

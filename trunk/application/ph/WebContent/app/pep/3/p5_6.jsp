@@ -1,11 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="com.saturn.web.Web"%>	
 <!DOCTYPE HTML>
+<%@ include file="/app/pep/include/header.jsp"%>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<%@ include file="/app/pep/include/header.jsp"%>
-		<title>3.5 Audit ZP8 – Gewerk: Presswerk</title>
+		
+		<%
+		Map form = (Map)request.getAttribute("form");
+		title = "3.5 Audit ZP8 – Gewerk: Kaufteile";
+		
+		String fv9KWNo = "['4', '5', '6', '7', '8', '9', '10', '11', '12', '13',  '14', '15', '16', '17', '18', '19', '20', '21', '22', '23',  '24']";
+		//Web.getNumberListStr(form.get("fv9KWNo"));
+		String fv9KaufteileNum = "[260,245,235,220,200,180,160,160,160,100,85,75,65,60,60,55,55,50,50,45,45]";
+		//Web.getNumberListStr(form.get("fv9KaufteileNum"));
+		String fv9KonzernNum = "[80,80,80,80,80,60,60,60,60,60,35,35,35,35,35,35,35,25,25,25,25]";
+		//Web.getNumberListStr(form.get("fv9KonzernNum"));
+		String fv9PrognoseNum = "[275,265,242,227,210,190,170,165,165,110]";
+		//Web.getNumberListStr(form.get("fv9PrognoseNum"));
+		
+		//fv9Note3Num
+		//fv9Note2Num
+		//fv9Note1Num
+
+		%>
+		<title><%=title %></title>
 		<script type="text/javascript">
 		var chart;
 			$(document).ready(function() {
@@ -28,7 +50,7 @@
 								 color: 'black'
 							}
 					},
-						categories: ['4', '5', '6', '7', '8', '9', '10', '11', '12', '13',  '14', '15', '16', '17', '18', '19', '20', '21', '22', '23',  '24']
+						categories: <%=fv9KWNo%>
 					},
 					yAxis: {
 						min: 0,
@@ -91,17 +113,17 @@
 				    series: [{
 						type: 'column',
 						name: 'Prognose',
-						data: [275,265,242,227,210,190,170,165,165,110],
+						data: <%=fv9PrognoseNum%>,
 						color: '#00235A'
 					}, {
 						type: 'spline',
-						name: 'Presswerk',
-						data: [260,245,235,220,200,180,160,160,160,100,85,75,65,60,60,55,55,50,50,45,45],
+						name: 'Kaufteile',
+						data: <%=fv9KaufteileNum%>,
 						color: '#99FF99'
 					}, {
 						type: 'spline',
 						name: 'Konzernziel',
-						data: [80,80,80,80,80,60,60,60,60,60,35,35,35,35,35,35,35,25,25,25,25],
+						data: <%=fv9KonzernNum%>,
 						color: '#E63110'
 					}]
 				});
@@ -113,9 +135,9 @@
 	<body>
 		<div id="container">
 			<div id="nr">
-			<div id="top"><h1>3.5 Audit ZP8 – Gewerk: Presswerk</h1></div>
+			<div id="top"><h1><%=title %></h1></div>
 			<div id="content">
-				<div id="chart" style="width: 800px; height: 400px; margin: 30px auto"></div>
+				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto"></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

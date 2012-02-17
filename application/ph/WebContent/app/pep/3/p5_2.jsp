@@ -10,7 +10,7 @@
 		<style type="text/css">
 			
 			.left{
-				width: 100px; height: 50px;float: left;margin: 0 auto;
+				width: 100px; height: 50px;float: left;margin: 0 50px;
 				vertical-align: middle;padding-top: 35px;
 			}
 			.title{
@@ -18,7 +18,7 @@
 				font-weight: bolder;color: white;
 			}
 			.chart{
-				width: 700px; height: 120px; margin: 0 auto; float: left;
+				width: 700px; height: 110px; margin: 0 auto; float: left;
 			}
 			.clear{
 				width: 100%;height: 1px;margin: 0 auto; float: left;
@@ -637,12 +637,9 @@
 						lineColor:'black',
 						tickColor:'black',
 						labels: {
-							enabled:true
+							enabled:false
 						},
 						categories: <%=fv9KWNo%>
-					},{
-						categories: <%=fv9Fahrzeuge%>,
-						enabled: true
 					}],
 					yAxis: {
 						min: 0,
@@ -773,7 +770,7 @@
 		<div id="container">
 			<div id="nr">
 			<div id="top"><h1>3.5 Fehlerpunkte in den Gewerken</h1></div>
-			<div id="content" style="height:622px">
+			<div id="content" style="height:600px">
 				<div class="left">
 					<div class="title" style="border: solid black 1px;background-color: #003C65">Presswerk</div>
 				</div>

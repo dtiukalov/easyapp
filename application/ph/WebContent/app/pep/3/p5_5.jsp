@@ -46,7 +46,8 @@
 						fontSize:'18px',
 						color:'black'
 					},
-					align:'left'
+					align:'left',
+					y:30
 				},
 				xAxis: [{
 					tickLength: 0,

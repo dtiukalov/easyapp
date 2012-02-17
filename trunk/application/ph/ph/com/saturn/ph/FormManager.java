@@ -47,18 +47,23 @@ import com.saturn.ph.form.p3.FV9_35NachAbbausForm;
 import com.saturn.ph.form.p3.FV9_35NachareitPunkForm;
 import com.saturn.ph.form.p3.FV9_36Vorch2TagForm;
 import com.saturn.ph.form.p4.FV9_41NominLieferForm;
-import com.saturn.ph.form.p4.FV9_42ProblemblattZP5Dataset;
-import com.saturn.ph.form.p4.FV9_42TeileStat0SForm;
-import com.saturn.ph.form.p4.FV9_42TeileStatPVSForm;
-import com.saturn.ph.form.p4.FV9_42TeileStatVFFForm;
+import com.saturn.ph.form.p4.FV9_42ProblemblattZP5HTDataset;
+import com.saturn.ph.form.p4.FV9_42ProblemblattZP5KTDataset;
+import com.saturn.ph.form.p4.FV9_42TeileStat0SHTForm;
+import com.saturn.ph.form.p4.FV9_42TeileStat0SKTForm;
+import com.saturn.ph.form.p4.FV9_42TeileStatPVSHTForm;
+import com.saturn.ph.form.p4.FV9_42TeileStatPVSKTForm;
+import com.saturn.ph.form.p4.FV9_42TeileStatVFFHTForm;
+import com.saturn.ph.form.p4.FV9_42TeileStatVFFKTForm;
 import com.saturn.ph.form.p4.FV9_42TeilequalitaetZP5HTDataset;
 import com.saturn.ph.form.p4.FV9_42TeilequalitaetZP5KTDataset;
 import com.saturn.ph.form.p4.FV9_42TerminubersichtZP5HTDataset;
 import com.saturn.ph.form.p4.FV9_42TerminubersichtZP5KTDataset;
 import com.saturn.ph.form.p4.FV9_43ProblemblattZP7Dataset;
-import com.saturn.ph.form.p4.FV9_43TeileStat0SForm;
-import com.saturn.ph.form.p4.FV9_43TeileStatPVSForm;
-import com.saturn.ph.form.p4.FV9_43TeileStatVFFForm;
+import com.saturn.ph.form.p4.FV9_43ProblemblattZP7KTDataset;
+import com.saturn.ph.form.p4.FV9_43TeileStat0SKTForm;
+import com.saturn.ph.form.p4.FV9_43TeileStatPVSKTForm;
+import com.saturn.ph.form.p4.FV9_43TeileStatVFFKTForm;
 import com.saturn.ph.form.p4.FV9_43TeilequalitaetZP7KTDataset;
 import com.saturn.ph.form.p4.FV9_43TerminubersichtZP7KTDataset;
 import com.saturn.ph.form.p4.FV9_44AggregateverfuegbarkeitDataset;
@@ -159,19 +164,26 @@ public class FormManager {
 		
 		add(new FV9_41NominLieferForm());
 		add(new FV9_42TeilequalitaetZP5HTDataset());
-		add(new FV9_42TeilequalitaetZP5KTDataset());
-		add(new FV9_42ProblemblattZP5Dataset());
-		add(new FV9_42TeileStat0SForm());
-		add(new FV9_42TeileStatPVSForm());
-		add(new FV9_42TeileStatVFFForm());
+		add(new FV9_42TeileStatVFFHTForm());
+		add(new FV9_42TeileStatPVSHTForm());
+		add(new FV9_42TeileStat0SHTForm());
 		add(new FV9_42TerminubersichtZP5HTDataset());
+		add(new FV9_42ProblemblattZP5HTDataset());
+		
+		add(new FV9_42TeilequalitaetZP5KTDataset());
+		add(new FV9_42TeileStatVFFKTForm());
+		add(new FV9_42TeileStatPVSKTForm());
+		add(new FV9_42TeileStat0SKTForm());
 		add(new FV9_42TerminubersichtZP5KTDataset());
-		add(new FV9_43ProblemblattZP7Dataset());
+		add(new FV9_42ProblemblattZP5KTDataset());
+		
 		add(new FV9_43TeilequalitaetZP7KTDataset());
-		add(new FV9_43TeileStat0SForm());
-		add(new FV9_43TeileStatPVSForm());
-		add(new FV9_43TeileStatVFFForm());
+		add(new FV9_43TeileStatVFFKTForm());
+		add(new FV9_43TeileStatPVSKTForm());
+		add(new FV9_43TeileStat0SKTForm());
 		add(new FV9_43TerminubersichtZP7KTDataset());
+		add(new FV9_43ProblemblattZP7KTDataset());
+		
 		add(new FV9_44AggregateverfuegbarkeitDataset());
 
 		add(new FV9_51KarosserStatForm());

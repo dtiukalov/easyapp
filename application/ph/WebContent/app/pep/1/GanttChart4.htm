@@ -97,7 +97,7 @@
 				while (Date.parse(_dTemp) <= Date.parse(_maxDate)) {			
 					var day = _dTemp.getDay();
 					_secondRow += "<td class='GDay'><div style='width:" + width + "px;'>" + _dTemp.getDate() + "</div></td>";
-					if (_dTemp.getFullYear() == _currentDate.getFullYear() && _dTemp.getMonth() == _currentDate.getMonth())	{					
+					if (_dTemp.getFullYear() == _currentDate.getFullYear() && _dTemp.getMonth() == _currentDate.getMonth() && _dTemp.getDate() == _currentDate.getDate())	{					
 						_thirdRow += "<td id='GC_" + (counter++) + "' class='GToDay' style='height:" + ((_maxLevel+1) * 21 + _taskList.length / 3 * 20) + "'>&nbsp;</td>";
 					} else {
 						_thirdRow += "<td id='GC_" + (counter++) + "' class='GDay'style='height:" + ((_maxLevel+1) * 21 + _taskList.length / 3 * 20) + "'>&nbsp;</td>";
@@ -319,18 +319,18 @@
 <script>
 	var g = new Gantt(document.all.GanttChart);
 	
-	g.AddTaskDetail(new Task('10/3/2011', '10/15/2011', '<b>1&#12289;Fahrzeuge Soll: 25  Ist: 3 Karosserien Soll: 3  Ist: 2 </b>', 'A', 50, 1, '#f3f3f3'));
+	g.AddTaskDetail(new Task('10/3/2011', '10/15/2011', '<b>1、Fahrzeuge Soll: 25  Ist: 3 Karosserien Soll: 3  Ist: 2 </b>', 'A', 50, 1, '#f3f3f3'));
 	g.AddTaskDetail(new Task('10/6/2011', '10/18/2011', '', 'B', 50, 2, '#b0b0b0'));
 	g.AddTaskDetail(new Task('10/9/2011', '10/21/2011', '', 'C', 50, 3, '#414141'));
 	g.AddTaskDetail(new Task('10/22/2011', '10/25/2011', '', 'D', 50, 3, '#414141'));
 	
 	
-	g.AddTaskDetail(new Task('10/3/2011', '10/15/2011', '<b>2&#12289;Fahrzeuge Soll: 25  Ist: 3 Karosserien Soll: 3  Ist: 2 </b>', 'A', 50, 4, '#f3f3f3'));
+	g.AddTaskDetail(new Task('10/3/2011', '10/15/2011', '<b>2、Fahrzeuge Soll: 25  Ist: 3 Karosserien Soll: 3  Ist: 2 </b>', 'A', 50, 4, '#f3f3f3'));
 	g.AddTaskDetail(new Task('10/6/2011', '10/18/2011', '', 'B', 50, 5, '#b0b0b0'));
 	g.AddTaskDetail(new Task('10/9/2011', '10/21/2011', '', 'C', 50, 6, '#414141'));
 	g.AddTaskDetail(new Task('10/22/2011', '10/25/2011', '', 'D', 50, 6, '#414141'));
 	
-	g.AddTaskDetail(new Task('10/3/2011', '10/15/2011', '<b>2&#12289;Fahrzeuge Soll: 25  Ist: 3 Karosserien Soll: 3  Ist: 2 </b>', 'A', 50, 7, '#f3f3f3'));
+	g.AddTaskDetail(new Task('10/3/2011', '10/15/2011', '<b>2、Fahrzeuge Soll: 25  Ist: 3 Karosserien Soll: 3  Ist: 2 </b>', 'A', 50, 7, '#f3f3f3'));
 	g.AddTaskDetail(new Task('10/6/2011', '10/18/2011', '', 'B', 50, 8, '#b0b0b0'));
 	g.AddTaskDetail(new Task('10/9/2011', '10/21/2011', '', 'C', 50, 9, '#414141'));
 	g.AddTaskDetail(new Task('10/22/2011', '10/25/2011', '', 'D', 50, 9, '#414141'));

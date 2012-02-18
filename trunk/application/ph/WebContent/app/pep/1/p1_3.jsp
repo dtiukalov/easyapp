@@ -57,6 +57,10 @@
 	}
 		
 	</style>
+	<%
+		Map form = (Map)request.getAttribute("form");	
+		String uid = (String)request.getAttribute("uid");
+	%>
 </head>
 <body>	
 	<div id="container">
@@ -81,7 +85,7 @@
 			  <tr>
 			    <td style="width:904px;hight:400px">
 			    <iframe id="ff" name= "ff" frameborder="0"  
-			    src="<%=request.getContextPath() %>/app/pep/1/GanttChart2.jsp" 
+			    src="<%=request.getContextPath() %>/app/pep/1/GanttChart2.jsp?uid=<%=uid %>" 
 			    style="width:1000px;height:300px;">
 			    </iframe>
 			    </td>

@@ -3,7 +3,8 @@
 <%@page import="java.util.Map"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="java.util.HashMap"%>	
+<%@page import="java.util.HashMap"%>
+<%@page import="com.saturn.ph.FormManager"%>	
 <html>
 
 <head>
@@ -11,7 +12,7 @@
 <title>New Page 1</title>
 </head>
 <script>
-	function Task(from, to, task, resource, progress, level, project, type) {
+	function Task(from, to, task, resource, progress, level, project, type, mix) {
 		var _from = new Date();	
 		var _to = new Date();
 		var _task = task;
@@ -20,13 +21,14 @@
 		var _level = level;
 		var _project = project;
 		var _type = type;
-		var _fromStr = from
+		var _fromStr = from;
 		var _toStr = to;
+		var _mix = mix;
 		
-		var dvArr = from.split('/');
-		_from.setFullYear(parseInt(dvArr[2], 10), parseInt(dvArr[0], 10) - 1, parseInt(dvArr[1], 10));
-		dvArr = to.split('/'); 
-		_to.setFullYear(parseInt(dvArr[2], 10), parseInt(dvArr[0], 10) - 1, parseInt(dvArr[1], 10));		
+		var dvArr = from.split('-');
+		_from.setFullYear(parseInt(dvArr[0], 10), parseInt(dvArr[1], 10) - 1, parseInt(dvArr[2], 10));
+		dvArr = to.split('-'); 
+		_to.setFullYear(parseInt(dvArr[0], 10), parseInt(dvArr[1], 10) - 1, parseInt(dvArr[2], 10));		
 		
 		this.getFrom = function(){ return _from};
 		this.getTo = function(){ return _to};
@@ -37,16 +39,19 @@
 		this.getProgress = function(){ return _progress};
 		this.getLevel = function(){return _level};
 		this.getProject = function(){ return _project};
+		this.getMix = function(){ return _mix};
 		this.getType = function(){return _type};
 		this.getTypeLeft = function(){
 			var left = 171;
-			if ('PVS' == _type) {
+			if ('VFF' == _type) {
 				return left + '';
-			} else if ('OS' == _type) {
+			} else if ('PVS' == _type) {
 				return left + 65 + '';
-			} else if ('SOP' == _type) {
+			} else if ('0S' == _type) {
 				return left + 130 + '';
-			}
+			} else if ('SOP' == _type) {
+				return left + 195 + '';
+			} 
 		};
 	}
 	
@@ -66,7 +71,7 @@
 			var _minDate = new Date();	
 			var _maxLevel = 0;
 			var _dTemp = new Date();
-			var _firstRowStr = "<table border=1 style='border-collapse:collapse;border:#000000 2px solid'><tr style='background-color:feffbe;text-align:center;'><td rowspan='3' width='50px' style='width:50px;font-size:9px'>Porjekt</td><td rowspan='3' width='80px' style='width:80px;font-size:9px'>DERIVAT</td><td rowspan='3' width='30px' style='width:30px;font-size:9px'>Stufe</td><td rowspan='3' width='60px' style='width:60px;font-size:9px'>PVS</td><td rowspan='3' width='60px' style='width:60px;font-size:9px'>OS</td><td rowspan='3' width='60px' style='width:60px;font-size:9px'>SOP</td>";
+			var _firstRowStr = "<table border=1 style='border-collapse:collapse;border:#000000 2px solid'><tr style='background-color:feffbe;text-align:center;'><td rowspan='3' width='50px' style='width:50px;font-size:9px'>Porjekt</td><td rowspan='3' width='80px' style='width:80px;font-size:9px'>DERIVAT</td><td rowspan='3' width='30px' style='width:30px;font-size:9px'>Stufe</td><td rowspan='3' width='60px' style='width:60px;font-size:9px'>VFF</td><td rowspan='3' width='60px' style='width:60px;font-size:9px'>PVS</td><td rowspan='3' width='60px' style='width:60px;font-size:9px'>OS</td><td rowspan='3' width='60px' style='width:60px;font-size:9px'>SOP</td><td rowspan='3' width='60px' style='width:60px;font-size:9px'>MIX</td>";
 			var _secondRow = "";
 			var _thirdRow = ""; 
 			var _gStr = "";		
@@ -109,7 +114,7 @@
 				_gStr = "";
 				_gStr += "<tr style='background-color:feffbe;text-align:center;'>";
 				_secondRow = "<tr style='background-color:feffbe;text-align:center;'>";
-				_thirdRow = "<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>";
+				_thirdRow = "<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>";
 				_dTemp.setFullYear(_minDate.getFullYear(), _minDate.getMonth(), _minDate.getDate());
 				
 				while (Date.parse(_dTemp) <= Date.parse(_maxDate)) {	
@@ -150,15 +155,16 @@
 					_dateDiff = (task.getTo().getFullYear() - task.getFrom().getFullYear()) * 12 + (task.getTo().getMonth() - task.getFrom().getMonth()) + 1;
 					
 					if (task.getType() == 'SOP') {
-						_gStr += "<div style='position:absolute; top:" + (26 * (_level + 2) - 4) + "; left:" + (_offSet * offWidth + 359) + "; width:" + (offWidth * _dateDiff - 1 + 100) + "'><div title='" + task.getTask() + "' class='GTaska' style='float:left; width:" + (offWidth * _dateDiff - 1) + "px;'>" + task.getResource() + "</div></div>";
+						_gStr += "<div style='position:absolute; top:" + (26 * (_level + 2) - 4) + "; left:" + (_offSet * offWidth + 485) + "; width:" + (offWidth * _dateDiff - 1 + 100) + "'><div title='" + task.getTask() + "' class='GTaska' style='float:left; width:" + (offWidth * _dateDiff - 1) + "px;'>" + task.getResource() + "</div></div>";
 					
 					} else {
-						_gStr += "<div style='position:absolute; top:" + (26 * (_level + 2)) + "; left:" + (_offSet * offWidth + 359) + "; width:" + (offWidth * _dateDiff - 1 + 100) + "'><div title='" + task.getTask() + "' class='GTask' style='float:left; width:" + (offWidth * _dateDiff - 1) + "px;'>" + task.getResource() + "</div></div>";
+						_gStr += "<div style='position:absolute; top:" + (26 * (_level + 2)) + "; left:" + (_offSet * offWidth + 485) + "; width:" + (offWidth * _dateDiff - 1 + 100) + "'><div title='" + task.getTask() + "' class='GTask' style='float:left; width:" + (offWidth * _dateDiff - 1) + "px;'>" + task.getResource() + "</div></div>";
 					}
 					_gStr += "<div style='position:absolute; top:" + (26 * (_level + 2) + 1) + "; left:5px'>" + task.getProject() + "</div>";
 					_gStr += "<div style='position:absolute; top:" + (26 * (_level + 2) + 1) + "; left:60px'>" + task.getTask() + "</div>";
 					_gStr += "<div style='position:absolute; top:" + (26 * (_level + 2) + 1) + "; left:145px'>" + task.getLevel() + "</div>";
-					if (task.getType() == 'PVS' || task.getType() == 'OS' || task.getType() == 'SOP') {
+					_gStr += "<div style='position:absolute; top:" + (26 * (_level + 2) + 1) + "; left:431px'>" + task.getMix() + "%</div>";
+					if (task.getType() == 'PVS' || task.getType() == '0S' || task.getType() == 'SOP' || task.getType() == 'VFF' ) {
 						_gStr += "<div style='position:absolute; top:" + (26 * (_level + 2) + 1) + "; left:" + task.getTypeLeft() + "px'>" + task.getFromStr() + "</div>";
 					}
 				}
@@ -277,12 +283,46 @@
 		margin-top:5px;
 	}
 </style>
+<%
+	String uid = request.getParameter("uid");
+	Map form = FormManager.getFormValue(uid,true);
+
+	List<String> fv9ProjectDerivat =(List<String>)form.get("fv9ProjectDerivat");
+	List<String> fv9ProjectStufe =	(List<String>)form.get("fv9ProjectStufe");
+	List<String> fv9ProjectPVS =(List<String>)form.get("fv9ProjectPVS");
+	List<String> fv9ProjectVFF =(List<String>)form.get("fv9ProjectVFF");
+	List<String> fv9Project0S =(List<String>)form.get("fv9Project0S");
+	List<String> fv9ProjectSOP =(List<String>)form.get("fv9ProjectSOP");
+	List<String> fv9ProjectMix =(List<String>)form.get("fv9ProjectMix");
+%>
 <body>	
 	<div style="position:relative;width:1100px" class="Gantt" id="GanttChart2"></div>
 </body>
 <script>
 	var g2 = new Gantt(document.all.GanttChart2);
-	g2.AddTaskDetail(new Task('01/01/2011', '01/01/2011', '<b>2/4-TÃ¼ren</b>', 'VFF', 50, 1, 'VW007', 'VFF'));
+	
+	<%
+	for(int i=0; i<fv9ProjectDerivat.size(); i++){
+		String projectDerivat = fv9ProjectDerivat.get(i);
+		
+		if(fv9ProjectPVS.get(i) != null && !"".equals(fv9ProjectPVS.get(i))){%>
+			g2.AddTaskDetail(new Task('<%=fv9ProjectPVS.get(i)%>', '<%=fv9ProjectPVS.get(i)%>', '<b><%=projectDerivat%></b>', 'PVS', 50, <%=i%>, 'VW007', 'PVS', '<%=fv9ProjectMix.get(i)%>'));
+			<%	}
+		
+		if(fv9ProjectVFF.get(i) != null && !"".equals(fv9ProjectVFF.get(i))){%>
+			g2.AddTaskDetail(new Task('<%=fv9ProjectVFF.get(i)%>', '<%=fv9ProjectVFF.get(i)%>', '<b><%=projectDerivat%></b>', 'VFF', 50, <%=i%>, 'VW007', 'VFF', '<%=fv9ProjectMix.get(i)%>'));
+			<%	}
+		
+		if(fv9Project0S.get(i) != null && !"".equals(fv9Project0S.get(i))){%>
+			g2.AddTaskDetail(new Task('<%=fv9Project0S.get(i)%>', '<%=fv9Project0S.get(i)%>', '<b><%=projectDerivat%></b>', '0S', 50, <%=i%>, 'VW007', '0S', '<%=fv9ProjectMix.get(i)%>'));
+			<%	}
+		
+		if(fv9ProjectSOP.get(i) != null && !"".equals(fv9ProjectSOP.get(i))){%>
+			g2.AddTaskDetail(new Task('<%=fv9ProjectSOP.get(i)%>', '<%=fv9ProjectSOP.get(i)%>', '<b><%=projectDerivat%></b>', 'SOP', 50, <%=i%>, 'VW007', 'SOP', '<%=fv9ProjectMix.get(i)%>'));
+			<%	}
+	}	
+	%>
+/* 	g2.AddTaskDetail(new Task('01/01/2011', '01/01/2011', '<b>2/4-TÃ¼ren</b>', 'VFF', 50, 1, 'VW007', 'VFF'));
 	g2.AddTaskDetail(new Task('03/01/2011', '03/01/2011', '<b>2/4-TÃ¼ren</b>', 'PVS', 50, 1, 'VW007', 'PVS'));
 	g2.AddTaskDetail(new Task('06/01/2011', '06/01/2011', '<b>2/4-TÃ¼ren</b>', 'OS', 50, 1, 'VW007', 'OS'));
 	g2.AddTaskDetail(new Task('08/01/2011', '08/01/2011', '<b>2/4-TÃ¼ren</b>', 'SOP', 50, 1, 'VW007', 'SOP'));
@@ -301,7 +341,7 @@
 	
 	g2.AddTaskDetail(new Task('01/01/2012', '01/01/2012', '<b>NAR</b>', 'PVS', 50, 5, 'VW007', 'PVS'));
 	g2.AddTaskDetail(new Task('04/01/2012', '04/01/2012', '<b>NAR</b>', 'OS', 50, 5, 'VW007', 'OS'));
-	g2.AddTaskDetail(new Task('06/01/2012', '06/01/2012', '<b>NAR</b>', 'SOP', 50, 5, 'VW007', 'SOP'));
+	g2.AddTaskDetail(new Task('06/01/2012', '06/01/2012', '<b>NAR</b>', 'SOP', 50, 5, 'VW007', 'SOP')); */
 	
 	g2.Draw(44, 24);
 </script>

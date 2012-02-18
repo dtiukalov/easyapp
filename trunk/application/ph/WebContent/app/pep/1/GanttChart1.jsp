@@ -6,12 +6,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.HashMap"%>	
 <html>
-<%
 
-//	Map<String, String> form = (Map<String, String>)request.getAttribute("form");
-
-
-%>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>New Page 1</title>
@@ -89,6 +84,8 @@
 				
 				if (_maxDate.getMonth() != 11) { //December 12&#26376;				
 					_maxDate.setFullYear(_maxDate.getFullYear(), 11, 1); //The fifth day of next month will be used
+				} else {
+					_maxDate.setFullYear(_maxDate.getFullYear() + 1, 5, 1); //The fifth day of next month will be used
 				}
 				
 				if (_minDate.getMonth() == 11) {
@@ -120,6 +117,9 @@
 						_dTemp.setFullYear(_dTemp.getFullYear() + 1, 0, 1);
 					} else {
 						_dTemp.setFullYear(_dTemp.getFullYear(), _dTemp.getMonth() + 1, 1);
+						if (_dTemp.getFullYear() == _maxDate.getFullYear() && _dTemp.getMonth() == _maxDate.getMonth() ) {
+							_firstRowStr += "<td class='GMonth' colspan='" + (_colSpan+1) + "'>" + _dTemp.getFullYear() + "</td>";
+						}
 					}
 				}
 		//		_thirdRow += "</tr>"; 				
@@ -270,7 +270,6 @@
 	String uid = request.getParameter("uid");
 	Map form = FormManager.getFormValue(uid,true);
 	
-	
 	List<Map<String,String>> list = new ArrayList<Map<String,String>>();
 	String lichengbeistr = "PM,PP,PD,PF,KE,DE,DF,BF,LF,VFF,PVS,OS,SOP,ME";
 	
@@ -386,12 +385,12 @@
 	mapME.put("org",MEfv9MEML_Org);
 	list.add(mapME);
 
-	String Producktidefinition_S = "2008-1-8"; 
-	String Producktidefinition_E = "2009-1-5"; 
-	String Konzept_S = "2009-1-6";
-	String Konzept_E = "2011-1-7";
-	String Serienvorboreitung_S = "2011-1-8";
-	String Serienvorboreitung_E = "12012-1-11";
+	String Producktidefinition_S = fv9PFML_Date; 
+	String Producktidefinition_E = fv9LFML_Date; 
+	String Konzept_S = fv9LFML_Date;
+	String Konzept_E = fv9SOPML_Date;
+	String Serienvorboreitung_S = fv9SOPML_Date;
+	String Serienvorboreitung_E = fv9MEML_Date;
 %>
 <body>	
 	<div style="position:relative" class="Gantt" id="GanttChart"></div>
@@ -412,45 +411,11 @@
 		}
 	} 
 	%>
-	/* /* 		/* Date fv9PMMLDate = (Date)String = (String)form.get("fv9PMMLDate");
-	String fv9PMMLOrg = (String)String = (String)form.get("fv9PMMLOrg");
-	Date fv9PPMLDate = (Date)String = (String)form.get("fv9PPMLDate");
-	String fv9PPMLOrg = (String)String = (String)form.get("fv9PPMLOrg");
-	Date fv9PDMLDate = (Date)String = (String)form.get("fv9PDMLDate");
-	String fv9PDMLOrg = (String)String = (String)form.get("fv9PDMLOrg");
-	Date fv9PFMLDate = (Date)String = (String)form.get("fv9PFMLDate");
-	String fv9PFMLOrg = (String)String = (String)form.get("fv9PFMLOrg");
-	Date fv9KEMLDate = (Date)String = (String)form.get("fv9KEMLDate");
-	String fv9KEMLOrg = (String)String = (String)form.get("fv9KEMLOrg");
-	Date fv9DEMLDate = (Date)String = (String)form.get("fv9DEMLDate");
-	String fv9DEMLOrg = (String)String = (String)form.get("fv9DEMLOrg");
-	Date fv9DFExtMLDate = (Date)String = (String)form.get("fv9DFExtMLDate");
-	String fv9DFExtMLOrg = (String)String = (String)form.get("fv9DFExtMLOrg"); */
-	
-/* 	g.AddTaskDetail(new Task('8/1/2008', '8/1/2008', '<b>Sample task 1 1</b>', 'PM<br /><h6 style="color: #E63110">pppp</h6>', 50, 1));
-	g.AddTaskDetail(new Task('11/1/2008', '11/1/2008', '<b>Sample task 1 1</b>', 'PP', 50, 1));
-	g.AddTaskDetail(new Task('2/1/2009', '2/1/2009', '<b>Sample task 1 1</b>', 'PD', 50, 1));
-	g.AddTaskDetail(new Task('5/1/2009', '5/1/2009', '<b>Sample task 1 1</b>', 'PF', 50, 1));
-	g.AddTaskDetail(new Task('11/1/2009', '11/1/2009', '<b>Sample task 1 1</b>', 'KE', 50, 1));
-	g.AddTaskDetail(new Task('5/1/2010', '5/1/2010', '<b>Sample task 1 1</b>', 'DE', 50, 1));
-	g.AddTaskDetail(new Task('9/1/2010', '9/1/2010', '<b>Sample task 1 1</b>', 'DF', 50, 1));
-	g.AddTaskDetail(new Task('2/1/2011', '2/1/2011', '<b>Sample task 1 1</b>', 'BF', 50, 1));
-	g.AddTaskDetail(new Task('8/1/2011', '8/1/2011', '<b>Sample task 1 1</b>', 'LF', 50, 1));
-	g.AddTaskDetail(new Task('12/1/2011', '12/1/2011', '<b>Sample task 1 1</b>', 'VFF', 50, 1));
-	g.AddTaskDetail(new Task('2/1/2012', '2/1/2012', '<b>Sample task 1 1</b>', 'PVS', 50, 1));
-	g.AddTaskDetail(new Task('5/1/2012', '5/1/2012', '<b>Sample task 1 1</b>', 'OS', 50, 1));
-	g.AddTaskDetail(new Task('8/1/2012', '8/1/2012', '<b>Sample task 1 1</b>', 'SOP', 50, 1));
-	g.AddTaskDetail(new Task('11/1/2012', '11/1/2012', '<b>Sample task 1 1</b>', 'ME', 50, 1));
-	 
-	
+ 
 	g.AddTaskDetail(new Task('<%=Producktidefinition_S%>', '<%=Producktidefinition_E%>', '<b>Sample task 1 1</b>', '9 MO', 50, 5, '#f3f3f3'));
 	g.AddTaskDetail(new Task('<%=Konzept_S%>', '<%=Konzept_E%>', '<b>Sample task 1 1</b>', '27 MO', 50, 5, '#b0b0b0'));
 	g.AddTaskDetail(new Task('<%=Serienvorboreitung_S%>', '<%=Serienvorboreitung_E%>', '<b>Sample task 1 1</b>', '15 MO', 50, 5, '#414141'));
-	*/
 	
-	g.AddTaskDetail(new Task('2008-1-8', '2009-1-5', '<b>Sample task 1 1</b>', '9 MO', 50, 5, '#f3f3f3'));
-	g.AddTaskDetail(new Task('2009-1-6', '2011-1-7', '<b>Sample task 1 1</b>', '27 MO', 50, 5, '#b0b0b0'));
-	g.AddTaskDetail(new Task('2011-1-8', '12012-1-11', '<b>Sample task 1 1</b>', '15 MO', 50, 5, '#414141'));
-	g.Draw(49, 15);	
+	g.Draw(49, 19);	
 </script>
 </html>

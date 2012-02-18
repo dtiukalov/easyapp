@@ -53,39 +53,24 @@
 				</td>
 	    		<td valign="top" class="pgpg">
 	    			<div class="tbnrr">
-	    			<%
-	    				if (fv9LogistikStCom_GM.get(i) != null && !"".equals(fv9LogistikStCom_GM.get(i))) {
-	    			%>
+	    			<%if (fv9LogistikStCom_GM.get(i) != null && !"".equals(fv9LogistikStCom_GM.get(i))) {%>
 	    				<%=fv9LogistikStCom_GM.get(i) %>
-	    			<%
-	    				} else {
-   					%>
+	    			<%} else {%>
    	    				&nbsp;
-   	    			<%		
-	    				}
-	    			%>
+   	    			<%} %>
 	    			</div>
 			    </td>
 	   			<td valign="top" class="pgpg">
 	   			 	<div class="tbnrr">
-	   			 	<%
-	    				if (fv9LogistikMab_GM.get(i) != null && !"".equals(fv9LogistikMab_GM.get(i))) {
-	    			%>
-	    				<%=fv9LogistikMab_GM.get(i) %>
-	    			<%
-	    				} else {
-   					%>
+	   			 	<%if (fv9LogistikMab_GM.get(i) != null && !"".equals(fv9LogistikMab_GM.get(i))) {%>
+	    			<%=fv9LogistikMab_GM.get(i) %>
+	    			<%} else {%>
    	    				&nbsp;
-   	    			<%		
-	    				}
-	    			%>
+   	    			<%}%>
 	   			 	</div>
 				</td>
 			</tr>
-			  <% 
-		  }
-		  %>
-				
+			  <% }%>
 	</table>
 	</div>
     <%@ include file="/app/pep/include/foot.jsp"%>

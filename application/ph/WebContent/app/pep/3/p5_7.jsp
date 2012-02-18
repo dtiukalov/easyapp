@@ -9,28 +9,19 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<%
-	Map form = (Map)request.getAttribute("form");
-	title = "3.5 Nacharbeit Abbaustatus";
-	String fv9KWNo = "['4', '5', '6', '7', '8', '9', '10', '11', '12', '13',  '14']" ; //	周数
-	//Web.getNumberListStr(form.get("fv9KWNo"));
-	String fv9MontageNum = "[1730, 1830, 1390, 1110, 1230]" ; //		总装
-	//Web.getNumberListStr(form.get("fv9MontageNum"));
-	String fv9LackNum = "[290, 220, 210, 240, 300]" ; //		油漆
-	//Web.getNumberListStr(form.get("fv9LackNum"));
-	String fv9KauftNum = "[200, 200, 200, 200, 200]" ; //		外购件
-	//Web.getNumberListStr(form.get("fv9KauftNum"));
-	String fv9KarossNum = "[500, 550, 250, 200, 220]" ; //		焊装
-	//Web.getNumberListStr(form.get("fv9KarossNum"));
-	String fv9PresswerkNum = "[480, 500, 250, 250, 250]" ; //		冲压
-	//Web.getNumberListStr(form.get("fv9PresswerkNum"));
-	String fv9AusStrNum = "[200, 200, 200, 200, 200]" ; //	
-	//Web.getNumberListStr(form.get("fv9AusStrNum"));
-	String fv9Prognose = "[3500, 3500, 3400, 3300, 3200, 3000, 2500, 2500, 2500, 2250, 2000]" ; //		预测
-	//Web.getNumberListStr(form.get("fv9Prognose"));
-	
-%>
 		<title><%=title %></title>
+		<%
+			Map form = (Map)request.getAttribute("form");
+			String fv9KWNo = Web.getNumberListStr(form.get("fv9KWNo"));
+			String fv9MontageNum = Web.getNumberListStr(form.get("fv9MontageNum"));
+			String fv9LackNum = Web.getNumberListStr(form.get("fv9LackNum"));
+			String fv9KauftNum = Web.getNumberListStr(form.get("fv9KauftNum"));
+			String fv9KarossNum = Web.getNumberListStr(form.get("fv9KarossNum"));
+			String fv9PresswerkNum = Web.getNumberListStr(form.get("fv9PresswerkNum"));
+			String fv9AusStrNum = Web.getNumberListStr(form.get("fv9AusStrNum"));
+			String fv9Prognose = Web.getNumberListStr(form.get("fv9Prognose"));
+			
+		%>
 		
 		<script type="text/javascript">
 		var chart;

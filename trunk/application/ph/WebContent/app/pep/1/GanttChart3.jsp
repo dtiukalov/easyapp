@@ -4,29 +4,30 @@
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.HashMap"%>	
+<%@page import="com.saturn.ph.FormManager"%>	
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>New Page 1</title>
-</head>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>New Page 1</title>
+	</head>
 <script>
-	function Task(from, to, task, resource, progress, level, color) {
-		var _from = from;	
-		var _to = to;
-		var _task = task;
-		var _resource = resource;						
-		var _progress = progress;
-		var _level = level;
-		var _color = color;
-		
-		this.getFrom = function(){ return _from};
-		this.getTo = function(){ return _to};
-		this.getTask = function(){ return _task};
-		this.getResource = function(){ return _resource};
-		this.getProgress = function(){ return _progress};
-		this.getLevel = function(){return _level};
-		this.getColor = function(){return _color};
-	}
+function Task(from, to, task, resource, progress, level, color) {
+	var _from = getKw(from);	
+	var _to = getKw(to);
+	var _task = task;
+	var _resource = resource;						
+	var _progress = progress;
+	var _level = level;
+	var _color = color;
+	
+	this.getFrom = function(){ return _from};
+	this.getTo = function(){ return _to};
+	this.getTask = function(){ return _task};
+	this.getResource = function(){ return _resource};
+	this.getProgress = function(){ return _progress};
+	this.getLevel = function(){return _level};
+	this.getColor = function(){return _color};
+}
 	
 	function Gantt(gDiv) {
 		var _GanttDiv = gDiv;
@@ -160,13 +161,81 @@
 	function getWeeksInYear(date) {
 		var arr = date.split('/');
 		var year = arr[0];
-			
-		if ("2011" == year) {
-			return "52";
+		
+		return getYearAllWeeks(year);
+	}
+	function getKw(from) {
+		var dvArr = from.split('-');
+		var date = new Date();
+		date.setFullYear(parseInt(dvArr[0], 10), parseInt(dvArr[1], 10) - 1, parseInt(dvArr[2], 10));
+
+		var week = (24 * 60 * 60 * 1000) * 7;
+		var firstDate = new Date();	
+		var k = 0;
+		firstDate.setFullYear(date.getYear(), 0, 1);
+		
+		var days = firstDate.getDay();
+		if (days >= 3) {
+			k = 0;
 		} else {
-			return "52";
+			k = 1;
 		}
-	}				
+		
+		var time = firstDate.getTime();
+		var t = date.getTime();
+		
+		while (true) {
+			time += week;
+			
+			if (time < t) {
+				k++;
+			} else {
+				break;
+			}
+		}
+		
+		return date.getYear() + "/" + k;
+	}
+	
+	function getYearAllWeeks(year) {
+		var firstDate = new Date();
+		firstDate.setFullYear(parseInt(year), 0, 1);
+
+		var last = new Date();
+		last.setFullYear(parseInt(year), 11, 31);
+		
+		var week = (24 * 60 * 60 * 1000) * 7;
+		var k = 0;
+		
+		var days = firstDate.getDay();
+		if (days >= 3) {
+			k = 0;
+		} else {
+			k = 1;
+		}
+		
+		var time = firstDate.getTime();
+		var t = last.getTime();
+		
+		while (true) {
+			time += week;
+			
+			if (time < t) {
+				k++;
+			} else {
+				break;
+			}
+		}
+		
+		days = last.getDay();
+		if (days >= 3) {
+			k += 1;
+		} else {
+			k += 0;
+		}
+		return k;
+	}
+
 	/*----- END OF MY CODE FOR Gantt CHART GENERATOR -----*/
 </script>
 <style>
@@ -244,32 +313,41 @@
 	}
 </style>
 <%
+	String uid = request.getParameter("uid");
+	Map form = FormManager.getFormValue(uid,true);
 
-	String fv9_VFFTBTZP5 = "8/1/2008";//	VFF TBT ZP5日期
-	String fv9_VFFTBTZP7 = "8/1/2008";//	VFF TBT ZP7日期
-	String fv9_VFFVorStart = "8/1/2008";//		VFF装车开始日期
-	String fv9_VFFVorEnd = "8/1/2008";//		VFF装车结束日期
-	String fv9_VFFAbsMeter = "8/1/2008";//		VFF路试里程
-	String fv9_VFFAbsStart = "8/1/2008";//		VFF路试开始日期
-	String fv9_VFFAbsEnd = "8/1/2008";//		VFF路试结束日期
-	String fv9_PVSTBTZP5 = "8/1/2008";//		PVS TBT ZP5日期
-	String fv9_PVSTBTZP7 = "8/1/2008";//		PVS TBT ZP7日期
-	String fv9_PVSVorStart = "8/1/2008";//		PVS装车开始日期
-	String fv9_PVSVorEnd = "8/1/2008";//		PVS装车结束日期
-	String fv9_PVSAbsMeter = "8/1/2008";//		PVS路试里程
-	String fv9_PVSAbsStart = "8/1/2008";//		PVS路试开始日期
-	String fv9_PVSAbsEnd = "8/1/2008";//		PVS路试结束日期
-	String fv9_ErstmusterZP5 = "8/1/2008";//		ErstmusterZP5日期
-	String fv9_ErstmusterZP7 = "8/1/2008";//		ErstmusterZP7日期
-	String fv9_0STBTZP5 = "8/1/2008";//		0S TBT ZP5日期
-	String fv9_0STBTZP7 = "8/1/2008";//		0S TBT ZP7日期
-	String fv9_0SVorStart = "8/1/2008";//		0S装车开始日期
-	String fv9_0SVorEnd = "8/1/2008";//		0S装车结束日期
-	String fv9_0SAbsMeter = "8/1/2008";//		0S路试里程
-	String fv9_0SAbsStart = "8/1/2008";//		0S路试开始日期
-	String fv9_0SAbsEnd = "8/1/2008";//		0S路试结束日期
-	String fv9_TPPA_ME = "8/1/2008";//		TPPA_ME日期
-	String fv9_QFTPPA_Kunde = "8/1/2008";//		QFTPPA_Kunde日期
+	String fv9VFFTBTZP5 = (String)form.get("fv9VFFTBTZP5");
+	String fv9VFFTBTZP7 = (String)form.get("fv9VFFTBTZP7");
+	String fv9VFFVorStart = (String)form.get("fv9VFFVorStart");
+	String fv9VFFVorEnd = (String)form.get("fv9VFFVorEnd");
+	String fv9VFFVorBatches = (String)form.get("fv9VFFVorBatches");
+	String fv9VFFVorFzg = (String)form.get("fv9VFFVorFzg");
+	String fv9VFFAbsMeter = (String)form.get("fv9VFFAbsMeter");
+	String fv9VFFAbsStart = (String)form.get("fv9VFFAbsStart");
+	String fv9VFFAbsEnd = (String)form.get("fv9VFFAbsEnd");
+
+	String fv9PVSTBTZP5 = (String)form.get("fv9PVSTBTZP5");	//"8/1/2008";//		
+	String fv9PVSTBTZP7 = (String)form.get("fv9PVSTBTZP7");//"8/1/2008";//
+	String fv9PVSVorStart = (String)form.get("fv9PVSVorStart");//"8/1/2008";//		
+	String fv9PVSVorEnd = (String)form.get("fv9PVSVorEnd");//"8/1/2008";//		
+	String fv9PVSVorBatches = (String)form.get("fv9PVSVorBatches");//"8/1/2008";//		
+	String fv9PVSVorFzg = (String)form.get("fv9PVSVorFzg");//"8/1/2008";//		
+	String fv9PVSAbsMeter = (String)form.get("fv9PVSAbsMeter");//"8/1/2008";//		
+	String fv9PVSAbsStart = (String)form.get("fv9PVSAbsStart");//
+	String fv9PVSAbsEnd = (String)form.get("fv9PVSAbsEnd");//
+
+	String fv90STBTZP5 = (String)form.get("fv90STBTZP5");	//"8/1/2008";//		
+	String fv90STBTZP7 = (String)form.get("fv90STBTZP7");//"8/1/2008";//	
+	String fv90SVorStart = (String)form.get("fv90SVorStart");//"8/1/2008";//		
+	String fv90SVorEnd = (String)form.get("fv90SVorEnd");//"8/1/2008";//		
+	String fv90SVorBatches = (String)form.get("fv90SVorBatches");//"8/1/2008";//		
+	String fv90SVorFzg = (String)form.get("fv90SVorFzg");//"8/1/2008";//		
+	String fv90SAbsMeter = (String)form.get("fv90SAbsMeter");//"8/1/2008";//		
+	String fv90SAbsStart = (String)form.get("fv90SAbsStart");//
+	String fv90SAbsEnd = (String)form.get("fv90SAbsEnd");//
+	
+	String fv9TPPA_ME = (String)form.get("fv9TPPA_ME");//		TPPA_ME日期
+	String fv9QFTPPA_Kunde = (String)form.get("fv9QFTPPA_Kunde");//		QFTPPA_Kunde日期
 
 %>
 <body>	
@@ -277,30 +355,23 @@
 </body>
 <script>
 	var g = new Gantt(document.all.GanttChart);
-	g.AddTaskDetail(new Task('2011/40', '2011/40', '<b>Sample task 1 1</b>', 'ZP5', 50, 1));
-	g.AddTaskDetail(new Task('2011/44', '2011/44', '<b>Sample task 1 1</b>', 'ZP7', 50, 1));
-	g.AddTaskDetail(new Task('2011/49', '2011/52', '<b>Sample task 1 1</b>', 'VFF',  50, 1, 'background-color:#000000;color:#FFF;font-weight:bold;'));
+	g.AddTaskDetail(new Task('<%=fv9VFFTBTZP5%>', '<%=fv9VFFTBTZP5%>', '<b>Sample task 1 1</b>', 'ZP5', 50, 1));
+	g.AddTaskDetail(new Task('<%=fv9VFFTBTZP7%>', '<%=fv9VFFTBTZP7%>', '<b>Sample task 1 1</b>', 'ZP7', 50, 1));
+	g.AddTaskDetail(new Task('<%=fv9VFFVorStart%>', '<%=fv9VFFVorEnd%>', '<b><%=fv9VFFVorBatches%> Batches(<%=fv9VFFVorFzg%> Fzg.)*</b>', 'VFF',  50, 1, 'background-color:#000000;color:#FFF;font-weight:bold;'));
+	g.AddTaskDetail(new Task('<%=fv9VFFAbsStart%>', '<%=fv9VFFAbsEnd%>', '<b>Sample task 1 1</b>', 'Absicherungslauf VFF <%=fv9VFFAbsMeter%> km', 50, 2));
 	
-	g.AddTaskDetail(new Task('2011/49', '2012/30', '<b>Sample task 1 1</b>', 'Absicherungslauf VFF 150.000 km', 50, 2));
+	g.AddTaskDetail(new Task('<%=fv9PVSTBTZP5%>', '<%=fv9PVSTBTZP5%>', '<b>Sample task 1 1</b>', 'ZP5', 50, 3));
+	g.AddTaskDetail(new Task('<%=fv9PVSTBTZP7%>', '<%=fv9PVSTBTZP7%>', '<b>Sample task 1 1</b>', 'ZP7', 50, 3));
+	g.AddTaskDetail(new Task('<%=fv9PVSVorStart%>', '<%=fv9PVSVorEnd%>', '<b><%=fv9PVSVorBatches%> Batches(<%=fv9PVSVorFzg%> Fzg.)*</b></b>', 'PVS', 50, 3, 'background-color:#000000;color:#FFF;font-weight:bold;'));
+	g.AddTaskDetail(new Task('<%=fv9PVSAbsStart%>', '<%=fv9PVSAbsEnd%>', '<b>Sample task 1 1</b>', 'Absicherungslauf PVS <%=fv9PVSAbsMeter%> km', 50, 4));
 	
-	g.AddTaskDetail(new Task('2011/49', '2011/49', '<b>Sample task 1 1</b>', 'ZP5', 50, 3));
-	g.AddTaskDetail(new Task('2012/1', '2012/1', '<b>Sample task 1 1</b>', 'ZP7', 50, 3));
-	g.AddTaskDetail(new Task('2012/6', '2012/9', '<b>Sample task 1 1</b>', 'PVS', 50, 3, 'background-color:#000000;color:#FFF;font-weight:bold;'));
-
-	g.AddTaskDetail(new Task('2011/45', '2011/45', '<b>Sample task 1 1</b>', 'ZP5', 50, 4));
-	g.AddTaskDetail(new Task('2011/49', '2011/49', '<b>Sample task 1 1</b>', 'ZP7', 50, 4));
-	g.AddTaskDetail(new Task('2012/6', '2012/27', '<b>Sample task 1 1</b>', 'Absicherungslauf PVS 100.000 km', 50, 4));
+	g.AddTaskDetail(new Task('<%=fv90STBTZP5%>', '<%=fv90STBTZP5%>', '<b>Sample task 1 1</b>', 'ZP5', 50, 5));
+	g.AddTaskDetail(new Task('<%=fv90STBTZP7%>', '<%=fv90STBTZP7%>', '<b>Sample task 1 1</b>', 'ZP7', 50, 5));
+	g.AddTaskDetail(new Task('<%=fv90SVorStart%>', '<%=fv90SVorEnd%>', '<b><%=fv90SVorBatches%> Batches(<%=fv90SVorFzg%> Fzg.)*</b>', 'OS', 50, 5, 'background-color:#000000;color:#FFF;font-weight:bold;'));
+	g.AddTaskDetail(new Task('<%=fv90SAbsStart%>', '<%=fv90SAbsEnd%>', '<b>Sample task 1 1</b>', 'Absicherungslauf PVS <%=fv90SAbsMeter%> km', 50, 6));
 	
-	g.AddTaskDetail(new Task('2012/10', '2012/10', '<b>Sample task 1 1</b>', 'ZP5', 50, 5));
-	g.AddTaskDetail(new Task('2012/14', '2012/14', '<b>Sample task 1 1</b>', 'ZP7', 50, 5));
-	g.AddTaskDetail(new Task('2012/19', '2012/22', '<b>Sample task 1 1</b>', 'OS', 50, 5, 'background-color:#000000;color:#FFF;font-weight:bold;'));
-	
-	g.AddTaskDetail(new Task('2012/19', '2012/30', '<b>Sample task 1 1</b>', 'Absicherungslauf PVS 50.000 km', 50, 6));
-	
-	g.AddTaskDetail(new Task('2012/23', '2012/23', '<b>Sample task 1 1</b>', 'TPPA', 50, 7));
-	g.AddTaskDetail(new Task('2012/31', '2012/31', '<b>Sample task 1 1</b>', 'QPPA', 50, 7));
-	
-	g.AddTaskDetail(new Task('2012/32', '2012/32', '<b>Sample task 1 1</b>', 'SOP', 50, 8, 'background-color:#000000;color:#FFF;font-weight:bold;'));
+	g.AddTaskDetail(new Task('<%=fv9TPPA_ME%>', '<%=fv9TPPA_ME%>', '<b>Freigabe Markteinführungs- Volumen</b>', '29', 50, 7, 'background-color:#000000;color:#FFF;font-weight:bold;'));
+	g.AddTaskDetail(new Task('<%=fv9QFTPPA_Kunde%>', '<%=fv9QFTPPA_Kunde%>', '<b>Q-Freigabe Freigabe Kundenfahrzeuge</b>', '37', 50, 7, 'background-color:#000000;color:#FFF;font-weight:bold;'));
 	
 	g.Draw(49, 14);	
 </script>

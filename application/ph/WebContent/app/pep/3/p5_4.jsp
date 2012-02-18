@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Arrays"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -5,36 +7,94 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title><%=title %></title>
 		<%
-			title = "3.5 Maßnahmen zur Abarbeitung der B-Fehler Audit ZP8";
-			Map form = (Map)request.getAttribute("form");
+		class Problem {
+			String kw;
+			String type;
+			String desc;
+		}
+		%>
+		<%
+		Map form = (Map)request.getAttribute("form");
+		
+		List<String> fv9KWNo = (List<String>) form.get("fv9KWNo");
+		String kw  = Web.getNumberListStr(fv9KWNo);
+		
+		List<String> fv9Projekt = (List<String>) form.get("fv9Projekt");
+		List<String> fv9Kaufteile = (List<String>) form.get("fv9Kaufteile");
+		List<String> fv9Montage = (List<String>) form.get("fv9Montage");
+		List<String> fv9Lack = (List<String>) form.get("fv9Lack");
+		List<String> fv9Karosseriebau = (List<String>) form.get("fv9Karosseriebau");
+		List<String> fv9Presswerk = (List<String>) form.get("fv9Presswerk");
+		
+		List<String> fv9ProjektCom_GM = (List<String>) form.get("fv9ProjektCom_GM");
+		List<String> fv9KaufteileCom_GM = (List<String>) form.get("fv9KaufteileCom_GM");
+		List<String> fv9MontageCom_GM = (List<String>) form.get("fv9MontageCom_GM");
+		List<String> fv9LackCom_GM = (List<String>) form.get("fv9LackCom_GM");
+		List<String> fv9KarossCom_GM = (List<String>) form.get("fv9KarossCom_GM");
+		List<String> fv9PresswerkCom_GM = (List<String>) form.get("fv9PresswerkCom_GM");
+		//实际错误状态
+//		String ist_kw = "";//周 
+		//项目
+		int ist_Projekt = 0;  int low_Projekt = 0; 
+		//外购件
+		int ist_Kaufteile = 0;  int low_Kaufteile = 0;
+		//总装数
+		int ist_Montage = 0;  int low_Montage = 0;
+		//油漆数
+		int ist_Lack = 0;  int low_Lack = 0;
+		//焊装数
+		int ist_Karosseriebau = 0;  int low_Karosseriebau = 0;
+		//冲压数
+		int ist_Presswerk = 0;  int low_Presswerk = 0;
+		
+		//计划每周解决错误数
+		List<Integer> reduce_no = new ArrayList();
+		List<Integer> reduce_low = new ArrayList();
+		
+		
+		if (fv9KWNo != null && fv9KWNo.size() > 0){
+			//获取各个车间实际错误状况
+//			ist_kw = "KW" + (String)fv9KWNo.get(0);
+			ist_Projekt = Integer.parseInt((String)fv9Projekt.get(0));
 			
-			List<String> fv9KWNo = (List<String>) form.get("fv9KWNo");
+			ist_Kaufteile = Integer.parseInt((String)fv9Kaufteile.get(0));
+			low_Kaufteile = low_Projekt + ist_Projekt;
 			
-			List<String> fv9Projekt = (List<String>) form.get("fv9Projekt");
-			List<String> fv9ProjektCom_CN = (List<String>) form.get("fv9ProjektCom_CN");
-			List<String> fv9ProjektCom_GM = (List<String>) form.get("fv9ProjektCom_GM");
+			ist_Montage = Integer.parseInt((String)fv9Montage.get(0));
+			low_Montage = low_Kaufteile + ist_Kaufteile;
 			
-			List<String> fv9Kaufteile = (List<String>) form.get("fv9Kaufteile");
-			List<String> fv9KaufteileCom_CN = (List<String>) form.get("fv9KaufteileCom_CN");
-			List<String> fv9KaufteileCom_GM = (List<String>) form.get("fv9KaufteileCom_GM");
+			ist_Lack = Integer.parseInt((String)fv9Lack.get(0));
+			low_Lack = low_Montage + ist_Montage;
 			
-			List<String> fv9Montage = (List<String>) form.get("fv9Montage");
-			List<String> fv9MontageCom_CN = (List<String>) form.get("fv9MontageCom_CN");
-			List<String> fv9MontageCom_GM = (List<String>) form.get("fv9MontageCom_GM");
+			ist_Karosseriebau = Integer.parseInt((String)fv9Karosseriebau.get(0));
+			low_Karosseriebau = low_Lack + ist_Lack;
 			
-			List<String> fv9Lack = (List<String>) form.get("fv9Lack");
-			List<String> fv9LackCom_CN = (List<String>) form.get("fv9LackCom_CN");
-			List<String> fv9LackCom_GM = (List<String>) form.get("fv9LackCom_GM");
+			ist_Presswerk = Integer.parseInt((String)fv9Presswerk.get(0));
+			low_Presswerk = low_Karosseriebau + ist_Karosseriebau;
 			
-			List<String> fv9Karosseriebau = (List<String>) form.get("fv9Karosseriebau");
-			List<String> fv9KarossCom_CN = (List<String>) form.get("fv9KarossCom_CN");
-			List<String> fv9KarossCom_GM = (List<String>) form.get("fv9KarossCom_GM");
+			int gesamt = ist_Projekt + ist_Kaufteile + ist_Montage
+						+ ist_Lack + ist_Karosseriebau + ist_Presswerk;
 			
-			List<String> fv9Presswerk = (List<String>) form.get("fv9Presswerk");
-			List<String> fv9PresswerkCom_CN = (List<String>) form.get("fv9PresswerkCom_CN");
-			List<String> fv9PresswerkCom_GM = (List<String>) form.get("fv9PresswerkCom_GM");
+			//计划每周解决错误数
+			reduce_no.add(0); 
+			reduce_low.add(0);
+			for (int i=1; i<fv9KWNo.size(); i++){
+				int sum = Integer.parseInt((String)fv9Projekt.get(i))
+						+ Integer.parseInt((String)fv9Kaufteile.get(i))
+						+ Integer.parseInt((String)fv9Montage.get(i))
+						+ Integer.parseInt((String)fv9Lack.get(i))
+						+ Integer.parseInt((String)fv9Karosseriebau.get(i))
+						+ Integer.parseInt((String)fv9Presswerk.get(i));
+//				soll_kw.add(fv9KWNo.get(i));
+				reduce_no.add(sum);
+				reduce_low.add(gesamt - sum);
+				gesamt -= sum;
+				
+			}
 			
+		}
 
 		%>
 		<style type="text/css">
@@ -63,7 +123,6 @@
 				margin-left:100px;
 			}
 		</style>
-		<title><%=title %></title>
 		<script type="text/javascript">
 		var chart;
 		$(document).ready(function() {
@@ -85,7 +144,7 @@
 					tickLength: 0,
 					lineColor: 'black',
 					lineWidth:2,
-					categories: ['KW15','16','17','18','19','20'],
+					categories: <%=kw%>,
 					labels: {
 							style: {
 								 padding:'10px',
@@ -132,66 +191,58 @@
 			    series: [{
 					name: 'Soll',
 					showInLegend: false,
-					data: [{ 
-							y: 0, 
-							low: 0,
-							color: '#009C0E'
-						},{ 
-							y: 2, 
-							low: 8,
-							color: '#009C0E'
-						}, {
-						 	y: 2, 
-						 	low: 6,
-							color: '#009C0E'
-						}, {
-							y: 3,
-							low: 3,
-							color: '#009C0E'
-						}, {
-							y: 2,
-							low: 1,
-							color: '#009C0E'
-						}, { 
-							y: 1, 
-							low:0,
-							color: '#009C0E'
-						}],
-						dataLabels: {
-							enabled: true,
-							style : {
-								fontWeight: 'bold',
-								fontSize:'12px'
-							},
-							color: 'white'
+					<%
+						String datastr = "";
+						if (reduce_no != null && reduce_no.size() > 0) {
+							StringBuffer output = new StringBuffer();
+							output.append("[");
+							for (int i=0; i<reduce_no.size()-1; i++){
+								output.append("{y: " + reduce_no.get(i) + ", low: " + reduce_low.get(i) + ", color: '#009C0E'},");
+							}
+							output.append("{y: " + reduce_no.get(reduce_no.size()-1) + ", low: " + reduce_low.get(reduce_no.size()-1) + ", color: '#009C0E'}");
+							output.append("]");
+							datastr = output.toString();
 						}
+						if ("".equals(datastr)) {
+							datastr = "[]";
+						}
+					%>
+					data: <%=datastr%>,
+					dataLabels: {
+						enabled: true,
+						style : {
+							fontWeight: 'bold',
+							fontSize:'12px'
+						},
+						color: 'white'
+					}
 				},{
 					name: 'Presswerk',
 					color: '#BBC2C5',
 					data: [{ 
-						y: 2, 
-						low: 8
+						y: <%=ist_Presswerk%>, 
+						low: <%=low_Presswerk%>
 					}]
 				},{
 					name: 'Karosseriebau',
 					color: '#AED4F8',
 					data: [{ 
-						y: 2, 
-						low: 6
+						y: <%=ist_Karosseriebau%>, 
+						low: <%=low_Karosseriebau%>
 					}]
 				},{
 					name: 'Lack',
 					color: '#0000FF',
 					data: [{ 
-						y: 2, 
-						low: 4
+						y: <%=ist_Lack%>, 
+						low: <%=low_Lack%>
 					}]
 				},{
 					name: 'Montage',
 					color: '#00235A',
 					data: [{ 
-						y: 2, 
-						low: 2
+						y: <%=ist_Montage%>, 
+						low: <%=low_Montage%>
 					}],
 					dataLabels: {
 						enabled: true,
@@ -205,15 +256,15 @@
 					name: 'Kaufteile',
 					color: '#AED4F8',
 					data: [{ 
-						y: 1, 
-						low: 1
+						y: <%=ist_Kaufteile%>, 
+						low: <%=low_Kaufteile%>
 					}]
 				},{
 					name: 'Projekt',
 					color: '#98CB00',
 					data: [{ 
-						y: 1, 
-						low: 0
+						y: <%=ist_Projekt%>, 
+						low: <%=low_Projekt%>
 					}]
 				}]
 			});
@@ -240,17 +291,96 @@
 								</div>
 								<table width="350" cellspacing="0">
 								<% 
-									for(int i=0; i<5; i++){
-								%>
-									  <tr>
-									    <td width="50" rowspan="2"></td>
-									    <td>111</td>
-								      </tr>
-									  <tr>
-									    <td>&nbsp;</td>
-  									  </tr>
-								   <%
+								List ps = new ArrayList();
+								
+								if(fv9KWNo != null && fv9KWNo.size() > 0) {	
+									for(int i=1; i<fv9KWNo.size(); i++){
+										int rows = 0;
+										if (Integer.parseInt(fv9Projekt.get(i)) > 0) {
+											rows++;
+											Problem p = new Problem();
+											p.kw = (String)fv9KWNo.get(i);
+											p.type = "Projekt";
+											p.desc = fv9ProjektCom_GM.get(i);
+											ps.add(p);
+										}
+										if (Integer.parseInt(fv9Kaufteile.get(i)) > 0) {
+											rows++;
+											Problem p = new Problem();
+											p.kw = (String)fv9KWNo.get(i);
+											p.type = "Kaufteile";
+											p.desc = fv9KaufteileCom_GM.get(i);
+											ps.add(p);
+										}
+										if (Integer.parseInt(fv9Montage.get(i)) > 0) {
+											rows++;
+											Problem p = new Problem();
+											p.kw = (String)fv9KWNo.get(i);
+											p.type = "Montage";
+											p.desc = fv9MontageCom_GM.get(i);
+											ps.add(p);
+										}
+										if (Integer.parseInt(fv9Lack.get(i)) > 0) {
+											rows++;
+											Problem p = new Problem();
+											p.kw = (String)fv9KWNo.get(i);
+											p.type = "Lack";
+											p.desc = fv9LackCom_GM.get(i);
+											ps.add(p);
+										}
+										if (Integer.parseInt(fv9Presswerk.get(i)) > 0) {
+											rows++;
+											Problem p = new Problem();
+											p.kw = (String)fv9KWNo.get(i);
+											p.type = "Presswerk";
+											p.desc = fv9PresswerkCom_GM.get(i);
+											ps.add(p);
+										}
+										if (Integer.parseInt(fv9Karosseriebau.get(i)) > 0) {
+											rows++;
+											Problem p = new Problem();
+											p.kw = (String)fv9KWNo.get(i);
+											p.type = "Karosseriebau";
+											p.desc = fv9KarossCom_GM.get(i);
+											ps.add(p);
+										}
+
+										if (ps != null && ps.size() > 0) {
+											for (int j=0; j< ps.size(); j++) {
+												Problem pp = (Problem)ps.get(j);
+										%>
+											  <tr>
+											  <%
+											  	if (j == 0) {
+											  		%>
+											  		<td rowspan="<%=rows%>"><%=pp.kw %></td>
+											  		<%
+											  	} 
+											  %>
+												<td>
+												<% if("Projekt".equals(pp.type)){%>
+													    <img src="<%=request.getContextPath()%>/app/pep/images/Projekt.jpg" width="10" height="10" />
+												<% }if("Kaufteile".equals(pp.type)){%>
+													    <img src="<%=request.getContextPath()%>/app/pep/images/Kaufteile.jpg" width="10" height="10" />
+												<% }if("Montage".equals(pp.type)){%>
+													   	<img src="<%=request.getContextPath()%>/app/pep/images/montage.jpg" width="10" height="10" />
+											   	<% }if("Lack".equals(pp.type)){%>
+											   			<img src="<%=request.getContextPath()%>/app/pep/images/lack.jpg" width="10" height="10" />
+											   	<% }if("Presswerk".equals(pp.type)){%>
+											   			<img src="<%=request.getContextPath()%>/app/pep/images/presswerk.jpg" width="10" height="10" />
+											   	<% }if("Karosseriebau".equals(pp.type)){%>
+											   			<img src="<%=request.getContextPath()%>/app/pep/images/karosseriebau.jpg" width="10" height="10" />
+											   	<%} %>
+												</td>
+												<td><%=pp.desc %></td>
+											 </tr>
+										<%			
+												}
+												
+										ps.clear();
+										}
 									}
+								}
 								  %>
 								</table>
 							</div>

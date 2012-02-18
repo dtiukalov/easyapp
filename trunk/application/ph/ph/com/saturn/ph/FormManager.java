@@ -73,47 +73,69 @@ import com.saturn.ph.form.p6.FV9_61LaunchplanungDataset;
 import com.saturn.ph.form.p7.FV9_71ReifegradsForm;
 import com.saturn.ph.form.p7.FV9_72BeschlussDataset;
 import com.saturn.ph.form.p7.FV9_72UeberZuTerDataset;
-
+import com.teamcenter.soa.client.model.ModelObject;
+import com.teamcenter.soa.exceptions.NotLoadedException;
 
 public class FormManager {
-	
+
 	private static Map<String, Form> forms = new HashMap<String, Form>();
 
 	static {
 		inital();
 	}
-	
+
 	private FormManager() {
 	}
-	
-	public static Map<String, Object> getFormValue(String type, String uid, boolean refresh) {
-		if (forms.containsKey(type)) {
-			return forms.get(type).getValue(uid, refresh);
+
+	public static Map<String, Object> getFormValue(String uid, boolean refresh) {
+		ModelObject object = PH.getDataService().loadModelObjectRefresh(uid);
+
+		if (object != null) {
+			String type = object.getType().getName();
+			if (type.equalsIgnoreCase("JPEG")) {
+				try {
+					type = object.getProperty("object_name")
+							.getDisplayableValue();
+				} catch (NotLoadedException e) {
+					e.printStackTrace();
+				}
+			}
+			
+			return getFormValue(type, uid, refresh);
 		}
 		
 		return new HashMap<String, Object>();
 	}
-	
+
+	public static Map<String, Object> getFormValue(String type, String uid,
+			boolean refresh) {
+		if (forms.containsKey(type)) {
+			return forms.get(type).getValue(uid, refresh);
+		}
+
+		return new HashMap<String, Object>();
+	}
+
 	public static String getJspPath(String type) {
 		if (forms.containsKey(type)) {
 			return forms.get(type).getJspPath();
 		}
-		
+
 		return "/app/pep/index.jsp";
 	}
-	
+
 	public static String getFormTitle(String type) {
 		if (forms.containsKey(type)) {
 			return forms.get(type).getTitle();
 		}
-		
+
 		return "";
 	}
-	
+
 	public static void add(Form form) {
 		forms.put(form.getType(), form);
 	}
-	
+
 	private static void inital() {
 		add(new FV9_11ProjectTerminForm());
 		add(new FV9_11AnlaufueberForm());
@@ -127,7 +149,7 @@ public class FormManager {
 		add(new FV9_15FahrzeugaufZP5Form());
 		add(new FV9_15FahrzeugaufZP8Form());
 		add(new FV9_15ProgrammpunkteForm());
-		
+
 		add(new FV9_21PBFreigBMGForm());
 		add(new FV9_21PFreigabeForm());
 		add(new FV9_21PFAbarbueberscForm());
@@ -140,7 +162,7 @@ public class FormManager {
 		add(new FV9_23SoftwarefehlerentwicklungDataset());
 		add(new FV9_24StatusAEKOForm());
 		add(new FV9_24AEKOUmsetzForm());
-		
+
 		add(new FV9_31PrufMBCubForm());
 		add(new FV9_32FugenRadForm());
 		add(new FV9_33BaubarkeitGesamtfahrzeugDataset());
@@ -160,7 +182,7 @@ public class FormManager {
 		add(new FV9_35AuditZP8KaufForm());
 		add(new FV9_35NachAbbausForm());
 		add(new FV9_36Vorch2TagForm());
-		
+
 		add(new FV9_41NominLieferForm());
 		add(new FV9_42TeilequalitaetZP5HTDataset());
 		add(new FV9_42TeileStatVFFHTForm());
@@ -168,21 +190,21 @@ public class FormManager {
 		add(new FV9_42TeileStat0SHTForm());
 		add(new FV9_42TerminubersichtZP5HTDataset());
 		add(new FV9_42ProblemblattZP5HTDataset());
-		
+
 		add(new FV9_42TeilequalitaetZP5KTDataset());
 		add(new FV9_42TeileStatVFFKTForm());
 		add(new FV9_42TeileStatPVSKTForm());
 		add(new FV9_42TeileStat0SKTForm());
 		add(new FV9_42TerminubersichtZP5KTDataset());
 		add(new FV9_42ProblemblattZP5KTDataset());
-		
+
 		add(new FV9_43TeilequalitaetZP7KTDataset());
 		add(new FV9_43TeileStatVFFKTForm());
 		add(new FV9_43TeileStatPVSKTForm());
 		add(new FV9_43TeileStat0SKTForm());
 		add(new FV9_43TerminubersichtZP7KTDataset());
 		add(new FV9_43ProblemblattZP7KTDataset());
-		
+
 		add(new FV9_44AggregateverfuegbarkeitDataset());
 
 		add(new FV9_51KarosserStatForm());
@@ -195,6 +217,5 @@ public class FormManager {
 		add(new FV9_72BeschlussDataset());
 		add(new FV9_72UeberZuTerDataset());
 
-		
 	}
 }

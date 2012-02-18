@@ -1,10 +1,8 @@
 package com.saturn.web;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
-import sun.net.www.content.text.plain;
+import java.util.Map;
 
 public class Web {
 	public static void main(String[] args) {
@@ -155,4 +153,21 @@ public class Web {
 		return result;
 	}
 
+	@SuppressWarnings("rawtypes")
+	public static String getFormState(Map form) {
+		if (form != null) {
+			String isPublic = "yes";//form.get("XX");
+			String isReleaze = "yes";//form.get("XX");
+			
+			if (!"yes11".equalsIgnoreCase(isPublic)) {
+				return "<div id='no-state'>资料整理中...</div>";
+			}
+			
+			if (!"yes".equalsIgnoreCase(isReleaze)) {
+				return "<div id='no-state'>未发布</div>";
+			}
+		}
+		
+		return "";
+	}
 }

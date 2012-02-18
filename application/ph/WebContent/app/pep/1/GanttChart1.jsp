@@ -1,3 +1,4 @@
+<%@page import="com.saturn.ph.FormManager"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="java.util.Map"%>
@@ -25,10 +26,10 @@
 		var _level = level;
 		var _color = color;
 		
-		var dvArr = from.split('/');
-		_from.setFullYear(parseInt(dvArr[2], 10), parseInt(dvArr[0], 10) - 1, parseInt(dvArr[1], 10));
-		dvArr = to.split('/'); 
-		_to.setFullYear(parseInt(dvArr[2], 10), parseInt(dvArr[0], 10) - 1, parseInt(dvArr[1], 10));		
+		var dvArr = from.split('-');
+		_from.setFullYear(parseInt(dvArr[0], 10), parseInt(dvArr[1], 10) - 1, parseInt(dvArr[2], 10));
+		dvArr = to.split('-'); 
+		_to.setFullYear(parseInt(dvArr[0], 10), parseInt(dvArr[1], 10) - 1, parseInt(dvArr[2], 10));		
 		
 		this.getFrom = function(){ return _from};
 		this.getTo = function(){ return _to};
@@ -266,127 +267,131 @@
 	
 </style>
 <%
+	String uid = request.getParameter("uid");
+	Map form = FormManager.getFormValue(uid,true);
+	
+	
 	List<Map<String,String>> list = new ArrayList<Map<String,String>>();
 	String lichengbeistr = "PM,PP,PD,PF,KE,DE,DF,BF,LF,VFF,PVS,OS,SOP,ME";
 	
-	String fv9PMML_Date = "8/1/2008";//	里程碑日期_PM
-	String fv9PMML_Org = "org";//	验收机构_PM
+	String fv9PMML_Date = (String)form.get("fv9PMMLDate");//	里程碑日期_PM
+	String fv9PMML_Org = (String)form.get("fv9PMMLOrg");//	验收机构_PM
 	Map<String,String> mapPM = new HashMap<String,String>();
 	mapPM.put("lichengbei","PM");
 	mapPM.put("date",fv9PMML_Date);
 	mapPM.put("org",fv9PMML_Org);
 	list.add(mapPM);
 	
-	String fv9PPML_Date = "11/1/2008";//	里程碑日期_PP
-	String fv9PPML_Org = "org";//	验收机构_PP
+	String fv9PPML_Date = (String)form.get("fv9PPMLDate");//	里程碑日期_PP
+	String fv9PPML_Org = (String)form.get("fv9PPMLOrg");//	验收机构_PP
 	Map<String,String> mapPP = new HashMap<String,String>();
 	mapPP.put("lichengbei","PP");
 	mapPP.put("date",fv9PPML_Date);
 	mapPP.put("org",fv9PPML_Org);
 	list.add(mapPP);
 	
-	String fv9PDML_Date = "2/1/2009";//	里程碑日期_PD
-	String fv9PDML_Org = "org";//	验收机构_PD
+	String fv9PDML_Date = (String)form.get("fv9PDMLDate");;//	里程碑日期_PD
+	String fv9PDML_Org = (String)form.get("fv9PDMLOrg");//	验收机构_PD
 	Map<String,String> mapPD = new HashMap<String,String>();
 	mapPD.put("lichengbei","PD");
 	mapPD.put("date",fv9PDML_Date);
 	mapPD.put("org",fv9PDML_Org);
 	list.add(mapPD);
 	
-	String fv9PFML_Date = "5/1/2009";//	里程碑日期_PF
-	String fv9PFML_Org = "org";//	验收机构_PF
+	String fv9PFML_Date = (String)form.get("fv9PFMLDate");//	里程碑日期_PF
+	String fv9PFML_Org = (String)form.get("fv9PFMLOrg");;//	验收机构_PF
 	Map<String,String> mapPF = new HashMap<String,String>();
 	mapPF.put("lichengbei","PF");
 	mapPF.put("date",fv9PFML_Date);
 	mapPF.put("org",fv9PFML_Org);
 	list.add(mapPF);
 	
-	String fv9KEML_Date = "11/1/2009";//	里程碑日期_KE
-	String fv9KEML_Org = "org";//	验收机构_KE
+	String fv9KEML_Date = (String)form.get("fv9KEMLDate");//	里程碑日期_KE
+	String fv9KEML_Org = (String)form.get("fv9KEMLOrg");//	验收机构_KE
 	Map<String,String> mapKE = new HashMap<String,String>();
 	mapKE.put("lichengbei","KE");
 	mapKE.put("date",fv9KEML_Date);
 	mapKE.put("org",fv9KEML_Org);
 	list.add(mapKE);
 	
-	String fv9DEML_Date = "5/1/2010";//	里程碑日期_DE
-	String fv9DEML_Org = "org";//	验收机构_DE
+	String fv9DEML_Date = (String)form.get("fv9DEMLDate");//	里程碑日期_DE
+	String fv9DEML_Org = (String)form.get("fv9DEMLOrg");//	验收机构_DE
 	Map<String,String> mapDE = new HashMap<String,String>();
 	mapDE.put("lichengbei","DE");
 	mapDE.put("date",fv9DEML_Date);
 	mapDE.put("org",fv9DEML_Org);
 	list.add(mapDE);
 	
-	String fv9DFML_Date = "9/1/2010";//	里程碑日期_DF
-	String fv9DFML_Org = "org";//	验收机构_DF
+	String fv9DFML_Date = (String)form.get("fv9DFExtMLDate");//	里程碑日期_DF
+	String fv9DFML_Org = (String)form.get("fv9DFExtMLOrg");//	验收机构_DF
 	Map<String,String> mapDF = new HashMap<String,String>();
 	mapDF.put("lichengbei","DF");
 	mapDF.put("date",fv9DFML_Date);
 	mapDF.put("org",fv9DFML_Org);
 	list.add(mapDF);
 	
-	String fv9BFML_Date = "2/1/2011";//	里程碑日期_BF
-	String fv9BFML_Org = "org";//	验收机构_BF
+	String fv9BFML_Date = (String)form.get("fv9BFMLDate");//	里程碑日期_BF
+	String fv9BFML_Org = (String)form.get("fv9BFMLOrg");//	验收机构_BF
 	Map<String,String> mapBF = new HashMap<String,String>();
 	mapBF.put("lichengbei","BF");
 	mapBF.put("date",fv9BFML_Date);
 	mapBF.put("org",fv9BFML_Org);
 	list.add(mapBF);
 	
-	String fv9LFML_Date = "8/1/2011";//	里程碑日期_LF
-	String fv9LFML_Org = "org";//	验收机构_LF
+	String fv9LFML_Date = (String)form.get("fv9LFMLDate");//	里程碑日期_LF
+	String fv9LFML_Org = (String)form.get("fv9LFMLOrg");//	验收机构_LF
 	Map<String,String> mapLF = new HashMap<String,String>();
 	mapLF.put("lichengbei","LF");
 	mapLF.put("date",fv9LFML_Date);
 	mapLF.put("org",fv9LFML_Org);
 	list.add(mapLF);
 	
-	String fv9VFFML_Date = "12/1/2011";//	里程碑日期_VFF
-	String fv9VFFML_Org = "org";//	验收机构_VFF
+	String fv9VFFML_Date = (String)form.get("fv9VFFMLDate");//	里程碑日期_VFF
+	String fv9VFFML_Org = (String)form.get("fv9VFFMLOrg");//	验收机构_VFF
 	Map<String,String> mapVFF = new HashMap<String,String>();
 	mapVFF.put("lichengbei","VFF");
 	mapVFF.put("date",fv9VFFML_Date);
 	mapVFF.put("org",fv9VFFML_Org);
 	list.add(mapVFF);
 	
-	String fv9PVSML_Date = "2/1/2012";//	里程碑日期_PVS
-	String fv9PVSML_Org = "org";//	验收机构_PVS
+	String fv9PVSML_Date = (String)form.get("fv9PVSMLDate");//	里程碑日期_PVS
+	String fv9PVSML_Org = (String)form.get("fv9PVSMLOrg");//	验收机构_PVS
 	Map<String,String> mapPVS = new HashMap<String,String>();
 	mapPVS.put("lichengbei","PVS");
 	mapPVS.put("date",fv9PVSML_Date);
 	mapPVS.put("org",fv9PVSML_Org);
 	list.add(mapPVS);
 	
-	String fv90SML_Date = "5/1/2012";//	里程碑日期_0S
-	String fv90SML_Org = "org";//	验收机构_0S
+	String fv90SML_Date = (String)form.get("fv90SMLDate");//	里程碑日期_0S
+	String fv90SML_Org = (String)form.get("fv90SMLOrg");//	验收机构_0S
 	Map<String,String> map0S = new HashMap<String,String>();
 	map0S.put("lichengbei","0S");
 	map0S.put("date",fv90SML_Date);
 	map0S.put("org",fv90SML_Org);
 	list.add(map0S);
 	
-	String fv9SOPML_Date = "8/1/2012";//	里程碑日期_SOP
-	String fv9SOPML_Org = "org";//	验收机构_SOP
+	String fv9SOPML_Date = (String)form.get("fv9SOPMLDate");//	里程碑日期_SOP
+	String fv9SOPML_Org = (String)form.get("fv9SOPMLOrg");//	验收机构_SOP
 	Map<String,String> mapSOP = new HashMap<String,String>();
 	mapSOP.put("lichengbei","SOP");
 	mapSOP.put("date",fv9SOPML_Date);
 	mapSOP.put("org",fv9SOPML_Org);
 	list.add(mapSOP);
 	
-	String fv9MEML_Date = "11/1/2012";//	里程碑日期_ME
-	String MEfv9MEML_Org = "org";//	验收机构_ME
+	String fv9MEML_Date = (String)form.get("fv9MEMLDate");//	里程碑日期_ME
+	String MEfv9MEML_Org = (String)form.get("fv9MEMLOrg");//	验收机构_ME
 	Map<String,String> mapME = new HashMap<String,String>();
 	mapME.put("lichengbei","ME");
 	mapME.put("date",fv9MEML_Date);
 	mapME.put("org",MEfv9MEML_Org);
 	list.add(mapME);
 
-	String Producktidefinition_S = "8/1/2008"; 
-	String Producktidefinition_E = "5/1/2009"; 
-	String Konzept_S = "6/1/2009";
-	String Konzept_E = "7/1/2011";
-	String Serienvorboreitung_S = "8/1/2011";
-	String Serienvorboreitung_E = "11/1/2012";
+	String Producktidefinition_S = "2008-1-8"; 
+	String Producktidefinition_E = "2009-1-5"; 
+	String Konzept_S = "2009-1-6";
+	String Konzept_E = "2011-1-7";
+	String Serienvorboreitung_S = "2011-1-8";
+	String Serienvorboreitung_E = "12012-1-11";
 %>
 <body>	
 	<div style="position:relative" class="Gantt" id="GanttChart"></div>
@@ -407,20 +412,20 @@
 		}
 	} 
 	%>
-	/* /* 		/* Date fv9PMMLDate = (Date)form.get("fv9PMMLDate");
-	String fv9PMMLOrg = (String)form.get("fv9PMMLOrg");
-	Date fv9PPMLDate = (Date)form.get("fv9PPMLDate");
-	String fv9PPMLOrg = (String)form.get("fv9PPMLOrg");
-	Date fv9PDMLDate = (Date)form.get("fv9PDMLDate");
-	String fv9PDMLOrg = (String)form.get("fv9PDMLOrg");
-	Date fv9PFMLDate = (Date)form.get("fv9PFMLDate");
-	String fv9PFMLOrg = (String)form.get("fv9PFMLOrg");
-	Date fv9KEMLDate = (Date)form.get("fv9KEMLDate");
-	String fv9KEMLOrg = (String)form.get("fv9KEMLOrg");
-	Date fv9DEMLDate = (Date)form.get("fv9DEMLDate");
-	String fv9DEMLOrg = (String)form.get("fv9DEMLOrg");
-	Date fv9DFExtMLDate = (Date)form.get("fv9DFExtMLDate");
-	String fv9DFExtMLOrg = (String)form.get("fv9DFExtMLOrg"); */
+	/* /* 		/* Date fv9PMMLDate = (Date)String = (String)form.get("fv9PMMLDate");
+	String fv9PMMLOrg = (String)String = (String)form.get("fv9PMMLOrg");
+	Date fv9PPMLDate = (Date)String = (String)form.get("fv9PPMLDate");
+	String fv9PPMLOrg = (String)String = (String)form.get("fv9PPMLOrg");
+	Date fv9PDMLDate = (Date)String = (String)form.get("fv9PDMLDate");
+	String fv9PDMLOrg = (String)String = (String)form.get("fv9PDMLOrg");
+	Date fv9PFMLDate = (Date)String = (String)form.get("fv9PFMLDate");
+	String fv9PFMLOrg = (String)String = (String)form.get("fv9PFMLOrg");
+	Date fv9KEMLDate = (Date)String = (String)form.get("fv9KEMLDate");
+	String fv9KEMLOrg = (String)String = (String)form.get("fv9KEMLOrg");
+	Date fv9DEMLDate = (Date)String = (String)form.get("fv9DEMLDate");
+	String fv9DEMLOrg = (String)String = (String)form.get("fv9DEMLOrg");
+	Date fv9DFExtMLDate = (Date)String = (String)form.get("fv9DFExtMLDate");
+	String fv9DFExtMLOrg = (String)String = (String)form.get("fv9DFExtMLOrg"); */
 	
 /* 	g.AddTaskDetail(new Task('8/1/2008', '8/1/2008', '<b>Sample task 1 1</b>', 'PM<br /><h6 style="color: #E63110">pppp</h6>', 50, 1));
 	g.AddTaskDetail(new Task('11/1/2008', '11/1/2008', '<b>Sample task 1 1</b>', 'PP', 50, 1));
@@ -436,12 +441,16 @@
 	g.AddTaskDetail(new Task('5/1/2012', '5/1/2012', '<b>Sample task 1 1</b>', 'OS', 50, 1));
 	g.AddTaskDetail(new Task('8/1/2012', '8/1/2012', '<b>Sample task 1 1</b>', 'SOP', 50, 1));
 	g.AddTaskDetail(new Task('11/1/2012', '11/1/2012', '<b>Sample task 1 1</b>', 'ME', 50, 1));
-	 */
+	 
 	
 	g.AddTaskDetail(new Task('<%=Producktidefinition_S%>', '<%=Producktidefinition_E%>', '<b>Sample task 1 1</b>', '9 MO', 50, 5, '#f3f3f3'));
 	g.AddTaskDetail(new Task('<%=Konzept_S%>', '<%=Konzept_E%>', '<b>Sample task 1 1</b>', '27 MO', 50, 5, '#b0b0b0'));
 	g.AddTaskDetail(new Task('<%=Serienvorboreitung_S%>', '<%=Serienvorboreitung_E%>', '<b>Sample task 1 1</b>', '15 MO', 50, 5, '#414141'));
+	*/
 	
+	g.AddTaskDetail(new Task('2008-1-8', '2009-1-5', '<b>Sample task 1 1</b>', '9 MO', 50, 5, '#f3f3f3'));
+	g.AddTaskDetail(new Task('2009-1-6', '2011-1-7', '<b>Sample task 1 1</b>', '27 MO', 50, 5, '#b0b0b0'));
+	g.AddTaskDetail(new Task('2011-1-8', '12012-1-11', '<b>Sample task 1 1</b>', '15 MO', 50, 5, '#414141'));
 	g.Draw(49, 15);	
 </script>
 </html>

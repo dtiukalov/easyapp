@@ -1,9 +1,11 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.HashMap"%>	
+<%@page import="java.util.Date"%>
 <html>
 
 <head>
@@ -61,6 +63,10 @@
 	}
 		
 	</style>
+	<%
+		Map form = (Map)request.getAttribute("form");	
+		String uid = (String)request.getAttribute("uid");
+	%>
 </head>
 <body>	
 	<div id="container">
@@ -82,9 +88,9 @@
 			  </tr>
 			  <tr>
 			    <td style="width:904px;hight:400px">
-			    <iframe id="ff" name= "ff" frameborder="0"  
-				    src="<%=request.getContextPath() %>/app/pep/1/GanttChart1.jsp" 
-				    style="width:1000px;height:200px;">
+			    <iframe id="ff" name= "ff" frameborder="0" 
+				    src="<%=request.getContextPath() %>/app/pep/1/GanttChart1.jsp?uid=<%=uid %>" 
+				    style="width:1000px;height:500px;">
 			    </iframe>
 			    </td>
 			  </tr>

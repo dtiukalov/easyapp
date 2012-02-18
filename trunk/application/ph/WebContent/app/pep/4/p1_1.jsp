@@ -1,6 +1,8 @@
+<%@page import="com.saturn.web.Web"%>
 <%@page import="java.util.Arrays"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.HashMap"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -12,7 +14,6 @@
 	int fv9Nominiert = 200; // (Integer) form.get("fv9Nominiert");已定厂 
 	int fv9Nichtnominiert = 33;//	 (Integer) form.get("fv9Nichtnominiert");未定厂
 	int Gesamt = fv9Nominiert + fv9Nichtnominiert;	
-
 %>
 <html>
 	<head>
@@ -109,17 +110,33 @@
 			});
 		<%
 
-			Integer[] fv9KWNo = new Integer[]{9, 11, 13};//(List<String>)form.get("fv9KWNo")	周数
-			Integer[] fv9KWNumber = new Integer[]{4,6,4};//(List<String>)form.get("fv9KWNumber")	数量
-			String[] fv9KWCom = new String[]{"-x:*** <br/>-y:***","-x:***<br/> -y:***","-x:*** <br/>-y:***"};//(List<String>)form.get("fv9KWCom")	备注
+			List<String> fv9KWNo = new ArrayList<String>();//(List<String>)form.get("fv9KWNo")	周数
+			fv9KWNo.add("9");
+			fv9KWNo.add("11");
+			fv9KWNo.add("13");
+			fv9KWNo.add("15");
+			
+			List<String> fv9KWNum = new ArrayList<String>();//(List<String>)form.get("fv9KWNumber")	数量
+			fv9KWNum.add("4");
+			fv9KWNum.add("3");
+			fv9KWNum.add("3");
+			fv9KWNum.add("4");
+			int[] fv9KWNumber = Web.getIntArrByStringlist(fv9KWNum);
+			
+			List<String> fv9KWCom = new ArrayList<String>();//{"-x:*** <br/>-y:***","-x:***<br/> -y:***","-x:*** <br/>-y:***"};//(List<String>)form.get("fv9KWCom")	备注
+			fv9KWCom.add("-x:*** <br/>-y:***");
+			fv9KWCom.add("-x:*** <br/>-y:***");
+			fv9KWCom.add("-x:*** <br/>-y:***");
+			fv9KWCom.add("-x:*** <br/>-y:***");
+			
 			int fv9KritischeNomini = 1;//(Integer) form.get("fv9KritischeNomini");	 有风险
 			
 			StringBuffer buffer = new StringBuffer("[");
 			buffer.append("\"" + "Kritische<br>Nominierungen" + "\",");
 			int total = 0;
 			
-			for(int i=0; i<fv9KWNo.length; i++){
-				buffer.append("\"" + "KW" + fv9KWNo[i].toString() + "\",");
+			for(int i=0; i<fv9KWNo.size(); i++){
+				buffer.append("\"KW" + fv9KWNo.get(i) + "\",");
 				total = fv9KWNumber[i] + total;
 			}
 			
@@ -218,7 +235,7 @@
 						 	y: <%=fv9KWNumber[i]%>, 
 					 		low: <%=temp%>,
 					 		color: '#E53110',
-					 		desc: '<%=fv9KWCom[i]%>'
+					 		desc: '<%=fv9KWCom.get(i)%>'
 						},
 						<%}
 						%>

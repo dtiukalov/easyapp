@@ -1,11 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ include file="/app/pep/include/header.jsp"%>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<%@ include file="/app/pep/include/header.jsp"%>
-		<title>3.5 Maßnahmen zur Abarbeitung der B-Fehler Audit ZP8</title>
+		<%
+			title = "3.5 Maßnahmen zur Abarbeitung der B-Fehler Audit ZP8";
+			Map form = (Map)request.getAttribute("form");
+			
+			List<String> fv9KWNo = (List<String>) form.get("fv9KWNo");
+			
+			List<String> fv9Projekt = (List<String>) form.get("fv9Projekt");
+			List<String> fv9ProjektCom_CN = (List<String>) form.get("fv9ProjektCom_CN");
+			List<String> fv9ProjektCom_GM = (List<String>) form.get("fv9ProjektCom_GM");
+			
+			List<String> fv9Kaufteile = (List<String>) form.get("fv9Kaufteile");
+			List<String> fv9KaufteileCom_CN = (List<String>) form.get("fv9KaufteileCom_CN");
+			List<String> fv9KaufteileCom_GM = (List<String>) form.get("fv9KaufteileCom_GM");
+			
+			List<String> fv9Montage = (List<String>) form.get("fv9Montage");
+			List<String> fv9MontageCom_CN = (List<String>) form.get("fv9MontageCom_CN");
+			List<String> fv9MontageCom_GM = (List<String>) form.get("fv9MontageCom_GM");
+			
+			List<String> fv9Lack = (List<String>) form.get("fv9Lack");
+			List<String> fv9LackCom_CN = (List<String>) form.get("fv9LackCom_CN");
+			List<String> fv9LackCom_GM = (List<String>) form.get("fv9LackCom_GM");
+			
+			List<String> fv9Karosseriebau = (List<String>) form.get("fv9Karosseriebau");
+			List<String> fv9KarossCom_CN = (List<String>) form.get("fv9KarossCom_CN");
+			List<String> fv9KarossCom_GM = (List<String>) form.get("fv9KarossCom_GM");
+			
+			List<String> fv9Presswerk = (List<String>) form.get("fv9Presswerk");
+			List<String> fv9PresswerkCom_CN = (List<String>) form.get("fv9PresswerkCom_CN");
+			List<String> fv9PresswerkCom_GM = (List<String>) form.get("fv9PresswerkCom_GM");
+			
+
+		%>
 		<style type="text/css">
 			.div {
 					width: 350px;
@@ -32,6 +63,7 @@
 				margin-left:100px;
 			}
 		</style>
+		<title><%=title %></title>
 		<script type="text/javascript">
 		var chart;
 		$(document).ready(function() {
@@ -191,7 +223,7 @@
 	<body>
 		<div id="container" style="height:600px">
 			<div id="nr">
-				<div id="top"><h1>3.5 Maßnahmen zur Abarbeitung der B-Fehler Audit ZP8</h1></div>	
+				<div id="top"><h1><%=title %></h1></div>	
 				<div id="content" >
 					<div id="chart" style="width: 400px; height: 400px; margin: 50px auto; float: left;"></div>
 					<div id="table" style="width: 400px; height: 400px; margin: 0 auto; float: left;">&nbsp;

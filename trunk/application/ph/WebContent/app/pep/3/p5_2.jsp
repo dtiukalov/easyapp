@@ -1,14 +1,18 @@
-<%@page import="java.util.Arrays"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="com.saturn.web.Web"%>
+<%@page import="java.util.Arrays"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.HashMap"%>
 <!DOCTYPE HTML>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<%@ include file="/app/pep/include/header.jsp"%>
-		<title>3.5 Fehlerpunkte in den Gewerken</title>
+		<title><%=title %></title>
 		<style type="text/css">
-			
 			.left{
 				width: 100px; height: 50px;float: left;margin: 0 50px;
 				vertical-align: middle;padding-top: 35px;
@@ -25,31 +29,38 @@
 			}
 		</style>
 		<%
-		String fv9KWNo = "[26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40]";//	周数
-		//Web.getNumberListStr(form.get("fv9KWNo"));
-		String fv9Fahrzeuge = "[3,4,4,4,4,4,4,4,4,4,4,4,4,4,4]";//		车辆数量
-		//Web.getNumberListStr(form.get("fv9Fahrzeuge"));
-		String fv9PresswerkNum = "[161, 87, 105, 86, 103, 130, 90, 100, 110, 80, 90, 70, 70, 80, 85]";//		冲压车间
-		String fv9PresswerkProg = "[4,4,4,4,4,4,4,4,4,4,4,4,4,4,4]";//		冲压车间预测值
-		//Web.getNumberListStr(form.get("fv9PresswerkNum"));
-		//Web.getNumberListStr(form.get("fv9PresswerkProg"));
-		String fv9KarossNum = "[417, 265, 265, 273, 263, 330, 250, 270, 310, 250, 290, 310, 290, 260, 230]";//		焊装车间
-		String fv9KarossProg = "[]";//		焊装车间预测值
-		//Web.getNumberListStr(form.get("fv9KarossNum"));
-		//Web.getNumberListStr(form.get("fv9KarossProg"));
-		String fv9LackNum = "[186, 160, 87, 105, 120, 30, 140, 40, 70, 80, 80, 80, 60, 55, 50]";//		油漆车间
-		String fv9LackProg = "[]";//		油漆车间预测值
-		//Web.getNumberListStr(form.get("fv9LackNum"));
-		//Web.getNumberListStr(form.get("fv9LackProg"));
-		String fv9MontageNum = "[363, 180, 158, 127, 110, 80, 110, 60, 130, 70, 50, 60, 80, 60, 60]";//		总装车间
-		String fv9MontageProg = "[]";//		总装车间预测值
-		//Web.getNumberListStr(form.get("fv9MontageNum"));
-		//Web.getNumberListStr(form.get("fv9MontageProg"));
-		String fv9KaufteileNum = "[800, 467, 460, 390, 347, 320, 280, 320, 220, 290, 300, 260, 250, 250, 150]";//		外购件
-		String fv9KaufteileProg = "[]";//		外购件预测值
-		//Web.getNumberListStr(form.get("fv9KaufteileNum"));
-		//Web.getNumberListStr(form.get("fv9KaufteileProg"));
-		int[] categories = new int[15];
+		Map form = (Map)request.getAttribute("form");	
+
+		StringBuffer categories = new StringBuffer();
+		categories.append("[");
+		List kws = (List)form.get("fv9KWNo");
+		List fahrzeuge = (List)form.get("fv9Fahrzeuge");
+		if (kws != null && kws.size()>0) {
+			for (int i=0; i<kws.size()-1; i++) {
+				categories.append("'" + kws.get(i) + "<br>" + fahrzeuge.get(i) + "',");
+			}
+			categories.append("'"+ kws.get(kws.size()-1) + "<br>" + fahrzeuge.get(kws.size()-1) + "'");
+		}
+		categories.append("]");
+		String fv9KWNo = categories.toString();
+		
+//		冲压车间
+		String fv9PresswerkNum = Web.getNumberListStr(form.get("fv9PresswerkNum"));
+		String fv9PresswerkProg = Web.getNumberListStr(form.get("fv9PresswerkProg"));
+//		焊装车间
+		String fv9KarossNum = Web.getNumberListStr(form.get("fv9KarossNum"));
+		String fv9KarossProg = Web.getNumberListStr(form.get("fv9KarossProg"));
+//		油漆车间
+		String fv9LackNum = Web.getNumberListStr(form.get("fv9LackNum"));
+		String fv9LackProg = Web.getNumberListStr(form.get("fv9LackProg"));
+//		总装车间
+		String fv9MontageNum = Web.getNumberListStr(form.get("fv9MontageNum"));
+		String fv9MontageProg = Web.getNumberListStr(form.get("fv9MontageProg"));
+//		外购件
+		String fv9KaufteileNum = Web.getNumberListStr(form.get("fv9KaufteileNum"));
+		String fv9KaufteileProg = Web.getNumberListStr(form.get("fv9KaufteileProg"));
+
+		/* int[] categories = new int[15];
 		int[] lines1 = new int[15];
 		int[] lines2 = new int[15];
 		int[] lines3 = new int[15];
@@ -62,7 +73,7 @@
 			lines3[i] = 86;
 			lines4[i] = 75;
 			lines5[i] = 36;
-		}
+		} */
 		%>
 		<script type="text/javascript">
 			var chart1, chart2, chart3, chart4, chart5;
@@ -636,9 +647,7 @@
 						tickWidth:1,
 						lineColor:'black',
 						tickColor:'black',
-						labels: {
-							enabled:false
-						},
+
 						categories: <%=fv9KWNo%>
 					}],
 					yAxis: {
@@ -769,7 +778,7 @@
 	<body>
 		<div id="container">
 			<div id="nr">
-			<div id="top"><h1>3.5 Fehlerpunkte in den Gewerken</h1></div>
+			<div id="top"><h1><%=title %></h1></div>
 			<div id="content" style="height:600px">
 				<div class="left">
 					<div class="title" style="border: solid black 1px;background-color: #003C65">Presswerk</div>

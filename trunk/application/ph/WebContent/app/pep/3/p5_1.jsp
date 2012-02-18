@@ -15,13 +15,18 @@
 		<%
 		Map form = (Map)request.getAttribute("form");	
 		
-		String fv9KWNo = "['46','47','48','49','50','51','52','53','1','2','3','4','5','6','7','8']"; //Web.getNumberListStr((List)form.get("fv9KWNo"));
-		String fv9AuditErstang = "[5.6, 5.3 , 5.2 , 5 , 5.4 , 4.9 , 4 , 3.7 , 3.7 , 3.6 , 3.6 , 3 , 3 , 2.9 , 2.5 , 2.8]"; //Web.getNumberListStr((List)form.get("fv9AuditErstang"));
-		String fv9TargetProg = "[6 , 5.5 , 4.9 , 4.9 , 4.5 ,4,3.6,3.5,3.1,3.0,3.0,2.9,2.5,2.5,2.3,2]"; //Web.getNumberListStr((List)form.get("fv9TargetProg"));
-		String fv9AuditZweit = "[4.2, 4, 4.2, 3.9, 3.9, 5.3, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5]"; //Web.getNumberListStr((List)form.get("fv9AuditZweit"));
-		String fv9KonzAuditMitNA = "[null,null,null,null,null,4,4,4,4,4,4,4,4,4,4,4]"; //Web.getNumberListStr((List)form.get("fv9KonzAuditMitNA"));
-		String fv9AuditMax = "[6, 5.5, 4.9, 4.9 ,4.5, 4, 3.6, 3.5, 3.1, 3.0, 3.0, 2.9, 2.5, 2.5, 2.3, 2]"; //Web.getNumberListStr((List)form.get("fv9AuditMax"));
-		String fv9AuditMin = "[5, 4.5, 4.1, 4.1 ,3.9, 3, 3.3, 3.0, 2.1, 2.0, 2.0, 2.1, 2.0, 2.0, 2.0, 1]"; //Web.getNumberListStr((List)form.get("fv9AuditMin"));
+		String fv9KWNo = Web.getNumberListStr((List)form.get("fv9KWNo"));
+		String fv9AuditErstang = Web.getNumberListStr((List)form.get("fv9AuditErstang"));
+		String fv9TargetProg = Web.getNumberListStr((List)form.get("fv9TargetProg"));
+		String fv9AuditZweit = Web.getNumberListStr((List)form.get("fv9AuditZweit"));
+		String fv9KonzAuditMitNA = Web.getNumberListStr((List)form.get("fv9KonzAuditMitNA"));
+		String fv9AuditMax = Web.getNumberListStr((List)form.get("fv9AuditMax"));
+		String fv9AuditMin = Web.getNumberListStr((List)form.get("fv9AuditMin"));
+		
+		List auditMax = (List)form.get("fv9AuditMax");
+		List auditMin = (List)form.get("fv9AuditMin");
+		
+		fv9KonzAuditMitNA = fv9KonzAuditMitNA.replaceAll("0.0", "null");
 		
 		%>
 		<script type="text/javascript">
@@ -144,51 +149,17 @@
 							shadow:false,
 							symbol : 'diamond'
 						}
-					},{
-						type: 'line',
-						data: [[1,0.5],[1,1.5]],
-						showInLegend: false,
-						lineWidth : 1,
-						marker: {
-							symbolPadding : 0.5,
-							radius : 3,
-							symbol : 'triangle-down'
-						},
-						color: 'black'
-					}, {
-						type: 'line',
-						data: [[3,0.5],[3,3.5]],
-						showInLegend: false,
-						lineWidth : 1,
-						marker: {
-							symbolPadding : 0.5,
-							radius : 3,
-							symbol : 'triangle-down'
-						},
-						color: 'black'
-					}, {
-						type: 'line',
-						data: [[2,3.5],[2,4.5]],
-						showInLegend: false,
-						lineWidth : 1,
-						marker: {
-							symbolPadding : 0.5,
-							radius : 3,
-							symbol : 'triangle-down'
-						},
-						color: 'black'
-					}, {
-						type: 'line',
-						data: [[0,3.5],[0,4.5]],
-						showInLegend: false,
-						lineWidth : 1,
-						marker: {
-							symbolPadding : 0.5,
-							radius : 3,
-							symbol : 'triangle-down'
-						},
-						color: 'black'
-					}]
+					}
+					<%
+					String js_str = "";
+					if (auditMax != null && auditMax.size() > 0 && auditMin != null && auditMin.size() > 0) {
+						for (int i=0; i<auditMax.size(); i++){
+							js_str += ",{type: 'line',data: [[" + i + "," + auditMin.get(i) + "],[" + i + "," + auditMax.get(i) + "]],showInLegend: false,lineWidth : 1,color: 'black'}";
+						}
+					}
+					%>
+					<%=js_str%>
+					]
 				});
 			});
 			

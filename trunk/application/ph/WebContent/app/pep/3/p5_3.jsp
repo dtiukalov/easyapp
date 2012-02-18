@@ -3,31 +3,25 @@
 <%@page import="java.util.Map"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="com.saturn.web.Web"%>	
-	<%
-	Map form = (Map)request.getAttribute("form");
-	
-	String fv9KWNo = "['4', '5', '6', '7', '8', '9', '10', '11', '12', '13',  '14']" ; //	周数
-	//Web.getNumberListStr(form.get("fv9KWNo"));
-	String fv9Montage = "[1730, 1830, 1390, 1110, 1230]" ; //		总装
-	//Web.getNumberListStr(form.get("fv9Montage"));
-	String fv9Lack = "[290, 220, 210, 240, 300]" ; //		油漆
-	//Web.getNumberListStr(form.get("fv9Lack"));
-	String fv9Kaufteile = "[200, 200, 200, 200, 200]" ; //		外购件
-	//Web.getNumberListStr(form.get("fv9Kaufteile"));
-	String fv9Karosseriebau = "[500, 550, 250, 200, 220]" ; //		焊装
-	//Web.getNumberListStr(form.get("fv9Karosseriebau"));
-	String fv9Presswerk = "[480, 500, 250, 250, 250]" ; //		冲压
-	//Web.getNumberListStr(form.get("fv9Presswerk"));
-	String fv9Prognose = "[3500, 3500, 3400, 3300, 3200, 3000, 2500, 2500, 2500, 2250, 2000]" ; //		预测
-	//Web.getNumberListStr(form.get("fv9Prognose"));
-	
-	%>
+
 <!DOCTYPE HTML>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<%@ include file="/app/pep/include/header.jsp"%>
-		<title>3.5 Nacharbeitpunkte????</title>
+		<title><%=title %></title>
+		<%
+		Map form = (Map)request.getAttribute("form");
+		
+		String fv9KWNo = Web.getNumberListStr(form.get("fv9KWNo"));
+		String fv9Montage = Web.getNumberListStr(form.get("fv9Montage"));
+		String fv9Lack = Web.getNumberListStr(form.get("fv9Lack"));
+		String fv9Kaufteile = Web.getNumberListStr(form.get("fv9Kaufteile"));
+		String fv9Karosseriebau = Web.getNumberListStr(form.get("fv9Karosseriebau"));
+		String fv9Presswerk = Web.getNumberListStr(form.get("fv9Presswerk"));
+		String fv9Prognose = Web.getNumberListStr(form.get("fv9Prognose"));
+		
+		%>
 		<script type="text/javascript">
 		var chart;
 			$(document).ready(function() {
@@ -174,7 +168,7 @@
 	<body>
 		<div id="container">
 			<div id="nr">
-			<div id="top"><h1>3.5 Nacharbeitpunkte</h1></div>
+			<div id="top"><h1><%=title %></h1></div>
 			<div id="content">
 				<div id="chart" style="width: 950px; height: 400px; margin: 50px auto"></div>
 			</div>

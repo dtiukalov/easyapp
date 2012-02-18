@@ -5,8 +5,12 @@ import com.saturn.ph.Form;
 public class FV9_35FehlerDenGewForm extends Form {
 	
 	private static final String[] attr = {
-		"fv9KWNo", "fv9AuditErstang", "fv9TargetProg", "fv9AuditZweit",
-		"fv9KonzAuditMitNA","fv9AuditMax","fv9AuditMin"
+		"fv9KWNo", "fv9Fahrzeuge", 
+		"fv9PresswerkNum", "fv9PresswerkProg",
+		"fv9KarossNum", "fv9KarossProg",
+		"fv9LackNum", "fv9LackProg",
+		"fv9MontageNum", "fv9MontageProg",
+		"fv9KaufteileNum", "fv9KaufteileProg"
 	};
 
 	public String[] getAttributes() {
@@ -19,7 +23,7 @@ public class FV9_35FehlerDenGewForm extends Form {
 
 	@Override
 	public String getType() {
-		return "FV9_35AuditNoteZP8";
+		return "FV9_35FehlerDenGew";
 	}
 
 	@Override

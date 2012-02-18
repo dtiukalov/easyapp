@@ -407,7 +407,21 @@
 		}
 	} 
 	%>
-
+	/* /* 		/* Date fv9PMMLDate = (Date)form.get("fv9PMMLDate");
+	String fv9PMMLOrg = (String)form.get("fv9PMMLOrg");
+	Date fv9PPMLDate = (Date)form.get("fv9PPMLDate");
+	String fv9PPMLOrg = (String)form.get("fv9PPMLOrg");
+	Date fv9PDMLDate = (Date)form.get("fv9PDMLDate");
+	String fv9PDMLOrg = (String)form.get("fv9PDMLOrg");
+	Date fv9PFMLDate = (Date)form.get("fv9PFMLDate");
+	String fv9PFMLOrg = (String)form.get("fv9PFMLOrg");
+	Date fv9KEMLDate = (Date)form.get("fv9KEMLDate");
+	String fv9KEMLOrg = (String)form.get("fv9KEMLOrg");
+	Date fv9DEMLDate = (Date)form.get("fv9DEMLDate");
+	String fv9DEMLOrg = (String)form.get("fv9DEMLOrg");
+	Date fv9DFExtMLDate = (Date)form.get("fv9DFExtMLDate");
+	String fv9DFExtMLOrg = (String)form.get("fv9DFExtMLOrg"); */
+	
 /* 	g.AddTaskDetail(new Task('8/1/2008', '8/1/2008', '<b>Sample task 1 1</b>', 'PM<br /><h6 style="color: #E63110">pppp</h6>', 50, 1));
 	g.AddTaskDetail(new Task('11/1/2008', '11/1/2008', '<b>Sample task 1 1</b>', 'PP', 50, 1));
 	g.AddTaskDetail(new Task('2/1/2009', '2/1/2009', '<b>Sample task 1 1</b>', 'PD', 50, 1));
@@ -428,6 +442,6 @@
 	g.AddTaskDetail(new Task('<%=Konzept_S%>', '<%=Konzept_E%>', '<b>Sample task 1 1</b>', '27 MO', 50, 5, '#b0b0b0'));
 	g.AddTaskDetail(new Task('<%=Serienvorboreitung_S%>', '<%=Serienvorboreitung_E%>', '<b>Sample task 1 1</b>', '15 MO', 50, 5, '#414141'));
 	
-	g.Draw(49, 19);	
+	g.Draw(49, 15);	
 </script>
 </html>

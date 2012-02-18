@@ -99,7 +99,21 @@ public abstract class Form {
 							}
 						}
 					} else {
-						value.put(attr, model.getPropertyDisplayableValue(attr));
+						int type = propertyDescription.getType();
+	
+						switch (type) {
+							case PropertyDescription.CLIENT_PROP_TYPE_date: {
+								SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+								Calendar date = model.getProperty(attr)
+									.getDateValue();
+								
+								value.put(attr, df.format(date.getTime()));
+								break;
+							}
+							default : {
+								value.put(attr, model.getPropertyDisplayableValue(attr));
+							}
+						}
 					}
 				} catch (NotLoadedException e) {
 					e.printStackTrace();

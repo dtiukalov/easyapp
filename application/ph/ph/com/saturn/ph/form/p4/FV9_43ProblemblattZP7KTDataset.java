@@ -11,17 +11,17 @@ public class FV9_43ProblemblattZP7KTDataset extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/4/p2_4.jsp";
+		return "/app/pep/4/p3_1.jsp";
 	}
 
 	@Override
 	public String getType() {
-		return "4.2ProblemblattZP5";
+		return "4.3 Problemblatt ZP7 KT";
 	}
 
 	@Override
 	public String getTitle() {
-		return "4.2 Problemblatt ZP5";
+		return "4.3 Problemblatt ZP7 KT";
 	}
 
 }

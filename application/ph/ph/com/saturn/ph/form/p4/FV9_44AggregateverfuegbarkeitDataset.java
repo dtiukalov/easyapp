@@ -16,11 +16,11 @@ public class FV9_44AggregateverfuegbarkeitDataset extends Form {
 
 	@Override
 	public String getType() {
-		return "4.4AggregateverfuegbarkeitZP3/ZP4";
+		return "4.4 Aggregateverfügbarkeit ZP3/ZP4";
 	}
 
 	@Override
 	public String getTitle() {
-		return "4.4 Aggregateverfügbarkeit ZP3/ZP4(图片)";
+		return "4.4 Aggregateverfügbarkeit ZP3/ZP4";
 	}
 }

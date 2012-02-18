@@ -16,11 +16,11 @@ public class FV9_42TeilequalitaetZP5HTDataset extends Form {
 
 	@Override
 	public String getType() {
-		return "4.2TeilequalitaetZP5HT";
+		return "4.2 Teilequalitaet ZP5 (HT)";
 	}
 
 	@Override
 	public String getTitle() {
-		return "4.2 Teilequalität ZP5 (HT) (图片)";
+		return "4.2 Teilequalität ZP5 (HT)";
 	}
 }

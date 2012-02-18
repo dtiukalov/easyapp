@@ -16,17 +16,17 @@ public class FV9_42TeileStatVFFKTForm extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/4/p2_2.jsp";
+		return "/app/pep/4/p2_3.jsp";
 	}
 
 	@Override
 	public String getType() {
-		return "FV9_42TeileStatVFF";
+		return "FV9_42TeileStatVFFKT";
 	}
 
 	@Override
 	public String getTitle() {
-		return "4.2 Teilestatus zu VFF ZP5 (HT) ";
+		return "4.2 Teilestatus zu VFF ZP5 (KT) ";
 	}
 
 }

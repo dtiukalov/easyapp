@@ -11,16 +11,16 @@ public class FV9_43TerminubersichtZP7KTDataset extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/4/p2_7.jsp";
+		return "/app/pep/4/p3_1.jsp";
 	}
 
 	@Override
 	public String getType() {
-		return "4.3TerminubersichtZP7KT";
+		return "4.3 Terminübersicht ZP7(KT)";
 	}
 
 	@Override
 	public String getTitle() {
-		return "4.3 Terminübersicht ZP7(KT) (图片)";
+		return "4.3 Terminübersicht ZP7 KT ";
 	}
 }

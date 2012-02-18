@@ -21,7 +21,7 @@ public class FV9_42TeileStatVFFHTForm extends Form {
 
 	@Override
 	public String getType() {
-		return "FV9_42TeileStatVFF";
+		return "FV9_42TeileStatVFFHT";
 	}
 
 	@Override

@@ -5,7 +5,7 @@
 <%@ include file="/app/pep/include/header.jsp"%>
 <%
 	//String uid = (String)request.getAttribute("uid");
-	title = "4.3 Teilequalität ZP7 (KT) (图片)";//假数据
+	title = "4.3(图片)";//假数据
 	String src = "/ph/app/pep/4/zp5_ht.jpg";//DatasetUtils.getDatasetByUid(uid, request);
 	//假数据
 %>

@@ -8,7 +8,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <%@ include file="/app/pep/include/header.jsp"%>
 <%
-	//title = "5.1 Status Presswerk, Karosseriebau, Lack, Montage,Electric";
 	Map form = (Map)request.getAttribute("form");
 
 	String  fv9PressStatus = (String)form.get("fv9PressStatus");  //冲压状态 
@@ -73,9 +72,19 @@
 					  </tr>
 					</table>
 				</td>
-	    		<td valign="top" class="pgpg"><div class="tbnrr"><%=fv9PressStCom_CN %><br /><%=fv9PressStCom_GM %></div>
+	    		<td valign="top" class="pgpg"><div class="tbnrr">
+	    			<%if (fv9PressStCom_GM != null && !"".equals(fv9PressStCom_GM)) {
+	    				%><%=fv9PressStCom_CN %><br /><%=fv9PressStCom_GM %>
+	    			<%} else {%>
+   	    				&nbsp;
+   	    			<%}%>
 			    </td>
-	   			 <td valign="top" class="pgpg"><div class="tbnrr"><%=fv9PressStMab_CN %><br /><%=fv9PressStMab_GM %></div>
+	   			 <td valign="top" class="pgpg"><div class="tbnrr">
+	   			 <%if (fv9PressStMab_GM != null && !"".equals(fv9PressStMab_GM)) {
+	    				%><%=fv9PressStMab_CN %><br /><%=fv9PressStMab_GM %>
+	    			<%} else {%>
+   	    				&nbsp;
+   	    		<%}%>
 				</td>
 		</tr>
 		
@@ -96,8 +105,19 @@
 					      </tr>
 			    	</table>
 			    </td>
-		    	<td valign="top" class="pgpg"><div class="tbnrr"><%=fv9KarossStCom_CN %><br /><%=fv9KarossStCom_GM %></div></td>
-		    	<td valign="top" class="pgpg"><div class="tbnrr"><%=fv9KarossStMab_CN %><br /><%=fv9KarossStMab_GM %></div></td>
+		    	<td valign="top" class="pgpg"><div class="tbnrr">
+		    	<%if (fv9KarossStCom_GM != null && !"".equals(fv9KarossStCom_GM)) {
+	    				%><%=fv9KarossStCom_CN %><br /><%=fv9KarossStCom_GM %>
+	    			<%} else {%>
+   	    				&nbsp;
+   	    		<%}%>
+		    	<td valign="top" class="pgpg"><div class="tbnrr">
+		    	<%if (fv9KarossStMab_GM != null && !"".equals(fv9KarossStMab_GM)) {
+	    				%><%=fv9KarossStMab_CN %><br /><%=fv9KarossStMab_GM %>
+	    			<%} else {%>
+   	    				&nbsp;
+   	    		<%}%>
+		    	</div></td>
 		</tr>
 		
 		<tr>
@@ -116,8 +136,20 @@
 			        </td>
 			      </tr>
 			    </table></td>
-		    <td valign="top" class="pgpg"><div class="tbnrr"><%=fv9LackStCom_CN %><br /><%=fv9LackStCom_GM %></div></td>
-		    <td valign="top" class="pgpg"><div class="tbnrr"><%=fv9LackStMab_CN %><br /><%=fv9LackStMab_GM %></div></td>
+		    <td valign="top" class="pgpg"><div class="tbnrr">
+		    <%if (fv9LackStCom_GM != null && !"".equals(fv9LackStCom_GM)) {
+	    				%><%=fv9LackStCom_CN %><br /><%=fv9LackStCom_GM %>
+	    			<%} else {%>
+   	    				&nbsp;
+   	    		<%}%>
+		    </div></td>
+		    <td valign="top" class="pgpg"><div class="tbnrr">
+		     <%if (fv9LackStMab_GM != null && !"".equals(fv9LackStMab_GM)) {
+	    				%><%=fv9LackStMab_CN %><br /><%=fv9LackStMab_GM %>
+	    			<%} else {%>
+   	    				&nbsp;
+   	    		<%}%>
+		    </div></td>
 		</tr>
 		
 		<tr>
@@ -137,8 +169,20 @@
 			      </tr>
 			    </table>
 		    </td>
-		    <td valign="top" class="pgpg"><div class="tbnrr"><%=fv9MontStCom_CN %><br /><%=fv9MontStCom_GM %></div></td>
-		    <td valign="top" class="pgpg"><div class="tbnrr"><%=fv9MontStMab_CN %><br /><%=fv9MontStMab_GM %></div></td>
+		    <td valign="top" class="pgpg"><div class="tbnrr">
+		     <%if (fv9MontStCom_GM != null && !"".equals(fv9MontStCom_GM)) {
+	    				%><%=fv9MontStCom_CN %><br /><%=fv9MontStCom_GM %>
+	    			<%} else {%>
+   	    				&nbsp;
+   	    		<%}%>
+		    </div></td>
+		    <td valign="top" class="pgpg"><div class="tbnrr">
+		    <%if (fv9MontStMab_GM != null && !"".equals(fv9MontStMab_GM)) {
+	    				%><%=fv9MontStMab_CN %><br /><%=fv9MontStMab_GM %>
+	    			<%} else {%>
+   	    				&nbsp;
+   	    		<%}%>
+		    </div></td>
 		</tr>
 		
 		<tr>
@@ -158,8 +202,20 @@
 			      </tr>
 			    </table>
 		    </td>
-		    <td valign="top" class="pg"><div class="tbnrr"><%=fv9ElectStCom_CN %><br /><%=fv9ElectStCom_GM %></div></td>
-		    <td valign="top" class="pg"><div class="tbnrr"><%=fv9ElectStMab_CN %><br /><%=fv9ElectStMab_GM %></div></td>
+		    <td valign="top" class="pg"><div class="tbnrr">
+		    <%if (fv9ElectStCom_GM != null && !"".equals(fv9ElectStCom_GM)) {
+	    				%><%=fv9ElectStCom_CN %><br /><%=fv9ElectStCom_GM %>
+	    			<%} else {%>
+   	    				&nbsp;
+   	    		<%}%>
+		    </div></td>
+		    <td valign="top" class="pg"><div class="tbnrr">
+		     <%if (fv9ElectStMab_GM != null && !"".equals(fv9ElectStMab_GM)) {
+	    				%><%=fv9ElectStMab_CN %><br /><%=fv9ElectStMab_GM %>
+	    			<%} else {%>
+   	    				&nbsp;
+   	    		<%}%>
+		    </div></td>
 		</tr>
 	</table>
 	</div>

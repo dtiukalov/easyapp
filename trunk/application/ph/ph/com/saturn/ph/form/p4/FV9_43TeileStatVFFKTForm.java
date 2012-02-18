@@ -22,11 +22,11 @@ public class FV9_43TeileStatVFFKTForm extends Form {
 
 	@Override
 	public String getType() {
-		return "FV9_43TeileStatVFF";
+		return "FV9_43TeileStatVFFKT";
 	}
 
 	@Override
 	public String getTitle() {
-		return "4.3 Teilestatus zu VFF ZP7 ";
+		return "4.3 Teilestatus zu VFF ZP7 (KT)";
 	}
 }

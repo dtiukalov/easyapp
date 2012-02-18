@@ -16,12 +16,12 @@ public class FV9_42TeileStat0SHTForm extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/4/p2_2.jsp";
+		return "/app/pep/4/p2_6.jsp";
 	}
 
 	@Override
 	public String getType() {
-		return "FV9_42TeileStat0S";
+		return "FV9_42TeileStat0SHT";
 	}
 
 	@Override

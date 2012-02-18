@@ -11,16 +11,16 @@ public class FV9_42TerminubersichtZP5HTDataset extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/4/p2_3.jsp";
+		return "/app/pep/4/p2_1.jsp";
 	}
 
 	@Override
 	public String getType() {
-		return "4.2TerminubersichtZP5HT";
+		return "4.2 Terminübersicht ZP5(HT)";
 	}
 
 	@Override
 	public String getTitle() {
-		return "4.2 Terminübersicht ZP5 (HT)";
+		return "4.2 Terminübersicht ZP5 HT";
 	}
 }

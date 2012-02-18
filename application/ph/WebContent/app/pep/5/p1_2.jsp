@@ -11,45 +11,12 @@
 <%@ include file="/app/pep/include/header.jsp"%>
 <%
 	Map form = (Map)request.getAttribute("form");	
-	//title = "5.1 Status Karosseriebau111";
-	
 	List<String> fv9KarosserStyle = (List<String>)form.get("fv9KarosserStyle");
 	List<String> fv9KarosserStatus = (List<String>)form.get("fv9KarosserStatus");
 	List<String> fv9KarossStCom_GM = (List<String>)form.get("fv9KarossStCom_GM");
 	List<String> fv9KarossMab_GM = (List<String>)form.get("fv9KarossMab_GM");
 	List<String> fv9KarossStCom_CN = (List<String>)form.get("fv9KarossStCom_CN");
 	List<String> fv9KarossMab_CN = (List<String>)form.get("fv9KarossMab_CN");
-	
-	System.out.println(fv9KarosserStyle.size());
-	System.out.println(fv9KarosserStatus.size());
-	System.out.println(fv9KarossStCom_GM.size());
-	System.out.println(fv9KarossMab_GM.size());
-	System.out.println(fv9KarossStCom_CN.size());
-	System.out.println(fv9KarossMab_CN.size());
-  /* 	fv9KarosserStyle.add("Unterbau I ");
-	fv9KarosserStyle.add("Unterbau II");
-	fv9KarosserStyle.add("Seitenteil");
-	fv9KarosserStyle.add("Aufbau I, II, III");
-	fv9KarosserStyle.add("Anbauteile1");  */
-	
-	/* fv9KarosserStatus.add("绿");
-	fv9KarosserStatus.add("绿");
-	fv9KarosserStatus.add("绿");
-	fv9KarosserStatus.add("绿");
-	fv9KarosserStatus.add("黄");
-	
-	fv9KarossStatusCom.add("合同已签订，设备清单已完成,设备正在制造中;Vertrag schon unterschrieben， Anlageliste fertig,  Anlagen sind in Prozess der Bearbeitungen.");
-	fv9KarossStatusCom.add("合同已签订，设备清单已完成,设备正在制造中;Vertrag schon unterschrieben， Anlageliste fertig,  Anlagen sind in Prozess der Bearbeitungen.");
-	fv9KarossStatusCom.add("合同已签订，设备清单已完成,设备正在制造中;Vertrag schon unterschrieben， Anlageliste fertig,  Anlagen sind in Prozess der Bearbeitungen.");
-	fv9KarossStatusCom.add("合同已签订，设备清单已完成,设备正在制造中;Vertrag schon unterschrieben， Anlageliste fertig,  Anlagen sind in Prozess der Bearbeitungen.");
-	fv9KarossStatusCom.add("合同已签订，设备清单已完成,设备正在制造中;压合设备预计KW07/12到货Vertrag schon unterschrieben， Anlageliste fertig, Anlagen sind in Prozess der Bearbeitungen,Falzanlagen vor Ort im KW07/12");
-	
-	fv9KarossStatusMab.add("1");
-	fv9KarossStatusMab.add(" ");
-	fv9KarossStatusMab.add(" ");
-	fv9KarossStatusMab.add(" ");
-	fv9KarossStatusMab.add("1.采用滚边压合的方法生产阶段装车所需的前后盖总成；Fertigung Zsb FK/HK fuer VFF mit Methoden Roboter-Rollfalzen2.压缩供应商运输周期,确保压合设备KW07/12到达现场； Verkuerzen der Transportzeit von Lieferant, um die Falzanlagen in KW07/12 in vor Ort sicherzustellen ");
- */	 
 %>
 <title><%=title %></title>
 </head>
@@ -86,9 +53,20 @@
 					  </tr>
 					</table>
 				</td>
-	    		<td valign="top" class="pgpg"><div><%=fv9KarossStCom_GM.get(i) %><br \><%=fv9KarossStCom_CN.get(i) %></div>
+	    		<td valign="top" class="pgpg"><div>
+	    		<%if (fv9KarossStCom_GM.get(i) != null && !"".equals(fv9KarossStCom_GM.get(i))) {
+    			%> <%=fv9KarossStCom_GM.get(i) %><br \><%=fv9KarossStCom_CN.get(i) %></div>
+    			<%} else {%>
+  	    				&nbsp;
+  	    		<%}%>
 			    </td>
-	   			 <td valign="top" class="pgpg"><div><%=fv9KarossMab_GM.get(i) %><br \><%=fv9KarossMab_CN.get(i) %></div>
+	   			 <td valign="top" class="pgpg"><div>
+	   			 <%if (fv9KarossMab_GM.get(i) != null && !"".equals(fv9KarossMab_GM.get(i))) {
+    			%> <%=fv9KarossMab_GM.get(i) %><br \><%=fv9KarossMab_CN.get(i) %></div>
+    			<%} else {%>
+  	    				&nbsp;
+  	    		<%}%>
+	   			 </div>
 				</td>
 			</tr>
 			  <% 

@@ -27,7 +27,7 @@
 	int fv9CKDCOPNum = 0;//	(Integer)form.get("fv9CKDCOPNum");		CKD/COP
 	
 	String fv9TeilestName = "['TBT VFF', 'Beginn VFF', 'Ende VFF', 'Beginn PVS', 'Beginn 0-S', 'Beginn SOP', 'CKD/COP']";//	名称
-	//Web.getStrListStr(form.get("fv9TeilestName"));
+	//Web.getNumberListStr(form.get("fv9TeilestName"));
 	String fv9TeileFehlend = "[0, 0, 0, 0, 0, 0, 0]";
 	//Web.getNumberListStr(form.get("fv9TeileFehlend"));
 	String fv9TeileAusSerien = "[6, 6, 6, 4, 0, 0, 0]";
@@ -38,7 +38,7 @@
 	//Web.getNumberListStr(form.get("fv9TeileNote1"));
 	String fv9TeileNote6 = "[0, 0, 0, 0, 0, 0, 0]";
 	//Web.getNumberListStr(form.get("fv9TeileNote6"));
-	 
+	
 	List<String> fv9TopKrisUmf = new ArrayList<String>();//问题零件范围
 	//(List<String>)form.get("fv9TopKrisUmf");
 	fv9TopKrisUmf.add("FK aussen");

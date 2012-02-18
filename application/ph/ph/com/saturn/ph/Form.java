@@ -31,7 +31,7 @@ public abstract class Form {
 			getProperties(model, attributes);
 
 			for (String attr : attributes) {
-				System.out.println("attr = " + attr);
+//				System.out.println("attr = " + attr);
 				try {
 					PropertyDescription propertyDescription = model
 							.getProperty(attr).getPropertyDescription();

@@ -17,11 +17,9 @@
 	List<String> fv9LogistikStCom_CN = (List<String>)form.get("fv9LogistikStCom_CN");
 	List<String> fv9LogistikMab_CN = (List<String>)form.get("fv9LogistikMab_CN");
 %>
-
 <head>
-<title><%=title %></title>
+	<title><%=title %></title>
 </head>
-
 <body>
 <div id="container">
 	<div id="nr">

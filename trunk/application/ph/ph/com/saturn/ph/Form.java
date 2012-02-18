@@ -1,5 +1,7 @@
 package com.saturn.ph;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,7 +30,7 @@ public abstract class Form {
 			for (String attr : attributes) {
 				try {
 					if (model.getProperty(attr).getPropertyDescription().isArray()) {
-						value.put(attr, model.getPropertyDisplayableValues(attr));
+						value.put(attr, Arrays.asList(model.getProperty(attr).getStringArrayValue()));
 					} else {
 						value.put(attr, model.getPropertyDisplayableValue(attr));
 					}

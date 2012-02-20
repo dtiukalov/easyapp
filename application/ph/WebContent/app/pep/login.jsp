@@ -84,7 +84,7 @@
       <tr>
           <td align="left" class="input-label">用户名：</td>
           <td width="1px"><font color="#b22222" size="1">*</font></td>
-          <td align="left"><input class="input-body" type="text" name="ua" ID="Text1" size="15" value="infodba"></td>
+          <td align="left"><input class="input-body" type="text" name="ua" ID="Text1" size="15" value="mengrong"></td>
       </tr>
       <tr>
           <td colspan="3">&nbsp;</td>
@@ -92,7 +92,7 @@
       <tr>
           <td align="left" class="input-label">密码：</td>
           <td width="1px"><font color="#b22222" size="1">*</font></td>
-          <td align="left"><input class="input-body" type="password" name="pd" ID="Password1" size="15" value="infodba"></td>    
+          <td align="left"><input class="input-body" type="password" name="pd" ID="Password1" size="15" value="mengrong"></td>    
       </tr>
       <tr>
           <td colspan="3">&nbsp;</td>

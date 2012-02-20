@@ -15,7 +15,6 @@
 	<%@ include file="/app/pep/include/header.jsp"%>
 	<title></title>
 <%
-	title = "1.5 Bauprogramm VFF";
 	Map form = (Map)request.getAttribute("form");	
 	String uid = (String)request.getAttribute("uid");
 %>
@@ -34,6 +33,7 @@
 	   
 	    </div>
 	    <%@ include file="/app/pep/include/foot.jsp"%>
+	     </div>
 	</div>
 </body>
 </html>

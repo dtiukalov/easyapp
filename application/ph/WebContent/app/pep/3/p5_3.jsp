@@ -39,7 +39,8 @@
 						labels: {
 							y:25,
 							style: {
-								color:'black'
+								color:'black',
+								font_size:'12px'
 							}
 						},
 						categories:  <%=fv9KWNo%>

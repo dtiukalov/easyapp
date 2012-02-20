@@ -90,7 +90,7 @@
 							shadow: false,
 							borderColor:'gray',
 							borderWidth:1,
-							groupPadding: 0.005,
+							groupPadding: 0.2,
 							dataLabels: {
 								enabled: true,
 								style : {
@@ -112,7 +112,7 @@
 							states: {
 								hover: {
 									enabled: true,
-									symbol: 'circle',
+									symbol: 'diamond',
 									radius: 5,
 									lineWidth: 1
 								}
@@ -129,7 +129,7 @@
 							states: {
 								hover: {
 									enabled: true,
-									symbol: 'circle',
+									symbol: 'diamond',
 									radius: 5,
 									lineWidth: 1
 								}
@@ -154,7 +154,7 @@
 					String js_str = "";
 					if (auditMax != null && auditMax.size() > 0 && auditMin != null && auditMin.size() > 0) {
 						for (int i=0; i<auditMax.size(); i++){
-							js_str += ",{type: 'line',data: [[" + i + "," + auditMin.get(i) + "],[" + i + "," + auditMax.get(i) + "]],showInLegend: false,lineWidth : 1,color: 'black'}";
+							js_str += ",{type: 'scatter',data: [[" + i + "," + auditMin.get(i) + "],[" + i + "," + auditMax.get(i) + "]],showInLegend: false,lineWidth : 1,color: 'black',marker:{enabled: true,shadow:false,symbol : 'triangle-down'}}";
 						}
 					}
 					%>
@@ -171,7 +171,7 @@
 			<div id="nr">
 			<div id="top"><h1>3.5 Auditnoten ZP8</h1></div>
 			<div id="content">
-				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto"></div>
+				<div id="chart" style="width: 700px; height: 450px; margin: 0 auto"></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

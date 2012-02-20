@@ -10,10 +10,9 @@
 <%@ include file="/app/pep/include/header.jsp"%>
 	<% 
 	Map form = (Map)request.getAttribute("form");
-	int fv9TotalNum	= 0;//	(Integer)form.get("fv9TotalNum");		总数
-	
-	int fv9CKDCOPNum = 4;//	(Integer)form.get("fv9CKDCOPNum");		CKD/COP
-	
+	int fv9TotalNum	= Integer.parseInt((String)form.get("fv9TotalNum"));	//	总数
+	int fv9CKDCOPNum = Integer.parseInt((String)form.get("fv9CKDCOPNum"));		//CKD/COP
+
 	List<String> teilestName = (List<String>)form.get("fv9TeilestName");
 	teilestName.add("CKD");
 	List<Integer> CKDCOP = new ArrayList<Integer>();
@@ -37,7 +36,6 @@
 	List<String> fv9TopEinNum = (List<String>)form.get("fv9TopEinNum");
 	List<String> fv9TopVSISWZ = (List<String>)form.get("fv9TopVSISWZ");
 	List<String> fv9TopVSIN3 = (List<String>)form.get("fv9TopVSIN3");
-
 	
 %>
 <html>

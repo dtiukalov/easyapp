@@ -9,53 +9,33 @@
 <!DOCTYPE HTML>
 <%@ include file="/app/pep/include/header.jsp"%>
 	<% 
-	
-	title = "4.2 Teilestatus zu 0S ZP5 (KT) ";
 	Map form = (Map)request.getAttribute("form");
-	
-	int fv9TotalNum	= 0;//	(Integer)form.get("fv9TotalNum");		总数
-	int fv9CKDCOPNum = 0;//	(Integer)form.get("fv9CKDCOPNum");		CKD/COP
-	
-	String fv9TeilestName = "['TBT VFF', 'Beginn VFF', 'Ende VFF', 'Beginn PVS', 'Beginn 0-S', 'Beginn SOP', 'CKD/COP']";//	名称
-	//Web.getStrFromStringArray(form.get("fv9TeilestName"));
-	String fv9TeileFehlend = "[0, 0, 0, 0, 0, 0, 0]";
-	//Web.getNumberListStr(form.get("fv9TeileFehlend"));
-	String fv9TeileAusSerien = "[6, 6, 6, 4, 0, 0, 0]";
-	//Web.getNumberListStr(form.get("fv9TeileAusSerien"));
-	String fv9TeileNote3 = "[0, 0, 0, 2, 4, 0, 0]";
-	//Web.getNumberListStr(form.get("fv9TeileNote3"));
-	String fv9TeileNote1 = "[0, 0, 0, 0, 2, 6, 0]";
-	//Web.getNumberListStr(form.get("fv9TeileNote1"));
-	String fv9TeileNote6 = "[0, 0, 0, 0, 0, 0, 0]";
-	//Web.getNumberListStr(form.get("fv9TeileNote6"));
-	
-	List<String> fv9TopKrisUmf = new ArrayList<String>();//问题零件范围
-	//(List<String>)form.get("fv9TopKrisUmf");
-	fv9TopKrisUmf.add("FK aussen");
-	fv9TopKrisUmf.add("FK aussen");
-	fv9TopKrisUmf.add("FK aussen");
-	fv9TopKrisUmf.add("FK aussen");
+	int fv9TotalNum	= Integer.parseInt((String)form.get("fv9TotalNum"));	//	总数
+	int fv9CKDCOPNum = Integer.parseInt((String)form.get("fv9CKDCOPNum"));		//CKD/COP
 
-	List<String> fv9TopEinNum = new ArrayList<String>();//	单件数量
-	//(List<String>)form.get("fv9TopEinNum");
-	fv9TopEinNum.add("1");
-	fv9TopEinNum.add("1");
-	fv9TopEinNum.add("1");
-	fv9TopEinNum.add("1");
-
-	List<String> fv9TopVSIN3 = new ArrayList<String>();//预测小批量模具时间
-	//(List<String>)form.get("fv9TopVSIN3");
-	fv9TopVSIN3.add("KW16_12");
-	fv9TopVSIN3.add("KW16_12");
-	fv9TopVSIN3.add("KW16_12");
-	fv9TopVSIN3.add("KW16_12");
-
-	List<String> fv9TopVSIN1 = new ArrayList<String>();//	预测3分时间
-	//(List<String>)form.get("fv9TopVSIN1");
-	fv9TopVSIN1.add("KW30_12");
-	fv9TopVSIN1.add("KW30_12");
-	fv9TopVSIN1.add("KW30_12");
-	fv9TopVSIN1.add("KW30_12");
+	List<String> teilestName = (List<String>)form.get("fv9TeilestName");
+	teilestName.add("CKD");
+	List<Integer> CKDCOP = new ArrayList<Integer>();
+	for(int i=0; i<teilestName.size(); i++){
+		if(i != teilestName.size()-1){
+			CKDCOP.add(0);
+		} else {
+			CKDCOP.add(fv9CKDCOPNum);
+		}
+	}
+	String  CKDCOPNum = Web.getNumberListStr(CKDCOP);
+	
+	String fv9TeilestName = Web.getStrListStr(teilestName);
+	String fv9TeileAusSerien = Web.getNumberListStr(form.get("fv9TeileAusSerien"));
+	String fv9TeileFehlend = Web.getNumberListStr(form.get("fv9TeileFehlend"));
+	String fv9TeileNote3 = Web.getNumberListStr(form.get("fv9TeileNote3"));
+	String fv9TeileNote1 = Web.getNumberListStr(form.get("fv9TeileNote1"));
+	String fv9TeileNote6 = Web.getNumberListStr(form.get("fv9TeileNote6"));
+	
+	List<String> fv9TopKrisUmf = (List<String>)form.get("fv9TopKrisUmf");
+	List<String> fv9TopEinNum = (List<String>)form.get("fv9TopEinNum");
+	List<String> fv9TopVSIN3 = (List<String>)form.get("fv9TopVSIN3");
+	List<String> fv9TopVSIN1 = (List<String>)form.get("fv9TopVSIN1");
 %>
 
 <html>
@@ -196,6 +176,10 @@
 					}, {
 						name: 'Note 6',
 						data: <%=fv9TeileNote6%>,
+						color: '#FF0000'
+					}, {
+						name: 'CKDCOP',
+						data: <%=CKDCOPNum%>,
 						color: '#FF0000'
 					}]
 				});

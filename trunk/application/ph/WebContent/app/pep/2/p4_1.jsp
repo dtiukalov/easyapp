@@ -289,7 +289,7 @@
 		<div id="container">
 			<div id="nr">
 			<div id="top"><h1><%=title %> </h1></div>
-			<div id="content" style="height:575px;">
+			<div id="content">
 				<div id="chart1" style="width: 600px; height: 400px; margin: 50px 70px; float: left;"></div>
 				<div id="chart2" style="width: 90px; height: 400px; margin: 36px -100px; float: left;"></div>
 			</div>

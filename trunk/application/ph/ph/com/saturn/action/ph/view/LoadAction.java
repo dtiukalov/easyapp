@@ -38,6 +38,7 @@ public class LoadAction implements IAction {
 		Map<String, Object> formIds = ItemUtils.getLastRevisionFormIds(item);
 		List<String> indexes = PHManager.getIndexes(roadmap, formIds);
 		
+		request.getSession().setAttribute("milepost", roadmap);
 		request.getSession().setAttribute("indexes", indexes);
 		request.setAttribute("current", "1");
 		return new JspView(indexes.get(0));

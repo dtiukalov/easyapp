@@ -31,30 +31,30 @@
 		<div id="container">
 			<div id="nr">
 			<div id="top"><h1><%=title %></h1></div>	
-			<div id="content">
-				<div id="datatable" style="width: 800px; height: 600px; margin: 0 auto; margin-top: 30px;">
-					<table width="80%" cellspacing="2" rules="rows" >
-						<tr style="border-bottom:2px solid #333333;">
+			<div id="content" style="">
+				<div id="datatable" style="width: 800px; height: 500px;margin: 100px 150px;">
+					<table width="80%" cellspacing="2" rules="rows">
+						<tr style="border-bottom:2px solid #333333;font-size:14px;font-weight:bold;">
 							<td width="35%">Aktion</td>
 							<td width="30%">Verantwortlich</td>
 							<td width="18%">Termin</td>
 							<td width="17%">Status</td>	
-						</tr>
+						</tr><br>
 						 <%
 						 if(fv9Aktion_GM.size() > 0){
 							 for(int i=0; i < fv9Aktion_GM.size(); i++){
 						%>
 								<tr style="border-collapse: collapse; height: 85px;">
-								<td>
+								<td><br>
 									Auftrag <%=i %>: <br><%=fv9Aktion_GM.get(i)%><br>...
 								</td>
-								<td>
+								<td><br>
 									<%=fv9Verantwortlich.get(i) %>
 								</td>
-								<td  width="22%">
+								<td  width="22%"><br>
 									<%=fv9Termin.get(i)%>
 								</td>
-								<td>
+								<td><br>
 									<%=fv9Status.get(i)%>
 								</td>
 							</tr>

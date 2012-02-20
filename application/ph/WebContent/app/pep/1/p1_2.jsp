@@ -71,31 +71,31 @@
 <body>	
 	<div id="container">
 		<div id="nr">
-		<div id="top"><h1><%=title %></h1></div>
-		<div id="content">
+		<div id="top" style="margin:0 20px"><h1><%=title %>ee</h1></div>
+		<div id="content" style="margin:30px 20px;height:500px;">
 			<p></p>
-			<div class="coo"><table width="986" border="0" cellpadding="1" cellspacing="1" class="tab">
+			<div class="coo"><table width="900" border="0" cellpadding="1" cellspacing="1" class="tab">
 			  <tr>
-			    <td width="982"><table width="931"  height="60" border="0" cellpadding="0" cellspacing="0" class="taba">
+			    <td width="982"><table width="900"  height="60" border="0" cellpadding="0" cellspacing="0" class="taba">
 			      <tr>
-			        <td width="260" class="lg"><img src="../images/logo.jpg"/></td>
-			        <td width="384" class="bt"><h3>aktuelle Vorlage Meilensteinubersicht</h3>
+			        <td width="230" class="lg"><img src="../images/logo.jpg"/></td>
+			        <td width="300" class="bt"><h3>aktuelle Vorlage Meilensteinubersicht</h3>
 			        <h3>SOP MM/YYYY</h3></td>
-			        <td width="287" class="bz"><p><span>Status:</span></p>
+			        <td width="187" class="bz"><p><span>Status:</span></p>
 			          <p>Ausgabe:xx.xx.10</p></td>
 			      </tr>
 			    </table></td>
 			  </tr>
 			  <tr>
-			    <td style="width:904px;hight:400px">
+			    <td style="width:804px;hight:400px">
 			    <iframe id="ff" name= "ff" frameborder="0" 
 				    src="<%=request.getContextPath() %>/app/pep/1/GanttChart1.jsp?uid=<%=uid %>" 
-				    style="width:1000px;height:280px;">
+				    style="width:800px;height:280px;">
 			    </iframe>
 			    </td>
 			  </tr>
 			  <tr>
-			    <td><table width="904" height="50px" border="0" cellspacing="0" cellpadding="0">
+			    <td><table width="804" height="50px" border="0" cellspacing="0" cellpadding="0">
 			      <tr>
 			        <td class="a"><table width="100%" border="0" cellspacing="0" cellpadding="0">
 			          <tr>

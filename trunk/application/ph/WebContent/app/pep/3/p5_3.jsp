@@ -55,7 +55,7 @@
 						lineColor:'black',
 						title: {
 							rotation:0,
-							text: 'Nacharbeitszeit [min]',
+							text: 'Punkte',
 							x:-12,
 							y:-180,
 							style: {

@@ -7,19 +7,19 @@
 <%@page import="json.JSONArray"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<%@ include file="/app/pep/include/header.jsp"%>
-<%
-	Map form = (Map)request.getAttribute("form");	
-	List<String> fv9KarosserStyle = (List<String>)form.get("fv9KarosserStyle");
-	List<String> fv9KarosserStatus = (List<String>)form.get("fv9KarosserStatus");
-	List<String> fv9KarossStCom_GM = (List<String>)form.get("fv9KarossStCom_GM");
-	List<String> fv9KarossMab_GM = (List<String>)form.get("fv9KarossMab_GM");
-	List<String> fv9KarossStCom_CN = (List<String>)form.get("fv9KarossStCom_CN");
-	List<String> fv9KarossMab_CN = (List<String>)form.get("fv9KarossMab_CN");
-%>
-<title><%=title %></title>
-</head>
+	<head>
+		<%@ include file="/app/pep/include/header.jsp"%>
+		<title><%=title %></title>
+		<%
+			Map form = (Map)request.getAttribute("form");	
+			List<String> fv9KarosserStyle = (List<String>)form.get("fv9KarosserStyle");
+			List<String> fv9KarosserStatus = (List<String>)form.get("fv9KarosserStatus");
+			List<String> fv9KarossStCom_GM = (List<String>)form.get("fv9KarossStCom_GM");
+			List<String> fv9KarossMab_GM = (List<String>)form.get("fv9KarossMab_GM");
+			List<String> fv9KarossStCom_CN = (List<String>)form.get("fv9KarossStCom_CN");
+			List<String> fv9KarossMab_CN = (List<String>)form.get("fv9KarossMab_CN");
+		%>
+	</head>
 
 <body>
 <div id="container">

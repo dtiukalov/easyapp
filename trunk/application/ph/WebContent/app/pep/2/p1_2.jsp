@@ -180,7 +180,7 @@
 							%>
 						</tr>
 						<tr>
-							<td>Pos.Gesamt</td>
+							<td style="text-align: left;">&nbsp;Pos.Gesamt</td>
 							<%
 							for (int i=0; i<fv9PFGesamtNum.size(); i++){
 							%>
@@ -190,7 +190,7 @@
 							%>
 						</tr>
 						<tr>
-							<td>P - Soll</td>
+							<td style="text-align: left;">&nbsp;P - Soll</td>
 							<%
 							for (int i=0; i<fv9PFSollNum.size(); i++){
 							%>
@@ -200,7 +200,7 @@
 							%>
 						</tr>
 						<tr>
-							<td>P - Ist</td>
+							<td style="text-align: left;">&nbsp;P - Ist</td>
 							<%
 							for (int i=0; i<fv9PFlstNum.size(); i++){
 							%>
@@ -210,7 +210,7 @@
 							%>
 						</tr>
 						<tr>
-							<td>P - Offen</td>
+							<td style="text-align: left;">&nbsp;P - Offen</td>
 							<%
 							for (int i=0; i<fv9PFoffenNum.size(); i++){
 							%>

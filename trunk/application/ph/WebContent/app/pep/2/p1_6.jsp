@@ -175,7 +175,7 @@
 							%>
 						</tr>
 						<tr>
-							<td>Pos.Gesamt</td>
+							<td style="text-align: left;">&nbsp;Pos.Gesamt</td>
 							<%
 							for (int i=0; i<fv9BMGGesamtNum.size(); i++){
 							%>
@@ -185,7 +185,7 @@
 							%>
 						</tr>
 						<tr>
-							<td>BMG - Soll</td>
+							<td style="text-align: left;">&nbsp;BMG - Soll</td>
 							<%
 							for (int i=0; i<fv9BMGSollNum.size(); i++){
 							%>
@@ -195,7 +195,7 @@
 							%>
 						</tr>
 						<tr>
-							<td>BMG - Ist</td>
+							<td style="text-align: left;">&nbsp;BMG - Ist</td>
 							<%
 							for (int i=0; i<fv9BMGlstNum.size(); i++){
 							%>
@@ -205,7 +205,7 @@
 							%>
 						</tr>
 						<tr>
-							<td>BMG - Offen</td>
+							<td style="text-align: left;">&nbsp;BMG - Offen</td>
 							<%
 							for (int i=0; i<fv9BFOffenNum.size(); i++){
 							%>

@@ -28,15 +28,15 @@
 <body>
 	<div id="container">
 		<div id="nr">
-		<div id="top"><h1><%=title %></h1></div>	
+		<div id="top"><h1><%=title %>33</h1></div>	
 		<div id="content">
 			<div id="datatable" style="width: 800px; height: 350px; margin: 80px 150px;">
 				<table width="80%" cellspacing="2" rules="rows" >
-					<tr style="border-bottom:2px solid #333333;">
+					<tr style="border-bottom:2px solid #333333;font-family:Arial;font-size:16px;font-weight:bold;">
 						<td></td>
 						<td>Kennzahlen</td>
 						<td>Bemerkung</td>	
-					</tr>
+					</tr><p></p>
 					<%
 					for(int i=0; i<fv9FreigabeStyle.size(); i++) {
 						String imagePath = "../images/";	

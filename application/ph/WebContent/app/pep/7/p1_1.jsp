@@ -52,7 +52,7 @@
     <div id="content">
      <div class="laguage">
     	<p>
-    		<a href='p1_1_1.jsp'>中文</a>
+    		<a href="<%=request.getContextPath() %>/app/pep/7/p1_1_1.jsp">中文</a>
     		<div id=milepost align="right">
     			 <% if(fv9ProjectStatus.equals("绿")){%>
 			    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="8" height="20" />

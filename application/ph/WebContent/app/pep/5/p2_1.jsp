@@ -7,18 +7,18 @@
 <%@page import="com.saturn.ph.FormManager"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<%@ include file="/app/pep/include/header.jsp"%>
-<%
-	Map form = (Map)request.getAttribute("form");	
-	List<String> fv9LogistikStyle = (List<String>)form.get("fv9LogistikStyle");
-	List<String> fv9LogistikStatus = (List<String>)form.get("fv9LogistikStatus");
-	List<String> fv9LogistikStCom_GM = (List<String>)form.get("fv9LogistikStCom_GM");
-	List<String> fv9LogistikMab_GM = (List<String>)form.get("fv9LogistikMab_GM");
-	List<String> fv9LogistikStCom_CN = (List<String>)form.get("fv9LogistikStCom_CN");
-	List<String> fv9LogistikMab_CN = (List<String>)form.get("fv9LogistikMab_CN");
-%>
 <head>
+	<%@ include file="/app/pep/include/header.jsp"%>
 	<title><%=title %></title>
+	<%
+		Map form = (Map)request.getAttribute("form");	
+		List<String> fv9LogistikStyle = (List<String>)form.get("fv9LogistikStyle");
+		List<String> fv9LogistikStatus = (List<String>)form.get("fv9LogistikStatus");
+		List<String> fv9LogistikStCom_GM = (List<String>)form.get("fv9LogistikStCom_GM");
+		List<String> fv9LogistikMab_GM = (List<String>)form.get("fv9LogistikMab_GM");
+		List<String> fv9LogistikStCom_CN = (List<String>)form.get("fv9LogistikStCom_CN");
+		List<String> fv9LogistikMab_CN = (List<String>)form.get("fv9LogistikMab_CN");
+	%>
 </head>
 <body>
 <div id="container">
@@ -28,8 +28,8 @@
     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 		  <tr>
 		    <td width="239" class="pg">&nbsp;</td>
-		    <td width="311" class="pg"><h2>Status 状态</h2></td>
-		    <td width="433" class="pg"><h2>Nächste Schritte下一阶段</h2></td>
+		    <td width="311" class="pg"><h2>Status</h2></td>
+		    <td width="433" class="pg"><h2>Nächste Schritte</h2></td>
 		  </tr>
 		  <%
 		  for(int i=0; i<fv9LogistikStyle.size(); i++){

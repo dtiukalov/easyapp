@@ -28,7 +28,7 @@
 <body>
 	<div id="container">
 		<div id="nr">
-		<div id="top"><h1><%=title %>33</h1></div>	
+		<div id="top"><h1><%=title %></h1></div>	
 		<div id="content">
 			<div id="datatable" style="width: 800px; height: 350px; margin: 80px 150px;">
 				<table width="80%" cellspacing="2" rules="rows" >

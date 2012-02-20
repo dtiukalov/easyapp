@@ -14,8 +14,7 @@
 			String type;
 			String desc;
 		}
-		%>
-		<%
+		
 		Map form = (Map)request.getAttribute("form");
 		
 		List<String> fv9KWNo = (List<String>) form.get("fv9KWNo");

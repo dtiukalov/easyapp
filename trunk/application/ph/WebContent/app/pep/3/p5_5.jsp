@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -5,32 +6,219 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<%@ include file="/app/pep/include/header.jsp"%>
-		<title>3.5 Maßnahmen zur Verbesserung der Audit-Ergebnisse</title>
+		<title><%=title %></title>
 		<style type="text/css">
-				.div {
-						width: 350px;
-						margin-top:80px;
-						margin-left:30px;
-					}
+			.div {
+				width: 350px;
+				margin-top:80px;
+				margin-left:30px;
+			}
 			.div div {
-						height: 30px;
-						border-bottom-width: 2px;
-						border-bottom-style: solid;
-						border-bottom-color: #000000;
-					}
+				height: 30px;
+				border-bottom-width: 2px;
+				border-bottom-style: solid;
+				border-bottom-color: #000000;
+			}
 			.div table td {
-						border-bottom-width: 1px;
-						border-bottom-style: solid;
-						border-bottom-color: #000000;
-						font-family: "宋体";
-						font-size: 12px;
-						line-height: 30px;
-						color: #000000;
-					}
+				border-bottom-width: 1px;
+				border-bottom-style: solid;
+				border-bottom-color: #000000;
+				font-family: "宋体";
+				font-size: 12px;
+				line-height: 30px;
+				color: #000000;
+			}
 			#content{
 				margin-left:100px;
 			}
 		</style>
+		<%
+		class Problem {
+			String kw;
+			String type;
+			String desc;
+			String num;
+		}
+		
+		Map form = (Map)request.getAttribute("form");
+		
+		Double audit_ist = 0.0;
+		Double audit_soll = 0.0;
+		
+		if ((String)form.get("fv9AuditIst") != null && !"".equals((String)form.get("fv9AuditIst"))) {
+			audit_ist = Double.parseDouble((String)form.get("fv9AuditIst"));
+		}
+		if ((String)form.get("fv9AuditSoll") != null && !"".equals((String)form.get("fv9AuditSoll"))) {
+			audit_soll = Double.parseDouble((String)form.get("fv9AuditSoll"));
+		}
+		
+		List<String> fv9KWNo = (List)form.get("fv9KWNo");
+		List<String> fv9Projekt = (List)form.get("fv9Projekt"); //项目
+		List<String> fv9ProjektCom_GM = (List)form.get("fv9ProjektCom_GM");
+		List<String> fv9Kaufteile = (List)form.get("fv9Kaufteile");//外购件
+		List<String> fv9KaufteileCom_GM = (List)form.get("fv9KaufteileCom_GM");
+		List<String> fv9Montage = (List)form.get("fv9Montage");//总装
+		List<String> fv9MontageCom_GM = (List)form.get("fv9MontageCom_GM");
+		List<String> fv9Lack = (List)form.get("fv9Lack");//油漆
+		List<String> fv9LackCom_GM = (List)form.get("fv9LackCom_GM");
+		List<String> fv9Karosseriebau = (List)form.get("fv9Karosseriebau");//焊装
+		List<String> fv9KarossCom_GM = (List)form.get("fv9KarossCom_GM");
+		List<String> fv9Presswerk = (List)form.get("fv9Presswerk");//冲压
+		List<String> fv9PresswerkCom_GM = (List)form.get("fv9PresswerkCom_GM");
+		
+		String KW = Web.getNumberListStr(fv9KWNo);
+  		String Projekt = "[";
+		String Kaufteile = "[";
+		String Montage = "[";
+		String Lack = "[";
+		String Karosseriebau = "[";
+		String Presswerk = "[";
+		String everyKW = "[";
+		
+		//右侧表格所需List
+		List<Problem> t_Projekt = new ArrayList();
+		List<Problem> t_Kaufteile = new ArrayList();
+		List<Problem> t_Montage = new ArrayList();
+		List<Problem> t_Lack = new ArrayList();
+		List<Problem> t_Karosseriebau = new ArrayList();
+		List<Problem> t_Presswerk = new ArrayList();
+		
+		if (fv9KWNo != null && fv9KWNo.size() > 0) {
+			int n = fv9KWNo.size();
+			int ist_sum = 0; //实际问题总数
+			List<Integer> sollNumVerKW = new ArrayList(); //每周解决的问题数
+			List<Integer> lowNumVerKW = new ArrayList(); //每周的low
+			
+			//实际状态
+			int istProjekt = Integer.parseInt(fv9Projekt.get(0));
+			int istKaufteile = Integer.parseInt(fv9Kaufteile.get(0));
+			int istMontage = Integer.parseInt(fv9Montage.get(0));
+			int istLack = Integer.parseInt(fv9Lack.get(0));
+			int istKarosseriebau = Integer.parseInt(fv9Karosseriebau.get(0));
+			int istPresswerk = Integer.parseInt(fv9Presswerk.get(0));
+			
+			ist_sum += istProjekt 
+					+ istKaufteile 
+					+ istMontage 
+					+ istLack 
+					+ istKarosseriebau 
+					+ istPresswerk;
+			
+			Projekt += "{y: " + istProjekt + ",low: 0},";
+			Kaufteile += "{y: " + istKaufteile + ",low: 0},";
+			Montage += "{y: " + istMontage + ",low: 0},";
+			Lack += "{y: " + istLack + ",low: 0},";
+			Karosseriebau += "{y: " + istKarosseriebau + ",low: 0},";
+			Presswerk += "{y: " + istPresswerk + ",low: 0},";
+			everyKW += "{y: 0, low: 0, color: 'white'},";
+			
+			//每周解决措施状态
+			if (n > 2) {
+				for (int k=1; k<n-1; k++){
+					Projekt += "{y: 0, low: 0},";
+					Kaufteile += "{y: 0, low: 0},";
+					Montage += "{y: 0, low: 0},";
+					Lack += "{y: 0, low: 0},";
+					Karosseriebau += "{y: 0, low: 0},";
+					Presswerk += "{y: 0, low: 0},";
+					
+					int count = 0;
+					if (fv9Projekt.get(k) != null && Integer.parseInt(fv9Projekt.get(k)) > 0){
+						count += Integer.parseInt(fv9Projekt.get(k));
+						Problem p = new Problem();
+						p.kw = fv9KWNo.get(k);
+						p.type = "Projekt";
+						p.desc = fv9ProjektCom_GM.get(k);
+						p.num = fv9Projekt.get(k);
+						t_Projekt.add(p);
+					}
+					if (fv9Kaufteile.get(k) != null && Integer.parseInt(fv9Kaufteile.get(k)) > 0){
+						count += Integer.parseInt(fv9Kaufteile.get(k));
+						Problem p = new Problem();
+						p.kw = fv9KWNo.get(k);
+						p.type = "Kaufteile";
+						p.desc = fv9KaufteileCom_GM.get(k);
+						p.num = fv9Kaufteile.get(k);
+						t_Kaufteile.add(p);
+					}
+					if (fv9Montage.get(k) != null && Integer.parseInt(fv9Montage.get(k)) > 0){
+						count += Integer.parseInt(fv9Montage.get(k));
+						Problem p = new Problem();
+						p.kw = fv9KWNo.get(k);
+						p.type = "Montage";
+						p.desc = fv9MontageCom_GM.get(k);
+						p.num = fv9Montage.get(k);
+						t_Montage.add(p);
+					}
+					if (fv9Lack.get(k) != null && Integer.parseInt(fv9Lack.get(k)) > 0){
+						count += Integer.parseInt(fv9Lack.get(k));
+						Problem p = new Problem();
+						p.kw = fv9KWNo.get(k);
+						p.type = "Lack";
+						p.desc = fv9LackCom_GM.get(k);
+						p.num = fv9Lack.get(k);
+						t_Lack.add(p);
+					}
+					if (fv9Karosseriebau.get(k) != null && Integer.parseInt(fv9Karosseriebau.get(k)) > 0){
+						count += Integer.parseInt(fv9Karosseriebau.get(k));
+						Problem p = new Problem();
+						p.kw = fv9KWNo.get(k);
+						p.type = "Karosseriebau";
+						p.desc = fv9KarossCom_GM.get(k);
+						p.num = fv9Karosseriebau.get(k);
+						t_Karosseriebau.add(p);
+					}
+					if (fv9Presswerk.get(k) != null && Integer.parseInt(fv9Presswerk.get(k)) > 0){
+						count += Integer.parseInt(fv9Presswerk.get(k));
+						Problem p = new Problem();
+						p.kw = fv9KWNo.get(k);
+						p.type = "Presswerk";
+						p.desc = fv9PresswerkCom_GM.get(k);
+						p.num = fv9Presswerk.get(k);
+						t_Presswerk.add(p);
+					}
+					
+					sollNumVerKW.add(count);
+					lowNumVerKW.add(ist_sum - count);
+					ist_sum -= count;
+				}
+				
+				if (sollNumVerKW != null && sollNumVerKW.size() > 0) {
+					for(int m=0; m<sollNumVerKW.size(); m++){
+						everyKW += "{y: " + sollNumVerKW.get(m) + ", low: " + lowNumVerKW.get(m) + ", color: '#009C0E'},";
+					}
+						
+				}
+				
+			}
+				
+			//计划状态
+			int sollProjekt = Integer.parseInt(fv9Projekt.get(n-1));
+			int sollKaufteile = Integer.parseInt(fv9Kaufteile.get(n-1));
+			int sollMontage = Integer.parseInt(fv9Montage.get(n-1));
+			int sollLack = Integer.parseInt(fv9Lack.get(n-1));
+			int sollKarosseriebau = Integer.parseInt(fv9Karosseriebau.get(n-1));
+			int sollPresswerk = Integer.parseInt(fv9Presswerk.get(n-1));
+			
+			Projekt += "{y: " + sollProjekt + ",low: 0}";
+			Kaufteile += "{y: " + sollKaufteile + ",low: 0},";
+			Montage += "{y: " + sollMontage + ",low: 0},";
+			Lack += "{y: " + sollLack + ",low: 0},";
+			Karosseriebau += "{y: " + sollKarosseriebau + ",low: 0},";
+			Presswerk += "{y: " + sollPresswerk + ",low: 0},";
+			everyKW += "{y: 0, low: 0, color: 'white'}";
+			
+		}
+		
+		Projekt += "]";
+		Kaufteile += "]";
+		Montage += "]";
+		Lack += "]";
+		Karosseriebau += "]";
+		Presswerk += "]";
+		everyKW += "]";
+		
+		%>
 		<script type="text/javascript">
 		var chart;
 		$(document).ready(function() {
@@ -52,7 +240,7 @@
 				xAxis: [{
 					tickLength: 0,
 					lineColor: 'black',
-					categories: ['KW15','16','17','18','19','20'],
+					categories: <%=KW%>,
 					labels: {
 						style: {
 							 padding:'10px',
@@ -110,52 +298,10 @@
 				},
 			    series: [{
 					name: 'Soll',
-					data: [{ 
-							y: 0, 
-							low: 0,
-							color: 'white'
-						},{ 
-							y: 45, 
-							low: 644,
-							color: '#009C0E'
-						}, {
-						 	y: 64, 
-						 	low: 580,
-							color: '#009C0E'
-						}, {
-							y: 68,
-							low: 512,
-							color: '#009C0E'
-						}, {
-							y: 32,
-							low: 480,
-							color: '#009C0E'
-						},{ 
-							y: 0, 
-							low:0,
-							color: 'white'
-						}]
+					data: <%=everyKW%>
 				},{
 					name: 'Kaufteile',
-					data: [{ 
-							y: 119, 
-							low: 40
-						},{ 
-							y: 0, 
-							low: 0
-						}, {
-						 	y: 0, 
-						 	low: 0
-						}, {
-							y: 0,
-							low: 0
-						}, {
-							y: 0,
-							low: 0
-						},{ 
-							y: 40, 
-							low: 40
-						}],
+					data: <%=Kaufteile%>,
 					color: '#AED4F8',
 					type: 'column',
 					dashStyle: 'dash',
@@ -166,25 +312,7 @@
 					
 				},{
 					name: 'Montage',
-					data: [{ 
-							y: 120, 
-							low: 159
-						},{ 
-							y: 0, 
-							low: 0
-						}, {
-						 	y: 0, 
-						 	low: 0
-						}, {
-							y: 0,
-							low: 0
-						}, {
-							y: 0,
-							low: 0
-						},{ 
-							y: 100, 
-							low: 80
-						}],
+					data: <%=Montage%>,
 					color: '#00235A',
 					type: 'column',
 					dashStyle: 'dash',
@@ -194,25 +322,7 @@
 					enableMouseTracking: false
 				},{
 					name: 'Lack',
-					data: [{ 
-							y: 130, 
-							low: 279
-						},{ 
-							y: 0, 
-							low: 0
-						}, {
-						 	y: 0, 
-						 	low: 0
-						}, {
-							y: 0,
-							low: 0
-						}, {
-							y: 0,
-							low: 0
-						},{ 
-							y: 100, 
-							low: 180
-						}],
+					data: <%=Lack%>,
 					color: '#0000FF',
 					type: 'column',
 					dashStyle: 'dash',
@@ -222,25 +332,7 @@
 					enableMouseTracking: false
 				},{
 					name: 'Karosseriebau',
-					data: [{ 
-							y: 150, 
-							low: 409
-						},{ 
-							y: 0, 
-							low: 0
-						}, {
-						 	y: 0, 
-						 	low: 0
-						}, {
-							y: 0,
-							low: 0
-						}, {
-							y: 0,
-							low: 0
-						},{ 
-							y: 100, 
-							low: 280
-						}],
+					data: <%=Karosseriebau%>,
 					color: '#AED4F8',
 					type: 'column',
 					dashStyle: 'dash',
@@ -250,25 +342,7 @@
 					enableMouseTracking: false
 				},{
 					name: 'Presswerk',
-					data: [{ 
-							y: 130, 
-							low: 559
-						},{ 
-							y: 0, 
-							low: 0
-						}, {
-						 	y: 0, 
-						 	low: 0
-						}, {
-							y: 0,
-							low: 0
-						}, {
-							y: 0,
-							low: 0
-						},{ 
-							y: 100, 
-							low: 380
-						}],
+					data: <%=Presswerk%>,
 					color: '#BBC2C5',
 					type: 'column',
 					dashStyle: 'dash',
@@ -279,25 +353,7 @@
 				},
 				{
 					name: 'Projekt',
-					data: [{ 
-							y: 40, 
-							low: 0
-						},{ 
-							y: 0, 
-							low: 0
-						}, {
-						 	y: 0, 
-						 	low: 0
-						}, {
-							y: 0,
-							low: 0
-						}, {
-							y: 0,
-							low: 0
-						},{ 
-							y: 40, 
-							low: 0
-						}],
+					data: <%=Projekt%>,
 					color: '#99CC00',
 					type: 'column',
 					dashStyle: 'dash',
@@ -313,38 +369,172 @@
 	<body>
 		<div id="container">
 			<div id="nr">
-				<div id="top"><h1>3.5 Maßnahmen zur Verbesserung der Audit-Ergebnisse</h1></div>	
+				<div id="top"><h1><%=title %></h1></div>	
 				<div id="content">
 					<div id="chart" style="width: 400px; height: 500px; margin: 0 auto; float: left;"></div>
 					<div id="table" style="width: 400px; height: 400px; margin: 0 auto; float: left;">&nbsp;
 						<div class="div">
 								<div>
-								  <table width="350" cellspacing="0">
+								  <table cellspacing="0" style="width: 350px; font-size: 9px; overflow: hidden;">
 								    <tr>
-								      <td><font size="14px">Wichtigste Maßnahmen</font></td>
-								      <td></td>
-								      <td></td>
-								      <td></td>
+								      <td style="width: 30px; height: 30px;">KW</td>
+								      <td style="width: 220px;">&nbsp;Wichtigste Maßnahmen</td>
+								      <td style="width: 50px;text-align: right;">Reduzierung</td>
+								      <td style="width: 50px;text-align: left;">&nbsp;Fehlerpunkte/Fzg</td>
 								    </tr>
 								  </table>
 								</div>
 								<table width="350" cellspacing="0">
 								<% 
-									for(int i=0; i<4; i++){
+									if (t_Kaufteile != null && t_Kaufteile.size() > 0) {
+										int sum = 0;
+										for(int i=0; i<t_Kaufteile.size(); i++){
+											Problem pp = t_Kaufteile.get(i);
+											sum += Integer.parseInt(pp.num);
+										}
+										for(int i=0; i<t_Kaufteile.size(); i++){
+											Problem pp = t_Kaufteile.get(i);
+											
 								%>
 									  <tr>
-									    <td width="50" rowspan="3"></td>
-									    <td>111</td>
+									  	<td><%=pp.kw %></td>
+									    <td><%=pp.desc %></td>
+									    <td style="width: 50px;"><%=pp.num %></td>
+								     <%
+									  	if (i == 0) {
+									 %>
+									  	<td rowspan="<%=t_Kaufteile.size()%>" style="text-align: center;"><%=sum %></td>
+									 <%
+									  	} 
+									 %>
 								      </tr>
-									   <tr>
-									    <td>&nbsp;</td>
-								  	  </tr>
-									  <tr>
-									  	<td>&nbsp;</td>
-								      </tr>
-								   <%
+									
+								<%
+										}
 									}
-								  %>
+
+									if (t_Montage != null && t_Montage.size() > 0) {
+										int sum = 0;
+										for(int i=0; i<t_Montage.size(); i++){
+											Problem pp = t_Montage.get(i);
+											sum += Integer.parseInt(pp.num);
+										}
+										for(int i=0; i<t_Montage.size(); i++){
+											Problem pp = t_Montage.get(i);
+								%>
+									  <tr>
+									  	<td><%=pp.kw %></td>
+									    <td><%=pp.desc %></td>
+									    <td style="width: 50px;"><%=pp.num %></td>
+								     <%
+									  	if (i == 0) {
+									 %>
+									  	<td rowspan="<%=t_Montage.size()%>" style="text-align: center;"><%=sum %></td>
+									 <%
+									  	} 
+									 %>
+								      </tr>
+									
+								<%
+										}
+									}
+									
+									if (t_Lack != null && t_Lack.size() > 0) {
+										int sum = 0;
+										for(int i=0; i<t_Lack.size(); i++){
+											Problem pp = t_Lack.get(i);
+											sum += Integer.parseInt(pp.num);
+										}
+										for(int i=0; i<t_Lack.size(); i++){
+											Problem pp = t_Lack.get(i);
+								%>
+									  <tr>
+									  	<td><%=pp.kw %></td>
+									    <td><%=pp.desc %></td>
+									    <td style="width: 50px;"><%=pp.num %></td>
+								     <%
+									  	if (i == 0) {
+									 %>
+									  	<td rowspan="<%=t_Lack.size()%>" style="text-align: center;"><%=sum %></td>
+									 <%
+									  	} 
+									 %>
+								      </tr>
+									
+								<%
+										}
+									}
+									if (t_Karosseriebau != null && t_Karosseriebau.size() > 0) {
+										int sum = 0;
+										for(int i=0; i<t_Karosseriebau.size(); i++){
+											Problem pp = t_Karosseriebau.get(i);
+											sum += Integer.parseInt(pp.num);
+										}
+										for(int i=0; i<t_Karosseriebau.size(); i++){
+											Problem pp = t_Karosseriebau.get(i);
+								%>
+									  <tr>
+									  	<td><%=pp.kw %></td>
+									    <td><%=pp.desc %></td>
+									    <td style="width: 50px;"><%=pp.num %></td>
+								     <%
+									  	if (i == 0) {
+									 %>
+									  	<td rowspan="<%=t_Karosseriebau.size()%>" style="text-align: center;"><%=sum %></td>
+									 <%
+									  	} 
+									 %>
+								      </tr>
+									
+								<%
+										}
+									}
+									if (t_Presswerk != null && t_Presswerk.size() > 0) {
+										int sum = 0;
+										for(int i=0; i<t_Presswerk.size(); i++){
+											Problem pp = t_Presswerk.get(i);
+											sum += Integer.parseInt(pp.num);
+										}
+										for(int i=0; i<t_Presswerk.size(); i++){
+											Problem pp = t_Presswerk.get(i);
+								%>
+									  <tr>
+									  	<td><%=pp.kw %></td>
+									    <td><%=pp.desc %></td>
+									    <td style="width: 50px;"><%=pp.num %></td>
+								     <%
+									  	if (i == 0) {
+									 %>
+									  	<td rowspan="<%=t_Presswerk.size()%>" style="text-align: center;"><%=sum %></td>
+									 <%
+									  	} 
+									 %>
+								      </tr>
+									
+								<%
+										}
+									}
+									if (t_Projekt != null && t_Projekt.size() > 0) {
+										for(int i=0; i<t_Projekt.size(); i++){
+											Problem pp = t_Projekt.get(i);
+								%>
+									  <tr>
+									  	<td><%=pp.kw %></td>
+									    <td><%=pp.desc %></td>
+									    <td style="width: 50px;"><%=pp.num %></td>
+								     <%
+									  	if (i == 0) {
+									 %>
+									  	<td rowspan="<%=t_Projekt.size()%>" style="text-align: center;">30</td>
+									 <%
+									  	} 
+									 %>
+								      </tr>
+									
+								<%
+										}
+									}
+								%>
 								</table>
 							</div>
 					</div>

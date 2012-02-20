@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.HashMap"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.saturn.web.Web"%>	
 <!DOCTYPE HTML>
 
@@ -28,6 +29,29 @@
 		List<String> fv9Score = (List)form.get("fv9Score");
 		List<String> fv9Option = (List)form.get("fv9Option");
 
+		List<String> newMontage = new ArrayList();
+		for(int i=0; i<MontageNum.size(); i++){
+			String table = "<table border=\"1\" style=\"background-color: blue;\">";
+			for(int k=0; k<fv9KW.size(); k++) {
+				if ((!"".equals(fv9KW.get(k))) && (fv9KW.get(k).equals(KWNo.get(i)))) {
+					table += "<tr>";
+					table += "	<td style=\"width: 180px;height: 20px;\">" + fv9Name.get(k) + "</td>";
+					table += "	<td style=\"width: 50px; height: 20px;\">" + fv9Score.get(k) + " Pkt.</td>";
+					if ("Yes".equals(fv9Option.get(k))) {
+						table += "	<td style=\"width: 28px; height: 20px;\">√</td>";
+					}
+					if ("No".equals(fv9Option.get(k))) {
+						table += "	<td style=\"width: 28px; height: 20px;\">×</td>";
+					}
+					table += "</tr><br>";
+				}
+			}
+			table += "</table>";
+			newMontage.add(mergeTableAndNum(MontageNum.get(i), table));
+		}
+		
+		String Montage = Web.getStrListStr(newMontage);
+		Montage = Montage.replaceAll("\"", "");
 		%>
 		
 		<script type="text/javascript">
@@ -89,9 +113,7 @@
 					},
 					tooltip: {
 						formatter: function() {
-							return '<b>'+ this.x +'</b><br/>'+
-								 this.series.name +': '+ this.y +'<br/>'+
-								 'Total: '+ this.point.stackTotal;
+							return this.point.table;
 						}
 					},
 					plotOptions: {
@@ -115,7 +137,7 @@
 				    series: [{
 						type: 'column',
 						name: 'Montage',
-						data: <%=fv9MontageNum%>,
+						data: <%=Montage%>,
 						color: '#00235A'
 					}, {
 						type: 'spline',

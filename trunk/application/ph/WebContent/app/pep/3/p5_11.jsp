@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="java.util.Map"%>
@@ -26,9 +27,31 @@
 		List<String> fv9Name = (List)form.get("fv9Name");
 		List<String> fv9Score = (List)form.get("fv9Score");
 		List<String> fv9Option = (List)form.get("fv9Option");
-		
-		
 
+		List<String> newPresswerk = new ArrayList();
+		for(int i=0; i<PresswerkNum.size(); i++){
+			String table = "<table border=\"1\" style=\"background-color: blue;\">";
+			for(int k=0; k<fv9KW.size(); k++) {
+				if ((!"".equals(fv9KW.get(k))) && (fv9KW.get(k).equals(KWNo.get(i)))) {
+					table += "<tr>";
+					table += "	<td style=\"width: 180px;height: 20px;\">" + fv9Name.get(k) + "</td>";
+					table += "	<td style=\"width: 50px; height: 20px;\">" + fv9Score.get(k) + " Pkt.</td>";
+					if ("Yes".equals(fv9Option.get(k))) {
+						table += "	<td style=\"width: 28px; height: 20px;\">√</td>";
+					}
+					if ("No".equals(fv9Option.get(k))) {
+						table += "	<td style=\"width: 28px; height: 20px;\">×</td>";
+					}
+					table += "</tr><br>";
+				}
+			}
+			table += "</table>";
+			newPresswerk.add(mergeTableAndNum(PresswerkNum.get(i), table));
+		}
+		
+		String presswerk = Web.getStrListStr(newPresswerk);
+		presswerk = presswerk.replaceAll("\"", "");
+		
 		%>
 		
 		<script type="text/javascript">
@@ -90,9 +113,7 @@
 					},
 					tooltip: {
 						formatter: function() {
-							return '<b>'+ this.x +'</b><br/>'+
-								 this.series.name +': '+ this.y +'<br/>'+
-								 'Total: '+ this.point.stackTotal;
+							return this.point.table;
 						}
 					},
 					plotOptions: {
@@ -116,7 +137,7 @@
 				    series: [{
 						type: 'column',
 						name: 'Presswerk',
-						data: <%=fv9PresswerkNum%>,
+						data: <%=presswerk%>,
 						color: '#00235A'
 					}, {
 						type: 'spline',
@@ -140,7 +161,7 @@
 			<div id="nr">
 			<div id="top"><h1><%=title %></h1></div>
 			<div id="content">
-				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto"></div>
+				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto;"></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

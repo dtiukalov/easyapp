@@ -13,4 +13,13 @@
 	String type = (String)request.getAttribute("type");
 	String title = FormManager.getFormTitle(type);
 %>
+<%!
+	//供3.5 Audit ZP8 – Gewerk: XXX 使用
+	public String mergeTableAndNum(String num, String table){
+		if (!"".equals(table)) {
+			return "{y:" + num + ", table:'" + table + "'}";
+		} 
+		return "{y:" + num + ", table:'&nbsp;'}";
+	}
+%>
 

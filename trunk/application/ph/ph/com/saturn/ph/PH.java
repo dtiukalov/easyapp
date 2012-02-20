@@ -48,6 +48,14 @@ public class PH {
 		return session;
 	}
 	
+	public static void setSession(TCSession session) {
+		PH.session = session;
+	}
+
+	public static void setUser(User user) {
+		PH.user = user;
+	}
+
 	public static User getUser() {
 		if (user == null) {
 			user = (User) context.getAttribute("TC_USER");

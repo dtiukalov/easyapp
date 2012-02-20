@@ -14,15 +14,15 @@
 		<title><%=title %></title>
 		<style type="text/css">
 			.left{
-				width: 100px; height: 50px;float: left;margin: 0 50px;
-				vertical-align: middle;padding-top: 35px;
+				width: 100px; height: 50px;float: left;margin: 30px 50px;
+				vertical-align: middle;
 			}
 			.title{
 				width: 90px; height: 40px; float: left; margin: 0 auto; text-align: center;vertical-align: middle;padding-top: 20px;
 				font-weight: bolder;color: white;
 			}
 			.chart{
-				width: 700px; height: 110px; margin: 0 auto; float: left;
+				width: 700px; height: 110px; margin: -2px auto; float: left;
 			}
 			.clear{
 				width: 100%;height: 1px;margin: 0 auto; float: left;
@@ -647,7 +647,9 @@
 						tickWidth:1,
 						lineColor:'black',
 						tickColor:'black',
-
+						labels: {
+							enabled:false
+						},
 						categories: <%=fv9KWNo%>
 					}],
 					yAxis: {
@@ -779,7 +781,7 @@
 		<div id="container">
 			<div id="nr">
 			<div id="top"><h1><%=title %></h1></div>
-			<div id="content" style="height:600px">
+			<div id="content">
 				<div class="left">
 					<div class="title" style="border: solid black 1px;background-color: #003C65">Presswerk</div>
 				</div>

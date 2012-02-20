@@ -91,7 +91,7 @@
 					layout: 'vertical',
 					align: 'center',
 					verticalAlign: 'top',
-					x: 250,
+					x: 200,
 					y: 0,
 					width: 270
 				},
@@ -227,8 +227,7 @@
 			chart2 = new Highcharts.Chart({
 				chart: {
 					renderTo: 'chart2',
-					defaultSeriesType: 'column',
-					marginTop:120
+					defaultSeriesType: 'column'
 				},
 				title: {
 					text: ' ',
@@ -251,28 +250,20 @@
 					labels: {
 						y:20,
 						style: {
-							 padding:'5px',
 							 fontSize: '14px',
 							 color:'black'
 						}
 					},
-					categories: 'Prognose zu Meilenstein XXX'
+					categories: 'ww'
 				},
 				yAxis: {
-					min: 0,
-					max: <%=max%>,
-					lineWidth:1,
-					lineColor:'black',
-					showLastLabel: true,
 					gridLineWidth: 0,
 					labels:{
-						style:{
-							color:'black',
-							fontSize:'12px'
-						}
+						enabled:false
 					},
 					title: {
 						text: '',
+						y:20,
 						style: {
 							 padding:'5px',
 							 font: 'normal 14px Arial, sans-serif',
@@ -292,6 +283,7 @@
 				},
 				plotOptions: {
 					column: {
+						//groupPadding:0.1,
 						stacking: 'normal',
 						borderColor: 'black',
 						borderWidth: 1,
@@ -336,8 +328,8 @@
 			<div id="nr">
 			<div id="top"><h1><%=title %></h1></div>
 			<div id="content">
-				<div id="chart1" style="width: 500px; height: 500px; margin: 0 auto; float: left;"></div>
-				<div id="chart2" style="width: 300px; height: 500px; margin: 0 auto; float: left;"></div>
+				<div id="chart1" style="width: 650px; height: 500px; margin: 0 70px; float: left;"></div>
+				<div id="chart2" style="width: 100px; height: 500px; margin: 0 -90px; float: left;margin-top:-10px;"></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

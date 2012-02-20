@@ -28,7 +28,7 @@
 <div id="container">
 	<div id="nr">
 	<div id="top"><h1>3.1 Prüfmittel, Meisterbock/Cubing</h1></div>
-    <div id="content" style="margin-top:50px;">
+    <div id="content">
     <!-- 
       <div class="laguage">
     	<p>

@@ -13,70 +13,11 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<%@ include file="/app/pep/include/header.jsp"%>
-	<title><%=title %></title>
+	<title></title>
 <%
-	Map form = (Map)request.getAttribute("form");
-
-	List<String> fv9Stufe = (List<String>)form.get("fv9Stufe");
-	List<String> fv9FahrSoll = (List<String>)form.get("fv9FahrSoll");
-	List<String> fv9Fahrlst = (List<String>)form.get("fv9Fahrlst");
-	List<String> fv9KarossSoll = (List<String>)form.get("fv9KarossSoll");
-	List<String> fv9Karosslst = (List<String>)form.get("fv9Karosslst");
-	//Todo:看取回来的时间数据格式再做调整
-	Date[] fv9KarossStart = {DateUtils.getDate(2011, 12, 10), DateUtils.getDate(2011, 12, 30), DateUtils.getDate(2012, 2, 1)};
-	//(List<String>)form.get("fv9KarossStart");
-	Date[] fv9KarossEnd = {DateUtils.getDate(2011, 12, 20), DateUtils.getDate(2012, 1, 10), DateUtils.getDate(2012, 2, 20)};
-	//(List<String>)form.get("fv9KarossEnd");
-	Date[] fv9LackStart = {DateUtils.getDate(2011, 12, 21), DateUtils.getDate(2012, 1, 11), DateUtils.getDate(2012, 2, 21)};
-	//(List<String>)form.get("fv9LackStart");
-	Date[] fv9LackEnd = {DateUtils.getDate(2011, 12, 30), DateUtils.getDate(2012, 1, 30), DateUtils.getDate(2012, 3, 5)};
-	//(List<String>)form.get("fv9LackEnd");
-	Date[] fv9MontageStart = {DateUtils.getDate(2012, 1, 1), DateUtils.getDate(2012, 2, 1), DateUtils.getDate(2012, 3, 1)};
-	//(List<String>)form.get("fv9MontageStart");
-	Date[] fv9MontageEnd = {DateUtils.getDate(2012, 1, 10), DateUtils.getDate(2012, 2, 29), DateUtils.getDate(2012, 3, 25)};
-	//(List<String>)form.get("fv9MontageEnd");
-	Date[] fv9ObergabeStart = {DateUtils.getDate(2012, 1, 11), DateUtils.getDate(2012, 3, 1), DateUtils.getDate(2012, 3, 26)};
-	//(List<String>)form.get("fv9ObergabeStart");
-	Date[] fv9ObergabeEnd = {DateUtils.getDate(2012, 1, 30), DateUtils.getDate(2012, 3, 28), DateUtils.getDate(2012, 4, 15)};
-	//(List<String>)form.get("fv9ObergabeEnd");
-	
-//	int tdNum = DateUtils.getWeekNumBetweenStartAndEnd("2011-12-10 00:00", "2012-05-30 00:00");
-	String[] kws = DateUtils.getKWArray("2011-12-10 00:00", "2012-04-15 00:00");
-	int min_week = DateUtils.getWeekOfYear("2011-12-10 00:00"); 
-	int max_week = DateUtils.getWeekOfYear("2012-04-15 00:00");	 
-	System.out.println("kws = " + Arrays.toString(kws));
-	int num = kws.length;
-	System.out.println("num = " + num);
-	int px = Math.round(830/num);
-	System.out.println("px = " + px);
-	
-	int[] Kaross = {DateUtils.getWeekNumBetweenStartAndEnd("2011-12-10 00:00", "2011-12-20 00:00"), 
-			DateUtils.getWeekNumBetweenStartAndEnd("2011-12-30 00:00", "2012-01-10 00:00"),
-			DateUtils.getWeekNumBetweenStartAndEnd("2012-02-01 00:00", "2012-02-20 00:00")};
-	
-	int[] beforeKaross = {DateUtils.getWeekNumBetweenStartAndEnd("2011-12-10 00:00", "2011-12-10 00:00"), 
-			DateUtils.getWeekNumBetweenStartAndEnd("2011-12-10 00:00", "2011-12-30 00:00"),
-			DateUtils.getWeekNumBetweenStartAndEnd("2011-12-10 00:00", "2012-02-01 00:00")};
-	
-	int[] Lack = {DateUtils.getWeekNumBetweenStartAndEnd("2011-12-21 00:00", "2011-12-30 00:00"), 
-			DateUtils.getWeekNumBetweenStartAndEnd("2012-01-11 00:00", "2012-01-30 00:00"),
-			DateUtils.getWeekNumBetweenStartAndEnd("2012-02-21 00:00", "2012-03-05 00:00")};
-	
-	int[] beforeLack = {DateUtils.getWeekNumBetweenStartAndEnd("2011-12-10 00:00", "2011-12-21 00:00"), 
-			DateUtils.getWeekNumBetweenStartAndEnd("2011-12-10 00:00", "2012-01-11 00:00"),
-			DateUtils.getWeekNumBetweenStartAndEnd("2011-12-10 00:00", "2012-02-21 00:00")};
-	
-	int[] Montage = {DateUtils.getWeekNumBetweenStartAndEnd("2012-01-01 00:00", "2012-01-16 00:00"), 
-			DateUtils.getWeekNumBetweenStartAndEnd("2012-02-01 00:00", "2012-02-29 00:00"),
-			DateUtils.getWeekNumBetweenStartAndEnd("2012-03-01 00:00", "2012-03-25 00:00")};
-	
-	int[] beforeMontage = {DateUtils.getWeekNumBetweenStartAndEnd("2011-12-10 00:00", "2012-01-01 00:00"), 
-			DateUtils.getWeekNumBetweenStartAndEnd("2011-12-10 00:00", "2012-02-01 00:00"),
-			DateUtils.getWeekNumBetweenStartAndEnd("2011-12-10 00:00", "2012-03-01 00:00")};
-	
-	int[] Obergabe = {DateUtils.getWeekNumBetweenStartAndEnd("2012-01-11 00:00", "2012-01-30 00:00"), 
-			DateUtils.getWeekNumBetweenStartAndEnd("2012-03-01 00:00", "2012-03-28 00:00"),
-			DateUtils.getWeekNumBetweenStartAndEnd("2012-03-26 00:00", "2012-04-15 00:00")};
+	title = "1.5 Bauprogramm VFF";
+	Map form = (Map)request.getAttribute("form");	
+	String uid = (String)request.getAttribute("uid");
 %>
 	<title><%=title %></title>
 </head>
@@ -86,52 +27,10 @@
 		<div id="nr">
 		<div id="top"><h1><%=title %></h1></div>
 	    <div id="content">
-			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="db">
-		        <tr>
-					<td width="140" class="x">Stufe</td>
-					<% 
-						for(int i=0; i<num; i++) {
-					%>
-						<td width="<%=px%>"  class="x"><%=kws[i] %></td>
-					<%
-						}
-					%>
-		        	</td>
-		        </tr>
-		        <%
-		        if (fv9Stufe.size() > 0) {
-		        	System.out.println("fv9Stufe = " + fv9Stufe.size());
-		        	for(int i=0; i<fv9Stufe.size(); i++) {
-		        %>		
-		        <tr>
-		        	<td width="140"  style="font-size:16px;" rowspan="4" class="line">
-						<span style="font-weight:bold; font-size:16px;"><%=fv9Stufe.get(i) %></span>
-						Fahrzeuge<br />
-						&nbsp;&nbsp;Soll:<%=fv9FahrSoll.get(i) %>&nbsp;lst:<%=fv9Fahrlst.get(i) %><br />
-						&nbsp;&nbsp;Karosserien<br />&nbsp;&nbsp;Soll:<%=fv9KarossSoll.get(i) %>&nbsp;lst:<%=fv9Karosslst.get(i) %>
-					</td>
-				</tr>	
-				<tr>
-					<td colspan="<%=beforeKaross[i] %>" class="line">&nbsp;</td>
-					<td colspan="<%=Kaross[i] %>" style="background-color: #aed4f8;" class="line">&nbsp;</td>
-					<td colspan="<%=num - beforeKaross[i] - Kaross[i] %>" class="line">&nbsp;</td>
-				</tr>
-				<tr>
-					<td colspan="<%=beforeLack[i] %>" class="line">&nbsp;</td>
-					<td colspan="<%=Lack[i] %>" style="background-color: #8994A0;" class="line">&nbsp;</td>
-					<td colspan="<%=num - beforeLack[i] - Lack[i] %>" class="line">&nbsp;</td>
-				</tr>
-				<tr>
-					<td colspan="<%=beforeMontage[i] %>" class="line">&nbsp;</td>
-					<td colspan="<%=Montage[i] %>" style="background-color: #00235A;" class="line">&nbsp;</td>
-					<td colspan="<%=Obergabe[i] %>" style="background-color: #91AFFF;" class="line">&nbsp;</td>
-					<td colspan="<%=num - beforeMontage[i] - Montage[i] - Obergabe[i] %>" class="line">&nbsp;</td>
-				</tr>	        
-		        <%	
-		        	}
-		        }
-		        %>
-			</table>
+			<iframe id="ff" name= "ff" frameborder="0" 
+				    src="<%=request.getContextPath() %>/app/pep/1/GanttChart4.jsp?uid=<%=uid %>" 
+				    style="width:1000px;height:500px;">
+			</iframe>
 	   
 	    </div>
 	    <%@ include file="/app/pep/include/foot.jsp"%>

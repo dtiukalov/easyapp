@@ -160,10 +160,10 @@
 		<div id="container">
 			<div id="nr">
 			<div id="top"><h1><%=title %></h1></div>
-			<div id="content">
+			<div id="content" style="margin:30px auto;">
 				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto"></div>
 				<div id="table" style="width: 800px; height: 400px; margin: 0 auto">
-					<table class="freigaben" border="1">
+					<table class="freigaben" style="border-color: #000;border-collapse:collapse;" cellpadding="0" cellspacing="0" border="1"">
 						<tr>
 							<td>&nbsp;</td>
 							<%

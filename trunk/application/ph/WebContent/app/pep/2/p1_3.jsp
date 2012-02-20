@@ -93,7 +93,6 @@
 					column: {
 						stacking: 'normal',
 						borderColor: 'black',
-						pointPadding: 0.001,
 						groupPadding: 0.01,
 						shadow:false,
 						dataLabels: {
@@ -196,8 +195,7 @@
 				plotOptions: {
 					column: {
 						stacking: 'normal',
-						pointPadding: 0.001,
-						groupPadding: 0.01,
+						groupPadding: 0.001,
 						borderColor: 'black',
 						shadow:false,
 						dataLabels: {

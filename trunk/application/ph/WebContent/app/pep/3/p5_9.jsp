@@ -4,30 +4,32 @@
 <%@page import="java.util.HashMap"%>
 <%@page import="com.saturn.web.Web"%>	
 <!DOCTYPE HTML>
-<%@ include file="/app/pep/include/header.jsp"%>
+
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		
+		<%@ include file="/app/pep/include/header.jsp"%>
+		<title><%=title %></title>
 		<%
 		Map form = (Map)request.getAttribute("form");
-		title = "3.5 Audit ZP8 – Gewerk: Lackiererei";
 		
-		String fv9KWNo = "['4', '5', '6', '7', '8', '9', '10', '11', '12', '13',  '14', '15', '16', '17', '18', '19', '20', '21', '22', '23',  '24']";
-		//Web.getNumberListStr(form.get("fv9KWNo"));
-		String fv9LackierereiNum = "[260,245,235,220,200,180,160,160,160,100,85,75,65,60,60,55,55,50,50,45,45]";
-		//Web.getNumberListStr(form.get("fv9LackierereiNum"));
-		String fv9KonzernNum = "[80,80,80,80,80,60,60,60,60,60,35,35,35,35,35,35,35,25,25,25,25]";
-		//Web.getNumberListStr(form.get("fv9KonzernNum"));
-		String fv9PrognoseNum = "[275,265,242,227,210,190,170,165,165,110]";
-		//Web.getNumberListStr(form.get("fv9PrognoseNum"));
+		List<String> KWNo = (List)form.get("fv9KWNo");
+		List<String> LackierereiNum = (List)form.get("fv9LackierereiNum");
+		List<String> KonzernNum = (List)form.get("fv9KonzernNum");
+		List<String> PrognoseNum = (List)form.get("fv9PrognoseNum");
 		
-		//fv9Note3Num
-		//fv9Note2Num
-		//fv9Note1Num
+		String fv9KWNo = Web.getNumberListStr(KWNo);
+		String fv9LackierereiNum = Web.getNumberListStr(LackierereiNum);
+		String fv9KonzernNum = Web.getNumberListStr(KonzernNum);
+		String fv9PrognoseNum = Web.getNumberListStr(PrognoseNum);
+		
+		List<String> fv9KW = (List)form.get("fv9KW");
+		List<String> fv9Name = (List)form.get("fv9Name");
+		List<String> fv9Score = (List)form.get("fv9Score");
+		List<String> fv9Option = (List)form.get("fv9Option");
 
 		%>
-		<title><%=title %></title>
+		
 		<script type="text/javascript">
 		var chart;
 			$(document).ready(function() {
@@ -112,13 +114,13 @@
 					},
 				    series: [{
 						type: 'column',
-						name: 'Prognose',
-						data: <%=fv9PrognoseNum%>,
+						name: 'Lackiererei',
+						data: <%=fv9LackierereiNum%>,
 						color: '#00235A'
 					}, {
 						type: 'spline',
-						name: 'Lackiererei',
-						data: <%=fv9LackierereiNum%>,
+						name: 'Prognose',
+						data: <%=fv9PrognoseNum%>,
 						color: '#99FF99'
 					}, {
 						type: 'spline',

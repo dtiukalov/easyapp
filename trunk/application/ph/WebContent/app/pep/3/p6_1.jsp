@@ -16,61 +16,16 @@
 		title = "3.6 Vorschau 2-Tagesproduktion";
 		Map form = (Map)request.getAttribute("form");	
 
-		List KWNo = new ArrayList(); //(List)form.get("fv9KWNo"); //周数
-		List InPlanung = new ArrayList(); // (List)form.get("fv9InPlanung");  //计划中
-		List MabnaNichtErarb = new ArrayList(); //(List)form.get("fv9MabnaNichtErarb"); //为制定措施
-		List MabnaWerdenDef = new ArrayList(); // (List)form.get("fv9MabnaWerdenDef"); //将要制定措施
-		List MabnaDef = new ArrayList();// (List)form.get("fv9MabnaDef"); //已制定措施
-		List IO = new ArrayList(); // (List)form.get("fv9IO");  //i.O.
-		List PrognosePlan = new ArrayList(); //(List)form.get("fv9PrognosePlan"); //计划预测
-		List Zeil = new ArrayList();  //(List)form.get("fv9Zeil"); //目标
-		List PrognoseIO = new ArrayList();  //(List)form.get("fv9PrognoseIO");  //预测i.O.
-		
-		KWNo.add(20);KWNo.add(21);KWNo.add(22);KWNo.add(23);KWNo.add(24);
-		KWNo.add(25);KWNo.add(26);KWNo.add(27);KWNo.add(28);KWNo.add(29);
-		KWNo.add(30);KWNo.add(31);KWNo.add(32);KWNo.add(33);KWNo.add(34);
-		KWNo.add(35);KWNo.add(36);KWNo.add(37);KWNo.add(38);KWNo.add(39);
-		
-		InPlanung.add("0");InPlanung.add("0");InPlanung.add("0");InPlanung.add("49");InPlanung.add(null);
-		InPlanung.add(null);InPlanung.add(null);InPlanung.add(null);InPlanung.add(null);InPlanung.add(null);
-		InPlanung.add(null);InPlanung.add(null);InPlanung.add(null);InPlanung.add(null);InPlanung.add(null);
-		InPlanung.add(null);InPlanung.add(null);InPlanung.add(null);InPlanung.add(null);InPlanung.add(null);
-		
-		MabnaNichtErarb.add(0);MabnaNichtErarb.add(0);MabnaNichtErarb.add(1);MabnaNichtErarb.add(1);MabnaNichtErarb.add(null);
-		MabnaNichtErarb.add(null);MabnaNichtErarb.add(null);MabnaNichtErarb.add(null);MabnaNichtErarb.add(null);MabnaNichtErarb.add(null);
-		MabnaNichtErarb.add(null);MabnaNichtErarb.add(null);MabnaNichtErarb.add(null);MabnaNichtErarb.add(null);MabnaNichtErarb.add(null);
-		MabnaNichtErarb.add(null);MabnaNichtErarb.add(null);MabnaNichtErarb.add(null);MabnaNichtErarb.add(null);MabnaNichtErarb.add(null);
-		
-		MabnaWerdenDef.add(27);MabnaWerdenDef.add(23);MabnaWerdenDef.add(22);MabnaWerdenDef.add(17);MabnaWerdenDef.add(null);
-		MabnaWerdenDef.add(null);MabnaWerdenDef.add(null);MabnaWerdenDef.add(null);MabnaWerdenDef.add(null);MabnaWerdenDef.add(null);
-		MabnaWerdenDef.add(null);MabnaWerdenDef.add(null);MabnaWerdenDef.add(null);MabnaWerdenDef.add(null);MabnaWerdenDef.add(null);
-		MabnaWerdenDef.add(null);MabnaWerdenDef.add(null);MabnaWerdenDef.add(null);MabnaWerdenDef.add(null);MabnaWerdenDef.add(null);
-		
-		MabnaDef.add(18);MabnaDef.add(20);MabnaDef.add(22);MabnaDef.add(25);MabnaDef.add(null);
-		MabnaDef.add(null);MabnaDef.add(null);MabnaDef.add(null);MabnaDef.add(null);MabnaDef.add(null);
-		MabnaDef.add(null);MabnaDef.add(null);MabnaDef.add(null);MabnaDef.add(null);MabnaDef.add(null);
-		MabnaDef.add(null);MabnaDef.add(null);MabnaDef.add(null);MabnaDef.add(null);MabnaDef.add(null);
-		
-		IO.add(10);IO.add(14);IO.add(15);IO.add(18);IO.add(null);
-		IO.add(null);IO.add(null);IO.add(null);IO.add(null);IO.add(null);
-		IO.add(null);IO.add(null);IO.add(null);IO.add(null);IO.add(null);
-		IO.add(null);IO.add(null);IO.add(null);IO.add(null);IO.add(null);
-		
-		PrognosePlan.add(55);PrognosePlan.add(58);PrognosePlan.add(60);PrognosePlan.add(61);PrognosePlan.add(65);
-		PrognosePlan.add(75);PrognosePlan.add(90);PrognosePlan.add(100);PrognosePlan.add(102);PrognosePlan.add(104);
-		PrognosePlan.add(105);PrognosePlan.add(105);PrognosePlan.add(106);PrognosePlan.add(107);PrognosePlan.add(107);
-		PrognosePlan.add(108);PrognosePlan.add(109);PrognosePlan.add(110);PrognosePlan.add(110);PrognosePlan.add(110);
-		
-		Zeil.add(110);Zeil.add(110);Zeil.add(110);Zeil.add(110);Zeil.add(110);
-		Zeil.add(110);Zeil.add(110);Zeil.add(110);Zeil.add(110);Zeil.add(110);
-		Zeil.add(110);Zeil.add(110);Zeil.add(110);Zeil.add(110);Zeil.add(110);
-		Zeil.add(110);Zeil.add(110);Zeil.add(110);Zeil.add(110);Zeil.add(110);
-		
-		PrognoseIO.add(26);PrognoseIO.add(28);PrognoseIO.add(32);PrognoseIO.add(42);PrognoseIO.add(52);
-		PrognoseIO.add(63);PrognoseIO.add(71);PrognoseIO.add(80);PrognoseIO.add(89);PrognoseIO.add(93);
-		PrognoseIO.add(94);PrognoseIO.add(95);PrognoseIO.add(97);PrognoseIO.add(98);PrognoseIO.add(99);
-		PrognoseIO.add(100);PrognoseIO.add(101);PrognoseIO.add(102);PrognoseIO.add(103);PrognoseIO.add(104);
-		
+		List KWNo = (List)form.get("fv9KWNo"); //周数
+		List InPlanung = (List)form.get("fv9InPlanung");  //计划中
+		List MabnaNichtErarb = (List)form.get("fv9MabnaNichtErarb"); //为制定措施
+		List MabnaWerdenDef = (List)form.get("fv9MabnaWerdenDef"); //将要制定措施
+		List MabnaDef = (List)form.get("fv9MabnaDef"); //已制定措施
+		List IO = (List)form.get("fv9IO");  //i.O.
+		List PrognosePlan = (List)form.get("fv9PrognosePlan"); //计划预测
+		List Zeil = (List)form.get("fv9Zeil"); //目标
+		List PrognoseIO = (List)form.get("fv9PrognoseIO");  //预测i.O.
+
 		String fv9KWNo = Web.getNumberListStr(KWNo);
 		String fv9InPlanung = Web.getNumberListStr(InPlanung);
 		String fv9MabnaNichtErarb = Web.getNumberListStr(MabnaNichtErarb);
@@ -283,17 +238,17 @@
 				<div style="width: 800px; margin: 0 auto;text-align: center; margin-top: 20px;">
 				<table border="1" >
 					<tr>
-						<td width="245">&nbsp;</td>
+						<td width="245" style="text-align: left;">&nbsp;</td>
 						<%
 						for (int j=0; j<KWNo.size(); j++) {
 						%>
-							<td><%=KWNo.get(j) %></td>
+							<td style="width: <%=540/KWNo.size()%>px"><%=KWNo.get(j) %></td>
 						<%
 						}
 						%>
 					</tr>
 					<tr>
-						<td width="245">&nbsp;</td>
+						<td width="245" style="text-align: left;">&nbsp;in Planung</td>
 						<%
 						for (int j=0; j<InPlanung.size(); j++) {
 						%>
@@ -303,7 +258,7 @@
 						%>
 					</tr>
 					<tr>
-						<td width="245">&nbsp;</td>
+						<td width="245" style="text-align: left;">&nbsp;Maßnahme nicht erarbeitet</td>
 						<%
 						for (int j=0; j<MabnaNichtErarb.size(); j++) {
 						%>
@@ -313,7 +268,7 @@
 						%>
 					</tr>
 					<tr>
-						<td width="245">&nbsp;</td>
+						<td width="245" style="text-align: left;">&nbsp;Maßnahmen werden definiert</td>
 						<%
 						for (int j=0; j<MabnaWerdenDef.size(); j++) {
 						%>
@@ -323,7 +278,7 @@
 						%>
 					</tr>
 					<tr>
-						<td width="245">&nbsp;</td>
+						<td width="245" style="text-align: left;">&nbsp;Maßnahme definiert</td>
 						<%
 						for (int j=0; j<MabnaDef.size(); j++) {
 						%>
@@ -333,7 +288,7 @@
 						%>
 					</tr>
 					<tr>
-						<td width="245">&nbsp;</td>
+						<td width="245" style="text-align: left;">&nbsp;i.O.</td>
 						<%
 						for (int j=0; j<IO.size(); j++) {
 						%>
@@ -343,7 +298,7 @@
 						%>
 					</tr>
 					<tr>
-						<td width="245">&nbsp;</td>
+						<td width="245" style="text-align: left;">&nbsp;Prognose in Planung</td>
 						<%
 						for (int j=0; j<PrognosePlan.size(); j++) {
 						%>
@@ -353,7 +308,7 @@
 						%>
 					</tr>
 					<tr>
-						<td width="245">&nbsp;</td>
+						<td width="245" style="text-align: left;">&nbsp;Ziel</td>
 						<%
 						for (int j=0; j<Zeil.size(); j++) {
 						%>
@@ -363,7 +318,7 @@
 						%>
 					</tr>
 					<tr>
-						<td width="245">&nbsp;</td>
+						<td width="245" style="text-align: left;">&nbsp;Prognose i.O.</td>
 						<%
 						for (int j=0; j<PrognoseIO.size(); j++) {
 						%>

@@ -14,16 +14,8 @@
 	int fv9CKDCOPNum = Integer.parseInt((String)form.get("fv9CKDCOPNum"));		//CKD/COP
 
 	List<String> teilestName = (List<String>)form.get("fv9TeilestName");
-	teilestName.add("CKD");
-	List<Integer> CKDCOP = new ArrayList<Integer>();
-	for(int i=0; i<teilestName.size(); i++){
-		if(i != teilestName.size()-1){
-			CKDCOP.add(0);
-		} else {
-			CKDCOP.add(fv9CKDCOPNum);
-		}
-	}
-	String  CKDCOPNum = Web.getNumberListStr(CKDCOP);
+	teilestName.add("CKD/COP<br \\>Direkt-<br \\>bezug");
+	int size = teilestName.size();
 	
 	String fv9TeilestName = Web.getStrListStr(teilestName);
 	String fv9TeileAusSerien = Web.getNumberListStr(form.get("fv9TeileAusSerien"));
@@ -178,10 +170,19 @@
 						name: 'Note 6',
 						data: <%=fv9TeileNote6%>,
 						color: '#FF0000'
-					}, {
+					},{
 						name: 'CKDCOP',
-						data: <%=CKDCOPNum%>,
-						color: '#FF0000'
+						data: [
+						 <%for(int m=0; m<size-1; m++){%>
+						 	{ 
+								y: 0, 
+								low: 0
+							},<% }%>
+							{ 
+								y: <%=fv9TotalNum-fv9CKDCOPNum%>, 
+								low: <%=fv9CKDCOPNum%>
+							}],
+						color: '#99CC00'
 					}]
 				});
 			});

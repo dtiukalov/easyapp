@@ -103,7 +103,7 @@
 							shadow: false,
 							borderColor:'black',
 							borderWidth:0,
-							groupPadding: 0.1,
+							groupPadding: 0.25,
 							dataLabels: {
 								enabled: true,
 								style : {
@@ -180,7 +180,7 @@
 			<div id="nr">
 			<div id="top"><h1><%=title %></h1></div>
 			<div id="content">
-				<div id="chart" style="width: 950px; height: 400px; margin: 50px auto"></div>
+				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto"></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

@@ -106,8 +106,12 @@ public abstract class Form {
 								SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 								Calendar date = model.getProperty(attr)
 									.getDateValue();
+								if (date != null) {
+									value.put(attr, df.format(date.getTime()));
+								} else {
+									value.put(attr, df.format(""));
+								}
 								
-								value.put(attr, df.format(date.getTime()));
 								break;
 							}
 							default : {

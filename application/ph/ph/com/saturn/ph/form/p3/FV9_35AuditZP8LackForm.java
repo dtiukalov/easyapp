@@ -5,9 +5,9 @@ import com.saturn.ph.Form;
 public class FV9_35AuditZP8LackForm extends Form {
 	
 	private static final String[] attr = {
-		"fv9KWNo", "fv9PresswerkNum", "fv9KonzernNum", "fv9PrognoseNum",
-		"fv9Note3Num","fv9Note2Num","fv9Note1Num",
-		"fv9KW","fv9Name","fv9Score","fv9Option"
+		"fv9KWNo", "fv9LackierereiNum", "fv9KonzernNum", "fv9PrognoseNum",
+		"fv9Note3Num", "fv9Note2Num", "fv9Note1Num",
+		"fv9KW", "fv9Name", "fv9Score", "fv9Option"
 	};
 
 	public String[] getAttributes() {

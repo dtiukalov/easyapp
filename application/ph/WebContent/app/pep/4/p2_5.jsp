@@ -10,13 +10,23 @@
 <%@ include file="/app/pep/include/header.jsp"%>
 	<% 
 	Map form = (Map)request.getAttribute("form");
-	int fv9TotalNum	= Integer.parseInt((String)form.get("fv9TotalNum"));	//	总数
-	int fv9CKDCOPNum = Integer.parseInt((String)form.get("fv9CKDCOPNum"));		//CKD/COP
-
-	List<String> teilestName = (List<String>)form.get("fv9TeilestName");
-	teilestName.add("CKD/COP<br \\>Direkt-<br \\>bezug");
-	int size = teilestName.size();
+	int fv9TotalNum	= 0;//Integer.parseInt((String)form.get("fv9TotalNum"));	//	总数
+	int fv9CKDCOPNum = 0;//Integer.parseInt((String)form.get("fv9CKDCOPNum"));		//CKD/COP
 	
+	if(form.get("fv9TotalNum")!= null && !"".equals(form.get("fv9TotalNum")) ){
+		fv9TotalNum = Integer.parseInt((String)form.get("fv9TotalNum"));
+	}
+	if(form.get("fv9CKDCOPNum")!= null && !"".equals(form.get("fv9CKDCOPNum")) ){
+		fv9CKDCOPNum = Integer.parseInt((String)form.get("fv9CKDCOPNum"));
+	}
+	
+	List<String> teilestName = (List<String>)form.get("fv9TeilestName");
+	int size = 0;
+	if(teilestName != null ){
+		teilestName.add("CKD/COP<br \\>Direkt-<br \\>bezug");
+		size = teilestName.size();
+	}
+
 	String fv9TeilestName = Web.getStrListStr(teilestName);
 	String fv9TeileAusSerien = Web.getNumberListStr(form.get("fv9TeileAusSerien"));
 	String fv9TeileFehlend = Web.getNumberListStr(form.get("fv9TeileFehlend"));

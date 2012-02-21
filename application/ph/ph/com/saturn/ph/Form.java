@@ -109,7 +109,8 @@ public abstract class Form {
 								if (date != null) {
 									value.put(attr, df.format(date.getTime()));
 								} else {
-									value.put(attr, df.format(""));
+									//value.put(attr, df.format(""));
+									value.put(attr, date);
 								}
 								
 								break;

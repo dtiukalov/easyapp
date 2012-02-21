@@ -9,24 +9,54 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
 		<%@ include file="/app/pep/include/header.jsp"%>
 		<title><%=title %></title>
+		
 		<%
 			Map form = (Map)request.getAttribute("form");
-			String fv9KWNo = Web.getNumberListStrSubFirst(form.get("fv9KWNo"));
-			String fv9AekoAbgesch = Web.getNumberListStrSubFirst(form.get("fv9AekoAbgesch"));
-			String fv9AekoSmall2Woch = Web.getNumberListStrSubFirst(form.get("fv9AekoSmall2Woch"));
-			String fv9AekoBig2Woch = Web.getNumberListStrSubFirst(form.get("fv9AekoBig2Woch"));
-			System.out.println(fv9KWNo);
-			System.out.println(fv9AekoAbgesch);
-			System.out.println(fv9AekoSmall2Woch);
-			System.out.println(fv9AekoBig2Woch);
-			List<String> sumList = Web.SumList((List<String>)form.get("fv9AekoAbgesch"), 
-					(List<String>)form.get("fv9AekoSmall2Woch"),
-					(List<String>)form.get("fv9AekoBig2Woch")); 
-			String deviationa = Web.compareByKW(sumList);
+		
+			String fv9KWNo = "[]";
+			String fv9AekoAbgesch =  "[]";
+			String fv9AekoSmall2Woch =  "[]";
+			String fv9AekoBig2Woch =  "[]"; 
+			String deviationa =  "[]";
 			
-			int fv9PronoseAbgesch = Integer.parseInt((String)form.get("fv9PronoseAbgesch"));System.out.println(fv9PronoseAbgesch);
-			int fv9PronoseSmall2Woch = Integer.parseInt((String)form.get("fv9PronoseSmall2Woch"));System.out.println(fv9PronoseSmall2Woch);
-			int fv9PronoseBig2Woch = Integer.parseInt((String)form.get("fv9PronoseBig2Woch"));System.out.println(fv9PronoseBig2Woch);
+			 if(form.get("fv9KWNo") != null && ((List<String>)form.get("fv9KWNo")).size() > 0){
+				fv9KWNo = Web.getNumberListStrSubFirst((List<String>)form.get("fv9KWNo"));
+			 }	
+			 if(form.get("fv9AekoAbgesch") != null && ((List<String>)form.get("fv9AekoAbgesch")).size() > 0){
+				fv9AekoAbgesch =  Web.getNumberListStrSubFirst((List<String>)form.get("fv9AekoAbgesch"));
+			 }
+			 if(form.get("fv9AekoSmall2Woch") != null && ((List<String>)form.get("fv9AekoSmall2Woch")).size() > 0){
+				fv9AekoSmall2Woch = Web.getNumberListStrSubFirst((List<String>)form.get("fv9AekoSmall2Woch"));
+			 }
+			 if(form.get("fv9AekoBig2Woch") != null && ((List<String>)form.get("fv9AekoBig2Woch")).size() > 0){
+				fv9AekoBig2Woch = Web.getNumberListStrSubFirst((List<String>)form.get("fv9AekoBig2Woch"));
+			 }
+			 if(((List<String>)form.get("fv9AekoAbgesch")).size() > 0 &&
+					 ((List<String>)form.get("fv9AekoSmall2Woch")).size() > 0&&
+					 ((List<String>)form.get("fv9AekoBig2Woch")).size() > 0 ){
+				 
+				 List<String> sumList = Web.SumList((List<String>)form.get("fv9AekoAbgesch"), 
+							(List<String>)form.get("fv9AekoSmall2Woch"),
+							(List<String>)form.get("fv9AekoBig2Woch"));
+				 deviationa = Web.compareByKW(sumList);
+			 }
+			
+			int fv9PronoseAbgesch = 0;
+			int fv9PronoseSmall2Woch = 0;
+			int fv9PronoseBig2Woch = 0;
+		
+			if(form.get("fv9PronoseAbgesch")!= null && !"".equals(form.get("fv9PronoseAbgesch")) ){
+				fv9PronoseAbgesch = Integer.parseInt((String)form.get("fv9PronoseAbgesch"));
+			}
+			
+			if(form.get("fv9PronoseSmall2Woch")!= null && !"".equals(form.get("fv9PronoseSmall2Woch")) ){
+				fv9PronoseSmall2Woch = Integer.parseInt((String)form.get("fv9PronoseSmall2Woch"));
+			}
+
+			if(form.get("fv9PronoseBig2Woch")!= null && !"".equals(form.get("fv9PronoseBig2Woch")) ){
+				fv9PronoseBig2Woch = Integer.parseInt((String)form.get("fv9PronoseBig2Woch"));
+			}
+
 		%>
 
 		<script type="text/javascript">

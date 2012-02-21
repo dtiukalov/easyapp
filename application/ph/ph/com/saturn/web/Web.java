@@ -109,8 +109,10 @@ public class Web {
 		}
 		
 		if (list instanceof List) {
-			list = ((List) list).subList(1, ((List) list).size());
-			return ((List)list).toString();
+			if(((List) list).size() > 0){
+				list = ((List) list).subList(1, ((List) list).size());
+				return ((List)list).toString();
+			}
 		}
 		
 		return list + "";

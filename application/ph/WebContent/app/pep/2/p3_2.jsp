@@ -4,8 +4,8 @@
 <!DOCTYPE HTML>
 <%@ include file="/app/pep/include/header.jsp"%>
 <%
-	//String uid = (String)request.getAttribute("uid");
-	String src = "/ph/app/pep/2/FV9_23Fehlerabbaustatus.jpg";//DatasetUtils.getDatasetByUid(uid, request);
+	String uid = (String)request.getAttribute("uid");
+	String src = DatasetUtils.getDatasetByUid(uid, request);
 %>
 <html>
 	<head>

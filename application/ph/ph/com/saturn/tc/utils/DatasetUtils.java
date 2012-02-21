@@ -16,12 +16,14 @@ import com.teamcenter.soa.exceptions.NotLoadedException;
 public class DatasetUtils {
 	public static String getDatasetByUid(String uid, HttpServletRequest request){
 		Dataset dataset = (Dataset)PH.getDataService().loadModelObject(uid);
-		
 		String date =  DateUtils.getSysDate();
 		String datasetpath = "attachment" +File.separator+ date +File.separator;
-		
 		String path = request.getRealPath("/") + datasetpath;
-		return  request.getContextPath()+ File.separator + datasetpath + downloadDatasetFromTc(dataset ,path);
+		String src = request.getContextPath()+ File.separator + datasetpath + downloadDatasetFromTc(dataset ,path);
+		if(!src.contains(".jpg")){
+			src = "/ph/app/pep/7/FV9_72Beschluss.jpg";
+		}
+		return src ;
 	}
 
 	public static String downloadDatasetFromTc( Dataset dataset, String directory) {

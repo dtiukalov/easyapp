@@ -16,7 +16,7 @@ public class FV9_33BaubarkeitGesamtfahrzeugDataset extends Form {
 
 	@Override
 	public String getType() {
-		return "3.3BaubarkeitGesamtfahrzeug";
+		return "3.3 Baubarkeit Gesamtfahrzeug";
 	}
 
 	@Override

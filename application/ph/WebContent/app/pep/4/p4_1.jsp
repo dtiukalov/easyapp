@@ -4,10 +4,8 @@
 <!DOCTYPE HTML>
 <%@ include file="/app/pep/include/header.jsp"%>
 <%
-	//String uid = (String)request.getAttribute("uid");
-	title = "4.4 Aggregateverfügbarkeit ZP3/ZP4";//假数据
-	String src = "/ph/app/pep/4/zp3zp4.jpg";//DatasetUtils.getDatasetByUid(uid, request);
-	//假数据
+	String uid = (String)request.getAttribute("uid");
+	String src = DatasetUtils.getDatasetByUid(uid, request);
 %>
 <html>
 	<head>

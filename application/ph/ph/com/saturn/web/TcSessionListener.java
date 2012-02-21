@@ -43,8 +43,13 @@ public class TcSessionListener implements ServletContextListener {
 		WorkspaceUtils.HOST = url;
 		
 		TCSession tcsession = new TCSession(url);
-		//User user = null;
-		//user = tcsession.login(username, password);
+		User user = null;
+		try {
+			user = tcsession.login(username, password);
+		} catch (InvalidCredentialsException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		PH.setContext(context);
 		context.setAttribute("TC_SESSION", tcsession);
 		//context.setAttribute("TC_USER", user);

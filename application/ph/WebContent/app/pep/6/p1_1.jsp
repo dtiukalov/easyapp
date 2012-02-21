@@ -4,10 +4,8 @@
 <!DOCTYPE HTML>
 <%@ include file="/app/pep/include/header.jsp"%>
 <%
-	//String uid = (String)request.getAttribute("uid");
-	title = "6.1 Launchplanung ";//假数据
-	String src = "../images/6_1_1.jpg";//DatasetUtils.getDatasetByUid(uid, request);
-	//假数据
+	String uid = (String)request.getAttribute("uid");
+	String src = DatasetUtils.getDatasetByUid(uid, request);
 %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>

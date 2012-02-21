@@ -385,7 +385,7 @@ public class PHManager {
 		"FV9_11Anlaufueber",
 		"FV9_11VorserienTer",
 		"FV9_12Aktionspunkte",
-		"1.3 Anlauforganisation – Fahrzeugbau",
+		"1.3 Anlauforganisation",
 		"1.4 Anlaufkurve",
 		"FV9_15BauprogVFF",
 		"FV9_15BauprogPVS",
@@ -461,7 +461,7 @@ public class PHManager {
 
 		"FV9_71Reifegrads",
 		"7.2 Beschluss",
-		"7.2 Übersicht zukünftige Termine"
+		"7.2 Ubersicht zukünftige Termine"
 	};
 	
 	private static final Map<String, String[]> roadmaps = new HashMap<String, String[]>();

@@ -29,77 +29,145 @@
 	<div id="nr">
 	<div id="top"><h1>3.1 Prüfmittel, Meisterbock/Cubing</h1></div>
     <div id="content">
-    <!-- 
-      <div class="laguage">
-    	<p>
-    		<a href='p1_2.jsp'>中文</a>
-    	</p>
-    </div>
-     -->
-   
-    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
-		  <tr>
-		    <td width="239" class="pg">&nbsp;</td>
-		    <td width="311" class="pg"><h2>Status</h2></td>
-		    <td width="433" class="pg"><h2>Maßnahmen</h2></td>
-		  </tr>
-		 <%
-		  for(int i=0; i<fv9PrMSBCubStyle.size(); i++){
-			  %>  
-		<tr>
-			    <td valign="top" class="pgpg" style="width:239px;">
-				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
-					  <tr>
-			   			 <td valign="top"><h2><%=fv9PrMSBCubStyle.get(i) %> </h2></td>
-					   	 <td>
-							<% if(("绿").equals(fv9PrMSBCubStatus.get(i))){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" />
-							<%} else if(("黄").equals(fv9PrMSBCubStatus.get(i))){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" width="30" height="70" />	
-							<%} else if(("红").equals(fv9PrMSBCubStatus.get(i))){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="30" height="70" /> 
-							<%}%>
+		<div id="datatable1" style="width: 800px; ">
+			    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
+				  <tr>
+				    <td width="239" class="pg">&nbsp;</td>
+				    <td width="311" class="pg"><h2>Status</h2></td>
+				    <td width="433" class="pg"><h2>Maßnahmen</h2></td>
+				  </tr>
+				 <%
+				 if (fv9PrMSBCubStyle != null && fv9PrMSBCubStyle.size() > 0) {
+				  for(int i=0; i<fv9PrMSBCubStyle.size(); i++){
+					  %>  
+				<tr>
+					    <td valign="top" class="pgpg" style="width:239px;">
+						    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
+							  <tr>
+					   			 <td valign="top"><h2><%=fv9PrMSBCubStyle.get(i) %> </h2></td>
+							   	 <td>
+									<% if(("绿").equals(fv9PrMSBCubStatus.get(i))){%>
+									    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" />
+									<%} else if(("黄").equals(fv9PrMSBCubStatus.get(i))){%>
+									    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" width="30" height="70" />	
+									<%} else if(("红").equals(fv9PrMSBCubStatus.get(i))){%>
+										   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="30" height="70" /> 
+									<%}%>
+								</td>
+							  </tr>
+							</table>
 						</td>
-					  </tr>
-					</table>
-				</td>
-	    		<td valign="top" class="pgpg">
-		    		<div class="tbnrr">
-		    			<%
-	    				if (fv9PrMSBCubStCom_GM.get(i) != null && !"".equals(fv9PrMSBCubStCom_GM.get(i))) {
-		    			%>
-		    				<%=fv9PrMSBCubStCom_GM.get(i) %>
-		    			<%
-		    				} else {
-	   					%>
-	   	    				&nbsp;
-	   	    			<%		
-		    				}
-		    			%>
-		    			
-					</div>
-			    </td>
-	   			<td valign="top" class="pgpg">
-	   				<div class="tbnrr">
-	   				<%
-	    				if (fv9PrMSBCubMabnh_GM.get(i) != null && !"".equals(fv9PrMSBCubMabnh_GM.get(i))) {
-	    			%>
-	    				<%=fv9PrMSBCubMabnh_GM.get(i) %>
-	    			<%
-	    				} else {
-   					%>
-   	    				&nbsp;
-   	    			<%		
-	    				}
-	    			%>
-	    			</div>
-				</td>
-		</tr>
-		<% 
-		  }
-		%>
+			    		<td valign="top" class="pgpg">
+				    		<div class="tbnrr">
+				    			<%
+			    				if (fv9PrMSBCubStCom_GM.get(i) != null && !"".equals(fv9PrMSBCubStCom_GM.get(i))) {
+				    			%>
+				    				<%=fv9PrMSBCubStCom_GM.get(i) %>
+				    			<%
+				    				} else {
+			   					%>
+			   	    				&nbsp;
+			   	    			<%		
+				    				}
+				    			%>
+				    			
+							</div>
+					    </td>
+			   			<td valign="top" class="pgpg">
+			   				<div class="tbnrr">
+			   				<%
+			    				if (fv9PrMSBCubMabnh_GM.get(i) != null && !"".equals(fv9PrMSBCubMabnh_GM.get(i))) {
+			    			%>
+			    				<%=fv9PrMSBCubMabnh_GM.get(i) %>
+			    			<%
+			    				} else {
+		   					%>
+		   	    				&nbsp;
+		   	    			<%		
+			    				}
+			    			%>
+			    			</div>
+						</td>
+				</tr>
+				<% 
+				  }
+				 }
+				%>
+			</table>
+			<div style="width: 800px; height: 50px; overflow: hidden; text-align: center;">
+				<input type="button" class="change" value="切换中文" onclick="changeChinese()" />
+			</div>
+		</div>   
 
-	</table>
+		<div id="datatable2" style="width: 800px; display: none;">
+			    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
+				  <tr>
+				    <td width="239" class="pg">&nbsp;</td>
+				    <td width="311" class="pg"><h2>Status</h2></td>
+				    <td width="433" class="pg"><h2>Maßnahmen</h2></td>
+				  </tr>
+				 <%
+				 if (fv9PrMSBCubStyle != null && fv9PrMSBCubStyle.size() > 0) {
+				  for(int i=0; i<fv9PrMSBCubStyle.size(); i++){
+					  %>  
+				<tr>
+					    <td valign="top" class="pgpg" style="width:239px;">
+						    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
+							  <tr>
+					   			 <td valign="top"><h2><%=fv9PrMSBCubStyle.get(i) %> </h2></td>
+							   	 <td>
+									<% if(("绿").equals(fv9PrMSBCubStatus.get(i))){%>
+									    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" />
+									<%} else if(("黄").equals(fv9PrMSBCubStatus.get(i))){%>
+									    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" width="30" height="70" />	
+									<%} else if(("红").equals(fv9PrMSBCubStatus.get(i))){%>
+										   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="30" height="70" /> 
+									<%}%>
+								</td>
+							  </tr>
+							</table>
+						</td>
+			    		<td valign="top" class="pgpg">
+				    		<div class="tbnrr">
+				    			<%
+			    				if (fv9PrMSBCubStCom_CN.get(i) != null && !"".equals(fv9PrMSBCubStCom_CN.get(i))) {
+				    			%>
+				    				<%=fv9PrMSBCubStCom_CN.get(i) %>
+				    			<%
+				    				} else {
+			   					%>
+			   	    				&nbsp;
+			   	    			<%		
+				    				}
+				    			%>
+				    			
+							</div>
+					    </td>
+			   			<td valign="top" class="pgpg">
+			   				<div class="tbnrr">
+			   				<%
+			    				if (fv9PrMSBCubMabnh_CN.get(i) != null && !"".equals(fv9PrMSBCubMabnh_CN.get(i))) {
+			    			%>
+			    				<%=fv9PrMSBCubMabnh_CN.get(i) %>
+			    			<%
+			    				} else {
+		   					%>
+		   	    				&nbsp;
+		   	    			<%		
+			    				}
+			    			%>
+			    			</div>
+						</td>
+				</tr>
+				<% 
+				  }
+				 }
+				%>
+			</table>
+			<div style="width: 800px; height: 50px; overflow: hidden; text-align: center;">
+				<input type="button" class="change" value="切换德文" onclick="changeGerman()"/>
+			</div>
+		</div>   
 	</div>
     <%@ include file="/app/pep/include/foot.jsp"%>
 </div>

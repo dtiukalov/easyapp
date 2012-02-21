@@ -23,3 +23,14 @@
 	}
 %>
 
+<script>
+	function changeChinese() {
+		$('#datatable1').css("display", "none");
+		$('#datatable2').css("display", "");
+	}
+	
+	function changeGerman() {
+		$('#datatable1').css("display", "");
+		$('#datatable2').css("display", "none");
+	}
+</script>

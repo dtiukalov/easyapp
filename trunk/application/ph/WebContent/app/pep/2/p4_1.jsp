@@ -90,8 +90,8 @@
 						}
 					}
 				},{ // mirror axis on right side
-					opposite: false,
-					reversed: false,
+					//opposite: false,
+					//reversed: false,
 					categories: <%=deviationa%>,
 					linkedTo: 0,
 					lineColor:'black',

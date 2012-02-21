@@ -29,7 +29,7 @@
 	<div id="nr">
 	<div id="top"><h1>3.1 Prüfmittel, Meisterbock/Cubing</h1></div>
     <div id="content">
-		<div id="datatable1" style="width: 800px; ">
+		<div id="datatable1" style="width: 800px;font-size:12px;margin:0 50px">
 			    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 				  <tr>
 				    <td width="239" class="pg">&nbsp;</td>
@@ -99,7 +99,7 @@
 			</div>
 		</div>   
 
-		<div id="datatable2" style="width: 800px; display: none;">
+		<div id="datatable2" style="width: 800px; display: none;margin:0 50px">
 			    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 				  <tr>
 				    <td width="239" class="pg">&nbsp;</td>

@@ -10,17 +10,17 @@
 	.coo .tab {
 		background:#000;
 		font-size:12px;
-		width:1004px;
+		width:900px;
 	}
 	.coo .tab td{
 		background:#fff;
 		width:20px;
 	}
 	.coo .tab .taba {
-		width:1004px;
+		width:800px;
 	}
 	.coo .tab .taba .lg{
-		width:230px;
+		width:200px;
 	}
 	.coo .tab .taba .bt{
 		width:444px;
@@ -63,60 +63,37 @@
 	%>
 </head>
 <body>	
-	<div id="container">
+	<div id="container" style="margin:0 10px">
 		<div id="nr">
-		<div id="top"><h1><%=title %></h1></div>
-		<div id="content">
-			
-			<p></p>
-					<div class="coo">
-					<table width="986" border="0" cellpadding="1" cellspacing="1" class="tab">
-			  <tr>
-			    <td width="982"><table width="931"  height="60" border="0" cellpadding="0" cellspacing="0" class="taba">
-			      <tr>
-			        <td width="260" class="lg"><img src="../images/logo.jpg"/></td>
-			        <td width="384" class="bt"><h3>VWxxx Anlaufübersicht</h3>
-			        <h3>Muster</h3></td>
-			        <td width="287" class="bz"><p><span>Status:</span></p>
-			          <p>Ausgabe:xx.xx.10</p></td>
-			      </tr>
-			    </table></td>
-			  </tr>
-			  <tr>
-			    <td style="width:904px;hight:400px">
-			    <iframe id="ff" name= "ff" frameborder="0"  
-			    src="<%=request.getContextPath() %>/app/pep/1/GanttChart2.jsp?uid=<%=uid %>" 
-			    style="width:1000px;height:300px;">
-			    </iframe>
-			    </td>
-			  </tr>
-			  <tr>
-			    <td><table width="904" height="50px" border="0" cellspacing="0" cellpadding="0">
-			      <tr>
-			        <td class="a"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-			          <tr>
-			            <td>Legende:</td>
-			          </tr>
-			          <tr>
-			            <td><table width="300" border="0" cellspacing="3" cellpadding="0">
-			              <tr>
-			                <td width="78"><div class="ka">Producktidefinition</div></td>
-			                <td width="107"><div class="kb">Konzept und Serienentericklung</div></td>
-			                <td width="103"><div class="kc">Serienvorboreitung</div></td>
-			              </tr>
-			            </table></td>
-			          </tr>
-			        </table></td>
-			        <td align="center" valign="bottom" class="b">RPLAN</td>
-			        <td class="c"><p>GMXSMax&nbsp;&nbsp;&nbsp;&nbsp;Mustemannxxx Qukdfjdkfjdkfj Tel kdkf df f<br />
-			          Profkdfldidf;dfuiddkjfdkfjkdfjdk
-			        </p></td>
-			      </tr>
-			    </table></td>
-			  </tr>
-			</table>
+		<div id="top" ><h1><%=title %></h1></div>
+		<div id="content" style="margin:60px 30px;height:480px;">
+			<div class="coo">
+				<table border="0" cellpadding="1" cellspacing="1" class="tab">
+					  <tr>
+					    <td>
+					    	<table height="60" border="0" cellpadding="0" cellspacing="0" class="taba">
+						      <tr>
+						        <td class="lg"><div style="margin-left:10px"><img src="../images/logo.jpg"/></div></td>
+						        <td class="bt"><h3>VWxxx Anlaufübersicht</h3>
+						       	</td>
+						        <td class="bz">
+						        	<h3><i><div style="float:right;margin-right:70px">Version:6.0</div></i></h3><br>
+						        	<h3><i><div style="float:right;margin-right:20px"">Ausgabe:18.10.2011</div></i></h3>
+						         </td>
+						      </tr>
+					   	 	</table>
+					    </td>
+					  </tr>
+				 	 <tr>
+					    <td>
+						    <iframe id="ff" name= "ff" frameborder="0"  
+						    src="<%=request.getContextPath() %>/app/pep/1/GanttChart2.jsp?uid=<%=uid %>" 
+						    style="width:100%;height:300px;margin:0 30px">
+						    </iframe>
+					    </td>
+				 	 </tr>
+				</table>
 			</div>
-			
 		</div>
 		<%@ include file="/app/pep/include/foot.jsp"%>
 	</div>	

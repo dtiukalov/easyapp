@@ -32,7 +32,7 @@
 		<div id="nr">
 		<div id="top"><h1><%=title %></h1></div>	
 		<div id="content">
-			<div id="datatable1" style="width: 800px; margin: 80px 150px;">
+			<div id="datatable1" style="font-family:Arial;font-size:11px;width: 800px; margin: 30px 150px;">
 				<table width="80%" cellspacing="2" rules="rows" >
 					<tr style="border-bottom:2px solid #333333;font-family:Arial;font-size:16px;font-weight:bold;">
 						<td>&nbsp;</td>
@@ -53,13 +53,13 @@
 								imagePath += "light_green.jpg";
 							}
 					%>
-					<tr border="2" style="border-collapse: collapse" bordercolor="#333333">
-						<td width="30%" >
+					<tr border="2" border-collapse: collapse" bordercolor="#333333">
+						<td width="30%" style="font-weight:bold;">
 							<%=fv9FreigabeStyle.get(i) %>
 							<img src="<%=imagePath %>" align="right" border=0 width=50 height=56> 
 						</td>
 						<td width="22%">
-							<table>
+							<table style="padding:5px">
 								<tr><td>Anzahl</td><td>&nbsp;=&nbsp;</td><td><%=fv9AnzahlNum.get(i) %></td></tr>
 								<tr><td>Soll</td><td>&nbsp;=&nbsp;</td><td><%=fv9FreigSollNum.get(i) %></td></tr>
 								<tr><td>Ist</td><td>&nbsp;=&nbsp;</td><td><%=fv9FreiglstNum.get(i) %></td></tr>
@@ -74,15 +74,16 @@
 						}
 					}
 					%>
+					<tr></tr>
 				</table>
-				<div style="width: 800px; height: 50px; overflow: hidden; text-align: center;">
+				<div style="width: 800px; height: 50px; overflow: hidden; text-align: center;margin:20px -100px">
 					<input type="button" class="change" value="切换中文" onclick="changeChinese()" />
 				</div>
 			</div>
 			
-			<div id="datatable2" style="width: 800px; margin: 80px 150px;display: none;">
+			<div id="datatable2" style="font-family:Arial;font-size:11px;width: 800px; margin: 30px 150px;display: none;">
 				<table width="80%" cellspacing="2" rules="rows" >
-					<tr style="border-bottom:2px solid #333333;font-family:Arial;font-size:16px;font-weight:bold;">
+					<tr style="border-bottom:2px solid #333333;font-family:Arial;font-size:14px;font-weight:bold;">
 						<td>&nbsp;</td>
 						<td>认可数量</td>
 						<td>认可描述</td>	
@@ -102,12 +103,12 @@
 							}
 					%>
 					<tr border="2" style="border-collapse: collapse" bordercolor="#333333">
-						<td width="30%" >
+						<td width="30%" style="font-weight:bold;">
 							<%=fv9FreigabeStyle.get(i) %>
 							<img src="<%=imagePath %>" align="right" border=0 width=50 height=56> 
 						</td>
 						<td width="22%">
-							<table>
+							<table style="margin:10px">
 								<tr><td>Anzahl</td><td>&nbsp;=&nbsp;</td><td><%=fv9AnzahlNum.get(i) %></td></tr>
 								<tr><td>Soll</td><td>&nbsp;=&nbsp;</td><td><%=fv9FreigSollNum.get(i) %></td></tr>
 								<tr><td>Ist</td><td>&nbsp;=&nbsp;</td><td><%=fv9FreiglstNum.get(i) %></td></tr>
@@ -122,8 +123,9 @@
 						}
 					}
 					%>
+					<tr></tr>
 				</table>
-				<div style="width: 800px; height: 50px; overflow: hidden; text-align: center;">
+				<div style="width: 800px; height: 50px; overflow: hidden; text-align: center;margin:20px -100px"">
 					<input type="button" class="change" value="切换德文" onclick="changeGerman()"/>
 				</div>
 			</div>

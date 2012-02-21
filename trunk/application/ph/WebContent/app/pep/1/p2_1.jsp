@@ -26,10 +26,10 @@
 		<div id="container">
 			<div id="nr">
 			<div id="top"><h1><%=title %></h1></div>	
-			<div id="content" style="">
-				<div id="datatable1" style="width: 800px; height: 500px;margin: 100px 150px;">
+			<div id="content">
+				<div id="datatable1" style="width: 800px; height: 500px;margin: 50px 150px;">
 					<table width="80%" cellspacing="2" rules="rows">
-						<tr style="border-bottom:2px solid #333333;font-size:14px;font-weight:bold;">
+						<tr style="border-bottom:2px solid #333333;font-size:18px;font-weight:bold;">
 							<td width="35%">Aktion</td>
 							<td width="30%">Verantwortlich</td>
 							<td width="18%">Termin</td>
@@ -57,16 +57,15 @@
 							 }
 						 }
 						%>
-						
 					</table>
-					<div style="width: 800px; height: 50px; overflow: hidden; text-align: center;">
+					<div style="width: 800px; height: 50px; overflow: hidden; text-align: center; margin:0 -100px">
 						<input type="button" class="change" value="切换中文" onclick="changeChinese()"/>
 					</div>
 				</div>
 				
 				<div id="datatable2" style="width: 800px; height: 500px;margin: 100px 150px;display: none; ">
 					<table width="80%" cellspacing="2" rules="rows">
-						<tr style="border-bottom:2px solid #333333;font-size:14px;font-weight:bold;">
+						<tr style="border-bottom:2px solid #333333;font-size:18px;font-weight:bold;">
 							<td width="35%">Aktion</td>
 							<td width="30%">Verantwortlich</td>
 							<td width="18%">Termin</td>
@@ -97,7 +96,7 @@
 						%>
 						
 					</table>
-					<div style="width: 800px; height: 50px; overflow: hidden; text-align: center;">
+					<div style="width: 800px; height: 50px; overflow: hidden; text-align: center; margin:0 -100px"">
 						<input type="button" class="change" value="切换德文" onclick="changeGerman()"/>
 					</div>
 				</div>

@@ -93,7 +93,6 @@
 					}
 				},
 				yAxis: {
-					min: 0,
 					lineWidth:1,
 					gridLineColor:'#404040',
 					lineColor:'#404040',

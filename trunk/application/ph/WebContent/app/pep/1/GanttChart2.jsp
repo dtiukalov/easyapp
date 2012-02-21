@@ -296,7 +296,7 @@
 	List<String> fv9ProjectMix =(List<String>)form.get("fv9ProjectMix");
 %>
 <body>	
-	<div style="position:relative;width:1100px" class="Gantt" id="GanttChart2"></div>
+	<div style="position:relative;width:800px" class="Gantt" id="GanttChart2"></div>
 </body>
 <script>
 	var g2 = new Gantt(document.all.GanttChart2);

@@ -154,7 +154,7 @@
 				<div id="top"><h1><%=title %></h1></div>	
 				<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Zusammenbauteile (Anzahl FM/Anzahl Messungen)</h2>
 				<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gesamt: <%=gesamt %> Funktionsmaße</h5>
-				<div id="content" style="height:510px;">
+				<div id="content" style="height:495px;">
 					<div id="chart" style="width: 800px; height: 400px; margin: 0 auto"></div>
 				</div>
 			</div>

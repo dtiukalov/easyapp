@@ -13,54 +13,6 @@
 	<%@ include file="/app/pep/include/header.jsp"%>
 	<title><%=title %></title>
 	<style type="text/css">
-	.coo .tab {
-		background:#000;
-		font-size:12px;
-		width:1004px;
-	}
-	.coo .tab td{
-		background:#fff;
-		width:20px;
-	}
-	.coo .tab .taba {
-		width:1004px;
-	}
-	.coo .tab .taba .lg{
-		width:230px;
-	}
-	.coo .tab .taba .bt{
-		width:444px;
-	}
-	.coo .tab  .taba .bz{
-		width:230px;
-	}
-	.coo .bt h3 {
-		text-align:center;
-		font-size:18px;
-	}
-	.coo .ka {
-		width:64px;
-		height:15px;
-		border:1px solid #d0d0d0;
-	}
-	.coo .kb {
-		background-color:#afafaf;
-		width:190px;
-	}
-	.coo .kc {
-		background-color:#3e3e3e;
-		color:#FFF;
-		width:103px;
-	}
-	.coo .tab .a {
-		width:232px;
-	}
-	.coo .tab .b {
-		width:440px;
-	}
-	.coo .tab .c {
-		width:232px;
-	}
 		
 	</style>
 	<%
@@ -69,59 +21,15 @@
 	%>
 </head>
 <body>	
-	<div id="container">
+	<div id="container" style="margin:0 20px;">
 		<div id="nr">
-		<div id="top" style="margin:0 20px"><h1><%=title %>ee</h1></div>
-		<div id="content" style="margin:30px 20px;height:500px;">
-			<p></p>
-			<div class="coo"><table width="900" border="0" cellpadding="1" cellspacing="1" class="tab">
-			  <tr>
-			    <td width="982"><table width="900"  height="60" border="0" cellpadding="0" cellspacing="0" class="taba">
-			      <tr>
-			        <td width="230" class="lg"><img src="../images/logo.jpg"/></td>
-			        <td width="300" class="bt"><h3>aktuelle Vorlage Meilensteinubersicht</h3>
-			        <h3>SOP MM/YYYY</h3></td>
-			        <td width="187" class="bz"><p><span>Status:</span></p>
-			          <p>Ausgabe:xx.xx.10</p></td>
-			      </tr>
-			    </table></td>
-			  </tr>
-			  <tr>
-			    <td style="width:804px;hight:400px">
-			    <iframe id="ff" name= "ff" frameborder="0" 
+		<div id="top"><h1><%=title %></h1></div>
+		<div id="content" style="height:400px;margin:100px 10px">
+			<iframe id="ff" name= "ff" frameborder="0" 
 				    src="<%=request.getContextPath() %>/app/pep/1/GanttChart1.jsp?uid=<%=uid %>" 
-				    style="width:800px;height:280px;">
-			    </iframe>
-			    </td>
-			  </tr>
-			  <tr>
-			    <td><table width="804" height="50px" border="0" cellspacing="0" cellpadding="0">
-			      <tr>
-			        <td class="a"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-			          <tr>
-			            <td>Legende:</td>
-			          </tr>
-			          <tr>
-			            <td><table width="300" border="0" cellspacing="3" cellpadding="0">
-			              <tr>
-			                <td width="78"><div class="ka">Producktidefinition</div></td>
-			                <td width="107"><div class="kb">Konzept und Serienentericklung</div></td>
-			                <td width="103"><div class="kc">Serienvorboreitung</div></td>
-			              </tr>
-			            </table></td>
-			          </tr>
-			        </table></td>
-			        <td align="center" valign="bottom" class="b">RPLAN</td>
-			        <td class="c">
-				        <p>GMXSMax&nbsp;&nbsp;&nbsp;&nbsp;Mustemannxxx Qukdfjdkfjdkfj Tel kdkf df f<br />
-				          Profkdfldidf;dfuiddkjfdkfjkdfjdk
-				        </p>
-			        </td>
-			      </tr>
-			    </table></td>
-			  </tr>
-			</table>
-			</div>
+				    style="width:100%;height:280px;">
+			</iframe>
+		</div>
 		</div>
 		<%@ include file="/app/pep/include/foot.jsp"%>
 	</div>	

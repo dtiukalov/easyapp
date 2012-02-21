@@ -16,7 +16,7 @@ public class FV9_14AnlaufkurveDataset extends Form {
 
 	@Override
 	public String getType() {
-		return "1.4Anlaufkurve";
+		return "1.4 Anlaufkurve";
 	}
 
 	@Override

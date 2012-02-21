@@ -1,5 +1,5 @@
 * {
-	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, Helvetica, sans-serif; COLOR: #000; FONT-SIZE: 12px; LIST-STYLE-IMAGE: none; PADDING-TOP: 0px
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, Helvetica, sans-serif; COLOR: #000; LIST-STYLE-IMAGE: none; PADDING-TOP: 0px
 }
 
 #content {
@@ -7,8 +7,7 @@
 }
 
 #no-state {
-	position:absolute;top:10px;right:10px;height:14px;bottom:0px; 
-	width:300px;
+	position:absolute;top:10px;right:150px;height:14px;bottom:0px; 
 	padding:1px;color:green;
 	font-weight:bold;font-size:30px;font-family:隶书;
 }
@@ -42,7 +41,7 @@
 	text-align:center;
 }
 .lanstk {
-	TEXT-ALIGN: center; background:#93C; WIDTH: 160px; DISPLAY: block;FLOAT: left; HEIGHT: 18px; COLOR: #fff; FONT-SIZE: 12px; background:url(bg1.jpg) no-repeat 0 0;
+	TEXT-ALIGN: center; background:#93C; WIDTH: 160px; DISPLAY: block;FLOAT: right; margin-right:100px;margin-top:-37px;HEIGHT: 18px; COLOR: #fff; FONT-SIZE: 12px; background:url(../images/bg1.jpg) no-repeat;
 }
 #footer .ylogo {
 	FLOAT: left;
@@ -119,13 +118,14 @@
 .x {
 	BORDER-BOTTOM: #000 4px solid; font-size: 10px; height: 50px; vertical-align: bottom;
 }
-#content P {
+/* #content P {
 	FONT-SIZE: 30px
 }
 #content P SPAN {
 	FONT-SIZE: 30px; FONT-WEIGHT: bold
 }
-#banner IMG {
+ */
+ #banner IMG {
 	PADDING-TOP: 5px
 }
 .bt {

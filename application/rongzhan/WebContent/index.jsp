@@ -7,6 +7,6 @@
 <title>首页</title>
 <%@ include file="/app/includes/header.jsp" %>
 <body>
-Hello World!
+<%response.sendRedirect("/rongzhan/rongzhan/index.jsp"); %>
 </body>
 </html>

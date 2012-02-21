@@ -65,7 +65,7 @@
 				striped : true, //数据条纹显示
 				collapsible : true,
 				singleSelect : false,//只能选一行
-				url : '<%=request.getContextPath()%>/app/car/bookcar/list.action',
+				url : '<%=request.getContextPath()%>/app/car/bookcar/list.action?cid=<%=cid%>',
 				idField : 'id',//唯一标识列
 				sortName : 'id',
 				sortOrder : 'desc',

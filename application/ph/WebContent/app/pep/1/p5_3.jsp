@@ -125,18 +125,18 @@
 				series: [{
 					type: 'column',
 					name: 'Soll',
-					color: '#0000FF',
-					data: <%=soll%>
-				}, {
-					type: 'column',
-					name: 'Lst',
 					color: '#009C0E',
-					data:  <%=ist%>
+					data: <%=soll%>
+				},{
+					type: 'column',
+					name: 'lst',
+					color: '#0000FF',
+					data: <%=ist%>
 				}, {
 					type: 'spline',
 					name: 'Kum Soll',
 					color: '#009C0E',
-					data: <%=sumIst%>,
+					data: <%=sumSoll%>,
 					dataLabels: {
 						enabled: true,
 						style : {
@@ -147,9 +147,9 @@
 					}
 				}, {
 					type: 'spline',
-					name: 'Kum Lst',
+					name: 'Kum lst',
 					color: '#0000FF',
-					data:  <%=sumSoll%>,
+					data: <%=sumIst%>,
 					dataLabels: {
 						enabled: true,
 						style : {

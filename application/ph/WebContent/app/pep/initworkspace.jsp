@@ -33,13 +33,14 @@
 						Iterator<String>  iterator = phItemMap.keySet().iterator();
 					%>
 						<table border="1" style="width: 500xp; margin-left: 200px;">
-							<form id="showPHForm" name="showPHForm" method="post" action="<%=request.getContextPath()%>/app/pep/view/load.do">
+							
 							<%
 							while(iterator.hasNext()){
 								String key = iterator.next().toString();
 								Item item = phItemMap.get(key);
 							%>	
-							<input name="uid" type="hidden" value="<%=key%>"/> 
+							<form id="showPHForm" name="showPHForm" method="post" action="<%=request.getContextPath()%>/app/pep/view/load.do">
+							
 							<tr>
 								<td style="width: 150px; height: 30px;">
 									PH汇报项：
@@ -48,14 +49,16 @@
 									&nbsp;&nbsp;<%=item.getPropertyDisplayableValue("object_name")%>
 								</td>
 								<td style="width: 150px;">
-									<a href="javascript:submitForm()">开始汇报</a>
+									<input type="Submit" value="  开始汇报" />
 								</td>
+								<input name="name" type="hidden" value="<%=item.getPropertyDisplayableValue("object_name")%>"/> 
+								<input name="uid" type="hidden" value="<%=key%>"/> 
 							</tr>	
-							
+							</form>	
 							<%	
 							}
 							%>
-							</form>	
+							
 						</table>
 					<%} %>
 					</div>

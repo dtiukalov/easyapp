@@ -67,7 +67,7 @@
 		
 //		公差范围内的数量(绿色)
 		int fv9FuncInTolGreen = 0;
-		if (!"".equals(!"".equals((String)form.get("fv9FuncInTolGreen")))) {
+		if (!"".equals((String)form.get("fv9FuncInTolGreen"))) {
 			fv9FuncInTolGreen = Integer.parseInt((String)form.get("fv9FuncInTolGreen"));
 		}
 		

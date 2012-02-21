@@ -355,6 +355,8 @@ function Task(from, to, task, resource, progress, level, color) {
 </body>
 <script>
 	var g = new Gantt(document.all.GanttChart);
+	
+<%if(!"".equals(fv9VFFTBTZP5) && fv9VFFTBTZP5 != null){%>
 	g.AddTaskDetail(new Task('<%=fv9VFFTBTZP5%>', '<%=fv9VFFTBTZP5%>', '<b>Sample task 1 1</b>', 'ZP5', 50, 1));
 	g.AddTaskDetail(new Task('<%=fv9VFFTBTZP7%>', '<%=fv9VFFTBTZP7%>', '<b>Sample task 1 1</b>', 'ZP7', 50, 1));
 	g.AddTaskDetail(new Task('<%=fv9VFFVorStart%>', '<%=fv9VFFVorEnd%>', '<b><%=fv9VFFVorBatches%> Batches(<%=fv9VFFVorFzg%> Fzg.)*</b>', 'VFF',  50, 1, 'background-color:#000000;color:#FFF;font-weight:bold;'));
@@ -374,5 +376,7 @@ function Task(from, to, task, resource, progress, level, color) {
 	g.AddTaskDetail(new Task('<%=fv9QFTPPA_Kunde%>', '<%=fv9QFTPPA_Kunde%>', '<b>Q-Freigabe Freigabe Kundenfahrzeuge</b>', '37', 50, 7, 'background-color:#000000;color:#FFF;font-weight:bold;'));
 	
 	g.Draw(49, 14);	
+<%	}%>
+	
 </script>
 </html>

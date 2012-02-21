@@ -18,9 +18,21 @@
 			String fv9FunktionBig100 = Web.getNumberListStr(form.get("fv9FunktionBig100"));	//i.O
 			String fv9Zielwert = Web.getNumberListStr(form.get("fv9Zielwert")); //目标
 			
-			int fv9PrognoseAK = Integer.parseInt((String)form.get("fv9PrognoseAK"));
-			int fv9PrognoseBK = Integer.parseInt((String)form.get("fv9PrognoseBK"));
-			int fv9PrognoseIO = Integer.parseInt((String)form.get("fv9PrognoseIO"));
+			int fv9PrognoseAK = 0;//Integer.parseInt((String)form.get("fv9PrognoseAK"));
+			int fv9PrognoseBK = 0;//Integer.parseInt((String)form.get("fv9PrognoseBK"));
+			int fv9PrognoseIO = 0;//Integer.parseInt((String)form.get("fv9PrognoseIO"));
+			
+			if(form.get("fv9PrognoseAK")!= null && !"".equals(form.get("fv9PrognoseAK")) ){
+				fv9PrognoseAK = Integer.parseInt((String)form.get("fv9PrognoseAK"));
+			}
+
+			if(form.get("fv9PrognoseBK")!= null && !"".equals(form.get("fv9PrognoseBK")) ){
+				fv9PrognoseBK = Integer.parseInt((String)form.get("fv9PrognoseBK"));
+			}
+
+			if(form.get("fv9PrognoseIO")!= null && !"".equals(form.get("fv9PrognoseIO")) ){
+				fv9PrognoseIO = Integer.parseInt((String)form.get("fv9PrognoseIO"));
+			}
 			
 			int max = fv9PrognoseAK + fv9PrognoseBK + fv9PrognoseIO;
 		%>

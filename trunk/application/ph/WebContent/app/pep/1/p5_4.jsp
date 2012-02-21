@@ -12,12 +12,23 @@
 		<%@ include file="/app/pep/include/header.jsp"%>
 		<title><%=title %></title>
 		<%
+			int fv9PPCOP = 0;
+			int fv9PPErste = 0;
+			int fv9PPNicht =0;
+			int fv9Genehmigt =0;
 			Map form = (Map)request.getAttribute("form");
-
-			Integer fv9PPCOP = Integer.parseInt((String)form.get("fv9PPCOP"));
-			Integer fv9PPErste = Integer.parseInt((String)form.get("fv9PPErste"));
-			Integer fv9PPNicht = Integer.parseInt((String)form.get("fv9PPNicht"));
-			Integer fv9Genehmigt = fv9PPCOP + fv9PPErste + fv9PPNicht;			
+			
+			if(form.get("fv9PPCOP")!= null && !"".equals(form.get("fv9PPCOP")) ){
+				fv9PPCOP = Integer.parseInt((String)form.get("fv9PPCOP"));
+			}
+			if(form.get("fv9PPErste")!= null && !"".equals(form.get("fv9PPErste")) ){
+				fv9PPErste = Integer.parseInt((String)form.get("fv9PPErste"));
+			}
+			if(form.get("fv9PPNicht")!= null && !"".equals(form.get("fv9PPNicht")) ){
+				fv9PPNicht = Integer.parseInt((String)form.get("fv9PPNicht"));
+			}
+			
+			fv9Genehmigt = fv9PPCOP + fv9PPErste + fv9PPNicht;			
 		%>
 		<script type="text/javascript">
 		var chart;

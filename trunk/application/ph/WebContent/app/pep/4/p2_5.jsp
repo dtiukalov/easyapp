@@ -221,7 +221,7 @@
 						&nbsp;Note 6
 					</div>
 					<div id="left">
-						<div id="chart"></div>
+						<div id="chart" style="height:350px"></div>
 						<div id="time">
 							<img src="/ph/app/pep/4/bottom.jpg" width="400" height="70">
 						</div>

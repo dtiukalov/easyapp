@@ -7,8 +7,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<%@ include file="/app/pep/include/header.jsp"%>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+	<%@ include file="/app/pep/include/header.jsp"%>
 	<title><%=title %></title>
 	<%
 	Map form = (Map)request.getAttribute("form");
@@ -20,8 +20,10 @@
 	List<String> fv9FreigCom_CN = (List<String>)form.get("fv9FreigCom_CN");
 	List<String> fv9FreigCom_GM = (List<String>)form.get("fv9FreigCom_GM");
 	List<Integer> fv9OffenNum = new ArrayList<Integer>();
-	for(int i=0; i<fv9AnzahlNum.size(); i++) {
-		fv9OffenNum.add(Integer.parseInt(fv9FreigSollNum.get(i)) - Integer.parseInt(fv9FreiglstNum.get(i)));
+	if (fv9AnzahlNum != null && fv9AnzahlNum.size() > 0) {
+		for(int i=0; i<fv9AnzahlNum.size(); i++) {
+			fv9OffenNum.add(Integer.parseInt(fv9FreigSollNum.get(i)) - Integer.parseInt(fv9FreiglstNum.get(i)));
+		}
 	}
 	%>
 </head>
@@ -30,31 +32,33 @@
 		<div id="nr">
 		<div id="top"><h1><%=title %></h1></div>	
 		<div id="content">
-			<div id="datatable" style="width: 800px; height: 350px; margin: 80px 150px;">
+			<div id="datatable1" style="width: 800px; margin: 80px 150px;">
 				<table width="80%" cellspacing="2" rules="rows" >
 					<tr style="border-bottom:2px solid #333333;font-family:Arial;font-size:16px;font-weight:bold;">
-						<td></td>
+						<td>&nbsp;</td>
 						<td>Kennzahlen</td>
 						<td>Bemerkung</td>	
-					</tr><p></p>
+					</tr>
 					<%
-					for(int i=0; i<fv9FreigabeStyle.size(); i++) {
-						String imagePath = "../images/";	
-						if ("红".equals(fv9FreigabeStatus.get(i))) {
-							imagePath += "light_red.jpg";
-						}
-						if ("黄".equals(fv9FreigabeStatus.get(i))) {
-							imagePath += "light_yellow.jpg";
-						}
-						if ("绿".equals(fv9FreigabeStatus.get(i))) {
-							imagePath += "light_green.jpg";
-						}
+					if (fv9FreigabeStyle != null && fv9FreigabeStyle.size() > 0) {
+						for(int i=0; i<fv9FreigabeStyle.size(); i++) {
+							String imagePath = "../images/";	
+							if ("红".equals(fv9FreigabeStatus.get(i))) {
+								imagePath += "light_red.jpg";
+							}
+							if ("黄".equals(fv9FreigabeStatus.get(i))) {
+								imagePath += "light_yellow.jpg";
+							}
+							if ("绿".equals(fv9FreigabeStatus.get(i))) {
+								imagePath += "light_green.jpg";
+							}
 					%>
 					<tr border="2" style="border-collapse: collapse" bordercolor="#333333">
-						<td  width="30%" ><%=fv9FreigabeStyle.get(i) %>
+						<td width="30%" >
+							<%=fv9FreigabeStyle.get(i) %>
 							<img src="<%=imagePath %>" align="right" border=0 width=50 height=56> 
 						</td>
-						<td  width="22%">
+						<td width="22%">
 							<table>
 								<tr><td>Anzahl</td><td>&nbsp;=&nbsp;</td><td><%=fv9AnzahlNum.get(i) %></td></tr>
 								<tr><td>Soll</td><td>&nbsp;=&nbsp;</td><td><%=fv9FreigSollNum.get(i) %></td></tr>
@@ -68,9 +72,60 @@
 					</tr>
 					<%		
 						}
+					}
 					%>
-					
 				</table>
+				<div style="width: 800px; height: 50px; overflow: hidden; text-align: center;">
+					<input type="button" class="change" value="切换中文" onclick="changeChinese()" />
+				</div>
+			</div>
+			
+			<div id="datatable2" style="width: 800px; margin: 80px 150px;display: none;">
+				<table width="80%" cellspacing="2" rules="rows" >
+					<tr style="border-bottom:2px solid #333333;font-family:Arial;font-size:16px;font-weight:bold;">
+						<td>&nbsp;</td>
+						<td>认可数量</td>
+						<td>认可描述</td>	
+					</tr>
+					<%
+					if (fv9FreigabeStyle != null && fv9FreigabeStyle.size() > 0) {
+						for(int i=0; i<fv9FreigabeStyle.size(); i++) {
+							String imagePath = "../images/";	
+							if ("红".equals(fv9FreigabeStatus.get(i))) {
+								imagePath += "light_red.jpg";
+							}
+							if ("黄".equals(fv9FreigabeStatus.get(i))) {
+								imagePath += "light_yellow.jpg";
+							}
+							if ("绿".equals(fv9FreigabeStatus.get(i))) {
+								imagePath += "light_green.jpg";
+							}
+					%>
+					<tr border="2" style="border-collapse: collapse" bordercolor="#333333">
+						<td width="30%" >
+							<%=fv9FreigabeStyle.get(i) %>
+							<img src="<%=imagePath %>" align="right" border=0 width=50 height=56> 
+						</td>
+						<td width="22%">
+							<table>
+								<tr><td>Anzahl</td><td>&nbsp;=&nbsp;</td><td><%=fv9AnzahlNum.get(i) %></td></tr>
+								<tr><td>Soll</td><td>&nbsp;=&nbsp;</td><td><%=fv9FreigSollNum.get(i) %></td></tr>
+								<tr><td>Ist</td><td>&nbsp;=&nbsp;</td><td><%=fv9FreiglstNum.get(i) %></td></tr>
+								<tr><td>offen</td><td>&nbsp;=&nbsp;</td><td><%=fv9OffenNum.get(i)%></td></tr>
+							</table>
+						</td>
+						<td  width="48%" >
+							<%= fv9FreigCom_CN.get(i)%>
+						</td>
+					</tr>
+					<%		
+						}
+					}
+					%>
+				</table>
+				<div style="width: 800px; height: 50px; overflow: hidden; text-align: center;">
+					<input type="button" class="change" value="切换德文" onclick="changeGerman()"/>
+				</div>
 			</div>
 		</div>
 		

@@ -16,7 +16,9 @@
 			List<String> fv9ErprobStyle = (List)form.get("fv9ErprobStyle"); //实验及路试
 			List<String> fv9ErprobStatus = (List)form.get("fv9ErprobStatus"); //实验及路试状态
 			List<String> fv9ErprobStCom_GM = (List)form.get("fv9ErprobStCom_GM"); //当前状态描述-德文
+			List<String> fv9ErprobStCom_CN = (List)form.get("fv9ErprobStCom_CN"); //当前状态描述-中文
 			List<String> fv9ErprobNachSch_GM = (List)form.get("fv9ErprobNachSch_GM"); //下一步工作描述-德文
+			List<String> fv9ErprobNachSch_CN = (List)form.get("fv9ErprobNachSch_CN"); //下一步工作描述-中文
 		%>
 	</head>
 	<body>
@@ -24,73 +26,151 @@
 			<div id="nr">
 			<div id="top"><h1><%=title %></h1></div>
 			<div id="content" style="margin:0 auto;height:600px;">
-				<table width="96%" border="0" cellspacing="5" cellpadding="0" class="ed">
-			        <tr>
-			        	<td width="19%">&nbsp;</td>
-			        	<td width="81%"  style="border-bottom:1px solid #424242;">
-				        	<table width="100%" border="0" cellspacing="0" cellpadding="0">
-					            <tr>
-						            <td>Aktueller Status</td>
-						            <td>Nachste Status</td>
-					            </tr>
-				            </table>
-				        </td>
-			        </tr>
-			        <%
-						if (fv9ErprobStyle != null && fv9ErprobStyle.size() >0) {
-							for (int i=0; i<fv9ErprobStyle.size(); i++){
-								String Style = (String)fv9ErprobStyle.get(i);
-								String status = (String)fv9ErprobStatus.get(i);
-								String stcom_gm = (String)fv9ErprobStCom_GM.get(i);
-								String nachsch_gm = (String)fv9ErprobNachSch_GM.get(i);
-					%>
-					 <tr>
-			          <td width="19%">
-				          <div class="kbg">
-				          	<div class="he">
-					          	<div class="wz"><h2><%=Style %></h2></div>
-					          	<div class="tupian">
-					          	<%
-					          	if ("红".equals(status)) {
-					          	%>
-					          		<img src="../images/redStatus.png" />
-					          	<%
-					          	}
-					          	if ("黄".equals(status)) {
-					          	%>
-					          		<img src="../images/yellowStatus.png" />
-					          	<%
-						        }
-					          	if ("绿".equals(status)) {
-					          	%>
-					          		<img src="../images/greenStatus.png" />
-					          	<%
-					          	}
-					          	%>
-					          	</div>
-					          	<div class="clear"></div>
+				<div id="datatable1" style="width: 800px;">
+					<table width="96%" border="0" cellspacing="5" cellpadding="0" class="ed">
+				        <tr>
+				        	<td width="19%">&nbsp;</td>
+				        	<td width="81%"  style="border-bottom:1px solid #424242;">
+					        	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+						            <tr>
+							            <td>Aktueller Status</td>
+							            <td>Nachste Status</td>
+						            </tr>
+					            </table>
+					        </td>
+				        </tr>
+				        <%
+							if (fv9ErprobStyle != null && fv9ErprobStyle.size() >0) {
+								for (int i=0; i<fv9ErprobStyle.size(); i++){
+									String Style = (String)fv9ErprobStyle.get(i);
+									String status = (String)fv9ErprobStatus.get(i);
+									String stcom_gm = (String)fv9ErprobStCom_GM.get(i);
+									String nachsch_gm = (String)fv9ErprobNachSch_GM.get(i);
+						%>
+						 <tr>
+				          <td width="19%">
+					          <div class="kbg">
+					          	<div class="he">
+						          	<div class="wz"><h2><%=Style %></h2></div>
+						          	<div class="tupian">
+						          	<%
+						          	if ("红".equals(status)) {
+						          	%>
+						          		<img src="../images/redStatus.png" />
+						          	<%
+						          	}
+						          	if ("黄".equals(status)) {
+						          	%>
+						          		<img src="../images/yellowStatus.png" />
+						          	<%
+							        }
+						          	if ("绿".equals(status)) {
+						          	%>
+						          		<img src="../images/greenStatus.png" />
+						          	<%
+						          	}
+						          	%>
+						          	</div>
+						          	<div class="clear"></div>
+						          </div>
 					          </div>
-				          </div>
-			          </td>
-			          <td width="81%" valign="top" class="xx"><table width="98%" border="0" cellspacing="2" cellpadding="0">
-			            <tr>
-			              <td height="25">
-			              	<table width="98%" border="0" cellspacing="2" cellpadding="0">
-					            <tr>
-					              <td width="49%" height="25"><%=stcom_gm %></td>
-					              <td width="51%" valign="top"><%=nachsch_gm %></td>
-					            </tr>
-					          </table>
-			              </td>
-			            </tr>
-			          </table></td>
-			        </tr>
-					<%
+				          </td>
+				          <td width="81%" valign="top" class="xx"><table width="98%" border="0" cellspacing="2" cellpadding="0">
+				            <tr>
+				              <td height="25">
+				              	<table width="98%" border="0" cellspacing="2" cellpadding="0">
+						            <tr>
+						              <td width="49%" height="25"><%=stcom_gm %></td>
+						              <td width="51%" valign="top"><%=nachsch_gm %></td>
+						            </tr>
+						          </table>
+				              </td>
+				            </tr>
+				          </table></td>
+				        </tr>
+						<%
+								}
 							}
-						}
-			        %>		
-			       
-			      </table>
+				        %>		
+				       
+				      </table>
+				      <div style="width: 800px; height: 50px; overflow: hidden; text-align: center;">
+						<input type="button" class="change" value="切换中文" onclick="changeChinese()" />
+					  </div>
+			      </div>
+			      
+			      <div id="datatable2" style="width: 800px; display: none;">
+					<table width="96%" border="0" cellspacing="5" cellpadding="0" class="ed">
+				        <tr>
+				        	<td width="19%">&nbsp;</td>
+				        	<td width="81%"  style="border-bottom:1px solid #424242;">
+					        	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+						            <tr>
+							            <td>Aktueller Status</td>
+							            <td>Nachste Status</td>
+						            </tr>
+					            </table>
+					        </td>
+				        </tr>
+				        <%
+							if (fv9ErprobStyle != null && fv9ErprobStyle.size() >0) {
+								for (int i=0; i<fv9ErprobStyle.size(); i++){
+									String Style = (String)fv9ErprobStyle.get(i);
+									String status = (String)fv9ErprobStatus.get(i);
+									String stcom_cn = (String)fv9ErprobStCom_CN.get(i);
+									String nachsch_cn = (String)fv9ErprobNachSch_CN.get(i);
+						%>
+						 <tr>
+				          <td width="19%">
+					          <div class="kbg">
+					          	<div class="he">
+						          	<div class="wz"><h2><%=Style %></h2></div>
+						          	<div class="tupian">
+						          	<%
+						          	if ("红".equals(status)) {
+						          	%>
+						          		<img src="../images/redStatus.png" />
+						          	<%
+						          	}
+						          	if ("黄".equals(status)) {
+						          	%>
+						          		<img src="../images/yellowStatus.png" />
+						          	<%
+							        }
+						          	if ("绿".equals(status)) {
+						          	%>
+						          		<img src="../images/greenStatus.png" />
+						          	<%
+						          	}
+						          	%>
+						          	</div>
+						          	<div class="clear"></div>
+						          </div>
+					          </div>
+				          </td>
+				          <td width="81%" valign="top" class="xx"><table width="98%" border="0" cellspacing="2" cellpadding="0">
+				            <tr>
+				              <td height="25">
+				              	<table width="98%" border="0" cellspacing="2" cellpadding="0">
+						            <tr>
+						              <td width="49%" height="25"><%=stcom_cn %></td>
+						              <td width="51%" valign="top"><%=nachsch_cn %></td>
+						            </tr>
+						          </table>
+				              </td>
+				            </tr>
+				          </table></td>
+				        </tr>
+						<%
+								}
+							}
+				        %>		
+				       
+				      </table>
+				      <div style="width: 800px; height: 50px; overflow: hidden; text-align: center;">
+						<input type="button" class="change" value="切换德文" onclick="changeGerman()"/>
+					</div>
+			      </div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

@@ -11,9 +11,8 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		
+		<title><%=title %></title>
 		<%
-		title = "3.6 Vorschau 2-Tagesproduktion";
 		Map form = (Map)request.getAttribute("form");	
 
 		List KWNo = (List)form.get("fv9KWNo"); //周数
@@ -227,7 +226,7 @@
 				});
 			});
 		</script>
-		<title><%=title %></title>
+		
 	</head>
 
 	<body>
@@ -239,17 +238,17 @@
 				<div style="width: 800px; margin: 0 auto;text-align: center; margin-top: 0;">
 				<table class="freigaben" style="border-color: #000;border-collapse:collapse;" cellpadding="0" cellspacing="0" border="1"">
 					<tr>
-						<td width="245" style="text-align: left;">&nbsp;</td>
+						<td style="text-align: left;width: 300px;">&nbsp;</td>
 						<%
 						for (int j=0; j<KWNo.size(); j++) {
 						%>
-							<td style="width: <%=540/KWNo.size()%>px"><%=KWNo.get(j) %></td>
+							<td style="width: <%=642/KWNo.size()%>px"><%=KWNo.get(j) %></td>
 						<%
 						}
 						%>
 					</tr>
 					<tr>
-						<td width="245" style="text-align: left;">&nbsp;in Planung</td>
+						<td style="text-align: left;width: 300px;">&nbsp;in Planung</td>
 						<%
 						for (int j=0; j<InPlanung.size(); j++) {
 						%>
@@ -259,7 +258,7 @@
 						%>
 					</tr>
 					<tr>
-						<td width="245" style="text-align: left;">&nbsp;Maßnahme nicht erarbeitet</td>
+						<td style="text-align: left;width: 300px;">&nbsp;Maßnahme nicht erarbeitet</td>
 						<%
 						for (int j=0; j<MabnaNichtErarb.size(); j++) {
 						%>
@@ -269,7 +268,7 @@
 						%>
 					</tr>
 					<tr>
-						<td width="245" style="text-align: left;">&nbsp;Maßnahmen werden definiert</td>
+						<td style="text-align: left;width: 300px;">&nbsp;Maßnahmen werden definiert</td>
 						<%
 						for (int j=0; j<MabnaWerdenDef.size(); j++) {
 						%>
@@ -279,7 +278,7 @@
 						%>
 					</tr>
 					<tr>
-						<td width="245" style="text-align: left;">&nbsp;Maßnahme definiert</td>
+						<td style="text-align: left;width: 300px;">&nbsp;Maßnahme definiert</td>
 						<%
 						for (int j=0; j<MabnaDef.size(); j++) {
 						%>
@@ -289,7 +288,7 @@
 						%>
 					</tr>
 					<tr>
-						<td width="245" style="text-align: left;">&nbsp;i.O.</td>
+						<td style="text-align: left;width: 300px;">&nbsp;i.O.</td>
 						<%
 						for (int j=0; j<IO.size(); j++) {
 						%>
@@ -299,7 +298,7 @@
 						%>
 					</tr>
 					<tr>
-						<td width="245" style="text-align: left;">&nbsp;Prognose in Planung</td>
+						<td style="text-align: left;width: 300px;">&nbsp;Prognose in Planung</td>
 						<%
 						for (int j=0; j<PrognosePlan.size(); j++) {
 						%>
@@ -309,7 +308,7 @@
 						%>
 					</tr>
 					<tr>
-						<td width="245" style="text-align: left;">&nbsp;Ziel</td>
+						<td style="text-align: left;width: 300px;">&nbsp;Ziel</td>
 						<%
 						for (int j=0; j<Zeil.size(); j++) {
 						%>
@@ -319,7 +318,7 @@
 						%>
 					</tr>
 					<tr>
-						<td width="245" style="text-align: left;">&nbsp;Prognose i.O.</td>
+						<td style="text-align: left;width: 300px;">&nbsp;Prognose i.O.</td>
 						<%
 						for (int j=0; j<PrognoseIO.size(); j++) {
 						%>

@@ -281,7 +281,7 @@
 								<div>
 								  <table width="350" cellspacing="0">
 								    <tr>
-								      <td><font size="14px">Wichtigste Maßnahmen</font></td>
+								      <td>Wichtigste Maßnahmen</td>
 								      <td></td>
 								      <td></td>
 								      <td></td>

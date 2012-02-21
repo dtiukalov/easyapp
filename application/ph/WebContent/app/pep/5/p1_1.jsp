@@ -47,19 +47,19 @@
 <div id="container">
 	<div id="nr">
 	<div id="top"><h1><%=title %></h1></div>
-    <div id="content" style="margin-top:20px;">
+    <div id="content" style="margin-top:20px;font-size:12px;">
 	    <div id="datatable1" style="width: 800px;">
-			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table" >
 				<tr>
 					<td width="239" class="pg" colspan="2">&nbsp;</td>
 					<td width="311" class="pg"><h2>Status</h2></td>
 					<td width="433" class="pg"><h2>Maßnahmen</h2></td>
 				</tr>
-				<tr>
-					<td valign="top" class="pgpg" style="width:200px;">
+				<tr >
+					<td valign="top" class="pgpg" style="width:200px;padding:10px">
 						<h2>Presswerk</h2>
 					</td>
-					<td valign="top" class="pgpg" style="width:39px;;">
+					<td valign="top" class="pgpg" style="width:39px;padding:10px">
 						<% if(fv9PressStatus.equals("绿")){%>
 						<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" />
 						<%} else if(fv9PressStatus.equals("黄")){%>
@@ -69,7 +69,7 @@
 						<%}%>
 					</td>
 					<td valign="top" class="pgpg">
-						<div class="tbnrr">
+						<div class="tbnrr" >
 						<%
 							if (fv9PressStCom_GM != null && !"".equals(fv9PressStCom_GM)) {
 						%>
@@ -90,12 +90,11 @@
 						<%}%>
 					</td>
 				</tr>
-				
 				<tr>
-					<td valign="top" class="pgpg" style="width:200px;">
+					<td valign="top" class="pgpg" style="width:200px;padding:10px">
 						<h2>Karosseriebau</h2>
 					</td>
-					<td valign="top" class="pgpg" style="width:39px;;">
+					<td valign="top" class="pgpg" style="width:39px;padding:10px">
 						<% if(fv9KarossStatus.equals("绿")){%>
 						<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" />
 						<%} else if(fv9KarossStatus.equals("黄")){%>
@@ -128,10 +127,10 @@
 				</tr>
 				
 				<tr>
-					<td valign="top" class="pgpg" style="width:200px;">
+					<td valign="top" class="pgpg" style="width:200px;padding:10px">
 						<h2>Lack</h2>
 					</td>
-					<td valign="top" class="pgpg" style="width:39px;;">
+					<td valign="top" class="pgpg" style="width:39px;padding:10px">
 						<% if(fv9LackStatus.equals("绿")){%>
 						<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" />
 						<%} else if(fv9LackStatus.equals("黄")){%>
@@ -164,10 +163,10 @@
 				</tr>
 				
 				<tr>
-					<td valign="top" class="pgpg" style="width:200px;">
+					<td valign="top" class="pgpg" style="width:200px;padding:10px">
 						<h2>Montage</h2>
 					</td>
-					<td valign="top" class="pgpg" style="width:39px;;">
+					<td valign="top" class="pgpg" style="width:39px;padding:10px">
 						<% if(fv9MontStatus.equals("绿")){%>
 						<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" />
 						<%} else if(fv9MontStatus.equals("黄")){%>
@@ -200,10 +199,10 @@
 				</tr>
 				
 				<tr>
-					<td valign="top" class="pgpg" style="width:200px;">
+					<td valign="top" class="pgpg" style="width:200px;padding:10px">
 						<h2>Electric</h2>
 					</td>
-					<td valign="top" class="pgpg" style="width:39px;;">
+					<td valign="top" class="pgpg" style="width:39px;padding:10px">
 						<% if(fv9ElectStatus.equals("绿")){%>
 						<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" />
 						<%} else if(fv9ElectStatus.equals("黄")){%>
@@ -248,10 +247,10 @@
 					<td width="433" class="pg"><h2>Maßnahmen</h2></td>
 				</tr>
 				<tr>
-					<td valign="top" class="pgpg" style="width:200px;">
+					<td valign="top" class="pgpg" style="width:200px;padding:10px">
 						<h2>Presswerk</h2>
 					</td>
-					<td valign="top" class="pgpg" style="width:39px;;">
+					<td valign="top" class="pgpg" style="width:39px;padding:10px">
 						<% if(fv9PressStatus.equals("绿")){%>
 						<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" />
 						<%} else if(fv9PressStatus.equals("黄")){%>
@@ -284,10 +283,10 @@
 				</tr>
 				
 				<tr>
-					<td valign="top" class="pgpg" style="width:200px;">
+					<td valign="top" class="pgpg" style="width:200px;padding:10px">
 						<h2>Karosseriebau</h2>
 					</td>
-					<td valign="top" class="pgpg" style="width:39px;;">
+					<td valign="top" class="pgpg" style="width:39px;padding:10px">
 						<% if(fv9KarossStatus.equals("绿")){%>
 						<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" />
 						<%} else if(fv9KarossStatus.equals("黄")){%>
@@ -320,10 +319,10 @@
 				</tr>
 				
 				<tr>
-					<td valign="top" class="pgpg" style="width:200px;">
+					<td valign="top" class="pgpg" style="width:200px;padding:10px">
 						<h2>Lack</h2>
 					</td>
-					<td valign="top" class="pgpg" style="width:39px;;">
+					<td valign="top" class="pgpg" style="width:39px;padding:10px">
 						<% if(fv9LackStatus.equals("绿")){%>
 						<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" />
 						<%} else if(fv9LackStatus.equals("黄")){%>
@@ -356,10 +355,10 @@
 				</tr>
 				
 				<tr>
-					<td valign="top" class="pgpg" style="width:200px;">
+					<td valign="top" class="pgpg" style="width:200px;padding:10px">
 						<h2>Montage</h2>
 					</td>
-					<td valign="top" class="pgpg" style="width:39px;;">
+					<td valign="top" class="pgpg" style="width:39px;padding:10px">
 						<% if(fv9MontStatus.equals("绿")){%>
 						<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" />
 						<%} else if(fv9MontStatus.equals("黄")){%>
@@ -392,10 +391,10 @@
 				</tr>
 				
 				<tr>
-					<td valign="top" class="pgpg" style="width:200px;">
+					<td valign="top" class="pgpg" style="width:200px;padding:10px">
 						<h2>Electric</h2>
 					</td>
-					<td valign="top" class="pgpg" style="width:39px;;">
+					<td valign="top" class="pgpg" style="width:39px;padding:10px">
 						<% if(fv9ElectStatus.equals("绿")){%>
 						<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" />
 						<%} else if(fv9ElectStatus.equals("黄")){%>

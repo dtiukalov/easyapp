@@ -46,9 +46,9 @@
 	%>
 </head>
 <body>
-<div id="container">
+<div id="container" style="font-size:12px;padding:10px">
 	<div id="nr">
-	<div id="top">
+	<div id="top" >
 		<div style="width: 80%;float: left;margin: 0 auto;"><h1><%=title %></h1></div>
 		
 		<div style="width: 20%;float: left;margin: 0 auto; text-align: right;">

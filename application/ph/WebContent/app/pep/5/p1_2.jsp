@@ -25,7 +25,7 @@
 <div id="container">
 	<div id="nr">
 	<div id="top"><h1><%=title %></h1></div>
-    <div id="content" style="margin-top:20px;">
+    <div id="content" style="margin-top:20px;font-size:12px">
     	<div id="datatable1" style="width: 800px;">
 		    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 				<tr>
@@ -39,10 +39,10 @@
 				  for(int i=0; i<fv9KarosserStyle.size(); i++){
 				%>
 				<tr>
-					<td valign="top" class="pgpg" style="width: 200px;;">
+					<td valign="top" class="pgpg" style="width: 200px;padding:5px">
 						<h2> <%= fv9KarosserStyle.get(i) %></h2>
 					</td>
-					<td valign="top" class="pgpg" style="width: 39px;">
+					<td valign="top" class="pgpg" style="width: 39px;padding:5px">
 						<% if(fv9KarosserStatus.get(i).equals("绿")){%>
 						<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" />
 						<%} else if(fv9KarosserStatus.get(i).equals("黄")){%>
@@ -51,7 +51,7 @@
 						<img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="30" height="70" /> 
 						<%}%>
 					</td>
-					<td valign="top" class="pgpg">
+					<td valign="top" class="pgpg" style="padding:5px">
 						<div>
 						<%if (fv9KarossStCom_GM.get(i) != null && !"".equals(fv9KarossStCom_GM.get(i))) {
 						%> <%=fv9KarossStCom_GM.get(i) %><br \><%=fv9KarossStCom_CN.get(i) %>
@@ -93,10 +93,10 @@
 				  for(int i=0; i<fv9KarosserStyle.size(); i++){
 				%>
 				<tr>
-					<td valign="top" class="pgpg" style="width: 200px;;">
+					<td valign="top" class="pgpg" style="width: 200px;padding:5px">
 						<h2> <%= fv9KarosserStyle.get(i) %></h2>
 					</td>
-					<td valign="top" class="pgpg" style="width: 39px;">
+					<td valign="top" class="pgpg" style="width: 39px;padding:5px">
 						<% if(fv9KarosserStatus.get(i).equals("绿")){%>
 						<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" />
 						<%} else if(fv9KarosserStatus.get(i).equals("黄")){%>
@@ -105,7 +105,7 @@
 						<img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="30" height="70" /> 
 						<%}%>
 					</td>
-					<td valign="top" class="pgpg">
+					<td valign="top" class="pgpg" style="padding:5px">
 						<div>
 						<%
 						if (fv9KarossStCom_CN.get(i) != null && !"".equals(fv9KarossStCom_CN.get(i))) {

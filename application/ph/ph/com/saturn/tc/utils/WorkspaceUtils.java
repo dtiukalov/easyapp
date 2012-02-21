@@ -66,7 +66,7 @@ public class WorkspaceUtils {
 				"object_type", "contents");
 		LinkedList<Folder> stack = new LinkedList<Folder>();
 		for (WorkspaceObject wo : workspaceObjects) {
-			if ("fv9PHReport_Item".equals(wo.getType().getName())) {
+			if ("FV9PHReport".equals(wo.getType().getName())) {
 				Item phitem = (Item)wo;
 				phItemMap.put(wo.getUid(), phitem);
 			}

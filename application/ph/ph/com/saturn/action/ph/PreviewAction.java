@@ -36,7 +36,7 @@ public class PreviewAction implements IAction {
 		}
 
 		String type = object.getType().getName();
-		if(type.equalsIgnoreCase("JPEG")){
+		if(type.equalsIgnoreCase("FV9PHJPEG")){
 			try {
 				type = object.getProperty("object_name").getDisplayableValue();
 			} catch (NotLoadedException e) {

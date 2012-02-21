@@ -55,7 +55,7 @@ public class ItemUtils {
 						String uid = modelObject.getUid();
 						String type = modelObject.getType().getName();
 						
-						if(type.equalsIgnoreCase("JPEG")){
+						if(type.equalsIgnoreCase("FV9PHJPEG")){
 							try {
 								type = modelObject.getProperty("object_name").getDisplayableValue();
 							} catch (NotLoadedException e) {

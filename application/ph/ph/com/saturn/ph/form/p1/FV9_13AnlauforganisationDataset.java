@@ -16,7 +16,7 @@ public class FV9_13AnlauforganisationDataset extends Form {
 
 	@Override
 	public String getType() {
-		return "1.3Anlauforganisation–Fahrzeugbau";
+		return "1.3 Anlauforganisation – Fahrzeugbau";
 	}
 
 	@Override

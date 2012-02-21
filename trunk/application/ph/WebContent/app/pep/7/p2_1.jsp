@@ -6,10 +6,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <%@ include file="/app/pep/include/header.jsp"%>
 <%
-	//String uid = (String)request.getAttribute("uid");
-	title = "7.2  Beschluss 决策申请";//假数据
-	String src = "/ph/app/pep/7/FV9_72Beschluss.jpg";//DatasetUtils.getDatasetByUid(uid, request);
-	//假数据
+	String uid = (String)request.getAttribute("uid");
+	String src = DatasetUtils.getDatasetByUid(uid, request);
 %>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">

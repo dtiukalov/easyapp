@@ -294,7 +294,8 @@
 					x: 120,
 					y: 30,
 					borderWidth: 1,
-					shadow:false
+					shadow:false,
+					enabled:false
 				},
 			    series: [{
 					name: 'Soll',
@@ -371,8 +372,8 @@
 			<div id="nr">
 				<div id="top"><h1><%=title %></h1></div>	
 				<div id="content">
-					<div id="chart" style="width: 400px; height: 500px; margin: 0 auto; float: left;"></div>
-					<div id="table" style="width: 400px; height: 400px; margin: 0 auto; float: left;">&nbsp;
+					<div id="chart" style="width: 400px; height: 450px; margin: 0 auto; float: left;"></div>
+					<div id="table" style="width: 400px; height: 400px; margin: -50px auto; float: left;">&nbsp;
 						<div class="div">
 								<div>
 								  <table cellspacing="0" style="width: 350px; font-size: 9px; overflow: hidden;">

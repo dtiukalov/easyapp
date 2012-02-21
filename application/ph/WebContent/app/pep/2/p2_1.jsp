@@ -25,13 +25,13 @@
 		<div id="container">
 			<div id="nr">
 			<div id="top"><h1><%=title %></h1></div>
-			<div id="content" style="margin:0 auto;height:600px;">
+			<div id="content" style="margin:0 auto;height:600px;font-size:12px">
 				<div id="datatable1" style="width: 800px;">
 					<table width="96%" border="0" cellspacing="5" cellpadding="0" class="ed">
 				        <tr>
 				        	<td width="19%">&nbsp;</td>
 				        	<td width="81%"  style="border-bottom:1px solid #424242;">
-					        	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					        	<table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:14px">
 						            <tr>
 							            <td>Aktueller Status</td>
 							            <td>Nachste Status</td>
@@ -78,7 +78,7 @@
 				          <td width="81%" valign="top" class="xx"><table width="98%" border="0" cellspacing="2" cellpadding="0">
 				            <tr>
 				              <td height="25">
-				              	<table width="98%" border="0" cellspacing="2" cellpadding="0">
+				              	<table width="98%" border="0" cellspacing="2" cellpadding="0" > 
 						            <tr>
 						              <td width="49%" height="25"><%=stcom_gm %></td>
 						              <td width="51%" valign="top"><%=nachsch_gm %></td>
@@ -104,7 +104,7 @@
 				        <tr>
 				        	<td width="19%">&nbsp;</td>
 				        	<td width="81%"  style="border-bottom:1px solid #424242;">
-					        	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					        	<table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:14px">
 						            <tr>
 							            <td>Aktueller Status</td>
 							            <td>Nachste Status</td>

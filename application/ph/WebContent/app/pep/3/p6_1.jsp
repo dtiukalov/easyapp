@@ -90,7 +90,8 @@
 						y: 0,
 						borderWidth: 1,
 						borderRadius: 0,
-						shadow: false
+						shadow: false,
+						enabled:false
 					},
 					tooltip: {
 						formatter: function() {
@@ -234,8 +235,8 @@
 			<div id="nr">
 			<div id="top"><h1><%=title %></h1></div>
 			<div id="content">
-				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto"></div>
-				<div style="width: 800px; margin: 0 auto;text-align: center; margin-top: 0px;">
+				<div id="chart" style="width: 700px; height: 400px; margin: 0 183px"></div>
+				<div style="width: 800px; margin: 0 auto;text-align: center; margin-top: 0;">
 				<table class="freigaben" style="border-color: #000;border-collapse:collapse;" cellpadding="0" cellspacing="0" border="1"">
 					<tr>
 						<td width="245" style="text-align: left;">&nbsp;</td>

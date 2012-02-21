@@ -132,7 +132,8 @@
 					y: 20,
 					floating: true,
 					borderWidth: 1,
-					shadow: false
+					shadow: false,
+					enabled:false
 				},
 				tooltip: {
 					formatter: function() {
@@ -164,7 +165,7 @@
 			<div id="nr">
 			<div id="top"><h1><%=title %></h1></div>
 			<div id="content">
-				<div id="chart" style="width: 800px; height: 450px;"></div>
+				<div id="chart" style="width: 800px; height: 450px;margin:30px 50px"></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

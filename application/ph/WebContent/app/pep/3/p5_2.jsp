@@ -16,6 +16,7 @@
 			.left{
 				width: 100px; height: 50px;float: left;margin: 30px 50px;
 				vertical-align: middle;
+				font-size:12px;
 			}
 			.title{
 				width: 90px; height: 40px; float: left; margin: 0 auto; text-align: center;vertical-align: middle;padding-top: 20px;
@@ -648,12 +649,11 @@
 						lineColor:'black',
 						tickColor:'black',
 						labels: {
-							enabled:false
+							enabled:true
 						},
 						categories: <%=fv9KWNo%>
 					}],
 					yAxis: {
-						min: 0,
 						gridLineWidth:0,
 						lineWidth:1,
 						tickWidth:1,

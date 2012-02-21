@@ -24,7 +24,7 @@
 			.chart{
 				width: 700px; height: 110px; margin: -2px auto; float: left;
 			}
-			.clear{
+			.clear1{
 				width: 100%;height: 1px;margin: 0 auto; float: left;
 			}
 		</style>
@@ -786,31 +786,31 @@
 					<div class="title" style="border: solid black 1px;background-color: #003C65">Presswerk</div>
 				</div>
 				<div id="chart1" class="chart"></div>
-				<div class="clear">&nbsp;</div>
+				<div class="clear1">&nbsp;</div>
 				
 				<div class="left">
-					<div class="title" style="color:black;border: solid black 1px;background-color: #AED4F8;">Karosseriebau</div>
+					<div class="title" style="border: solid black 1px;background-color: #AED4F8;">Karosseriebau</div>
 				</div>
 				<div id="chart2" class="chart"></div>
-				<div class="clear">&nbsp;</div>
+				<div class="clear1">&nbsp;</div>
 				
 				<div class="left">
 					<div class="title" style="border: solid black 1px;background-color: #8994A0">Lackiererei</div>
 				</div>
 				<div id="chart3" class="chart"></div>
-				<div class="clear">&nbsp;</div>
+				<div class="clear1">&nbsp;</div>
 				
 				<div class="left">
 					<div class="title" style="color:black;border: solid black 1px;background-color: #CFD7D9">Montage</div>
 				</div>
 				<div id="chart4" class="chart"></div>
-				<div class="clear">&nbsp;</div>
+				<div class="clear1">&nbsp;</div>
 				
 				<div class="left">
 					<div class="title" style="border: solid black 1px;background-color: #3366FF">Kaufteile</div>
 				</div>
 				<div id="chart5" class="chart"></div>
-				<div class="clear">&nbsp;</div>
+				<div class="clear1">&nbsp;</div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

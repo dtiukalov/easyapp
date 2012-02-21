@@ -25,7 +25,7 @@
 		<div id="nr">
 		<div id="top"><h1><%=title %></h1></div>
 	    <div id="content" style="margin-top:50px;font-size:12px">
-		    <div id="datatable1" style="width: 800px; ">
+		    <div id="datatable1" style="width: 800px; margin:20px 50px">
 			    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 					  <tr>
 					    <td width="239" class="pg">&nbsp;</td>
@@ -78,7 +78,7 @@
 				</div>
 			</div>
 			
-			<div id="datatable2" style="width: 800px; display: none;">
+			<div id="datatable2" style="width: 800px; display: none;margin:20px 50px">
 			    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 					  <tr>
 					    <td width="239" class="pg">&nbsp;</td>

@@ -24,11 +24,11 @@
 		int pageSize = indexes.size();
 		
 		if (cur > 1) {
-			prev = "<a href='" + request.getContextPath() + "/app/pep/view/view.do?current=" + (cur-1) + "'><img src=\"/ph/app/pep/images/prev.jpg\" width=\"47\" height=\"18\"></a>";
+			prev = "<a href='" + request.getContextPath() + "/app/pep/view/view.do?current=" + (cur-1) + "'><img src=\"/ph/app/pep/images/prev.jpg\" width=\"47\" height=\"18\" style=\"border:none\"></a>";
 		}
 		
 		if (cur < pageSize) {
-			next = "<a href='" + request.getContextPath() + "/app/pep/view/view.do?current=" + (cur+1) + "'><img src=\"/ph/app/pep/images/next.jpg\" width=\"47\" height=\"18\"></a>";
+			next = "<a href='" + request.getContextPath() + "/app/pep/view/view.do?current=" + (cur+1) + "'><img src=\"/ph/app/pep/images/next.jpg\" width=\"47\" height=\"18\" style=\"border:none\"></a>";
 		}
 	}
 %>

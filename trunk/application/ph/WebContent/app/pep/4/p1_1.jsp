@@ -4,21 +4,74 @@
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.HashMap"%>
+<%@page import="com.saturn.web.Web"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="/app/pep/include/header.jsp"%>
+
 <!DOCTYPE HTML>
-<%
-	title = "4.1 Nominierungen/Lieferantenstatus";
-	Map form = (Map)request.getAttribute("form");
-	int fv9Nominiert = 200; // (Integer) form.get("fv9Nominiert");已定厂 
-	int fv9Nichtnominiert = 33;//	 (Integer) form.get("fv9Nichtnominiert");未定厂
-	int Gesamt = fv9Nominiert + fv9Nichtnominiert;	
-%>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<%@ include file="/app/pep/include/header.jsp"%>
 		<title><%=title %> </title>
+		<%
+			Map form = (Map)request.getAttribute("form");
+		
+			//左侧图表数据
+			int fv9Nominiert = Integer.parseInt((String)form.get("fv9Nominiert")); //已定厂 
+			int fv9Nichtnominiert = Integer.parseInt((String)form.get("fv9Nichtnominiert")); //未定厂
+			int Gesamt = fv9Nominiert + fv9Nichtnominiert;	
+			
+			//右侧图表数据
+			int fv9KritischeNomini = Integer.parseInt((String)form.get("fv9KritischeNomini")); //风险件
+			List<String> fv9KWNo = (List<String>)form.get("fv9KWNo");	//周数
+			List<String> fv9KWNum = (List<String>)form.get("fv9KWNumber");	//数量
+			List<String> fv9KWCom = (List<String>)form.get("fv9KWCom");	//备注
+			int[] fv9KWNumber = Web.getIntArrByStringlist(fv9KWNum);
+			
+			List<String> KW = new ArrayList(); //周数
+			List<Integer> value = new ArrayList(); //y值
+			List<Integer> low = new ArrayList(); //low值
+			List<String> desc = new ArrayList(); //每个柱的描述
+			//设置风险件
+			KW.add("Kritische<br>Nominierungen");
+			value.add(fv9KritischeNomini);
+			low.add(0);
+			desc.add("");
+			
+			//设置每周状态
+			int max = fv9KritischeNomini;
+			for (int k=0; k<fv9KWNo.size(); k++){
+				KW.add("KW" + fv9KWNo.get(k));
+				value.add(Integer.parseInt((String)fv9KWNum.get(k)));
+				low.add(max - Integer.parseInt((String)fv9KWNum.get(k)));
+				desc.add(fv9KWCom.get(k));
+				max = max - Integer.parseInt((String)fv9KWNum.get(k));
+			}
+			
+			//设置später
+			KW.add("später");
+			value.add(max);
+			low.add(0);
+			desc.add("");
+			
+			String categories = Web.getStrListStr(KW);
+			
+			
+			StringBuffer sb = new StringBuffer();
+			sb.append("[");
+			if (KW !=null && KW.size() > 0) {
+				if (KW.size() > 1) {
+					for (int m=0; m<KW.size()-1; m++) {
+						sb.append("{y:" + value.get(m) + ", low: " + low.get(m) + ", desc: '"+desc.get(m)+"', color: '#E53110' },");
+					}
+				}
+				sb.append("{y:" + value.get(KW.size()-1) + ", low: " + low.get(KW.size()-1) + ", desc: '"+desc.get(KW.size()-1)+"', color: '#E53110' }");
+			}
+				
+			sb.append("]");
+			String data_str = sb.toString();
+		%>
 		<script type="text/javascript">
 		var chart1;
 		var chart2;
@@ -108,44 +161,7 @@
 						}]
 				}]
 			});
-		<%
-
-			List<String> fv9KWNo = new ArrayList<String>();//(List<String>)form.get("fv9KWNo")	周数
-			fv9KWNo.add("9");
-			fv9KWNo.add("11");
-			fv9KWNo.add("13");
-			fv9KWNo.add("15");
-			
-			List<String> fv9KWNum = new ArrayList<String>();//(List<String>)form.get("fv9KWNumber")	数量
-			fv9KWNum.add("4");
-			fv9KWNum.add("3");
-			fv9KWNum.add("3");
-			fv9KWNum.add("4");
-			int[] fv9KWNumber = Web.getIntArrByStringlist(fv9KWNum);
-			
-			List<String> fv9KWCom = new ArrayList<String>();//{"-x:*** <br/>-y:***","-x:***<br/> -y:***","-x:*** <br/>-y:***"};//(List<String>)form.get("fv9KWCom")	备注
-			fv9KWCom.add("-x:*** <br/>-y:***");
-			fv9KWCom.add("-x:*** <br/>-y:***");
-			fv9KWCom.add("-x:*** <br/>-y:***");
-			fv9KWCom.add("-x:*** <br/>-y:***");
-			
-			int fv9KritischeNomini = 1;//(Integer) form.get("fv9KritischeNomini");	 有风险
-			
-			StringBuffer buffer = new StringBuffer("[");
-			buffer.append("\"" + "Kritische<br>Nominierungen" + "\",");
-			int total = 0;
-			
-			for(int i=0; i<fv9KWNo.size(); i++){
-				buffer.append("\"KW" + fv9KWNo.get(i) + "\",");
-				total = fv9KWNumber[i] + total;
-			}
-			
-			buffer.append("\"" + "später" + "\",");
-			buffer.deleteCharAt(buffer.length()-1);
-			buffer.append("]");
-			String categories = buffer.toString();
-			total = fv9KritischeNomini + total;
-		%>
+		
 			chart2 = new Highcharts.Chart({
 				chart: {
 					renderTo: 'chart2',
@@ -170,7 +186,7 @@
 							color:'black'
 						}
 					},
-					categories: <%=categories%>//["Kritische<br>Nominierungen", 'KW09', 'KW11', 'KW13', 'später'] 
+					categories: <%=categories%> 
 				},
 				yAxis: {
 					min: 0,
@@ -216,35 +232,7 @@
 			    series: [{
 					name: '',
 					showInLegend: false,
-					data: [{ 
-							y: <%=total%>, 
-							low:0,
-							color: '#E53110',
-							desc:'titletest'
-						}, 
-						<%
-						int temp = 0;
-						for(int i=0; i<fv9KWNumber.length; i++){
-							if(i == 0){
-						 		temp = total - fv9KWNumber[i];
-						 	} else {
-						 		temp = temp - fv9KWNumber[i];
-						 	}
-						%>
-						{
-						 	y: <%=fv9KWNumber[i]%>, 
-					 		low: <%=temp%>,
-					 		color: '#E53110',
-					 		desc: '<%=fv9KWCom.get(i)%>'
-						},
-						<%}
-						%>
-						{
-							y: <%=fv9KritischeNomini%>,
-							low:<%=temp - fv9KritischeNomini%>,
-							color: '#E53110',
-							desc: '-x:*** <br/>-y:***'
-						}]
+					data: <%=data_str%>
 				}]
 			});
 		});

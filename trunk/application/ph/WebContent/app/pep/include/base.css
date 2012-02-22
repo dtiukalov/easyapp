@@ -355,6 +355,9 @@
 .freigaben td{
 	width: 76px; height: 15px;font-size: 10px;border:1px #000 solid;text-align:center;cellspacing:0;
 }
-.change {
-	
+.china {
+	width: 45px; height: 35px; BACKGROUND: url(../images/china.jpg) no-repeat 0px 0px;
+}
+.german {
+	width: 45px; height: 35px; BACKGROUND: url(../images/german.jpg) no-repeat 0px 0px;
 }

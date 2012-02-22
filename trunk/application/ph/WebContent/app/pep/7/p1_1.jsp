@@ -72,6 +72,12 @@
    		</div>
 	</div>
     <div id="content" style="height:590px;margin:6px auto;">
+    	<div id="german" style="width: 800px; height: 50px; overflow: hidden; text-align: center;">
+			<input type="button" class="china" onclick="changeChinese()" />
+		</div>
+		<div id="china" style="width: 800px; height: 50px; overflow: hidden; text-align: center; display: none;">
+			<input type="button" class="german" onclick="changeGerman()"/>
+		</div>
      	 <div id="datatable1" style="margin:0 60px">
 			    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 				  <tr>
@@ -330,9 +336,6 @@
 				  </tr>
 				 
 			</table>
-			<div style="width: 800px; height: 50px; overflow: hidden; text-align: center;">
-				<input type="button" class="change" value="切换中文" onclick="changeChinese()" />
-			</div>
 			</div>
 			
 			<div id="datatable2" style="width: 800px;margin:0 50px; display: none;">
@@ -593,9 +596,6 @@
 				  </tr>
 				 
 			</table>
-			<div style="width: 800px; height: 50px; overflow: hidden; text-align: center;">
-				<input type="button" class="change" value="切换德文" onclick="changeGerman()"/>
-			</div>
 			</div>
  		</div>
     <%@ include file="/app/pep/include/foot.jsp"%>

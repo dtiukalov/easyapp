@@ -6,6 +6,7 @@ import com.saturn.tc.clientx.TCSession;
 import com.saturn.tc.utils.server.EasyDataManagementService;
 import com.saturn.tc.utils.server.EasyFileManagementService;
 import com.saturn.tc.utils.server.EasyQueryService;
+import com.teamcenter.schemas.soa._2006_03.exceptions.InvalidCredentialsException;
 import com.teamcenter.soa.client.model.strong.User;
 
 public class PH {
@@ -43,7 +44,20 @@ public class PH {
 
 	public static TCSession getSession() {
 		if (session == null) {
-			session = (TCSession) context.getAttribute("TC_SESSION");
+			String url = (String)context.getAttribute("__TC_URL");
+			String username = (String)context.getAttribute("__TC_USER");
+			String password = (String)context.getAttribute("__TC_PASSWORD");
+			
+			session = new TCSession(url);
+			User user = null;
+			try {
+				user = session.login(username, password);
+			} catch (InvalidCredentialsException e) {
+				e.printStackTrace();
+			}
+			
+			context.setAttribute("TC_SESSION", session);
+			context.setAttribute("TC_USER_ADMIN", user);
 		}
 		return session;
 	}

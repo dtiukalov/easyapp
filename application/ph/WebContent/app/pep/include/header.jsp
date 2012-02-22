@@ -26,11 +26,15 @@
 <script>
 	function changeChinese() {
 		$('#datatable1').css("display", "none");
+		$('#german').css("display", "none");
 		$('#datatable2').css("display", "");
+		$('#china').css("display", "");
 	}
 	
 	function changeGerman() {
 		$('#datatable1').css("display", "");
+		$('#german').css("display", "");
 		$('#datatable2').css("display", "none");
+		$('#china').css("display", "none");
 	}
 </script>

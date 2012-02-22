@@ -27,6 +27,6 @@ public class FV9_51PrKarLacMonForm extends Form {
 
 	@Override
 	public String getTitle() {
-		return "5.1 Status Presswerk, Karosseriebau, Lack, Montage ";
+		return "5.1 Status Presswerk, Karosseriebau, Lack, Montage, Electric ";
 	}
 }

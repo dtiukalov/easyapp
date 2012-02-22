@@ -46,27 +46,47 @@
 			<title><%=title %> </title>
 		
 		<style type="text/css">
-			#subtitle {
+			/* #subtitle {
 				width: 400px; height: 100px; margin: 0 auto; float: left; 
-			}
+			} */
 			#subtitle h1{
 				font-family:Arial, Helvetica, sans-serif;
-				font-size:24px;
-			}
-			#legend {
-				width: 400px; height: 100px; margin: 0 auto; float: left; padding-left: 150px;
+				font-size:24px;margin:30px auto;
 			}
 			#left {
 				width: 400px; height: 500px; margin: 0 auto; float: left;
 			}
 			#left chart{
-				width: 400px; height: 400px; margin: 0 auto; float: left;
+				width: 300px; height: 400px; margin: 0 auto; float: left;
 			}
 			#left time{
 				width: 400px; height: 100px; margin: 0 auto; float: left;
 			}
 			#right {
-				width: 400px; height: 500px; margin: 0 auto; float: left; padding: 10px;
+				width: 350px; margin: 70px auto; float: left; padding: 10px;
+			}
+			.div {
+				width: 350px;
+				border-top-width: 1px;
+				border-top-style: solid;
+				border-top-color: #000000;
+				margin-bottom: 10px;
+			}
+			.div div {
+				height: 42px;
+				border-bottom-width: 1px;
+				border-bottom-style: solid;
+				border-bottom-color: #000000;
+			}
+			.div table td {
+				border-bottom-width: 1px;
+				border-bottom-style: solid;
+				border-bottom-color: #000000;
+				font-family: "宋体";
+				font-size: 12px;
+				line-height: 35px;
+				color: #000000;
+				text-align: center;
 			}
 		</style>
 		<script type="text/javascript">
@@ -129,6 +149,7 @@
 					plotOptions: {
 						column: {
 							stacking: 'normal',
+							groupPadding:0.25,
 							shadow: false,
 							borderWidth:1,
 							borderColor:'black',
@@ -202,21 +223,9 @@
 		<div id="container">
 			<div id="nr">
 				<div id="top"><h1><%=title %></h1></div>
-				<div id="content">
+				<div id="content" style="margin:0 80px;height:600px;">
 					<div id="subtitle">
 						<h1>Teilestatus zu VFF ZP5 KT</h1>
-					</div>
-					<div id="legend">
-						<li><img src="/ph/app/pep/images/legend_white.png" width="13" height="13">
-						&nbsp;PT-Teile/Alternativteile
-						<li><img src="/ph/app/pep/images/legend_lightgreen.png" width="13" height="13">
-						&nbsp;Teile aus Serienwerkzeug
-						<li><img src="/ph/app/pep/images/legend_green.png" width="13" height="13">
-						&nbsp;Note 3
-						<li><img src="/ph/app/pep/images/legend_black.png" width="13" height="13">
-						&nbsp;Note 1
-						<li><img src="/ph/app/pep/images/legend_red.png" width="13" height="13">
-						&nbsp;Note 6
 					</div>
 					<div id="left">
 						<div id="chart" style="height:350px"></div>
@@ -225,29 +234,28 @@
 						</div>
 					</div>
 					<div id="right">
-						<table width="100%">
-							<tr>
-								<td colspan="4" style="text-align: left;font-weight: bolder; height: 36px;border-bottom: 1px solid;">Top</td>
-							</tr>
-							<tr>
-								<td width="34%" style="font-weight: bolder;height: 36px;border-bottom: 2px solid;">Kritische Umfänge</td>
-								<td width="22%" style="font-weight: bolder;text-align: center;border-bottom: 2px solid;">Einzelteile</td>
-								<td width="22%" style="font-weight: bolder;text-align: center;border-bottom: 2px solid;">VSI SWZ</td>
-								<td width="22%" style="font-weight: bolder;text-align: center;border-bottom: 2px solid;">VSI N3</td>
-							</tr>
-							<%
-								for(int i=0; i<fv9TopKrisUmf.size(); i++) {
-							%>		
-							<tr>
-								<td style="height: 36px;border-bottom: 1px solid;"><%=fv9TopKrisUmf.get(i)%></td>
-								<td style="text-align: center;border-bottom: 1px solid;"><%=fv9TopEinNum.get(i)%></td>
-								<td style="text-align: center;border-bottom: 1px solid;"><%=fv9TopVSIN3.get(i)%></td>
-								<td style="text-align: center;border-bottom: 1px solid;"><%=fv9TopVSISWZ.get(i)%></td>
-							</tr>
-							<%
-							}
-							%>
-						</table>
+						<div style="margin:3px 10px;font-weight: bold;">Top</div>
+						<div class="div"><table width="350" cellspacing="0">
+								<tr style="font-weight: bold;">
+									<td>Kritische Umfänge</td>
+									<td> Einzelteile</td>
+									<td>VSI SWZ</td>
+									<td>VSI N3</td>
+								</tr>
+								<% 
+									for(int i=0; i<fv9TopKrisUmf.size(); i++){
+								%>
+									  <tr>
+									    <td style="text-indent: 15px;text-align: left;"><%=fv9TopKrisUmf.get(i)%></td>
+									    <td><%=fv9TopEinNum.get(i)%></td>
+									    <td><%=fv9TopVSIN3.get(i)%></td>
+									    <td><%=fv9TopVSISWZ.get(i)%></td>
+								      </tr>
+								   <%
+									}
+								  %>
+								</table>
+						</div>
 					</div>
 				</div>
 				

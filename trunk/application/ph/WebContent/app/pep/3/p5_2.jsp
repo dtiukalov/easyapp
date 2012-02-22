@@ -60,21 +60,6 @@
 //		外购件
 		String fv9KaufteileNum = Web.getNumberListStr(form.get("fv9KaufteileNum"));
 		String fv9KaufteileProg = Web.getNumberListStr(form.get("fv9KaufteileProg"));
-
-		/* int[] categories = new int[15];
-		int[] lines1 = new int[15];
-		int[] lines2 = new int[15];
-		int[] lines3 = new int[15];
-		int[] lines4 = new int[15];
-		int[] lines5 = new int[15];
-		for(int i=0; i<15; i++) {
-			categories[i] = i+26;
-			lines1[i] = 164;
-			lines2[i] = 166;
-			lines3[i] = 86;
-			lines4[i] = 75;
-			lines5[i] = 36;
-		} */
 		%>
 		<script type="text/javascript">
 			var chart1, chart2, chart3, chart4, chart5;
@@ -654,6 +639,7 @@
 						categories: <%=fv9KWNo%>
 					}],
 					yAxis: {
+						min:0,
 						gridLineWidth:0,
 						lineWidth:1,
 						tickWidth:1,
@@ -725,7 +711,7 @@
 							}
 						}
 					},{
-						data: [[2.5, 0], [2.5001, 800]],
+						data: [[2.5, 0], [2.5001, 5]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,
@@ -741,7 +727,7 @@
 							}
 						}
 					}, {
-						data: [[7.5, 0], [7.5001, 800]],
+						data: [[7.5, 0], [7.5001, 5]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,
@@ -757,7 +743,7 @@
 							}
 						}
 					}, {
-						data: [[11.5, 0], [11.5001, 800]],
+						data: [[11.5, 0], [11.5001, 5]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,

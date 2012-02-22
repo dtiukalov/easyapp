@@ -158,15 +158,22 @@ public class Web {
 	@SuppressWarnings("rawtypes")
 	public static String getFormState(Map form) {
 		if (form != null) {
-			String isPublic = "yes";//form.get("XX");
-			String isReleaze = "yes";//form.get("XX");
+			String isPublic = "";//form.get("fv9PreRelesed");
+			String isRelease = "";//form.get("release_status_list");
 			
-			if (!"yes11".equalsIgnoreCase(isPublic)) {
+			//预发布之前
+			if ("".equalsIgnoreCase(isPublic)) {
 				return "<div id='no-state'>资料整理中...</div>";
 			}
 			
-			if (!"yes".equalsIgnoreCase(isReleaze)) {
-				return "<div id='no-state'>未发布</div>";
+			//预发布之后
+			if ("yes".equalsIgnoreCase(isPublic)) {
+				return "<div id='no-state'>已发布</div>";
+			}
+			
+			//正式发布之后——数据冻结
+			if ("TCM Released".equalsIgnoreCase(isRelease)) {
+				return "<div id='no-state'>&nbsp;</div>";
 			}
 		}
 		

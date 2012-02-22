@@ -67,7 +67,7 @@
    <td>
       <table class="transparent-title" id="trans-title" style="background-color: #fff;">
       <tr>
-         <td style="width:259px;" class="info-message">领导仪表板登录</td>
+         <td style="width:259px;" class="info-message">Pilothallengesprch</td>
       </tr>
       </table>
     </td>

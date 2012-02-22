@@ -5,10 +5,7 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
 import com.saturn.ph.PH;
-import com.saturn.tc.clientx.TCSession;
 import com.saturn.tc.utils.WorkspaceUtils;
-import com.teamcenter.schemas.soa._2006_03.exceptions.InvalidCredentialsException;
-import com.teamcenter.soa.client.model.strong.User;
 
 public class TcSessionListener implements ServletContextListener {
 
@@ -42,16 +39,11 @@ public class TcSessionListener implements ServletContextListener {
 		
 		WorkspaceUtils.HOST = url;
 		
-		TCSession tcsession = new TCSession(url);
-		User user = null;
-		try {
-			user = tcsession.login(username, password);
-		} catch (InvalidCredentialsException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		PH.setContext(context);
-		context.setAttribute("TC_SESSION", tcsession);
+		//context.setAttribute("TC_SESSION", tcsession);
+		context.setAttribute("__TC_URL", url);
+		context.setAttribute("__TC_USER", username);
+		context.setAttribute("__TC_PASSWORD", password);
 		//context.setAttribute("TC_USER", user);
 		
 	}

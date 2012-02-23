@@ -29,6 +29,9 @@
 	<div id="nr">
 		<div id="top"><h1>3.2 Fugen und Radienplan</h1></div>
     	<div id="content">
+    	<div id="german">
+			<input type="button" class="china" onclick="changeChinese()" />
+		</div>
     	<div id="datatable1" style="width: 800px; margin:0 50px">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 			  <tr>
@@ -56,7 +59,7 @@
 				  		</tr>
 					</table>
 				</td>
-			    <td valign="top" class="pgpg"><div class="tbnrr">
+			    <td width="60%" valign="top" class="pgpg"><div class="tbnrr">
 			    <%
    				if (fv9FugRadCom_GM.get(i) != null && !"".equals(fv9FugRadCom_GM.get(i))) {
     			%>
@@ -69,7 +72,7 @@
     				}
     			%>
 			    </div></td>
-			    <td valign="top" class="pgpg"><div class="tbnrr">
+			    <td width="40%" valign="top" class="pgpg"><div class="tbnrr">
 			    	<%
 	    				if (fv9FugRadMabnh_GM.get(i) != null && !"".equals(fv9FugRadMabnh_GM.get(i))) {
 	    			%>
@@ -87,11 +90,10 @@
 		  			}
 				%>  
 			</table>
-			<div style="width: 800px; height: 50px; overflow: hidden; text-align: center;">
-				<input type="button" class="change" value="切换中文" onclick="changeChinese()" />
-			</div>
 		</div>
-		
+		<div id="china" style="display: none;">
+			<input type="button" class="german" onclick="changeGerman()"/>
+		</div>
 		<div id="datatable2" style="width: 800px; display: none;margin:0 50px">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 			  <tr>
@@ -119,7 +121,7 @@
 				  		</tr>
 					</table>
 				</td>
-			    <td valign="top" class="pgpg"><div class="tbnrr">
+			    <td width="60%" valign="top" class="pgpg"><div class="tbnrr">
 			    <%
    				if (fv9FugRadCom_CN.get(i) != null && !"".equals(fv9FugRadCom_CN.get(i))) {
     			%>
@@ -132,7 +134,7 @@
     				}
     			%>
 			    </div></td>
-			    <td valign="top" class="pgpg"><div class="tbnrr">
+			    <td width="40%" valign="top" class="pgpg"><div class="tbnrr">
 			    	<%
 	    				if (fv9FugRadMabnh_CN.get(i) != null && !"".equals(fv9FugRadMabnh_CN.get(i))) {
 	    			%>
@@ -150,9 +152,6 @@
 		  			}
 				%>  
 			</table>
-			<div style="width: 800px; height: 50px; overflow: hidden; text-align: center;">
-				<input type="button" class="change" value="切换德文" onclick="changeGerman()"/>
-			</div>
 		</div>
 	</div>
     <%@ include file="/app/pep/include/foot.jsp"%>

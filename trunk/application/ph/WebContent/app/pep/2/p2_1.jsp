@@ -25,13 +25,16 @@
 		<div id="container">
 			<div id="nr">
 			<div id="top"><h1><%=title %></h1></div>
-			<div id="content" style="margin:0 auto;height:600px;font-size:12px">
-				<div id="datatable1" style="width: 800px;">
+			<div id="content" style="margin:5px 30px;font-size:12px;height:590px;">
+				<div id="german">
+					<input type="button" class="china" onclick="changeChinese()" />
+				</div>
+				<div id="datatable1" style="width: 800px;margin:10px auto">
 					<table width="96%" border="0" cellspacing="5" cellpadding="0" class="ed">
 				        <tr>
 				        	<td width="19%">&nbsp;</td>
-				        	<td width="81%"  style="border-bottom:1px solid #424242;">
-					        	<table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:14px">
+				        	<td width="81%" style="border-bottom:2px solid #424242;">
+					        	<table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:16px">
 						            <tr>
 							            <td>Aktueller Status</td>
 							            <td>Nachste Status</td>
@@ -51,22 +54,22 @@
 				          <td width="19%">
 					          <div class="kbg">
 					          	<div class="he">
-						          	<div class="wz"><h2><%=Style %></h2></div>
+						          	<div class="wz"><h3><%=Style %></h3></div>
 						          	<div class="tupian">
 						          	<%
 						          	if ("红".equals(status)) {
 						          	%>
-						          		<img src="../images/redStatus.png" />
+						          		<img src="../images/redStatus.png" style="height:75px;width:25px;" />
 						          	<%
 						          	}
 						          	if ("黄".equals(status)) {
 						          	%>
-						          		<img src="../images/yellowStatus.png" />
+						          		<img src="../images/yellowStatus.png" style="height:75px;width:25px;" />
 						          	<%
 							        }
 						          	if ("绿".equals(status)) {
 						          	%>
-						          		<img src="../images/greenStatus.png" />
+						          		<img src="../images/greenStatus.png" style="height:75px;width:25px;" />
 						          	<%
 						          	}
 						          	%>
@@ -75,18 +78,20 @@
 						          </div>
 					          </div>
 				          </td>
-				          <td width="81%" valign="top" class="xx"><table width="98%" border="0" cellspacing="2" cellpadding="0">
-				            <tr>
-				              <td height="25">
-				              	<table width="98%" border="0" cellspacing="2" cellpadding="0" > 
+				          <td width="81%"  valign="top" class="xx">
+					          <table width="98%" border="0" cellspacing="2" cellpadding="0">
 						            <tr>
-						              <td width="49%" height="25"><%=stcom_gm %></td>
-						              <td width="51%" valign="top"><%=nachsch_gm %></td>
+						              <td>
+						              	<table width="98%" border="0" cellspacing="2" cellpadding="0" > 
+								            <tr>
+								              <td width="60%"><%=stcom_gm %></td>
+								              <td width="40%" valign="top"><%=nachsch_gm %></td>
+								            </tr>
+								        </table>
+						              </td>
 						            </tr>
-						          </table>
-				              </td>
-				            </tr>
-				          </table></td>
+					          </table>
+				          </td>
 				        </tr>
 						<%
 								}
@@ -94,17 +99,16 @@
 				        %>		
 				       
 				      </table>
-				      <div style="width: 800px; height: 50px; overflow: hidden; text-align: center;">
-						<input type="button" class="change" value="切换中文" onclick="changeChinese()" />
-					  </div>
 			      </div>
-			      
-			      <div id="datatable2" style="width: 800px; display: none;">
+			      <div id="china" style="display: none;">
+				  	<input type="button" class="german" onclick="changeGerman()"/>
+				  </div>
+			      <div id="datatable2" style="width: 800px; display: none;margin:10px auto">
 					<table width="96%" border="0" cellspacing="5" cellpadding="0" class="ed">
 				        <tr>
 				        	<td width="19%">&nbsp;</td>
-				        	<td width="81%"  style="border-bottom:1px solid #424242;">
-					        	<table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:14px">
+				        	<td width="81%"  style="border-bottom:2px solid #424242;">
+					        	<table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:16px">
 						            <tr>
 							            <td>Aktueller Status</td>
 							            <td>Nachste Status</td>
@@ -124,22 +128,22 @@
 				          <td width="19%">
 					          <div class="kbg">
 					          	<div class="he">
-						          	<div class="wz"><h2><%=Style %></h2></div>
+						          	<div class="wz"><h3><%=Style %></h3></div>
 						          	<div class="tupian">
 						          	<%
 						          	if ("红".equals(status)) {
 						          	%>
-						          		<img src="../images/redStatus.png" />
+						          		<img src="../images/redStatus.png" style="height:75px;width:25px;"/>
 						          	<%
 						          	}
 						          	if ("黄".equals(status)) {
 						          	%>
-						          		<img src="../images/yellowStatus.png" />
+						          		<img src="../images/yellowStatus.png" style="height:75px;width:25px;"/>
 						          	<%
 							        }
 						          	if ("绿".equals(status)) {
 						          	%>
-						          		<img src="../images/greenStatus.png" />
+						          		<img src="../images/greenStatus.png" style="height:75px;width:25px;"/>
 						          	<%
 						          	}
 						          	%>
@@ -153,8 +157,8 @@
 				              <td height="25">
 				              	<table width="98%" border="0" cellspacing="2" cellpadding="0">
 						            <tr>
-						              <td width="49%" height="25"><%=stcom_cn %></td>
-						              <td width="51%" valign="top"><%=nachsch_cn %></td>
+						              <td width="60%" height="25"><%=stcom_cn %></td>
+						              <td width="40%" valign="top"><%=nachsch_cn %></td>
 						            </tr>
 						          </table>
 				              </td>
@@ -167,9 +171,6 @@
 				        %>		
 				       
 				      </table>
-				      <div style="width: 800px; height: 50px; overflow: hidden; text-align: center;">
-						<input type="button" class="change" value="切换德文" onclick="changeGerman()"/>
-					</div>
 			      </div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>

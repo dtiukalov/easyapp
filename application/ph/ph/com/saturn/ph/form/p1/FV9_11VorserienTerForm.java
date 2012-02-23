@@ -12,7 +12,8 @@ public class FV9_11VorserienTerForm extends Form {
 		"fv9PVSAbsStart","fv9PVSAbsEnd","fv90STBTZP5","fv90STBTZP7",
 		"fv90SVorStart","fv90SVorEnd","fv90SVorBatches","fv90SVorFzg",
 		"fv90SAbsMeter","fv90SAbsStart","fv90SAbsEnd","fv9TPPA_ME",
-		"fv9QFTPPA_Kunde"
+		"fv9QFTPPA_Kunde",
+		"fv9PreRelesed", "fv9Oraganization"
 	};
 	
 	public String[] getAttributes() {

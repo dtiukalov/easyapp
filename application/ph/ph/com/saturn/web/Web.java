@@ -158,7 +158,7 @@ public class Web {
 	@SuppressWarnings("rawtypes")
 	public static String getFormState(Map form) {
 		if (form != null) {
-			String isPublic = "";//form.get("fv9PreRelesed");
+			String isPublic = (String)form.get("fv9PreRelesed");
 			String isRelease = "";//form.get("release_status_list");
 			
 			//预发布之前

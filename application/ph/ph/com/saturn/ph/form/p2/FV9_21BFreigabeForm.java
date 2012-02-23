@@ -5,7 +5,8 @@ import com.saturn.ph.Form;
 public class FV9_21BFreigabeForm extends Form {
 	
 	private static final String[] attr = {
-		"fv9BFMajor", "fv9BFGesamtNum", "fv9BFSollNum", "fv9BFlstNum"
+		"fv9BFMajor", "fv9BFGesamtNum", "fv9BFSollNum", "fv9BFlstNum",
+		"fv9PreRelesed", "fv9Oraganization"
 	};
 
 	public String[] getAttributes() {

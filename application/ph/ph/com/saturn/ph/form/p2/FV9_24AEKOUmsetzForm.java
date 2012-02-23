@@ -5,7 +5,8 @@ import com.saturn.ph.Form;
 public class FV9_24AEKOUmsetzForm extends Form {
 	
 	private static final String[] attr = {
-		"fv9StyleName", "fv9StyleNum"
+		"fv9StyleName", "fv9StyleNum",
+		"fv9PreRelesed", "fv9Oraganization"
 	};
 
 	public String[] getAttributes() {

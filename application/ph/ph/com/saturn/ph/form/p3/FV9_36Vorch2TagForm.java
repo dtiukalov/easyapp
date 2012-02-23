@@ -6,7 +6,8 @@ public class FV9_36Vorch2TagForm extends Form {
 	
 	private static final String[] attr = {
 		"fv9KWNo", "fv9InPlanung", "fv9MabnaNichtErarb", "fv9MabnaWerdenDef",
-		"fv9MabnaDef", "fv9IO", "fv9PrognosePlan", "fv9Zeil","fv9PrognoseIO"
+		"fv9MabnaDef", "fv9IO", "fv9PrognosePlan", "fv9Zeil","fv9PrognoseIO",
+		"fv9PreRelesed", "fv9Oraganization"
 	};
 	
 	public String[] getAttributes() {

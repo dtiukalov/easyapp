@@ -10,7 +10,8 @@ public class FV9_34FuntAussTolForm extends Form {
 		"fv9FuncSmall10", "fv9FuncSmall10Com", 
 		"fv9FuncSmall15", "fv9FuncSmall15Com", 
 		"fv9FuncSmall20", "fv9FuncSmall20Com",
-		"fv9FuncBig20", "fv9FuncBig20Com"
+		"fv9FuncBig20", "fv9FuncBig20Com",
+		"fv9PreRelesed", "fv9Oraganization"
 	};
 
 	public String[] getAttributes() {

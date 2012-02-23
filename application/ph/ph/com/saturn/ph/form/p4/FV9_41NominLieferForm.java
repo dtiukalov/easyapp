@@ -6,7 +6,8 @@ public class FV9_41NominLieferForm extends Form {
 	
 	private static final String[] attr = {
 		"fv9Nominiert", "fv9Nichtnominiert", "fv9KritischeNomini", "fv9KWNo",
-		"fv9KWNumber","fv9KWCom"
+		"fv9KWNumber", "fv9KWCom",
+		"fv9PreRelesed", "fv9Oraganization"
 	};
 
 	public String[] getAttributes() {

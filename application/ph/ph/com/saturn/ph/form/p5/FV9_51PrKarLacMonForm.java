@@ -9,7 +9,8 @@ public class FV9_51PrKarLacMonForm extends Form {
 		"fv9KarossStatus", "fv9KarossStCom_CN", "fv9KarossStCom_GM", "fv9KarossStMab_CN","fv9KarossStMab_GM",
 		"fv9LackStatus", "fv9LackStCom_CN", "fv9LackStCom_GM","fv9LackStMab_CN", "fv9LackStMab_GM", 
 		"fv9MontStatus", "fv9MontStCom_CN","fv9MontStCom_GM", "fv9MontStMab_CN", "fv9MontStMab_GM",
-		"fv9ElectStatus", "fv9ElectStCom_CN","fv9ElectStCom_GM", "fv9ElectStMab_CN", "fv9ElectStMab_GM"
+		"fv9ElectStatus", "fv9ElectStCom_CN","fv9ElectStCom_GM", "fv9ElectStMab_CN", "fv9ElectStMab_GM",
+		"fv9PreRelesed", "fv9Oraganization"
 	};
 
 	public String[] getAttributes() {

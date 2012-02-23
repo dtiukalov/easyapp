@@ -4,7 +4,9 @@ import com.saturn.ph.Form;
 
 public class FV9_42TerminubersichtZP5KTDataset extends Form {
 	
-	private static final String[] attr = {};
+	private static final String[] attr = {
+		"fv9PreRelesed", "fv9Oraganization"
+	};
 	
 	public String[] getAttributes() {
 		return attr;

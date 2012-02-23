@@ -14,8 +14,6 @@
 		<%@ include file="/app/pep/include/header.jsp"%>
 		<title><%=title %></title>
 		<%
-			Map form = (Map)request.getAttribute("form");
-		
 			List<String> functionStyle = (List<String>)form.get("fv9FunctionStyle");
 			List<String> stylePoint = (List<String>)form.get("fv9StylePoint");
 			List<String> aK = (List<String>)form.get("fv9FunctionAK");

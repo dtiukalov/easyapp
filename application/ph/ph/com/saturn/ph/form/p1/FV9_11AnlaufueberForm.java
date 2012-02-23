@@ -7,7 +7,7 @@ public class FV9_11AnlaufueberForm extends Form {
 	private static final String[] attr = {
 		"fv9ProjectDerivat", "fv9ProjectStufe", "fv9ProjectPVS",
 		"fv9ProjectVFF", "fv9Project0S", "fv9ProjectSOP", "fv9ProjectMix",
-		"fv9PreRelesed", "fv9Oraganization", "release_status_list"
+		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName"
 	};
 
 	public String[] getAttributes() {

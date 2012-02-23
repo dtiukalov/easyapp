@@ -10,8 +10,6 @@
 	<%@ include file="/app/pep/include/header.jsp"%>
 	<title><%=title %></title>
 	<%
-		Map form = (Map)request.getAttribute("form");
-	
 		String fv9PressStatus = (String)form.get("fv9PressStatus");  //冲压状态 
 		String fv9PressStCom_CN = (String)form.get("fv9PressStCom_CN"); //冲压状态备注
 		String fv9PressStCom_GM = 	(String)form.get("fv9PressStCom_GM");// 冲压状态备注

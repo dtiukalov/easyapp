@@ -16,7 +16,6 @@
 		<%@ include file="/app/pep/include/header.jsp"%>
 		<title><%=title %></title>
 		<%
-		Map form = (Map)request.getAttribute("form");
 		String categories ="[]";
 		String data = "[]";	
 		List<String> fv9StyleName = (List<String>)form.get("fv9StyleName");

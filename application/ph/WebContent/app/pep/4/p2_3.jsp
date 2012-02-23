@@ -13,7 +13,6 @@
 		<%@ include file="/app/pep/include/header.jsp"%>
 		<title><%=title %></title>
 		<% 
-		Map form = (Map)request.getAttribute("form");
 		int fv9TotalNum	= 0;//	总数
 		int fv9CKDCOPNum = 0;//CKD/COP
 		

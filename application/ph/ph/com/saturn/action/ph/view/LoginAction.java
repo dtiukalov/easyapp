@@ -41,7 +41,7 @@ public class LoginAction implements IAction {
 			if(user != null){
 				request.getSession().setAttribute("TC_USER", user);
 				request.getSession().setAttribute("TC_USER_UID", user.getUid());
-				Map<String,Item>  phItemMap = WorkspaceUtils.initPHItemlist(tcsession, user.getUid());
+				Map<String,Item>  phItemMap = WorkspaceUtils.initPHItemlist(tcsession, user);
 				request.getSession().setAttribute("CURR_USER_PHITEM_LIST", phItemMap);
 			}
 			

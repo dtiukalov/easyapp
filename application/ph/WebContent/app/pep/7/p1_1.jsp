@@ -10,7 +10,6 @@
 	<%@ include file="/app/pep/include/header.jsp"%>
 	<title><%=title %></title>
 	<%
-		Map form = (Map)request.getAttribute("form");
 		String milepost = (String)request.getSession().getAttribute("milepost");
 		String fv9ProjectStatus = (String) form.get("fv9FunktionStatus");
 	

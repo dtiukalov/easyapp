@@ -16,7 +16,6 @@
 			int fv9PPErste = 0;
 			int fv9PPNicht =0;
 			int fv9Genehmigt =0;
-			Map form = (Map)request.getAttribute("form");
 			
 			if(form.get("fv9PPCOP")!= null && !"".equals(form.get("fv9PPCOP")) ){
 				fv9PPCOP = Integer.parseInt((String)form.get("fv9PPCOP"));

@@ -11,8 +11,6 @@
 		<title><%=title %></title>
 		
 		<%
-			Map form = (Map)request.getAttribute("form");
-		
 			String fv9KWNo = "[]";
 			String fv9AekoAbgesch =  "[]";
 			String fv9AekoSmall2Woch =  "[]";

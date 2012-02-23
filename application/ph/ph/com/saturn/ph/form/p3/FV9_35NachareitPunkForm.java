@@ -7,7 +7,7 @@ public class FV9_35NachareitPunkForm extends Form {
 	private static final String[] attr = {
 		"fv9KWNo", "fv9Montage", "fv9Lack", "fv9Kaufteile",
 		"fv9Karosseriebau","fv9Presswerk","fv9Prognose",
-		"fv9PreRelesed", "fv9Oraganization", "release_status_list"
+		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName"
 	};
 
 	public String[] getAttributes() {

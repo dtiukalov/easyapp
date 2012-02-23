@@ -13,7 +13,6 @@
 		<%@ include file="/app/pep/include/header.jsp"%>
 		<title><%=title %></title>
 		<%
-			Map form = (Map)request.getAttribute("form");
 			String kws = Web.getNumberListStr(form.get("fv9KWNo"));  
 			String soll =  Web.getNumberListStr(form.get("fv9ZP8NumSoll"));
 			String sumSoll =  Web.getSumNumberListStr(form.get("fv9ZP8NumSoll"));

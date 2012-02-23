@@ -13,8 +13,6 @@
 		<title><%=title %></title>
 		
 		<%
-		Map form = (Map)request.getAttribute("form");
-		
 		List<String> KWNo = (List)form.get("fv9KWNo");
 		List<String> KarosseriebauNum = (List)form.get("fv9KarosseriebauNum");
 		List<String> KonzernNum = (List)form.get("fv9KonzernNum");

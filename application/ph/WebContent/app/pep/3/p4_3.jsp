@@ -13,7 +13,6 @@
 		<%@ include file="/app/pep/include/header.jsp"%>
 		<title><%=title %></title>
 		<%
-		Map form = (Map)request.getAttribute("form");
 		
 //		小于0.5mm
 		int fv9FuncSmall05 = 0;

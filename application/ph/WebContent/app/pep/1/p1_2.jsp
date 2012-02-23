@@ -16,7 +16,6 @@
 		
 	</style>
 	<%
-		Map form = (Map)request.getAttribute("form");	
 		String uid = (String)request.getAttribute("uid");
 	%>
 </head>

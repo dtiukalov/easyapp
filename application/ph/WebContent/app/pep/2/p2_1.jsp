@@ -12,7 +12,6 @@
 		<%@ include file="/app/pep/include/header.jsp"%>
 		<title><%=title %></title>
 		<%
-			Map form = (Map)request.getAttribute("form");		
 			List<String> fv9ErprobStyle = (List)form.get("fv9ErprobStyle"); //实验及路试
 			List<String> fv9ErprobStatus = (List)form.get("fv9ErprobStatus"); //实验及路试状态
 			List<String> fv9ErprobStCom_GM = (List)form.get("fv9ErprobStCom_GM"); //当前状态描述-德文

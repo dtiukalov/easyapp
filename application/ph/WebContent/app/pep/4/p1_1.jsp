@@ -15,8 +15,6 @@
 		<%@ include file="/app/pep/include/header.jsp"%>
 		<title><%=title %> </title>
 		<%
-			Map form = (Map)request.getAttribute("form");
-		
 			//左侧图表数据
 			int fv9Nominiert = Integer.parseInt((String)form.get("fv9Nominiert")); //已定厂 
 			int fv9Nichtnominiert = Integer.parseInt((String)form.get("fv9Nichtnominiert")); //未定厂

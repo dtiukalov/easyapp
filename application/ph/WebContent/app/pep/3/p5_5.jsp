@@ -37,8 +37,6 @@
 			String num;
 		}
 		
-		Map form = (Map)request.getAttribute("form");
-		
 		Double audit_ist = 0.0;
 		Double audit_soll = 0.0;
 		

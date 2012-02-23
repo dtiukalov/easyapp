@@ -11,7 +11,6 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title><%=title %></title>
 		<%
-			Map form = (Map)request.getAttribute("form");
 			String fv9KWNo = Web.getNumberListStr(form.get("fv9KWNo"));
 			String fv9MontageNum = Web.getNumberListStr(form.get("fv9MontageNum"));
 			String fv9LackNum = Web.getNumberListStr(form.get("fv9LackNum"));
@@ -20,7 +19,6 @@
 			String fv9PresswerkNum = Web.getNumberListStr(form.get("fv9PresswerkNum"));
 			String fv9AusStrNum = Web.getNumberListStr(form.get("fv9AusStrNum"));
 			String fv9Prognose = Web.getNumberListStr(form.get("fv9Prognose"));
-			
 		%>
 		
 		<script type="text/javascript">

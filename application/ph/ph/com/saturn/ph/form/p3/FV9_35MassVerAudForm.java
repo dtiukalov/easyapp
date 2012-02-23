@@ -13,7 +13,7 @@ public class FV9_35MassVerAudForm extends Form {
 		"fv9Lack", "fv9LackCom_CN", "fv9LackCom_GM", "fv9LackAudit", 
 		"fv9Karosseriebau", "fv9KarossCom_CN", "fv9KarossCom_GM", "fv9KarossAudit", 
 		"fv9Presswerk", "fv9PresswerkCom_CN", "fv9PresswerkCom_GM", "fv9PresswerkAudit",
-		"fv9PreRelesed", "fv9Oraganization", "release_status_list"
+		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName"
 	};
 
 	public String[] getAttributes() {

@@ -12,7 +12,7 @@ public class FV9_15BauprogPVS extends Form {
 		"fv9LackStart", "fv9LackEnd",
 		"fv9MontageStart", "fv9MontageEnd", 
 		"fv9ObergabeStart","fv9ObergabeEnd",
-		"fv9PreRelesed", "fv9Oraganization", "release_status_list"
+		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName"
 	};
 
 	public String[] getAttributes() {

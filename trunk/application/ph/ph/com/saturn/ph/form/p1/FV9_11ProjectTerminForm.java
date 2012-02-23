@@ -24,6 +24,8 @@ public class FV9_11ProjectTerminForm extends Form {
 		"fv90SMLDate", "fv90SMLOrg",
 		"fv9SOPMLDate", "fv9SOPMLOrg",
 		"fv9MEMLDate", "fv9MEMLOrg",
+		
+		"fv9PreRelesed", "fv9Oraganization"
 	};
 		
 	public String[] getAttributes() {

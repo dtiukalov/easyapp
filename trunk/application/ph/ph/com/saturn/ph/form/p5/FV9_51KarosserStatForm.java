@@ -7,7 +7,8 @@ public class FV9_51KarosserStatForm extends Form {
 	private static final String[] attr = {
 		"fv9KarosserStyle", "fv9KarosserStatus", 
 		"fv9KarossStCom_CN", "fv9KarossStCom_GM",
-		"fv9KarossMab_CN", "fv9KarossMab_GM"
+		"fv9KarossMab_CN", "fv9KarossMab_GM",
+		"fv9PreRelesed", "fv9Oraganization"
 	};
 
 	public String[] getAttributes() {

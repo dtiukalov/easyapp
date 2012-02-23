@@ -6,7 +6,8 @@ public class FV9_21PBFreigBMGForm extends Form {
 	
 	private static final String[] attr = {
 		"fv9FreigabeStyle", "fv9FreigabeStatus", "fv9AnzahlNum", "fv9FreigSollNum",
-		"fv9FreiglstNum", "fv9FreigCom_CN", "fv9FreigCom_GM"
+		"fv9FreiglstNum", "fv9FreigCom_CN", "fv9FreigCom_GM",
+		"fv9PreRelesed", "fv9Oraganization"
 	};
 
 	public String[] getAttributes() {

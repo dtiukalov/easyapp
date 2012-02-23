@@ -5,7 +5,8 @@ import com.saturn.ph.Form;
 public class FV9_15FahrzeugaufZP5Form extends Form {
 	
 	private static final String[] attr = {
-		"fv9KWNo", "fv9ZP5NumSoll", "fv9ZP5Numlst"
+		"fv9KWNo", "fv9ZP5NumSoll", "fv9ZP5Numlst", 
+		"fv9PreRelesed", "fv9Oraganization"
 	};
 
 	public String[] getAttributes() {

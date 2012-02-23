@@ -9,7 +9,8 @@ public class FV9_43TeileStatPVSKTForm extends Form {
 		"fv9TeilestName","fv9TeileAusSerien", "fv9TeileNote6",
 		"fv9TeileFehlend", "fv9TeileNote3","fv9TeileNote1",
 		"fv9TopKrisUmf", "fv9TopEinNum", "fv9TopVSIN3",
-		"fv9TopVSIN1"
+		"fv9TopVSIN1",
+		"fv9PreRelesed", "fv9Oraganization"
 	};
 
 	public String[] getAttributes() {

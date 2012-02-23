@@ -5,7 +5,8 @@ import com.saturn.ph.Form;
 public class FV9_15ProgrammpunkteForm extends Form {
 	
 	private static final String[] attr = {
-		"fv9PPCOP", "fv9PPErste", "fv9PPNicht"
+		"fv9PPCOP", "fv9PPErste", "fv9PPNicht",
+		"fv9PreRelesed", "fv9Oraganization"
 	};
 	
 	public String[] getAttributes() {

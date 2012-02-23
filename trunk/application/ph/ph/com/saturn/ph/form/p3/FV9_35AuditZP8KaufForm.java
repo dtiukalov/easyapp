@@ -7,7 +7,8 @@ public class FV9_35AuditZP8KaufForm extends Form {
 	private static final String[] attr = {
 		"fv9KWNo", "fv9KaufteileNum", "fv9KonzernNum", "fv9PrognoseNum",
 		"fv9Note3Num", "fv9Note2Num", "fv9Note1Num",
-		"fv9KW", "fv9Name", "fv9Score", "fv9Option"
+		"fv9KW", "fv9Name", "fv9Score", "fv9Option",
+		"fv9PreRelesed", "fv9Oraganization"
 	};
 
 	public String[] getAttributes() {

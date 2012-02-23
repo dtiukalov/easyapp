@@ -7,7 +7,8 @@ public class FV9_22ErprobDauerForm extends Form {
 	private static final String[] attr = {
 		"fv9ErprobStyle", "fv9ErprobStatus", 
 		"fv9ErprobStCom_CN", "fv9ErprobStCom_GM",
-		"fv9ErprobNachSch_CN", "fv9ErprobNachSch_GM"
+		"fv9ErprobNachSch_CN", "fv9ErprobNachSch_GM",
+		"fv9PreRelesed", "fv9Oraganization"
 	};
 
 	public String[] getAttributes() {

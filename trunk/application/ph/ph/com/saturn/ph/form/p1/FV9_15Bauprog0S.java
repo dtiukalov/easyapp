@@ -11,7 +11,8 @@ public class FV9_15Bauprog0S extends Form {
 		"fv9KarossStart","fv9KarossEnd", 
 		"fv9LackStart", "fv9LackEnd",
 		"fv9MontageStart", "fv9MontageEnd", 
-		"fv9ObergabeStart","fv9ObergabeEnd"
+		"fv9ObergabeStart","fv9ObergabeEnd",
+		"fv9PreRelesed", "fv9Oraganization"
 	};
 
 	public String[] getAttributes() {

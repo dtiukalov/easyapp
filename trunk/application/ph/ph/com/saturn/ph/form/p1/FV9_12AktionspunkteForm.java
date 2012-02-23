@@ -5,7 +5,8 @@ import com.saturn.ph.Form;
 public class FV9_12AktionspunkteForm extends Form {
 	
 	private static final String[] attr = {
-		"fv9Aktion_CN", "fv9Aktion_GM", "fv9Verantwortlich", "fv9Termin", "fv9Status"
+		"fv9Aktion_CN", "fv9Aktion_GM", "fv9Verantwortlich", "fv9Termin", "fv9Status",
+		"fv9PreRelesed", "fv9Oraganization"
 	};
 
 	public String[] getAttributes() {

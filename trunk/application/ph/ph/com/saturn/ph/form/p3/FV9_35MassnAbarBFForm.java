@@ -9,7 +9,8 @@ public class FV9_35MassnAbarBFForm extends Form {
 		"fv9Kaufteile", "fv9KaufteileCom_CN", "fv9KaufteileCom_GM", "fv9Montage",
 		"fv9MontageCom_CN", "fv9MontageCom_GM", "fv9Lack", "fv9LackCom_CN",
 		"fv9LackCom_GM", "fv9Karosseriebau", "fv9KarossCom_CN", "fv9KarossCom_GM",
-		"fv9Presswerk", "fv9PresswerkCom_CN", "fv9PresswerkCom_GM"
+		"fv9Presswerk", "fv9PresswerkCom_CN", "fv9PresswerkCom_GM",
+		"fv9PreRelesed", "fv9Oraganization"
 	};
 
 	public String[] getAttributes() {

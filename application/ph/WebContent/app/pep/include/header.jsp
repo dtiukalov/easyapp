@@ -15,9 +15,11 @@
 	Map form = (Map)request.getAttribute("form");
 	
 	String title = "";
+	String oraganization = "";
 	
 	if (form != null) {
 		title = (String)form.get("fv9PageName");
+		oraganization = (String)form.get("fv9Oraganization");
 	}
 	
 %>

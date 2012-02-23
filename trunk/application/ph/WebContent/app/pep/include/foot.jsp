@@ -35,7 +35,7 @@
 <div id="footer">
 	<div class="foot">
 		<div class="lanst">&nbsp;</div>
-		<div class="lanstk">Produkt Management</div>
+		<div class="lanstk"><%=oraganization %></div>
 		<div class="clear"></div>
     </div>
 	<div class="ft">

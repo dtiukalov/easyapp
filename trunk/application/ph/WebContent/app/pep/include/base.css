@@ -369,4 +369,24 @@
 .german{ 
 	display:block;width: 45px; height: 35px;margin:0 60px; float:right;background:url(../images/german1.jpg) no-repeat;border:none;
 } 
-.german:hover{background:url(../images/german2.jpg) no-repeat;} 
+.german:hover{background:url(../images/german2.jpg) no-repeat;}
+
+.bj {
+	height: 300px;
+	width: 424px;
+	margin-right: auto;
+	margin-left: auto;
+	background-image: url(../images/login.jpg);
+	padding-top: 443px;
+	padding-left: 600px;
+	font-family: "黑体";
+	font-size: 14px;
+	color: #000000;
+	font-weight: bold;
+	line-height: 30px;
+}
+.input {
+	width: 200px;
+	height: 16px;
+	border: 1px solid #999999;
+}

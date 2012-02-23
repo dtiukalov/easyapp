@@ -5,7 +5,7 @@ import com.saturn.ph.Form;
 public class FV9_61LaunchplanungDataset extends Form {
 	
 	private static final String[] attr = {
-		"fv9PreRelesed", "fv9Oraganization"
+		"fv9PreRelesed", "fv9Oraganization", "release_status_list"
 	};
 	
 	public String[] getAttributes() {

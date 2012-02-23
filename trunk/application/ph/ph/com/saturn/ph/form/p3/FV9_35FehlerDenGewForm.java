@@ -11,7 +11,7 @@ public class FV9_35FehlerDenGewForm extends Form {
 		"fv9LackNum", "fv9LackProg",
 		"fv9MontageNum", "fv9MontageProg",
 		"fv9KaufteileNum", "fv9KaufteileProg",
-		"fv9PreRelesed", "fv9Oraganization"
+		"fv9PreRelesed", "fv9Oraganization", "release_status_list"
 	};
 
 	public String[] getAttributes() {

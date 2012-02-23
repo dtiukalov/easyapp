@@ -8,7 +8,7 @@ public class FV9_51KarosserStatForm extends Form {
 		"fv9KarosserStyle", "fv9KarosserStatus", 
 		"fv9KarossStCom_CN", "fv9KarossStCom_GM",
 		"fv9KarossMab_CN", "fv9KarossMab_GM",
-		"fv9PreRelesed", "fv9Oraganization"
+		"fv9PreRelesed", "fv9Oraganization", "release_status_list"
 	};
 
 	public String[] getAttributes() {

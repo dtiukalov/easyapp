@@ -72,13 +72,10 @@
    		</div>
 	</div>
     <div id="content" style="height:590px;margin:6px auto;">
-    	<div id="german" style="width: 800px; height: 50px; overflow: hidden; text-align: center;">
+   		<div id="german">
 			<input type="button" class="china" onclick="changeChinese()" />
 		</div>
-		<div id="china" style="width: 800px; height: 50px; overflow: hidden; text-align: center; display: none;">
-			<input type="button" class="german" onclick="changeGerman()"/>
-		</div>
-     	 <div id="datatable1" style="margin:0 60px">
+     	 <div id="datatable1" style="margin:0 60px;">
 			    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 				  <tr>
 				    <td width="350" class="pg">&nbsp;</td>
@@ -338,7 +335,10 @@
 			</table>
 			</div>
 			
-			<div id="datatable2" style="width: 800px;margin:0 50px; display: none;">
+			<div id="china" style="display: none;">
+				<input type="button" class="german" onclick="changeGerman()"/>
+			</div>
+			<div id="datatable2" style="margin:0 60px; display: none;">
 			    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 				  <tr>
 				    <td width="350" class="pg">&nbsp;</td>
@@ -378,11 +378,11 @@
 							    <td valign="top"><h2>Funktionserfüllung</h2></td>
 							    <td>
 							    <% if(fv9FunktionStatus.equals("绿")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="16" height="50"  />
+							    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="16" height="40"  />
 							    <%} else if(fv9FunktionStatus.equals("黄")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" width="16" height="50"  />	
+							    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" width="16" height="40"  />	
 							   	<%} else if(fv9FunktionStatus.equals("红")){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="16" height="50"  /> 
+								   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="16" height="40"  /> 
 							   	<%}%>
 							    </td>
 							  </tr>
@@ -403,11 +403,11 @@
 						    <td valign="top"><h2>Produktion/ <br />Standardisierung</h2></td>
 						    <td>
 						    	<% if(fv9ProduktionStatus.equals("绿")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="16" height="50"  />
+							    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="16" height="40"  />
 							    <%} else if(fv9ProduktionStatus.equals("黄")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" width="16" height="50"  />	
+							    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" width="16" height="40"  />	
 							   	<%} else if(fv9ProduktionStatus.equals("红")){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="16" height="50"  /> 
+								   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="16" height="40"  /> 
 							   	<%}%>
 						    </td>
 						  </tr>
@@ -423,16 +423,16 @@
 				  	  <tr>
 				    <td valign="top" class="pgpg" style="width:30%">
 				    
-				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:10px 10px 10px 0;">
+				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0;">
 						  <tr>
 						    <td valign="top"><h2>Beschaffung</h2></td>
 						    <td>
 						    	<% if(fv9BeschaffStatus.equals("绿")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="16" height="50"  />
+							    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="16" height="40"  />
 							    <%} else if(fv9BeschaffStatus.equals("黄")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" width="16" height="50"  />	
+							    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" width="16" height="40"  />	
 							   	<%} else if(fv9BeschaffStatus.equals("红")){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="16" height="50"  /> 
+								   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="16" height="40"  /> 
 							   	<%}%>
 						    </td>
 						  </tr>
@@ -448,16 +448,16 @@
 				  	  <tr>
 				    <td valign="top" class="pgpg" style="width:30%">
 				    
-				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:10px 10px 10px 0;">
+				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0;">
 						  <tr>
 						    <td valign="top"><h2>Qualität</h2></td>
 						    <td>
 						    	<% if(fv9QualitStatus.equals("绿")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="16" height="50"  />
+							    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="16" height="40"  />
 							    <%} else if(fv9QualitStatus.equals("黄")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" width="16" height="50"  />	
+							    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" width="16" height="40"  />	
 							   	<%} else if(fv9QualitStatus.equals("红")){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="16" height="50"  /> 
+								   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="16" height="40"  /> 
 							   	<%}%>
 						    </td>
 						  </tr>
@@ -473,16 +473,16 @@
 				  	  <tr>
 				    <td valign="top" class="pgpg" style="width:30%">
 				    
-				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:10px 10px 10px 0;">
+				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0;">
 						  <tr>
 						    <td valign="top"><h2>Vertrieb/Markt</h2></td>
 						    <td>
 						    <% if(fv9VertriebStatus.equals("绿")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="16" height="50"  />
+							    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="16" height="40"  />
 							    <%} else if(fv9VertriebStatus.equals("黄")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" width="16" height="50"  />	
+							    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" width="16" height="40"  />	
 							   	<%} else if(fv9VertriebStatus.equals("红")){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="16" height="50"  /> 
+								   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="16" height="40"  /> 
 							   	<%}%>
 						    </td>
 						  </tr>
@@ -498,16 +498,16 @@
 				  	  <tr>
 				    <td valign="top" class="pgpg" style="width:30%">
 				    
-				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:10px 10px 10px 0;">
+				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0;">
 						  <tr>
 						    <td valign="top"><h2>Finanzen</h2></td>
 						    <td>
 						    <% if(fv9FinanzenStatus.equals("绿")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="16" height="50"  />
+							    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="16" height="40"  />
 							    <%} else if(fv9FinanzenStatus.equals("黄")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" width="16" height="50"  />	
+							    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" width="16" height="40"  />	
 							   	<%} else if(fv9FinanzenStatus.equals("红")){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="16" height="50"  /> 
+								   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="16" height="40"  /> 
 							   	<%}%>
 						    </td>
 						  </tr>
@@ -523,16 +523,16 @@
 				  	  <tr>
 				    <td valign="top" class="pgpg" style="width:30%">
 				    
-				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:10px 10px 10px 0;">
+				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0;">
 						  <tr>
 						    <td valign="top"><h2>Gewicht/CO2</h2></td>
 						    <td>
 						    <% if(fv9GewichtStatus.equals("绿")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="16" height="50"  />
+							    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="16" height="40"  />
 							    <%} else if(fv9GewichtStatus.equals("黄")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" width="16" height="50"  />	
+							    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" width="16" height="40"  />	
 							   	<%} else if(fv9GewichtStatus.equals("红")){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="16" height="50"  /> 
+								   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="16" height="40"  /> 
 							   	<%}%>
 						    </td>
 						  </tr>
@@ -548,16 +548,16 @@
 				  	  <tr>
 				    <td valign="top" class="pgpg" style="width:30%">
 				    
-				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:10px 10px 10px 0;">
+				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0;">
 						  <tr>
 						    <td valign="top"><h2>Doku/Freigaben</h2></td>
 						    <td>
 						    <% if(fv9DokuStatus.equals("绿")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="8" height="20" />
+							    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="16" height="40" />
 							    <%} else if(fv9DokuStatus.equals("黄")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" width="8" height="20" />	
+							    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" width="16" height="40" />	
 							   	<%} else if(fv9DokuStatus.equals("红")){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="8" height="20" /> 
+								   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="16" height="40" /> 
 							   	<%}%>
 						    </td>
 						  </tr>
@@ -573,16 +573,16 @@
 				  <tr>
 				    <td valign="top" class="pgpg" style="width:30%">
 				    
-				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:10px 10px 10px 0;">
+				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0;">
 						  <tr>
 						    <td valign="top"><h2>Termine/Orga</h2></td>
 						    <td>
 						    <% if(fv9TermineStatus.equals("绿")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="8" height="20" />
+							    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="16" height="40" />
 							    <%} else if(fv9TermineStatus.equals("黄")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" width="8" height="20" />	
+							    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" width="16" height="40" />	
 							   	<%} else if(fv9TermineStatus.equals("红")){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="8" height="20" /> 
+								   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="16" height="40" /> 
 							   	<%}%>
 						    </td>
 						  </tr>	

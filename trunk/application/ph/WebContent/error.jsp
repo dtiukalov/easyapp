@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Error Message</title>
 </head>
 <body>
 ${__ERROR_MESSAGE__}
+
+<p>
+
+<%=request.getAttribute("__ERROR_MESSAGE__")%>
 </body>
 </html>

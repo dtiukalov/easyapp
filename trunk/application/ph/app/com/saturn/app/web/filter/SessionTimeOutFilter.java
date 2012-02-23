@@ -21,7 +21,7 @@ public class SessionTimeOutFilter implements Filter {
 
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
-		Object authUser = httpRequest.getSession().getAttribute("authUser");
+		Object authUser = httpRequest.getSession().getAttribute("TC_USER");
 
 //		String loginAction = ((HttpServletRequest) request).getRequestURI();
 //		loginAction = loginAction.substring(1);
@@ -31,7 +31,7 @@ public class SessionTimeOutFilter implements Filter {
 			//	&& !"/app/auth/user/login.action".equals(loginAction)
 				) {
 
-			request.getRequestDispatcher("/app/login.jsp").forward(
+			request.getRequestDispatcher("/app/pep/login.jsp").forward(
 					httpRequest, httpResponse);
 		} else {
 			chain.doFilter(request, response);

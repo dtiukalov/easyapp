@@ -20,9 +20,6 @@
 				border-bottom-color: #000000;
 			}
 			.div table td {
-				border-bottom-width: 1px;
-				border-bottom-style: solid;
-				border-bottom-color: #000000;
 				font-family: "宋体";
 				font-size: 12px;
 				line-height: 30px;
@@ -66,7 +63,29 @@
 		List<String> fv9Presswerk = (List)form.get("fv9Presswerk");//冲压
 		List<String> fv9PresswerkCom_GM = (List)form.get("fv9PresswerkCom_GM");
 		
-		String KW = Web.getNumberListStr(fv9KWNo);
+		/* ['26<br>3','27<br>4','28<br>4','29<br>4','30<br>4','31<br>4'] */
+		//把Audit的分值加在相应的周上
+		StringBuffer kwbuffer = new StringBuffer();
+		kwbuffer.append("[");
+		if (fv9KWNo != null && fv9KWNo.size() > 0) {
+			for (int k=0; k<fv9KWNo.size()-1; k++) {
+				if (k==0) {
+					kwbuffer.append("'" + fv9KWNo.get(k)+ "<br>( " + audit_ist + " )'");
+					kwbuffer.append(",");
+				} if (k == fv9KWNo.size()-2)  {
+					kwbuffer.append("'" + fv9KWNo.get(fv9KWNo.size()-1)+ "<br>( " + audit_soll + " )'");
+					kwbuffer.append(",");
+				} else {
+					kwbuffer.append("'" + fv9KWNo.get(k)+ "'");
+					kwbuffer.append(",");
+				}
+			}
+			
+		}
+		kwbuffer.substring(0, kwbuffer.lastIndexOf(","));
+		kwbuffer.append("]");
+		String KW = kwbuffer.toString();
+		
   		String Projekt = "[";
 		String Kaufteile = "[";
 		String Montage = "[";
@@ -301,30 +320,9 @@
 					name: 'Soll',
 					data: <%=everyKW%>
 				},{
-					name: 'Kaufteile',
-					data: <%=Kaufteile%>,
-					color: '#AED4F8',
-					type: 'column',
-					dashStyle: 'dash',
-					marker: {enabled: false},
-					lineWidth: 1,
-					shadow: false,
-					enableMouseTracking: false
-					
-				},{
-					name: 'Montage',
-					data: <%=Montage%>,
-					color: '#00235A',
-					type: 'column',
-					dashStyle: 'dash',
-					marker: {enabled: false},
-					lineWidth: 1,
-					shadow: false,
-					enableMouseTracking: false
-				},{
-					name: 'Lack',
-					data: <%=Lack%>,
-					color: '#0000FF',
+					name: 'Presswerk',
+					data: <%=Presswerk%>,
+					color: '#BBC2C5',
 					type: 'column',
 					dashStyle: 'dash',
 					marker: {enabled: false},
@@ -341,18 +339,38 @@
 					lineWidth: 1,
 					shadow: false,
 					enableMouseTracking: false
-				},{
-					name: 'Presswerk',
-					data: <%=Presswerk%>,
-					color: '#BBC2C5',
+				}, {
+					name: 'Lack',
+					data: <%=Lack%>,
+					color: '#8994A0',
 					type: 'column',
 					dashStyle: 'dash',
 					marker: {enabled: false},
 					lineWidth: 1,
 					shadow: false,
 					enableMouseTracking: false
-				},
-				{
+				}, {
+					name: 'Montage',
+					data: <%=Montage%>,
+					color: '#00235A',
+					type: 'column',
+					dashStyle: 'dash',
+					marker: {enabled: false},
+					lineWidth: 1,
+					shadow: false,
+					enableMouseTracking: false
+				}, {
+					name: 'Kaufteile',
+					data: <%=Kaufteile%>,
+					color: '#91AFFF',
+					type: 'column',
+					dashStyle: 'dash',
+					marker: {enabled: false},
+					lineWidth: 1,
+					shadow: false,
+					enableMouseTracking: false
+					
+				}, {
 					name: 'Projekt',
 					data: <%=Projekt%>,
 					color: '#99CC00',
@@ -372,7 +390,33 @@
 			<div id="nr">
 				<div id="top"><h1><%=title %></h1></div>	
 				<div id="content">
-					<div id="chart" style="width: 400px; height: 450px; margin: 0 auto; float: left;"></div>
+					<div id="left" style="width: 400px; height: auto; margin: 0 auto; float: left;">
+						<div id="chart" style="width: 400px; height: 450px; margin: 0 auto; float: left;"></div>
+						<div style="width: 400px; height: 100px; margin: 0px; float: left; font-size: 12px;">
+							<div style="width: 100px; height: 30px; float: left; vertical-align: middle; padding-top: 10px; ">
+								<img src="<%=request.getContextPath()%>/app/pep/images/presswerk.jpg" width="15" height="15" />Presswerk
+							</div>
+							<div style="width: 100px; height: 30px; float: left; vertical-align: middle; padding-top: 10px;">
+								<img src="<%=request.getContextPath()%>/app/pep/images/montage.jpg" width="15" height="15" />Montage
+							</div>
+							<div style="width: 100px; height: 30px; float: left; vertical-align: middle; padding-top: 10px;">
+								<img src="<%=request.getContextPath()%>/app/pep/images/Kaufteile.jpg" width="15" height="15" />Kaufteile
+							</div>
+							<div style="width: 100px; height: 30px; float: left; vertical-align: middle; padding-top: 10px;">
+								<img src="<%=request.getContextPath()%>/app/pep/images/audit.jpg" width="15" height="15" />Audit-Note
+							</div>
+							<div style="width: 100px; height: 30px; float: left; vertical-align: middle; padding-top: 10px;">
+								<img src="<%=request.getContextPath()%>/app/pep/images/karosseriebau.jpg" width="15" height="15" />Karosseriebau
+							</div>
+							<div style="width: 100px; height: 30px; float: left; vertical-align: middle; padding-top: 10px;">
+								<img src="<%=request.getContextPath()%>/app/pep/images/lack.jpg" width="15" height="15" />Lack
+							</div>
+							<div style="width: 100px; height: 30px; float: left; vertical-align: middle; padding-top: 10px;">
+								<img src="<%=request.getContextPath()%>/app/pep/images/Projekt.jpg" width="15" height="15" />Projekt
+							</div>
+						</div>
+					</div>
+					
 					<div id="table" style="width: 400px; height: 400px; margin: -50px auto; float: left;">&nbsp;
 						<div class="div">
 								<div>
@@ -380,31 +424,44 @@
 								    <tr>
 								      <td style="width: 30px; height: 30px;">KW</td>
 								      <td style="width: 220px;">&nbsp;Wichtigste Maßnahmen</td>
-								      <td style="width: 50px;text-align: right;">Reduzierung</td>
-								      <td style="width: 50px;text-align: left;">&nbsp;Fehlerpunkte/Fzg</td>
+								      <td style="width: 50px;text-align: right;">Reduzierung&nbsp;</td>
+								      <td style="width: 50px;text-align: right;">Fehlerpunkte/Fzg</td>
 								    </tr>
 								  </table>
 								</div>
 								<table width="350" cellspacing="0">
 								<% 
-									if (t_Kaufteile != null && t_Kaufteile.size() > 0) {
+									if (t_Presswerk != null && t_Presswerk.size() > 0) {
 										int sum = 0;
-										for(int i=0; i<t_Kaufteile.size(); i++){
-											Problem pp = t_Kaufteile.get(i);
+										for(int i=0; i<t_Presswerk.size(); i++){
+											Problem pp = t_Presswerk.get(i);
 											sum += Integer.parseInt(pp.num);
 										}
-										for(int i=0; i<t_Kaufteile.size(); i++){
-											Problem pp = t_Kaufteile.get(i);
-											
+										for(int i=0; i<t_Presswerk.size(); i++){
+											Problem pp = t_Presswerk.get(i);
 								%>
 									  <tr>
 									  	<td><%=pp.kw %></td>
-									    <td><%=pp.desc %></td>
-									    <td style="width: 50px;"><%=pp.num %></td>
+								<%
+											if (i == (t_Presswerk.size()-1)) {
+								%>
+										<td>&nbsp;-&nbsp;<%=pp.desc %></td>
+								<%				
+											} else {
+								%>
+										<td style="border-bottom: 1px solid; width: 250px;">&nbsp;-&nbsp;<%=pp.desc %></td>
+								<%				
+											}
+								%>
+									    
+									    <td style="text-align: right;width: 30px;"><%=pp.num %></td>
 								     <%
 									  	if (i == 0) {
 									 %>
-									  	<td rowspan="<%=t_Kaufteile.size()%>" style="text-align: center;"><%=sum %></td>
+									  	<td rowspan="<%=t_Presswerk.size()%>" style="text-align: right; vertical-align: middle; padding-top:5px; width: 50px;">
+									  		<img src="<%=request.getContextPath()%>/app/pep/images/presswerk.jpg" width="10" height="10" />
+									  		<span style="font-size: 14px;"><%=sum %></span>
+									  	</td>
 									 <%
 									  	} 
 									 %>
@@ -412,25 +469,41 @@
 									
 								<%
 										}
+								%>
+									<tr><td style="line-height: 0px; border-bottom: 1px solid;" colspan="4">&nbsp;</td></tr>
+								<%
 									}
-
-									if (t_Montage != null && t_Montage.size() > 0) {
+								
+									if (t_Karosseriebau != null && t_Karosseriebau.size() > 0) {
 										int sum = 0;
-										for(int i=0; i<t_Montage.size(); i++){
-											Problem pp = t_Montage.get(i);
+										for(int i=0; i<t_Karosseriebau.size(); i++){
+											Problem pp = t_Karosseriebau.get(i);
 											sum += Integer.parseInt(pp.num);
 										}
-										for(int i=0; i<t_Montage.size(); i++){
-											Problem pp = t_Montage.get(i);
+										for(int i=0; i<t_Karosseriebau.size(); i++){
+											Problem pp = t_Karosseriebau.get(i);
 								%>
 									  <tr>
 									  	<td><%=pp.kw %></td>
-									    <td><%=pp.desc %></td>
-									    <td style="width: 50px;"><%=pp.num %></td>
+								<%
+											if (i == (t_Karosseriebau.size()-1)) {
+								%>
+										<td>&nbsp;-&nbsp;<%=pp.desc %></td>
+								<%				
+											} else {
+								%>
+										<td style="border-bottom: 1px solid;">&nbsp;-&nbsp;<%=pp.desc %></td>
+								<%				
+											}
+								%>
+									    <td style="text-align: right;"><%=pp.num %></td>
 								     <%
 									  	if (i == 0) {
 									 %>
-									  	<td rowspan="<%=t_Montage.size()%>" style="text-align: center;"><%=sum %></td>
+									  	<td rowspan="<%=t_Karosseriebau.size()%>" style="text-align: right; vertical-align: middle; padding-top:5px; width: 50px;">
+										  	<img src="<%=request.getContextPath()%>/app/pep/images/karosseriebau.jpg" width="10" height="10" />
+										  	<span style="font-size: 14px;"><%=sum %></span>
+									  	</td>
 									 <%
 									  	} 
 									 %>
@@ -438,6 +511,9 @@
 									
 								<%
 										}
+								%>
+									<tr><td style="line-height: 0px; border-bottom: 1px solid;" colspan="4">&nbsp;</td></tr>
+								<%
 									}
 									
 									if (t_Lack != null && t_Lack.size() > 0) {
@@ -451,12 +527,25 @@
 								%>
 									  <tr>
 									  	<td><%=pp.kw %></td>
-									    <td><%=pp.desc %></td>
-									    <td style="width: 50px;"><%=pp.num %></td>
+								<%
+											if (i == (t_Lack.size()-1)) {
+								%>
+										<td>&nbsp;-&nbsp;<%=pp.desc %></td>
+								<%				
+											} else {
+								%>
+										<td style="border-bottom: 1px solid;">&nbsp;-&nbsp;<%=pp.desc %></td>
+								<%				
+											}
+								%>
+									    <td style="text-align: right;"><%=pp.num %></td>
 								     <%
 									  	if (i == 0) {
 									 %>
-									  	<td rowspan="<%=t_Lack.size()%>" style="text-align: center;"><%=sum %></td>
+									  	<td rowspan="<%=t_Lack.size()%>" style="text-align: right; vertical-align: middle; padding-top:5px; width: 50px;">
+									  		<img src="<%=request.getContextPath()%>/app/pep/images/lack.jpg" width="10" height="10" />
+									  		<span style="font-size: 14px;"><%=sum %></span>
+									  	</td>
 									 <%
 									  	} 
 									 %>
@@ -464,24 +553,41 @@
 									
 								<%
 										}
+								%>
+									<tr><td style="line-height: 0px; border-bottom: 1px solid;" colspan="4">&nbsp;</td></tr>
+								<%
 									}
-									if (t_Karosseriebau != null && t_Karosseriebau.size() > 0) {
+									
+									if (t_Montage != null && t_Montage.size() > 0) {
 										int sum = 0;
-										for(int i=0; i<t_Karosseriebau.size(); i++){
-											Problem pp = t_Karosseriebau.get(i);
+										for(int i=0; i<t_Montage.size(); i++){
+											Problem pp = t_Montage.get(i);
 											sum += Integer.parseInt(pp.num);
 										}
-										for(int i=0; i<t_Karosseriebau.size(); i++){
-											Problem pp = t_Karosseriebau.get(i);
+										for(int i=0; i<t_Montage.size(); i++){
+											Problem pp = t_Montage.get(i);
 								%>
 									  <tr>
 									  	<td><%=pp.kw %></td>
-									    <td><%=pp.desc %></td>
-									    <td style="width: 50px;"><%=pp.num %></td>
+								<%
+											if (i == (t_Montage.size()-1)) {
+								%>
+										<td>&nbsp;-&nbsp;<%=pp.desc %></td>
+								<%				
+											} else {
+								%>
+										<td style="border-bottom: 1px solid;">&nbsp;-&nbsp;<%=pp.desc %></td>
+								<%				
+											}
+								%>
+									    <td style="text-align: right;"><%=pp.num %></td>
 								     <%
 									  	if (i == 0) {
 									 %>
-									  	<td rowspan="<%=t_Karosseriebau.size()%>" style="text-align: center;"><%=sum %></td>
+									  	<td rowspan="<%=t_Montage.size()%>" style="text-align: right; vertical-align: middle; padding-top:5px; width: 50px;">
+									  		<img src="<%=request.getContextPath()%>/app/pep/images/montage.jpg" width="10" height="10" />
+									  		<span style="font-size: 14px;"><%=sum %></span>
+									  	</td>
 									 <%
 									  	} 
 									 %>
@@ -489,24 +595,42 @@
 									
 								<%
 										}
+								%>
+									<tr><td style="line-height: 0px; border-bottom: 1px solid;" colspan="4">&nbsp;</td></tr>
+								<%
 									}
-									if (t_Presswerk != null && t_Presswerk.size() > 0) {
+									
+									if (t_Kaufteile != null && t_Kaufteile.size() > 0) {
 										int sum = 0;
-										for(int i=0; i<t_Presswerk.size(); i++){
-											Problem pp = t_Presswerk.get(i);
+										for(int i=0; i<t_Kaufteile.size(); i++){
+											Problem pp = t_Kaufteile.get(i);
 											sum += Integer.parseInt(pp.num);
 										}
-										for(int i=0; i<t_Presswerk.size(); i++){
-											Problem pp = t_Presswerk.get(i);
+										for(int i=0; i<t_Kaufteile.size(); i++){
+											Problem pp = t_Kaufteile.get(i);
+											
 								%>
 									  <tr>
 									  	<td><%=pp.kw %></td>
-									    <td><%=pp.desc %></td>
-									    <td style="width: 50px;"><%=pp.num %></td>
+								<%
+											if (i == (t_Kaufteile.size()-1)) {
+								%>
+										<td>&nbsp;-&nbsp;<%=pp.desc %></td>
+								<%				
+											} else {
+								%>
+										<td style="border-bottom: 1px solid;">&nbsp;-&nbsp;<%=pp.desc %></td>
+								<%				
+											}
+								%>
+									    <td style="text-align: right;"><%=pp.num %></td>
 								     <%
 									  	if (i == 0) {
 									 %>
-									  	<td rowspan="<%=t_Presswerk.size()%>" style="text-align: center;"><%=sum %></td>
+									  	<td rowspan="<%=t_Kaufteile.size()%>" style="text-align: right; vertical-align: middle; padding-top:5px; width: 50px;">
+										  	<img src="<%=request.getContextPath()%>/app/pep/images/Kaufteile.jpg" width="10" height="10" />
+										  	<span style="font-size: 14px;"><%=sum %></span>
+									  	</td>
 									 <%
 									  	} 
 									 %>
@@ -514,19 +638,41 @@
 									
 								<%
 										}
+								%>
+									<tr><td style="line-height: 0px; border-bottom: 1px solid;" colspan="4">&nbsp;</td></tr>
+								<%
 									}
+									
 									if (t_Projekt != null && t_Projekt.size() > 0) {
+										int sum = 0;
+										for(int i=0; i<t_Projekt.size(); i++){
+											Problem pp = t_Projekt.get(i);
+											sum += Integer.parseInt(pp.num);
+										}
 										for(int i=0; i<t_Projekt.size(); i++){
 											Problem pp = t_Projekt.get(i);
 								%>
 									  <tr>
 									  	<td><%=pp.kw %></td>
-									    <td><%=pp.desc %></td>
-									    <td style="width: 50px;"><%=pp.num %></td>
+								<%
+											if (i == (t_Projekt.size()-1)) {
+								%>
+										<td>&nbsp;-&nbsp;<%=pp.desc %></td>
+								<%				
+											} else {
+								%>
+										<td style="border-bottom: 1px solid;">&nbsp;-&nbsp;<%=pp.desc %></td>
+								<%				
+											}
+								%>
+									    <td style="text-align: right;"><%=pp.num %></td>
 								     <%
 									  	if (i == 0) {
 									 %>
-									  	<td rowspan="<%=t_Projekt.size()%>" style="text-align: center;">30</td>
+									  	<td rowspan="<%=t_Projekt.size()%>" style="text-align: right; vertical-align: middle; padding-top:5px; width: 50px;">
+									  		<img src="<%=request.getContextPath()%>/app/pep/images/Projekt.jpg" width="10" height="10" />
+									  		<span style="font-size: 14px;"><%=sum %></span>
+									  	</td>
 									 <%
 									  	} 
 									 %>
@@ -534,6 +680,9 @@
 									
 								<%
 										}
+								%>
+									<tr><td style="line-height: 0px; border-bottom: 1px solid;" colspan="4">&nbsp;</td></tr>
+								<%
 									}
 								%>
 								</table>

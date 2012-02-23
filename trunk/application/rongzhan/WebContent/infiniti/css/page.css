@@ -31,7 +31,7 @@ a:hover {
 .left .gsjs .bt{
 	height:53px;
 	background:url(../images/bt_bg.gif) no-repeat 0 0;
-	color:#8188b9;
+	color:#660066;
 	font-size:18px;
 	font-family:"微软雅黑",Arial, Helvetica, sans-serif;
 	overflow:hidden;
@@ -52,7 +52,7 @@ a:hover {
 	width:220px;
 }
 .xl .xltiao .dqy{
-	color:#000;
+	color:#660066;
 }
 .xltiao h1 a{
 	line-height:32px;
@@ -61,7 +61,7 @@ a:hover {
 	font-size:14px;
 }
 .xltiao h1 a:hover {
-	color:#8188b9;
+	color:#660066;
 }
 .right {
 	width:749px;
@@ -81,6 +81,7 @@ a:hover {
 }
 .ybt .biaoti {
 	display:block;
+	color:#660066;
 	width:100px;
 	float:left;
 	font-size:16px;

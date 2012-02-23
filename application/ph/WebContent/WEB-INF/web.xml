@@ -7,7 +7,7 @@
 	<display-name>ph</display-name>
 
 	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>/app/pep/login.jsp</welcome-file>
 	</welcome-file-list>
 
 	<context-param>
@@ -31,7 +31,7 @@
 	<context-param>
 		<description>tc路径</description>
 		<param-name>url</param-name>
-		<param-value>http://localhost:7001/tc</param-value>
+		<param-value>http://utc35:7001/tc</param-value>
 	</context-param>
 	
 	<listener>

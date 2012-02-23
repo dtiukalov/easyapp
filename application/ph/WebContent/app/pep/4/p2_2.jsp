@@ -11,7 +11,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<%@ include file="/app/pep/include/header.jsp"%>
-		<title><%=title %> </title>
+		<title><%=title %></title>
 		<% 
 		Map form = (Map)request.getAttribute("form");
 		int fv9TotalNum	= 0;//	总数
@@ -62,8 +62,11 @@
 			#left time{
 				width: 400px; height: 200px; margin: 0 auto; float: left;
 			}
+			#time table tr td{
+				text-align: center;
+			}
 			#right {
-				width: 350px; margin: 10px auto; float: left; padding: 10px;
+				width: 350px; margin: 20px auto; float: left; padding: 10px;
 			}
 			.div {
 				width: 350px;
@@ -243,15 +246,19 @@
 								<tr>
 									<td style="width: 12px; ">KW</td>
 									<td style="width: 48px; ">52</td>
-									<td style="width: 48px; text-align: left;">&nbsp;6</td>
-									<td style="width: 48px; text-align: right;">8&nbsp;</td>
-									<td style="width: 48px; text-align: left;">15&nbsp;</td>
-									<td style="width: 48px; text-align: left;">35&nbsp;</td>
-									<td style="width: 48px; text-align: left;">43&nbsp;</td>
+									<td style="width: 48px; ">6</td>
+									<td style="width: 48px; ">8</td>
+									<td style="width: 48px; ">15</td>
+									<td style="width: 48px; ">35</td>
+									<td style="width: 48px; ">43</td>
 								</tr>
 								<tr>
 									<td>&nbsp;</td>
-									<td>
+									<td colspan="6" style="border-bottom: 1px solid; height: 1px;">&nbsp;</td>
+								</tr>
+								<tr>
+									<td style="width: 12px;">&nbsp;</td>
+									<td style="width: 48px;">
 										<img src="<%=request.getContextPath() %>/app/pep/images/VFF-TBT.png" width="48" height="35">
 									</td>
 									<td colspan="2">
@@ -293,8 +300,8 @@
 									}
 								}
 									
-								if (fv9TopKrisUmf == null || fv9TopKrisUmf.size() < 9) {
-									for (int k=0; k<9-fv9TopKrisUmf.size(); k++) {
+								if (fv9TopKrisUmf == null || fv9TopKrisUmf.size() < 10) {
+									for (int k=0; k<10-fv9TopKrisUmf.size(); k++) {
 								%>
 								<tr>
 									<td style="text-indent: 15px;text-align: left;">&nbsp;</td>

@@ -17,18 +17,18 @@
 	
 	int cur = Integer.parseInt(current);
 	
-	String next = "<img src=\"/ph/app/pep/images/next.jpg\" width=\"47\" height=\"18\">";
-	String prev = "<img src=\"/ph/app/pep/images/prev.jpg\" width=\"47\" height=\"18\">";
+	String next = "<img src=\"/ph/app/pep/images/n2.jpg\" width=\"19\" height=\"18\">";
+	String prev = "<img src=\"/ph/app/pep/images/p1.jpg\" width=\"19\" height=\"18\">";
 	
 	if (indexes != null) {
 		int pageSize = indexes.size();
 		
 		if (cur > 1) {
-			prev = "<a href='" + request.getContextPath() + "/app/pep/view/view.do?current=" + (cur-1) + "'><img src=\"/ph/app/pep/images/prev.jpg\" width=\"47\" height=\"18\" style=\"border:none\"></a>";
+			prev = "<a href='" + request.getContextPath() + "/app/pep/view/view.do?current=" + (cur-1) + "'><img src=\"/ph/app/pep/images/p1.jpg\" width=\"19\" height=\"18\" style=\"border:none\"></a>";
 		}
 		
 		if (cur < pageSize) {
-			next = "<a href='" + request.getContextPath() + "/app/pep/view/view.do?current=" + (cur+1) + "'><img src=\"/ph/app/pep/images/next.jpg\" width=\"47\" height=\"18\" style=\"border:none\"></a>";
+			next = "<a href='" + request.getContextPath() + "/app/pep/view/view.do?current=" + (cur+1) + "'><img src=\"/ph/app/pep/images/n2.jpg\" width=\"19\" height=\"18\" style=\"border:none\"></a>";
 		}
 	}
 %>

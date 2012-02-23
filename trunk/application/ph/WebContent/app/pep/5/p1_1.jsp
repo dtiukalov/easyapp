@@ -48,6 +48,9 @@
 	<div id="nr">
 	<div id="top"><h1><%=title %></h1></div>
     <div id="content" style="margin-top:20px;font-size:12px;height:550px;">
+    	<div id="german">
+			<input type="button" class="china" onclick="changeChinese()" />
+		</div>
 	    <div id="datatable1" style="width: 800px;margin:20px 50px">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table" >
 				<tr>
@@ -56,10 +59,10 @@
 					<td width="433" class="pg"><h2>Maßnahmen</h2></td>
 				</tr>
 				<tr >
-					<td valign="top" class="pgpg" style="width:200px;padding:10px">
+					<td valign="top" class="pgpg" style="width:100px;padding:10px">
 						<h2>Presswerk</h2>
 					</td>
-					<td valign="top" class="pgpg" style="width:39px;padding:10px">
+					<td valign="top" class="pgpg" style="padding-left:-15px">
 						<% if(fv9PressStatus.equals("绿")){%>
 						<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" />
 						<%} else if(fv9PressStatus.equals("黄")){%>
@@ -68,7 +71,7 @@
 						<img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="30" height="70" /> 
 						<%}%>
 					</td>
-					<td valign="top" class="pgpg">
+					<td width="60%" valign="top" class="pgpg">
 						<div class="tbnrr" >
 						<%
 							if (fv9PressStCom_GM != null && !"".equals(fv9PressStCom_GM)) {
@@ -82,7 +85,7 @@
 							}
 						%>
 					</td>
-					<td valign="top" class="pgpg"><div class="tbnrr">
+					<td width="40%" valign="top" class="pgpg"><div class="tbnrr">
 						<%if (fv9PressStMab_GM != null && !"".equals(fv9PressStMab_GM)) {
 						%><%=fv9PressStMab_GM %>
 						<%} else {%>
@@ -103,7 +106,7 @@
 						<img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="30" height="70" /> 
 						<%}%>
 					</td>
-					<td valign="top" class="pgpg">
+					<td width="60%" valign="top" class="pgpg">
 						<div class="tbnrr">
 						<%
 							if (fv9KarossStCom_GM != null && !"".equals(fv9KarossStCom_GM)) {
@@ -117,7 +120,7 @@
 							}
 						%>
 					</td>
-					<td valign="top" class="pgpg"><div class="tbnrr">
+					<td width="40%" valign="top" class="pgpg"><div class="tbnrr">
 						<%if (fv9KarossStMab_GM != null && !"".equals(fv9KarossStMab_GM)) {
 						%><%=fv9KarossStMab_GM %>
 						<%} else {%>
@@ -139,7 +142,7 @@
 						<img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="30" height="70" /> 
 						<%}%>
 					</td>
-					<td valign="top" class="pgpg">
+					<td width="60%" valign="top" class="pgpg">
 						<div class="tbnrr">
 						<%
 							if (fv9LackStCom_GM != null && !"".equals(fv9LackStCom_GM)) {
@@ -153,7 +156,7 @@
 							}
 						%>
 					</td>
-					<td valign="top" class="pgpg"><div class="tbnrr">
+					<td width="40%" valign="top" class="pgpg"><div class="tbnrr">
 						<%if (fv9LackStMab_GM != null && !"".equals(fv9LackStMab_GM)) {
 						%><%=fv9LackStMab_GM %>
 						<%} else {%>
@@ -175,7 +178,7 @@
 						<img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="30" height="70" /> 
 						<%}%>
 					</td>
-					<td valign="top" class="pgpg">
+					<td width="60%" valign="top" class="pgpg">
 						<div class="tbnrr">
 						<%
 							if (fv9MontStCom_GM != null && !"".equals(fv9MontStCom_GM)) {
@@ -189,7 +192,7 @@
 							}
 						%>
 					</td>
-					<td valign="top" class="pgpg"><div class="tbnrr">
+					<td width="40%" valign="top" class="pgpg"><div class="tbnrr">
 						<%if (fv9MontStMab_GM != null && !"".equals(fv9MontStMab_GM)) {
 						%><%=fv9MontStMab_GM %>
 						<%} else {%>
@@ -211,7 +214,7 @@
 						<img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="30" height="70" /> 
 						<%}%>
 					</td>
-					<td valign="top" class="pgpg">
+					<td width="60%" valign="top" class="pgpg">
 						<div class="tbnrr">
 						<%
 							if (fv9ElectStCom_GM != null && !"".equals(fv9ElectStCom_GM)) {
@@ -225,7 +228,7 @@
 							}
 						%>
 					</td>
-					<td valign="top" class="pgpg"><div class="tbnrr">
+					<td width="40%" valign="top" class="pgpg"><div class="tbnrr">
 						<%if (fv9ElectStMab_GM != null && !"".equals(fv9ElectStMab_GM)) {
 						%><%=fv9ElectStMab_GM %>
 						<%} else {%>
@@ -234,11 +237,10 @@
 					</td>
 				</tr>
 			</table>
-			<div style="width: 800px; height: 50px; overflow: hidden; text-align: center;">
-				<input type="button" class="change" value="切换中文" onclick="changeChinese()" />
-			</div>
 	    </div>
-	    
+	    <div id="china" style="display: none;">
+			<input type="button" class="german" onclick="changeGerman()"/>
+		</div>
 	    <div id="datatable2" style="width: 800px;display: none;margin:20px 50px">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 				<tr>
@@ -259,7 +261,7 @@
 						<img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="30" height="70" /> 
 						<%}%>
 					</td>
-					<td valign="top" class="pgpg">
+					<td width="60%" valign="top" class="pgpg">
 						<div class="tbnrr">
 						<%
 							if (fv9PressStCom_CN != null && !"".equals(fv9PressStCom_CN)) {
@@ -273,7 +275,7 @@
 							}
 						%>
 					</td>
-					<td valign="top" class="pgpg"><div class="tbnrr">
+					<td width="40%" valign="top" class="pgpg"><div class="tbnrr">
 						<%if (fv9PressStMab_CN != null && !"".equals(fv9PressStMab_CN)) {
 						%><%=fv9PressStMab_CN %>
 						<%} else {%>
@@ -295,7 +297,7 @@
 						<img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="30" height="70" /> 
 						<%}%>
 					</td>
-					<td valign="top" class="pgpg">
+					<td width="60%" valign="top" class="pgpg">
 						<div class="tbnrr">
 						<%
 							if (fv9KarossStCom_CN != null && !"".equals(fv9KarossStCom_CN)) {
@@ -309,7 +311,7 @@
 							}
 						%>
 					</td>
-					<td valign="top" class="pgpg"><div class="tbnrr">
+					<td width="40%" valign="top" class="pgpg"><div class="tbnrr">
 						<%if (fv9KarossStMab_CN != null && !"".equals(fv9KarossStMab_CN)) {
 						%><%=fv9KarossStMab_CN %>
 						<%} else {%>
@@ -331,7 +333,7 @@
 						<img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="30" height="70" /> 
 						<%}%>
 					</td>
-					<td valign="top" class="pgpg">
+					<td width="60%" valign="top" class="pgpg">
 						<div class="tbnrr">
 						<%
 							if (fv9LackStCom_CN != null && !"".equals(fv9LackStCom_CN)) {
@@ -345,7 +347,7 @@
 							}
 						%>
 					</td>
-					<td valign="top" class="pgpg"><div class="tbnrr">
+					<td width="40%" valign="top" class="pgpg"><div class="tbnrr">
 						<%if (fv9LackStMab_CN != null && !"".equals(fv9LackStMab_CN)) {
 						%><%=fv9LackStMab_CN %>
 						<%} else {%>
@@ -367,7 +369,7 @@
 						<img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="30" height="70" /> 
 						<%}%>
 					</td>
-					<td valign="top" class="pgpg">
+					<td width="60%" valign="top" class="pgpg">
 						<div class="tbnrr">
 						<%
 							if (fv9MontStCom_CN != null && !"".equals(fv9MontStCom_CN)) {
@@ -381,7 +383,7 @@
 							}
 						%>
 					</td>
-					<td valign="top" class="pgpg"><div class="tbnrr">
+					<td width="40%" valign="top" class="pgpg"><div class="tbnrr">
 						<%if (fv9MontStMab_CN != null && !"".equals(fv9MontStMab_CN)) {
 						%><%=fv9MontStMab_CN %>
 						<%} else {%>
@@ -403,7 +405,7 @@
 						<img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="30" height="70" /> 
 						<%}%>
 					</td>
-					<td valign="top" class="pgpg">
+					<td width="60%" valign="top" class="pgpg">
 						<div class="tbnrr">
 						<%
 							if (fv9ElectStCom_CN != null && !"".equals(fv9ElectStCom_CN)) {
@@ -417,7 +419,7 @@
 							}
 						%>
 					</td>
-					<td valign="top" class="pgpg"><div class="tbnrr">
+					<td width="40%" valign="top" class="pgpg"><div class="tbnrr">
 						<%if (fv9ElectStMab_CN != null && !"".equals(fv9ElectStMab_CN)) {
 						%><%=fv9ElectStMab_CN %>
 						<%} else {%>
@@ -426,9 +428,6 @@
 					</td>
 				</tr>
 			</table>
-			<div style="width: 800px; height: 50px; overflow: hidden; text-align: center;">
-				<input type="button" class="change" value="切换德文" onclick="changeGerman()"/>
-			</div>
 	    </div>
     
 	</div>

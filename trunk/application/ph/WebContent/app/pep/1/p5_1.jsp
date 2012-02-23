@@ -15,7 +15,6 @@
 	<%@ include file="/app/pep/include/header.jsp"%>
 	<title></title>
 <%
-	Map form = (Map)request.getAttribute("form");	
 	String uid = (String)request.getAttribute("uid");
 %>
 	<title><%=title %></title>

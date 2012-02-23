@@ -13,8 +13,6 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title><%=title %></title>
 		<%
-		Map form = (Map)request.getAttribute("form");	
-
 		List KWNo = (List)form.get("fv9KWNo"); //周数
 		List InPlanung = (List)form.get("fv9InPlanung");  //计划中
 		List MabnaNichtErarb = (List)form.get("fv9MabnaNichtErarb"); //为制定措施

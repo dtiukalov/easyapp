@@ -11,7 +11,6 @@
 	<%@ include file="/app/pep/include/header.jsp"%>
 	<title><%=title %></title>
 	<%
-		Map form = (Map)request.getAttribute("form");	
 		List<String> fv9LogistikStyle = (List<String>)form.get("fv9LogistikStyle");
 		List<String> fv9LogistikStatus = (List<String>)form.get("fv9LogistikStatus");
 		List<String> fv9LogistikStCom_GM = (List<String>)form.get("fv9LogistikStCom_GM");

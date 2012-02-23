@@ -12,9 +12,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title><%=title %></title>
 	<%
-		
-		Map form = (Map)request.getAttribute("form");
-		
 		List<String> fv9Aktion_GM = (List<String>)form.get("fv9Aktion_GM");  //德文
 		List<String> fv9Aktion_CN = (List<String>)form.get("fv9Aktion_CN"); //中文
 		List<String> fv9Verantwortlich = (List<String>)form.get("fv9Verantwortlich");  //责任人

@@ -13,7 +13,6 @@
 		<%@ include file="/app/pep/include/header.jsp"%>
 		<title>3.5 Auditnoten ZP8</title>
 		<%
-		Map form = (Map)request.getAttribute("form");	
 		
 		String fv9KWNo = Web.getNumberListStr((List)form.get("fv9KWNo"));
 		String fv9AuditErstang = Web.getNumberListStr((List)form.get("fv9AuditErstang"));

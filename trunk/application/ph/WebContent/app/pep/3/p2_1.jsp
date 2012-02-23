@@ -13,8 +13,6 @@
 	<%@ include file="/app/pep/include/header.jsp"%>
 	<title><%=title %></title>
 	<%
-		Map form = (Map)request.getAttribute("form");
-	
 		List<String> fv9FugRadName = (List<String>)form.get("fv9FugRadName"); //名称 
 		List<String> fv9FugRadStatus = (List<String>)form.get("fv9FugRadStatus"); // 状态
 		List<String> fv9FugRadCom_CN = (List<String>)form.get("fv9FugRadCom_CN");  //状态描述_中文

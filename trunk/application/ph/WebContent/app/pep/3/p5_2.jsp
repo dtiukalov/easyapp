@@ -30,7 +30,6 @@
 			}
 		</style>
 		<%
-		Map form = (Map)request.getAttribute("form");	
 
 		StringBuffer categories = new StringBuffer();
 		categories.append("[");

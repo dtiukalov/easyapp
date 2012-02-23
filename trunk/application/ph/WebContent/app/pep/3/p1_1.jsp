@@ -14,15 +14,12 @@
 </head>
 
 <%
-	Map form = (Map)request.getAttribute("form");
-
 	List<String> fv9PrMSBCubStyle = (List<String>)form.get("fv9PrMSBCubStyle"); // 检测工具 
 	List<String> fv9PrMSBCubStatus = (List<String>)form.get("fv9PrMSBCubStatus"); // 检测工具状态
 	List<String> fv9PrMSBCubStCom_CN = (List<String>)form.get("fv9PrMSBCubStCom_CN");  //状态描述_中文
 	List<String> fv9PrMSBCubStCom_GM = (List<String>)form.get("fv9PrMSBCubStCom_GM");  //状态描述_德文
 	List<String> fv9PrMSBCubMabnh_CN = (List<String>)form.get("fv9PrMSBCubMabnh_CN");  //措施_中文
 	List<String> fv9PrMSBCubMabnh_GM = (List<String>)form.get("fv9PrMSBCubMabnh_GM");  //措施_德文 
-
 %>
 <body>
 <div id="container">

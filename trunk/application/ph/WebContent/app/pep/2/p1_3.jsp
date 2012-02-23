@@ -15,8 +15,6 @@
 	
 	<%
 	
-		Map form = (Map)request.getAttribute("form");	
-	
 		String status = "08.12.2011";
 		
 		//左侧-瀑布图

@@ -15,7 +15,6 @@
 		<title><%=title %></title>
 		<%
 			
-			Map form = (Map)request.getAttribute("form");
 			String kws = Web.getNumberListStr(form.get("fv9KWNo"));  
 			String soll = Web.getNumberListStr(form.get("fv9ZP5NumSoll"));
 			String sumSoll = Web.getSumNumberListStr(form.get("fv9ZP5NumSoll"));

@@ -14,8 +14,6 @@
 		<%@ include file="/app/pep/include/header.jsp"%>
 		<title><%=title %></title>
 		<%
-		Map form = (Map)request.getAttribute("form");	
-		
 		//专业组
 		List<String> fv9BMGMajor = (List<String>) form.get("fv9BMGMajor");
 		fv9BMGMajor.add("Gesamt"); 

@@ -13,8 +13,6 @@
 <%@ include file="/app/pep/include/header.jsp"%>
 </head>
 <%
-	Map form = (Map)request.getAttribute("form");
-
 	List<String> fv9PrMSBCubStyle = new ArrayList<String>();   // (List<String>)form.get("fv9PrMSBCubStyle"); 检测工具 
 	List<String> fv9PrMSBCubStatus = new ArrayList<String>();  //(List<String>)form.get("fv9PrMSBCubStatus");  检测工具状态
 	List<String> fv9PrMSBCubStCom_CN = new ArrayList<String>();//(List<String>)form.get("fv9PrMSBCubStCom_CN");  状态描述_中文

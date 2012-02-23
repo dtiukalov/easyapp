@@ -55,7 +55,7 @@
 
 <table cellspacing="0" cellpadding="0" align="left" id="Table1">
 	<tr valign="top">
-	    <td valign="top"><img src="<%=request.getContextPath()%>/app/pep/images/Teamcenter_Version8_Login.png"/></td>
+	    <td valign="top"><img src="<%=request.getContextPath()%>/app/pep/images/FAWVW.jpg"/></td>
 	</tr>
 </table>
 

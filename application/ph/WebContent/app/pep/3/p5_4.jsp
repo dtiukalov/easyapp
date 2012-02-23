@@ -231,7 +231,7 @@
 					}]
 				},{
 					name: 'Lack',
-					color: '#0000FF',
+					color: '#8894A2',
 					data: [{ 
 						y: <%=ist_Lack%>, 
 						low: <%=low_Lack%>
@@ -275,114 +275,137 @@
 			<div id="nr">
 				<div id="top"><h1><%=title %></h1></div>	
 				<div id="content" >
-					<div id="chart" style="width: 400px; height: 400px; margin: 50px auto; float: left;"></div>
+					<div id="left" style="width: 400px; height: auto; margin: 0 auto; float: left;">
+						<div id="chart" style="width: 400px; height: 400px; margin: 0px auto; float: left;"></div>
+						<div style="width: 400px; height: 100px; margin: 0px; float: left;">
+							<div style="width: 120px; height: 30px; float: left; vertical-align: middle; padding-top: 10px; padding-left: 10px;">
+								<img src="<%=request.getContextPath()%>/app/pep/images/presswerk.jpg" width="15" height="15" />Presswerk
+							</div>
+							<div style="width: 120px; height: 30px; float: left; vertical-align: middle; padding-top: 10px; padding-left: 10px;">
+								<img src="<%=request.getContextPath()%>/app/pep/images/montage.jpg" width="15" height="15" />Montage
+							</div>
+							<div style="width: 120px; height: 30px; float: left; vertical-align: middle; padding-top: 10px; padding-left: 10px;">
+								<img src="<%=request.getContextPath()%>/app/pep/images/Kaufteile.jpg" width="15" height="15" />Kaufteile
+							</div>
+							<div style="width: 120px; height: 30px; float: left; vertical-align: middle; padding-top: 10px; padding-left: 10px;">
+								<img src="<%=request.getContextPath()%>/app/pep/images/karosseriebau.jpg" width="15" height="15" />Karosseriebau
+							</div>
+							<div style="width: 120px; height: 30px; float: left; vertical-align: middle; padding-top: 10px; padding-left: 10px;">
+								<img src="<%=request.getContextPath()%>/app/pep/images/lack.jpg" width="15" height="15" />Lack
+							</div>
+							<div style="width: 120px; height: 30px; float: left; vertical-align: middle; padding-top: 10px; padding-left: 10px;">
+								<img src="<%=request.getContextPath()%>/app/pep/images/Projekt.jpg" width="15" height="15" />Projekt
+							</div>
+						</div>
+					</div>
+					
 					<div id="table" style="width: 400px; height: 400px; margin: 0 auto; float: left;">&nbsp;
 					<div class="div">
-								<div>
-								  <table width="350" cellspacing="0">
-								    <tr>
-								      <td>Wichtigste Maßnahmen</td>
-								      <td></td>
-								      <td></td>
-								      <td></td>
-								    </tr>
-								  </table>
-								</div>
-								<table width="350" cellspacing="0">
-								<% 
-								List ps = new ArrayList();
-								
-								if(fv9KWNo != null && fv9KWNo.size() > 0) {	
-									for(int i=1; i<fv9KWNo.size(); i++){
-										int rows = 0;
-										if (Integer.parseInt(fv9Projekt.get(i)) > 0) {
-											rows++;
-											Problem p = new Problem();
-											p.kw = (String)fv9KWNo.get(i);
-											p.type = "Projekt";
-											p.desc = fv9ProjektCom_GM.get(i);
-											ps.add(p);
-										}
-										if (Integer.parseInt(fv9Kaufteile.get(i)) > 0) {
-											rows++;
-											Problem p = new Problem();
-											p.kw = (String)fv9KWNo.get(i);
-											p.type = "Kaufteile";
-											p.desc = fv9KaufteileCom_GM.get(i);
-											ps.add(p);
-										}
-										if (Integer.parseInt(fv9Montage.get(i)) > 0) {
-											rows++;
-											Problem p = new Problem();
-											p.kw = (String)fv9KWNo.get(i);
-											p.type = "Montage";
-											p.desc = fv9MontageCom_GM.get(i);
-											ps.add(p);
-										}
-										if (Integer.parseInt(fv9Lack.get(i)) > 0) {
-											rows++;
-											Problem p = new Problem();
-											p.kw = (String)fv9KWNo.get(i);
-											p.type = "Lack";
-											p.desc = fv9LackCom_GM.get(i);
-											ps.add(p);
-										}
-										if (Integer.parseInt(fv9Presswerk.get(i)) > 0) {
-											rows++;
-											Problem p = new Problem();
-											p.kw = (String)fv9KWNo.get(i);
-											p.type = "Presswerk";
-											p.desc = fv9PresswerkCom_GM.get(i);
-											ps.add(p);
-										}
-										if (Integer.parseInt(fv9Karosseriebau.get(i)) > 0) {
-											rows++;
-											Problem p = new Problem();
-											p.kw = (String)fv9KWNo.get(i);
-											p.type = "Karosseriebau";
-											p.desc = fv9KarossCom_GM.get(i);
-											ps.add(p);
-										}
-
-										if (ps != null && ps.size() > 0) {
-											for (int j=0; j< ps.size(); j++) {
-												Problem pp = (Problem)ps.get(j);
-										%>
-											  <tr>
-											  <%
-											  	if (j == 0) {
-											  		%>
-											  		<td rowspan="<%=rows%>"><%=pp.kw %></td>
-											  		<%
-											  	} 
-											  %>
-												<td>
-												<% if("Projekt".equals(pp.type)){%>
-													    <img src="<%=request.getContextPath()%>/app/pep/images/Projekt.jpg" width="10" height="10" />
-												<% }if("Kaufteile".equals(pp.type)){%>
-													    <img src="<%=request.getContextPath()%>/app/pep/images/Kaufteile.jpg" width="10" height="10" />
-												<% }if("Montage".equals(pp.type)){%>
-													   	<img src="<%=request.getContextPath()%>/app/pep/images/montage.jpg" width="10" height="10" />
-											   	<% }if("Lack".equals(pp.type)){%>
-											   			<img src="<%=request.getContextPath()%>/app/pep/images/lack.jpg" width="10" height="10" />
-											   	<% }if("Presswerk".equals(pp.type)){%>
-											   			<img src="<%=request.getContextPath()%>/app/pep/images/presswerk.jpg" width="10" height="10" />
-											   	<% }if("Karosseriebau".equals(pp.type)){%>
-											   			<img src="<%=request.getContextPath()%>/app/pep/images/karosseriebau.jpg" width="10" height="10" />
-											   	<%} %>
-												</td>
-												<td><%=pp.desc %></td>
-											 </tr>
-										<%			
-												}
-												
-										ps.clear();
-										}
-									}
+						<div>
+						  <table width="350" cellspacing="0">
+						    <tr>
+						      <td>Wichtigste Maßnahmen</td>
+						      <td></td>
+						      <td></td>
+						      <td></td>
+						    </tr>
+						  </table>
+						</div>
+						<table width="350" cellspacing="0">
+						<% 
+						List ps = new ArrayList();
+						
+						if(fv9KWNo != null && fv9KWNo.size() > 0) {	
+							for(int i=1; i<fv9KWNo.size(); i++){
+								int rows = 0;
+								if (Integer.parseInt(fv9Projekt.get(i)) > 0) {
+									rows++;
+									Problem p = new Problem();
+									p.kw = (String)fv9KWNo.get(i);
+									p.type = "Projekt";
+									p.desc = fv9ProjektCom_GM.get(i);
+									ps.add(p);
 								}
-								  %>
-								</table>
-							</div>
+								if (Integer.parseInt(fv9Kaufteile.get(i)) > 0) {
+									rows++;
+									Problem p = new Problem();
+									p.kw = (String)fv9KWNo.get(i);
+									p.type = "Kaufteile";
+									p.desc = fv9KaufteileCom_GM.get(i);
+									ps.add(p);
+								}
+								if (Integer.parseInt(fv9Montage.get(i)) > 0) {
+									rows++;
+									Problem p = new Problem();
+									p.kw = (String)fv9KWNo.get(i);
+									p.type = "Montage";
+									p.desc = fv9MontageCom_GM.get(i);
+									ps.add(p);
+								}
+								if (Integer.parseInt(fv9Lack.get(i)) > 0) {
+									rows++;
+									Problem p = new Problem();
+									p.kw = (String)fv9KWNo.get(i);
+									p.type = "Lack";
+									p.desc = fv9LackCom_GM.get(i);
+									ps.add(p);
+								}
+								if (Integer.parseInt(fv9Presswerk.get(i)) > 0) {
+									rows++;
+									Problem p = new Problem();
+									p.kw = (String)fv9KWNo.get(i);
+									p.type = "Presswerk";
+									p.desc = fv9PresswerkCom_GM.get(i);
+									ps.add(p);
+								}
+								if (Integer.parseInt(fv9Karosseriebau.get(i)) > 0) {
+									rows++;
+									Problem p = new Problem();
+									p.kw = (String)fv9KWNo.get(i);
+									p.type = "Karosseriebau";
+									p.desc = fv9KarossCom_GM.get(i);
+									ps.add(p);
+								}
+
+								if (ps != null && ps.size() > 0) {
+									for (int j=0; j< ps.size(); j++) {
+										Problem pp = (Problem)ps.get(j);
+								%>
+									  <tr>
+									  <%
+									  	if (j == 0) {
+									  		%>
+									  		<td rowspan="<%=rows%>"><%=pp.kw %></td>
+									  		<%
+									  	} 
+									  %>
+										<td>
+										<% if("Projekt".equals(pp.type)){%>
+											    <img src="<%=request.getContextPath()%>/app/pep/images/Projekt.jpg" width="10" height="10" />
+										<% }if("Kaufteile".equals(pp.type)){%>
+											    <img src="<%=request.getContextPath()%>/app/pep/images/Kaufteile.jpg" width="10" height="10" />
+										<% }if("Montage".equals(pp.type)){%>
+											   	<img src="<%=request.getContextPath()%>/app/pep/images/montage.jpg" width="10" height="10" />
+									   	<% }if("Lack".equals(pp.type)){%>
+									   			<img src="<%=request.getContextPath()%>/app/pep/images/lack.jpg" width="10" height="10" />
+									   	<% }if("Presswerk".equals(pp.type)){%>
+									   			<img src="<%=request.getContextPath()%>/app/pep/images/presswerk.jpg" width="10" height="10" />
+									   	<% }if("Karosseriebau".equals(pp.type)){%>
+									   			<img src="<%=request.getContextPath()%>/app/pep/images/karosseriebau.jpg" width="10" height="10" />
+									   	<%} %>
+										</td>
+										<td><%=pp.desc %></td>
+									 </tr>
+								<%			
+										}
+										
+								ps.clear();
+								}
+							}
+						}
+						  %>
+						</table>
+					</div>
 					</div>
 					</div>
 				</div>

@@ -29,6 +29,9 @@
 	<div id="nr">
 	<div id="top"><h1>3.1 Prüfmittel, Meisterbock/Cubing</h1></div>
     <div id="content">
+    	<div id="german">
+			<input type="button" class="china" onclick="changeChinese()" />
+		</div>
 		<div id="datatable1" style="width: 800px;font-size:12px;margin:0 50px">
 			    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 				  <tr>
@@ -44,20 +47,20 @@
 					    <td valign="top" class="pgpg" style="width:239px;">
 						    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
 							  <tr>
-					   			 <td valign="top"><h2><%=fv9PrMSBCubStyle.get(i) %> </h2></td>
+					   			 <td width="70%" valign="top"><h2><%=fv9PrMSBCubStyle.get(i) %> </h2></td>
 							   	 <td>
 									<% if(("绿").equals(fv9PrMSBCubStatus.get(i))){%>
-									    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" />
+									    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" style="height:70px;width:25px;" />
 									<%} else if(("黄").equals(fv9PrMSBCubStatus.get(i))){%>
-									    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" width="30" height="70" />	
+									    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" style="height:70px;width:25px;" />	
 									<%} else if(("红").equals(fv9PrMSBCubStatus.get(i))){%>
-										   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="30" height="70" /> 
+										   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" style="height:70px;width:25px;" /> 
 									<%}%>
 								</td>
 							  </tr>
 							</table>
 						</td>
-			    		<td valign="top" class="pgpg">
+			    		<td width="60%" valign="top" class="pgpg">
 				    		<div class="tbnrr">
 				    			<%
 			    				if (fv9PrMSBCubStCom_GM.get(i) != null && !"".equals(fv9PrMSBCubStCom_GM.get(i))) {
@@ -73,7 +76,7 @@
 				    			
 							</div>
 					    </td>
-			   			<td valign="top" class="pgpg">
+			   			<td width="40%" valign="top" class="pgpg">
 			   				<div class="tbnrr">
 			   				<%
 			    				if (fv9PrMSBCubMabnh_GM.get(i) != null && !"".equals(fv9PrMSBCubMabnh_GM.get(i))) {
@@ -94,11 +97,10 @@
 				 }
 				%>
 			</table>
-			<div style="width: 800px; height: 50px; overflow: hidden; text-align: center;">
-				<input type="button" class="change" value="切换中文" onclick="changeChinese()" />
-			</div>
 		</div>   
-
+		<div id="china" style="display: none;">
+			<input type="button" class="german" onclick="changeGerman()"/>
+		</div>
 		<div id="datatable2" style="width: 800px; display: none;margin:0 50px">
 			    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 				  <tr>
@@ -114,20 +116,20 @@
 					    <td valign="top" class="pgpg" style="width:239px;">
 						    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
 							  <tr>
-					   			 <td valign="top"><h2><%=fv9PrMSBCubStyle.get(i) %> </h2></td>
+					   			 <td width="70%" valign="top"><h2><%=fv9PrMSBCubStyle.get(i) %> </h2></td>
 							   	 <td>
 									<% if(("绿").equals(fv9PrMSBCubStatus.get(i))){%>
-									    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" />
+									    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" style="height:70px;width:25px;"/>
 									<%} else if(("黄").equals(fv9PrMSBCubStatus.get(i))){%>
-									    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" width="30" height="70" />	
+									    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" style="height:70px;width:25px;" />	
 									<%} else if(("红").equals(fv9PrMSBCubStatus.get(i))){%>
-										   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="30" height="70" /> 
+										   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" style="height:70px;width:25px;" /> 
 									<%}%>
 								</td>
 							  </tr>
 							</table>
 						</td>
-			    		<td valign="top" class="pgpg">
+			    		<td width="60%" valign="top" class="pgpg">
 				    		<div class="tbnrr">
 				    			<%
 			    				if (fv9PrMSBCubStCom_CN.get(i) != null && !"".equals(fv9PrMSBCubStCom_CN.get(i))) {
@@ -143,7 +145,7 @@
 				    			
 							</div>
 					    </td>
-			   			<td valign="top" class="pgpg">
+			   			<td width="40%" valign="top" class="pgpg">
 			   				<div class="tbnrr">
 			   				<%
 			    				if (fv9PrMSBCubMabnh_CN.get(i) != null && !"".equals(fv9PrMSBCubMabnh_CN.get(i))) {
@@ -164,9 +166,6 @@
 				 }
 				%>
 			</table>
-			<div style="width: 800px; height: 50px; overflow: hidden; text-align: center;">
-				<input type="button" class="change" value="切换德文" onclick="changeGerman()"/>
-			</div>
 		</div>   
 	</div>
     <%@ include file="/app/pep/include/foot.jsp"%>

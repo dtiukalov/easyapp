@@ -7,7 +7,7 @@ public class FV9_34FuntionsmasseForm extends Form {
 	private static final String[] attr = {
 		"fv9KWNo", "fv9FunktionSmall75", "fv9FunktionSmall100", "fv9FunktionBig100", "fv9Zielwert",
 		"fv9PrognoseAK", "fv9PrognoseBK", "fv9PrognoseIO",
-		"fv9PreRelesed", "fv9Oraganization"
+		"fv9PreRelesed", "fv9Oraganization", "release_status_list"
 	};
 
 	public String[] getAttributes() {

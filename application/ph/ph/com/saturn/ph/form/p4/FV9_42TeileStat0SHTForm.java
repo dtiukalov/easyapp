@@ -9,7 +9,7 @@ public class FV9_42TeileStat0SHTForm extends Form {
 		"fv9TeilestName","fv9TeileAusSerien", "fv9TeileNote6",
 		"fv9TeileFehlend", "fv9TeileNote3","fv9TeileNote1",
 		"fv9TopKrisUmf", "fv9TopEinNum", "fv9TopVSIN3", "fv9TopVSIN1",
-		"fv9PreRelesed", "fv9Oraganization"
+		"fv9PreRelesed", "fv9Oraganization", "release_status_list"
 	};
 
 	public String[] getAttributes() {

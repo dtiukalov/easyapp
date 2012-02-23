@@ -6,7 +6,7 @@ public class FV9_21PFreigabeForm extends Form {
 	
 	private static final String[] attr = {
 		"fv9PFMajor", "fv9PFGesamtNum", "fv9PFSollNum", "fv9PFlstNum",
-		"fv9PreRelesed", "fv9Oraganization"
+		"fv9PreRelesed", "fv9Oraganization", "release_status_list"
 	};
 
 	public String[] getAttributes() {

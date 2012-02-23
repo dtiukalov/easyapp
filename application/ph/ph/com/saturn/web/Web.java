@@ -159,7 +159,16 @@ public class Web {
 	public static String getFormState(Map form) {
 		if (form != null) {
 			String isPublic = (String)form.get("fv9PreRelesed");
-			String isRelease = "";//form.get("release_status_list");
+			List releaseList = (List)form.get("release_status_list");
+			String isRelease = "";
+			if (releaseList != null && releaseList.size() > 0) {
+				isRelease = (String) releaseList.get(0);
+				//正式发布之后——数据冻结
+				if ("TCM Released".equalsIgnoreCase(isRelease)) {
+					return "<div id='no-state'>&nbsp;</div>";
+				}
+			}
+			 
 			
 			//预发布之前
 			if ("".equalsIgnoreCase(isPublic)) {
@@ -171,10 +180,7 @@ public class Web {
 				return "<div id='no-state'>已发布</div>";
 			}
 			
-			//正式发布之后——数据冻结
-			if ("TCM Released".equalsIgnoreCase(isRelease)) {
-				return "<div id='no-state'>&nbsp;</div>";
-			}
+			
 		}
 		
 		return "";

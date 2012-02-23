@@ -7,7 +7,7 @@ public class FV9_35AuditNoteZP8Form extends Form {
 	private static final String[] attr = {
 		"fv9KWNo", "fv9AuditErstang", "fv9TargetProg", "fv9AuditZweit",
 		"fv9KonzAuditMitNA","fv9AuditMax","fv9AuditMin",
-		"fv9PreRelesed", "fv9Oraganization"
+		"fv9PreRelesed", "fv9Oraganization", "release_status_list"
 	};
 	
 	public String[] getAttributes() {

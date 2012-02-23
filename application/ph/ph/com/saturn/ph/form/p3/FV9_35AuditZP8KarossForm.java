@@ -8,7 +8,7 @@ public class FV9_35AuditZP8KarossForm extends Form {
 		"fv9KWNo", "fv9KarosseriebauNum", "fv9KonzernNum", "fv9PrognoseNum",
 		"fv9Note3Num", "fv9Note2Num", "fv9Note1Num",
 		"fv9KW", "fv9Name", "fv9Score", "fv9Option",
-		"fv9PreRelesed", "fv9Oraganization"
+		"fv9PreRelesed", "fv9Oraganization", "release_status_list"
 	};
 
 	public String[] getAttributes() {

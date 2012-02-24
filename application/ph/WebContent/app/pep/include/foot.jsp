@@ -34,16 +34,16 @@
 %>
 <div id="footer">
 	<div class="foot">
-		<div class="lanst">&nbsp;</div>
+		<!-- <div class="lanst">&nbsp;</div> -->
 		<div class="lanstk"><%=oraganization %></div>
 		<div class="clear"></div>
     </div>
 	<div class="ft">
-		<div class="ztu"><img src="/ph/app/pep/images/footerlogo.jpg" /></div>
+		<div class="ztu"><img src="/ph/app/pep/images/footerlogo.jpg" width="130px" height="37px" /></div>
 	    <div class="page">
 		    <P><%=prev %>&nbsp;&nbsp;Seite<%=current %>&nbsp;&nbsp;<%=next %></P>
 	    </div>
-	    <div class="ylogo"><img src="/ph/app/pep/images/yiqilogo.jpg" /></div>
+	    <div class="ylogo"><img src="/ph/app/pep/images/yiqilogo.jpg" width="120px" height="41px"/></div>
 	    <div class="clear"></div>
     </div>
 </div>

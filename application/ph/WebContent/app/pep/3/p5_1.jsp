@@ -11,7 +11,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<%@ include file="/app/pep/include/header.jsp"%>
-		<title>3.5 Auditnoten ZP8</title>
+		<title><%=title %></title>
 		<%
 		
 		String fv9KWNo = Web.getNumberListStr((List)form.get("fv9KWNo"));
@@ -89,7 +89,8 @@
 							shadow: false,
 							borderColor:'gray',
 							borderWidth:1,
-							groupPadding: 0.2,
+							groupPadding:0.1,
+							pointPadding:0.1,
 							dataLabels: {
 								enabled: true,
 								style : {
@@ -168,9 +169,15 @@
 	<body>
 		<div id="container">
 			<div id="nr">
-			<div id="top"><h1>3.5 Auditnoten ZP8</h1></div>
-			<div id="content">
+			<div id="top"><h1><%=title %></h1></div>
+			<div id="content"> 
 				<div id="chart" style="width: 700px; height: 450px; margin: 0 auto"></div>
+				<div id="meilstein" style="width: 674px; height: 30px; margin-left: 150px; text-align: center; overflow: hidden; ">
+					<div style=" width: <%=vff%>%; height: 30px; float: left; background-color: #99FF99; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">VFF</span></div>
+					<div style=" width: <%=pvs%>%; height: 30px; float: left; background-color: #33CC33; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">PVS</span></div>
+					<div style=" width: <%=os%>%; height: 30px; float: left; background-color: #006600; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">0S</span></div>
+					<div style=" width: <%=sop%>%; height: 30px; float: left; background-color: #333333; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">SOP</span></div>
+				</div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

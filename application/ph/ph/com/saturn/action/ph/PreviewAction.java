@@ -1,5 +1,7 @@
 package com.saturn.action.ph;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -9,6 +11,8 @@ import com.saturn.app.web.view.JspErrorView;
 import com.saturn.app.web.view.JspView;
 import com.saturn.ph.FormManager;
 import com.saturn.ph.PH;
+import com.saturn.tc.utils.DatasetUtils;
+import com.saturn.tc.utils.DateUtils;
 import com.teamcenter.soa.client.model.ModelObject;
 import com.teamcenter.soa.exceptions.NotLoadedException;
 
@@ -44,9 +48,76 @@ public class PreviewAction implements IAction {
 			}
 		}
 		
+		Map<String, Object> form = FormManager.getFormValue(type, uid, true);
 		request.setAttribute("uid", uid);
 		request.setAttribute("type", type);
-		request.setAttribute("form", FormManager.getFormValue(type, uid, true));
+		request.setAttribute("form", form);
+		
+		if (request.getSession().getAttribute("otherForm") == null) {
+			//获取公用的信息
+			String otherUid = "wVJ9jSq148kgXB"; 
+			if (form.get("fv9OtherUid") != null && !"".equals(form.get("fv9OtherUid"))) {
+				otherUid = (String)form.get("fv9OtherUid");
+			}
+			ModelObject otherObject = PH.getDataService().loadModelObjectRefresh(otherUid);
+			
+			if (otherObject == null) {
+				return new JspErrorView("otherUid=[" + otherUid + "] 不存在");
+			}
+			
+			String otherType = otherObject.getType().getName();
+			Map<String, Object> otherForm = FormManager.getFormValue(
+					otherType, 
+					otherUid, 
+					true);
+			
+			request.getSession().setAttribute("otherForm", otherForm);
+			
+			String LF = (String)otherForm.get("fv9LFMLDate") + " 00:00";//2013-04-30
+			String VFF = (String)otherForm.get("fv9VFFMLDate") + " 00:00";   //2013-07-31
+			String PVS = (String)otherForm.get("fv9PVSMLDate") + " 00:00"; //2013-10-31
+			String OS = (String)otherForm.get("fv90SMLDate") + " 00:00"; //2014-03-29
+			String SOP = (String)otherForm.get("fv9SOPMLDate") + " 00:00"; //2014-06-30
+			
+			int LF_KW = DateUtils.getWeekOfYear(LF);
+			int VFF_KW =DateUtils.getWeekOfYear(VFF);
+			int PVS_KW = DateUtils.getWeekOfYear(PVS);
+			int OS_KW = DateUtils.getWeekOfYear(OS);
+			int SOP_KW = DateUtils.getWeekOfYear(SOP);
+			
+			request.getSession().setAttribute("LF_KW", LF_KW);
+			request.getSession().setAttribute("VFF_KW", VFF_KW);
+			request.getSession().setAttribute("PVS_KW", PVS_KW);
+			request.getSession().setAttribute("OS_KW", OS_KW);
+			request.getSession().setAttribute("SOP_KW", SOP_KW);
+			
+			//每个里程碑经历的周数
+			int vffKWNo = 0, pvsKWNo = 0, osKWNo = 0, sopKWNo = 0;
+			vffKWNo = DateUtils.getWeekNumBetweenStartAndEnd(LF, VFF);
+			pvsKWNo = DateUtils.getWeekNumBetweenStartAndEnd(VFF, PVS);
+			osKWNo = DateUtils.getWeekNumBetweenStartAndEnd(PVS, OS);
+			sopKWNo = DateUtils.getWeekNumBetweenStartAndEnd(OS, SOP);
+			
+			request.getSession().setAttribute("vffKWNo", vffKWNo);
+			request.getSession().setAttribute("pvsKWNo", pvsKWNo);
+			request.getSession().setAttribute("osKWNo", osKWNo);
+			request.getSession().setAttribute("sopKWNo", sopKWNo);
+			
+			double sum = Double.parseDouble((vffKWNo + pvsKWNo + osKWNo + sopKWNo) + "");
+			double vff = 0.0, pvs = 0.0, os = 0.0, sop = 0.0;
+			vff = (vffKWNo/sum)*100; System.out.println("vff = " + vff);
+			pvs = (pvsKWNo/sum)*100; System.out.println("pvs = " + pvs);
+			os = (osKWNo/sum)*100; System.out.println("os = " + os);
+			sop = (sopKWNo/sum)*100; System.out.println("sop = " + sop);
+			
+			request.getSession().setAttribute("vff", vff);
+			request.getSession().setAttribute("pvs", pvs);
+			request.getSession().setAttribute("os", os);
+			request.getSession().setAttribute("sop", sop);
+			
+		}
+		
+		
 		
 		return new JspView(FormManager.getJspPath(type));
 	}

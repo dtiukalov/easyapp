@@ -99,16 +99,18 @@
 						stacking: 'normal',
 						borderWidth:2,
 						borderColor:'black',
-						shadow:false,
-						dataLabels: {
-							enabled: true,
-							style:{
-								fontWeight: 'bold',
-								fontSize:'18px'
-							},
-							color:'black'
-						}
-					}
+						shadow:false
+					},
+					series: {
+			            dataLabels: {
+			                enabled: true,
+			                style: {
+			                    fontWeight:'bold',
+			                    fontSize:'16px'
+			                },
+		                    color:'black'
+			            }
+			        }
 				},
 			    series: [{
 					name: '',

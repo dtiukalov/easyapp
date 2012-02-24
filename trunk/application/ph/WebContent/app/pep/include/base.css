@@ -390,3 +390,15 @@
 	height: 16px;
 	border: 1px solid #999999;
 }
+.fl {
+	font-size:12px;
+	color:gray;
+	margin:15px auto;
+}
+.fr {
+	font-size:10px;
+	color:gray;
+	margin:10px auto;
+	float:right;
+	margin-right:30px;
+}

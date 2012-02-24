@@ -316,7 +316,11 @@
 <body>		
 		<div id="container">
 			<div id="nr">
-			<div id="top"><h1><%=title %> </h1></div>
+			<div id="top">
+				<div class="fl"> VW471 CN-Pilothalle VFF,20.10.2010</div>
+				<div class="fr"> STATUS 19.10.2010</div>
+				<h1><%=title %></h1>
+			</div>
 			<div id="content">
 				<div id="chart1" style="width: 600px; height: 400px; margin: 50px 70px; float: left;"></div>
 				<div id="chart2" style="width: 90px; height: 400px; margin: 36px -100px; float: left;"></div>

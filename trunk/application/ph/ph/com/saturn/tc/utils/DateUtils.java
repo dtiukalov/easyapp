@@ -13,7 +13,8 @@ import org.apache.commons.httpclient.util.DateUtil;
 public class DateUtils {
 
 	public static void main(String[] args) {
-		DateUtils.getKWArray("2011-12-10 00:00", "2012-01-01 00:00");
+//		DateUtils.getKWArray("2011-12-10 00:00", "2012-01-01 00:00");
+		System.out.println(oneDateAddOrSubDays("2011-12-10", 3, "-"));
 	}
 	
 	public static String getLastTwoNum(int year) {
@@ -358,6 +359,33 @@ public class DateUtils {
 		 c.set(Calendar.DAY_OF_WEEK, c.getFirstDayOfWeek() + 6); // Sunday 
 		 return c.getTime(); 
 	 } 
-
+	 
+	 /**
+	  * 给定一个日期型字符串，返回加减n天后的日期型字符串
+	  * @param date_str  "yyyy-MM-dd hh:mm"
+	  * @param days
+	  * @return date_str
+	  */
+	public static String oneDateAddOrSubDays(String dateStr, int n, String flag) {
+		 SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");  
+		 Date tmpDate = null;  
+		 try {
+			tmpDate = df.parse(dateStr);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		long n_day = 0L;
+		if ("+".equals(flag)) {
+			n_day = (tmpDate.getTime()/(24*60*60*1000)+1+n)*(24*60*60*1000); 
+		}
+		if ("-".equals(flag)) {
+			n_day = (tmpDate.getTime()/(24*60*60*1000)+1-n)*(24*60*60*1000); 
+		}
+		
+		tmpDate.setTime(n_day);
+		
+		return df.format(tmpDate);
+	}
 
 }

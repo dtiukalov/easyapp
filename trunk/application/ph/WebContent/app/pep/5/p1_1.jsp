@@ -60,7 +60,7 @@
 					<td valign="top" class="pgpg" style="width:100px;padding:10px">
 						<h2>Presswerk</h2>
 					</td>
-					<td valign="top" class="pgpg" style="padding-left:-15px">
+					<td valign="top" class="pgpg" style="width:39px;padding:10px">
 						<% if(fv9PressStatus.equals("绿")){%>
 						<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" />
 						<%} else if(fv9PressStatus.equals("黄")){%>

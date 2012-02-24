@@ -24,6 +24,9 @@
 		<div id="nr">
 		<div id="top"><h1><%=title %></h1></div>
 	    <div id="content" style="margin-top:20px;font-size:12px;height:550px;">
+	    	<div id="german">
+				<input type="button" class="china" onclick="changeChinese()" />
+			</div>
 		    <div id="datatable1" style="width: 800px; margin:20px 50px">
 			    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 					  <tr>
@@ -38,7 +41,7 @@
 						    <td valign="top" class="pgpg" style="width:239px;">
 							    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
 								  <tr>
-						   			 <td valign="top"><h2> <%=fv9LogistikStyle.get(i) %></h2></td>
+						   			 <td valign="top" width="60%"><h2> <%=fv9LogistikStyle.get(i) %></h2></td>
 								   	 <td>
 								   		<% if(("绿").equals(fv9LogistikStatus.get(i))){%>
 										    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" />
@@ -51,7 +54,7 @@
 								  </tr>
 								</table>
 							</td>
-				    		<td valign="top" class="pgpg">
+				    		<td width="60%" valign="top" class="pgpg">
 				    			<div class="tbnrr">
 				    			<%if (fv9LogistikStCom_GM.get(i) != null && !"".equals(fv9LogistikStCom_GM.get(i))) {%>
 				    				<%=fv9LogistikStCom_GM.get(i) %>
@@ -60,7 +63,7 @@
 			   	    			<%} %>
 				    			</div>
 						    </td>
-				   			<td valign="top" class="pgpg">
+				   			<td width="40%" valign="top" class="pgpg">
 				   			 	<div class="tbnrr">
 				   			 	<%if (fv9LogistikMab_GM.get(i) != null && !"".equals(fv9LogistikMab_GM.get(i))) {%>
 				    			<%=fv9LogistikMab_GM.get(i) %>
@@ -72,11 +75,10 @@
 						</tr>
 						  <% }%>
 				</table>
-				<div style="width: 800px; height: 50px; overflow: hidden; text-align: center;">
-					<input type="button" class="change" value="切换中文" onclick="changeChinese()" />
-				</div>
 			</div>
-			
+			<div id="china" style="display: none;">
+				<input type="button" class="german" onclick="changeGerman()"/>
+			</div>
 			<div id="datatable2" style="width: 800px; display: none;margin:20px 50px">
 			    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 					  <tr>
@@ -91,7 +93,7 @@
 						    <td valign="top" class="pgpg" style="width:239px;">
 							    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
 								  <tr>
-						   			 <td valign="top"><h2> <%=fv9LogistikStyle.get(i) %></h2></td>
+						   			 <td valign="top" width="60%"><h2> <%=fv9LogistikStyle.get(i) %></h2></td>
 								   	 <td>
 								   		<% if(("绿").equals(fv9LogistikStatus.get(i))){%>
 										    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" />
@@ -104,7 +106,7 @@
 								  </tr>
 								</table>
 							</td>
-				    		<td valign="top" class="pgpg">
+				    		<td width="60%" valign="top" class="pgpg">
 				    			<div class="tbnrr">
 				    			<%if (fv9LogistikStCom_CN.get(i) != null && !"".equals(fv9LogistikStCom_CN.get(i))) {%>
 				    				<%=fv9LogistikStCom_CN.get(i) %>
@@ -113,7 +115,7 @@
 			   	    			<%} %>
 				    			</div>
 						    </td>
-				   			<td valign="top" class="pgpg">
+				   			<td width="40%" valign="top" class="pgpg">
 				   			 	<div class="tbnrr">
 				   			 	<%if (fv9LogistikMab_CN.get(i) != null && !"".equals(fv9LogistikMab_CN.get(i))) {%>
 				    			<%=fv9LogistikMab_CN.get(i) %>
@@ -125,9 +127,6 @@
 						</tr>
 						  <% }%>
 				</table>
-				<div style="width: 800px; height: 50px; overflow: hidden; text-align: center;">
-					<input type="button" class="change" value="切换德文" onclick="changeGerman()"/>
-				</div>
 			</div>
 			
 		</div>

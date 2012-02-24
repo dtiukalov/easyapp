@@ -25,6 +25,9 @@
 	<div id="nr">
 	<div id="top"><h1><%=title %></h1></div>
     <div id="content" style="margin-top:20px;font-size:12px;height:550px;">
+    	<div id="german">
+			<input type="button" class="china" onclick="changeChinese()" />
+		</div>
     	<div id="datatable1" style="width: 800px;margin:20px 50px">
 		    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 				<tr>
@@ -50,7 +53,7 @@
 						<img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="30" height="70" /> 
 						<%}%>
 					</td>
-					<td valign="top" class="pgpg" style="padding:5px">
+					<td width="60%" valign="top" class="pgpg" style="padding:5px">
 						<div>
 						<%if (fv9KarossStCom_GM.get(i) != null && !"".equals(fv9KarossStCom_GM.get(i))) {
 						%> <%=fv9KarossStCom_GM.get(i) %><br \><%=fv9KarossStCom_CN.get(i) %>
@@ -59,7 +62,7 @@
 						&nbsp;
 						<%}%>
 					</td>
-					<td valign="top" class="pgpg">
+					<td width="40%" valign="top" class="pgpg">
 						<div>
 						<%if (fv9KarossMab_GM.get(i) != null && !"".equals(fv9KarossMab_GM.get(i))) {
 						%> <%=fv9KarossMab_GM.get(i) %><br \><%=fv9KarossMab_CN.get(i) %></div>
@@ -74,11 +77,10 @@
 				}
 				%>
 			</table>
-			<div style="width: 800px; height: 50px; overflow: hidden; text-align: center;">
-				<input type="button" class="change" value="切换中文" onclick="changeChinese()" />
-			</div>
 		</div>
-		
+		<div id="china" style="display: none;">
+			<input type="button" class="german" onclick="changeGerman()"/>
+		</div>
 		<div id="datatable2" style="width: 800px; display: none;margin:20px 50px">
 		    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 				<tr>
@@ -104,7 +106,7 @@
 						<img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="30" height="70" /> 
 						<%}%>
 					</td>
-					<td valign="top" class="pgpg" style="padding:5px">
+					<td width="60%" valign="top" class="pgpg" style="padding:5px">
 						<div>
 						<%
 						if (fv9KarossStCom_CN.get(i) != null && !"".equals(fv9KarossStCom_CN.get(i))) {
@@ -115,7 +117,7 @@
 						&nbsp;
 						<%}%>
 					</td>
-					<td valign="top" class="pgpg">
+					<td width="40%" valign="top" class="pgpg">
 						<div>
 						<%
 						if (fv9KarossMab_CN.get(i) != null && !"".equals(fv9KarossMab_CN.get(i))) {
@@ -133,9 +135,6 @@
 				}
 				%>
 			</table>
-			<div style="width: 800px; height: 50px; overflow: hidden; text-align: center;">
-				<input type="button" class="change" value="切换德文" onclick="changeGerman()"/>
-			</div>
 		</div>
 	</div>
     <%@ include file="/app/pep/include/foot.jsp"%>

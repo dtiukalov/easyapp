@@ -84,50 +84,52 @@ public class PreviewAction implements IAction {
 						request.getSession().setAttribute(public_type, otherForm);
 						
 						//里程碑开始时间
-						String VFF = (String)otherForm.get("fv9VFFMLDate") + " 00:00";   //2013-07-31
-						String PVS = (String)otherForm.get("fv9PVSMLDate") + " 00:00"; //2013-10-31
-						String OS = (String)otherForm.get("fv90SMLDate") + " 00:00"; //2014-03-29
-						String SOP = (String)otherForm.get("fv9SOPMLDate") + " 00:00"; //2014-06-30
-						String ME = (String)otherForm.get("fv9MEMLDate") + " 00:00";
+						String DATE_VFF = (String)otherForm.get("fv9VFFMLDate") + " 00:00";   //2013-07-31
+						String DATE_PVS = (String)otherForm.get("fv9PVSMLDate") + " 00:00"; //2013-10-31
+						String DATE_0S = (String)otherForm.get("fv90SMLDate") + " 00:00"; //2014-03-29
+						String DATE_SOP = (String)otherForm.get("fv9SOPMLDate") + " 00:00"; //2014-06-30
+						String DATE_ME = (String)otherForm.get("fv9MEMLDate") + " 00:00";
 						
-						request.getSession().setAttribute("VFF", VFF);
-						request.getSession().setAttribute("PVS", PVS);
-						request.getSession().setAttribute("OS", OS);
-						request.getSession().setAttribute("SOP", SOP);
-						request.getSession().setAttribute("ME", ME);
+						request.getSession().setAttribute("DATE_VFF", DATE_VFF);
+						request.getSession().setAttribute("DATE_PVS", DATE_PVS);
+						request.getSession().setAttribute("DATE_0S", DATE_0S);
+						request.getSession().setAttribute("DATE_SOP", DATE_SOP);
+						request.getSession().setAttribute("DATE_ME", DATE_ME);
+						
+						request.getSession().setAttribute("SOP_DATE", (String)otherForm.get("fv9SOPMLDate"));
 
 						//里程碑开始周
-						int VFF_KW =DateUtils.getWeekOfYear(VFF);
-						int PVS_KW = DateUtils.getWeekOfYear(PVS);
-						int OS_KW = DateUtils.getWeekOfYear(OS);
-						int SOP_KW = DateUtils.getWeekOfYear(SOP);
-						int ME_KW = DateUtils.getWeekOfYear(ME);
+						int KW_VFF =DateUtils.getWeekOfYear(DATE_VFF);
+						int KW_PVS = DateUtils.getWeekOfYear(DATE_PVS);
+						int KW_0S = DateUtils.getWeekOfYear(DATE_0S);
+						int KW_SOP = DateUtils.getWeekOfYear(DATE_SOP);
+						int KW_ME = DateUtils.getWeekOfYear(DATE_ME);
 						
-						request.getSession().setAttribute("VFF_KW", VFF_KW);
-						request.getSession().setAttribute("PVS_KW", PVS_KW);
-						request.getSession().setAttribute("OS_KW", OS_KW);
-						request.getSession().setAttribute("SOP_KW", SOP_KW);
-						request.getSession().setAttribute("ME_KW", ME_KW);
+						request.getSession().setAttribute("KW_VFF", KW_VFF);
+						request.getSession().setAttribute("KW_PVS", KW_PVS);
+						request.getSession().setAttribute("KW_0S", KW_0S);
+						request.getSession().setAttribute("KW_SOP", KW_SOP);
+						request.getSession().setAttribute("KW_ME", KW_ME);
 						
 						//每个里程碑经历的周数
-						int vffKWNo = 0, pvsKWNo = 0, osKWNo = 0, sopKWNo = 0;
-						vffKWNo = DateUtils.getWeekNumBetweenStartAndEnd(VFF, PVS);
-						pvsKWNo = DateUtils.getWeekNumBetweenStartAndEnd(PVS, OS);
-						osKWNo = DateUtils.getWeekNumBetweenStartAndEnd(OS, SOP);
-						sopKWNo = DateUtils.getWeekNumBetweenStartAndEnd(SOP, ME);
+						int KWNo_VFF = 0, KWNo_PVS = 0, KWNo_0S = 0, KWNo_SOP = 0;
+						KWNo_VFF = DateUtils.getWeekNumBetweenStartAndEnd(DATE_VFF, DATE_PVS);
+						KWNo_PVS = DateUtils.getWeekNumBetweenStartAndEnd(DATE_PVS, DATE_0S);
+						KWNo_0S = DateUtils.getWeekNumBetweenStartAndEnd(DATE_0S, DATE_SOP);
+						KWNo_SOP = DateUtils.getWeekNumBetweenStartAndEnd(DATE_SOP, DATE_ME);
 						
-						request.getSession().setAttribute("vffKWNo", vffKWNo);
-						request.getSession().setAttribute("pvsKWNo", pvsKWNo);
-						request.getSession().setAttribute("osKWNo", osKWNo);
-						request.getSession().setAttribute("sopKWNo", sopKWNo);
+						request.getSession().setAttribute("KWNo_VFF", KWNo_VFF);
+						request.getSession().setAttribute("KWNo_PVS", KWNo_PVS);
+						request.getSession().setAttribute("KWNo_0S", KWNo_0S);
+						request.getSession().setAttribute("KWNo_SOP", KWNo_SOP);
 						
 						//计算每个里程碑所占的比例
-						double sum = Double.parseDouble((vffKWNo + pvsKWNo + osKWNo + sopKWNo) + "");
+						double sum = Double.parseDouble((KWNo_VFF + KWNo_PVS + KWNo_0S + KWNo_SOP) + "");
 						double vff = 0.0, pvs = 0.0, os = 0.0, sop = 0.0;
-						vff = (vffKWNo/sum)*100; System.out.println("vff = " + vff);
-						pvs = (pvsKWNo/sum)*100; System.out.println("pvs = " + pvs);
-						os = (osKWNo/sum)*100; System.out.println("os = " + os);
-						sop = (sopKWNo/sum)*100; System.out.println("sop = " + sop);
+						vff = (KWNo_VFF/sum)*100;
+						pvs = (KWNo_PVS/sum)*100;
+						os = (KWNo_0S/sum)*100;
+						sop = (KWNo_SOP/sum)*100;
 
 						
 					}
@@ -135,18 +137,18 @@ public class PreviewAction implements IAction {
 					if ("FV9_11VorserienTer".equals(public_type)) {
 						request.getSession().setAttribute(public_type, otherForm);
 						
-						String fv9VFFTBTZP5 = (String)otherForm.get("fv9VFFTBTZP5");
-						String fv9VFFTBTZP7 = (String)otherForm.get("fv9VFFTBTZP7");
+						String fv9VFFTBTZP5 = (String)otherForm.get("fv9VFFTBTZP5") + " 00:00"; //2011-12-10
+						String fv9VFFTBTZP7 = (String)otherForm.get("fv9VFFTBTZP7") + " 00:00"; //2012-01-10
 						
-						String fv9PVSTBTZP5 = (String)otherForm.get("fv9PVSTBTZP5");
-						String fv9PVSTBTZP7 = (String)otherForm.get("fv9PVSTBTZP7");
+						String fv9PVSTBTZP5 = (String)otherForm.get("fv9PVSTBTZP5") + " 00:00"; //2012-01-30
+						String fv9PVSTBTZP7 = (String)otherForm.get("fv9PVSTBTZP7") + " 00:00"; //2012-02-04
 						
-						String fv90STBTZP5 = (String)otherForm.get("fv90STBTZP5");
-						String fv90STBTZP7 = (String)otherForm.get("fv90STBTZP7");
+						String fv90STBTZP5 = (String)otherForm.get("fv90STBTZP5") + " 00:00"; //2012-03-22
+						String fv90STBTZP7 = (String)otherForm.get("fv90STBTZP7") + " 00:00"; //2012-04-11
 						
 						//ZP7的SOP取自项目的SOP，ZP5的SOP是ZP7 SOP的前两周
-						String fv9ZP7SOP = (String)request.getSession().getAttribute("SOP_DATE");
-						String fv9ZP5SOP = DateUtils.oneDateAddOrSubDays(fv9ZP7SOP, 2, "-");
+						String fv9ZP7SOP = (String)request.getSession().getAttribute("SOP_DATE") + " 00:00";
+						String fv9ZP5SOP = DateUtils.oneDateAddOrSubDays(fv9ZP7SOP, 2, "-") + " 00:00";
 						
 						request.getSession().setAttribute("fv9VFFTBTZP5", fv9VFFTBTZP5);
 						request.getSession().setAttribute("fv9VFFTBTZP7", fv9VFFTBTZP7);
@@ -163,7 +165,7 @@ public class PreviewAction implements IAction {
 						int PVSTBTZP7 = DateUtils.getWeekOfYear(fv9PVSTBTZP7);
 						int OSTBTZP5 = DateUtils.getWeekOfYear(fv90STBTZP5);
 						int OSTBTZP7 = DateUtils.getWeekOfYear(fv90STBTZP7);
-						int ZP7SOP = DateUtils.getWeekOfYear(fv9ZP7SOP);
+						int ZP7SOP = DateUtils.getWeekOfYear(fv9ZP7SOP );
 						int ZP5SOP = DateUtils.getWeekOfYear(fv9ZP5SOP);
 						
 						request.getSession().setAttribute("VFFTBTZP5", VFFTBTZP5);

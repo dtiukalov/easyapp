@@ -78,35 +78,35 @@ public class WorkspaceUtils {
 			//此用户的项目不为空，继续寻找Item
 			if (projectList != null && projectList.length > 0) {
 				
-//				for (int k=0; k<projectList.length; k++) {
-//					
-//					TC_Project project = (TC_Project)projectList[k];
-//
-//					dataService.getProperties(
-//							new ModelObject[] { project },
-//							new String[] { "project_id" });
-//					
-//					String[] condition = {"项目 ID"};
-//					String[] values = {project.get_project_id()};
-//					try {
-//						SavedQueryResults result = QueryUtils.queryCustom(
-//								session, 
-//								condition, 
-//								values,
-//								"QueryPHItemByProject");
-//						
-//						ModelObject[] moEveryProject = result.objects;
-//						
-//						for (int i = 0; i < moEveryProject.length; i++) {
-//							Item phitem = (Item)moEveryProject[i];
-//							phItemMap.put(phitem.getUid(), phitem);
-//						}
-//						
-//					} catch (Exception e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					}
-//				}
+				for (int k=0; k<projectList.length; k++) {
+					
+					TC_Project project = (TC_Project)projectList[k];
+
+					dataService.getProperties(
+							new ModelObject[] { project },
+							new String[] { "project_id" });
+					
+					String[] condition = {"Project ID"};
+					String[] values = {project.get_project_id()};
+					try {
+						SavedQueryResults result = QueryUtils.queryCustom(
+								session, 
+								condition, 
+								values,
+								"QueryPHItemByProject");
+					
+						ModelObject[] moEveryProject = result.objects;
+						
+						for (int i = 0; i < moEveryProject.length; i++) {
+							Item phitem = (Item)moEveryProject[i];
+							phItemMap.put(phitem.getUid(), phitem);
+						}
+						
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
 				
 				Folder homeFolder = getHome(session, userUid);
 				WorkspaceObject[] workspaceObjects = (WorkspaceObject[]) getChildren(session, homeFolder);

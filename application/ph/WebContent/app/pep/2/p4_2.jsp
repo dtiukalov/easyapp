@@ -117,7 +117,7 @@
 						}
 					},
 					stackLabels: {
-						enabled: true,
+						enabled: false,
 						style: {
 							fontWeight: 'bold',
 							fontSize:'14px',
@@ -147,7 +147,14 @@
 						borderWidth:0,
 						shadow:false,
 						dataLabels: {
-							enabled: false
+							enabled: true,
+							color:'black',
+							verticalAlign: 'top',
+							y:-10,
+							style:{
+								fontSize:'14px',
+								fontWeight:'bold'
+							}
 						}
 					}
 				},

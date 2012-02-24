@@ -145,14 +145,18 @@
 				plotOptions: {
 					column: {
 						stacking: 'normal',
-						borderColor: 'black',
+						borderColor: 'black'
+					},
+					series:{
 						dataLabels: {
 							enabled: true,
-							style : {
-								fontWeight: 'bold',
-								fontSize:'14px'
-							},
-							color: 'black'
+							color:'black',
+							/* verticalAlign: 'top', */
+							y:-10,
+							style:{
+								fontSize:'14px',
+								fontWeight:'bold'
+							}
 						}
 					}
 				},
@@ -196,15 +200,7 @@
 					data: [{ 
 						y: <%=fv9FuncInTolGreen%>, 
 						low: 0,
-						color: '#009C0E',
-						dataLabels: {
-							enabled: true,
-							style : {
-								fontWeight: 'bold',
-								fontSize:'10px'
-							},
-							color: 'white'
-						}
+						color: '#009C0E'
 					}]
 				}]
 			});
@@ -218,7 +214,7 @@
 			<div id="nr">
 				<div id="top"><h1><%=title %></h1></div>	
 				<div id="content">
-					<div id="chart" style="width: 800px; height: 400px; margin: 50px auto"></div>
+					<div id="chart" style="width: 800px; height: 450px; margin: 30px auto"></div>
 				</div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>

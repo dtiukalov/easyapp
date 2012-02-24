@@ -64,7 +64,11 @@
 <body>	
 	<div id="container" style="margin:0 10px">
 		<div id="nr">
-		<div id="top" ><h1><%=title %></h1></div>
+		<div id="top" >
+			<div class="fl"> VW471 CN-Pilothalle VFF,20.10.2010</div>
+			<div class="fr"> STATUS 19.10.2010</div>
+			<h1><%=title %></h1>
+		</div>
 		<div id="content" style="margin:60px 30px;height:480px;">
 			<div class="coo">
 				<table border="0" cellpadding="1" cellspacing="1" class="tab">

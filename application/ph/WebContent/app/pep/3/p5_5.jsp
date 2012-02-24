@@ -406,7 +406,7 @@
 				<div id="content">
 					<div id="left" style="width: 400px; height: auto; margin: 0 auto; float: left;">
 						<div id="chart" style="width: 400px; height: 450px; margin: 0 auto; float: left;"></div>
-						<div style="width: 400px; height: 100px; margin: 0px; float: left; font-size: 12px;">
+						<div style="width: 400px; height: 100px; margin: 0px 20px; float: left; font-size: 12px;">
 							<div style="width: 100px; height: 30px; float: left; vertical-align: middle; padding-top: 10px; ">
 								<img src="<%=request.getContextPath()%>/app/pep/images/presswerk.jpg" width="15" height="15" />Presswerk
 							</div>

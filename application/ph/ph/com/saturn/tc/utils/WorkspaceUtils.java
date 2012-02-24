@@ -99,6 +99,8 @@ public class WorkspaceUtils {
 						
 						for (int i = 0; i < moEveryProject.length; i++) {
 							Item phitem = (Item)moEveryProject[i];
+							service.getProperties(phitem, "uid", "object_name",
+									"object_type", "contents");
 							phItemMap.put(phitem.getUid(), phitem);
 						}
 						
@@ -107,7 +109,7 @@ public class WorkspaceUtils {
 						e.printStackTrace();
 					}
 				}
-				
+/*				
 				Folder homeFolder = getHome(session, userUid);
 				WorkspaceObject[] workspaceObjects = (WorkspaceObject[]) getChildren(session, homeFolder);
 				service.getProperties(workspaceObjects, "uid", "object_name",
@@ -147,7 +149,7 @@ public class WorkspaceUtils {
 							stack.add((Folder)wo);
 						}
 					}
-				}
+				}*/
 			}
 		} catch (NotLoadedException e) {
 			// TODO Auto-generated catch block

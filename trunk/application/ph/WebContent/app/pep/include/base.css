@@ -19,32 +19,32 @@
 	MARGIN: 0px auto; WIDTH: 950px
 }
 #container #top {
-	BORDER-BOTTOM: #000099 2px solid; height:50px; OVERFLOW: hidden
+	BORDER-BOTTOM: #000099 2px solid; height:80px; OVERFLOW: hidden
 }
 #top H1 {
 	FONT-FAMILY: Arial, Helvetica, sans-serif; FONT-SIZE: 32px; margin-top:12px;
 }
 #footer {
-	WIDTH: 950px; HEIGHT: 50px;
+	WIDTH: 950px; HEIGHT: 30px;
 	BORDER-TOP: #000099 2px solid;
 }
 #footer .ft {
-	MARGIN: 0px auto; WIDTH: 950px; HEIGHT: 50px
+	MARGIN: 7px auto; WIDTH: 950px; HEIGHT: 30px
 }
 #footer .ztu {
-	WIDTH: 200px; DISPLAY: inline; FLOAT: left;
+	WIDTH: 100px; DISPLAY: inline; FLOAT: left;margin-left:20px;height:50px;
 }
 #footer .page {
-	WIDTH: 420px; DISPLAY: inline; FLOAT: left
+	WIDTH: 150px; DISPLAY: inline; FLOAT: left;margin-left:250px;margin-top:5px;
 }
 #footer .page .Previous {
 	text-align:center;
 }
 .lanstk {
-	TEXT-ALIGN: center; background:#93C; WIDTH: 160px; DISPLAY: block;FLOAT: right; margin-right:100px;margin-top:-37px;HEIGHT: 18px; COLOR: #fff; FONT-SIZE: 12px; background:url(../images/bg1.jpg) no-repeat;
+	TEXT-ALIGN: center; background:#93C; WIDTH: 160px; DISPLAY: block;FLOAT: right; margin-right:100px;margin-top:-20px;HEIGHT: 18px; COLOR: #fff; FONT-SIZE: 12px; background:url(../images/bg1.jpg) no-repeat;
 }
 #footer .ylogo {
-	FLOAT: left;
+	FLOAT: right;margin-right:20px;margin-top:-3px;
 }
 .page P {
 	FONT-FAMILY: Arial, Helvetica, sans-serif; FONT-SIZE: 16px; text-align:center; display:block; height:23px; vertical-align: bottom;

@@ -12,7 +12,8 @@ public class FV9_15BauprogVFF extends Form {
 		"fv9LackStart", "fv9LackEnd",
 		"fv9MontageStart", "fv9MontageEnd", 
 		"fv9ObergabeStart","fv9ObergabeEnd",
-		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName"
+		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
+		"fv9PlatformType"
 	};
 
 	public String[] getAttributes() {

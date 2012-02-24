@@ -27,6 +27,8 @@ public class LoadAction implements IAction {
 			HttpServletResponse response) {
 
 		String name = (String)request.getParameter("name");
+//		String platformType = (String)request.getParameter("platformType");
+		
 		Item item = PH.getQueryService().queryItemByName(name);
 		
 		if (item == null) {
@@ -40,6 +42,7 @@ public class LoadAction implements IAction {
 		
 		request.getSession().setAttribute("milepost", roadmap);
 		request.getSession().setAttribute("indexes", indexes);
+		
 		request.setAttribute("current", "1");
 		return new JspView(indexes.get(0));
 		//return new JspView("/app/pep/catalogue.jsp");

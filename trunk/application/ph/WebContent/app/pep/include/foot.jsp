@@ -39,11 +39,25 @@
 		<div class="clear"></div>
     </div>
 	<div class="ft">
-		<div class="ztu"><img src="/ph/app/pep/images/footerlogo.jpg" width="130px" height="37px" /></div>
+		<div class="ztu"><img src="<%=request.getContextPath() %>/app/pep/images/footerlogo.jpg" width="130px" height="37px" /></div>
 	    <div class="page">
 		    <P><%=prev %>&nbsp;&nbsp;Seite<%=current %>&nbsp;&nbsp;<%=next %></P>
 	    </div>
-	    <div class="ylogo"><img src="/ph/app/pep/images/yiqilogo.jpg" width="120px" height="41px"/></div>
+	    <div class="ylogo">
+	    <%
+	    if ("FAWVW".equals(platformType)) {
+    	%>
+ 	    <img src="<%=request.getContextPath() %>/app/pep/images/FAWVW-logo.jpg" width="120px" height="41px"/>
+ 	    <%		
+	    }
+	    if ("Audi".equals(platformType)) {
+	    %>
+	    <img src="<%=request.getContextPath() %>/app/pep/images/audi.jpg" width="120px" height="41px"/>
+	    <%	
+	    }
+	    %>
+	    
+	    </div>
 	    <div class="clear"></div>
     </div>
 </div>

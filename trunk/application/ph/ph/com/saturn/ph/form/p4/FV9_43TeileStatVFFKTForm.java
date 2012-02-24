@@ -10,7 +10,8 @@ public class FV9_43TeileStatVFFKTForm extends Form {
 		"fv9TeileFehlend", "fv9TeileNote3","fv9TeileNote1",
 		"fv9TopKrisUmf", "fv9TopEinNum", "fv9TopVSISWZ",
 		"fv9TopVSIN3",
-		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName"
+		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
+		"fv9PlatformType"
 	};
 	
 	public String[] getAttributes() {

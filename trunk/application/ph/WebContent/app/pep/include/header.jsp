@@ -16,10 +16,12 @@
 	
 	String title = "";
 	String oraganization = "";
+	String platformType = "FAWVW";
 	
 	if (form != null) {
 		title = (String)form.get("fv9PageName");
 		oraganization = (String)form.get("fv9Oraganization");
+		platformType = (String)form.get("fv9PlatformType");
 	}
 	
 	double vff = 0.0;

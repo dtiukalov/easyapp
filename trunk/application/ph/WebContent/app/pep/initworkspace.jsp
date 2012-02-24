@@ -2,6 +2,7 @@
 <%@page import="java.util.Iterator"%>
 <%@page import="com.teamcenter.soa.client.model.strong.User"%>
 <%@page import="com.teamcenter.soa.client.model.strong.Item"%>
+<%@page import="com.saturn.ph.PH" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
@@ -38,6 +39,8 @@
 							while(iterator.hasNext()){
 								String key = iterator.next().toString();
 								Item item = phItemMap.get(key);
+								PH.getDataService().getProperties(item, "object_name",
+										"fv9PlatformType");
 							%>	
 							<form id="showPHForm" name="showPHForm" method="post" action="<%=request.getContextPath()%>/app/pep/view/load.do">
 							
@@ -49,7 +52,7 @@
 									&nbsp;&nbsp;<%=item.getPropertyDisplayableValue("object_name")%>
 								</td>
 								<td style="width: 150px;">
-									<input type="Submit" value="  开始汇报" />
+									<input type="Submit" value="开始汇报" />
 								</td>
 								<input name="name" type="hidden" value="<%=item.getPropertyDisplayableValue("object_name")%>"/> 
 								<input name="uid" type="hidden" value="<%=key%>"/> 

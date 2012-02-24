@@ -168,16 +168,15 @@ public class Web {
 					return "<div id='no-state'>&nbsp;</div>";
 				}
 			}
-			 
 			
-			//预发布之前
+/*			//预发布之前
 			if ("".equalsIgnoreCase(isPublic)) {
 				return "<div id='no-state'>资料整理中...</div>";
-			}
+			}*/
 			
 			//预发布之后
 			if ("yes".equalsIgnoreCase(isPublic)) {
-				return "<div id='no-state'>已发布</div>";
+				return "<div id='no-state'>资料已发布</div>";
 			}
 			
 			

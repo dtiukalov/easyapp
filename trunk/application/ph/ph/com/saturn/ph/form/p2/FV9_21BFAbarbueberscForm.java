@@ -7,7 +7,8 @@ public class FV9_21BFAbarbueberscForm extends Form {
 	private static final String[] attr = {
 		"fv9BFreigType", "fv9BFreigTypeNum", 
 		"fv9BFKWNo", "fv9BFreiSoll", "fv9BFAWE", "fv9BFInArbeirt",
-		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName"
+		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
+		"fv9PlatformType"
 	};
 
 	public String[] getAttributes() {

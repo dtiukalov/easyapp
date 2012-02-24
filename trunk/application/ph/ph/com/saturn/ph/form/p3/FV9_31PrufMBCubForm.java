@@ -7,7 +7,8 @@ public class FV9_31PrufMBCubForm extends Form {
 	private static final String[] attr = {
 		"fv9PrMSBCubStyle", "fv9PrMSBCubStatus", "fv9PrMSBCubStCom_CN", "fv9PrMSBCubStCom_GM",
 		"fv9PrMSBCubMabnh_CN", "fv9PrMSBCubMabnh_GM",
-		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName"
+		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
+		"fv9PlatformType"
 	};
 
 	public String[] getAttributes() {

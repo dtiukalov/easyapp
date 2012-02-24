@@ -156,6 +156,7 @@
 					
 				},
 				yAxis: {
+					min:1,
 					gridLineWidth: 0,
 					title: {
 						text: ' '
@@ -193,16 +194,18 @@
 						stacking: 'normal',
 						groupPadding: 0.001,
 						borderColor: 'black',
-						shadow:false,
-						dataLabels: {
-							enabled: true,
-							style : {
-								fontWeight: 'bold',
-								fontSize:'12px'
-							},
-							color: 'black'
-						}
-					}
+						shadow:false
+						},
+						series: {
+				            dataLabels: {
+				                enabled: true,
+				                style: {
+				                    fontWeight:'bold',
+				                    fontSize:'12px'
+				                	},
+				                	color:'black'
+				           		 }
+				       		 }
 				},
 			    series: [
 			    {
@@ -220,7 +223,7 @@
 				}]
 			});
 		});
-		</script>
+			</script>
 </head>
 <body>		
 		<div id="container">

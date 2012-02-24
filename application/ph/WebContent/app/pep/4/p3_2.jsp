@@ -6,6 +6,7 @@
 <%@page import="java.util.List"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="com.saturn.web.Web"%>	
+<%@page import="com.saturn.tc.utils.DateUtils"%>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -244,37 +245,57 @@
 					</div>
 					<div id="left">
 						<div id="chart"></div>
+						<%
+							int tbt_vff_kwno = DateUtils.getWeekNumBetweenStartAndEnd(
+									(String)session.getAttribute("fv9VFFTBTZP7"),
+									(String)session.getAttribute("DATE_VFF")); 
+							double KWTBT = Double.parseDouble(tbt_vff_kwno + "");
+							double KWVFF = Double.parseDouble((Integer)session.getAttribute("KWNo_VFF") + "");
+							double KWPVS = Double.parseDouble((Integer)session.getAttribute("KWNo_PVS") + "");
+							double KW0S = Double.parseDouble((Integer)session.getAttribute("KWNo_0S") + "");
+							double KWSOP = Double.parseDouble((Integer)session.getAttribute("KWNo_SOP") + "");
+							
+							double sum = KWTBT + KWVFF + KWPVS + KW0S + KWSOP;
+						%>
 						<div id="time">
 							<table style="font-size: 10px;">
 								<tr>
 									<td style="width: 12px; ">KW</td>
-									<td style="width: 48px; ">52</td>
-									<td style="width: 48px; ">6</td>
-									<td style="width: 48px; ">8</td>
-									<td style="width: 48px; ">15</td>
-									<td style="width: 48px; ">35</td>
-									<td style="width: 48px; ">43</td>
+									<td width="<%=(288.0/sum)*KWTBT%>">
+										<%=(Integer)session.getAttribute("VFFTBTZP7") %>
+									</td>
+									<td width="<%=(288.0/sum)*KWVFF*0.8%>" style="text-align:left; padding-left: <%=(288.0/sum)*KWVFF*0.2%>px;">
+										<%=(Integer)session.getAttribute("KW_VFF") %>
+									</td>
+									<td width="<%=(288.0/sum)*KWPVS*0.8%>" style="text-align:left; padding-left: <%=(288.0/sum)*KWPVS*0.2%>px;">
+										<%=(Integer)session.getAttribute("KW_PVS") %>
+									</td>
+									<td width="<%=(288.0/sum)*KW0S*0.8%>" style="text-align:left; padding-left: <%=(288.0/sum)*KW0S*0.2%>px;">
+										<%=(Integer)session.getAttribute("KW_0S") %>
+									</td>
+									<td width="<%=(288.0/sum)*KWSOP*0.8%>" style="text-align:left; padding-left: <%=(288.0/sum)*KWSOP*0.2%>px;">
+										<%=(Integer)session.getAttribute("KW_SOP") %>
+									</td>
 								</tr>
 								<tr>
-									<td>&nbsp;</td>
-									<td colspan="6" style="border-bottom: 1px solid; height: 1px;">&nbsp;</td>
+									<td colspan="6" style="border-bottom: 1px solid; height: 0px; line-height: 0px;">&nbsp;</td>
 								</tr>
 								<tr>
 									<td style="width: 12px;">&nbsp;</td>
-									<td style="width: 48px;">
-										<img src="<%=request.getContextPath() %>/app/pep/images/VFF-TBT.png" width="48" height="35">
-									</td>
-									<td colspan="2">
-										<img src="<%=request.getContextPath() %>/app/pep/images/VFF-T1.png" width="96" height="35">
+									<td>
+										<img src="<%=request.getContextPath() %>/app/pep/images/VFF-TBT.png" width="<%=(288.0/sum)*KWTBT%>" height="35">
 									</td>
 									<td>
-										<img src="<%=request.getContextPath() %>/app/pep/images/PVS-T1.png" width="48" height="35">
+										<img src="<%=request.getContextPath() %>/app/pep/images/VFF-T1.png" width="<%=(288.0/sum)*KWVFF%>" height="35">
 									</td>
 									<td>
-										<img src="<%=request.getContextPath() %>/app/pep/images/0S-T1.png" width="48" height="35">
+										<img src="<%=request.getContextPath() %>/app/pep/images/PVS-T1.png" width="<%=(288.0/sum)*KWPVS%>" height="35">
 									</td>
 									<td>
-										<img src="<%=request.getContextPath() %>/app/pep/images/SOP-T1.png" width="48" height="35">
+										<img src="<%=request.getContextPath() %>/app/pep/images/0S-T1.png" width="<%=(288.0/sum)*KW0S%>" height="35">
+									</td>
+									<td>
+										<img src="<%=request.getContextPath() %>/app/pep/images/SOP-T1.png" width="<%=(288.0/sum)*KWSOP%>" height="35">
 									</td>
 								</tr>
 							</table>

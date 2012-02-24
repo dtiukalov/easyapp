@@ -247,7 +247,7 @@
 						<div id="chart"></div>
 						<%
 							int tbt_vff_kwno = DateUtils.getWeekNumBetweenStartAndEnd(
-									(String)session.getAttribute("fv9VFFTBTZP7"),
+									(String)session.getAttribute("fv9VFFTBTZP5"),
 									(String)session.getAttribute("DATE_VFF")); 
 							double KWTBT = Double.parseDouble(tbt_vff_kwno + "");
 							double KWVFF = Double.parseDouble((Integer)session.getAttribute("KWNo_VFF") + "");
@@ -262,7 +262,7 @@
 								<tr>
 									<td style="width: 12px; ">KW</td>
 									<td width="<%=(288.0/sum)*KWTBT%>">
-										<%=(Integer)session.getAttribute("VFFTBTZP7") %>
+										<%=(Integer)session.getAttribute("VFFTBTZP5") %>
 									</td>
 									<td width="<%=(288.0/sum)*KWVFF*0.8%>" style="text-align:left; padding-left: <%=(288.0/sum)*KWVFF*0.2%>px;">
 										<%=(Integer)session.getAttribute("KW_VFF") %>

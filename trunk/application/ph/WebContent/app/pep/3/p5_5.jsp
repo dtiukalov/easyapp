@@ -316,7 +316,15 @@
 				},
 			    series: [{
 					name: 'Soll',
-					data: <%=everyKW%>
+					data: <%=everyKW%>,
+					dataLabels: {
+						enabled: true,
+						style : {
+							fontWeight: 'bold',
+							fontSize:'10px'
+						},
+						color: 'white'
+					}
 				},{
 					name: 'Presswerk',
 					data: <%=Presswerk%>,
@@ -356,7 +364,15 @@
 					marker: {enabled: false},
 					lineWidth: 1,
 					shadow: false,
-					enableMouseTracking: false
+					enableMouseTracking: false,
+					dataLabels: {
+						enabled: true,
+						style : {
+							fontWeight: 'bold',
+							fontSize:'10px'
+						},
+						color: 'white'
+					}
 				}, {
 					name: 'Kaufteile',
 					data: <%=Kaufteile%>,

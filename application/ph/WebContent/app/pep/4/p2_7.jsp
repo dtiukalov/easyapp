@@ -234,7 +234,11 @@
 	<body>
 		<div id="container">
 			<div id="nr">
-				<div id="top"><h1><%=title %></h1></div>
+				<div id="top">
+				<div class="fl"> VW471 CN-Pilothalle VFF,20.10.2010</div>
+				<div class="fr"> STATUS 19.10.2010</div>
+				<h1><%=title %></h1>
+			</div>
 				<div id="content" style="margin:0 80px;height:600px;">
 					<div id="subtitle">
 						<h1>Anzahl Teile nach TEVON</h1>

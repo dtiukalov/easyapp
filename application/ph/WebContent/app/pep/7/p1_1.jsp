@@ -58,7 +58,9 @@
 <div id="container" style="font-size:12px;">
 	<div id="nr">
 	<div id="top" >
-		<div style="width: 80%;float: left;margin: 0 auto;"><h1><%=title %></h1></div>
+				<div class="fl"> VW471 CN-Pilothalle VFF,20.10.2010</div>
+				<div class="fr"> STATUS 19.10.2010</div>
+				<h1><%=title %></h1>
 		<div style="width: 20%;float: left;margin: 0 auto; text-align: right;">
    			<% if(fv9ProjectStatus.equals("绿")){%>
 		    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="16" height="40" />

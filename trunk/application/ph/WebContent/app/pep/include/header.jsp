@@ -22,6 +22,28 @@
 		oraganization = (String)form.get("fv9Oraganization");
 	}
 	
+	double vff = 0.0;
+	double pvs = 0.0;
+	double os = 0.0;
+	double sop = 0.0;
+	
+	if (session.getAttribute("vff") != null && 
+			(Double)session.getAttribute("vff") != 0.0) {
+		vff = (Double)session.getAttribute("vff");
+	}
+	if (session.getAttribute("pvs") != null &&
+			(Double)session.getAttribute("pvs") != 0.0) {
+		pvs = (Double)session.getAttribute("pvs");
+	}
+	if (session.getAttribute("os") != null &&
+			(Double)session.getAttribute("os") != 0.0) {
+		os = (Double)session.getAttribute("os");
+	}
+	if (session.getAttribute("sop") != null &&
+			(Double)session.getAttribute("sop") != 0.0) {
+		sop = (Double)session.getAttribute("sop");
+	}
+	
 %>
 <%!
 	//供3.5 Audit ZP8 – Gewerk: XXX 使用

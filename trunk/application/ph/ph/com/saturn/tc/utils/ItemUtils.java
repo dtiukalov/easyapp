@@ -31,7 +31,7 @@ public class ItemUtils {
 		Map<String, Object> ids = new HashMap<String, Object>();
 
 		PH.getDataService().getProperties(item, "object_name",
-				"displayable_revisions", "fv9PlatformType");
+				"displayable_revisions");
 
 		try {
 			ModelObject[] itemRevs = (ModelObject[]) item
@@ -43,8 +43,7 @@ public class ItemUtils {
 						"item_revision_id", "current_revision_id",
 						"IMAN_specification", "view", "IMAN_requirement",
 						"IMAN_reference", "TC_WorkContext_Relation",
-						"TC_Attaches", "VisItemRevCreatedSnapshot2D",
-						"fv9PlatformType");
+						"TC_Attaches", "VisItemRevCreatedSnapshot2D");
 				
 				PH.getDataService().getProperties(itemRev, relations);
 				
@@ -52,31 +51,35 @@ public class ItemUtils {
 					ModelObject[] objects = itemRev.getProperty(relation).getModelObjectArrayValue();
 					PH.getDataService().getProperties(objects, "object_type");
 					PH.getDataService().getProperties(objects, "object_name");
+					PH.getDataService().getProperties(objects, "fv9PreRelesed");
+					
 					for (ModelObject modelObject : objects) {
 						String uid = modelObject.getUid();
 						String type = modelObject.getType().getName();
-						
-						if(type.equalsIgnoreCase("FV9PHJPEG")){
-							try {
-								type = modelObject.getProperty("object_name").getDisplayableValue();
-							} catch (NotLoadedException e) {
-								e.printStackTrace();
+						String isPublic = modelObject.getPropertyDisplayableValue("fv9PreRelesed");
+						if ("yes".equalsIgnoreCase(isPublic)) {
+							if(type.equalsIgnoreCase("FV9PHJPEG")){
+								try {
+									type = modelObject.getProperty("object_name").getDisplayableValue();
+								} catch (NotLoadedException e) {
+									e.printStackTrace();
+								}
 							}
-						}
-						
-						if (ids.containsKey(type)) {
-							Object obj = ids.get(type);
 							
-							if (obj instanceof List) {
-								((List)obj).add(uid);
+							if (ids.containsKey(type)) {
+								Object obj = ids.get(type);
+								
+								if (obj instanceof List) {
+									((List)obj).add(uid);
+								} else {
+									List<String> arr = new ArrayList<String>();
+									arr.add((String)obj);
+									arr.add(uid);
+									ids.put(type, arr);
+								}
 							} else {
-								List<String> arr = new ArrayList<String>();
-								arr.add((String)obj);
-								arr.add(uid);
-								ids.put(type, arr);
+								ids.put(type, uid);
 							}
-						} else {
-							ids.put(type, uid);
 						}
 					}
 				}

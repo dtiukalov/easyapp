@@ -25,7 +25,11 @@
 <body>
 <div id="container">
 	<div id="nr">
-		<div id="top"><h1>3.2 Fugen und Radienplan</h1></div>
+		<div id="top">
+				<div class="fl"> VW471 CN-Pilothalle VFF,20.10.2010</div>
+				<div class="fr"> STATUS 19.10.2010</div>
+				<h1><%=title %></h1>
+			</div>
     	<div id="content">
     	<div id="german">
 			<input type="button" class="china" onclick="changeChinese()" />

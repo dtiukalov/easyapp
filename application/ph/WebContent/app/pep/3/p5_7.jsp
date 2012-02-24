@@ -101,16 +101,17 @@
 							shadow: false,
 							borderColor:'black',
 							borderWidth:0,
-							groupPadding: 0.25,
 							dataLabels: {
 								enabled: true,
 								style : {
-									fontWeight: 'bold',
 									fontSize:'12px'
 								},
 								color: 'white'
 							}
-						}
+						},
+						series: {
+				            pointWidth: 32
+				        }
 					},
 					
 				    series: [{
@@ -126,7 +127,6 @@
 						dataLabels: {
 							enabled: true,
 							style : {
-								fontWeight: 'bold',
 								fontSize:'12px'
 							},
 							color: 'black'

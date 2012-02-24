@@ -52,7 +52,7 @@
 	    }
 	    if ("Audi".equals(platformType)) {
 	    %>
-	    <img src="<%=request.getContextPath() %>/app/pep/images/audi.jpg" width="120px" height="41px"/>
+	    <img src="<%=request.getContextPath() %>/app/pep/images/Audi-logo.jpg" width="120px" height="41px"/>
 	    <%	
 	    }
 	    %>

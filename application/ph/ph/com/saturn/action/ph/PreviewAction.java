@@ -112,6 +112,7 @@ public class PreviewAction implements IAction {
 						os = (osKWNo/sum)*100; System.out.println("os = " + os);
 						sop = (sopKWNo/sum)*100; System.out.println("sop = " + sop);
 
+						request.getSession().setAttribute("SOP_DATE", SOP);
 					}
 					
 					if ("FV9_11VorserienTer".equals(public_type)) {
@@ -125,6 +126,19 @@ public class PreviewAction implements IAction {
 						
 						String fv90STBTZP5 = (String)otherForm.get("fv90STBTZP5");
 						String fv90STBTZP7 = (String)otherForm.get("fv90STBTZP7");
+						
+						//ZP7的SOP取自项目的SOP，ZP5的SOP是ZP7 SOP的前两周
+						String fv9ZP7SOP = (String)request.getSession().getAttribute("SOP_DATE");
+						String fv9ZP5SOP = DateUtils.oneDateAddOrSubDays(fv9ZP7SOP, 2, "-");
+						
+						request.getSession().setAttribute("fv9VFFTBTZP5", fv9VFFTBTZP5);
+						request.getSession().setAttribute("fv9VFFTBTZP7", fv9VFFTBTZP7);
+						request.getSession().setAttribute("fv9PVSTBTZP5", fv9PVSTBTZP5);
+						request.getSession().setAttribute("fv9PVSTBTZP7", fv9PVSTBTZP7);
+						request.getSession().setAttribute("fv90STBTZP5", fv90STBTZP5);
+						request.getSession().setAttribute("fv90STBTZP7", fv90STBTZP7);
+						request.getSession().setAttribute("fv9ZP7SOP", fv9ZP7SOP);
+						request.getSession().setAttribute("fv9ZP5SOP", fv9ZP5SOP);
 						
 					}
 					

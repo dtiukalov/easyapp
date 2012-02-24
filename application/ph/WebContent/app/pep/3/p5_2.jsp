@@ -146,54 +146,6 @@
 								}
 							}
 						}
-					},{
-						data: [[2.5, 0], [2.5001, 180]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"VFF",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B>VFF</B>";
-							}
-						}
-					}, {
-						data: [[7.5, 0], [7.5001, 180]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"PVS",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B>PVS</B>";
-							}
-						}
-					}, {
-						data: [[11.5, 0], [11.5001, 180]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"0-Serie",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B>0-Serie</B>";
-							}
-						}
 					}]
 				});
 				
@@ -289,54 +241,6 @@
 								}
 							}
 						}
-					},{
-						data: [[2.5, 0], [2.5001, 400]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"VFF",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B>VFF</B>";
-							}
-						}
-					}, {
-						data: [[7.5, 0], [7.5001, 400]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"PVS",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B>PVS</B>";
-							}
-						}
-					}, {
-						data: [[11.5, 0], [11.5001, 400]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"0-Serie",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B>0-Serie</B>";
-							}
-						}
 					}]
 				});
 				
@@ -429,54 +333,6 @@
 								}
 							}
 						}
-					},{
-						data: [[2.5, 0], [2.5001, 180]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"VFF",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B>VFF</B>";
-							}
-						}
-					}, {
-						data: [[7.5, 0], [7.5001, 180]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"PVS",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B>PVS</B>";
-							}
-						}
-					}, {
-						data: [[11.5, 0], [11.5001, 180]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"0-Serie",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B>0-Serie</B>";
-							}
-						}
 					}]
 				});
 				
@@ -567,54 +423,6 @@
 									radius: 5,
 									lineWidth: 1
 								}
-							}
-						}
-					},{
-						data: [[2.5, 0], [2.5001, 380]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"VFF",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B>VFF</B>";
-							}
-						}
-					}, {
-						data: [[7.5, 0], [7.5001, 380]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"PVS",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B>PVS</B>";
-							}
-						}
-					}, {
-						data: [[11.5, 0], [11.5001, 380]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"0-Serie",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B>0-Serie</B>";
 							}
 						}
 					}]
@@ -723,38 +531,6 @@
 							enabled: true,
 							formatter: function() {
 								return "<B>VFF</B>";
-							}
-						}
-					}, {
-						data: [[7.5, 0], [7.5001, 5]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"PVS",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B>PVS</B>";
-							}
-						}
-					}, {
-						data: [[11.5, 0], [11.5001, 5]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"0-Serie",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B>0-Serie</B>";
 							}
 						}
 					}]

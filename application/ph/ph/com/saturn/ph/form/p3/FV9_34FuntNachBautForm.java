@@ -6,7 +6,8 @@ public class FV9_34FuntNachBautForm extends Form {
 	
 	private static final String[] attr = {
 		"fv9FunctionStyle", "fv9StylePoint", "fv9FunctionAK", "fv9FunctionBK", "fv9FunctionIO",
-		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName"
+		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
+		"fv9PlatformType"
 	};
 
 	public String[] getAttributes() {

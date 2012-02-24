@@ -5,7 +5,8 @@ import com.saturn.ph.Form;
 public class FV9_23FehlerabbaustatusDataset extends Form {
 	
 	private static final String[] attr = {
-		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName"
+		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
+		"fv9PlatformType"
 	};
 	
 	public String[] getAttributes() {

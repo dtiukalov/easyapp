@@ -8,7 +8,8 @@ public class FV9_52LogistikkonzeptForm extends Form {
 		"fv9LogistikStyle", "fv9LogistikStatus",
 		"fv9LogistikStCom_CN", "fv9LogistikStCom_GM",
 		"fv9LogistikMab_CN", "fv9LogistikMab_GM",
-		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName"
+		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
+		"fv9PlatformType"
 	};
 
 	public String[] getAttributes() {

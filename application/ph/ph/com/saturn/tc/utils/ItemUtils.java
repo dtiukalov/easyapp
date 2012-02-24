@@ -31,7 +31,7 @@ public class ItemUtils {
 		Map<String, Object> ids = new HashMap<String, Object>();
 
 		PH.getDataService().getProperties(item, "object_name",
-				"displayable_revisions");
+				"displayable_revisions", "fv9PlatformType");
 
 		try {
 			ModelObject[] itemRevs = (ModelObject[]) item
@@ -43,7 +43,8 @@ public class ItemUtils {
 						"item_revision_id", "current_revision_id",
 						"IMAN_specification", "view", "IMAN_requirement",
 						"IMAN_reference", "TC_WorkContext_Relation",
-						"TC_Attaches", "VisItemRevCreatedSnapshot2D");
+						"TC_Attaches", "VisItemRevCreatedSnapshot2D",
+						"fv9PlatformType");
 				
 				PH.getDataService().getProperties(itemRev, relations);
 				

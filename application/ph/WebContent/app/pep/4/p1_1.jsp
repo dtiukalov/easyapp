@@ -156,7 +156,14 @@
 							y: <%=fv9Nichtnominiert%>,
 							low:0,
 							color: '#013C66'
-						}]
+						}],
+					dataLabels: {
+						enabled: true,
+						style : {
+							fontSize:'12px'
+						},
+						color: 'white'
+					}
 				}]
 			});
 		

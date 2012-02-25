@@ -111,7 +111,7 @@
 						shadow: false,
 						borderColor:'black',
 						dataLabels: {
-							enabled: false,
+							enabled: true,
 							style : {
 								fontWeight: 'bold',
 								fontSize:'10px'
@@ -125,12 +125,26 @@
 					type: 'column',
 					name: 'Soll',
 					color: '#009C0E',
-					data: <%=soll%>
+					data: <%=soll%>,
+					dataLabels: {
+						enabled: true,
+						style : {
+							fontSize:'12px'
+						},
+						color: 'white'
+					}
 				},{
 					type: 'column',
 					name: 'lst',
 					color: '#0000FF',
-					data: <%=ist%>
+					data: <%=ist%>,
+					dataLabels: {
+						enabled: true,
+						style : {
+							fontSize:'12px'
+						},
+						color: 'white'
+					}
 				}, {
 					type: 'spline',
 					name: 'Kum Soll',

@@ -14,7 +14,7 @@
 		<title><%=title %></title>
 		<style type="text/css">
 			.left{
-				width: 100px; height: 50px;float: left;margin: 30px 50px;
+				width: 100px; height: 50px;float: left;margin: 30px 30px;
 				vertical-align: middle;
 				font-size:12px;
 			}
@@ -108,8 +108,7 @@
 					tooltip: {
 						formatter: function() {
 							return '<b>'+ this.x +'</b><br/>'+
-								 this.series.name +': '+ this.y +'<br/>'+
-								 'Total: '+ this.point.stackTotal;
+								 this.series.name +': '+ this.y;
 						}
 					},
 					plotOptions: {
@@ -198,8 +197,7 @@
 					tooltip: {
 						formatter: function() {
 							return '<b>'+ this.x +'</b><br/>'+
-								 this.series.name +': '+ this.y +'<br/>'+
-								 'Total: '+ this.point.stackTotal;
+								 this.series.name +': '+ this.y;
 						}
 					},
 					plotOptions: {
@@ -290,8 +288,7 @@
 					tooltip: {
 						formatter: function() {
 							return '<b>'+ this.x +'</b><br/>'+
-								 this.series.name +': '+ this.y +'<br/>'+
-								 'Total: '+ this.point.stackTotal;
+								 this.series.name +': '+ this.y;
 						}
 					},
 					plotOptions: {
@@ -382,8 +379,7 @@
 					tooltip: {
 						formatter: function() {
 							return '<b>'+ this.x +'</b><br/>'+
-								 this.series.name +': '+ this.y +'<br/>'+
-								 'Total: '+ this.point.stackTotal;
+								 this.series.name +': '+ this.y;
 						}
 					},
 					plotOptions: {
@@ -474,8 +470,7 @@
 					tooltip: {
 						formatter: function() {
 							return '<b>'+ this.x +'</b><br/>'+
-								 this.series.name +': '+ this.y +'<br/>'+
-								 'Total: '+ this.point.stackTotal;
+								 this.series.name +': '+ this.y;
 						}
 					},
 					plotOptions: {
@@ -515,22 +510,6 @@
 									radius: 5,
 									lineWidth: 1
 								}
-							}
-						}
-					},{
-						data: [[2.5, 0], [2.5001, 5]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"VFF",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B>VFF</B>";
 							}
 						}
 					}]

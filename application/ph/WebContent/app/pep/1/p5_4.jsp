@@ -131,7 +131,14 @@
 							y: <%=fv9PPNicht %>,
 							low: <%=fv9PPCOP + fv9PPErste %>,
 							color: '#AED4F8'
-						}]
+						}],
+					dataLabels: {
+						enabled: true,
+						style : {
+							fontSize:'12px'
+						},
+						color: 'black'
+					}
 				}]
 			});
 		});

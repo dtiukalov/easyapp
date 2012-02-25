@@ -382,8 +382,15 @@
 					marker: {enabled: false},
 					lineWidth: 1,
 					shadow: false,
-					enableMouseTracking: false
-					
+					enableMouseTracking: false,
+					dataLabels: {
+						enabled: true,
+						style : {
+							fontWeight: 'bold',
+							fontSize:'10px'
+						},
+						color: 'white'
+					}
 				}, {
 					name: 'Projekt',
 					data: <%=Projekt%>,

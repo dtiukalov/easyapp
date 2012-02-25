@@ -201,7 +201,14 @@
 						y: <%=fv9FuncInTolGreen%>, 
 						low: 0,
 						color: '#009C0E'
-					}]
+					}],
+					dataLabels: {
+						enabled: true,
+						style : {
+							fontSize:'12px'
+						},
+						color: 'white'
+					}
 				}]
 			});
 		});

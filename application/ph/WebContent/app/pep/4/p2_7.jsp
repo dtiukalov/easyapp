@@ -5,7 +5,8 @@
 <%@page import="java.util.Map"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.HashMap"%>
-<%@page import="com.saturn.web.Web"%>	
+<%@page import="com.saturn.web.Web"%>
+<%@page import="com.saturn.tc.utils.DateUtils"%>	
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -245,29 +246,43 @@
 					</div>
 					<div id="left">
 						<div id="chart"></div>
+						<%
+							int tbt_0s_kwno = DateUtils.getWeekNumBetweenStartAndEnd(
+									(String)session.getAttribute("fv90STBTZP5"),
+									(String)session.getAttribute("DATE_0S")); 
+							double KWTBT = Double.parseDouble(tbt_0s_kwno + "");
+							double KW0S = Double.parseDouble((Integer)session.getAttribute("KWNo_0S") + "");
+							double KWSOP = Double.parseDouble((Integer)session.getAttribute("KWNo_SOP") + "");
+							
+							double sum = KWTBT + KW0S + KWSOP;
+						%>
 						<div id="time">
 							<table style="font-size: 10px;">
 								<tr>
 									<td style="width: 12px; ">KW</td>
-									<td style="width: 68px; ">52</td>
-									<td style="width: 68px; ">6</td>
-									<td style="width: 68px; ">8</td>
-									<td style="width: 68px; ">15</td>
+									<td width="<%=(270.0/sum)*KWTBT%>">
+										<%=(Integer)session.getAttribute("OSTBTZP5") %>
+									</td>
+									<td width="<%=(270.0/sum)*KW0S%>">
+										<%=(Integer)session.getAttribute("KW_0S") %>
+									</td>
+									<td width="<%=(270.0/sum)*KWSOP%>">
+										<%=(Integer)session.getAttribute("KW_SOP") %>
+									</td>
 								</tr>
 								<tr>
-									<td style="height: 1px;">&nbsp;</td>
-									<td colspan="6" style="border-bottom: 1px solid; height: 1px;"></td>
+									<td colspan="4" style="border-bottom: 1px solid; height: 0px; line-height: 0px;"></td>
 								</tr>
 								<tr>
 									<td style="width: 12px;">&nbsp;</td>
-									<td>
-										<img src="<%=request.getContextPath() %>/app/pep/images/0S-TBT.png" width="45" height="35">
+									<td style="text-align: center; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/0S-TBT.jpg', sizingMethod='scale'); height: 35px;">
+										<span style="font-size: 14px; color: white;font-weight: bolder;">&nbsp;</span>
 									</td>
-									<td colspan="2">
-										<img src="<%=request.getContextPath() %>/app/pep/images/0S-T2.png" width="130" height="35">
+									<td style="text-align: center; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/0S-T.jpg', sizingMethod='scale'); height: 35px;">
+										<span style="font-size: 14px; color: white;font-weight: bolder;">0-S</span>
 									</td>
-									<td>
-										<img src="<%=request.getContextPath() %>/app/pep/images/SOP-T2.png" width=60 height="35">
+									<td style="text-align: center; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/SOP-T.jpg', sizingMethod='scale'); height: 35px;">
+										<span style="font-size: 14px; color: white;font-weight: bolder;">SOP</span>
 									</td>
 								</tr>
 							</table>

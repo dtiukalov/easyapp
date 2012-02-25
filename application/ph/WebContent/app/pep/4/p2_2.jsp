@@ -255,25 +255,25 @@
 							double KW0S = Double.parseDouble((Integer)session.getAttribute("KWNo_0S") + "");
 							double KWSOP = Double.parseDouble((Integer)session.getAttribute("KWNo_SOP") + "");
 							
-							double sum = KWTBT + KWVFF + KWPVS + KW0S + KWSOP;
+							double sum = KWVFF + KWPVS + KW0S + KWSOP;
 						%>
 						<div id="time">
 							<table style="font-size: 10px;">
 								<tr>
 									<td style="width: 12px; ">KW</td>
-									<td width="<%=(288.0/sum)*KWTBT%>">
+									<td width="45">
 										<%=(Integer)session.getAttribute("VFFTBTZP5") %>
 									</td>
-									<td width="<%=(288.0/sum)*KWVFF*0.8%>" style="text-align:left; padding-left: <%=(288.0/sum)*KWVFF*0.2%>px;">
+									<td width="<%=(243.0/sum)*KWVFF*0.8%>" style="text-align:left; padding-left: <%=(243.0/sum)*KWVFF*0.2%>px;">
 										<%=(Integer)session.getAttribute("KW_VFF") %>
 									</td>
-									<td width="<%=(288.0/sum)*KWPVS*0.8%>" style="text-align:left; padding-left: <%=(288.0/sum)*KWPVS*0.2%>px;">
+									<td width="<%=(243.0/sum)*KWPVS*0.8%>" style="text-align:left; padding-left: <%=(243.0/sum)*KWPVS*0.2%>px;">
 										<%=(Integer)session.getAttribute("KW_PVS") %>
 									</td>
-									<td width="<%=(288.0/sum)*KW0S*0.8%>" style="text-align:left; padding-left: <%=(288.0/sum)*KW0S*0.2%>px;">
+									<td width="<%=(243.0/sum)*KW0S*0.8%>" style="text-align:left; padding-left: <%=(243.0/sum)*KW0S*0.2%>px;">
 										<%=(Integer)session.getAttribute("KW_0S") %>
 									</td>
-									<td width="<%=(288.0/sum)*KWSOP*0.8%>" style="text-align:left; padding-left: <%=(288.0/sum)*KWSOP*0.2%>px;">
+									<td width="<%=(243.0/sum)*KWSOP*0.8%>" style="text-align:left; padding-left: <%=(243.0/sum)*KWSOP*0.2%>px;">
 										<%=(Integer)session.getAttribute("KW_SOP") %>
 									</td>
 								</tr>
@@ -286,7 +286,7 @@
 										&nbsp;
 									</td>
 									<td style="text-align: center; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/VFF-T.jpg', sizingMethod='scale'); height: 35px;">
-										<span style="font-size: 14px; color: white;font-weight: bolder;">VFF</span>
+										<span style="font-size: 14px; color: black;font-weight: bolder;">VFF</span>
 									</td>
 									<td style="text-align: center; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/PVS-T.jpg', sizingMethod='scale'); height: 35px;">
 										<span style="font-size: 14px; color: white;font-weight: bolder;">PVS</span>

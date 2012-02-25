@@ -254,19 +254,19 @@
 							double KW0S = Double.parseDouble((Integer)session.getAttribute("KWNo_0S") + "");
 							double KWSOP = Double.parseDouble((Integer)session.getAttribute("KWNo_SOP") + "");
 							
-							double sum = KWTBT + KW0S + KWSOP;
+							double sum = KW0S + KWSOP;
 						%>
 						<div id="time">
 							<table style="font-size: 10px;">
 								<tr>
 									<td style="width: 12px; ">KW</td>
-									<td width="<%=(270.0/sum)*KWTBT%>">
+									<td width="45">
 										<%=(Integer)session.getAttribute("OSTBTZP5") %>
 									</td>
-									<td width="<%=(270.0/sum)*KW0S%>">
+									<td width="<%=(225.0/sum)*KW0S*0.8%>" style="text-align:left; padding-left: <%=(225.0/sum)*KW0S*0.2%>px;">
 										<%=(Integer)session.getAttribute("KW_0S") %>
 									</td>
-									<td width="<%=(270.0/sum)*KWSOP%>">
+									<td width="<%=(225.0/sum)*KWSOP*0.8%>" style="text-align:left; padding-left: <%=(225.0/sum)*KWSOP*0.2%>px;">
 										<%=(Integer)session.getAttribute("KW_SOP") %>
 									</td>
 								</tr>

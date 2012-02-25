@@ -33,7 +33,7 @@
 					} else {
 						Iterator<String>  iterator = phItemMap.keySet().iterator();
 					%>
-						<table border="1" style="width: 500xp; margin-left: 200px;">
+						<table border="1" style="width: 700xp; margin-left: 100px;">
 							
 							<%
 							while(iterator.hasNext()){
@@ -45,10 +45,10 @@
 							<form id="showPHForm" name="showPHForm" method="post" action="<%=request.getContextPath()%>/app/pep/view/load.do">
 							
 							<tr>
-								<td style="width: 150px; height: 30px;">
+								<td style="width: 130px; height: 30px;">
 									PH汇报项：
 								</td>
-								<td style="width: 250px; text-align: left;">
+								<td style="width: 470px; text-align: left;">
 									&nbsp;&nbsp;<%=item.getPropertyDisplayableValue("object_name")%>
 								</td>
 								<td style="width: 150px;">

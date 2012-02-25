@@ -282,20 +282,20 @@
 								</tr>
 								<tr>
 									<td style="width: 12px;">&nbsp;</td>
-									<td>
-										<img src="<%=request.getContextPath() %>/app/pep/images/VFF-TBT.png" width="<%=(288.0/sum)*KWTBT%>" height="35">
+									<td style="text-align: center; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/VFF-TBT.jpg', sizingMethod='scale'); height: 35px;">
+										<span style="font-size: 14px; color: white;font-weight: bolder;">&nbsp;</span>
 									</td>
-									<td>
-										<img src="<%=request.getContextPath() %>/app/pep/images/VFF-T1.png" width="<%=(288.0/sum)*KWVFF%>" height="35">
+									<td style="text-align: center; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/VFF-T.jpg', sizingMethod='scale'); height: 35px;">
+										<span style="font-size: 14px; color: white;font-weight: bolder;">VFF</span>
 									</td>
-									<td>
-										<img src="<%=request.getContextPath() %>/app/pep/images/PVS-T1.png" width="<%=(288.0/sum)*KWPVS%>" height="35">
+									<td style="text-align: center; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/PVS-T.jpg', sizingMethod='scale'); height: 35px;">
+										<span style="font-size: 14px; color: white;font-weight: bolder;">PVS</span>
 									</td>
-									<td>
-										<img src="<%=request.getContextPath() %>/app/pep/images/0S-T1.png" width="<%=(288.0/sum)*KW0S%>" height="35">
+									<td style="text-align: center; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/0S-T.jpg', sizingMethod='scale'); height: 35px;">
+										<span style="font-size: 14px; color: white;font-weight: bolder;">0-S</span>
 									</td>
-									<td>
-										<img src="<%=request.getContextPath() %>/app/pep/images/SOP-T1.png" width="<%=(288.0/sum)*KWSOP%>" height="35">
+									<td style="text-align: center; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/SOP-T.jpg', sizingMethod='scale'); height: 35px;">
+										<span style="font-size: 14px; color: white;font-weight: bolder;">SOP</span>
 									</td>
 								</tr>
 							</table>

@@ -3,6 +3,7 @@
 	pageEncoding="UTF-8"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.HashMap"%>
+<%@page import="com.saturn.tc.utils.DateUtils"%>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -15,24 +16,20 @@
 			String fv9FunktionSmall100 = Web.getNumberListStr(form.get("fv9FunktionSmall100"));	//BK
 			String fv9FunktionBig100 = Web.getNumberListStr(form.get("fv9FunktionBig100"));	//i.O
 			String fv9Zielwert = Web.getNumberListStr(form.get("fv9Zielwert")); //目标
-			
-			int fv9PrognoseAK = 0;//Integer.parseInt((String)form.get("fv9PrognoseAK"));
-			int fv9PrognoseBK = 0;//Integer.parseInt((String)form.get("fv9PrognoseBK"));
-			int fv9PrognoseIO = 0;//Integer.parseInt((String)form.get("fv9PrognoseIO"));
-			
+			int fv9PrognoseAK = 0;
+			int fv9PrognoseBK = 0;
+			int fv9PrognoseIO = 0;
 			if(form.get("fv9PrognoseAK")!= null && !"".equals(form.get("fv9PrognoseAK")) ){
 				fv9PrognoseAK = Integer.parseInt((String)form.get("fv9PrognoseAK"));
 			}
-
 			if(form.get("fv9PrognoseBK")!= null && !"".equals(form.get("fv9PrognoseBK")) ){
 				fv9PrognoseBK = Integer.parseInt((String)form.get("fv9PrognoseBK"));
 			}
-
 			if(form.get("fv9PrognoseIO")!= null && !"".equals(form.get("fv9PrognoseIO")) ){
 				fv9PrognoseIO = Integer.parseInt((String)form.get("fv9PrognoseIO"));
 			}
-			
 			int max = fv9PrognoseAK + fv9PrognoseBK + fv9PrognoseIO;
+
 		%>
 		
 		<script type="text/javascript">
@@ -116,6 +113,8 @@
 					column: {
 						stacking: 'normal',
 						borderColor: 'black',
+						groupPadding:0.15,
+						pointPadding:0.15,
 						borderWidth: 1,
 						dataLabels: {
 							enabled: true,
@@ -161,74 +160,6 @@
 								radius: 5,
 								lineWidth: 1
 							}
-						}
-					}
-				}, {
-					data: [[1.5, 0], [1.5001, 2500]],
-					name :"VFF",
-					color: '#000000',
-					dashStyle: 'dash',
-					lineWidth: 2,
-					showInLegend: false,
-					marker: {enabled: false},
-					shadow: false,
-					enableMouseTracking: false,
-					type: 'line',
-					dataLabels: {
-						enabled: true,
-						formatter: function() {
-							return "<B>VFF</B>";
-						}
-					}
-				}, {
-					data: [[6.5, 0], [6.5001, 2500]],
-					name :"PVS",
-					color: '#000000',
-					dashStyle: 'dash',
-					lineWidth: 2,
-					showInLegend: false,
-					marker: {enabled: false},
-					shadow: false,
-					enableMouseTracking: false,
-					type: 'line',
-					dataLabels: {
-						enabled: true,
-						formatter: function() {
-							return "<B>PVS</B>";
-						}
-					}
-				}, {
-					data: [[13.5, 0], [13.5001, 2500]],
-					color: '#000000',
-					dashStyle: 'dash',
-					lineWidth: 2,
-					marker: {enabled: false},
-					shadow: false,
-					showInLegend: false,
-					enableMouseTracking: false,
-					type: 'line',
-					name :"0S",
-					dataLabels: {
-						enabled: true,
-						formatter: function() {
-							return "<B>0S</B>";
-						}
-					}
-				}, {
-					data: [[14.5, 0], [14.5001, 2500]],
-					name :"SOP",
-					color: '#000000',
-					dashStyle: 'dash',
-					lineWidth: 2,
-					showInLegend: false,
-					marker: {enabled: false},
-					shadow: false,
-					enableMouseTracking: false,
-					type: 'line',
-					dataLabels: {
-						enabled: true,
-						formatter: function() {
-							return "<B>SOP</B>";
 						}
 					}
 				}]
@@ -341,9 +272,42 @@
 				<div class="fr"> STATUS 19.10.2010</div>
 				<h1><%=title %></h1>
 			</div>
+						<%
+						int[] arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9KWNo"));
+						int size = arr.length;//一共有多少个柱子 
+						double pillar = 0.0;
+						int vffPillarNum = 2;//柱子个数
+						int pvsPillarNum = 4;//柱子个数
+						int osPillarNum = 4;//柱子个数
+						int sopPillarNum = 2;//柱子个数
+
+						if(size > 0){
+							int maxKw = arr[size-1];
+							int minKw = arr[0];
+							//假定总长度是595.0px 先算出一共有多少个柱子，每个柱子的宽度 px
+							double totalWidth = 595.0;//总长度是 750px 
+							pillar = totalWidth/size;  //每个柱子的宽度 px
+						
+						}
+						double value1 = vffPillarNum * pillar ; 
+						double value2 = pvsPillarNum * pillar ;
+						double value3 = osPillarNum * pillar ;
+						double value4 = sopPillarNum * pillar ;
+						double sum = value1 + value2 + value3 + value4;
+						%>
 			<div id="content">
 				<div id="chart1" style="width: 650px; height: 500px; margin: 0 70px; float: left;"></div>
-				<div id="chart2" style="width: 100px; height: 500px; margin: 0 -90px; float: left;margin-top:-10px;"></div>
+				<div id="chart2" style="width: 100px; height: 500px; margin: 0 -90px; float: left;margin-top:-10px; "></div>
+				<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 108px; text-align: left; overflow: hidden; ">
+					<table>
+						<tr > 
+							<td width="<%=value1 %>px" align="left" bgcolor="#99FF99"><%if(vffPillarNum != 0){%>VFF<%} %></td> 
+							<td width="<%=value2%>px" align="left" bgcolor="#33CC33"><%if(pvsPillarNum != 0){%>PVS<%} %></td> 
+						 	<td width="<%=value3 %>px" align="left" bgcolor="#006600"><%if(osPillarNum != 0){%>0S<%} %></td> 
+							<td width="<%=value4%>px" align="left" bgcolor="#333333"><%if(sopPillarNum != 0){%>SOP<%} %></td>
+						</tr>
+					</table>
+				</div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

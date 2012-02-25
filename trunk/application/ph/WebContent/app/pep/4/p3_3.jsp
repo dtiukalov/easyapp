@@ -255,22 +255,22 @@
 							double KW0S = Double.parseDouble((Integer)session.getAttribute("KWNo_0S") + "");
 							double KWSOP = Double.parseDouble((Integer)session.getAttribute("KWNo_SOP") + "");
 							
-							double sum = KWTBT + KWPVS + KW0S + KWSOP;
+							double sum = KWPVS + KW0S + KWSOP;
 						%>
 						<div id="time">
 							<table style="font-size: 10px;">
 								<tr>
 									<td style="width: 12px; ">KW</td>
-									<td width="<%=(280.0/sum)*KWTBT%>">
+									<td width="45">
 										<%=(Integer)session.getAttribute("PVSTBTZP7") %>
 									</td>
-									<td width="<%=(280.0/sum)*KWPVS%>">
+									<td width="<%=(235.0/sum)*KWPVS*0.8%>" style="text-align:left; padding-left: <%=(243.0/sum)*KWPVS*0.2%>px;">
 										<%=(Integer)session.getAttribute("KW_PVS") %>
 									</td>
-									<td width="<%=(280.0/sum)*KW0S%>">
+									<td width="<%=(235.0/sum)*KW0S*0.8%>" style="text-align:left; padding-left: <%=(243.0/sum)*KW0S*0.2%>px;">
 										<%=(Integer)session.getAttribute("KW_0S") %>
 									</td>
-									<td width="<%=(280.0/sum)*KWSOP%>">
+									<td width="<%=(235.0/sum)*KWSOP*0.8%>" style="text-align:left; padding-left: <%=(243.0/sum)*KWSOP*0.2%>px;">
 										<%=(Integer)session.getAttribute("KW_SOP") %>
 									</td>
 								</tr>

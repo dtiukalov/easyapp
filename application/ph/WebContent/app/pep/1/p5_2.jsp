@@ -117,9 +117,8 @@
 								fontWeight: 'bold',
 								fontSize:'10px'
 							},
-							color: '#224325'
-						},
-						enableMouseTracking: true
+							color: 'black'
+						}
 					}
 				},
 				series: [{
@@ -132,7 +131,7 @@
 						style : {
 							fontSize:'12px'
 						},
-						color: 'white'
+						color: 'black'
 					}
 				},{
 					type: 'column',
@@ -144,7 +143,7 @@
 						style : {
 							fontSize:'12px'
 						},
-						color: 'white'
+						color: 'black'
 					}
 				}, {
 					type: 'spline',

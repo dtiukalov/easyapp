@@ -154,7 +154,7 @@
 	                        <div class="right1">
 	                        	<div class="tupian"><a href="javascript:void(0);" target="_blank"><img src="images/suihua.jpg" /></a></div>
 	                            <div class="mingcheng">
-	                            <p><a href="javascript:void(0);" target="_blank"><span>东风本田4S店</span></a></p>
+	                            <p><a href="javascript:void(0);" target="_blank"><span>融展东风本田专营店</span></a></p>
 	                            <p>地址：</p>
 	                            <p>销售：</p>
 	                            <p>客服：</p>
@@ -175,7 +175,7 @@
 	                        <div class="right1">
 	                        	<div class="tupian"><a href="../xingsheng/index.jsp" target="_blank"><img src="images/suihua.jpg" /></a></div>
 	                            <div class="mingcheng">
-	                            <p><a href="../xingsheng/index.jsp" target="_blank"><span>绥化融展兴盛别克4S店</span></a></p>
+	                            <p><a href="../xingsheng/index.jsp" target="_blank"><span>绥化融展兴盛别克专营店</span></a></p>
 	                            <p>地址：北林区西二环路电力名苑南</p>
 	                            <p>销售：0455-8792123</p>
 	                            <p>客服：0455-8251969</p>
@@ -196,7 +196,7 @@
 	                        <div class="right1">
 	                        	<div class="tupian"><a href="javascript:void(0);" target="_blank"><img src="images/suihua.jpg" /></a></div>
 	                            <div class="mingcheng">
-	                            <p><a href="javascript:void(0);" target="_blank"><span>雪弗兰4S店</span></a></p>
+	                            <p><a href="javascript:void(0);" target="_blank"><span>融展雪弗兰专营店</span></a></p>
 	                            <p>地址：</p>
 	                            <p>销售：</p>
 	                            <p>客服：</p>

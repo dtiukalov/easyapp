@@ -17,7 +17,7 @@
 		width:20px;
 	}
 	.coo .tab .taba {
-		width:800px;
+		width:900px;
 	}
 	.coo .tab .taba .lg{
 		width:230px;
@@ -70,7 +70,7 @@
 			<h1><%=title %></h1>
 		</div>
 		
-		<div id="content" style="margin:60px 80px;height:475px;">
+		<div id="content" style="margin:60px 30px;height:480px;">
 			<p></p>
 			<div class="coo"><table border="0" cellpadding="1" cellspacing="1" class="tab">
 			  <tr>
@@ -89,7 +89,7 @@
 			  <tr>
 			    <td style="hight:400px">
 			    <iframe id="ff" name= "ff" frameborder="0"  
-			    src="<%=request.getContextPath() %>/app/pep/1/GanttChart3.jsp?uid=<%=uid %>" style="width:800px;height:300px;">
+			    src="<%=request.getContextPath() %>/app/pep/1/GanttChart3.jsp?uid=<%=uid %>" style="width:900px;height:300px;">
 			    </iframe>
 			    </td>
 			  </tr>

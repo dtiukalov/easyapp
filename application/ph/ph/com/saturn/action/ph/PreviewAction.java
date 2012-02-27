@@ -55,11 +55,11 @@ public class PreviewAction implements IAction {
 		request.setAttribute("type", type);
 		request.setAttribute("form", form);
 		
-		initcCommunalData(request);
+		initcCommunalData(request,form);
 		return new JspView(FormManager.getJspPath(type));
 	}
 
-	private void initcCommunalData(HttpServletRequest request) {
+	private void initcCommunalData(HttpServletRequest request,Map<String, Object> form) {
 		if (request.getSession().getAttribute("FV9_11ProjectTermin") == null ||
 				request.getSession().getAttribute("FV9_11VorserienTer") == null) {
 			//获取公用的信息

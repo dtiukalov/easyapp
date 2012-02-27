@@ -27,7 +27,7 @@
 				<div class="fr"> STATUS 19.10.2010</div>
 				<h1><%=title %></h1>
 			</div>	
-			<div id="content">
+			<div id="content" style="font-size:14px;">
 				<div id="german">
 					<input type="button" class="china" onclick="changeChinese()" />
 				</div>

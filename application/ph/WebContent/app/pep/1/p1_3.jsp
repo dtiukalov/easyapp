@@ -17,7 +17,7 @@
 		width:20px;
 	}
 	.coo .tab .taba {
-		width:800px;
+		width:900px;
 	}
 	.coo .tab .taba .lg{
 		width:200px;
@@ -62,8 +62,8 @@
 	%>
 </head>
 <body>	
-	<div id="container" style="margin:0 10px">
-		<div id="nr">
+	<div id="container">
+		<div id="nr" style="margin-left:35px;">
 		<div id="top" >
 			<div class="fl"> VW471 CN-Pilothalle VFF,20.10.2010</div>
 			<div class="fr"> STATUS 19.10.2010</div>
@@ -80,8 +80,8 @@
 						        <td class="bt"><h3>VWxxx Anlaufübersicht</h3>
 						       	</td>
 						        <td class="bz">
-						        	<h3><i><div style="float:right;margin-right:70px">Version:6.0</div></i></h3><br>
-						        	<h3><i><div style="float:right;margin-right:20px"">Ausgabe:18.10.2011</div></i></h3>
+						        	<h3><i><div style="float:right;margin-right:80px;font-size:14px;">Version:6.0</div></i></h3><br>
+						        	<h3><i><div style="float:right;margin-right:20px;font-size:14px;">Ausgabe:18.10.2011</div></i></h3>
 						         </td>
 						      </tr>
 					   	 	</table>
@@ -100,5 +100,6 @@
 		</div>
 		<%@ include file="/app/pep/include/foot.jsp"%>
 	</div>	
+	</div>
 </body>
 </html>

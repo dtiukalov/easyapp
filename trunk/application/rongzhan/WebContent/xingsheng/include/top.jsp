@@ -6,7 +6,7 @@
 <div id="header">
 	<div class="top">
     	<div class="logo"><img src="images/logo.gif" /></div>
-		<div class="xs">绥化融展兴盛别克4S店</div>
+		<div class="xs">绥化融展兴盛别克专营店</div>
 		<div class="rzlogo"><a href="../rongzhan/index.jsp"><img src="../rongzhan/images/fhrz.gif" /></a></div>
     </div><!--上部分-->
     <div class="nav">

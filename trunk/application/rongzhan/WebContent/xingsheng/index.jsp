@@ -12,7 +12,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="../include/include.jsp" %>
-<title>绥化融展兴盛别克4S店</title>
+<title>绥化融展兴盛别克专营店</title>
 <link href="css/base.css" rel="stylesheet" type="text/css" />
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/app/js/jquery-1.4.4.min.js"></script>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+	<inter key="方向盘"></inter>
+	<inter key="主仪表板"></inter>
+	<inter key="空调出风口"></inter>
+	<inter key="座椅"></inter>
+	<inter key="手套箱"></inter>
+	<inter key="仪表"></inter>
+	<inter key="副仪表板"></inter>
+	<inter key="手刹"></inter>
+	<inter key="中控面板"></inter>
+	<inter key="门内扣手"></inter>
+	<inter key="顶棚"></inter>
+	<inter key="顶灯"></inter>
+	<inter key="后备箱"></inter>
+	<inter key="扶手箱"></inter>
+	<inter key="乘客拉手"></inter>
+	<inter key="车窗控制键"></inter>
+	<inter key="烟灰缸"></inter>
+	<inter key="点烟器"></inter>
+	<inter key="三踏板"></inter>
+	<inter key="扬声器"></inter>
+	<inter key="顶置文件柜"></inter>
+	<inter key="CD机"></inter>
+	<inter key="DVD机"></inter>
+	<inter key="车门内护板"></inter>
+	<inter key="背门护板"></inter>
+	<inter key="内后视镜"></inter>
+	<inter key="迎宾踏板"></inter>
+	<inter key="遮阳板"></inter>
+	<inter key="组合开关"></inter>
+</templates>

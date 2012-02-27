@@ -1,0 +1,17 @@
+.alert-button{  
+	height:21px; 
+	text-align:center;  
+	cursor:pointer;
+	margin:2px 5px 3px 0px;
+	background:#fff;
+	color:#54029A;
+    border:1px solid #669a02;
+    text-decoration:none;
+    font-family:tahoma, vardana, arial, sans-serif;
+    font-size:12px;
+    line-height:15px;
+    overflow:hidden;
+    padding:0 10px;
+    *padding:0 5px;   
+    margin-bottom: 20px; 
+}

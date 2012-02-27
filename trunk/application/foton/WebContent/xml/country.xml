@@ -1,0 +1,1078 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+	<country key="澳大利亚">
+		<band key="Holden(霍顿)">
+			<subband key="Caprice" />
+			<subband key="Commodore" />
+			<subband key="Cruze" />
+			<subband key="VOLT" />
+		</band>
+	</country>
+
+	<country key="德国">
+		<band key="Audi(奥迪)">
+			<subband key="Q5" />
+			<subband key="Q7" />
+			<subband key="A1" />
+			<subband key="A3" />
+			<subband key="A4" />
+			<subband key="A6" />
+			<subband key="A7" />
+			<subband key="A8" />
+		</band>
+		<band key="Benz(奔驰)">
+			<subband key="R级" />
+			<subband key="Viano" />
+			<subband key="GLK级" />
+			<subband key="GL级" />
+			<subband key="G级" />
+			<subband key="ML级" />
+			<subband key="Sprinter" />
+			<subband key="Vito" />
+			<subband key="Actros" />
+			<subband key="Axor" />
+			<subband key="Viano Activity" />
+			<subband key="A级" />
+			<subband key="B级" />
+			<subband key="CLS" />
+			<subband key="C级" />
+			<subband key="E级" />
+			<subband key="S级" />
+		</band>
+		<band key="BMW(宝马)">
+			<subband key="X1" />
+			<subband key="X3" />
+			<subband key="X5" />
+			<subband key="X6" />
+			<subband key="1系" />
+			<subband key="3系" />
+			<subband key="5系" />
+			<subband key="6系" />
+			<subband key="7系" />
+		</band>
+		<band key="MAN(曼)">
+			<subband key="TGA" />
+		</band>
+		<band key="Maybach(迈巴赫)">
+			<subband key="57 62" />
+			<subband key="Xenatec Coupe" />
+		</band>
+		<band key="Opel(欧宝)">
+			<subband key="Meriva" />
+			<subband key="Zafira" />
+			<subband key="Antara" />
+			<subband key="Ampera" />
+			<subband key="astra" />
+			<subband key="Corsa" />
+			<subband key="Insignia" />
+			<subband key="vectra" />
+		</band>
+		<band key="Porsche(保时捷)">
+			<subband key="Cayanne" />
+		</band>
+		<band key="Smart ">
+			<subband key="Forfour" />
+			<subband key="Fortwo" />
+		</band>
+		<band key="VW(大众)">
+			<subband key="Multivan" />
+			<subband key="Routan" />
+			<subband key="Sharan" />
+			<subband key="Touran" />
+			<subband key="Tiguan" />
+			<subband key="Toureg" />
+			<subband key="Caddy" />
+			<subband key="Crafter" />
+			<subband key="LT" />
+			<subband key="AAC" />
+			<subband key="Beetle" />
+			<subband key="Bora" />
+			<subband key="FOX" />
+			<subband key="Golf" />
+			<subband key="Jetta" />
+			<subband key="Lavida" />
+			<subband key="Magotan" />
+			<subband key="PASSAT" />
+			<subband key="Passat CC" />
+			<subband key="Phaeton" />
+			<subband key="POLO" />
+			<subband key="Sagitar" />
+			<subband key="santana" />
+		</band>
+	</country>
+
+	<country key="法国">
+		<band key="Citroen(雪铁龙)">
+			<subband key="C-Crossover" />
+			<subband key="C3 Picasso" />
+			<subband key="C4 Picasso" />
+			<subband key="Jumper" />
+			<subband key="Cruise Crosser Concept" />
+			<subband key="C1" />
+			<subband key="C2" />
+			<subband key="C3" />
+			<subband key="C4" />
+			<subband key="C5" />
+			<subband key="C6" />
+			<subband key="DS3" />
+			<subband key="DS4" />
+			<subband key="Elysee" />
+			<subband key="凯旋" />
+			<subband key="塞纳" />
+			<subband key="富康" />
+		</band>
+		<band key="Peuceot(标致)">
+			<subband key="3008" />
+			<subband key="4007" />
+			<subband key="107" />
+			<subband key="206" />
+			<subband key="307" />
+			<subband key="308" />
+			<subband key="407" />
+			<subband key="408" />
+			<subband key="508" />
+			<subband key="607" />
+			<subband key="5008" />
+			<subband key="807" />
+			<subband key="Boxer" />
+			<subband key="Hoggar" />
+		</band>
+		<band key="Renault(雷诺)">
+			<subband key="Espace" />
+			<subband key="Scenic" />
+			<subband key="Koleos" />
+			<subband key="Master" />
+			<subband key="Kerax" />
+			<subband key="Magnum" />
+			<subband key="Premium" />
+			<subband key="Clio" />
+			<subband key="Flurence" />
+			<subband key="Laguna" />
+			<subband key="Latitude" />
+			<subband key="Megane" />
+			<subband key="Twingo" />
+		</band>
+	</country>
+
+	<country key="韩国">
+		<band key="Daewoo(大宇)">
+			<subband key="CRUZE" />
+			<subband key="MATIZ" />
+		</band>
+		<band key="Hyundai(现代)">
+			<subband key="H-1" />
+			<subband key="Matrix" />
+			<subband key="ix35" />
+			<subband key="Santa fe" />
+			<subband key="Tucson" />
+			<subband key="Veracruz" />
+			<subband key="ACCENT" />
+			<subband key="AZERA" />
+			<subband key="Elantra" />
+			<subband key="EQUUS" />
+			<subband key="GENISIS" />
+			<subband key="i10" />
+			<subband key="i20" />
+			<subband key="i30" />
+			<subband key="i40" />
+			<subband key="SONATA" />
+			<subband key="VERNA" />
+			<subband key="XG" />
+		</band>
+		<band key="KIA(起亚)">
+			<subband key="Carens" />
+			<subband key="VQ" />
+			<subband key="嘉华" />
+			<subband key="Borrego" />
+			<subband key="Sorento" />
+			<subband key="Sportage" />
+			<subband key="KCV" />
+			<subband key="Cadenza" />
+			<subband key="Cee'd" />
+			<subband key="CERATO" />
+			<subband key="Forte" />
+			<subband key="Optima" />
+			<subband key="OPTIMUS" />
+			<subband key="Picanto" />
+			<subband key="RIO" />
+			<subband key="Soul" />
+			<subband key="Venga" />
+		</band>
+		<band key="Samsung(三星)">
+			<subband key="SsangYong(双龙)" />
+		</band>
+		<band key="SsangYong">
+			<subband key="Actyon" />
+			<subband key="Korando" />
+			<subband key="Kyron" />
+			<subband key="Rexton" />
+		</band>
+	</country>
+
+	<country key="捷克">
+		<band key="SKODA">
+			<subband key="fabia" />
+			<subband key="octiva" />
+			<subband key="superb" />
+		</band>
+	</country>
+
+	<country key="罗马尼亚">
+		<band key="DACIA(达契亚)">
+			<subband key="Logan" />
+			<subband key="Sandero" />
+		</band>
+	</country>
+
+	<country key="美国">
+		<band key="Biuck(别克)">
+			<subband key="Enclave" />
+			<subband key="GL8" />
+			<subband key="Excelle" />
+			<subband key="LaCrosse" />
+			<subband key="Lucerne" />
+			<subband key="Park Avenue" />
+			<subband key="REGAL" />
+			<subband key="Royaum" />		
+		</band>
+		<band key="Cadillac(凯迪拉克)">
+			<subband key="ESCALADE" />
+			<subband key="SRX" />
+			<subband key="Escalade" />
+			<subband key="BLS" />
+			<subband key="CTS" />
+			<subband key="DTS" />
+			<subband key="SLS" />
+			<subband key="STS" />		
+		</band>
+		<band key="Chevrolet(雪佛兰)">
+			<subband key="Orlando" />
+			<subband key="Captiva" />
+			<subband key="Equinox" />
+			<subband key="Tohoe" />
+			<subband key="Trailblazer" />
+			<subband key="Traverse" />
+			<subband key="Express" />
+			<subband key="Avalanche" />
+			<subband key="Colorado" />
+			<subband key="Kodiak" />
+			<subband key="Silverado" />
+			<subband key="AGILE" />
+			<subband key="AVEO" />
+			<subband key="COBALT" />
+			<subband key="Cruze" />
+			<subband key="Epica" />
+			<subband key="IMPALA" />
+			<subband key="LUMINA" />
+			<subband key="Malibu" />
+			<subband key="SAIL" />
+			<subband key="SONIC" />
+			<subband key="Spark" />
+			<subband key="Volt" />		
+		</band>
+		<band key="Chrysler(克莱斯勒)">
+			<subband key="300" />
+			<subband key="PT Cruiser" />
+			<subband key="Voyager" />		
+		</band>
+		<band key="Dodge(道奇)">
+			<subband key="Caravan" />
+			<subband key="J-CUV" />
+			<subband key="Caliber" />
+			<subband key="Durango" />
+			<subband key="Dakota" />
+			<subband key="Ram 1500" />
+			<subband key="Avenger" />
+			<subband key="Charger" />
+			<subband key="Magnum" />		
+		</band>
+		<band key="Ford(福特)">
+			<subband key="B-MAX" />
+			<subband key="C-MAX" />
+			<subband key="Galaxy" />
+			<subband key="S-MAX" />
+			<subband key="Edge" />
+			<subband key="Escape" />
+			<subband key="Exploerer" />
+			<subband key="Kuga" />
+			<subband key="econoline" />
+			<subband key="transist" />
+			<subband key="Explorer" />
+			<subband key="F-150" />
+			<subband key="Ranger" />
+			<subband key="Super Duty" />
+			<subband key="Crown Victoria" />
+			<subband key="FG Falcon" />
+			<subband key="Fiesta" />
+			<subband key="five hundred" />
+			<subband key="Focus" />
+			<subband key="Fusion" />
+			<subband key="Ka" />
+			<subband key="Mondeo" />
+			<subband key="Taurus" />		
+		</band>
+		<band key="GMC">
+			<subband key="Acadia" />
+			<subband key="Terrain" />
+			<subband key="Yukon" />
+			<subband key="Savana" />		
+		</band>
+		<band key="Hummer(悍马)">
+			<subband key="H2 SUT" />
+			<subband key="H2" />
+			<subband key="H3" />		
+		</band>
+		<band key="Jeep(吉普)">
+			<subband key="Commander" />
+			<subband key="Compass" />
+			<subband key="Grand Cherokee" />
+			<subband key="Liberty" />
+			<subband key="Patriot" />
+			<subband key="Wrangler" />
+			<subband key="Gladiator" />		
+		</band>
+		<band key="Lincoln(林肯)">
+			<subband key="MKS" />
+			<subband key="MKZ" />
+			<subband key="Town Car" />
+			<subband key="MKT" />
+			<subband key="MKX" />
+			<subband key="Navigator" />
+			<subband key="Blackwood" />
+			<subband key="MarkLT" />		
+		</band>
+		<band key="Mercury(水星)">
+			<subband key="Milan" />
+			<subband key="Sable" />		
+		</band>
+		<band key="Pontiac(庞蒂克)">
+			<subband key="G8" />		
+		</band>
+	</country>
+
+	<country key="日本">
+		<band key="Acura(讴歌)">
+			<subband key="MDX" />
+			<subband key="RDX" />
+			<subband key="ZDX" />
+			<subband key="RL" />
+			<subband key="TL" />
+			<subband key="TSX" />		
+		</band>
+		<band key="Hino(日野)">
+			<subband key="Dutro" />
+			<subband key="Ranger" />		
+		</band>
+		<band key="Honda(本田)">
+			<subband key="Odyssey" />
+			<subband key="CR-V" />
+			<subband key="Element" />
+			<subband key="Pilot" />
+			<subband key="Ridgeline" />
+			<subband key="Stree" />
+			<subband key="SUT" />
+			<subband key="Accord" />
+			<subband key="City" />
+			<subband key="Civic" />
+			<subband key="Fit" />
+			<subband key="FRV" />
+			<subband key="Insight" />
+			<subband key="Legend" />
+			<subband key="思铂睿" />		
+		</band>
+		<band key="Infiniti(英菲尼迪)">
+			<subband key="EX" />
+			<subband key="FX" />
+			<subband key="QX" />
+			<subband key="G" />
+			<subband key="M" />		
+		</band>
+		<band key="ISUZU(五十铃)">
+			<subband key="C系" />
+			<subband key="E系" />
+			<subband key="F系" />
+			<subband key="N系" />
+			<subband key="ELF" />
+			<subband key="Forward" />
+			<subband key="D-MAX" />		
+		</band>
+		<band key="Lexus(雷克萨斯)">
+			<subband key="GX" />
+			<subband key="LX" />
+			<subband key="RX" />
+			<subband key="CT" />
+			<subband key="ES" />
+			<subband key="GS" />
+			<subband key="HS" />
+			<subband key="IS" />
+			<subband key="LS" />		
+		</band>
+		<band key="Mazda(马自达)">
+			<subband key="CX-7" />
+			<subband key="CX-9" />
+			<subband key="MAZDA 5" />
+			<subband key="MAZDA 8" />
+			<subband key="Bongo Truck" />
+			<subband key="Titan" />
+			<subband key="BT-50" />
+			<subband key="2" />
+			<subband key="3" />
+			<subband key="6" />		
+		</band>
+		<band key="Mitsubish(三菱)">
+			<subband key="GRANTIS" />
+			<subband key="Zinger" />
+			<subband key="菱绅" />
+			<subband key="ASX" />
+			<subband key="Endeavor" />
+			<subband key="Outlander EX" />
+			<subband key="Pajero" />
+			<subband key="Fuso" />
+			<subband key="Raider" />
+			<subband key="Colt" />
+			<subband key="Galant" />
+			<subband key="i" />
+			<subband key="Lancer" />		
+		</band>
+		<band key="Mitsuoka(光冈)">
+			<subband key="Galue" />
+			<subband key="Viewt" />		
+		</band>
+		<band key="Nissan(日产)">
+			<subband key="NV200" />
+			<subband key="Elgrand" />
+			<subband key="LIVINA GENESIS" />
+			<subband key="QUEST" />
+			<subband key="JUKE" />
+			<subband key="Murano" />
+			<subband key="Paladin" />
+			<subband key="Pathfinder" />
+			<subband key="Patrol" />
+			<subband key="Qashqai" />
+			<subband key="Rogue" />
+			<subband key="X-Trail" />
+			<subband key="Atlas" />
+			<subband key="Vanette truck" />
+			<subband key="D22" />
+			<subband key="Navara" />
+			<subband key="ALTIMA" />
+			<subband key="BLUEBIRD" />
+			<subband key="CEFIRO" />
+			<subband key="CUBE" />
+			<subband key="FUGA" />
+			<subband key="LEAF" />
+			<subband key="LIVERA" />
+			<subband key="MARCH" />
+			<subband key="MAXIMA" />
+			<subband key="NOTE" />
+			<subband key="PIXO" />
+			<subband key="SENTRA" />
+			<subband key="SUNNY" />
+			<subband key="TENNA" />
+			<subband key="TIIDA" />		
+		</band>
+		<band key="Scion(塞恩)">
+			<subband key="iQ" />
+			<subband key="tC" />
+			<subband key="xB" />		
+		</band>
+		<band key="SUBARU(斯巴鲁)">
+			<subband key="Forester" />
+			<subband key="Outback" />
+			<subband key="Tribeca" />
+			<subband key="EXIGA" />
+			<subband key="IMPREZA" />
+			<subband key="LEGACY" />
+			<subband key="R1" />		
+		</band>
+		<band key="Suzuki(铃木)">
+			<subband key="Jimmny" />
+			<subband key="Vitara" />
+			<subband key="LANDY" />
+			<subband key="ALTO" />
+			<subband key="KIZASHI" />
+			<subband key="LIANA" />
+			<subband key="Splash" />
+			<subband key="SWIFT" />
+			<subband key="SX4" />
+			<subband key="北斗星" />
+			<subband key="羚羊" />		
+		</band>
+		<band key="Toyota(丰田)">
+			<subband key="Alaphad" />
+			<subband key="Previa" />
+			<subband key="Prius V" />
+			<subband key="Sienna" />
+			<subband key="Verso" />
+			<subband key="Wish" />
+			<subband key="4Runner" />
+			<subband key="FJ Cruiser" />
+			<subband key="Fortuner" />
+			<subband key="Highlander" />
+			<subband key="Land Cruiser" />
+			<subband key="Prado" />
+			<subband key="RAV4" />
+			<subband key="Sequoia" />
+			<subband key="Urban Cruiser" />
+			<subband key="Venza" />
+			<subband key="Dyna" />
+			<subband key="Hiluz" />
+			<subband key="Tacoma" />
+			<subband key="Tundra" />
+			<subband key="AURIS" />
+			<subband key="AVALON" />
+			<subband key="AVENSIS" />
+			<subband key="Aygo" />
+			<subband key="CAMARY" />
+			<subband key="COROLLA" />
+			<subband key="CROWN" />
+			<subband key="iQ" />
+			<subband key="MARK X" />
+			<subband key="MATRIX" />
+			<subband key="PRIUS" />
+			<subband key="SAI" />
+			<subband key="YARIS" />
+			<subband key="ZELAS" />		
+		</band>
+	</country>
+
+	<country key="瑞典">
+		<band key="SAAB(萨博)">
+			<subband key="9月3日" />
+			<subband key="9月5日" />
+			<subband key="9-4X" />
+			<subband key="9-7X" />		
+		</band>
+		<band key="Scania(斯堪尼亚)">
+			<subband key="G系" />
+			<subband key="P系" />
+			<subband key="R系" />		
+		</band>
+		<band key="VOLVO(沃尔沃)">
+			<subband key="C30" />
+			<subband key="S40" />
+			<subband key="S60" />
+			<subband key="S80" />
+			<subband key="XC60" />
+			<subband key="XC70" />
+			<subband key="XC90" />
+			<subband key="FH" />
+			<subband key="FM" />		
+		</band>
+	</country>
+
+	<country key="西班牙">
+		<band key="SEAT(西亚特)">
+			<subband key="EXEO" />
+			<subband key="Ibiza" />
+			<subband key="Leon" />		
+		</band>
+	</country>
+
+	<country key="意大利">
+		<band key="Alfa Romeo(阿尔法罗密欧)">
+			<subband key="147" />
+			<subband key="156" />
+			<subband key="159" />
+			<subband key="166" />
+			<subband key="Giulietta" />
+			<subband key="MiTo" />		
+		</band>
+		<band key="Fiat(菲亚特)">
+			<subband key="DOBLO" />
+			<subband key="Ducato" />
+			<subband key="Fiorino" />
+			<subband key="500" />
+			<subband key="BRAVO" />
+			<subband key="CROMA" />
+			<subband key="IDEA" />
+			<subband key="LINEA" />
+			<subband key="PALIO" />
+			<subband key="Panda" />
+			<subband key="PUNTO" />
+			<subband key="SEDICI" />
+			<subband key="UNO" />		
+		</band>
+		<band key="Iveco(依维柯)">
+			<subband key="Daily Van" />		
+		</band>
+		<band key="Lamborghini(兰博基尼)">
+			<subband key="LM002" />		
+		</band>
+		<band key="Maserati(玛莎拉蒂)">
+			<subband key="Quattroporte" />		
+		</band>
+	</country>
+
+	<country key="英国">
+		<band key="BENTLY(宾利)">
+			<subband key="Arnage" />
+			<subband key="Azure" />
+			<subband key="Brookland" />
+			<subband key="Continental Flying Spur" />
+			<subband key="Mulsanne" />		
+		</band>
+		<band key="JAGUAR(捷豹)">
+			<subband key="S-TYPE" />
+			<subband key="X-TYPE" />
+			<subband key="XF" />
+			<subband key="XJ" />		
+		</band>
+		<band key="Landrover(路虎)">
+			<subband key="Defender" />
+			<subband key="Discovery" />
+			<subband key="Evoque" />
+			<subband key="Freelander" />
+			<subband key="Range rover" />		
+		</band>
+		<band key="Lotus(莲花)">
+			<subband key="L3" />
+			<subband key="竞悦" />
+			<subband key="竞速" />		
+		</band>
+		<band key="MG">
+			<subband key="MG3" />
+			<subband key="MG6" />
+			<subband key="MG7" />		
+		</band>
+		<band key="mini">
+			<subband key="CLUBMAN" />
+			<subband key="COOPER" />
+			<subband key="Countryman" />		
+		</band>
+		<band key="Rolls-Royce(劳斯莱斯)">
+			<subband key="GHOST" />
+			<subband key="PHANTOM" />		
+		</band>
+		<band key="Vauxhall">
+			<subband key="Movano" />		
+		</band>
+	</country>
+
+	<country key="中国">
+		<band key="北奔重汽">
+			<subband key="V3" />
+			<subband key="北奔重卡" />		
+		</band>
+		<band key="北京">
+			<subband key="旗龙" />		
+		</band>
+		<band key="北京牌">
+			<subband key="1041" />
+			<subband key="旗铃" />
+			<subband key="旗龙" />		
+		</band>
+		<band key="北汽">
+			<subband key="B40" />
+			<subband key="勇士" />
+			<subband key="域胜007" />
+			<subband key="骑士S12" />		
+		</band>
+		<band key="奔腾">
+			<subband key="B50" />
+			<subband key="B70" />		
+		</band>
+		<band key="比亚迪">
+			<subband key="M6" />
+			<subband key="e6" />
+			<subband key="F0" />
+			<subband key="F3" />
+			<subband key="F3R" />
+			<subband key="F6" />
+			<subband key="G3" />
+			<subband key="L3" />
+			<subband key="福莱尔" />		
+		</band>
+		<band key="昌河">
+			<subband key="爱迪尔" />		
+		</band>
+		<band key="长安">
+			<subband key="杰勋" />
+			<subband key="CM8" />
+			<subband key="勋龙" />
+			<subband key="金牛星" />
+			<subband key="长安之星" />
+			<subband key="长安星光" />
+			<subband key="旺豹" />
+			<subband key="跨越" />
+			<subband key="跨越者" />
+			<subband key="CX20" />
+			<subband key="CX30" />
+			<subband key="V802" />
+			<subband key="奔奔" />
+			<subband key="志翔" />
+			<subband key="悦翔" />		
+		</band>
+		<band key="长安重汽">
+			<subband key="牵引车" />
+			<subband key="自卸车" />
+			<subband key="载货车" />		
+		</band>
+		<band key="长城">
+			<subband key="嘉誉" />
+			<subband key="腾翼V80" />
+			<subband key="H3" />
+			<subband key="H5" />
+			<subband key="赛弗" />
+			<subband key="赛影" />
+			<subband key="柴神" />
+			<subband key="赛酷" />
+			<subband key="赛铃" />
+			<subband key="迪尔" />
+			<subband key="金迪尔" />
+			<subband key="凌傲" />
+			<subband key="哈弗" />
+			<subband key="精灵" />
+			<subband key="绚丽" />
+			<subband key="腾翼" />
+			<subband key="酷熊" />		
+		</band>
+		<band key="长丰">
+			<subband key="骐菱" />		
+		</band>
+		<band key="帝豪">
+			<subband key="EX7" />
+			<subband key="EC7" />
+			<subband key="EC8" />		
+		</band>
+		<band key="东风">
+			<subband key="帅客" />
+			<subband key="御轩" />
+			<subband key="菱智" />
+			<subband key="奥丁" />
+			<subband key="景逸" />
+			<subband key="风神" />		
+		</band>
+		<band key="东风股份">
+			<subband key="劲诺" />
+			<subband key="多利卡" />
+			<subband key="康霸" />
+			<subband key="凯普特" />
+			<subband key="劲卡" />
+			<subband key="多利卡" />
+			<subband key="小霸王" />
+			<subband key="梦卡" />		
+		</band>
+		<band key="东风柳汽">
+			<subband key="乘龙" />
+			<subband key="霸龙" />
+			<subband key="龙卡" />		
+		</band>
+		<band key="东风商用车">
+			<subband key="嘉运" />
+			<subband key="大力神" />
+			<subband key="天锦" />
+			<subband key="天龙" />		
+		</band>
+		<band key="东风小康">
+			<subband key="K01" />
+			<subband key="K07" />
+			<subband key="K17" />
+			<subband key="V27" />		
+		</band>
+		<band key="东南">
+			<subband key="希旺" />
+			<subband key="得利卡" />
+			<subband key="菱利" />
+			<subband key="菱帅" />
+			<subband key="菱悦" />		
+		</band>
+		<band key="福田">
+			<subband key="蒙派克" />
+			<subband key="风景" />
+			<subband key="萨普" />
+			<subband key="迷迪" />		
+		</band>
+		<band key="福田汽车">
+			<subband key="牵引车" />
+			<subband key="自卸车" />
+			<subband key="载货车" />
+			<subband key="奥铃" />
+			<subband key="欧马可" />		
+		</band>
+		<band key="广汽">
+			<subband key="传祺" />		
+		</band>
+		<band key="广汽日野">
+			<subband key="700系列" />
+			<subband key="270Y" />
+			<subband key="300系列" />
+			<subband key="3200系列" />		
+		</band>
+		<band key="哈飞">
+			<subband key="中意" />
+			<subband key="民意" />
+			<subband key="路尊大霸王" />
+			<subband key="路尊小霸王" />
+			<subband key="赛豹" />
+			<subband key="赛马" />
+			<subband key="路宝" />		
+		</band>
+		<band key="海马">
+			<subband key="普力马" />
+			<subband key="骑士" />
+			<subband key="福仕达" />
+			<subband key="腾达" />
+			<subband key="丘比特" />
+			<subband key="欢动" />
+			<subband key="海福星" />
+			<subband key="海马3" />
+			<subband key="海马王子" />
+			<subband key="福美来" />		
+		</band>
+		<band key="红旗">
+			<subband key="新明仕" />
+			<subband key="旗舰" />
+			<subband key="盛世" />		
+		</band>
+		<band key="华普">
+			<subband key="海域" />
+			<subband key="海尚" />
+			<subband key="海峰" />
+			<subband key="海悦" />
+			<subband key="海景" />
+			<subband key="海炫" />
+			<subband key="海迅" />		
+		</band>
+		<band key="华泰">
+			<subband key="B35" />
+			<subband key="圣达菲" />
+			<subband key="特拉卡" />
+			<subband key="B11" />		
+		</band>
+		<band key="黄海">
+			<subband key="挑战者" />
+			<subband key="旗胜" />
+			<subband key="翱龙" />		
+		</band>
+		<band key="吉奥">
+			<subband key="凯瑞" />
+			<subband key="帅舰" />
+			<subband key="帅豹" />
+			<subband key="星福" />		
+		</band>
+		<band key="吉利">
+			<subband key="优利欧" />
+			<subband key="美日" />
+			<subband key="豪情" />		
+		</band>
+		<band key="江淮">
+			<subband key="和悦RS" />
+			<subband key="瑞风" />
+			<subband key="瑞鹰" />
+			<subband key="亮剑者" />
+			<subband key="威铃" />
+			<subband key="格尔发" />
+			<subband key="N721" />
+			<subband key="好运" />
+			<subband key="威铃" />
+			<subband key="帅铃" />
+			<subband key="康玲" />
+			<subband key="骏铃" />
+			<subband key="同悦" />
+			<subband key="和悦" />
+			<subband key="宾悦" />
+			<subband key="悦悦" />		
+		</band>
+		<band key="江玲">
+			<subband key="全顺" />
+			<subband key="凯威" />
+			<subband key="驭胜" />
+			<subband key="凯悦" />
+			<subband key="凯运" />
+			<subband key="顺达" />		
+		</band>
+		<band key="金杯">
+			<subband key="阁瑞斯" />
+			<subband key="金骐" />
+			<subband key="领驰" />
+			<subband key="领骐" />		
+		</band>
+		<band key="开瑞">
+			<subband key="优优" />
+			<subband key="优派" />
+			<subband key="优胜" />
+			<subband key="优雅" />		
+		</band>
+		<band key="凯马">
+			<subband key="福来卡" />
+			<subband key="金运卡" />
+			<subband key="骏威" />		
+		</band>
+		<band key="力帆">
+			<subband key="丰顺" />
+			<subband key="320" />
+			<subband key="520" />
+			<subband key="620" />		
+		</band>
+		<band key="猎豹">
+			<subband key="CS6" />
+			<subband key="CS7" />
+			<subband key="奇兵" />
+			<subband key="飞腾" />
+			<subband key="黑金刚" />		
+		</band>
+		<band key="陆风">
+			<subband key="风尚" />
+			<subband key="X6" />
+			<subband key="X8" />
+			<subband key="X9" />
+			<subband key="风华" />		
+		</band>
+		<band key="南京依维柯">
+			<subband key="依维柯" />
+			<subband key="跃进" />		
+		</band>
+		<band key="奇瑞">
+			<subband key="东方之子Cross" />
+			<subband key="瑞虎" />
+			<subband key="A1" />
+			<subband key="A3" />
+			<subband key="A5" />
+			<subband key="QQ 3" />
+			<subband key="QQ 6" />
+			<subband key="东方之子" />
+			<subband key="旗云 1" />
+			<subband key="旗云 2" />
+			<subband key="旗云 3" />
+			<subband key="风云" />		
+		</band>
+		<band key="庆铃">
+			<subband key="中型车" />
+			<subband key="中重型" />
+			<subband key="庆铃" />		
+		</band>
+		<band key="全球鹰">
+			<subband key="全球鹰GX2" />
+			<subband key="熊猫" />
+			<subband key="自由舰" />
+			<subband key="远景" />		
+		</band>
+		<band key="荣威">
+			<subband key="350" />
+			<subband key="550" />
+			<subband key="750" />		
+		</band>
+		<band key="瑞麒">
+			<subband key="X1" />
+			<subband key="G3" />
+			<subband key="G5" />
+			<subband key="G6" />
+			<subband key="M1" />
+			<subband key="M5" />
+			<subband key="云顶" />		
+		</band>
+		<band key="陕汽重卡">
+			<subband key="奥龙" />
+			<subband key="德御" />
+			<subband key="德龙" />		
+		</band>
+		<band key="上汽依维柯">
+			<subband key="斯太尔" />
+			<subband key="新大康" />
+			<subband key="杰狮" />
+			<subband key="特霸" />
+			<subband key="红岩" />
+			<subband key="金刚" />		
+		</band>
+		<band key="时代汽车">
+			<subband key="H系列" />
+			<subband key="K系列" />
+			<subband key="小卡之星" />
+			<subband key="瑞沃" />
+			<subband key="领航" />		
+		</band>
+		<band key="双环">
+			<subband key="SCEO" />
+			<subband key="来宝SRV" />
+			<subband key="小贵族" />
+			<subband key="路帝" />		
+		</band>
+		<band key="威麟">
+			<subband key="H3" />
+			<subband key="H5" />
+			<subband key="V5" />
+			<subband key="V8" />
+			<subband key="X5" />		
+		</band>
+		<band key="五菱">
+			<subband key="五菱之光" />
+			<subband key="五菱荣光" />
+			<subband key="五菱鸿途" />
+			<subband key="兴旺" />			
+		</band>
+		<band key="五征">
+			<subband key="奥驰" />		
+		</band>
+		<band key="徐工汽车">
+			<subband key="旗龙" />
+			<subband key="瑞龙" />		
+		</band>
+		<band key="野马">
+			<subband key="F99" />			
+		</band>
+		<band key="一汽">
+			<subband key="森雅S80" />
+			<subband key="夏利" />
+			<subband key="威乐" />
+			<subband key="威志" />
+			<subband key="森雅" />				
+		</band>
+		<band key="一汽解放">
+			<subband key="J4R" />
+			<subband key="J6" />
+			<subband key="奥威" />
+			<subband key="悍威" />
+			<subband key="新大威" />
+			<subband key="矿威" />
+			<subband key="赛麒麟" />
+			<subband key="赛龙" />
+			<subband key="骏威" />
+			<subband key="赛虎" />		
+		</band>
+		<band key="一汽通用">
+			<subband key="501系列" />
+			<subband key="小解放" />
+			<subband key="金铃" />
+			<subband key="霸铃" />		
+		</band>
+		<band key="英伦">
+			<subband key="SC5-RV" />
+			<subband key="SC6" />
+			<subband key="SC7" />
+			<subband key="TX4" />
+			<subband key="金刚" />
+			<subband key="金鹰" />
+		</band>
+		<band key="郑州日产">
+			<subband key="凯普斯达" />		
+		</band>
+		<band key="中国重汽">
+			<subband key="A7" />
+			<subband key="HOKA" />
+			<subband key="HOVA" />
+			<subband key="HOWO" />
+			<subband key="斯太尔王" />
+			<subband key="汕德卡" />
+			<subband key="豪运" />
+			<subband key="金王子" />
+			<subband key="黄河少帅" />		
+		</band>
+		<band key="中华">
+			<subband key="尊驰" />
+			<subband key="骏捷" />			
+		</band>
+		<band key="中兴">
+			<subband key="无限V3" />
+			<subband key="无限V5" />
+			<subband key="无限V7" />
+			<subband key="旗舰" />			
+		</band>
+		<band key="众泰">
+			<subband key="朗悦" />
+			<subband key="5008" />		
+		</band>
+
+	</country>
+
+</templates>

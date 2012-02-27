@@ -1,7 +1,6 @@
 package com.saturn.action.ph;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -56,6 +55,11 @@ public class PreviewAction implements IAction {
 		request.setAttribute("type", type);
 		request.setAttribute("form", form);
 		
+		initcCommunalData(request);
+		return new JspView(FormManager.getJspPath(type));
+	}
+
+	private void initcCommunalData(HttpServletRequest request) {
 		if (request.getSession().getAttribute("FV9_11ProjectTermin") == null ||
 				request.getSession().getAttribute("FV9_11VorserienTer") == null) {
 			//获取公用的信息
@@ -71,7 +75,7 @@ public class PreviewAction implements IAction {
 					//根据UID获取对象
 					ModelObject public_object = PH.getDataService().loadModelObjectRefresh(public_uid);
 					if (public_object == null) {
-						return new JspErrorView("public_uid=[" + public_uid + "] 不存在");
+						// new Exce  JspErrorView("public_uid=[" + public_uid + "] 不存在");
 					}
 					//获取对象的类型
 					String public_type = public_object.getType().getName();
@@ -176,24 +180,9 @@ public class PreviewAction implements IAction {
 						request.getSession().setAttribute("OSTBTZP7", OSTBTZP7);
 						request.getSession().setAttribute("ZP7SOP", ZP7SOP);
 						request.getSession().setAttribute("ZP5SOP", ZP5SOP);
-						
 					}
-					
 				}
-				
-				
-				
-				
-				
-				
-				
 			}
-			
-			
 		}
-		
-		
-		
-		return new JspView(FormManager.getJspPath(type));
 	}
 }

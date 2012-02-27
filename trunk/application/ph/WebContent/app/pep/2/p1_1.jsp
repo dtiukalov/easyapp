@@ -36,9 +36,9 @@
 		</div>	
 		<div id="content">
 			<div id="german">
-				<input type="button" class="china" onclick="changeChinese()" style="margin:0 160px;"/>
+				<input type="button" class="china" onclick="changeChinese()"/>
 			</div>
-			<div id="datatable1" style="font-family:Arial;font-size:11px;width: 800px; margin: 30px 150px;">
+			<div id="datatable1" style="font-family:Arial;font-size:12px;width: 800px; margin: 30px 150px;">
 				<table width="80%" cellspacing="2" rules="rows" >
 					<tr style="border-bottom:2px solid #333333;font-family:Arial;font-size:16px;font-weight:bold;">
 						<td>&nbsp;</td>
@@ -84,9 +84,9 @@
 				</table>
 			</div>
 			<div id="china" style="display: none;">
-				<input type="button" class="german" onclick="changeGerman()" style="margin:0 160px;"/>
+				<input type="button" class="german" onclick="changeGerman()" />
 			</div>
-			<div id="datatable2" style="font-family:Arial;font-size:11px;width: 800px; margin: 30px 150px;display: none;">
+			<div id="datatable2" style="font-family:Arial;font-size:12px;width: 800px; margin: 30px 150px;display: none;">
 				<table width="80%" cellspacing="2" rules="rows" >
 					<tr style="border-bottom:2px solid #333333;font-family:Arial;font-size:14px;font-weight:bold;">
 						<td>&nbsp;</td>

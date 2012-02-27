@@ -31,7 +31,7 @@
 				<div id="german">
 					<input type="button" class="china" onclick="changeChinese()" />
 				</div>
-				<div id="datatable1" style="width: 800px; height: 500px;margin: 30px 150px;">
+				<div id="datatable1" style="width: 800px; height: 500px;margin: 30px 120px;">
 					<table width="80%" cellspacing="2" rules="rows">
 						<tr style="border-bottom:2px solid #333333;font-size:18px;font-weight:bold;">
 							<td width="35%">Aktion</td>

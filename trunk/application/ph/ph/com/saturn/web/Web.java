@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import com.saturn.tc.utils.DateUtils;
+
 public class Web {
 	public static void main(String[] args) {
 	
@@ -183,5 +185,71 @@ public class Web {
 		}
 		
 		return "";
+	}
+	
+	public static int[] getMilepostArr(String start, String end){
+		int[] arr = null;
+		
+		if(start != null && end != null 
+				&& !"".equals(start) && !"".equals(end)){
+			int year = Integer.parseInt(start.substring(0, 4));
+			int currwk = DateUtils.getMaxWeekNumOfYear(year);
+			
+			int s = DateUtils.getWeekOfYear(start);
+			int e = DateUtils.getWeekOfYear(end);
+			
+			if(s > 0 && e > 0 ){
+				if(e > s){
+					int size = e -s + 1;
+					arr = new int[size];
+					
+					for(int i=0; i<size; i++){
+						arr[i] = s + i;
+					}
+				} else {
+					int size1 = currwk - s + 1;
+					int size2 = e;
+					int size =  size1 + size2;
+					arr = new int[size];
+					
+					for(int i=0; i<size1; i++){
+						arr[i] = s + i;
+					}
+					for(int j=0 ; j<e; j++){
+						arr[size1 + j] = j+1;
+					}
+				}
+			}
+		}
+		return arr;
+	}
+	
+	public static int getNum(int[] milepostArr ,int[] wkArr){
+		int result = 0;
+		int size1 =  milepostArr.length;
+		int size2 =  wkArr.length;
+		if(milepostArr != null && wkArr != null && size1 > 0 && size2 > 0){
+			int milepostMax = milepostArr[size1-1];
+			int milepostMin = milepostArr[0];
+			int wkMax =  wkArr[size2-1];
+			int wkMin = wkArr[0];
+				
+			/*	if(milepostMin < wkMin && milepostMax < wkMin){
+				return result;
+			} else if(milepostMin > wkMax && milepostMax > wkMax){
+				return result;
+			} else if(milepostMin < wkMin && milepostMax > wkMax){
+				result = size2;
+			} else {*/
+				for(int i=0; i < size1; i++){
+					for(int j=0; j < size2; j++){
+						if(milepostArr[i] == wkArr[j]){
+							result = result + 1;
+						}
+					}
+				}
+			//}
+		}
+		return result;
 	}
 }

@@ -270,15 +270,16 @@
 				<div class="fr"> STATUS 19.10.2010</div>
 				<h1><%=title %></h1>
 			</div>
-						<%
+			<%
 						int[] arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9KWNo"));
+						
 						int size = arr.length;//一共有多少个柱子 
 						double pillar = 0.0;
-						int vffPillarNum = 2;//柱子个数
-						int pvsPillarNum = 4;//柱子个数
-						int osPillarNum = 4;//柱子个数
-						int sopPillarNum = 2;//柱子个数
-
+						
+						double value1 = 0 ; 
+						double value2 = 0;
+						double value3 = 0;
+						double value4 = 0;
 						if(size > 0){
 							int maxKw = arr[size-1];
 							int minKw = arr[0];
@@ -286,25 +287,40 @@
 							double totalWidth = 595.0;//总长度是 750px 
 							pillar = totalWidth/size;  //每个柱子的宽度 px
 						
+							String vff_start = request.getSession().getAttribute("DATE_VFF").toString();
+							String pvs_start = request.getSession().getAttribute("DATE_PVS").toString();
+							String os_start = request.getSession().getAttribute("DATE_0S").toString();
+							String sop_start = request.getSession().getAttribute("DATE_SOP").toString();
+							String me_start = request.getSession().getAttribute("DATE_ME").toString();
+							
+							int[] vffArr = Web.getMilepostArr(vff_start,pvs_start);
+							int[] pvsArr = Web.getMilepostArr(pvs_start,os_start);
+							int[] osArr = Web.getMilepostArr(os_start,sop_start);
+							int[] sopArr = Web.getMilepostArr(sop_start,me_start);
+							
+							int vffPillarNum = 1;//Web.getNum(vffArr,arr);//柱子个数
+							int pvsPillarNum = 0;//Web.getNum(pvsArr,arr);;//柱子个数
+							int osPillarNum =  0;//Web.getNum(osArr,arr);;//柱子个数
+							int sopPillarNum =  0;//Web.getNum(sopArr,arr);;//柱子个数
+							
+							value1 = vffPillarNum * pillar ; 
+							value2 = pvsPillarNum * pillar ;
+							value3 = osPillarNum * pillar ;
+							value4 = sopPillarNum * pillar ;
 						}
-						double value1 = vffPillarNum * pillar ; 
-						double value2 = pvsPillarNum * pillar ;
-						double value3 = osPillarNum * pillar ;
-						double value4 = sopPillarNum * pillar ;
+						
 						double sum = value1 + value2 + value3 + value4;
 						%>
 			<div id="content">
 				<div id="chart1" style="width: 650px; height: 500px; margin: 0 70px; float: left;"></div>
 				<div id="chart2" style="width: 100px; height: 500px; margin: 0 -90px; float: left;margin-top:-10px; "></div>
-				<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 108px; text-align: left; overflow: hidden; ">
-					<table>
-						<tr > 
-							<td width="<%=value1 %>px" align="left" bgcolor="#99FF99"><%if(vffPillarNum != 0){%>VFF<%} %></td> 
-							<td width="<%=value2%>px" align="left" bgcolor="#33CC33"><%if(pvsPillarNum != 0){%>PVS<%} %></td> 
-						 	<td width="<%=value3 %>px" align="left" bgcolor="#006600"><%if(osPillarNum != 0){%>0S<%} %></td> 
-							<td width="<%=value4%>px" align="left" bgcolor="#333333"><%if(sopPillarNum != 0){%>SOP<%} %></td>
-						</tr>
-					</table>
+				<div id="meilsteinouter" style="width: 800px;">
+					<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 108px; text-align: center; overflow: hidden; ">
+						<div style=" width: <%=value1 %>px; height: 30px; float: left; background-color: #99FF99; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">VFF</span></div>
+						<div style=" width: <%=value2 %>px; height: 30px; float: left; background-color: #33CC33; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">PVS</span></div>
+						<div style=" width: <%=value3 %>px; height: 30px; float: left; background-color: #006600; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">0S</span></div>
+						<div style=" width: <%=value4 %>px; height: 30px; float: left; background-color: #333333; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">SOP</span></div>
+					</div>
 				</div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>

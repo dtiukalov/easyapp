@@ -45,11 +45,11 @@
 						text: ' '
 					},
 					xAxis: {
-						lineColor:'#747474',
+						lineColor:'black',
 						gridLineWidth:1,
-						gridLineColor:'#747474',
-						tickLength:13,
-						tickColor:'#747474',
+						gridLineColor:'black',
+						//tickLength:13,
+						//tickColor:'black',
 						categories: <%=fv9KWNo%>,
 						plotBands: [{
 							from: -100,
@@ -57,8 +57,9 @@
 							color: '#C0C0C0'
 						}],
 						labels:{
+							enabled:false,
 							style:{
-								color:'black'
+								color:'#C0C0C0'
 							}
 						}
 					},
@@ -66,10 +67,10 @@
 						min: 0,
 						max: 120,
 						tickWidth:1,
-						gridLineColor:'#747474',
-						tickColor:'#747474',
+						gridLineColor:'black',
+						tickColor:'black',
 						lineWidth:1,
-						lineColor:'#747474',
+						lineColor:'black',
 						title: {
 							text: ' '
 						},
@@ -236,11 +237,11 @@
 				<h1><%=title %></h1>
 			</div>
 			<div id="content">
-				<div id="chart" style="width: 700px; height: 400px; margin: 0 183px"></div>
-				<div style="width: 800px; margin: 0 auto;text-align: center; margin-top: 0;">
+				<div id="chart" style="width: 700px; height: 400px; margin: -30px 183px;position:absolute;z-index:1;"></div>
+				<div style="width: 821px; margin: 355px 52px;text-align: center;position:absolute;z-index:2;">
 				<table class="freigaben" style="border-color: #000;border-collapse:collapse;" cellpadding="0" cellspacing="0" border="1"">
 					<tr>
-						<td style="text-align: left;width: 300px;">&nbsp;</td>
+						<td style="text-align: left;width: 400px;">&nbsp;</td>
 						<%
 						for (int j=0; j<KWNo.size(); j++) {
 						%>
@@ -250,7 +251,7 @@
 						%>
 					</tr>
 					<tr>
-						<td style="text-align: left;width: 300px;">&nbsp;in Planung</td>
+						<td style="text-align: left;width:400px;"><img src="/ph/app/pep/images/ls.jpg">in Planung</td>
 						<%
 						for (int j=0; j<InPlanung.size(); j++) {
 						%>
@@ -260,7 +261,7 @@
 						%>
 					</tr>
 					<tr>
-						<td style="text-align: left;width: 300px;">&nbsp;Maßnahme nicht erarbeitet</td>
+						<td style="text-align: left;width: 400px;"><img src="/ph/app/pep/images/hs.jpg">Maßnahme nicht erarbeitet</td>
 						<%
 						for (int j=0; j<MabnaNichtErarb.size(); j++) {
 						%>
@@ -270,7 +271,7 @@
 						%>
 					</tr>
 					<tr>
-						<td style="text-align: left;width: 300px;">&nbsp;Maßnahmen werden definiert</td>
+						<td style="text-align: left;width: 550px;"><img src="/ph/app/pep/images/huangs.jpg">Maßnahmen werden definiert</td>
 						<%
 						for (int j=0; j<MabnaWerdenDef.size(); j++) {
 						%>
@@ -280,7 +281,7 @@
 						%>
 					</tr>
 					<tr>
-						<td style="text-align: left;width: 300px;">&nbsp;Maßnahme definiert</td>
+						<td style="text-align: left;width: 300px;"><img src="/ph/app/pep/images/lvs.jpg">Maßnahme definiert</td>
 						<%
 						for (int j=0; j<MabnaDef.size(); j++) {
 						%>
@@ -290,7 +291,7 @@
 						%>
 					</tr>
 					<tr>
-						<td style="text-align: left;width: 300px;">&nbsp;i.O.</td>
+						<td style="text-align: left;width: 300px;"><img src="/ph/app/pep/images/slv.jpg">i.O.</td>
 						<%
 						for (int j=0; j<IO.size(); j++) {
 						%>
@@ -300,7 +301,7 @@
 						%>
 					</tr>
 					<tr>
-						<td style="text-align: left;width: 300px;">&nbsp;Prognose in Planung</td>
+						<td style="text-align: left;width: 300px;"><img src="/ph/app/pep/images/lx.jpg">Prognose in Planung</td>
 						<%
 						for (int j=0; j<PrognosePlan.size(); j++) {
 						%>
@@ -310,7 +311,7 @@
 						%>
 					</tr>
 					<tr>
-						<td style="text-align: left;width: 300px;">&nbsp;Ziel</td>
+						<td style="text-align: left;width: 300px;"><img src="/ph/app/pep/images/hsx.jpg">Ziel</td>
 						<%
 						for (int j=0; j<Zeil.size(); j++) {
 						%>
@@ -320,7 +321,7 @@
 						%>
 					</tr>
 					<tr>
-						<td style="text-align: left;width: 300px;">&nbsp;Prognose i.O.</td>
+						<td style="text-align: left;width: 300px;"><img src="/ph/app/pep/images/lsx.jpg">Prognose i.O.</td>
 						<%
 						for (int j=0; j<PrognoseIO.size(); j++) {
 						%>

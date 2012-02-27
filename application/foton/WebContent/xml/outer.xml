@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+	<outer key="前大灯"></outer>
+	<outer key="前保险杠"></outer>
+	<outer key="后保险杠"></outer>
+	<outer key="雨刮器"></outer>
+	<outer key="高位制动灯"></outer>
+	<outer key="门把手"></outer>
+	<outer key="迎宾踏板"></outer>
+	<outer key="脚踏板"></outer>
+	<outer key="前格栅"></outer>
+	<outer key="钥匙"></outer>	
+	<outer key="后大灯"></outer>	
+	<outer key="前雾灯"></outer>
+	<outer key="后雾灯"></outer>
+	<outer key="行李架"></outer>	
+	<outer key="外后视镜"></outer>
+	<outer key="轮辋"></outer>
+
+</templates>

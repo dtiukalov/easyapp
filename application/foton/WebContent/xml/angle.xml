@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+	<angle key="正前视图"></angle>
+	<angle key="正后视图"></angle>
+	<angle key="正侧视图"></angle>
+	<angle key="前侧视图"></angle>
+	<angle key="后侧视图"></angle>
+</templates>

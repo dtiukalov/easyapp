@@ -1,0 +1,28 @@
+	body{background-color:#ebf5ff;margin:0px;padding:4px;text-align:center;}
+		
+	.saturn-form {width:auto;font:13px/26px "宋体", Arial, Helvetica, sans-serif; margin-bottom: 20px; color: #555;text-align:left; }
+	.saturn-form legend {margin-left: -150px; font:15px/16px "黑体" ;color: #71008a; background:#F9F6ED; padding: 0px 3px;letter-spacing: 2px ; *margin-bottom: 20px;}
+	.saturn-form fieldset {border: 1px #999999 solid; padding-bottom: 10px; color:#333; padding-top: 20px; *padding-top:0px;padding-left:250px;}
+	.saturn-form fieldset p {margin:3px 0px 0;list-style: none; clear: both;}
+	.saturn-form fieldset label {vertical-align:top; float:left;width:150px;text-align:right; padding:0 5px; color: #333; }/*文字列表*/
+	.saturn-form fieldset label strong{color: red;}
+	.saturn-form fieldset label.error, label.error  {background:url(../images/clb-unchecked.gif) 10px 0 no-repeat; padding-left:27px;vertical-align:top; color:#E55314; float:none;}
+	.saturn-form fieldset label.success, label.success {background:url(../images/clb-checked.gif) 10px 0 no-repeat; padding-left:27px;vertical-align:top; color:green;float:none;}
+
+	table{border:1px solid #0058a3;border-collapse:collapse;background-color:#eaf5ff;font-size:12px;font-familu:Arial;}
+	table th{color:#FFFFFF;background-color:#4dacff;border:1px solid #0058a3;font-weight:bold;padding-top:4px;padding-bottom:4px;padding-right:12px;padding-left:12px;text-align:center;}
+	table td{border:1px solid:#0058a3;text-align:left;padding-top:4px;padding-bottom:4px;padding-right:10px;padding-left:10px;}
+	table tbody tr td a:link {color: #406518;text-decoration: underline;}
+	table tbody tr td a:visited {text-decoration: underline;color: #a40703;}
+	table tbody tr td a:hover {text-decoration: underline;color: #da5301;}
+	table tbody tr td a:active {text-decoration: underline;}
+	lable{font-size:12px}
+
+	.clb-table-paginate-div{text-align:center; margin-top: 10px;}
+	.clb-table-paginate-current{padding:0 2px; margin: 0 0px; *margin: 0 3px; border:1px solid #1D628B; background:#0F669C; color:#FBF5DF; height:20px;font-weight:bold;}
+	.clb-table-paginate-page{padding:0 2px; margin: 0 0px; *margin: 0 3px; border:1px solid #999; background:#FAF7EE;cursor: pointer;color:#16648B; height:20px;}
+	.clb-table-paginate-button{padding:0 2px; margin: 0 0px; *margin: 0 3px; border:1px solid #999; background:#FAF7EE;cursor: pointer;color:#652393;height:20px;}
+	.clb-table-paginate-input{padding:0 0px; margin: 0 0px; *margin: 0 3px; border:1px solid #999; background:#FAF7EE; width: 40px;heigth:16px;*height:18px;padding-top:2px;*padding-top:0px}
+	.clb-table-paginate-go{padding:0 2px;_padding-top:2px; margin: 0 0px; *margin: 0 3px; border:1px solid #999; background:#FAF7EE;cursor: pointer;color:#652393;height:20px;}
+	.clb-table-paginate-text{color: #656565;}
+	.clb-table-paginate-button-disabled{padding:0 2px; margin: 0 0px; *margin: 0 3px; border:1px solid #999; background:#FAF7EE;cursor: pointer;color:#B2ADA1;height:20px;}

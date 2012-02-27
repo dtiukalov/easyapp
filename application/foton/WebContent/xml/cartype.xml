@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+	<cartype key="SUV"></cartype>
+	<cartype key="MPV"></cartype>
+	<cartype key="VAN"></cartype>
+	<cartype key="轿车"></cartype>
+	<cartype key="卡车-轻型"></cartype>
+	<cartype key="卡车-中重型"></cartype>
+	<cartype key="皮卡"></cartype>
+</templates>

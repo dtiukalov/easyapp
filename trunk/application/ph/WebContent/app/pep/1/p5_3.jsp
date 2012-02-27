@@ -131,7 +131,7 @@
 						style : {
 							fontSize:'12px'
 						},
-						color: 'white'
+						color: 'black'
 					}
 				},{
 					type: 'column',
@@ -143,7 +143,7 @@
 						style : {
 							fontSize:'12px'
 						},
-						color: 'white'
+						color: 'black'
 					}
 				}, {
 					type: 'spline',

@@ -29,9 +29,7 @@
 				fv9PrognoseIO = Integer.parseInt((String)form.get("fv9PrognoseIO"));
 			}
 			int max = fv9PrognoseAK + fv9PrognoseBK + fv9PrognoseIO;
-
 		%>
-		
 		<script type="text/javascript">
 		var chart1;
 		var chart2;

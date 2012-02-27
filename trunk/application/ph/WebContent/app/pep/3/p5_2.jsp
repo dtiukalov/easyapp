@@ -14,7 +14,7 @@
 		<title><%=title %></title>
 		<style type="text/css">
 			.left{
-				width: 100px; height: 50px;float: left;margin: 30px 30px;
+				width: 100px; height: 50px;float: left;margin: 20px 30px;
 				vertical-align: middle;
 				font-size:12px;
 			}
@@ -23,7 +23,7 @@
 				font-weight: bolder;color: white;
 			}
 			.chart{
-				width: 700px; height: 110px; margin: -2px auto; float: left;
+				width: 700px; height: 110px; margin: -6px auto; float: left;
 			}
 			.clear1{
 				width: 100%;height: 1px;margin: 0 auto; float: left;

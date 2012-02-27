@@ -10,14 +10,14 @@
 	.coo .tab {
 		background:#000;
 		font-size:12px;
-		width:1004px;
+		width:800px;
 	}
 	.coo .tab td{
 		background:#fff;
 		width:20px;
 	}
 	.coo .tab .taba {
-		width:1004px;
+		width:800px;
 	}
 	.coo .tab .taba .lg{
 		width:230px;
@@ -63,57 +63,35 @@
 </head>
 <body>	
 	<div id="container">
-		<div id="nr">
-		<div id="top">
+		<div id="nr" style="margin-left:35px;">
+		<div id="top" >
 			<div class="fl"> VW471 CN-Pilothalle VFF,20.10.2010</div>
 			<div class="fr"> STATUS 19.10.2010</div>
 			<h1><%=title %></h1>
 		</div>
 		
-		<div id="content">
+		<div id="content" style="margin:60px 80px;height:475px;">
 			<p></p>
-					<div class="coo"><table width="986" border="0" cellpadding="1" cellspacing="1" class="tab">
+			<div class="coo"><table border="0" cellpadding="1" cellspacing="1" class="tab">
 			  <tr>
-			    <td width="982"><table width="931"  height="60" border="0" cellpadding="0" cellspacing="0" class="taba">
+			    <td><table  height="60" border="0" cellpadding="0" cellspacing="0" class="taba">
 			      <tr>
 			        <td width="260" class="lg"><img src="../images/logo.jpg"/></td>
 			        <td width="384" class="bt"><h3>aktuelle Vorlage Meilensteinubersicht</h3>
 			        <h3>SOP MM/YYYY</h3></td>
-			        <td width="287" class="bz"><p><span>Status:</span></p>
-			          <p>Ausgabe:xx.xx.10</p></td>
+			        <td width="287" class="bz">
+			        	<h3><div style="float:right;margin-right:20px;font-size:12px;">Status: ( V2 )Entwurf</div></h3><br>
+						<h3><div style="float:right;margin-right:20px;font-size:12px;">Ausgabe:30.08.11</div></h3>
+					</td>
 			      </tr>
 			    </table></td>
 			  </tr>
 			  <tr>
-			    <td style="width:904px;hight:400px">
+			    <td style="hight:400px">
 			    <iframe id="ff" name= "ff" frameborder="0"  
-			    src="<%=request.getContextPath() %>/app/pep/1/GanttChart3.jsp?uid=<%=uid %>" style="width:1000px;height:300px;">
+			    src="<%=request.getContextPath() %>/app/pep/1/GanttChart3.jsp?uid=<%=uid %>" style="width:800px;height:300px;">
 			    </iframe>
 			    </td>
-			  </tr>
-			  <tr>
-			    <td><table width="904" height="50px" border="0" cellspacing="0" cellpadding="0">
-			      <tr>
-			        <td class="a"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-			          <tr>
-			            <td>Legende:</td>
-			          </tr>
-			          <tr>
-			            <td><table width="300" border="0" cellspacing="3" cellpadding="0">
-			              <tr>
-			                <td width="78"><div class="ka">Producktidefinition</div></td>
-			                <td width="107"><div class="kb">Konzept und Serienentericklung</div></td>
-			                <td width="103"><div class="kc">Serienvorboreitung</div></td>
-			              </tr>
-			            </table></td>
-			          </tr>
-			        </table></td>
-			        <td align="center" valign="bottom" class="b">RPLAN</td>
-			        <td class="c"><p>GMXSMax&nbsp;&nbsp;&nbsp;&nbsp;Mustemannxxx Qukdfjdkfjdkfj Tel kdkf df f<br />
-			          Profkdfldidf;dfuiddkjfdkfjkdfjdk
-			        </p></td>
-			      </tr>
-			    </table></td>
 			  </tr>
 			</table>
 			</div>

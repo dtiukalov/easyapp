@@ -443,6 +443,7 @@
 					}],
 					yAxis: {
 						min:0,
+						max:250,
 						gridLineWidth:0,
 						lineWidth:1,
 						tickWidth:1,

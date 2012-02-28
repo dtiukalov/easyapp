@@ -113,7 +113,8 @@
 					},
 					tooltip: {
 						formatter: function() {
-							return this.point.table;
+			                return '<b>'+ this.series.name +'</b><br/>'+
+							this.x +'<br/>'+ this.y;
 						}
 					},
 					plotOptions: {

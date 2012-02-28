@@ -298,10 +298,10 @@
 							int[] osArr = Web.getMilepostArr(os_start,sop_start);
 							int[] sopArr = Web.getMilepostArr(sop_start,me_start);
 							
-							int vffPillarNum = 1;//Web.getNum(vffArr,arr);//柱子个数
-							int pvsPillarNum = 0;//Web.getNum(pvsArr,arr);;//柱子个数
-							int osPillarNum =  0;//Web.getNum(osArr,arr);;//柱子个数
-							int sopPillarNum =  0;//Web.getNum(sopArr,arr);;//柱子个数
+							int vffPillarNum = Web.getNum(vffArr,arr);//柱子个数
+							int pvsPillarNum = Web.getNum(pvsArr,arr);;//柱子个数
+							int osPillarNum =  Web.getNum(osArr,arr);;//柱子个数
+							int sopPillarNum =  Web.getNum(sopArr,arr);;//柱子个数
 							
 							value1 = vffPillarNum * pillar ; 
 							value2 = pvsPillarNum * pillar ;

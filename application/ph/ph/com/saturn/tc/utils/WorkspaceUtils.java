@@ -99,6 +99,7 @@ public class WorkspaceUtils {
 						
 						for (int i = 0; i < moEveryProject.length; i++) {
 							Item phitem = (Item)moEveryProject[i];
+							service.refreshObjects(phitem);
 							service.getProperties(phitem, "uid", "object_name",
 									"object_type", "contents");
 							phItemMap.put(phitem.getUid(), phitem);

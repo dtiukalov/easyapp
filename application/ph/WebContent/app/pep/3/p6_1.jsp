@@ -251,7 +251,7 @@
 						%>
 					</tr>
 					<tr>
-						<td style="text-align: left;width:400px;"><img src="/ph/app/pep/images/ls.jpg">in Planung</td>
+						<td style="text-align: left;width:400px;"><img src="<%=request.getContextPath() %>/app/pep/images/ls.jpg">in Planung</td>
 						<%
 						for (int j=0; j<InPlanung.size(); j++) {
 						%>
@@ -261,7 +261,7 @@
 						%>
 					</tr>
 					<tr>
-						<td style="text-align: left;width: 400px;"><img src="/ph/app/pep/images/hs.jpg">Maßnahme nicht erarbeitet</td>
+						<td style="text-align: left;width: 400px;"><img src="<%=request.getContextPath() %>/app/pep/images/hs.jpg">Maßnahme nicht erarbeitet</td>
 						<%
 						for (int j=0; j<MabnaNichtErarb.size(); j++) {
 						%>
@@ -271,7 +271,7 @@
 						%>
 					</tr>
 					<tr>
-						<td style="text-align: left;width: 550px;"><img src="/ph/app/pep/images/huangs.jpg">Maßnahmen werden definiert</td>
+						<td style="text-align: left;width: 550px;"><img src="<%=request.getContextPath() %>/app/pep/images/huangs.jpg">Maßnahmen werden definiert</td>
 						<%
 						for (int j=0; j<MabnaWerdenDef.size(); j++) {
 						%>
@@ -281,7 +281,7 @@
 						%>
 					</tr>
 					<tr>
-						<td style="text-align: left;width: 300px;"><img src="/ph/app/pep/images/lvs.jpg">Maßnahme definiert</td>
+						<td style="text-align: left;width: 300px;"><img src="<%=request.getContextPath() %>/app/pep/images/lvs.jpg">Maßnahme definiert</td>
 						<%
 						for (int j=0; j<MabnaDef.size(); j++) {
 						%>
@@ -291,7 +291,7 @@
 						%>
 					</tr>
 					<tr>
-						<td style="text-align: left;width: 300px;"><img src="/ph/app/pep/images/slv.jpg">i.O.</td>
+						<td style="text-align: left;width: 300px;"><img src="<%=request.getContextPath() %>/app/pep/images/slv.jpg">i.O.</td>
 						<%
 						for (int j=0; j<IO.size(); j++) {
 						%>
@@ -301,7 +301,7 @@
 						%>
 					</tr>
 					<tr>
-						<td style="text-align: left;width: 300px;"><img src="/ph/app/pep/images/lx.jpg">Prognose in Planung</td>
+						<td style="text-align: left;width: 300px;"><img src="<%=request.getContextPath() %>/app/pep/images/lx.jpg">Prognose in Planung</td>
 						<%
 						for (int j=0; j<PrognosePlan.size(); j++) {
 						%>
@@ -311,7 +311,7 @@
 						%>
 					</tr>
 					<tr>
-						<td style="text-align: left;width: 300px;"><img src="/ph/app/pep/images/hsx.jpg">Ziel</td>
+						<td style="text-align: left;width: 300px;"><img src="<%=request.getContextPath() %>/app/pep/images/hsx.jpg">Ziel</td>
 						<%
 						for (int j=0; j<Zeil.size(); j++) {
 						%>
@@ -321,7 +321,7 @@
 						%>
 					</tr>
 					<tr>
-						<td style="text-align: left;width: 300px;"><img src="/ph/app/pep/images/lsx.jpg">Prognose i.O.</td>
+						<td style="text-align: left;width: 300px;"><img src="<%=request.getContextPath() %>/app/pep/images/lsx.jpg">Prognose i.O.</td>
 						<%
 						for (int j=0; j<PrognoseIO.size(); j++) {
 						%>

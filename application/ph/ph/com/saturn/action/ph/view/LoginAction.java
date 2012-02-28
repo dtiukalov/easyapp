@@ -36,8 +36,8 @@ public class LoginAction implements IAction {
 			
 			if(tcsession != null){
 				request.getSession().setAttribute("TC_SESSION", tcsession);
-				
 			}
+			
 			if(user != null){
 				request.getSession().setAttribute("TC_USER", user);
 				request.getSession().setAttribute("TC_USER_UID", user.getUid());

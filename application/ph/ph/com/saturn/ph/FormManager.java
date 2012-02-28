@@ -73,6 +73,14 @@ import com.saturn.ph.form.p6.FV9_61LaunchplanungDataset;
 import com.saturn.ph.form.p7.FV9_71ReifegradsForm;
 import com.saturn.ph.form.p7.FV9_72BeschlussDataset;
 import com.saturn.ph.form.p7.FV9_72UeberZuTerDataset;
+import com.saturn.ph.form.pbackup.FV9BackUp1Dataset;
+import com.saturn.ph.form.pbackup.FV9BackUp2Dataset;
+import com.saturn.ph.form.pbackup.FV9BackUp3Dataset;
+import com.saturn.ph.form.pbackup.FV9BackUp4Dataset;
+import com.saturn.ph.form.pbackup.FV9BackUp5Dataset;
+import com.saturn.ph.form.pbackup.FV9BackUp6Dataset;
+import com.saturn.ph.form.pbackup.FV9BackUp7Dataset;
+import com.saturn.ph.form.pbackup.FV9BackUpDataset;
 import com.teamcenter.soa.client.model.ModelObject;
 import com.teamcenter.soa.exceptions.NotLoadedException;
 
@@ -216,6 +224,15 @@ public class FormManager {
 		add(new FV9_71ReifegradsForm());
 		add(new FV9_72BeschlussDataset());
 		add(new FV9_72UeberZuTerDataset());
+		
+		add(new FV9BackUp1Dataset());
+		add(new FV9BackUp2Dataset());
+		add(new FV9BackUp3Dataset());
+		add(new FV9BackUp4Dataset());
+		add(new FV9BackUp5Dataset());
+		add(new FV9BackUp6Dataset());
+		add(new FV9BackUp7Dataset());
+		add(new FV9BackUpDataset());
 
 	}
 }

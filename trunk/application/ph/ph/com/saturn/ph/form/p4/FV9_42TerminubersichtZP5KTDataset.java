@@ -19,7 +19,7 @@ public class FV9_42TerminubersichtZP5KTDataset extends Form {
 
 	@Override
 	public String getType() {
-		return "4.2 Terminübersicht ZP5(KT)";
+		return "4.2 Terminubersicht ZP5(KT)";
 	}
 
 	@Override

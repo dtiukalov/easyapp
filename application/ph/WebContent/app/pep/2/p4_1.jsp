@@ -151,6 +151,7 @@
 					column: {
 						stacking: 'normal',
 						borderColor: 'black',
+						pointWidth:20,
 						shadow:false,
 						dataLabels: {
 							enabled: true,
@@ -255,14 +256,21 @@
 					}
 				},
 				legend: {
-					enabled: false,
-					layout: 'vertical',
+					enabled: true,
+					layout: 'horizontal',
 					align: 'right',
-					verticalAlign: 'top',
-					x: -10,
-					y: 220,
+					verticalAlign: 'bottom',
+					x: -60,
+					y: -50,
 					borderWidth: 0,
-					shadow: false
+					shadow: false,
+		            width:220, 
+		            symbolWidth: 10,
+					itemStyle: {
+			            color: '#000000',
+			            paddingBottom: '5px'
+
+			        } 
 				},
 				
 				tooltip: {
@@ -277,6 +285,7 @@
 						stacking: 'normal',
 						borderColor: 'black',
 						shadow:false,
+						pointWidth:20,
 						dataLabels: {
 							enabled: true,
 							style : {
@@ -322,8 +331,8 @@
 				<h1><%=title %></h1>
 			</div>
 			<div id="content">
-				<div id="chart1" style="width: 600px; height: 400px; margin: 50px 70px; float: left;"></div>
-				<div id="chart2" style="width: 90px; height: 400px; margin: 36px -100px; float: left;"></div>
+				<div id="chart1" style="width: 550px; height: 400px; margin: 50px 70px; float: left;"></div>
+				<div id="chart2" style="width: 390px; height: 400px; margin: 36px -100px; float: left;"></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

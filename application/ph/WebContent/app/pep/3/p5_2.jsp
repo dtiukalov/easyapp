@@ -598,7 +598,7 @@
 						double sum = value1 + value2 + value3 + value4;
 						%>
 				<div id="meilsteinouter" style="width: 800px;">
-				<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 188px; text-align: center; overflow: hidden; ">
+				<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 208px; text-align: center; overflow: hidden; ">
 					<div style=" width: <%=value1 %>px; height: 30px; float: left; background-color: #99FF99; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">VFF</span></div>
 					<div style=" width: <%=value2 %>px; height: 30px; float: left; background-color: #33CC33; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">PVS</span></div>
 					<div style=" width: <%=value3 %>px; height: 30px; float: left; background-color: #006600; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">0S</span></div>

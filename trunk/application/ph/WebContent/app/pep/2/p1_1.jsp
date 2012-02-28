@@ -11,6 +11,7 @@
 	<%@ include file="/app/pep/include/header.jsp"%>
 	<title><%=title %></title>
 	<%
+	out.println(title);
 	List<String> fv9FreigabeStyle = (List<String>)form.get("fv9FreigabeStyle");
 	List<String> fv9FreigabeStatus = (List<String>)form.get("fv9FreigabeStatus");
 	List<String> fv9AnzahlNum = (List<String>)form.get("fv9AnzahlNum");
@@ -30,7 +31,7 @@
 	<div id="container">
 		<div id="nr">
 		<div id="top">
-			<div class="fl"> VW471 CN-Pilothalle VFF,20.10.2010</div>
+			<div class="fl"> 111VW471 CN-Pilothalle VFF,20.10.2010</div>
 			<div class="fr"> STATUS 19.10.2010</div>
 			<h1><%=title %></h1>
 		</div>	

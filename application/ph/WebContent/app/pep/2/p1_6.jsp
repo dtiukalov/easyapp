@@ -170,7 +170,7 @@
 			<div id="content" style="margin:30px auto;">
 				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto"></div>
 				<div id="table" style="width: 800px; height: 400px; margin: 0 70px">
-					<table class="table" style="border-color: #000;border-collapse:collapse;" cellpadding="0" cellspacing="0" border="1"">
+					<table class="table2" style="border-color: #000;border-collapse:collapse;" cellpadding="0" cellspacing="0" border="1"">
 						<%-- <tr>
 							<td>&nbsp;</td>
 							<%

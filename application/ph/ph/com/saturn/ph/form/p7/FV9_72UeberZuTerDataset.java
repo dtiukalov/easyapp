@@ -19,7 +19,7 @@ public class FV9_72UeberZuTerDataset extends Form {
 
 	@Override
 	public String getType() {
-		return "7.2 Ubersicht zukünftige Termine";
+		return "7.2 Ubersicht zukunftige Termine";
 	}
 
 	@Override

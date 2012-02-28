@@ -91,8 +91,8 @@
 					tooltip: {
 						formatter: function() {
 							return '<b>'+ this.x +'</b><br/>'+
-								 this.series.name +': '+ this.y +'<br/>'+
-								 'Total: '+ this.point.stackTotal;
+								 this.series.name +': '+ this.y + 
+								 'Total' + this.percentage
 						}
 					},
 					plotOptions: {
@@ -156,15 +156,16 @@
 						name: 'Prognose',
 						data: <%=fv9Prognose%>,
 						color: '#A6DD00',
+						lineWidth: 1,
 						marker: {
 							enabled: false,
 							shadow:false,
+							lineWidth: 1,
 							states: {
 								hover: {
 									enabled: true,
 									symbol: 'circle',
-									radius: 5,
-									lineWidth: 1
+									radius: 5
 								}
 							}
 						}

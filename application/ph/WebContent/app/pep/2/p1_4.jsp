@@ -111,12 +111,16 @@
 				legend: {
 					layout: 'vertical',
 					align: 'right',
-					verticalAlign: 'center',
-					borderWidth: 1,
+					verticalAlign: 'bottom',
+					borderWidth: 0,
 					borderColor:'#404040',
 					shadow: false,
-					//x: 235,
-					y: 60
+					y: -10,
+					itemStyle: {
+			            color: '#000000',
+			            paddingBottom: '15px'
+
+			        } 
 				},
 				tooltip: {
 					formatter: function() {
@@ -167,9 +171,9 @@
 			</div>
 			<div id="content">
 				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto"></div>
-				<div id="table" style="width: 800px; height: 400px; margin: 0 150px">
-					<table class="freigaben" style="border-color: #000;border-collapse:collapse;" cellpadding="0" cellspacing="0" border="1"">
-						<tr>
+				<div id="table" style="width: 800px; height: 400px; margin: 0 70px">
+					<table class="table" style="border-color: #000;border-collapse:collapse;" cellpadding="0" cellspacing="0" border="1"">
+						<%-- <tr>
 							<td>&nbsp;</td>
 							<%
 							for (int i=0; i<fv9BFMajor.size(); i++){
@@ -178,7 +182,7 @@
 							<%
 							}
 							%>
-						</tr>
+						</tr> --%>
 						<tr>
 							<td style="text-align: left;">&nbsp;Pos.Gesamt</td>
 							<%

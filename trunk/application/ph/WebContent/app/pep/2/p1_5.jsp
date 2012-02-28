@@ -87,7 +87,7 @@
 					column: {
 						stacking: 'normal',
 						borderColor: 'black',
-						groupPadding: 0.01,
+						pointWidth:33,
 						shadow:false,
 						dataLabels: {
 							enabled: true,
@@ -171,10 +171,16 @@
 						verticalAlign: 'top',
 						align:'right',
 						x:0,
-						y:0,
+						y:20,
 						shadow: false,
 						borderColor:'black',
-						reversed: true
+						borderWidth:0,
+						symbolWidth: 10,
+						itemStyle: {
+				            color: '#000000',
+				            paddingBottom: '5px'
+
+				        } 
 					},
 					tooltip: {
 						formatter: function() {
@@ -186,7 +192,7 @@
 					plotOptions: {
 						column: {
 							stacking: 'normal',
-							groupPadding: 0.35,
+							pointWidth:33,
 							borderColor: 'black',
 							shadow:false,
 							dataLabels: {

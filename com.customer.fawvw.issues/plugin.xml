@@ -48,6 +48,11 @@
             categoryId="com.customer.fawvw.issues.commands.category"
             name="与专业编码相关的问题报表">
       </command>
+      <command
+            id="com.customer.fawvw.issues.IssueStatusReportCommand"
+            categoryId="com.customer.fawvw.issues.commands.category"
+            name="问题状态报表">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
@@ -82,6 +87,10 @@
       <handler
             class="com.customer.fawvw.issues.handler.IssueRelComponentReportHandler"
             commandId="com.customer.fawvw.issues.IssueRelComponentReportCommand">
+      </handler>
+      <handler
+            class="com.customer.fawvw.pep.handler.IssueStatusReportHandler"
+            commandId="com.customer.fawvw.issues.IssueStatusReportCommand">
       </handler>
    </extension>
    <extension
@@ -143,6 +152,11 @@
 	                     commandId="com.customer.fawvw.issues.IssueRelComponentReportCommand"
 	                     icon="platform:/plugin/com.customer.fawvw.issues/coins/issueMenu.png"
 	                     id="IssueReport7">
+	               </command>
+	               <command
+	                     commandId="com.customer.fawvw.issues.IssueStatusReportCommand"
+	                     icon="platform:/plugin/com.customer.fawvw.issues/coins/issueMenu.png"
+	                     id="IssueReport8">
 	               </command>
 	            </menu>
 

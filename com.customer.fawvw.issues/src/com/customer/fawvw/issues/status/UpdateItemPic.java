@@ -24,35 +24,50 @@ public class UpdateItemPic extends DefaultLabelProviderDelegate
 			((AIFComponentContext) object).getComponent(); 
 	
 		Image image = null;
+		Image release = null;
 		try {
-			if (!"".equals(ir.getProperty("fv9RGStatus")) //$NON-NLS-1$ //$NON-NLS-2$
-					&& ir.getProperty("fv9RGStatus") != null){ //$NON-NLS-1$
-				if("红".equals(ir.getProperty("fv9RGStatus"))){  //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-1$
+			if (!"".equals(ir.getProperty("fv9RGStatus")) 
+					&& ir.getProperty("fv9RGStatus") != null){ 
+				if("红".equals(ir.getProperty("fv9RGStatus"))){  
 					image = AbstractUIPlugin.imageDescriptorFromPlugin(
-								"com.customer.fawvw.issues", "coins/redTag.png") //$NON-NLS-1$ //$NON-NLS-2$
+								"com.customer.fawvw.issues", "coins/redTag.png") 
 								.createImage();
 				}
-				if("黄".equals(ir.getProperty("fv9RGStatus"))){  //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-1$
+				if("黄".equals(ir.getProperty("fv9RGStatus"))){  
 					image = AbstractUIPlugin.imageDescriptorFromPlugin(
-								"com.customer.fawvw.issues", "coins/yellowTag.png") //$NON-NLS-1$ //$NON-NLS-2$
+								"com.customer.fawvw.issues", "coins/yellowTag.png") 
 								.createImage();
 				}
-				if("绿".equals(ir.getProperty("fv9RGStatus"))){  //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-1$
+				if("绿".equals(ir.getProperty("fv9RGStatus"))){ 
 					image = AbstractUIPlugin.imageDescriptorFromPlugin(
-								"com.customer.fawvw.issues", "coins/greenTag.png") //$NON-NLS-1$ //$NON-NLS-2$
+								"com.customer.fawvw.issues", "coins/greenTag.png") 
 								.createImage();
 				}
 			} else {
 				  image = AbstractUIPlugin.imageDescriptorFromPlugin(
-							"com.customer.fawvw.issues", "coins/white.gif") //$NON-NLS-1$ //$NON-NLS-2$
+							"com.customer.fawvw.issues", "coins/white.gif") 
 							.createImage();
+			}
+
+			if (!"".equals(ir.getProperty("release_status_list"))
+					&& (ir.getProperty("release_status_list").contains("TCM 已发放")) ||
+						(ir.getProperty("release_status_list").contains("TCM Released"))) {
+				release = AbstractUIPlugin.imageDescriptorFromPlugin(
+						"com.customer.fawvw.issues", "coins/released.png") 
+						.createImage();
 			}
 			
 		} catch (TCException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		if (release == null) {
+			//无发放状态
+			return new Image[] { image};
+		} else {
+			//已发放
+			return new Image[] { image, release };
+		}
 		
-		return new Image[] { image };
 	}
 }

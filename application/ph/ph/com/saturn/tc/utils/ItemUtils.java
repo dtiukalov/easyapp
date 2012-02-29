@@ -57,10 +57,10 @@ public class ItemUtils {
 						String uid = modelObject.getUid();
 						String type = modelObject.getType().getName();
 						String isPublic = modelObject.getPropertyDisplayableValue("fv9PreRelesed");
-					//	if ("yes".equalsIgnoreCase(isPublic)) {
+						if ("yes".equalsIgnoreCase(isPublic)) {
 							if(type.equalsIgnoreCase("FV9PHJPEG")){
 								try {
-									type = modelObject.getProperty("object_name").getDisplayableValue();
+									type = modelObject.getProperty("fv9PageName").getDisplayableValue();
 								} catch (NotLoadedException e) {
 									e.printStackTrace();
 								}
@@ -80,7 +80,7 @@ public class ItemUtils {
 							} else {
 								ids.put(type, uid);
 							}
-				//		}
+						}
 					}
 				}
 			}

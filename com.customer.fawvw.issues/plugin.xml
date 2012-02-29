@@ -51,7 +51,7 @@
       <command
             id="com.customer.fawvw.issues.IssueStatusReportCommand"
             categoryId="com.customer.fawvw.issues.commands.category"
-            name="问题状态报表">
+            name="问题状态统计报表">
       </command>
    </extension>
    <extension
@@ -89,7 +89,7 @@
             commandId="com.customer.fawvw.issues.IssueRelComponentReportCommand">
       </handler>
       <handler
-            class="com.customer.fawvw.pep.handler.IssueStatusReportHandler"
+            class="com.customer.fawvw.issues.handler.IssueStatusReportHandler"
             commandId="com.customer.fawvw.issues.IssueStatusReportCommand">
       </handler>
    </extension>

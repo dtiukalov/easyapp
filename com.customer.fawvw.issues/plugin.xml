@@ -23,6 +23,11 @@
             categoryId="com.customer.fawvw.issues.commands.category"
             name="单个问题信息报表">
       </command>
+      <command
+            id="com.customer.fawvw.issues.IssueReportCommand"
+            categoryId="com.customer.fawvw.issues.commands.category"
+            name="问题统计报表">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
@@ -37,6 +42,10 @@
       <handler
             class="com.customer.fawvw.issues.handler.IssueSingleInfoReportHandler"
             commandId="com.customer.fawvw.issues.IssueSingleInfoReportCommand">
+      </handler>
+      <handler
+            class="com.customer.fawvw.issues.handler.IssueReportHandler"
+            commandId="com.customer.fawvw.issues.IssueReportCommand">
       </handler>
    </extension>
    <extension
@@ -74,7 +83,11 @@
 	                     icon="platform:/plugin/com.customer.fawvw.issues/coins/issueMenu.png"
 	                     id="IssueReport2">
 	               </command>
-
+				   <command
+                     	commandId="com.customer.fawvw.issues.IssueReportCommand"
+                     icon="platform:/plugin/com.customer.fawvw.issues/coins/issueMenu.png"
+                     id="IssueReport3">
+              	   </command>
 	             
 	            </menu>
 

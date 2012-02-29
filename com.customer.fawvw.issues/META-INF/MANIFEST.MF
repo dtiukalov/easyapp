@@ -7,11 +7,11 @@ Bundle-Activator: com.customer.fawvw.issues.Activator
 Bundle-Vendor: CUSTOMER
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- com.teamcenter.rac.aif.registryeditor;bundle-version="8000.3.0",
  com.teamcenter.rac.util;bundle-version="8000.3.0",
  com.teamcenter.rac.aifrcp;bundle-version="8000.3.0",
+ com.teamcenter.rac.common;bundle-version="8000.3.0",
  com.teamcenter.rac.kernel;bundle-version="8000.3.0",
- com.teamcenter.rac.common;bundle-version="8000.3.0"
+ TcSoaQueryRac;bundle-version="8000.3.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Eclipse-LazyStart: true
 Bundle-ClassPath: lib/dom4j-1.6.1.jar,

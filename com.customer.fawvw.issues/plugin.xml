@@ -53,6 +53,11 @@
             categoryId="com.customer.fawvw.issues.commands.category"
             name="问题状态统计报表">
       </command>
+      <command
+            name="SearchCommand"
+            categoryId="com.customer.fawvw.issues.commands.category"
+            id="com.customer.fawvw.search.SearchCommand">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
@@ -91,6 +96,10 @@
       <handler
             class="com.customer.fawvw.issues.handler.IssueStatusReportHandler"
             commandId="com.customer.fawvw.issues.IssueStatusReportCommand">
+      </handler>
+      <handler
+            class="com.customer.fawvw.search.handler.LoadSearchHandler"
+            commandId="com.customer.fawvw.search.SearchCommand">
       </handler>
    </extension>
    <extension
@@ -161,6 +170,28 @@
 	            </menu>
 
          </menu>
+      </menuContribution>
+
+	<!-- 搜索按钮 -->
+      <menuContribution
+            locationURI="toolbar:com.teamcenter.rac.ui.views.TCComponentView">
+         <command
+              commandId="com.customer.fawvw.search.SearchCommand"
+              icon="platform:/plugin/com.customer.fawvw.issues/coins/load.png"
+              label="ReSearch"
+              style="push"
+              tooltip="ReSearch">
+            <visibleWhen>
+                <iterate>
+                    <adapt type="com.teamcenter.rac.kernel.TCComponent">
+                        <test
+                            property="com.teamcenter.rac.kernel.TCComponent.typeClass"
+                            value="SavedSearch,">
+                        </test>
+                    </adapt>
+                </iterate>
+            </visibleWhen>
+        </command>
       </menuContribution>
       
    </extension>

@@ -59,6 +59,7 @@ public class ItemUtils {
 						String isPublic = modelObject.getPropertyDisplayableValue("fv9PreRelesed");
 						if ("yes".equalsIgnoreCase(isPublic)) {
 							if(type.equalsIgnoreCase("FV9PHJPEG")){
+								PH.getDataService().getProperties(modelObject, "fv9PageName");
 								try {
 									type = modelObject.getProperty("fv9PageName").getDisplayableValue();
 								} catch (NotLoadedException e) {

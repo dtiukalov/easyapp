@@ -6,7 +6,7 @@ public class FV9_72BeschlussDataset extends Form {
 	
 	private static final String[] attr = {
 		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
-		"fv9PlatformType"
+		"fv9PlatformType","fv9OtherUid"
 	};
 	
 	public String[] getAttributes() {

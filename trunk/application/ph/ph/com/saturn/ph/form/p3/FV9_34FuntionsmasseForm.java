@@ -8,7 +8,7 @@ public class FV9_34FuntionsmasseForm extends Form {
 		"fv9KWNo", "fv9FunktionSmall75", "fv9FunktionSmall100", "fv9FunktionBig100", "fv9Zielwert",
 		"fv9PrognoseAK", "fv9PrognoseBK", "fv9PrognoseIO",
 		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
-		"fv9PlatformType"
+		"fv9PlatformType","fv9OtherUid"
 	};
 
 	public String[] getAttributes() {

@@ -8,7 +8,7 @@ public class FV9_35NachAbbausForm extends Form {
 		"fv9KWNo", "fv9MontageNum", "fv9LackNum", "fv9KauftNum",
 		"fv9KarossNum", "fv9PresswerkNum", "fv9AusStrNum", "fv9Prognose",
 		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
-		"fv9PlatformType"
+		"fv9PlatformType" ,"fv9OtherUid"
 	};
 
 	public String[] getAttributes() {

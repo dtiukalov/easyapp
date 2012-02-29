@@ -8,7 +8,7 @@ public class FV9_21BMGAbarbuebersForm extends Form {
 		"fv9BMGType", "fv9BMGNum",
 		"fv9BMGKWNo", "fv9BMGSoll", "fv9BMGAWE", "fv9BMGInArbeirt",
 		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
-		"fv9PlatformType"
+		"fv9PlatformType","fv9OtherUid"
 	};
 
 	public String[] getAttributes() {

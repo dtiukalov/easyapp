@@ -14,7 +14,7 @@
 		<title><%=title %></title>
 		<style type="text/css">
 			.left{
-				width: 100px; height: 50px;float: left;margin: 20px 30px;
+				width: 100px; height: 50px;float: left;margin: 20px 50px;
 				vertical-align: middle;
 				font-size:12px;
 			}
@@ -23,7 +23,7 @@
 				font-weight: bolder;color: white;
 			}
 			.chart{
-				width: 700px; height: 110px; margin: -6px auto; float: left;
+				width: 700px; height: 110px; margin: -6px -20px; float: left;
 			}
 			.clear1{
 				width: 100%;height: 1px;margin: 0 auto; float: left;
@@ -598,7 +598,7 @@
 						double sum = value1 + value2 + value3 + value4;
 						%>
 				<div id="meilsteinouter" style="width: 800px;">
-				<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 208px; text-align: center; overflow: hidden; ">
+				<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 238px; text-align: center; overflow: hidden; ">
 					<div style=" width: <%=value1 %>px; height: 30px; float: left; background-color: #99FF99; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">VFF</span></div>
 					<div style=" width: <%=value2 %>px; height: 30px; float: left; background-color: #33CC33; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">PVS</span></div>
 					<div style=" width: <%=value3 %>px; height: 30px; float: left; background-color: #006600; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">0S</span></div>

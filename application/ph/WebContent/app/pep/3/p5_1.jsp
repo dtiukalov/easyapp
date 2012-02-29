@@ -79,8 +79,7 @@
 					tooltip: {
 						formatter: function() {
 							return '<b>'+ this.x +'</b><br/>'+
-								 this.series.name +': '+ this.y +'<br/>'+
-								 'Total: '+ this.point.stackTotal;
+								 this.series.name +': '+ this.y
 						}
 					},
 					plotOptions: {
@@ -94,7 +93,6 @@
 							dataLabels: {
 								enabled: true,
 								style : {
-									fontWeight: 'bold',
 									fontSize:'10px'
 								},
 								color: 'black'
@@ -216,7 +214,7 @@
 						double sum = value1 + value2 + value3 + value4;
 						%>
 			<div id="content"> 
-				<div id="chart" style="width: 700px; height: 450px; margin: 0 auto"></div>
+				<div id="chart" style="width: 850px; height: 450px; margin: 0 auto"></div>
 			<div id="meilsteinouter" style="width: 800px;">
 				<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 150px; text-align: center; overflow: hidden; ">
 					<div style=" width: <%=value1 %>px; height: 30px; float: left; background-color: #99FF99; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">VFF</span></div>

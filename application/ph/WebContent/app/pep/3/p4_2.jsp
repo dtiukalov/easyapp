@@ -81,8 +81,7 @@
 							enabled: true,
 							style: {
 								color: 'black',
-								fontSize:'14px',
-								fontWeight:'bold'
+								fontSize:'14px'
 							},
 							x:17,
 							y:10
@@ -114,7 +113,6 @@
 								align: 'center',
 								y:7,
 								style : {
-									fontWeight: 'bold',
 									fontSize:'12px'
 								},
 								color: 'black'
@@ -135,7 +133,6 @@
 						dataLabels: {
 							enabled: true,
 							style : {
-								fontWeight: 'bold',
 								fontSize:'12px'
 							},
 							color: 'white'
@@ -160,7 +157,7 @@
 				<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Zusammenbauteile (Anzahl FM/Anzahl Messungen)</h2>
 				<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gesamt: <%=gesamt %> Funktionsmaße</h5>
 				<div id="content" style="height:495px;">
-					<div id="chart" style="width: 800px; height: 400px; margin: 0 auto"></div>
+					<div id="chart" style=" height: 480px; margin: 0 auto"></div>
 				</div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>

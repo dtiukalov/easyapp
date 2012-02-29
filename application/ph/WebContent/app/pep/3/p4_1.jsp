@@ -111,14 +111,12 @@
 					column: {
 						stacking: 'normal',
 						borderColor: 'black',
-						groupPadding:0.15,
-						pointPadding:0.15,
+						pointWidth:25,
 						borderWidth: 1,
 						dataLabels: {
 							enabled: true,
 							style : {
-								fontWeight: 'bold',
-								fontSize:'10px'
+								fontSize:'12px'
 							},
 							color: 'black'
 						}
@@ -138,8 +136,7 @@
 					dataLabels: {
 						enabled: true,
 						style : {
-							fontWeight: 'bold',
-							fontSize:'10px'
+							fontSize:'12px'
 						},
 						color: 'white'
 					},
@@ -222,15 +219,14 @@
 				},
 				plotOptions: {
 					column: {
-						//groupPadding:0.1,
+						pointWidth:25,
 						stacking: 'normal',
 						borderColor: 'black',
 						borderWidth: 1,
 						dataLabels: {
 							enabled: true,
 							style : {
-								fontWeight: 'bold',
-								fontSize:'10px'
+								fontSize:'12px'
 							},
 							color: 'black'
 						}
@@ -250,8 +246,7 @@
 					dataLabels: {
 						enabled: true,
 						style : {
-							fontWeight: 'bold',
-							fontSize:'10px'
+							fontSize:'14px'
 						},
 						color: 'white'
 					},
@@ -312,8 +307,8 @@
 						double sum = value1 + value2 + value3 + value4;
 						%>
 			<div id="content">
-				<div id="chart1" style="width: 650px; height: 500px; margin: 0 70px; float: left;"></div>
-				<div id="chart2" style="width: 100px; height: 500px; margin: 0 -90px; float: left;margin-top:-10px; "></div>
+				<div id="chart1" style="width: 700px; height: 450px; margin: 0 50px; float: left;"></div>
+				<div id="chart2" style="width: 100px; height: 450px; margin: 0 -75px; float: left;margin-top:-10px; "></div>
 				<div id="meilsteinouter" style="width: 800px;">
 					<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 108px; text-align: center; overflow: hidden; ">
 						<div style=" width: <%=value1 %>px; height: 30px; float: left; background-color: #99FF99; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">VFF</span></div>

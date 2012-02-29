@@ -71,9 +71,8 @@
 							enabled: true,
 							y:-15,
 							style: {
-								fontWeight: 'bold',
 								color: 'black',
-								fontSize:'10px'
+								fontSize:'12px'
 							}
 						}
 					},
@@ -96,14 +95,14 @@
 					plotOptions: {
 						column: {
 							stacking: 'normal',
+							pointWidth:28,
 							shadow: false,
 							borderColor:'black',
 							borderWidth:0,
 							dataLabels: {
 								enabled: true,
 								style : {
-									fontWeight: 'bold',
-									fontSize:'10px'
+									fontSize:'11px'
 								},
 								color: 'white'
 							}
@@ -118,8 +117,7 @@
 						dataLabels: {
 							enabled: true,
 							style : {
-								fontWeight: 'bold',
-								fontSize:'8px'
+								fontSize:'11px'
 							},
 							color: 'black'
 						}
@@ -174,7 +172,7 @@
 				<h1><%=title %></h1>
 			</div>
 			<div id="content">
-				<div id="chart" style="width: 950px; height: 400px; margin: 50px auto"></div>
+				<div id="chart" style="width: 850px; height: 400px; margin: 50px auto"></div>
 				<%
 				int[] arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9KWNo"));
 				

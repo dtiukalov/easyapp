@@ -113,8 +113,7 @@
 							style: {
 								 padding:'8px',
 								 color:'black',
-								 fontSize:'14px',
-								 fontWeight: 'bold'
+								 fontSize:'14px'
 							}
 						},
 					tickLength: 0,
@@ -154,8 +153,7 @@
 							/* verticalAlign: 'top', */
 							y:-10,
 							style:{
-								fontSize:'14px',
-								fontWeight:'bold'
+								fontSize:'14px'
 							}
 						}
 					}
@@ -225,7 +223,7 @@
 				<h1><%=title %></h1>
 			</div>	
 				<div id="content">
-					<div id="chart" style="width: 800px; height: 450px; margin: 30px auto"></div>
+					<div id="chart" style="width: 850px; height: 450px; margin: 30px auto"></div>
 				</div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>

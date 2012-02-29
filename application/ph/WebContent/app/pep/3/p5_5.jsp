@@ -25,9 +25,6 @@
 				line-height: 30px;
 				color: #000000;
 			}
-			#content{
-				margin-left:100px;
-			}
 		</style>
 		<%
 		class Problem {
@@ -278,7 +275,7 @@
 						enabled: true,
 						style: {
 							color: 'black',
-							fontWeight: 'bold'
+							fontSize:'14px'
 						}
 					}
 				},
@@ -297,8 +294,7 @@
 						dataLabels: {
 							enabled: true,
 							style : {
-								fontWeight: 'bold',
-								fontSize:'10px'
+								fontSize:'12px'
 							},
 							color: 'black'
 						}
@@ -320,8 +316,7 @@
 					dataLabels: {
 						enabled: true,
 						style : {
-							fontWeight: 'bold',
-							fontSize:'10px'
+							fontSize:'12px'
 						},
 						color: 'white'
 					}
@@ -368,8 +363,7 @@
 					dataLabels: {
 						enabled: true,
 						style : {
-							fontWeight: 'bold',
-							fontSize:'10px'
+							fontSize:'12px'
 						},
 						color: 'white'
 					}
@@ -386,8 +380,7 @@
 					dataLabels: {
 						enabled: true,
 						style : {
-							fontWeight: 'bold',
-							fontSize:'10px'
+							fontSize:'12px'
 						},
 						color: 'white'
 					}
@@ -415,9 +408,9 @@
 				<h1><%=title %></h1>
 			</div>
 				<div id="content">
-					<div id="left" style="width: 400px; height: auto; margin: 0 auto; float: left;">
+					<div id="left" style="width: 400px; height: auto; margin: 0 50px; float: left;">
 						<div id="chart" style="width: 400px; height: 450px; margin: 0 auto; float: left;"></div>
-						<div style="width: 400px; height: 100px; margin: 0px 20px; float: left; font-size: 12px;">
+						<div style="width: 400px; height: 100px; margin: 0px 20px; float: left; font-size: 12px;font-family: '宋体'">
 							<div style="width: 100px; height: 30px; float: left; vertical-align: middle; padding-top: 10px; ">
 								<img src="<%=request.getContextPath()%>/app/pep/images/presswerk.jpg" width="15" height="15" />Presswerk
 							</div>

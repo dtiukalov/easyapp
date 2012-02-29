@@ -21,9 +21,9 @@
 				<div class="fr"> STATUS 19.10.2010</div>
 				<h1><%=title %></h1>
 			</div>
-	    	<div id="content">
-	    		<img src="<%=src%>" style="width: 1000px; height: 400px"/>
-			</div>
+				<div class="box">
+						<img src = "<%=src%>" />
+				</div>
 	   	 	<div class="clear"></div>
 	   	 	<%@ include file="/app/pep/include/foot.jsp"%>
 	    </div>

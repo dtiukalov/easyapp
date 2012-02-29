@@ -21,6 +21,8 @@ public class WorkspaceUtils {
 	
 	public static String HOST = "http://localhost:7001/tc";
 	
+	public static String DatasetType = "FV9PHJPEG";
+	
 	public static Folder getHome(TCSession session, String userId) {
 		EasyDataManagementService service = new EasyDataManagementService(session);
 		

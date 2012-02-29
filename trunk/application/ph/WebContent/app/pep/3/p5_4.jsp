@@ -158,8 +158,7 @@
 				},
 				tooltip: {
 					formatter: function() {
-						return '<b> - '+ this.x +'</b><br/>' +'- '+ this.y +'<br/>'+
-							 'Total: '+ this.point.stackTotal;
+						return '<b> - '+ this.x +'</b><br/>' +'- '+ this.y;
 					}
 				},
 				plotOptions: {

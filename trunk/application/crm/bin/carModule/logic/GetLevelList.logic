@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-logic>
+	<information id="0" next="" x="0" y="0">
+		<key>/carModule/logic/GetLevelList.logic</key>
+		<name>获得档案记录列表</name>
+		<loadstart>flase</loadstart>
+		<description></description>
+	</information>
+	<end id="3" next="" x="389" y="161">
+		<name>结束</name>
+		<parameters></parameters>
+		<description></description>
+	</end>
+	<start id="1" next="4" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters>
+			<parameter id="1" name="result" classType="java.util.ArrayList" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description>返回SaturnData结果集</description>
+			</parameter>
+			<parameter id="2" name="count" classType="java.lang.Integer" passingType="out">
+				<value-key>count</value-key>
+				<scope>1</scope>
+				<description>记录条数</description>
+			</parameter>
+			<parameter id="3" name="startIndex" classType="java.lang.Integer" passingType="in">
+				<value-key>startIndex</value-key>
+				<scope>1</scope>
+				<description>分页开始位置</description>
+			</parameter>
+			<parameter id="4" name="endIndex" classType="java.lang.Integer" passingType="in">
+				<value-key>endIndex</value-key>
+				<scope>1</scope>
+				<description>分页结束位置</description>
+			</parameter>
+			<parameter id="5" name="" classType="java.lang.String" passingType="in">
+				<value-key>carid</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="6" name="" classType="java.lang.String" passingType="in">
+				<value-key>l_type</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="7" name="" classType="java.lang.String" passingType="in">
+				<value-key>l_oldlevel</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="8" name="" classType="java.lang.String" passingType="in">
+				<value-key>l_newlevel</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="9" name="" classType="java.lang.String" passingType="in">
+				<value-key>start_datetime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="10" name="" classType="java.lang.String" passingType="in">
+				<value-key>end_datetime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</start>
+	<component exception="" id="5" next="3" x="282" y="287">
+		<key>edu.ccut.saturn.basecomponent::/databaseComponent/QueryCountByConditionExtComponent.component</key>
+		<name>查询记录条数</name>
+		<parameters>
+			<parameter id="1" name="fullkey" classType="java.lang.String" passingType="in">
+				<value-key>'http://crm/carModule/data::crm_levellog'</value-key>
+				<scope>1</scope>
+				<description>生成SaturnData所需的Fullkey</description>
+			</parameter>
+			<parameter id="2" name="logicContext" classType="java.util.HashMap" passingType="in">
+				<value-key>${context}</value-key>
+				<scope>1</scope>
+				<description>logicContext</description>
+			</parameter>
+			<parameter id="3" name="count" classType="java.lang.Integer" passingType="out">
+				<value-key>count</value-key>
+				<scope>1</scope>
+				<description>记录条数</description>
+			</parameter>
+			<parameter id="4" name="" classType="java.lang.String" passingType="in">
+				<value-key>'cardid='${carid}''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="5" name="" classType="java.lang.String" passingType="in">
+				<value-key>'l_type='${l_type}''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="6" name="" classType="java.lang.String" passingType="in">
+				<value-key>'l_oldlevel='${l_oldlevel}''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="7" name="" classType="java.lang.String" passingType="in">
+				<value-key>'l_newlevel='${l_newlevel}''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="8" name="" classType="java.lang.String" passingType="in">
+				<value-key>'l_datetime&gt;='${start_datetime}''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="9" name="" classType="java.lang.String" passingType="in">
+				<value-key>'l_datetime&lt;='${end_datetime}''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>logicContext/可以被替换为分区表,注意类型应改为java.lang.String 目前只支持oracle</description>
+	</component>
+	<component exception="" id="4" next="5" x="191" y="185">
+		<key>edu.ccut.saturn.basecomponent::/databaseComponent/QueryByConditionWithPageExtComponent.component</key>
+		<name>分页查询</name>
+		<parameters>
+			<parameter id="1" name="fullkey" classType="java.lang.String" passingType="in">
+				<value-key>'http://crm/carModule/data::crm_levellog'</value-key>
+				<scope>1</scope>
+				<description>生成SaturnData所需的fullkey</description>
+			</parameter>
+			<parameter id="2" name="logicContext" classType="java.util.HashMap" passingType="in">
+				<value-key>${context}</value-key>
+				<scope>1</scope>
+				<description>logicContext</description>
+			</parameter>
+			<parameter id="3" name="startIndex" classType="java.lang.Integer" passingType="in">
+				<value-key>startIndex</value-key>
+				<scope>1</scope>
+				<description>分页开始位置</description>
+			</parameter>
+			<parameter id="4" name="endIndex" classType="java.lang.Integer" passingType="in">
+				<value-key>endIndex</value-key>
+				<scope>1</scope>
+				<description>分页结束位置</description>
+			</parameter>
+			<parameter id="5" name="result" classType="java.util.ArrayList" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description>返回SaturnData结果集</description>
+			</parameter>
+			<parameter id="6" name="tableWord" classType="java.lang.String" passingType="in">
+				<value-key>tableWord</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="7" name="" classType="java.lang.String" passingType="in">
+				<value-key>'cardid='${carid}''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="8" name="" classType="java.lang.String" passingType="in">
+				<value-key>'l_type='${l_type}''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="9" name="" classType="java.lang.String" passingType="in">
+				<value-key>'l_oldlevel='${l_oldlevel}''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="10" name="" classType="java.lang.String" passingType="in">
+				<value-key>'l_newlevel='${l_newlevel}''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="11" name="" classType="java.lang.String" passingType="in">
+				<value-key>'l_datetime&gt;='${start_datetime}''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="12" name="" classType="java.lang.String" passingType="in">
+				<value-key>'l_datetime&lt;='${end_datetime}''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="13" name="" classType="java.lang.String" passingType="in">
+				<value-key>'1=1 order by cardid,l_datetime,l_id'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>分页查询</description>
+	</component>
+	<connection source="4" target="5" style="1" name=""></connection>
+	<connection source="5" target="3" style="1" name=""></connection>
+	<connection source="1" target="4" style="1" name=""></connection>
+</saturn-logic>

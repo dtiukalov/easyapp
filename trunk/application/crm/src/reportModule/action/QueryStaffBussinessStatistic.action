@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/reportModule/action/QueryStaffBussinessStatistic.action</key>
+		<name>前台业务统计查询</name>
+		<description></description>
+	</information>
+	<start id="1" next="2" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<view id="3" next="" x="550" y="167">
+		<name>staffBussinessStatistic</name>
+		<type>jsp</type>
+		<location>/crm/reportModule/web/staffBussinessStatistic.jsp</location>
+		<description></description>
+	</view>
+	<logic exception="" id="2" next="5" x="274" y="162">
+		<key>crm::/reportModule/logic/QueryStaffBussinessStatistic.logic</key>
+		<name>前台业务统计查询</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="statisticdate" classType="java.lang.String" passingType="in-out">
+				<value-key>statisticdate</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="result" classType="java.util.ArrayList" passingType="out">
+				<value-key>result</value-key>
+				<scope>2</scope>
+				<description>返回SaturnData结果集</description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<logic exception="" id="5" next="3" x="423" y="155">
+		<key>crm::/reportModule/logic/SelectOilCount.logic</key>
+		<name>查询存油量</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="count" classType="java.lang.Integer" passingType="out">
+				<value-key>count</value-key>
+				<scope>2</scope>
+				<description>记录条数</description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<connection source="1" target="2" style="1" name=""></connection>
+	<connection source="2" target="5" style="1" name=""></connection>
+	<connection source="5" target="3" style="1" name=""></connection>
+</saturn-action>

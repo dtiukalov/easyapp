@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/ccioModule/action/GetDictById.action</key>
+		<name>按ID获得基础信息</name>
+		<description></description>
+	</information>
+	<start id="1" next="2" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<view id="3" next="" x="435" y="175">
+		<name>updateDict</name>
+		<type>jsp</type>
+		<location>/crm/ccioModule/web/updateDict.jsp</location>
+		<description></description>
+	</view>
+	<logic exception="" id="2" next="3" x="237" y="154">
+		<key>crm::/ccioModule/logic/GetDictById.logic</key>
+		<name>按ID获得基础信息</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="result" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>dictSaturnData</value-key>
+				<scope>2</scope>
+				<description>返回SaturnData</description>
+			</parameter>
+			<parameter id="2" name="primarykeyvalue" classType="java.lang.String" passingType="in">
+				<value-key>d_id</value-key>
+				<scope>2</scope>
+				<description>主键值</description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<connection source="1" target="2" style="1" name=""></connection>
+	<connection source="2" target="3" style="1" name=""></connection>
+</saturn-action>

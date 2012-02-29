@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-components>
+	<component key="/coreModule/component/GetDict.component" name="GetDict" class="coreModule.core.GetDict" projectname="crm">
+		<description>查询字典项</description>
+		<parameters>
+			<parameter id="1" name="type" classType="java.lang.String" passingType="in">
+				<scope>1</scope>
+				<value-key>type</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="parent_code" classType="java.lang.String" passingType="in">
+				<scope>1</scope>
+				<value-key>parent_code</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="list" classType="java.util.ArrayList" passingType="out">
+				<scope>1</scope>
+				<value-key>list</value-key>
+				<description></description>
+			</parameter>
+		</parameters>
+		<loadstart>false</loadstart>
+	</component>
+</saturn-components>

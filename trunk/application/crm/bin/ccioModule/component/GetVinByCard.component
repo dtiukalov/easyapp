@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-components>
+	<component key="/ccioModule/component/GetVinByCard.component" name="按车载卡获得vin" class="ccioModule.component.GetVinByCard" projectname="crm">
+		<description></description>
+<parameters>
+	<parameter id="1" name="b_vin" classType="java.lang.String" passingType="out">
+		<scope>1</scope>
+		<value-key>b_vin</value-key>
+		<description>车辆vin</description>
+	</parameter>
+	<parameter id="2" name="b_card" classType="java.lang.String" passingType="in">
+		<scope>1</scope>
+		<value-key>b_card</value-key>
+		<description>车载卡号</description>
+	</parameter>
+</parameters>
+<loadstart>false</loadstart>
+	</component>
+</saturn-components>

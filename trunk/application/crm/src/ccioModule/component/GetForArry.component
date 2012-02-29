@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-components>
+<component key="/ccioModule/component/GetForArry.component" name="获得循环次数条件" class="ccioModule.component.GetForArry" projectname="crm">
+	<description></description>
+	<parameters>
+		<parameter id="1" name="forarry" classType="java.util.ArrayList" passingType="out">
+			<scope>1</scope>
+			<description></description>
+			<value-key>forarry</value-key>
+		</parameter>
+		<parameter id="2" name="c_num" classType="java.lang.String" passingType="in">
+			<scope>1</scope>
+			<description></description>
+			<value-key>c_num</value-key>
+		</parameter>
+	</parameters>
+	<loadstart>false</loadstart>
+</component>
+</saturn-components>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-components>
+	<component key="/importModule/component/SetAlertMesg.component" name="拼接警告消息" class="importModule.component.SetAlertMesg" projectname="crm">
+		<description></description>
+		<parameters>
+			<parameter id="1" classType="java.lang.String" passingType="in" name="type">
+				<scope>1</scope>
+				<description></description>
+				<value-key>type</value-key>
+			</parameter>
+			<parameter id="2" classType="java.lang.String" passingType="in" name="key1">
+				<scope>1</scope>
+				<description></description>
+				<value-key>key1</value-key>
+			</parameter>
+			<parameter id="3" classType="java.lang.String" passingType="in" name="value1">
+				<scope>1</scope>
+				<description></description>
+				<value-key>value1</value-key>
+			</parameter>
+			<parameter id="4" classType="java.lang.String" passingType="in" name="key2">
+				<scope>1</scope>
+				<description></description>
+				<value-key>key2</value-key>
+			</parameter>
+			<parameter id="5" classType="java.lang.String" passingType="in" name="value2">
+				<scope>1</scope>
+				<description></description>
+				<value-key>value2</value-key>
+			</parameter>
+			<parameter id="6" classType="java.lang.String" name="message" passingType="out">
+				<scope>1</scope>
+				<description></description>
+				<value-key>message</value-key>
+			</parameter>
+		</parameters>
+		<loadstart>false</loadstart>
+	</component>
+</saturn-components>

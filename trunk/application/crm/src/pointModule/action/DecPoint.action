@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/pointModule/action/DecPoint.action</key>
+		<name>兑换积分</name>
+		<description></description>
+	</information>
+	<action id="4" next="" x="476" y="296">
+		<key>crm::/pointModule/action/PointListByVinDec.action</key>
+		<name>获得兑换列表</name>
+		<parameters></parameters>
+		<description></description>
+	</action>
+	<logic exception="" id="2" next="4" x="385" y="169">
+		<key>crm::/pointModule/logic/DecPoint.logic</key>
+		<name>兑换积分</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="vin" classType="java.lang.String" passingType="in">
+				<value-key>p_vin</value-key>
+				<scope>1</scope>
+				<description>车辆vin</description>
+			</parameter>
+			<parameter id="2" name="pr_id" classType="java.lang.String" passingType="in">
+				<value-key>pr</value-key>
+				<scope>2</scope>
+				<description>兑换规则id</description>
+			</parameter>
+			<parameter id="3" name="pnum" classType="java.lang.String" passingType="in">
+				<value-key>p_num</value-key>
+				<scope>2</scope>
+				<description>兑换数量</description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<start id="1" next="6" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<decision next="" id="6" x="186" y="304">
+		<name>p_vin!=null(页面传过来的)</name>
+		<if then="2" else="5">
+			<expr>p_vin!=null&amp;&amp;!empty(p_vin.trim())</expr>
+		</if>
+		<parameters></parameters>
+		<description></description>
+	</decision>
+	<logic exception="" id="5" next="2" x="233" y="161">
+		<key>crm::/pointModule/logic/GetVinByNo.logic</key>
+		<name>根据车牌号或发动机号获得VIN</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="vin" classType="java.lang.String" passingType="out">
+				<value-key>p_vin</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="carlicenceno" classType="java.lang.String" passingType="in">
+				<value-key>carlicenceno</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="carengineno" classType="java.lang.String" passingType="in">
+				<value-key>carengineno</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<connection source="1" target="6" style="1" name=""></connection>
+	<connection source="2" target="4" style="1" name=""></connection>
+	<connection source="5" target="2" style="1" name=""></connection>
+	<connection source="6" target="2" style="1" name="未命名"></connection>
+	<connection source="6" target="5" style="2" name="未命名"></connection>
+</saturn-action>

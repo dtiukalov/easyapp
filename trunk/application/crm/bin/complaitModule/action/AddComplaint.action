@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/complaitModule/action/AddComplaint.action</key>
+		<name>添加投诉信息</name>
+		<description></description>
+	</information>
+	<action id="6" next="" x="733" y="162">
+		<key>crm::/complaitModule/action/QueryComplaintList.action</key>
+		<name>投诉信息列表</name>
+		<parameters></parameters>
+		<description></description>
+	</action>
+	<start id="1" next="2" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<data id="2" next="3" x="228" y="166">
+		<name>数据1</name>
+		<data-scope>2</data-scope>
+		<data-prefix>new</data-prefix>
+		<data-key>newCompData</data-key>
+		<xmlkey></xmlkey>
+		<elementkey></elementkey>
+		<data-type classType="edu.ccut.saturn.component.SaturnData" namespace="http://crm/coreModule/data" saturnDataType="crm_complaint_new"></data-type>
+		<parameters></parameters>
+		<description></description>
+	</data>
+	<data id="3" next="4" x="337" y="170">
+		<name>数据2</name>
+		<data-scope>2</data-scope>
+		<data-prefix>deal</data-prefix>
+		<data-key>dealCompData</data-key>
+		<xmlkey></xmlkey>
+		<elementkey></elementkey>
+		<data-type classType="edu.ccut.saturn.component.SaturnData" namespace="http://crm/coreModule/data" saturnDataType="crm_complaint_deal"></data-type>
+		<parameters></parameters>
+		<description></description>
+	</data>
+	<data id="4" next="5" x="455" y="180">
+		<name>数据3</name>
+		<data-scope>2</data-scope>
+		<data-prefix>closed</data-prefix>
+		<data-key>closedCompData</data-key>
+		<xmlkey></xmlkey>
+		<elementkey></elementkey>
+		<data-type classType="edu.ccut.saturn.component.SaturnData" namespace="http://crm/coreModule/data" saturnDataType="crm_complaint_closed"></data-type>
+		<parameters></parameters>
+		<description></description>
+	</data>
+	<logic exception="" id="5" next="6" x="552" y="173">
+		<key>crm::/complaitModule/logic/AddComplaint.logic</key>
+		<name>添加投诉信息</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<value-key>newCompData</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<value-key>dealCompData</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<value-key>closedCompData</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="4" name="" classType="java.lang.String" passingType="in">
+				<value-key>${CRM_USER.userid}</value-key>
+				<scope>5</scope>
+				<description></description>
+			</parameter>
+			<parameter id="5" name="" classType="java.lang.String" passingType="in">
+				<value-key>${CRM_USER.userrealname}</value-key>
+				<scope>5</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<connection source="1" target="2" style="1" name=""></connection>
+	<connection source="5" target="6" style="1" name=""></connection>
+	<connection source="2" target="3" style="1" name=""></connection>
+	<connection source="3" target="4" style="1" name=""></connection>
+	<connection source="4" target="5" style="1" name=""></connection>
+</saturn-action>

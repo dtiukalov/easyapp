@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/dutyModule/action/UpdateDutyCommu.action</key>
+		<name>UpdateDutyCommu</name>
+		<description></description>
+	</information>
+	<start id="1" next="3" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<data id="3" next="2" x="246" y="165">
+		<name>数据11</name>
+		<data-scope>2</data-scope>
+		<data-prefix>duty</data-prefix>
+		<data-key>saturnData</data-key>
+		<xmlkey></xmlkey>
+		<elementkey></elementkey>
+		<data-type classType="edu.ccut.saturn.component.SaturnData" namespace="http://crm/coreModule/data" saturnDataType="crm_duty"></data-type>
+		<parameters></parameters>
+		<description></description>
+	</data>
+	<logic exception="" id="2" next="4" x="407" y="162">
+		<key>crm::/dutyModule/logic/UpdateDutyCommu.logic</key>
+		<name>UpdateDutyCommu</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<value-key>saturnData</value-key>
+				<scope>1</scope>
+				<description>操作的saturnData</description>
+			</parameter>
+			<parameter id="2" name="" classType="java.lang.Integer" passingType="in">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<transform id="4" next="5" x="611" y="176">
+		<value-key>json</value-key>
+		<type>json</type>
+		<name>转移3</name>
+		<contents>
+			<content id="1" type="data">
+				<content-value-key>result</content-value-key>
+			</content>
+		</contents>
+		<description></description>
+	</transform>
+	<view id="5" next="" x="775" y="166">
+		<name>视图12</name>
+		<type>json</type>
+		<location>json</location>
+		<description></description>
+	</view>
+	<connection source="1" target="3" style="1" name=""></connection>
+	<connection source="2" target="4" style="1" name=""></connection>
+	<connection source="3" target="2" style="1" name=""></connection>
+	<connection source="4" target="5" style="1" name=""></connection>
+</saturn-action>

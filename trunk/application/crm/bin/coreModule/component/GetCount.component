@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-components>
+	<component key="/coreModule/component/GetCount.component" name="GetCount" class="coreModule.core.GetCount" projectname="crm">
+		<description></description>
+		<parameters>
+			<parameter id="1" name="result" classType="java.util.ArrayList" passingType="in">
+				<scope>1</scope>
+				<value-key>result</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="count" classType="java.lang.String" passingType="out">
+				<scope>1</scope>
+				<value-key>count</value-key>
+				<description></description>
+			</parameter>
+		</parameters>
+		<loadstart>false</loadstart>
+	</component>
+</saturn-components>

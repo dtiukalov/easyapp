@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/ccioModule/action/UpdateBind.action</key>
+		<name>UpdateBind</name>
+		<description></description>
+	</information>
+	<data id="3" next="2" x="202" y="173">
+		<name>数据3</name>
+		<data-scope>2</data-scope>
+		<data-prefix></data-prefix>
+		<data-key>saturnData</data-key>
+		<xmlkey></xmlkey>
+		<elementkey></elementkey>
+		<data-type classType="edu.ccut.saturn.component.SaturnData" namespace="http://crm/ccioModule/data" saturnDataType="Binding"></data-type>
+		<parameters></parameters>
+		<description></description>
+	</data>
+	<action id="4" next="" x="564" y="188">
+		<key>crm::/ccioModule/action/GetBindList.action</key>
+		<name>获得绑定列表</name>
+		<parameters></parameters>
+		<description></description>
+	</action>
+	<start id="1" next="3" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<logic exception="" id="2" next="4" x="369" y="158">
+		<key>crm::/ccioModule/logic/UpdateBind.logic</key>
+		<name>UpdateBind</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<value-key>saturnData</value-key>
+				<scope>1</scope>
+				<description>操作的saturnData</description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<connection source="1" target="3" style="1" name=""></connection>
+	<connection source="2" target="4" style="1" name=""></connection>
+	<connection source="3" target="2" style="1" name=""></connection>
+</saturn-action>

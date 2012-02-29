@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-data>
+	<data name="crm_parts" namespace="http://crm/coreModule/data" dbType="mysql" connectname="crm">
+		
+<fields>
+	<field name="partsid" length="10" type="INT UNSIGNED" column="PARTSID" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" sequenceName="" tableName="CRM_PARTS" isPrimaryKey="true">
+		<validates value-key="PARTSID" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carvin" length="17" type="VARCHAR" column="CARVIN" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_PARTS">
+		<validates value-key="CARVIN" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="partsintime" length="19" type="DATETIME" column="PARTSINTIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_PARTS">
+		<validates value-key="PARTSINTIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="partsouttime" length="19" type="DATETIME" column="PARTSOUTTIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_PARTS">
+		<validates value-key="PARTSOUTTIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="partsorderid" length="45" type="VARCHAR" column="PARTSORDERID" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_PARTS">
+		<validates value-key="PARTSORDERID" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="partsstaff" length="45" type="VARCHAR" column="PARTSSTAFF" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_PARTS" dictTypeId="crm_waiter">
+		<validates value-key="PARTSSTAFF" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="partsexpense" length="12" type="FLOAT" column="PARTSEXPENSE" javaType="java.lang.Float" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_PARTS">
+		<validates value-key="PARTSEXPENSE" classType="java.lang.Float" isValidate="false"></validates>
+	</field>
+	<field name="partsworker" length="45" type="VARCHAR" column="PARTSWORKER" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_PARTS" dictTypeId="crm_worker">
+		<validates value-key="PARTSWORKER" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="createtime" length="19" type="DATETIME" column="CREATETIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_PARTS">
+		<validates value-key="CREATETIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="updatetime" length="19" type="DATETIME" column="UPDATETIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_PARTS">
+		<validates value-key="UPDATETIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="servorderid" length="20" type="VARCHAR" column="SERVORDERID" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_PARTS">
+		<validates value-key="SERVORDERID" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="partsname" length="45" type="VARCHAR" column="PARTSNAME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_PARTS">
+		<validates value-key="PARTSNAME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="importtime" length="19" type="DATETIME" column="IMPORTTIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_PARTS">
+		<validates value-key="IMPORTTIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="userid" length="20" type="VARCHAR" column="USERID" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_PARTS">
+		<validates value-key="USERID" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="username" length="20" type="VARCHAR" column="USERNAME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_PARTS">
+		<validates value-key="USERNAME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+</fields>
+<description>精品 http://crm/coreModule/data::crm_parts</description></data>
+</saturn-data>

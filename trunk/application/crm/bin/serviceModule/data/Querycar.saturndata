@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-data>
+	<data name="Querycar" namespace="http://crm/serviceModule/data" dbType="mysql" connectname="crm">
+		
+<fields>
+	<field name="carid" length="11" type="INT" column="CARID" javaType="java.lang.Integer" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARID" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	<field name="carcardid" length="20" type="VARCHAR" column="CARCARDID" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARCARDID" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carcreatetime" length="10" type="DATE" column="CARCREATETIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARCREATETIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carcardlevel" length="45" type="VARCHAR" column="CARCARDLEVEL" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARCARDLEVEL" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carcardtype" length="45" type="VARCHAR" column="CARCARDTYPE" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARCARDTYPE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carvin" length="20" type="VARCHAR" column="CARVIN" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" sequenceName="" tableName="CRM_CAR" isPrimaryKey="true">
+		<validates value-key="CARVIN" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carlicenceno" length="20" type="VARCHAR" column="CARLICENCENO" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARLICENCENO" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="caroldlicenceno" length="200" type="VARCHAR" column="CAROLDLICENCENO" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CAROLDLICENCENO" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carengineno" length="45" type="VARCHAR" column="CARENGINENO" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARENGINENO" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="cartransmno" length="45" type="VARCHAR" column="CARTRANSMNO" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARTRANSMNO" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carkeyno" length="45" type="VARCHAR" column="CARKEYNO" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARKEYNO" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carcolor" length="45" type="VARCHAR" column="CARCOLOR" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARCOLOR" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carsource" length="45" type="VARCHAR" column="CARSOURCE" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARSOURCE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carothershopinfo" length="45" type="VARCHAR" column="CAROTHERSHOPINFO" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CAROTHERSHOPINFO" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carselldate" length="20" type="VARCHAR" column="CARSELLDATE" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARSELLDATE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carbrand" length="45" type="VARCHAR" column="CARBRAND" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARBRAND" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carmodel" length="45" type="VARCHAR" column="CARMODEL" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARMODEL" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carseries" length="45" type="VARCHAR" column="CARSERIES" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARSERIES" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="caryearstyle" length="45" type="VARCHAR" column="CARYEARSTYLE" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARYEARSTYLE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="cararea" length="45" type="VARCHAR" column="CARAREA" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARAREA" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carownership" length="45" type="VARCHAR" column="CAROWNERSHIP" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CAROWNERSHIP" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carshoprange" length="45" type="VARCHAR" column="CARSHOPRANGE" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARSHOPRANGE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carfmaintaintime" length="10" type="DATE" column="CARFMAINTAINTIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARFMAINTAINTIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carfmaintainmile" length="11" type="INT" column="CARFMAINTAINMILE" javaType="java.lang.Integer" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARFMAINTAINMILE" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	<field name="carnmaintaintime" length="10" type="DATE" column="CARNMAINTAINTIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARNMAINTAINTIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carnmaintainmile" length="11" type="INT" column="CARNMAINTAINMILE" javaType="java.lang.Integer" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARNMAINTAINMILE" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	<field name="carregistdate" length="10" type="DATE" column="CARREGISTDATE" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARREGISTDATE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carusertype" length="45" type="VARCHAR" column="CARUSERTYPE" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARUSERTYPE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carsrepairdate" length="10" type="DATE" column="CARSREPAIRDATE" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARSREPAIRDATE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carsrepairmile" length="11" type="INT" column="CARSREPAIRMILE" javaType="java.lang.Integer" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARSREPAIRMILE" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	<field name="carlrepairdate" length="19" type="DATETIME" column="CARLREPAIRDATE" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARLREPAIRDATE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carlrepairmile" length="11" type="INT" column="CARLREPAIRMILE" javaType="java.lang.Integer" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARLREPAIRMILE" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	<field name="carseller" length="45" type="VARCHAR" column="CARSELLER" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARSELLER" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="createtime" length="19" type="DATETIME" column="CREATETIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CREATETIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="updatetime" length="19" type="DATETIME" column="UPDATETIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="UPDATETIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="importtime" length="19" type="DATETIME" column="IMPORTTIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="IMPORTTIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="ismember" length="2" type="INT" column="ISMEMBER" javaType="java.lang.Integer" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="ISMEMBER" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	<field name="username" length="20" type="VARCHAR" column="USERNAME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="USERNAME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="userid" length="20" type="VARCHAR" column="USERID" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="USERID" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carlmaintaintime" length="10" type="DATE" column="CARLMAINTAINTIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARLMAINTAINTIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carlmaintainmile" length="11" type="INT" column="CARLMAINTAINMILE" javaType="java.lang.Integer" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARLMAINTAINMILE" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	<field name="caristhis" length="20" type="VARCHAR" column="CARISTHIS" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARISTHIS" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carformshop" length="100" type="VARCHAR" column="CARFORMSHOP" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARFORMSHOP" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+</fields>
+<description>'http://crm/serviceModule/data::Querycar'</description></data>
+</saturn-data>

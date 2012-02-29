@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-data>
+	<data name="crm_member_view" namespace="http://crm/coreModule/data" dbType="mysql" connectname="crm">
+		
+<fields>
+	<field name="memberid" length="10" type="INT UNSIGNED" column="MEMBERID" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" sequenceName="" tableName="CRM_MEMBER_VIEW" isPrimaryKey="true">
+		<validates value-key="MEMBERID" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="membcardid" length="20" type="VARCHAR" column="MEMBCARDID" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_MEMBER_VIEW">
+		<validates value-key="MEMBCARDID" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="membtype" length="45" type="VARCHAR" column="MEMBTYPE" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_MEMBER_VIEW" dictTypeId="crm_membType">
+		<validates value-key="MEMBTYPE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="membjoindate" length="19" type="DATE" column="MEMBJOINDATE" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_MEMBER_VIEW">
+		<validates value-key="MEMBJOINDATE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="integralid" length="10" type="INT UNSIGNED" column="INTEGRALID" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_MEMBER_VIEW">
+		<validates value-key="INTEGRALID" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="cstmname" length="45" type="VARCHAR" column="CSTMNAME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_MEMBER_VIEW">
+		<validates value-key="CSTMNAME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carlicenceno" length="20" type="VARCHAR" column="CARLICENCENO" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_MEMBER_VIEW">
+		<validates value-key="CARLICENCENO" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carbrand" length="45" type="VARCHAR" column="CARBRAND" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_MEMBER_VIEW" dictTypeId="crm_carModel">
+		<validates value-key="CARBRAND" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carseries" length="45" type="VARCHAR" column="CARSERIES" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_MEMBER_VIEW" dictTypeId="crm_carModel">
+		<validates value-key="CARSERIES" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="cararea" length="45" type="VARCHAR" column="CARAREA" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_MEMBER_VIEW" dictTypeId="crm_carArea">
+		<validates value-key="CARAREA" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carownership" length="45" type="VARCHAR" column="CAROWNERSHIP" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_MEMBER_VIEW" dictTypeId="crm_carType">
+		<validates value-key="CAROWNERSHIP" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carcardid" length="20" type="VARCHAR" column="CARCARDID" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_MEMBER_VIEW">
+		<validates value-key="CARCARDID" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="cstmtel" length="45" type="VARCHAR" column="CSTMTEL" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_MEMBER_VIEW">
+		<validates value-key="CSTMTEL" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="cstmmobile" length="45" type="VARCHAR" column="CSTMMOBILE" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_MEMBER_VIEW">
+		<validates value-key="CSTMMOBILE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="intglamount" length="33" type="DECIMAL" column="INTGLAMOUNT" javaType="java.math.BigDecimal" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_MEMBER_VIEW">
+		<validates value-key="INTGLAMOUNT" classType="java.math.BigDecimal" isValidate="false"></validates>
+	</field>
+	<field name="carvin" length="17" type="VARCHAR" column="CARVIN" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_MEMBER_VIEW">
+		<validates value-key="CARVIN" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="intgltime" length="19" type="DATETIME" column="INTGLTIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_MEMBER_VIEW">
+		<validates value-key="INTGLTIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+</fields>
+<description>'http://crm/coreModule/data::crm_member_view'</description></data>
+</saturn-data>

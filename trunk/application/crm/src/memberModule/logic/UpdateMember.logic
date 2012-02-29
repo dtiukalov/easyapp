@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-logic>
+	<information id="0" next="" x="0" y="0">
+		<key>/memberModule/logic/UpdateMember.logic</key>
+		<name>UpdateMember</name>
+		<loadstart>flase</loadstart>
+		<description></description>
+	</information>
+	<component exception="" id="5" next="3" x="484" y="158">
+		<key>edu.ccut.saturn.basecomponent::/databaseComponent/UpdateByPrimaryKeyComponent.component</key>
+		<name>依主键更新</name>
+		<parameters>
+			<parameter id="1" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<value-key>saturnData</value-key>
+				<scope>1</scope>
+				<description>操作的saturnData</description>
+			</parameter>
+			<parameter id="2" name="result" classType="java.lang.Integer" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description>sql执行所修改的记录条数</description>
+			</parameter>
+			<parameter id="3" name="specialcolumn" classType="java.lang.String" passingType="in">
+				<value-key>specialcolumn</value-key>
+				<scope>1</scope>
+				<description>需要插入0 和 null 的属性列表 形如： 'column1,column2,column5'</description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>依主键更新数据组件</description>
+	</component>
+	<end id="3" next="" x="605" y="148">
+		<name>结束</name>
+		<parameters></parameters>
+		<description></description>
+	</end>
+	<component exception="" id="4" next="6" x="214" y="154">
+		<key>edu.ccut.saturn.basecomponent::/baseService/GetSystemTime.component</key>
+		<name>得到系统时间</name>
+		<parameters>
+			<parameter id="1" name="currentTime" classType="java.lang.String" passingType="out">
+				<value-key>currentTime</value-key>
+				<scope>1</scope>
+				<description>系统当前时间</description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>获得系统当前时间 形如 2007-12-24 09:44:09</description>
+	</component>
+	<component exception="" id="6" next="5" x="353" y="137">
+		<key>edu.ccut.saturn.basecomponent::/dataOperationComponent/SetDataValues.component</key>
+		<name>批量设置SaturnData中的字段的值</name>
+		<parameters>
+			<parameter id="1" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<value-key>saturnData</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="key" classType="java.lang.String" passingType="in">
+				<value-key>'updatetime'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="fieldValue" classType="java.lang.String" passingType="in">
+				<value-key>currentTime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="4" name="key" classType="java.lang.String" passingType="in">
+				<value-key>'userid'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="5" name="fieldValue" classType="java.lang.String" passingType="in">
+				<value-key>userid</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="6" name="" classType="java.lang.String" passingType="in">
+				<value-key>'username'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="7" name="" classType="java.lang.String" passingType="in">
+				<value-key>username</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>批量设置SaturnData中的字段的值</description>
+	</component>
+	<start id="1" next="4" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters>
+			<parameter id="1" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<value-key>saturnData</value-key>
+				<scope>1</scope>
+				<description>操作的saturnData</description>
+			</parameter>
+			<parameter id="2" name="fieldValue" classType="java.lang.String" passingType="in">
+				<value-key>userid</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="" classType="java.lang.String" passingType="in">
+				<value-key>username</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</start>
+	<connection source="5" target="3" style="1" name=""></connection>
+	<connection source="4" target="6" style="1" name=""></connection>
+	<connection source="6" target="5" style="1" name=""></connection>
+	<connection source="1" target="4" style="1" name=""></connection>
+</saturn-logic>

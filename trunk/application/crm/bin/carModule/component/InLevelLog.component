@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-components>
+<component key="/carModule/component/InLevelLog.component" name="插入变更明细" class="carModule.component.InLevelLog" projectname="crm">
+	<description></description>
+<parameters>
+	<parameter id="1" classType="java.lang.String" passingType="in" name="type">
+		<scope>1</scope>
+		<value-key>type</value-key>
+		<description>级别变更日志类型 1:月刷新2单次刷新3手动死档</description>
+	</parameter>
+	<parameter id="2" classType="java.lang.String" passingType="in" name="vin">
+		<scope>1</scope>
+		<value-key>vin</value-key>
+		<description>要变更的车辆vin，只type为2,3时有效</description>
+	</parameter>
+	<parameter id="3" name="snote" classType="java.lang.String" passingType="in">
+		<scope>1</scope>
+		<value-key>snote</value-key>
+		<description>死档说明，只type为3时有效</description>
+	</parameter>
+</parameters>
+<loadstart>false</loadstart>
+</component>
+</saturn-components>

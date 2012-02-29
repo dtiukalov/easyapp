@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/coreModule/action/GetDict.action</key>
+		<name>GetDict</name>
+		<description>查询字典项</description>
+	</information>
+	<view id="5" next="" x="749" y="172">
+		<name>json</name>
+		<type>jsp</type>
+		<location>/crm/coreModule/web/json.jsp</location>
+		<description></description>
+	</view>
+	<start id="1" next="2" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<transform id="3" next="4" x="429" y="168">
+		<value-key>json</value-key>
+		<type>json</type>
+		<name>转移1</name>
+		<contents>
+			<content id="1" type="list">
+				<content-value-key>list</content-value-key>
+			</content>
+			<content id="2" type="data">
+				<content-value-key>id</content-value-key>
+			</content>
+			<content id="3" type="data">
+				<content-value-key>key</content-value-key>
+			</content>
+			<content id="4" type="data">
+				<content-value-key>level_3_id</content-value-key>
+			</content>
+			<content id="5" type="data">
+				<content-value-key>level_3_key</content-value-key>
+			</content>
+			<content id="6" type="data">
+				<content-value-key>level_3_url</content-value-key>
+			</content>
+		</contents>
+		<description></description>
+	</transform>
+	<webContext id="4" next="5" x="582" y="169">
+		<name>网页上下文1</name>
+		<value-moves>
+			<value-move id="1" key="json" scope="1" newKey="json" newScope="2" isDelete="false"></value-move>
+		</value-moves>
+		<description></description>
+	</webContext>
+	<logic exception="" id="2" next="3" x="231" y="153">
+		<key>crm::/coreModule/logic/GetDict.logic</key>
+		<name>查询字典项</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="type" classType="java.lang.String" passingType="in">
+				<value-key>type</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="parent_code" classType="java.lang.String" passingType="in">
+				<value-key>value</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="list" classType="java.util.ArrayList" passingType="out">
+				<value-key>list</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description>查询字典项</description>
+	</logic>
+	<connection source="1" target="2" style="1" name=""></connection>
+	<connection source="2" target="3" style="1" name=""></connection>
+	<connection source="3" target="4" style="1" name=""></connection>
+	<connection source="4" target="5" style="1" name=""></connection>
+</saturn-action>

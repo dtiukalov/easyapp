@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/dictModule/action/CheckCode.action</key>
+		<name>CheckCode</name>
+		<description></description>
+	</information>
+	<start id="1" next="2" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<connection source="3" target="4" style="1" name=""></connection>
+	<view id="4" next="" x="713" y="169">
+		<name>视图10</name>
+		<type>json</type>
+		<location>result</location>
+		<description></description>
+	</view>
+	<logic exception="" id="2" next="4" x="318" y="157">
+		<key>crm::/dictModule/logic/CheckCode.logic</key>
+		<name>CheckCode</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="" classType="java.lang.String" passingType="in">
+				<value-key>type</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="" classType="java.lang.String" passingType="in">
+				<value-key>code</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="target" classType="java.lang.Boolean" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<connection source="1" target="2" style="1" name=""></connection>
+	<connection source="2" target="4" style="1" name=""></connection>
+</saturn-action>

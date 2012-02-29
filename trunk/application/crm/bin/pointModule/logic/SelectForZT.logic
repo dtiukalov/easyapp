@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-logic>
+	<information id="0" next="" x="0" y="0">
+		<key>/pointModule/logic/SelectForZT.logic</key>
+		<name>SelectForZT</name>
+		<loadstart>flase</loadstart>
+		<description></description>
+	</information>
+	<end id="3" next="" x="474" y="166">
+		<name>结束</name>
+		<parameters></parameters>
+		<description></description>
+	</end>
+	<start id="1" next="4" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters>
+			<parameter id="1" name="carEngineNo" classType="java.lang.String" passingType="in">
+				<value-key>carEngineNo</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="carLicenceNo" classType="java.lang.String" passingType="in">
+				<value-key>carLicenceNo</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="result" classType="java.util.ArrayList" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</start>
+	<component exception="" id="4" next="3" x="268" y="131">
+		<key>edu.ccut.saturn.basecomponent::/databaseComponent/QueryBySaturnSQLComponent.component</key>
+		<name>依SQL查询</name>
+		<parameters>
+			<parameter id="1" name="fullkey" classType="java.lang.String" passingType="in">
+				<value-key>'http://crm/pointModule/data::selectforzt'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="sqlkey" classType="java.lang.String" passingType="in">
+				<value-key>'selectforzt'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="result" classType="java.util.ArrayList" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="4" name="carLicenceNo" classType="java.lang.String" passingType="in">
+				<value-key>'carLicenceNo=${carLicenceNo}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="5" name="carEngineNo" classType="java.lang.String" passingType="in">
+				<value-key>'carEngineNo=${carEngineNo}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description></description>
+	</component>
+	<connection source="4" target="3" style="1" name=""></connection>
+	<connection source="1" target="4" style="1" name=""></connection>
+</saturn-logic>

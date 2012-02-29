@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/careModule/action/DeleteCareItem.action</key>
+		<name>DeleteCareItem</name>
+		<description></description>
+	</information>
+	<connection source="2" target="3" style="1" name=""></connection>
+	<logic exception="" id="5" next="3" x="213" y="159">
+		<key>crm::/careModule/logic/DeleteCareItem.logic</key>
+		<name>DeleteCareItem</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="" classType="java.lang.String" passingType="in">
+				<value-key>careitemid</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<transform id="3" next="4" x="363" y="165">
+		<value-key>json</value-key>
+		<type>json</type>
+		<name>转移1</name>
+		<contents>
+			<content id="1" type="data">
+				<content-value-key>json</content-value-key>
+			</content>
+		</contents>
+		<description></description>
+	</transform>
+	<start id="1" next="5" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<view id="4" next="" x="517" y="164">
+		<name>视图1</name>
+		<type>json</type>
+		<location>'true'</location>
+		<description></description>
+	</view>
+	<connection source="1" target="5" style="1" name=""></connection>
+	<connection source="3" target="4" style="1" name=""></connection>
+	<connection source="5" target="3" style="1" name=""></connection>
+</saturn-action>

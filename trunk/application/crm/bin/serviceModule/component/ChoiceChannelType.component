@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-components>
+	<component key="/serviceModule/component/ChoiceChannelType.component" name="选择频道" class="serviceModule.component.ChoiceChannelType" projectname="crm">
+		<description></description>
+		<parameters>
+			<parameter id="1" name="carlist" classType="edu.ccut.saturn.component.SaturnData" passingType="in-out">
+				<scope>1</scope>
+				<value-key>carlist</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="servicelist" classType="java.util.ArrayList" passingType="in">
+				<scope>1</scope>
+				<value-key>servicelist</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="carlevel" classType="java.lang.String" passingType="out">
+				<scope>1</scope>
+				<value-key>carlevel</value-key>
+				<description></description>
+			</parameter>
+		</parameters>
+		<loadstart>false</loadstart>
+	</component>
+</saturn-components>

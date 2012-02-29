@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/pointModule/action/PointListByVinDec.action</key>
+		<name>获得兑换列表</name>
+		<description></description>
+	</information>
+	<connection source="7" target="6" style="2" name="未命名"></connection>
+	<connection source="7" target="8" style="1" name="未命名"></connection>
+	<connection source="8" target="3" style="1" name=""></connection>
+	<view id="6" next="" x="510" y="130">
+		<name>pointlistdec</name>
+		<type>jsp</type>
+		<location>/crm/pointModule/web/pointlistdec.jsp</location>
+		<description></description>
+	</view>
+	<decision next="" id="2" x="334" y="178">
+		<name>p_vin!=null</name>
+		<if then="3" else="6">
+			<expr>p_vin!=null</expr>
+		</if>
+		<parameters></parameters>
+		<description></description>
+	</decision>
+	<logic exception="" id="4" next="6" x="520" y="261">
+		<key>crm::/pointModule/logic/GetSumPoint.logic</key>
+		<name>获得总积分等操作</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="vin" classType="java.lang.String" passingType="in">
+				<value-key>p_vin</value-key>
+				<scope>1</scope>
+				<description>车辆vin</description>
+			</parameter>
+			<parameter id="2" name="addpoint" classType="java.lang.Integer" passingType="out">
+				<value-key>addpoint</value-key>
+				<scope>2</scope>
+				<description>有效累加总积分</description>
+			</parameter>
+			<parameter id="3" name="decpoint" classType="java.lang.Integer" passingType="out">
+				<value-key>decpoint</value-key>
+				<scope>2</scope>
+				<description>有效兑换总积分</description>
+			</parameter>
+			<parameter id="4" name="sumpoint" classType="java.lang.Integer" passingType="out">
+				<value-key>sumpoint</value-key>
+				<scope>2</scope>
+				<description>有效剩余总积分</description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<logic exception="" id="9" next="2" x="209" y="196">
+		<key>crm::/pointModule/logic/GetVinByNo.logic</key>
+		<name>根据车牌号或发动机号获得VIN</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="vin" classType="java.lang.String" passingType="out">
+				<value-key>p_vin</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="carlicenceno" classType="java.lang.String" passingType="in">
+				<value-key>carlicenceno</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="carengineno" classType="java.lang.String" passingType="in">
+				<value-key>carengineno</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<logic exception="" id="3" next="4" x="354" y="309">
+		<key>crm::/pointModule/logic/PointListByVin.logic</key>
+		<name>按vin获得积分列表</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="result" classType="java.util.ArrayList" passingType="out">
+				<value-key>decresult</value-key>
+				<scope>2</scope>
+				<description>返回SaturnData结果集</description>
+			</parameter>
+			<parameter id="2" name="count" classType="java.lang.Integer" passingType="out">
+				<value-key>deccount</value-key>
+				<scope>2</scope>
+				<description>记录条数</description>
+			</parameter>
+			<parameter id="3" name="startIndex" classType="java.lang.Integer" passingType="in">
+				<value-key>startIndex</value-key>
+				<scope>2</scope>
+				<description>分页开始位置</description>
+			</parameter>
+			<parameter id="4" name="endIndex" classType="java.lang.Integer" passingType="in">
+				<value-key>endIndex</value-key>
+				<scope>2</scope>
+				<description>分页结束位置</description>
+			</parameter>
+			<parameter id="5" name="p_vin" classType="java.lang.String" passingType="in">
+				<value-key>p_vin</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="6" name="p_state" classType="java.lang.String" passingType="in">
+				<value-key>'2'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<decision next="" id="10" x="176" y="340">
+		<name>p_vin!=null(页面传过来的)</name>
+		<if then="3" else="9">
+			<expr>p_vin!=null&amp;&amp;!empty(p_vin.trim())</expr>
+		</if>
+		<parameters></parameters>
+		<description></description>
+	</decision>
+	<start id="1" next="10" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<connection source="1" target="10" style="1" name=""></connection>
+	<connection source="9" target="2" style="1" name=""></connection>
+	<connection source="4" target="6" style="1" name=""></connection>
+	<connection source="3" target="4" style="1" name=""></connection>
+	<connection source="2" target="3" style="1" name="未命名"></connection>
+	<connection source="2" target="6" style="2" name="未命名"></connection>
+	<connection source="10" target="3" style="1" name="未命名"></connection>
+	<connection source="10" target="9" style="2" name="未命名"></connection>
+</saturn-action>

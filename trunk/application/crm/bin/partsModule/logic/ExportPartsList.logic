@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-logic>
+	<information id="0" next="" x="0" y="0">
+		<key>/partsModule/logic/ExportPartsList.logic</key>
+		<name>ExportPartsList</name>
+		<loadstart>flase</loadstart>
+		<description></description>
+	</information>
+	<connection source="5" target="3" style="1" name=""></connection>
+	<end id="3" next="" x="506" y="229">
+		<name>结束</name>
+		<parameters></parameters>
+		<description></description>
+	</end>
+	<component exception="" id="4" next="2" x="234" y="296">
+		<key>crm::/coreModule/component/GetDateString.component</key>
+		<name>GetDateString</name>
+		<parameters>
+			<parameter id="1" name="" classType="java.lang.String" passingType="in-out">
+				<value-key>min_partsintime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="" classType="java.lang.String" passingType="in-out">
+				<value-key>max_partsintime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="" classType="java.lang.String" passingType="in-out">
+				<value-key>min_partsouttime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="4" name="" classType="java.lang.String" passingType="in-out">
+				<value-key>max_partsouttime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description></description>
+	</component>
+	<component exception="" id="2" next="3" x="331" y="222">
+		<key>edu.ccut.saturn.basecomponent::/databaseComponent/QueryByConditionWithPageExtComponent.component</key>
+		<name>分页查询</name>
+		<parameters>
+			<parameter id="1" name="fullkey" classType="java.lang.String" passingType="in">
+				<value-key>'http://crm/coreModule/data::crm_parts_view'</value-key>
+				<scope>1</scope>
+				<description>生成SaturnData所需的fullkey</description>
+			</parameter>
+			<parameter id="2" name="logicContext" classType="java.util.HashMap" passingType="in">
+				<value-key>${context}</value-key>
+				<scope>1</scope>
+				<description>logicContext</description>
+			</parameter>
+			<parameter id="3" name="startIndex" classType="java.lang.Integer" passingType="in">
+				<value-key>startIndex</value-key>
+				<scope>1</scope>
+				<description>分页开始位置</description>
+			</parameter>
+			<parameter id="4" name="endIndex" classType="java.lang.Integer" passingType="in">
+				<value-key>endIndex</value-key>
+				<scope>1</scope>
+				<description>分页结束位置</description>
+			</parameter>
+			<parameter id="5" name="result" classType="java.util.ArrayList" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description>返回SaturnData结果集</description>
+			</parameter>
+			<parameter id="6" name="tableWord" classType="java.lang.String" passingType="in">
+				<value-key>tableWord</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="7" name="" classType="java.lang.String" passingType="in">
+				<value-key>'carlicenceno like '%${carlicenceno}%''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="8" name="" classType="java.lang.String" passingType="in">
+				<value-key>'carcardid=${carcardid}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="9" name="" classType="java.lang.String" passingType="in">
+				<value-key>'carvin like '%${carvin}%''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="10" name="" classType="java.lang.String" passingType="in">
+				<value-key>'carbrand=${carbrand}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="11" name="" classType="java.lang.String" passingType="in">
+				<value-key>'carseries=${carseries}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="12" name="" classType="java.lang.String" passingType="in">
+				<value-key>'carmodel=${carmodel}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="13" name="" classType="java.lang.String" passingType="in">
+				<value-key>'cararea=${cararea}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="14" name="" classType="java.lang.String" passingType="in">
+				<value-key>'cstmname like '%${cstmname}%''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="15" name="" classType="java.lang.String" passingType="in">
+				<value-key>'partsstaff='${partsstaff}''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="16" name="" classType="java.lang.String" passingType="in">
+				<value-key>'partsnam like '%${partsname}%''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="17" name="" classType="java.lang.String" passingType="in">
+				<value-key>'partsintime &gt;= ${min_partsintime}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="18" name="" classType="java.lang.String" passingType="in">
+				<value-key>'partsintime &lt;= ${max_partsintime}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="19" name="" classType="java.lang.String" passingType="in">
+				<value-key>'partsouttime &gt;= ${min_partsouttime}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="20" name="" classType="java.lang.String" passingType="in">
+				<value-key>'partsouttime &lt;= ${max_partsouttime}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>分页查询</description>
+	</component>
+	<start id="1" next="4" x="109" y="225">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters>
+			<parameter id="1" name="" classType="java.lang.String" passingType="in">
+				<value-key>carlicenceno</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="" classType="java.lang.String" passingType="in">
+				<value-key>carcardid</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="" classType="java.lang.String" passingType="in">
+				<value-key>carvin</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="4" name="" classType="java.lang.String" passingType="in">
+				<value-key>cararea</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="5" name="" classType="java.lang.String" passingType="in">
+				<value-key>carbrand</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="6" name="" classType="java.lang.String" passingType="in">
+				<value-key>carseries</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="7" name="" classType="java.lang.String" passingType="in">
+				<value-key>carmodel</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="8" name="" classType="java.lang.String" passingType="in">
+				<value-key>cstmname</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="9" name="" classType="java.lang.String" passingType="in">
+				<value-key>partsname</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="10" name="" classType="java.lang.String" passingType="in">
+				<value-key>partsstaff</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="11" name="" classType="java.lang.String" passingType="in">
+				<value-key>min_partsouttime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="12" name="" classType="java.lang.String" passingType="in">
+				<value-key>min_partsintime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="13" name="" classType="java.lang.String" passingType="in">
+				<value-key>max_partsouttime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="14" name="" classType="java.lang.String" passingType="in">
+				<value-key>max_partsintime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="15" name="" classType="java.lang.Integer" passingType="in">
+				<value-key>startIndex</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="16" name="" classType="java.lang.Integer" passingType="in">
+				<value-key>endIndex</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="17" name="" classType="java.lang.Integer" passingType="out">
+				<value-key>count</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="18" name="" classType="java.util.ArrayList" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</start>
+	<connection source="2" target="3" style="1" name=""></connection>
+	<connection source="1" target="4" style="1" name=""></connection>
+	<connection source="4" target="2" style="1" name=""></connection>
+</saturn-logic>

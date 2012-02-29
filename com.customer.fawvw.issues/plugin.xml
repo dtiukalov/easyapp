@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Sample Category"
+            id="com.customer.fawvw.issues.commands.category">
+      </category>
+      <command
+            id="com.customer.fawvw.issue.TCPprojectCommand"
+            categoryId="com.customer.fawvw.issues.commands.category"
+            name="项目属性扩展">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.customer.fawvw.issues.handler.TCPprojectHandler"
+            commandId="com.customer.fawvw.issue.TCPprojectCommand">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="com.customer.fawvw.issue.TCPprojectCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="FAW-VW"
+               mnemonic="M"
+               id="com.customer.fawvw.issues.menus.sampleMenu">
+            <command
+                  commandId="com.customer.fawvw.issue.TCPprojectCommand"
+                  icon="platform:/plugin/com.customer.fawvw.issues/coins/issueMenu.png"
+                  id="com.customer.fawvw.issue.TCPprojectCommand1"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+      
+   </extension>
+
+</plugin>

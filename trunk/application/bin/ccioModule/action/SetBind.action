@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/ccioModule/action/SetBind.action</key>
+		<name>添加绑定</name>
+		<description></description>
+	</information>
+	<start id="1" next="2" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<logic exception="" id="6" next="3" x="511" y="271">
+		<key>crm::/ccioModule/logic/SetBind.logic</key>
+		<name>添加绑定</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="result" classType="java.lang.Integer" passingType="out">
+				<value-key>result</value-key>
+				<scope>2</scope>
+				<description>sql执行所修改的记录条数</description>
+			</parameter>
+			<parameter id="2" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="in-out">
+				<value-key>bindSaturnData</value-key>
+				<scope>1</scope>
+				<description>操作的saturnData</description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<view id="3" next="" x="510" y="172">
+		<name>bindforvb</name>
+		<type>jsp</type>
+		<location>/crm/ccioModule/web/bindforvb.jsp</location>
+		<description></description>
+	</view>
+	<logic exception="" id="4" next="5" x="253" y="258">
+		<key>crm::/ccioModule/logic/DelBindByCard.logic</key>
+		<name>删除绑定卡号</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="b_card" classType="java.lang.String" passingType="in">
+				<value-key>b_card</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<data id="5" next="6" x="387" y="259">
+		<name>数据1</name>
+		<data-scope>2</data-scope>
+		<data-prefix></data-prefix>
+		<data-key>bindSaturnData</data-key>
+		<xmlkey></xmlkey>
+		<elementkey></elementkey>
+		<data-type classType="edu.ccut.saturn.component.SaturnData" namespace="http://crm/ccioModule/data" saturnDataType="Binding"></data-type>
+		<parameters></parameters>
+		<description></description>
+	</data>
+	<decision next="" id="2" x="244" y="160">
+		<name>b_card==null||b_vin==null</name>
+		<if then="3" else="5">
+			<expr>b_card==null||b_card==&quot;&quot;||b_vin==null||b_vin==&quot;&quot;</expr>
+		</if>
+		<parameters></parameters>
+		<description></description>
+	</decision>
+	<connection source="1" target="2" style="1" name=""></connection>
+	<connection source="4" target="5" style="1" name=""></connection>
+	<connection source="6" target="3" style="1" name=""></connection>
+	<connection source="5" target="6" style="1" name=""></connection>
+	<connection source="2" target="3" style="1" name="未命名"></connection>
+	<connection source="2" target="5" style="2" name="未命名"></connection>
+</saturn-action>

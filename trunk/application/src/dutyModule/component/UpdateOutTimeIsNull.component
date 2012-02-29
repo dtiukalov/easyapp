@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-components>
+	<component key="/dutyModule/component/UpdateOutTimeIsNull.component" name="设置离店时间为null" class="dutyModule.component.UpdateOutTimeIsNull" projectname="crm">
+		<description></description>
+<parameters>
+	<parameter id="1" name="dutyid" classType="java.lang.String" passingType="in">
+		<scope>1</scope>
+		<value-key>dutyid</value-key>
+		<description></description>
+	</parameter>
+	<parameter id="2" name="outtime" classType="java.lang.String" passingType="in">
+		<scope>1</scope>
+		<value-key>outtime</value-key>
+		<description></description>
+	</parameter>
+</parameters>
+<loadstart>false</loadstart>
+	</component>
+</saturn-components>

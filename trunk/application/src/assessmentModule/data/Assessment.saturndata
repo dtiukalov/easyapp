@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-data>
+	<data name="Assessment" namespace="http://crm/assessmentModule/data" dbType="mysql" connectname="20110117">
+		
+<fields>
+	<field name="fixed" length="20" type="INT" column="fixed" javaType="java.lang.Integer" showName="fixed" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="false" sequenceName="" tableName="">
+		<validates value-key="fixed" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	
+	<field name="fixedzt" length="20" type="INT" column="fixedzt" javaType="java.lang.Integer" showName="fixedzt" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="false" sequenceName="" tableName="">
+		<validates value-key="fixedzt" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	
+	<field name="newcustomer" length="20" type="INT" column="newcustomer" javaType="java.lang.Integer" showName="newcustomer" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="false" sequenceName="" tableName="">
+		<validates value-key="newcustomer" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	
+	<field name="lostcustomer" length="20" type="INT" column="lostcustomer" javaType="java.lang.Integer" showName="lostcustomer" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="false" sequenceName="" tableName="">
+		<validates value-key="lostcustomer" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	
+	<field name="magcustomer" length="20" type="INT" column="magcustomer" javaType="java.lang.Integer" showName="magcustomer" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="false" sequenceName="" tableName="">
+		<validates value-key="magcustomer" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	
+	<field name="returncustomer" length="20" type="INT" column="returncustomer" javaType="java.lang.Integer" showName="returncustomer" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="false" sequenceName="" tableName="">
+		<validates value-key="returncustomer" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	
+	<field name="firsthenum" length="20" type="INT" column="firsthenum" javaType="java.lang.Integer" showName="firsthenum" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="false" sequenceName="" tableName="">
+		<validates value-key="firsthenum" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	
+	<field name="firsthe3num" length="20" type="INT" column="firsthe3num" javaType="java.lang.Integer" showName="firsthe3num" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="false" sequenceName="" tableName="">
+		<validates value-key="firsthe3num" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	
+	<field name="setthenum" length="20" type="INT" column="setthenum" javaType="java.lang.Integer" showName="setthenum" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="false" sequenceName="" tableName="">
+		<validates value-key="setthenum" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	
+	<field name="ownsetthenum" length="20" type="INT" column="ownsetthenum" javaType="java.lang.Integer" showName="ownsetthenum" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="false" sequenceName="" tableName="">
+		<validates value-key="ownsetthenum" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	
+	<field name="monthsetthenum" length="20" type="INT" column="monthsetthenum" javaType="java.lang.Integer" showName="monthsetthenum" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="false" sequenceName="" tableName="">
+		<validates value-key="monthsetthenum" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	
+	<field name="ownmonthsetthenum" length="20" type="INT" column="ownmonthsetthenum" javaType="java.lang.Integer" showName="ownmonthsetthenum" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="false" sequenceName="" tableName="">
+		<validates value-key="ownmonthsetthenum" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	<field name="ownmagcustomer" length="20" type="INT" column="ownmagcustomer" javaType="java.lang.Integer" showName="ownmagcustomer" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="false" sequenceName="" tableName="">
+		<validates value-key="ownmagcustomer" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	
+	<field name="firstthecustomer" length="20" type="INT" column="firstthecustomer" javaType="java.lang.Integer" showName="firstthecustomer" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="false" sequenceName="" tableName="">
+		<validates value-key="firstthecustomer" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	<field name="ownfirstthecustomer" length="20" type="INT" column="ownfirstthecustomer" javaType="java.lang.Integer" showName="ownfirstthecustomer" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="false" sequenceName="" tableName="">
+		<validates value-key="ownfirstthecustomer" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	
+	<field name="newcustomernozt" length="20" type="INT" column="newcustomernozt" javaType="java.lang.Integer" showName="newcustomernozt" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="false" sequenceName="" tableName="">
+		<validates value-key="newcustomernozt" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	<field name="returncustomernozt" length="20" type="INT" column="returncustomernozt" javaType="java.lang.Integer" showName="returncustomernozt" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="false" sequenceName="" tableName="">
+		<validates value-key="returncustomernozt" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+</fields>
+	<description>'http://crm/assessmentModule/data::Assessment'</description></data>
+
+<sqls>
+	<sql id="fixedselect">
+		select COUNT(*) as fixed
+		from (
+			select COUNT(*) num
+			from crm_service, `crm_car`
+			where 1=1
+			and `crm_service`.`carVin` = `crm_car`.`carVin`
+			and `crm_car`.`carSeries` IN('105006','105007','105008')
+			and SUBSTR(`crm_service`.`servInTime`,1,10) BETWEEN SUBSTR(DATE_SUB('${servInTime}',INTERVAL 1 YEAR),1,10) and SUBSTR('${servInTime}',1,10)
+			and `crm_service`.`servOrderId` NOT like 'zt%'
+			GROUP by `crm_service`.`carVin`) a
+		where a.num > 1
+	</sql>
+	<sql id="fixedztselect">
+		select COUNT(*) fixedzt
+		from (
+			select COUNT(*) num
+			from crm_service, `crm_car`
+			where 1=1
+			and `crm_service`.`carVin` = `crm_car`.`carVin`
+			and `crm_car`.`carSeries` IN('105006','105007','105008')
+			and SUBSTR(`crm_service`.`servInTime`,1,10) BETWEEN SUBSTR(DATE_SUB('${servInTime}',INTERVAL 1 YEAR),1,10) and SUBSTR('${servInTime}',1,10)
+			GROUP by `crm_service`.`carVin`) a
+		where a.num > 1
+	</sql>
+	<sql id="newcustomer">
+		select aaa.aa - bbb.bb newcustomer
+		from
+		(
+			select COUNT(*) aa
+			from (
+				select DISTINCT `crm_service`.`carVin`
+				from crm_service
+				where 1=1
+				and SUBSTR('${servInTime}',1,7)>= substr(crm_service.servInTime,1,7)
+			)a
+		) aaa, (
+			select count(*) bb
+			from (
+				select DISTINCT `crm_service`.`carVin`
+				from crm_service
+				where 1=1
+				and SUBSTR('${servInTime}',1,7) > substr(`crm_service`.servInTime,1,7)
+			) b
+		)bbb
+	</sql>
+	<sql id="newcustomernozt">
+		select aaa.aa - bbb.bb newcustomernozt
+		from
+		(
+			select COUNT(*) aa
+			from (
+				select DISTINCT `crm_service`.`carVin`
+				from crm_service
+				where 1=1
+				and `crm_service`.`servOrderId` not like 'zt%'
+				and SUBSTR('${servInTime}',1,7)>= substr(crm_service.servInTime,1,7)
+			)a
+		) aaa, (
+			select count(*) bb
+			from (
+				select DISTINCT `crm_service`.`carVin`
+				from crm_service
+				where 1=1
+				and `crm_service`.`servOrderId` not like 'zt%'
+				and SUBSTR('${servInTime}',1,7) > substr(`crm_service`.servInTime,1,7)
+			) b
+		)bbb
+	</sql>
+	<sql id="lostcustomer">
+		select COUNT(*) lostcustomer 
+		from (
+			select `crm_service`.`carVin`,MAX( `crm_service`.`servInTime`) servInTime
+			from `crm_service`
+			where 1=1
+			group by `crm_service`.`carVin`
+			) a
+		where 1=1
+		and SUBSTR(DATE_SUB('${servInTime}',INTERVAL 1 YEAR),1,10) > SUBSTR(a.`servInTime`,1,10)
+	</sql>
+	<sql id="magcustomer">
+		select COUNT(*) magcustomer
+		from (
+			select COUNT(*) num
+			from crm_service, `crm_car`
+			where 1=1
+			and `crm_service`.`carVin` = `crm_car`.`carVin`
+			and SUBSTR(`crm_service`.`servInTime`,1,7) BETWEEN SUBSTR(DATE_SUB('${servInTime}',INTERVAL 1 YEAR),1,7) and SUBSTR('${servInTime}',1,7)
+			GROUP by `crm_service`.`carVin`) a
+		where a.num > 0
+	</sql>
+	<sql id="ownmagcustomer">
+		select COUNT(*) ownmagcustomer
+		from (
+			select COUNT(*) num
+			from crm_service, `crm_car`
+			where 1=1
+			and `crm_service`.`carVin` = `crm_car`.`carVin`
+			and `crm_car`.`carSource`='103001'
+			and SUBSTR(`crm_service`.`servInTime`,1,7) BETWEEN SUBSTR(DATE_SUB('${servInTime}',INTERVAL 1 YEAR),1,7) and SUBSTR('${servInTime}',1,7)
+			GROUP by `crm_service`.`carVin`) a
+		where a.num > 0
+	</sql>
+	<sql id="returncustomer">
+		select count(*) returncustomer
+		from  (  
+			select DISTINCT `crm_service`.`carVin`
+			from `crm_service`
+			where 1=1
+			and SUBSTR(`crm_service`.`servInTime`,1,7) = SUBSTR('${servInTime}',1,7)
+			and SUBSTR('${servInTime}',1,10) >= SUBSTR(`crm_service`.`servInTime`,1,10)
+		) b,(  
+			select a.carvin
+			from 
+			(
+				select crm_service.`carVin`,max(`crm_service`.`servInTime`) servInTime
+				from `crm_service`
+				where 1=1
+				and SUBSTR(DATE_SUB('${servInTime}',INTERVAL 1 MONTH),1,10) >= SUBSTR(`crm_service`.servInTime,1,10)
+				group by `crm_service`.`carVin`
+			) a
+			where 1=1
+			and SUBSTR(DATE_SUB('${servInTime}',INTERVAL 1 YEAR),1,10) >= SUBSTR(a.servInTime,1,10)
+		) c
+		where b.carvin = c.carvin  
+	</sql>
+	<sql id="returncustomernozt">
+		select count(*) returncustomernozt
+		from  (  
+			select DISTINCT `crm_service`.`carVin`
+			from `crm_service`
+			where 1=1
+			and `crm_service`.`servOrderId` NOT like 'zt%'
+			and SUBSTR(`crm_service`.`servInTime`,1,7) = SUBSTR('${servInTime}',1,7)
+			and SUBSTR('${servInTime}',1,10) >= SUBSTR(`crm_service`.`servInTime`,1,10)
+		) b,(  
+			select a.carvin
+			from 
+			(
+				select crm_service.`carVin`,max(`crm_service`.`servInTime`) servInTime
+				from `crm_service`
+				where 1=1
+				and `crm_service`.`servOrderId` NOT like 'zt%'
+				and SUBSTR(DATE_SUB('${servInTime}',INTERVAL 1 MONTH),1,10) >= SUBSTR(`crm_service`.servInTime,1,10)
+				group by `crm_service`.`carVin`
+			) a
+			where 1=1
+			and SUBSTR(DATE_SUB('${servInTime}',INTERVAL 1 YEAR),1,10) >= SUBSTR(a.servInTime,1,10)
+		) c
+		where b.carvin = c.carvin  
+	</sql>
+	<sql id="firsthenum">
+		select COUNT(*) firsthenum
+		from `crm_car`,`crm_service`
+		where `crm_car`.`carVin` = `crm_service`.`carVin`
+		and crm_car.`carSource`='103001'
+		and `crm_service`.`servType` = '112004'
+		and  SUBSTR('${servInTime}',1,10) > SUBSTR(`crm_service`.`servInTime`,1,10)
+
+	</sql>
+	<sql id="firsthe3num">
+		select count(*) firsthe3num
+		from `crm_car`
+		where 1=1
+		and `crm_car`.`carSource`='103001'
+		and SUBSTR(DATE_SUB('${servInTime}',INTERVAL 3 MONTH),1,10) > SUBSTR(`crm_car`.`carSellDate`,1,10) 
+	</sql>
+	<sql id="setthenum">
+		select count(*) setthenum
+		from `crm_service`
+		where 1=1
+		and crm_service.`servType`='112001'
+		and SUBSTR(`crm_service`.`servInTime`,1,7)=SUBSTR('${servInTime}',1,7)
+		and SUBSTR('${servInTime}',1,10) > SUBSTR(`crm_service`.`servInTime`,1,10)
+	</sql>
+	
+	<sql id="ownsetthenum">
+		select count(*) ownsetthenum
+		from `crm_service`,`crm_car`
+		where 1=1
+		and `crm_service`.`carVin`=crm_car.`carVin`
+		and `crm_car`.`carSource`='103001'
+		and crm_service.`servType`='112001'
+		and SUBSTR(`crm_service`.`servInTime`,1,7)=SUBSTR('${servInTime}',1,7)
+		and SUBSTR('${servInTime}',1,10) > SUBSTR(`crm_service`.`servInTime`,1,10)
+	</sql>
+	
+	<sql id="monthsetthenum">
+		select a.num+b.num as monthsetthenum 
+		from (
+			select count(*) num
+			from `crm_car`,`crm_service`
+			where 1=1
+			and crm_car.carvin=crm_service.carvin
+			and `crm_car`.`carSeries` IN('105006','105007','105014')
+			and SUBSTR(DATE_SUB('${servInTime}',INTERVAL 2 YEAR),1,10) > SUBSTR(`crm_car`.`carSellDate`,1,10) 
+			and SUBSTR(`crm_service`.`servInTime`,1,7)=SUBSTR('${servInTime}',1,7)
+			and SUBSTR('${servInTime}',1,10) > SUBSTR(`crm_service`.`servInTime`,1,10) 
+		) a,(
+			select count(*) num
+			from `crm_car`,`crm_service`
+			where 1=1
+			and crm_car.carvin=crm_service.carvin
+			and `crm_car`.`carSeries` ='105008'
+			and SUBSTR(DATE_SUB('${servInTime}',INTERVAL 3 YEAR),1,10) > SUBSTR(`crm_car`.`carSellDate`,1,10)
+			and SUBSTR(`crm_service`.`servInTime`,1,7)=SUBSTR('${servInTime}',1,7)
+			and SUBSTR('${servInTime}',1,10)> SUBSTR(`crm_service`.`servInTime`,1,10)
+		) b
+	</sql>
+	
+	<sql id="ownmonthsetthenum">
+		select a.num+b.num as ownmonthsetthenum 
+		from (
+			select count(*) num
+			from `crm_car`,`crm_service`
+			where 1=1
+			and crm_car.carvin=crm_service.carvin
+			and `crm_car`.`carSource`='103001'
+			and `crm_car`.`carSeries` IN('105006','105007','105014')
+			and SUBSTR(DATE_SUB('${servInTime}',INTERVAL 2 YEAR),1,10) > SUBSTR(`crm_car`.`carSellDate`,1,10) 
+			and SUBSTR(`crm_service`.`servInTime`,1,7)=SUBSTR('${servInTime}',1,7)
+			and SUBSTR('${servInTime}',1,10) > SUBSTR(`crm_service`.`servInTime`,1,10) 
+		) a,(
+			select count(*) num
+			from `crm_car`,`crm_service`
+			where 1=1
+			and crm_car.carvin=crm_service.carvin
+			and `crm_car`.`carSource`='103001'
+			and `crm_car`.`carSeries` ='105008'
+			and SUBSTR(DATE_SUB('${servInTime}',INTERVAL 3 YEAR),1,10) > SUBSTR(`crm_car`.`carSellDate`,1,10)
+			and SUBSTR(`crm_service`.`servInTime`,1,7)=SUBSTR('${servInTime}',1,7)
+			and SUBSTR('${servInTime}',1,10)> SUBSTR(`crm_service`.`servInTime`,1,10)
+		) b
+	</sql>
+	
+	<sql id="firstthecustomer">
+		select COUNT(*) firstthecustomer
+		from `crm_car`,`crm_service`
+		where `crm_car`.`carVin` = `crm_service`.`carVin`
+		and `crm_service`.`servType` = '112004'
+		and SUBSTR(`crm_service`.`servInTime`,1,7)=SUBSTR('${servInTime}',1,7)
+		and SUBSTR('${servInTime}',1,10) > SUBSTR(`crm_service`.`servInTime`,1,10)
+	</sql>
+	
+	<sql id="ownfirstthecustomer">
+		select COUNT(*) ownfirstthecustomer
+		from `crm_car`,`crm_service`
+		where `crm_car`.`carVin` = `crm_service`.`carVin`
+		and crm_car.`carSource`='103001'
+		and `crm_service`.`servType` = '112004'
+		and SUBSTR(`crm_service`.`servInTime`,1,7)=SUBSTR('${servInTime}',1,7)
+		and SUBSTR('${servInTime}',1,10) > SUBSTR(`crm_service`.`servInTime`,1,10)
+	</sql>
+</sqls>
+</saturn-data>

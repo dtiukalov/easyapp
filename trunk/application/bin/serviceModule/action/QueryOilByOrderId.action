@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/serviceModule/action/QueryOilByOrderId.action</key>
+		<name>QueryOilByOrderId</name>
+		<description></description>
+	</information>
+	<start id="1" next="2" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<view id="6" next="" x="527" y="243">
+		<name>noExistOil</name>
+		<type>jsp</type>
+		<location>/crm/serviceModule/web/noExistOil.jsp</location>
+		<description></description>
+	</view>
+	<action id="5" next="" x="739" y="190">
+		<key>crm::/oilModule/action/QueryOil.action</key>
+		<name>QueryOil</name>
+		<parameters></parameters>
+		<description></description>
+	</action>
+	<decision next="" id="3" x="460" y="90">
+		<name>选择7</name>
+		<if then="4" else="6">
+			<expr>oilid!=null&amp;&amp;oilid!=''</expr>
+		</if>
+		<parameters></parameters>
+		<description></description>
+	</decision>
+	<webContext id="4" next="5" x="663" y="99">
+		<name>网页上下文2</name>
+		<value-moves>
+			<value-move id="1" key="oilid" scope="1" newKey="oilid" newScope="2" isDelete="false"></value-move>
+		</value-moves>
+		<description></description>
+	</webContext>
+	<logic exception="" id="2" next="3" x="272" y="131">
+		<key>crm::/serviceModule/logic/QueryOilByOrderId.logic</key>
+		<name>QueryOilByOrderId</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="" classType="java.lang.String" passingType="in">
+				<value-key>servorderid</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="target" classType="java.lang.String" passingType="out">
+				<value-key>oilid</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<connection source="1" target="2" style="1" name=""></connection>
+	<connection source="2" target="3" style="1" name=""></connection>
+	<connection source="3" target="4" style="1" name="未命名"></connection>
+	<connection source="3" target="6" style="2" name="未命名"></connection>
+	<connection source="4" target="5" style="1" name=""></connection>
+</saturn-action>

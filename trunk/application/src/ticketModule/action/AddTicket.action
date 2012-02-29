@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/ticketModule/action/AddTicket.action</key>
+		<name>新增代金</name>
+		<description>新增代金</description>
+	</information>
+	<start id="1" next="4" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<data id="4" next="2" x="218" y="245">
+		<name>数据1</name>
+		<data-scope>2</data-scope>
+		<data-prefix>tikt</data-prefix>
+		<data-key>ticketData</data-key>
+		<xmlkey></xmlkey>
+		<elementkey></elementkey>
+		<data-type classType="edu.ccut.saturn.component.SaturnData" namespace="http://crm/coreModule/data" saturnDataType="crm_ticket"></data-type>
+		<parameters></parameters>
+		<description></description>
+	</data>
+	<action id="6" next="" x="538" y="307">
+		<key>crm::/ticketModule/action/QueryTicketList.action</key>
+		<name>查询代金列表</name>
+		<parameters></parameters>
+		<description>查询代金列表</description>
+	</action>
+	<logic exception="" id="2" next="6" x="315" y="177">
+		<key>crm::/ticketModule/logic/AddTicket.logic</key>
+		<name>新增代金</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<value-key>ticketData</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="result" classType="java.lang.Integer" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description>sql执行所修改的记录条数</description>
+			</parameter>
+			<parameter id="3" name="" classType="java.lang.String" passingType="in">
+				<value-key>${CRM_USER.userid}</value-key>
+				<scope>5</scope>
+				<description></description>
+			</parameter>
+			<parameter id="4" name="" classType="java.lang.String" passingType="in">
+				<value-key>${CRM_USER.userrealname}</value-key>
+				<scope>5</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description>新增代金</description>
+	</logic>
+	<connection source="1" target="4" style="1" name=""></connection>
+	<connection source="2" target="6" style="1" name=""></connection>
+	<connection source="4" target="2" style="1" name=""></connection>
+</saturn-action>

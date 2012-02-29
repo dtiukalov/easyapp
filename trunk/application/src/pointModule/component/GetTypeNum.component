@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-components>
+	<component key="/pointModule/component/GetTypeNum.component" name="获得积分类型编号" class="pointModule.component.GetTypeNum" projectname="crm">
+		<description></description>
+		<parameters>
+			<parameter id="1" name="typenum" classType="java.lang.String" passingType="out">
+				<scope>1</scope>
+				<value-key>typenum</value-key>
+				<description>积分小类编号</description>
+			</parameter>
+			<parameter id="2" name="serv_type" classType="java.lang.String" passingType="in">
+				<scope>1</scope>
+				<value-key>serv_type</value-key>
+				<description>维修类型</description>
+			</parameter>
+		</parameters>
+		<loadstart>false</loadstart>
+	</component>
+</saturn-components>

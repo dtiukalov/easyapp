@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-data>
+	<data name="Binding" namespace="http://crm/ccioModule/data" dbType="mysql" connectname="connection_ccio">
+		
+<fields>
+	<field name="b_id" length="20" type="BIGINT" column="B_ID" javaType="java.lang.Long" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" sequenceName="" tableName="CRM_BINDING" isPrimaryKey="true">
+		<validates value-key="B_ID" classType="java.lang.Long" isValidate="false"></validates>
+	</field>
+	<field name="b_card" length="150" type="VARCHAR" column="B_CARD" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_BINDING">
+		<validates value-key="B_CARD" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="b_vin" length="50" type="VARCHAR" column="B_VIN" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_BINDING">
+		<validates value-key="B_VIN" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="b_date" length="19" type="TIMESTAMP" column="B_DATE" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_BINDING">
+		<validates value-key="B_DATE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+</fields>
+<description>'http://crm/ccioModule/data::Binding'</description></data>
+</saturn-data>

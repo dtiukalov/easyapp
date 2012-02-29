@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-data>
+	<data name="crm_visit" namespace="http://crm/coreModule/data" dbType="mysql" connectname="20110117">
+		
+<fields>
+	<field name="visitid" length="10" type="INT UNSIGNED" column="VISITID" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" sequenceName="" tableName="CRM_VISIT" isPrimaryKey="true">
+		<validates value-key="VISITID" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="visitdate" length="19" type="DATETIME" column="VISITDATE" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_VISIT">
+		<validates value-key="VISITDATE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carvin" length="17" type="VARCHAR" column="CARVIN" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_VISIT">
+		<validates value-key="CARVIN" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="visitstaff" length="45" type="VARCHAR" column="VISITSTAFF" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_VISIT">
+		<validates value-key="VISITSTAFF" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="servstaff" length="45" type="VARCHAR" column="SERVSTAFF" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_VISIT">
+		<validates value-key="SERVSTAFF" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="serverpleased" length="45" type="VARCHAR" column="SERVERPLEASED" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_VISIT">
+		<validates value-key="SERVERPLEASED" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="repairpleased" length="45" type="VARCHAR" column="REPAIRPLEASED" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_VISIT">
+		<validates value-key="REPAIRPLEASED" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="hasproposal" length="45" type="VARCHAR" column="HASPROPOSAL" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_VISIT">
+		<validates value-key="HASPROPOSAL" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="iscomplaint" length="45" type="VARCHAR" column="ISCOMPLAINT" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_VISIT">
+		<validates value-key="ISCOMPLAINT" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="visitnotes" length="100" type="VARCHAR" column="VISITNOTES" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_VISIT">
+		<validates value-key="VISITNOTES" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="createtime" length="19" type="DATETIME" column="CREATETIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_VISIT">
+		<validates value-key="CREATETIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="updatetime" length="19" type="DATETIME" column="UPDATETIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_VISIT">
+		<validates value-key="UPDATETIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="importtime" length="19" type="DATETIME" column="IMPORTTIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_VISIT">
+		<validates value-key="IMPORTTIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="servorderid" length="20" type="VARCHAR" column="SERVORDERID" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_VISIT">
+		<validates value-key="SERVORDERID" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="userid" length="20" type="VARCHAR" column="USERID" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_VISIT">
+		<validates value-key="USERID" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="username" length="20" type="VARCHAR" column="USERNAME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_VISIT">
+		<validates value-key="USERNAME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="linkman" length="20" type="VARCHAR" column="LINKMAN" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_VISIT">
+		<validates value-key="LINKMAN" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="linktel" length="20" type="VARCHAR" column="LINKTEL" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_VISIT">
+		<validates value-key="LINKTEL" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="servtype" length="20" type="VARCHAR" column="SERVTYPE" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_VISIT" dictTypeId="crm_serviceType">
+		<validates value-key="SERVTYPE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="servitem" length="200" type="VARCHAR" column="SERVITEM" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_VISIT">
+		<validates value-key="SERVITEM" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="servworker" length="20" type="VARCHAR" column="SERVWORKER" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_VISIT">
+		<validates value-key="SERVWORKER" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carbrand" length="20" type="VARCHAR" column="CARBRAND" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_VISIT" dictTypeId="crm_carModel">
+		<validates value-key="CARBRAND" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carseries" length="20" type="VARCHAR" column="CARSERIES" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_VISIT" dictTypeId="crm_carModel">
+		<validates value-key="CARSERIES" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carlicenceno" length="20" type="VARCHAR" column="CARLICENCENO" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_VISIT">
+		<validates value-key="CARLICENCENO" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="servintime" length="19" type="DATETIME" column="SERVINTIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_VISIT">
+		<validates value-key="SERVINTIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="servouttime" length="19" type="DATETIME" column="SERVOUTTIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_VISIT">
+		<validates value-key="SERVOUTTIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="servmark" length="20" type="VARCHAR" column="SERVMARK" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_VISIT">
+		<validates value-key="SERVMARK" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="repairmark" length="20" type="VARCHAR" column="REPAIRMARK" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_VISIT">
+		<validates value-key="REPAIRMARK" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+</fields>
+<description>回访
+http://crm/coreModule/data::crm_visit</description></data>
+</saturn-data>

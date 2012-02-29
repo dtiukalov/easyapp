@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-logic>
+	<information id="0" next="" x="0" y="0">
+		<key>/ccioModule/logic/GetDictById.logic</key>
+		<name>按ID获得基础信息</name>
+		<loadstart>flase</loadstart>
+		<description></description>
+	</information>
+	<start id="1" next="4" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters>
+			<parameter id="1" name="result" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description>返回SaturnData</description>
+			</parameter>
+			<parameter id="2" name="primarykeyvalue" classType="java.lang.String" passingType="in">
+				<value-key>primarykeyvalue</value-key>
+				<scope>1</scope>
+				<description>主键值</description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</start>
+	<end id="3" next="" x="389" y="161">
+		<name>结束</name>
+		<parameters></parameters>
+		<description></description>
+	</end>
+	<component exception="" id="4" next="3" x="224" y="156">
+		<key>edu.ccut.saturn.basecomponent::/databaseComponent/QueryByPrimaryKeyComponent.component</key>
+		<name>依主健查询数据</name>
+		<parameters>
+			<parameter id="1" name="fullkey" classType="java.lang.String" passingType="in">
+				<value-key>'http://crm/ccioModule/data::Dict'</value-key>
+				<scope>1</scope>
+				<description>生成SaturnData所需的fullkey</description>
+			</parameter>
+			<parameter id="2" name="primarykeyvalue" classType="java.lang.String" passingType="in">
+				<value-key>primarykeyvalue</value-key>
+				<scope>1</scope>
+				<description>主键值</description>
+			</parameter>
+			<parameter id="3" name="result" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description>返回SaturnData</description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>依主健查询数据组件</description>
+	</component>
+	<connection source="1" target="4" style="1" name=""></connection>
+	<connection source="4" target="3" style="1" name=""></connection>
+</saturn-logic>

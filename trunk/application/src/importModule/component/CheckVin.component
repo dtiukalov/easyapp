@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-components>
+	<component key="/importModule/component/CheckVin.component" name="CheckVin" class="importModule.component.CheckVin" projectname="crm">
+		<description></description>
+		<parameters>
+			<parameter id="1" name="saturnData" passingType="in" classType="edu.ccut.saturn.component.SaturnData">
+				<scope>1</scope>
+				<value-key>saturnData</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="flg" classType="java.lang.Boolean" passingType="out">
+				<scope>1</scope>
+				<value-key>flg</value-key>
+				<description></description>
+			</parameter>
+		</parameters>
+		<loadstart>false</loadstart>
+	</component>
+</saturn-components>

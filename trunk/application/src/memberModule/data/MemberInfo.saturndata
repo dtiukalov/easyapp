@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-data>
+	<data name="MemberInfo" namespace="http://crm/memberModule/data" dbType="mysql" connectname="crm">
+<fields>
+	<field name="memberid" length="10" type="INT UNSIGNED" column="MEMBERID" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_MEMBER">
+		<validates value-key="MEMBERID" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carvin" length="17" type="VARCHAR" column="CARVIN" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_MEMBER">
+		<validates value-key="CARVIN" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="membtype" length="45" type="VARCHAR" column="MEMBTYPE" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_MEMBER">
+		<validates value-key="MEMBTYPE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="membjoindate" length="20" type="VARCHAR" column="MEMBJOINDATE" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_MEMBER">
+		<validates value-key="MEMBJOINDATE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="membenjoying" length="100" type="VARCHAR" column="MEMBENJOYING" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_MEMBER">
+		<validates value-key="MEMBENJOYING" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="membenjoyed" length="100" type="VARCHAR" column="MEMBENJOYED" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_MEMBER">
+		<validates value-key="MEMBENJOYED" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="createtime" length="19" type="DATETIME" column="CREATETIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_MEMBER">
+		<validates value-key="CREATETIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="updatetime" length="19" type="DATETIME" column="UPDATETIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_MEMBER">
+		<validates value-key="UPDATETIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="membcardid" length="20" type="VARCHAR" column="MEMBCARDID" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_MEMBER">
+		<validates value-key="MEMBCARDID" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="userid" length="20" type="VARCHAR" column="USERID" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_MEMBER">
+		<validates value-key="USERID" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="username" length="20" type="VARCHAR" column="USERNAME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_MEMBER">
+		<validates value-key="USERNAME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carcardid" length="20" type="VARCHAR" column="CARCARDID" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARCARDID" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carlicenceno" length="20" type="VARCHAR" column="CARLICENCENO" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR">
+		<validates value-key="CARLICENCENO" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carbrand" length="45" type="VARCHAR" column="CARBRAND" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR" dictTypeId="crm_carModel">
+		<validates value-key="CARBRAND" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carmodel" length="45" type="VARCHAR" column="CARMODEL" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR" dictTypeId="crm_carModel">
+		<validates value-key="CARMODEL" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carseries" length="45" type="VARCHAR" column="CARSERIES" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR" dictTypeId="crm_carModel">
+		<validates value-key="CARSERIES" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="cararea" length="45" type="VARCHAR" column="CARAREA" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAR" dictTypeId="crm_carArea">
+		<validates value-key="CARAREA" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="cstmname" length="45" type="VARCHAR" column="CSTMNAME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CUSTOMER">
+		<validates value-key="CSTMNAME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="cstmtel" length="60" type="VARCHAR" column="CSTMTEL" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CUSTOMER">
+		<validates value-key="CSTMTEL" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="cstmmobile" length="45" type="VARCHAR" column="CSTMMOBILE" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CUSTOMER">
+		<validates value-key="CSTMMOBILE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field length="11" type="INT" column="P_SUMPOINT" javaType="java.lang.Integer" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_POINT" name="sumpoint">
+		<validates value-key="P_SUMPOINT" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	<field name="startIndex" length="10" type="" column="" showName="startIndex" defaultValue="0" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="false" sequenceName="" tableName="" javaType="java.lang.String">
+		<validates value-key="startIndex" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	<field name="endIndex" length="10" type="" column="" showName="endIndex" defaultValue="10" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="false" sequenceName="" tableName="" javaType="java.lang.String">
+		<validates value-key="endIndex" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+</fields>
+<description>'http://crm/memberModule/data::MemberInfo'</description></data>
+	<sqls>
+		<sql id="memberlist">
+			select 
+		    a.carvin as carvin,
+		    a.memberid as memberid,
+		    a.membtype as membtype,
+		    a.membjoindate as membjoindate,
+		    a.membenjoyed as membenjoyed,
+		    a.membenjoying as membenjoying,
+		    b.cararea as cararea,
+		    b.carcardid as carcardid,
+		    b.carmodel as carmodel,
+		    b.carbrand as carbrand,
+		    b.carseries as carseries,
+		    b.carlicenceno as carlicenceno,
+		    c.cstmname as cstmname,
+		    c.cstmtel as cstmtel,
+		    c.cstmmobile as cstmmobile,
+		    d.sumpoint as sumpoint
+		    from crm_member a left join crm_car b on a.carvin=b.carvin left join crm_customer c on a.carvin=c.carvin left join  
+		    (
+		    select p_vin,sum(p_sumpoint) sumpoint from crm_point 
+		    where p_state=1
+		    group by p_vin
+		    ) d on a.carvin=d.p_vin
+		    where 1=1 
+		    <isNotEmpty prepend="AND" property="carlicenceno">
+				b.carlicenceno like '%${carlicenceno}%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="carcardid">
+				b.carcardid=${carcardid}
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="carvin">
+				a.carvin like '%${carvin}%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="carbrand">
+				b.carbrand='${carbrand}'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="carseries">
+				b.carseries='${carseries}'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="carmodel">
+				b.carmodel='${carmodel}'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="cararea">
+				b.cararea='${cararea}'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="cstmname">
+				c.cstmname like '%${cstmname}%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="min_membjoindate">
+				a.membjoindate>='${min_membjoindate}'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="max_membjoindate">
+				a.membjoindate&lt;='${max_membjoindate}'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="membcardid">
+				a.membcardid='${membcardid}'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="membtype">
+				a.membtype='${membtype}'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="min_sumpoint">
+				d.sumpoint>=${min_sumpoint}
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="max_sumpoint">
+				d.sumpoint&lt;=${max_sumpoint}
+			</isNotEmpty>
+			order by memberid limit ${startIndex},${endIndex}
+		</sql>
+	</sqls>
+</saturn-data>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-components>
+	<component key="/coreModule/component/GetDateString.component" name="GetDateString" class="coreModule.core.GetDateString" projectname="crm">
+		<description></description>
+		<parameters></parameters>
+		<loadstart>false</loadstart>
+	</component>
+</saturn-components>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/assessmentModule/action/AssessmentTwo.action</key>
+		<name>客户内化率</name>
+		<description></description>
+	</information>
+	<view id="10" next="" x="717" y="166">
+		<name>assessmenttwo</name>
+		<type>jsp</type>
+		<location>/crm/assessmentModule/web/assessmenttwo.jsp</location>
+		<description></description>
+	</view>
+	<start id="1" next="2" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<logic exception="" id="2" next="3" x="164" y="68">
+		<key>crm::/assessmentModule/logic/archives.logic</key>
+		<name>档案数</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="count" classType="java.lang.Integer" passingType="out">
+				<value-key>count</value-key>
+				<scope>2</scope>
+				<description>记录条数</description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<logic exception="" id="3" next="4" x="185" y="263">
+		<key>crm::/assessmentModule/logic/fixedselect.logic</key>
+		<name>有工单固定客户</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="" classType="java.lang.String" passingType="in">
+				<value-key>servintime</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="result" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>fixedresult</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<logic exception="" id="4" next="6" x="286" y="64">
+		<key>crm::/assessmentModule/logic/fixedztselect.logic</key>
+		<name>无工单固定客户</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="" classType="java.lang.String" passingType="in">
+				<value-key>servintime</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="result" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>fixedztresult</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<logic exception="" id="6" next="5" x="326" y="258">
+		<key>crm::/assessmentModule/logic/newcustomernozt.logic</key>
+		<name>有工单新增客户</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="servintime" classType="java.lang.String" passingType="in">
+				<value-key>servintime</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="result" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>newcustomernoztresult</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<logic exception="" id="5" next="7" x="436" y="63">
+		<key>crm::/assessmentModule/logic/newcustomer.logic</key>
+		<name>新增客户</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="" classType="java.lang.String" passingType="in">
+				<value-key>servintime</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="result" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>newcustomerresult</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<logic exception="" id="9" next="8" x="571" y="67">
+		<key>crm::/assessmentModule/logic/returncustomernozt.logic</key>
+		<name>有工单回流客户</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="servintime" classType="java.lang.String" passingType="in">
+				<value-key>servintime</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="saturnDataList" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>returncustomernoztresult</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<logic exception="" id="7" next="9" x="464" y="261">
+		<key>crm::/assessmentModule/logic/lostcustomer.logic</key>
+		<name>流失客户</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="" classType="java.lang.String" passingType="in">
+				<value-key>servintime</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="result" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>lostcustomerresult</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<logic exception="" id="8" next="10" x="598" y="257">
+		<key>crm::/assessmentModule/logic/returncustomer.logic</key>
+		<name>回流客户</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="" classType="java.lang.String" passingType="in">
+				<value-key>servintime</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="result" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>returncustomerresult</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<connection source="1" target="2" style="1" name=""></connection>
+	<connection source="2" target="3" style="1" name=""></connection>
+	<connection source="3" target="4" style="1" name=""></connection>
+	<connection source="4" target="6" style="1" name=""></connection>
+	<connection source="5" target="7" style="1" name=""></connection>
+	<connection source="6" target="5" style="1" name=""></connection>
+	<connection source="7" target="9" style="1" name=""></connection>
+	<connection source="8" target="10" style="1" name=""></connection>
+	<connection source="9" target="8" style="1" name=""></connection>
+</saturn-action>

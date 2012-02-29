@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-logic>
+	<information id="0" next="" x="0" y="0">
+		<key>/dictModule/logic/HiddenDict.logic</key>
+		<name>HiddenDict</name>
+		<loadstart>flase</loadstart>
+		<description></description>
+	</information>
+	<end id="3" next="" x="800" y="105">
+		<name>结束</name>
+		<parameters></parameters>
+		<description></description>
+	</end>
+	<connection source="6" target="5" style="1" name=""></connection>
+	<start id="1" next="5" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters>
+			<parameter id="1" name="" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<value-key>saturnData</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</start>
+	<component exception="" id="8" next="3" x="694" y="231">
+		<key>edu.ccut.saturn.basecomponent::/databaseComponent/UpdateByConditionExtComponent.component</key>
+		<name>依条件更新</name>
+		<parameters>
+			<parameter id="1" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<value-key>saturnData</value-key>
+				<scope>1</scope>
+				<description>操作的saturnData</description>
+			</parameter>
+			<parameter id="2" name="logicContext" classType="java.util.HashMap" passingType="in">
+				<value-key>${context}</value-key>
+				<scope>1</scope>
+				<description>logicContext</description>
+			</parameter>
+			<parameter id="3" name="result" classType="java.lang.Integer" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description>sql执行所修改的记录条数</description>
+			</parameter>
+			<parameter id="4" name="specialcolumn" classType="java.lang.String" passingType="in">
+				<value-key>specialcolumn</value-key>
+				<scope>1</scope>
+				<description>需要插入0 和 null 的属性列表 形如： 'column1,column2,column5'</description>
+			</parameter>
+			<parameter id="5" name="" classType="java.lang.String" passingType="in">
+				<value-key>'code=${saturnData.code}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="6" name="" classType="java.lang.String" passingType="in">
+				<value-key>'type=${saturnData.type}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>按条件更新</description>
+	</component>
+	<component exception="" id="7" next="8" x="539" y="213">
+		<key>edu.ccut.saturn.basecomponent::/dataOperationComponent/SetDataValues.component</key>
+		<name>批量设置SaturnData中的字段的值</name>
+		<parameters>
+			<parameter id="1" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<value-key>saturnData</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="key" classType="java.lang.String" passingType="in">
+				<value-key>'hidden_flag'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="fieldValue" classType="java.lang.String" passingType="in">
+				<value-key>'1'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>批量设置SaturnData中的字段的值</description>
+	</component>
+	<decision next="" id="5" x="302" y="167">
+		<name>选择2</name>
+		<if then="4" else="7">
+			<expr>saturnData.hidden_flag=='0'</expr>
+		</if>
+		<parameters></parameters>
+		<description></description>
+	</decision>
+	<component exception="" id="4" next="3" x="581" y="46">
+		<key>edu.ccut.saturn.basecomponent::/databaseComponent/UpdateByConditionExtComponent.component</key>
+		<name>依条件更新</name>
+		<parameters>
+			<parameter id="1" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<value-key>saturnData</value-key>
+				<scope>1</scope>
+				<description>操作的saturnData</description>
+			</parameter>
+			<parameter id="2" name="logicContext" classType="java.util.HashMap" passingType="in">
+				<value-key>${context}</value-key>
+				<scope>1</scope>
+				<description>logicContext</description>
+			</parameter>
+			<parameter id="3" name="result" classType="java.lang.Integer" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description>sql执行所修改的记录条数</description>
+			</parameter>
+			<parameter id="4" name="specialcolumn" classType="java.lang.String" passingType="in">
+				<value-key>'hidden_flag'</value-key>
+				<scope>1</scope>
+				<description>需要插入0 和 null 的属性列表 形如： 'column1,column2,column5'</description>
+			</parameter>
+			<parameter id="5" name="" classType="java.lang.String" passingType="in">
+				<value-key>'code=${saturnData.code}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="6" name="" classType="java.lang.String" passingType="in">
+				<value-key>'type=${saturnData.type}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>按条件更新</description>
+	</component>
+	<connection source="7" target="8" style="1" name=""></connection>
+	<connection source="8" target="3" style="1" name=""></connection>
+	<connection source="4" target="3" style="1" name=""></connection>
+	<connection source="1" target="5" style="1" name=""></connection>
+	<connection source="5" target="4" style="1" name="未命名"></connection>
+	<connection source="5" target="7" style="2" name="未命名"></connection>
+</saturn-logic>

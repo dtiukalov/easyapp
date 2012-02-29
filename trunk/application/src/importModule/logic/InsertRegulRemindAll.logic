@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-logic>
+	<information id="0" next="" x="0" y="0">
+		<key>/importModule/logic/InsertRegulRemindAll.logic</key>
+		<name>导入定期保险保养信息</name>
+		<loadstart>flase</loadstart>
+		<description>导入定期保险保养信息</description>
+	</information>
+	<end-iteration id="7" next="3" x="525" y="168">
+		<name>循环结束5</name>
+		<start-id>6</start-id>
+		<description></description>
+	</end-iteration>
+	<logic exception="" id="9" next="7" x="440" y="165">
+		<key>crm::/importModule/logic/InsertRegulRemind.logic</key>
+		<name>插入定期保养提醒</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="fieldValue" classType="java.lang.String" passingType="in">
+				<value-key>currentTime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="in-out">
+				<value-key>${data.regulremind}</value-key>
+				<scope>1</scope>
+				<description>操作的saturnData</description>
+			</parameter>
+			<parameter id="3" name="fieldValue" classType="java.lang.String" passingType="in">
+				<value-key>importtarget</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description>插入定期保养提醒</description>
+	</logic>
+	<connection source="4" target="10" style="1" name=""></connection>
+	<logic exception="" id="11" next="10" x="261" y="191">
+		<key>crm::/importModule/logic/GetDataList.logic</key>
+		<name>GetDataList</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="importType" classType="java.lang.String" passingType="in">
+				<value-key>importType</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="filePath" classType="java.lang.String" passingType="in">
+				<value-key>filePath</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="dataList" classType="java.util.ArrayList" passingType="out">
+				<value-key>dataList</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="4" name="result" classType="java.lang.String" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<component exception="" id="5" next="11" x="165" y="159">
+		<key>edu.ccut.saturn.basecomponent::/baseService/GetSystemTime.component</key>
+		<name>得到系统时间</name>
+		<parameters>
+			<parameter id="1" name="currentTime" classType="java.lang.String" passingType="out">
+				<value-key>currentTime</value-key>
+				<scope>1</scope>
+				<description>系统当前时间</description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>获得系统当前时间 形如 2007-12-24 09:44:09</description>
+	</component>
+	<start-iteration id="6" next="9" x="355" y="166">
+		<name>循环开始5</name>
+		<iterator-list-key>dataList</iterator-list-key>
+		<item-key>data</item-key>
+		<end-id>7</end-id>
+		<description></description>
+	</start-iteration>
+	<decision next="" id="10" x="293" y="297">
+		<name>选择8</name>
+		<if then="6" else="3">
+			<expr>result == &quot;success&quot;</expr>
+		</if>
+		<parameters></parameters>
+		<description></description>
+	</decision>
+	<end id="3" next="" x="542" y="281">
+		<name>结束</name>
+		<parameters></parameters>
+		<description></description>
+	</end>
+	<start id="1" next="5" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters>
+			<parameter id="1" name="importType" classType="java.lang.String" passingType="in">
+				<value-key>importType</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="filePath" classType="java.lang.String" passingType="in">
+				<value-key>filePath</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="currentTime" classType="java.lang.String" passingType="out">
+				<value-key>currentTime</value-key>
+				<scope>1</scope>
+				<description>系统当前时间</description>
+			</parameter>
+			<parameter id="4" name="fieldValue" classType="java.lang.String" passingType="in">
+				<value-key>importtarget</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="5" name="result" classType="java.lang.String" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</start>
+	<connection source="5" target="11" style="1" name=""></connection>
+	<connection source="1" target="5" style="1" name=""></connection>
+	<connection source="10" target="6" style="1" name="未命名"></connection>
+	<connection source="10" target="3" style="2" name="未命名"></connection>
+	<connection source="6" target="9" style="1" name=""></connection>
+	<connection source="7" target="3" style="1" name=""></connection>
+	<connection source="9" target="7" style="1" name=""></connection>
+	<connection source="11" target="10" style="1" name=""></connection>
+</saturn-logic>

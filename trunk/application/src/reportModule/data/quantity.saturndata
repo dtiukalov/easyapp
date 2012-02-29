@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-data>
+	<data name="quantity" namespace="http://crm/reportModule/data" dbType="mysql" connectname="20110117">
+		
+<fields>
+	<field name="servstaff" length="20" type="VARCHAR" column="SERVSTAFF" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVICE" dictTypeId="crm_waiter">
+		<validates value-key="SERVSTAFF" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="servtype" length="20" type="VARCHAR" column="SERVTYPE" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVICE" dictTypeId="crm_serviceType">
+		<validates value-key="SERVTYPE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="countn" length="20" type="VARCHAR" column="countn" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="">
+		<validates value-key="countn" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="servhoursexp" length="12" type="FLOAT" column="SERVHOURSEXP" javaType="java.lang.Float" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVICE">
+		<validates value-key="SERVHOURSEXP" classType="java.lang.Float" isValidate="false"></validates>
+	</field>
+	<field name="servpartsexp" length="12" type="FLOAT" column="SERVPARTSEXP" javaType="java.lang.Float" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVICE">
+		<validates value-key="SERVPARTSEXP" classType="java.lang.Float" isValidate="false"></validates>
+	</field>
+	<field name="value" length="20" type="VARCHAR" column="value" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="">
+		<validates value-key="value" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+</fields>
+<description>'http://crm/reportModule/data::quantity'</description></data>
+<sqls>
+	<sql id="quantityin">
+		select a.`servStaff` servstaff,a.`servType` servType,COUNT(*) countn,b.`value`
+		from `crm_service` a,`saturn_dict` b
+		where 1=1                           
+        and a.`servStaff` = b.`CODE`
+		and a.`servinTime` BETWEEN '${min_servintime}' and '${max_servintime}'
+		group by a.`servStaff`,a.`servType`
+	</sql>
+	<sql id="quantityout">
+		select a.`servStaff` servstaff,a.`servType` servType,COUNT(*) countn,b.`value`
+		from `crm_service` a,`saturn_dict` b
+		where 1=1                           
+        and a.`servStaff` = b.`CODE`
+		and a.`servOutTime` BETWEEN '${min_servintime}' and '${max_servintime}'
+		group by a.`servStaff`,a.`servType`
+	</sql>
+	<sql id="yingyee">
+		select a.`servStaff` servStaff,a.`servType` servType,
+		sum(b.`servPartsExp`) servPartsExp,sum(b.`servHoursExp`) servHoursExp
+		from `crm_service` a, `crm_servexp` b
+		where 1=1
+        and a.`servOrderId` = b.`servOrderId`
+		<isNotEmpty prepend="AND" property="min_servintime">
+				 a.`servInTime` BETWEEN '${min_servintime}' and '${max_servintime}'
+		</isNotEmpty>
+		<isNotEmpty prepend="AND" property="min_servouttime">
+				 a.`servOutTime` BETWEEN '${min_servouttime}' and '${max_servouttime}'
+		</isNotEmpty>
+		group by a.`servStaff`,a.`servType`
+	</sql>
+	
+	<sql id="yingyeename">
+		select distinct a.`servStaff` servStaff, b.`VALUE` as value
+		from `crm_service` a, saturn_dict b
+		where 1=1
+        and a.`servStaff` = b.`CODE`
+		<isNotEmpty prepend="AND" property="min_servintime">
+				 a.`servInTime` BETWEEN '${min_servintime}' and '${max_servintime}'
+		</isNotEmpty>
+		<isNotEmpty prepend="AND" property="min_servouttime">
+				 a.`servOutTime` BETWEEN '${min_servouttime}' and '${max_servouttime}'
+		</isNotEmpty>
+	</sql>
+	
+</sqls>
+</saturn-data>

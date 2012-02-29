@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-logic>
+	<information id="0" next="" x="0" y="0">
+		<key>/ccioModule/logic/GetCarByVin.logic</key>
+		<name>按vin获得车辆信息</name>
+		<loadstart>flase</loadstart>
+		<description></description>
+	</information>
+	<component exception="" id="4" next="5" x="227" y="157">
+		<key>edu.ccut.saturn.basecomponent::/databaseComponent/QueryByConditionExtComponent.component</key>
+		<name>依动态条件查询</name>
+		<parameters>
+			<parameter id="1" name="fullkey" classType="java.lang.String" passingType="in">
+				<value-key>'http://crm/ccioModule/data::Car'</value-key>
+				<scope>1</scope>
+				<description>生成SaturnData所需的fullkey</description>
+			</parameter>
+			<parameter id="2" name="logicContext" classType="java.util.HashMap" passingType="in">
+				<value-key>${context}</value-key>
+				<scope>1</scope>
+				<description>logicContext</description>
+			</parameter>
+			<parameter id="3" name="result" classType="java.util.ArrayList" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description>返回SaturnData结果集</description>
+			</parameter>
+			<parameter id="4" name="carvin" classType="java.lang.String" passingType="in">
+				<value-key>'carvin='${carvin}''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description></description>
+	</component>
+	<start id="1" next="4" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters>
+			<parameter id="1" name="result" classType="java.util.ArrayList" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description>返回SaturnData结果集</description>
+			</parameter>
+			<parameter id="2" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>saturnData</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="carvin" classType="java.lang.String" passingType="in">
+				<value-key>carvin</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</start>
+	<end id="3" next="" x="389" y="161">
+		<name>结束</name>
+		<parameters></parameters>
+		<description></description>
+	</end>
+	<component exception="" id="5" next="3" x="340" y="245">
+		<key>edu.ccut.saturn.basecomponent::/dataOperationComponent/GetFirstSaturnDataFromList.component</key>
+		<name>得到数据项List中的第一条数据</name>
+		<parameters>
+			<parameter id="1" name="saturnDataList" classType="java.util.ArrayList" passingType="in">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>saturnData</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>GetFirstSaturnDataFromList</description>
+	</component>
+	<connection source="1" target="4" style="1" name=""></connection>
+	<connection source="4" target="5" style="1" name=""></connection>
+	<connection source="5" target="3" style="1" name=""></connection>
+</saturn-logic>

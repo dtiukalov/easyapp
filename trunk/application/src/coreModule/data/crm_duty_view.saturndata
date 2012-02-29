@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-data>
+	<data name="crm_duty_view" namespace="http://crm/coreModule/data" dbType="mysql" connectname="crm">
+		
+<fields>
+	<field name="dutyid" length="10" type="INT UNSIGNED" column="DUTYID" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_DUTY_VIEW">
+		<validates value-key="DUTYID" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="dutyintime" length="19" type="DATETIME" column="DUTYINTIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_DUTY_VIEW">
+		<validates value-key="DUTYINTIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="dutycarmodel" length="45" type="VARCHAR" column="DUTYCARMODEL" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_DUTY_VIEW" dictTypeId="crm_carModel">
+		<validates value-key="DUTYCARMODEL" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="dutystaff" length="45" type="VARCHAR" column="DUTYSTAFF" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_DUTY_VIEW" dictTypeId="crm_waiter">
+		<validates value-key="DUTYSTAFF" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="dutyprovide" length="45" type="VARCHAR" column="DUTYPROVIDE" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_DUTY_VIEW">
+		<validates value-key="DUTYPROVIDE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="dutypredelivtime" length="19" type="DATETIME" column="DUTYPREDELIVTIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_DUTY_VIEW">
+		<validates value-key="DUTYPREDELIVTIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="dutydelayreason" length="100" type="VARCHAR" column="DUTYDELAYREASON" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_DUTY_VIEW">
+		<validates value-key="DUTYDELAYREASON" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="dutydelivtime" length="19" type="DATETIME" column="DUTYDELIVTIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_DUTY_VIEW">
+		<validates value-key="DUTYDELIVTIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="dutydelivery" length="45" type="VARCHAR" column="DUTYDELIVERY" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_DUTY_VIEW">
+		<validates value-key="DUTYDELIVERY" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="dutywkcontent" length="200" type="VARCHAR" column="DUTYWKCONTENT" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_DUTY_VIEW">
+		<validates value-key="DUTYWKCONTENT" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="dutycommu" length="2" type="VARCHAR" column="DUTYCOMMU" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_DUTY_VIEW">
+		<validates value-key="DUTYCOMMU" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="ditemtype" length="45" type="VARCHAR" column="DITEMTYPE" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_DUTY_VIEW" dictTypeId="crm_dItemType">
+		<validates value-key="DITEMTYPE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="ditemoperator" length="45" type="VARCHAR" column="DITEMOPERATOR" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_DUTY_VIEW">
+		<validates value-key="DITEMOPERATOR" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="ditemstarttime" length="19" type="DATETIME" column="DITEMSTARTTIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_DUTY_VIEW">
+		<validates value-key="DITEMSTARTTIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="ditemendtime" length="19" type="DATETIME" column="DITEMENDTIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_DUTY_VIEW">
+		<validates value-key="DITEMENDTIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="ditemstation" length="45" type="VARCHAR" column="DITEMSTATION" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_DUTY_VIEW">
+		<validates value-key="DITEMSTATION" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="dutyitemid" length="10" type="INT UNSIGNED" column="DUTYITEMID" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_DUTY_VIEW">
+		<validates value-key="DUTYITEMID" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carlicenseno" length="45" type="VARCHAR" column="CARLICENSENO" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_DUTY_VIEW">
+		<validates value-key="CARLICENSENO" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+</fields>
+<description>http://crm/coreModule/data::crm_duty_view</description></data>
+</saturn-data>

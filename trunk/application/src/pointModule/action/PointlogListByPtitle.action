@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/pointModule/action/PointlogListByPtitle.action</key>
+		<name>按ptitle获得积分明细</name>
+		<description></description>
+	</information>
+	<transform id="3" next="4" x="419" y="148">
+		<value-key>plresult</value-key>
+		<type>json</type>
+		<name>转移1</name>
+		<contents>
+			<content id="1" type="list">
+				<content-value-key>plresult</content-value-key>
+			</content>
+		</contents>
+		<description></description>
+	</transform>
+	<start id="1" next="2" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<view id="4" next="" x="594" y="190">
+		<name>视图2</name>
+		<type>json</type>
+		<location>plresult</location>
+		<description></description>
+	</view>
+	<logic exception="" id="2" next="3" x="225" y="143">
+		<key>crm::/pointModule/logic/PointlogListByPtitle.logic</key>
+		<name>按ptitle获得积分明细</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="result" classType="java.util.ArrayList" passingType="out">
+				<value-key>plresult</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="p_title" classType="java.lang.String" passingType="in">
+				<value-key>p_title</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<connection source="1" target="2" style="1" name=""></connection>
+	<connection source="2" target="3" style="1" name=""></connection>
+	<connection source="3" target="4" style="1" name=""></connection>
+</saturn-action>

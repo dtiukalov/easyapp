@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/ccioModule/action/GetVinByLike.action</key>
+		<name>动态获得vin</name>
+		<description></description>
+	</information>
+	<start id="1" next="2" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<logic exception="" id="2" next="3" x="258" y="152">
+		<key>crm::/ccioModule/logic/GetVinByLike.logic</key>
+		<name>动态获得车辆VIN</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="vins" classType="java.lang.String" passingType="out">
+				<value-key>vins</value-key>
+				<scope>1</scope>
+				<description>jsontext vin串</description>
+			</parameter>
+			<parameter id="2" name="vinlike" classType="java.lang.String" passingType="in">
+				<value-key>query</value-key>
+				<scope>2</scope>
+				<description>vin匹配参数</description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<view id="3" next="" x="501" y="162">
+		<name>视图2</name>
+		<type>xml</type>
+		<location>vins</location>
+		<description></description>
+	</view>
+	<connection source="1" target="2" style="1" name=""></connection>
+	<connection source="2" target="3" style="1" name=""></connection>
+</saturn-action>

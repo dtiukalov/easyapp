@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/reportModule/action/yanghus.action</key>
+		<name>yanghus</name>
+		<description></description>
+	</information>
+	<view id="3" next="" x="353" y="177">
+		<name>yanghus</name>
+		<type>jsp</type>
+		<location>/crm/reportModule/web/yanghus.jsp</location>
+		<description></description>
+	</view>
+	<start id="1" next="2" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<logic exception="" id="2" next="3" x="216" y="160">
+		<key>crm::/reportModule/logic/querycaresec.logic</key>
+		<name>querycaresec</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="min_careOutTime" classType="java.lang.String" passingType="in">
+				<value-key>min_careOutTime</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="max_careOutTime" classType="java.lang.String" passingType="in">
+				<value-key>max_careOutTime</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="result" classType="java.util.ArrayList" passingType="out">
+				<value-key>result</value-key>
+				<scope>2</scope>
+				<description>返回SaturnData结果集</description>
+			</parameter>
+			<parameter id="4" name="resultlist" classType="java.util.ArrayList" passingType="out">
+				<value-key>resultlist</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="5" name="min_careInTime" classType="java.lang.String" passingType="in">
+				<value-key>min_careInTime</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="6" name="max_careInTime" classType="java.lang.String" passingType="in">
+				<value-key>max_careInTime</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<connection source="1" target="2" style="1" name=""></connection>
+	<connection source="2" target="3" style="1" name=""></connection>
+</saturn-action>

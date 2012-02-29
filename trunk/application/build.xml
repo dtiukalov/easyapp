@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="crm" default="create-jar" basedir=".">
+	<property name="target.dir" value="D:/saturn/server/tomcat/webapps/server/WEB-INF/bundles/plugins/"/>
+	<property name="temp.dir" value="./temp" />
+	<property name="jar.dir" value="./jar" />
+	<property name="bin.dir" value="" />
+	
+	<target name="init">
+	   <mkdir dir="${temp.dir}" />
+	   <mkdir dir="${jar.dir}" />
+	</target>
+
+	<target name="deploy" depends="init">
+		<copy todir="${temp.dir}/">
+			<fileset dir="${bin.dir}">
+				<include name="**/*.*" />
+			</fileset>
+		</copy>
+		<copy todir="${jar.dir}/crm/">
+					<fileset dir="${temp.dir}/bin/">
+						<include name="**/*.*" />
+					</fileset>
+		</copy>
+		<copy todir="${jar.dir}/crm/lib">
+			<fileset dir="lib/">
+				<include name="**/*.*" />
+			</fileset>
+		</copy>
+		<copy todir="${jar.dir}/crm/META-INF">
+					<fileset dir="META-INF/">
+						<include name="**/*.*" />
+					</fileset>
+		</copy>
+		<delete dir="${temp.dir}" />
+	</target>
+	
+	<target name="create-jar" depends="deploy">
+				<jar jarfile="${jar.dir}/crm_1.0.0.jar" compress="true" manifest="META-INF/MANIFEST.MF">
+					<fileset dir="${jar.dir}/crm">
+						<include name="**/*.*" />
+					</fileset>
+				</jar>
+		       <copy todir="${target.dir}/">
+					<fileset dir="${jar.dir}/">
+						<include name="**/crm_1.0.0.jar" />
+					</fileset>
+				</copy>  
+				<delete dir="${jar.dir}" />  
+	</target>
+</project>

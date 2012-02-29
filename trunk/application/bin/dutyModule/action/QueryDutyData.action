@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/dutyModule/action/QueryDutyData.action</key>
+		<name>QueryDutyData</name>
+		<description></description>
+	</information>
+	<start id="1" next="2" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<decision next="" id="4" x="362" y="274">
+		<name>del!=null</name>
+		<if then="5" else="3">
+			<expr>del!=null&amp;&amp;!empty(del.trim())&amp;&amp;del=='ok'</expr>
+		</if>
+		<parameters></parameters>
+		<description></description>
+	</decision>
+	<view id="5" next="" x="539" y="288">
+		<name>delDuty</name>
+		<type>jsp</type>
+		<location>/crm/dutyModule/web/delDuty.jsp</location>
+		<description></description>
+	</view>
+	<view id="3" next="" x="518" y="170">
+		<name>updateDuty</name>
+		<type>jsp</type>
+		<location>/crm/dutyModule/web/updateDuty.jsp</location>
+		<description></description>
+	</view>
+	<logic exception="" id="2" next="4" x="245" y="138">
+		<key>crm::/dutyModule/logic/QueryDutyData.logic</key>
+		<name>QueryDutyData</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="primarykeyvalue" classType="java.lang.String" passingType="in">
+				<value-key>dutyid</value-key>
+				<scope>2</scope>
+				<description>主键值</description>
+			</parameter>
+			<parameter id="2" name="result" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>saturnData</value-key>
+				<scope>2</scope>
+				<description>返回SaturnData</description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<connection source="1" target="2" style="1" name=""></connection>
+	<connection source="2" target="4" style="1" name=""></connection>
+	<connection source="4" target="5" style="1" name="未命名"></connection>
+	<connection source="4" target="3" style="2" name="未命名"></connection>
+</saturn-action>

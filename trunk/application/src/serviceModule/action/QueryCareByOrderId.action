@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/serviceModule/action/QueryCareByOrderId.action</key>
+		<name>QueryCareByOrderId</name>
+		<description></description>
+	</information>
+	<start id="1" next="4" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<view id="5" next="" x="526" y="319">
+		<name>noExistCare</name>
+		<type>jsp</type>
+		<location>/crm/serviceModule/web/noExistCare.jsp</location>
+		<description></description>
+	</view>
+	<action id="3" next="" x="640" y="168">
+		<key>crm::/careModule/action/QueryCareDetail.action</key>
+		<name>QueryCareDetail</name>
+		<parameters></parameters>
+		<description></description>
+	</action>
+	<webContext id="7" next="3" x="517" y="67">
+		<name>网页上下文1</name>
+		<value-moves>
+			<value-move id="1" key="careid" scope="1" newKey="careid" newScope="2" isDelete="false"></value-move>
+		</value-moves>
+		<description></description>
+	</webContext>
+	<decision next="" id="6" x="382" y="151">
+		<name>选择4</name>
+		<if then="7" else="5">
+			<expr>careid!=null&amp;&amp;careid!=''</expr>
+		</if>
+		<parameters></parameters>
+		<description></description>
+	</decision>
+	<logic exception="" id="4" next="6" x="248" y="146">
+		<key>crm::/serviceModule/logic/QueryCareByOrderId.logic</key>
+		<name>QueryCareByOrderId</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="" classType="java.lang.String" passingType="in">
+				<value-key>careorderid</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="target" classType="java.lang.String" passingType="out">
+				<value-key>careid</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<connection source="1" target="4" style="1" name=""></connection>
+	<connection source="4" target="6" style="1" name=""></connection>
+	<connection source="6" target="5" style="2" name="未命名"></connection>
+	<connection source="6" target="7" style="1" name="未命名"></connection>
+	<connection source="7" target="3" style="1" name=""></connection>
+</saturn-action>

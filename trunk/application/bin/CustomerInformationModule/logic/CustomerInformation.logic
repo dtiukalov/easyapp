@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-logic>
+	<information id="0" next="" x="0" y="0">
+		<key>/CustomerInformationModule/logic/CustomerInformation.logic</key>
+		<name>客户信息LOGIC</name>
+		<loadstart>flase</loadstart>
+		<description></description>
+	</information>
+	<connection source="5" target="3" style="1" name=""></connection>
+	<start id="1" next="4" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters>
+			<parameter id="1" name="carvin" classType="java.lang.String" passingType="in">
+				<value-key>carvin</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="result" classType="java.util.ArrayList" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</start>
+	<end id="3" next="" x="563" y="150">
+		<name>结束</name>
+		<parameters></parameters>
+		<description></description>
+	</end>
+	<component exception="" id="4" next="3" x="337" y="175">
+		<key>edu.ccut.saturn.basecomponent::/databaseComponent/QueryBySaturnSQLComponent.component</key>
+		<name>依SQL查询</name>
+		<parameters>
+			<parameter id="1" name="fullkey" classType="java.lang.String" passingType="in">
+				<value-key>'http://crm/CustomerInformationModule/data::customerinformation'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="sqlkey" classType="java.lang.String" passingType="in">
+				<value-key>'queryMAXtime'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="result" classType="java.util.ArrayList" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="4" name="carvin" classType="java.lang.String" passingType="in">
+				<value-key>'carvin='${carvin}''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description></description>
+	</component>
+	<connection source="1" target="4" style="1" name=""></connection>
+	<connection source="4" target="3" style="1" name=""></connection>
+</saturn-logic>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/memberModule/action/DeleteMember.action</key>
+		<name>删除会员信息</name>
+		<description></description>
+	</information>
+	<start id="1" next="2" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<logic exception="" id="2" next="4" x="213" y="162">
+		<key>crm::/memberModule/logic/DeleteMember.logic</key>
+		<name>删除会员信息</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="memberid" classType="java.lang.String" passingType="in">
+				<value-key>memberid</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<action id="4" next="" x="399" y="163">
+		<key>crm::/memberModule/action/QueryMemberList.action</key>
+		<name>会员信息列表</name>
+		<parameters></parameters>
+		<description></description>
+	</action>
+	<connection source="1" target="2" style="1" name=""></connection>
+	<connection source="2" target="4" style="1" name=""></connection>
+</saturn-action>

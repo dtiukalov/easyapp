@@ -58,7 +58,7 @@ public class ItemUtils {
 						String type = modelObject.getType().getName();
 						String isPublic = modelObject.getPropertyDisplayableValue("fv9PreRelesed");
 						if ("yes".equalsIgnoreCase(isPublic)) {
-							if(type.equalsIgnoreCase("FV9PHJPEG")){
+							if(type.equalsIgnoreCase(WorkspaceUtils.DatasetType)){
 								PH.getDataService().getProperties(modelObject, "fv9PageName");
 								try {
 									type = modelObject.getProperty("fv9PageName").getDisplayableValue();

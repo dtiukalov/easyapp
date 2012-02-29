@@ -15,6 +15,7 @@ import com.saturn.ph.FormManager;
 import com.saturn.ph.PH;
 import com.saturn.tc.utils.DatasetUtils;
 import com.saturn.tc.utils.DateUtils;
+import com.saturn.tc.utils.WorkspaceUtils;
 import com.teamcenter.soa.client.model.ModelObject;
 import com.teamcenter.soa.exceptions.NotLoadedException;
 
@@ -42,9 +43,10 @@ public class PreviewAction implements IAction {
 		}
 
 		String type = object.getType().getName();
-		if(type.equalsIgnoreCase("FV9PHJPEG")){
+		if(type.equalsIgnoreCase(WorkspaceUtils.DatasetType)){
 			try {
-				type = object.getProperty("object_name").getDisplayableValue();
+				PH.getDataService().getProperties(object, "fv9PageName");
+				type = object.getProperty("fv9PageName").getDisplayableValue();
 			} catch (NotLoadedException e) {
 				e.printStackTrace();
 			}
@@ -62,7 +64,7 @@ public class PreviewAction implements IAction {
 	private void initcCommunalData(HttpServletRequest request,Map<String, Object> form) {
 		if (request.getSession().getAttribute("FV9_11ProjectTermin") == null ||
 				request.getSession().getAttribute("FV9_11VorserienTer") == null) {
-			//获取公用的信息
+		//获取公用的信息
 			List<String> otherUids = (List)form.get("fv9OtherUid");//new ArrayList<String>();
 			
 		//	otherUids.add("wVJ9jSq148kgXB");

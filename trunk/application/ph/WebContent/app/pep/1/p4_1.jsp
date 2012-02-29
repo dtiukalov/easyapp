@@ -6,10 +6,7 @@
 <%@ include file="/app/pep/include/header.jsp"%>
 <%
 	String uid = (String)request.getAttribute("uid");
-	//title = "1.4 Anlaufkurve";//假数据
-	//String src = "/ph/app/pep/1/FV9_14Anlaufkurve.jpg";
 	String src = DatasetUtils.getDatasetByUid(uid, request);
-	//假数据
 %>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -25,11 +22,12 @@
 			<h1><%=title %> </h1>
 		</div>
 		<div id="content">
-			<div id="chart" style="width: 800px; height: 400px; margin: 0 auto">
-				<img src = "<%=src%>" width="800" height="400">
-			</div>
+				<div class="box">
+						<img src = "<%=src%>" />
+				</div>
 		</div>
 		<%@ include file="/app/pep/include/foot.jsp"%>
 	</div>	
+	</div>
 </body>
 </html>

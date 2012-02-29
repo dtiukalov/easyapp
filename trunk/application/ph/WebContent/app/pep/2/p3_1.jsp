@@ -21,11 +21,12 @@
 				<h1><%=title %></h1>
 			</div>
 			<div id="content" >
-				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto">
-					<img src = "<%=src%>" width="800" height="400">
+				<div class="box">
+						<img src = "<%=src%>" />
 				</div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	
+		</div>
 	</body>
 </html>

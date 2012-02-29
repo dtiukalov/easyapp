@@ -11,16 +11,6 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title><%=title %> </title>
-		<style type="text/css">
-			.box img {
-				vertical-align:middle;
-				max-height:850px;
-				max-width:850px;
-				width:expression(this.width>150 && this.height<= this.width?850:true);
-				height:expression(this.height>150 && this.width<= this.height?850:true);
-			}
-		</style>
-		
 	</head>
 	<body>
 		<div id="container">
@@ -31,7 +21,6 @@
 				<h1><%=title %></h1>
 			</div>
 			<div id="content">
-				
 				<div class="box">
 						<img src = "<%=src%>" />
 				</div>

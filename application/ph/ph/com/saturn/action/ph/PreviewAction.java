@@ -63,9 +63,10 @@ public class PreviewAction implements IAction {
 		if (request.getSession().getAttribute("FV9_11ProjectTermin") == null ||
 				request.getSession().getAttribute("FV9_11VorserienTer") == null) {
 			//获取公用的信息
-			List<String> otherUids = new ArrayList<String>();//(List)form.get("fv9OtherUid");
-			otherUids.add("wVJ9jSq148kgXB");
-			otherUids.add("wxC9jSq148kgXB");
+			List<String> otherUids = (List)form.get("fv9OtherUid");//new ArrayList<String>();
+		//
+		//	otherUids.add("wVJ9jSq148kgXB");
+		//	otherUids.add("wxC9jSq148kgXB");
 			
 			if (otherUids != null && otherUids.size() > 0) {
 				

@@ -61,7 +61,7 @@
 				<div class="fl"> VW471 CN-Pilothalle VFF,20.10.2010</div>
 				<div class="fr"> STATUS 19.10.2010</div>
 				<h1><%=title %></h1>
-		<div style="width: 20%;float: right;margin: -18px 10px; text-align: right;">
+		<div style="width: 20%;float: right;margin: -45px auto; text-align: left;">
    			<% if(fv9ProjectStatus.equals("绿")){%>
 		    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="16" height="40" />
 		    <%} else if(fv9ProjectStatus.equals("黄")){%>
@@ -111,7 +111,7 @@
 				  <tr>
 				    <td valign="top" class="pgpg" style="width:30%;">
 				    
-					    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:8px 8px 8px 0;">
+					    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0;">
 							  <tr>
 							    <td valign="top"><h2>Funktionserfüllung</h2></td>
 							    <td>
@@ -136,7 +136,7 @@
 				  	  <tr>
 				    <td valign="top" class="pgpg" style="width:30%;height: 45px;">
 				    
-				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:8px 8px 8px 0;">
+				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0;">
 						  <tr>
 						    <td valign="top"><h2>Produktion/ <br />Standardisierung</h2></td>
 						    <td>

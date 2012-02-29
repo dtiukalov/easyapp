@@ -28,6 +28,16 @@
             categoryId="com.customer.fawvw.issues.commands.category"
             name="问题统计报表">
       </command>
+      <command
+            id="com.customer.fawvw.issues.IssueForPreReportCommand"
+            categoryId="com.customer.fawvw.issues.commands.category"
+            name="预批量车报表">
+      </command>
+      <command
+            id="com.customer.fawvw.issues.IssueShiftReportCommand"
+            categoryId="com.customer.fawvw.issues.commands.category"
+            name="零件批次问题报表">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
@@ -46,6 +56,14 @@
       <handler
             class="com.customer.fawvw.issues.handler.IssueReportHandler"
             commandId="com.customer.fawvw.issues.IssueReportCommand">
+      </handler>
+      <handler
+            class="com.customer.fawvw.issues.handler.IssueForPreReportHandler"
+            commandId="com.customer.fawvw.issues.IssueForPreReportCommand">
+      </handler>
+      <handler
+            class="com.customer.fawvw.issues.handler.IssueShiftReportHandler"
+            commandId="com.customer.fawvw.issues.IssueShiftReportCommand">
       </handler>
    </extension>
    <extension
@@ -88,7 +106,16 @@
                      icon="platform:/plugin/com.customer.fawvw.issues/coins/issueMenu.png"
                      id="IssueReport3">
               	   </command>
-	             
+		           <command
+	                     commandId="com.customer.fawvw.issues.IssueForPreReportCommand"
+	                     icon="platform:/plugin/com.customer.fawvw.issues/coins/issueMenu.png"
+	                     id="IssueReport4">
+	               </command>
+	               <command
+	                     commandId="com.customer.fawvw.issues.IssueShiftReportCommand"
+	                     icon="platform:/plugin/com.customer.fawvw.issues/coins/issueMenu.png"
+	                     id="IssueReport5">
+	               </command>
 	            </menu>
 
          </menu>

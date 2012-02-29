@@ -54,10 +54,10 @@
 				font-size:16px; margin:15px auto;
 			}
 			#left {
-				width: 400px; height: 600px; margin: 0 auto; float: left;
+				width: 450px; height: 600px; margin: 0 auto; float: left;
 			}
 			#left chart{
-				width: 400px; height: 400px; margin: 0 auto; float: left;
+				width: 450px; height: 400px; margin: 0 auto; float: left;
 			}
 			#left time{
 				width: 400px; height: 200px; margin: 0 auto; float: left;
@@ -66,7 +66,7 @@
 				text-align: center;
 			}
 			#right {
-				width: 350px; margin: 20px auto; float: left; padding: 10px;
+				width: 350px; margin: 20px 10px; float: left; padding: 10px;
 			}
 			.div {
 				width: 350px;
@@ -152,15 +152,13 @@
 					plotOptions: {
 						column: {
 							stacking: 'normal',
-							groupPadding:0.1,
-							pointPadding:0.1,
+							pointWidth:30,
 							shadow: false,
 							borderWidth:1,
 							borderColor:'black',
 							dataLabels: {
 								enabled: true,
 								style : {
-									fontWeight: 'bold',
 									fontSize:'12px'
 								},
 								color: 'black'
@@ -188,7 +186,6 @@
 							dataLabels: {
 								enabled: true,
 								style : {
-									fontWeight: 'bold',
 									fontSize:'12px'
 								},
 								color: 'white'
@@ -200,7 +197,6 @@
 							dataLabels: {
 								enabled: true,
 								style : {
-									fontWeight: 'bold',
 									fontSize:'12px'
 								},
 								color: 'white'
@@ -223,7 +219,14 @@
 									low: <%=CKD_low%>
 								}
 							],
-							color: '#003300'
+							color: '#003300',
+							dataLabels: {
+								enabled: true,
+								style : {
+									fontSize:'12px'
+								},
+								color: 'white'
+							}
 						}
 				    ]
 				});
@@ -239,7 +242,7 @@
 				<div class="fr"> STATUS 19.10.2010</div>
 				<h1><%=title %></h1>
 			</div>
-				<div id="content" style="margin:0 80px;height:600px;">
+				<div id="content" style="margin:0 50px;height:600px;">
 					<div id="subtitle">
 						<h1>Anzahl Teile nach TEVON</h1>
 					</div>
@@ -257,7 +260,7 @@
 							
 							double sum = KWVFF + KWPVS + KW0S + KWSOP;
 						%>
-						<div id="time">
+						<div id="time" style="margin:0 30px">
 							<table style="font-size: 10px;">
 								<tr>
 									<td style="width: 12px; ">KW</td>

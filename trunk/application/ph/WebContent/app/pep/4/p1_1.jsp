@@ -112,7 +112,7 @@
 						}
 					},
 					stackLabels: {
-						enabled: true,
+						enabled: false,
 						style: {
 							fontWeight: 'bold',
 							color:'black'
@@ -129,6 +129,7 @@
 				plotOptions: {
 					column: {
 						stacking: 'normal',
+						pointWidth:33,
 						shadow: false,
 						dataLabels: {
 							enabled: false,
@@ -162,7 +163,9 @@
 						style : {
 							fontSize:'12px'
 						},
-						color: 'white'
+						verticalAlign: 'top',
+						color: 'black',
+						y:-10
 					}
 				}]
 			});
@@ -207,7 +210,7 @@
 						}
 					},
 					stackLabels: {
-						enabled: true,
+						enabled: false,
 						style: {
 							fontWeight: 'bold',
 							color: 'black'
@@ -222,15 +225,17 @@
 				plotOptions: {
 					column: {
 						stacking: 'normal',
+						pointWidth:40,
 						shadow: false,
 						dataLabels: {
-							enabled: false,
+							enabled: true,
 							style : {
 								fontWeight: 'bold',
-								fontSize:'10px',
-								align:'top'
+								fontSize:'12px'
 							},
-							color: '#4C5258'
+							verticalAlign: 'top',
+							color: 'black',
+							y:-10
 						}
 					}
 				},
@@ -256,8 +261,8 @@
 			</div>
 			<div id="content">
 				<div style="width: 50px; height: 400px; margin: 0 auto; float: left;"></div>
-				<div id="chart1" style="width: 250px; height: 400px; margin: 0 auto; float: left;"></div>
-				<div id="chart2" style="width: 600px; height: 400px; margin: 0 auto; float: left;margin-top:20px"></div>
+				<div id="chart1" style="width: 260px; height: 400px; margin: 20px auto; float: left;"></div>
+				<div id="chart2" style="width: 600px; height: 400px; margin: 0 auto; float: left;margin-top:40px"></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

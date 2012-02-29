@@ -39,7 +39,11 @@
 		<div class="clear"></div>
     </div>
 	<div class="ft">
-		<div class="ztu"><img src="<%=request.getContextPath() %>/app/pep/images/footerlogo.jpg" width="130px" height="37px" /></div>
+		<div class="ztu">
+			<a href="<%=request.getContextPath() %>/app/pep/initworkspace.jsp" class="link">
+				<img src="<%=request.getContextPath() %>/app/pep/images/footerlogo.jpg" width="130px" height="37px" style="border: 0px;"/>
+			</a>
+		</div>
 	    <div class="page">
 		    <P><%=prev %>&nbsp;&nbsp;Seite<%=current %>&nbsp;&nbsp;<%=next %></P>
 	    </div>

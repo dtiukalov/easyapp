@@ -53,7 +53,7 @@
 						y:30,
 						style:{
 							color:'black',
-							fontSize:'16px'
+							fontSize:'14px'
 						}
 					},
 					categories: ["Genehmigt MOP-Punkte zum ...(Fahrzeug)", "PP COP, Ersteinsatz in anderen Projekten", "PP Ersteinsatz...(Fahrzeug)", "PP nicht relevant oder Steuerungspunkte"] 
@@ -105,10 +105,9 @@
 			            dataLabels: {
 			                enabled: true,
 			                style: {
-			                    fontWeight:'bold',
 			                    fontSize:'16px'
 			                },
-		                    color:'black'
+		                    color:'white'
 			            }
 			        }
 				},
@@ -131,14 +130,7 @@
 							y: <%=fv9PPNicht %>,
 							low: <%=fv9PPCOP + fv9PPErste %>,
 							color: '#AED4F8'
-						}],
-					dataLabels: {
-						enabled: true,
-						style : {
-							fontSize:'12px'
-						},
-						color: 'black'
-					}
+						}]
 				}]
 			});
 		});
@@ -154,7 +146,7 @@
 				<h1><%=title %></h1>
 			</div>
 			<div id="content">
-				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto; margin-top: 30px;"></div>
+				<div id="chart" style="width: 850px; height: 400px; margin: 30px auto;"></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

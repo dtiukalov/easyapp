@@ -10,13 +10,13 @@
 1、关于修订菜单:Teamcenter8\web_tier\staging1\webapp_root\teamcenter\dhtml\common\intl\cn\wsomenu_custom.xml
 2、修订菜单的js函数:Teamcenter8\web_tier\staging1\webapp_root\teamcenter\dhtml\custom\webitk_report.js
 3、修订报表表单项：Teamcenter8\web\htdocs\tc\common\dialogs\formtemplates_custom.xml
-4、调用ITK的TcScript：Teamcenter8\web\htdocs\tc\common\actions\F6_Product_REPORT.xml
+4、调用ITK的TcScript：Teamcenter8\web\htdocs\tc\common\actions\webitk_report.xml
 
 
 关于国际化：
 修改C:\Siemens\Teamcenter8\lang\textserver\zh_CN\weblocal_locale.xml
 修改C:\Siemens\Teamcenter8\web_tier\staging1\webapp_root\teamcenter\dhtml\common\intl\cn\webstring.xml
-清空%temp%\V8000.3.0.20100916.00文件夹，
+删除%temp%\V8000.3.0.20100916.00文件夹，
 
 
 关于服务器批处理警告：

@@ -45,8 +45,8 @@ public class PreviewAction implements IAction {
 		String type = object.getType().getName();
 		if(type.equalsIgnoreCase(WorkspaceUtils.DatasetType)){
 			try {
-				PH.getDataService().getProperties(object, "fv9PageName");
-				type = object.getProperty("fv9PageName").getDisplayableValue();
+				PH.getDataService().getProperties(object, WorkspaceUtils.DatasetPageName);
+				type = object.getProperty(WorkspaceUtils.DatasetPageName).getDisplayableValue();
 			} catch (NotLoadedException e) {
 				e.printStackTrace();
 			}
@@ -61,14 +61,12 @@ public class PreviewAction implements IAction {
 		return new JspView(FormManager.getJspPath(type));
 	}
 
-	private void initcCommunalData(HttpServletRequest request,Map<String, Object> form) {
+	private Boolean initcCommunalData(HttpServletRequest request,Map<String, Object> form) {
+		Boolean result = false;
 		if (request.getSession().getAttribute("FV9_11ProjectTermin") == null ||
 				request.getSession().getAttribute("FV9_11VorserienTer") == null) {
 		//获取公用的信息
-			List<String> otherUids = (List)form.get("fv9OtherUid");//new ArrayList<String>();
-			
-		//	otherUids.add("wVJ9jSq148kgXB");
-		//	otherUids.add("wxC9jSq148kgXB");
+			List<String> otherUids = (List<String>)form.get(WorkspaceUtils.OtherUid);
 			
 			if (otherUids != null && otherUids.size() > 0) {
 				
@@ -78,7 +76,7 @@ public class PreviewAction implements IAction {
 					//根据UID获取对象
 					ModelObject public_object = PH.getDataService().loadModelObjectRefresh(public_uid);
 					if (public_object == null) {
-						// new Exce  JspErrorView("public_uid=[" + public_uid + "] 不存在");
+						return result;
 					}
 					//获取对象的类型
 					String public_type = public_object.getType().getName();
@@ -137,8 +135,6 @@ public class PreviewAction implements IAction {
 						pvs = (KWNo_PVS/sum)*100;
 						os = (KWNo_0S/sum)*100;
 						sop = (KWNo_SOP/sum)*100;
-
-						
 					}
 					
 					if ("FV9_11VorserienTer".equals(public_type)) {
@@ -184,8 +180,10 @@ public class PreviewAction implements IAction {
 						request.getSession().setAttribute("ZP7SOP", ZP7SOP);
 						request.getSession().setAttribute("ZP5SOP", ZP5SOP);
 					}
+					result = true;
 				}
 			}
 		}
+		return result;
 	}
 }

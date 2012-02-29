@@ -64,7 +64,7 @@ public class PreviewAction implements IAction {
 				request.getSession().getAttribute("FV9_11VorserienTer") == null) {
 			//获取公用的信息
 			List<String> otherUids = (List)form.get("fv9OtherUid");//new ArrayList<String>();
-		//
+			
 		//	otherUids.add("wVJ9jSq148kgXB");
 		//	otherUids.add("wxC9jSq148kgXB");
 			

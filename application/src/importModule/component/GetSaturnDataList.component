@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-components>
+	<component key="/importModule/component/GetSaturnDataList.component" name="GetSaturnDataList" class="importModule.component.GetSaturnDataList" projectname="crm">
+		<description></description>
+		<parameters>
+			<parameter id="1" classType="java.lang.String" passingType="in" name="propertiesName">
+				<scope>1</scope>
+				<description></description>
+				<value-key>propertiesName</value-key>
+			</parameter>
+			<parameter id="2" classType="java.lang.String" passingType="in" name="filePath">
+				<scope>1</scope>
+				<description></description>
+				<value-key>filePath</value-key>
+			</parameter>
+			<parameter id="3" name="dataList" classType="java.util.ArrayList" passingType="out">
+				<scope>1</scope>
+				<description></description>
+				<value-key>dataList</value-key>
+			</parameter>
+			<parameter id="4" name="result" classType="java.lang.String" passingType="out">
+				<scope>1</scope>
+				<value-key>result</value-key>
+				<description></description>
+			</parameter>
+		</parameters>
+		<loadstart>false</loadstart>
+	</component>
+</saturn-components>

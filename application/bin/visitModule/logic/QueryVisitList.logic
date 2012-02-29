@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-logic>
+	<information id="0" next="" x="0" y="0">
+		<key>/visitModule/logic/QueryVisitList.logic</key>
+		<name>回访信息列表</name>
+		<loadstart>flase</loadstart>
+		<description></description>
+	</information>
+	<end id="3" next="" x="637" y="163">
+		<name>结束</name>
+		<parameters></parameters>
+		<description></description>
+	</end>
+	<component exception="" id="6" next="4" x="225" y="281">
+		<key>crm::/coreModule/component/GetDateString.component</key>
+		<name>GetDateString</name>
+		<parameters>
+			<parameter id="1" name="" classType="java.lang.String" passingType="in-out">
+				<value-key>min_visitdate</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="" classType="java.lang.String" passingType="in-out">
+				<value-key>max_visitdate</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="" classType="java.lang.String" passingType="in-out">
+				<value-key>min_servintime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="4" name="" classType="java.lang.String" passingType="in-out">
+				<value-key>max_servintime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="5" name="" classType="java.lang.String" passingType="in-out">
+				<value-key>min_servouttime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="6" name="" classType="java.lang.String" passingType="in-out">
+				<value-key>max_servouttime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description></description>
+	</component>
+	<start id="1" next="6" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters>
+			<parameter id="1" name="" classType="java.lang.String" passingType="in">
+				<value-key>carlicenceno</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="" classType="java.lang.String" passingType="in">
+				<value-key>servorderid</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="" classType="java.lang.String" passingType="in">
+				<value-key>repairpleased</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="4" name="" classType="java.lang.String" passingType="in">
+				<value-key>servpleased</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="5" name="" classType="java.lang.String" passingType="in">
+				<value-key>servtype</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="6" name="" classType="java.lang.String" passingType="in">
+				<value-key>linkman</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="7" name="" classType="java.lang.String" passingType="in">
+				<value-key>min_visitdate</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="8" name="" classType="java.lang.String" passingType="in">
+				<value-key>max_visitdate</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="9" name="" classType="java.lang.String" passingType="in">
+				<value-key>visitstaff</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="10" name="" classType="java.lang.String" passingType="in">
+				<value-key>min_servintime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="11" name="" classType="java.lang.String" passingType="in">
+				<value-key>max_servintime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="12" name="" classType="java.lang.String" passingType="in">
+				<value-key>min_servouttime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="13" name="" classType="java.lang.String" passingType="in">
+				<value-key>max_servouttime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="14" name="" classType="java.lang.String" passingType="in">
+				<value-key>carvin</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="15" name="startIndex" classType="java.lang.Integer" passingType="in">
+				<value-key>startIndex</value-key>
+				<scope>1</scope>
+				<description>分页开始位置</description>
+			</parameter>
+			<parameter id="16" name="endIndex" classType="java.lang.Integer" passingType="in">
+				<value-key>endIndex</value-key>
+				<scope>1</scope>
+				<description>分页结束位置</description>
+			</parameter>
+			<parameter id="17" name="count" classType="java.lang.Integer" passingType="out">
+				<value-key>count</value-key>
+				<scope>1</scope>
+				<description>记录条数</description>
+			</parameter>
+			<parameter id="18" name="result" classType="java.util.ArrayList" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description>返回SaturnData结果集</description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</start>
+	<component exception="" id="5" next="3" x="484" y="96">
+		<key>edu.ccut.saturn.basecomponent::/databaseComponent/QueryCountByConditionExtComponent.component</key>
+		<name>查询记录条数</name>
+		<parameters>
+			<parameter id="1" name="fullkey" classType="java.lang.String" passingType="in">
+				<value-key>'http://crm/coreModule/data::crm_visit_view'</value-key>
+				<scope>1</scope>
+				<description>生成SaturnData所需的Fullkey</description>
+			</parameter>
+			<parameter id="2" name="logicContext" classType="java.util.HashMap" passingType="in">
+				<value-key>${context}</value-key>
+				<scope>1</scope>
+				<description>logicContext</description>
+			</parameter>
+			<parameter id="3" name="count" classType="java.lang.Integer" passingType="out">
+				<value-key>count</value-key>
+				<scope>1</scope>
+				<description>记录条数</description>
+			</parameter>
+			<parameter id="4" name="" classType="java.lang.String" passingType="in">
+				<value-key>'carlicenceno like '%${carlicenceno}%''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="5" name="" classType="java.lang.String" passingType="in">
+				<value-key>'maxvisitdate &lt;= ${max_visitdate}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="6" name="" classType="java.lang.String" passingType="in">
+				<value-key>'minvisitdate &gt;= ${min_visitdate}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="7" name="" classType="java.lang.String" passingType="in">
+				<value-key>'repairpleased=${repairpleased}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="8" name="" classType="java.lang.String" passingType="in">
+				<value-key>'linkman like '%${linkman}%''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="9" name="" classType="java.lang.String" passingType="in">
+				<value-key>'servorderid like '%${servorderid}%''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="10" name="" classType="java.lang.String" passingType="in">
+				<value-key>'servpleased=${servpleased}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="11" name="" classType="java.lang.String" passingType="in">
+				<value-key>'servtype=${servtype}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="12" name="" classType="java.lang.String" passingType="in">
+				<value-key>'servintime&lt;=${max_servintime}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="13" name="" classType="java.lang.String" passingType="in">
+				<value-key>'servintime&gt;=${min_servintime}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="14" name="" classType="java.lang.String" passingType="in">
+				<value-key>'servouttime &gt;= ${min_servouttime}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="15" name="" classType="java.lang.String" passingType="in">
+				<value-key>'servouttime&lt;=${max_servouttime}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="16" name="" classType="java.lang.String" passingType="in">
+				<value-key>'visitstaff=${visitstaff}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="17" name="" classType="java.lang.String" passingType="in">
+				<value-key>'carvin like '%${carvin}%''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>logicContext/可以被替换为分区表,注意类型应改为java.lang.String 目前只支持oracle</description>
+	</component>
+	<component exception="" id="4" next="5" x="266" y="116">
+		<key>edu.ccut.saturn.basecomponent::/databaseComponent/QueryByConditionWithPageExtComponent.component</key>
+		<name>分页查询</name>
+		<parameters>
+			<parameter id="1" name="fullkey" classType="java.lang.String" passingType="in">
+				<value-key>'http://crm/coreModule/data::crm_visit_view'</value-key>
+				<scope>1</scope>
+				<description>生成SaturnData所需的fullkey</description>
+			</parameter>
+			<parameter id="2" name="logicContext" classType="java.util.HashMap" passingType="in">
+				<value-key>${context}</value-key>
+				<scope>1</scope>
+				<description>logicContext</description>
+			</parameter>
+			<parameter id="3" name="startIndex" classType="java.lang.Integer" passingType="in">
+				<value-key>startIndex</value-key>
+				<scope>1</scope>
+				<description>分页开始位置</description>
+			</parameter>
+			<parameter id="4" name="endIndex" classType="java.lang.Integer" passingType="in">
+				<value-key>endIndex</value-key>
+				<scope>1</scope>
+				<description>分页结束位置</description>
+			</parameter>
+			<parameter id="5" name="result" classType="java.util.ArrayList" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description>返回SaturnData结果集</description>
+			</parameter>
+			<parameter id="6" name="tableWord" classType="java.lang.String" passingType="in">
+				<value-key>tableWord</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="7" name="" classType="java.lang.String" passingType="in">
+				<value-key>'carlicenceno like '%${carlicenseno}%''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="8" name="" classType="java.lang.String" passingType="in">
+				<value-key>'servorderid like '%${servorderid}%''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="9" name="" classType="java.lang.String" passingType="in">
+				<value-key>'repairpleased=${repairpleased}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="10" name="" classType="java.lang.String" passingType="in">
+				<value-key>'servpleased=${servpleased}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="11" name="" classType="java.lang.String" passingType="in">
+				<value-key>'servtype=${servtype}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="12" name="" classType="java.lang.String" passingType="in">
+				<value-key>'linkman like '%${linkman}%''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="13" name="" classType="java.lang.String" passingType="in">
+				<value-key>'minvisitdate&gt;= ${min_visitdate}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="14" name="" classType="java.lang.String" passingType="in">
+				<value-key>'maxvisitdate &lt;= ${max_visitdate}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="15" name="" classType="java.lang.String" passingType="in">
+				<value-key>'servouttime &gt;= ${min_servouttime}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="16" name="" classType="java.lang.String" passingType="in">
+				<value-key>'servouttime&lt;=${max_servouttime}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="17" name="" classType="java.lang.String" passingType="in">
+				<value-key>'servintime&gt;=${min_servintime}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="18" name="" classType="java.lang.String" passingType="in">
+				<value-key>'servintime&lt;=${max_servintime}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="19" name="" classType="java.lang.String" passingType="in">
+				<value-key>'carvin like '%${carvin}%''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="20" name="" classType="java.lang.String" passingType="in">
+				<value-key>'visitstaff=${visitstaff}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>分页查询</description>
+	</component>
+	<connection source="6" target="4" style="1" name=""></connection>
+	<connection source="4" target="5" style="1" name=""></connection>
+	<connection source="5" target="3" style="1" name=""></connection>
+	<connection source="1" target="6" style="1" name=""></connection>
+</saturn-logic>

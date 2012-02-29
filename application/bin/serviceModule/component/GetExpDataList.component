@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-components>
+	<component key="/serviceModule/component/GetExpDataList.component" name="GetExpDataList" class="serviceModule.component.GetExpDataList" projectname="crm">
+		<description></description>
+		<parameters>
+			<parameter id="1" name="dingBao" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<scope>1</scope>
+				<value-key>dingBao</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="banPen" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<scope>1</scope>
+				<value-key>banPen</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="baoXian" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<scope>1</scope>
+				<value-key>baoXian</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="4" name="shouBao" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<scope>1</scope>
+				<value-key>shouBao</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="5" name="yiBan" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<scope>1</scope>
+				<value-key>yiBan</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="6" name="baoXiu" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<scope>1</scope>
+				<value-key>baoXiu</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="7" name="list" classType="java.util.ArrayList" passingType="out">
+				<scope>1</scope>
+				<value-key>list</value-key>
+				<description></description>
+			</parameter>
+		</parameters>
+		<loadstart>false</loadstart>
+	</component>
+</saturn-components>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-components>
+	<component key="/serviceModule/component/UpdateUserType2.component" name="更新操作获得用户类别" class="serviceModule.component.UpdateUserType2" projectname="crm">
+		<description></description>
+		<parameters>
+			<parameter id="1" name="usertype" classType="java.lang.String" passingType="out">
+				<scope>1</scope>
+				<value-key>usertype</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="vin" classType="java.lang.String" passingType="in">
+				<scope>1</scope>
+				<value-key>vin</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="servid" classType="java.lang.String" passingType="in">
+				<scope>1</scope>
+				<value-key>servid</value-key>
+				<description></description>
+			</parameter>
+		</parameters>
+		<loadstart>false</loadstart>
+	</component>
+</saturn-components>

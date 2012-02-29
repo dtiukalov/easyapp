@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/careModule/action/UpdateCare.action</key>
+		<name>UpdateCare</name>
+		<description></description>
+	</information>
+	<start id="1" next="2" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<connection source="4" target="5" style="1" name=""></connection>
+	<logic exception="" id="3" next="" x="377" y="165">
+		<key>crm::/careModule/logic/UpdateCare.logic</key>
+		<name>UpdateCare</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<value-key>careData</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<action id="5" next="" x="572" y="171">
+		<key>crm::/careModule/action/QueryCareList.action</key>
+		<name>养护品信息列表</name>
+		<parameters></parameters>
+		<description></description>
+	</action>
+	<data id="2" next="6" x="226" y="166">
+		<name>数据1</name>
+		<data-scope>2</data-scope>
+		<data-prefix>care</data-prefix>
+		<data-key>careData</data-key>
+		<xmlkey></xmlkey>
+		<elementkey></elementkey>
+		<data-type classType="edu.ccut.saturn.component.SaturnData" namespace="http://crm/coreModule/data" saturnDataType="crm_care"></data-type>
+		<parameters></parameters>
+		<description></description>
+	</data>
+	<logic exception="" id="6" next="5" x="317" y="294">
+		<key>crm::/careModule/logic/UpdateCare.logic</key>
+		<name>UpdateCare</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<value-key>careData</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="bucketnumStr" classType="java.lang.String" passingType="in">
+				<value-key>bucketnum</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="nameStr" classType="java.lang.String" passingType="in">
+				<value-key>care_careitems</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="4" name="priceStr" classType="java.lang.String" passingType="in">
+				<value-key>price</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="5" name="unitpirce" classType="java.lang.String" passingType="in">
+				<value-key>dj</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="6" name="" classType="java.lang.String" passingType="in">
+				<value-key>sjprice</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<connection source="1" target="2" style="1" name=""></connection>
+	<connection source="6" target="5" style="1" name=""></connection>
+	<connection source="2" target="6" style="1" name=""></connection>
+</saturn-action>

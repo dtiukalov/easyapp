@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<saturn-data>
+	<data name="BeneFitestimatesTime" namespace="http://crm/coreModule/data" dbType="mysql" connectname="connection1">
+		
+<fields>
+	<field name="carSource" length="20" type="VARCHAR" column="CARSOURCE" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_HONDAFLOWSTATISTIC">
+		<validates value-key="CARSOURCE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carArea" length="20" type="VARCHAR" column="CARAREA" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_HONDAFLOWSTATISTIC">
+		<validates value-key="CARAREA" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carSeries" length="20" type="VARCHAR" column="CARSERIES" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_HONDAFLOWSTATISTIC">
+		<validates value-key="CARSERIES" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carVin" length="20" type="VARCHAR" column="carVin" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_HONDAFLOWSTATISTIC" javaType="java.lang.String">
+		<validates value-key="carVin" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="servInTime" length="20" type="VARCHAR" column="servInTime" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_HONDAFLOWSTATISTIC" javaType="java.lang.String">
+		<validates value-key="servInTime" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carCardLevel" length="20" type="VARCHAR" column="carCardLevel" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_HONDAFLOWSTATISTIC" javaType="java.lang.String">
+		<validates value-key="carCardLevel" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="servAmountExp" length="15" type="FLOAT" column="SMONEY" javaType="java.lang.Float" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_BENEFITESTIMATES">
+		<validates value-key="SMONEY" classType="java.lang.Float" isValidate="false"></validates>
+	</field>
+	<field name="servType" length="20" type="VARCHAR" column="servType" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_BENEFITESTIMATES">
+		<validates value-key="servType" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="statisticgrade" length="20" type="VARCHAR" column="STATISTICGRADE" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_BENEFITESTIMATES">
+		<validates value-key="STATISTICGRADE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+</fields>
+	<description>'http://crm/coreModule/data::BeneFitestimatesTime'</description></data>
+	<sqls>
+		<sql id="BeneFitestimatesTime">
+			select c.carArea carArea, c.carSource ,c.carSeries, s.carVin, s.servInTime, c.carCardLevel, s.servAmountExp, s.servType
+			from `crm_car` c,crm_service s
+			where 1=1
+			and c.`carVin`= s.`carVin`
+			and SUBSTR(s.`servInTime`, 1, 7)  = SUBSTR('${statisticdate}',1,7)
+			and SUBSTR('${statisticdate}',1,10)>=SUBSTR(s.`servInTime`,1,10)
+			order by carVin asc, servInTime desc
+		</sql>
+		<sql id="BeneFitestimatesTime2">
+			select '${statisticdate}' statisticdate,HOUR(a.servInTime) timesect, b.`carSeries` brandseries, COUNT(*) daycount,'1' flag_day
+			from crm_service a,`crm_car` b
+			where 1=1
+			and a.`carVin`= b.`carVin`
+			and b.`carSeries` IN ('105006','105007','105008')
+			and SUBSTR(a.servInTime,1,10)= SUBSTR('${statisticdate}',1,10)
+			group by b.`carSeries`,HOUR(a.servInTime)
+			UNION
+			select '${statisticdate}',HOUR(a.servInTime), b.`carSeries`, COUNT(*) daycount,'2'
+			from crm_service a,`crm_car` b
+			where 1=1
+			and a.`carVin`= b.`carVin`
+			and b.`carSeries` IN ('105006','105007','105008')
+			and SUBSTR(a.servInTime,1,7)= SUBSTR('${statisticdate}',1,7)
+			and SUBSTR('${statisticdate}',1,10)>=SUBSTR(a.servInTime,1,10)
+			group by b.`carSeries`,HOUR(a.servInTime)
+			UNION
+			select '${statisticdate}',HOUR(a.servInTime), '1', COUNT(*) daycount,'1'
+			from crm_service a,`crm_car` b
+			where 1=1
+			and a.`carVin`= b.`carVin`
+			and b.`carSeries` not IN ('105006','105007','105008')
+			and SUBSTR(a.servInTime,1,10)= SUBSTR('${statisticdate}',1,10)
+			group by HOUR(a.servInTime)
+			UNION
+			select '${statisticdate}',HOUR(a.servInTime), '1', COUNT(*) daycount,'2'
+			from crm_service a,`crm_car` b
+			where 1=1
+			and a.`carVin`= b.`carVin`
+			and b.`carSeries` not IN ('105006','105007','105008')
+			and SUBSTR(a.servInTime,1,7)= SUBSTR('${statisticdate}',1,7)
+			and SUBSTR('${statisticdate}',1,10)>=SUBSTR(a.servInTime,1,10)
+			group by HOUR(a.servInTime)
+			UNION
+			select '${statisticdate}',HOUR(a.servInTime), '2', COUNT(*) daycount,'1'
+			from crm_service a,`crm_car` b
+			where 1=1
+			and a.`carVin`= b.`carVin`
+			and SUBSTR(a.servInTime,1,10)= SUBSTR('${statisticdate}',1,10)
+			group by HOUR(a.servInTime)
+			UNION
+			select '${statisticdate}',HOUR(a.servInTime), '2', COUNT(*) daycount,'2'
+			from crm_service a,`crm_car` b
+			where 1=1
+			and a.`carVin`= b.`carVin`
+			and SUBSTR(a.servInTime,1,7)= SUBSTR('${statisticdate}',1,7)
+			and SUBSTR('${statisticdate}',1,10)>=SUBSTR(a.servInTime,1,10)
+			group by HOUR(a.servInTime)
+		</sql>
+	</sqls>
+</saturn-data>

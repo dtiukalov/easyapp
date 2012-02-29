@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/careModule/action/QueryCareDetail.action</key>
+		<name>QueryCareDetail</name>
+		<description></description>
+	</information>
+	<start id="1" next="2" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<connection source="4" target="5" style="1" name="未命名"></connection>
+	<connection source="4" target="3" style="2" name="未命名"></connection>
+	<view id="3" next="" x="616" y="94">
+		<name>UpdateCare</name>
+		<type>jsp</type>
+		<location>/crm/careModule/web/UpdateCare.jsp</location>
+		<description></description>
+	</view>
+	<logic exception="" id="2" next="3" x="295" y="148">
+		<key>crm::/careModule/logic/QueryCareDetail.logic</key>
+		<name>查询维护数据</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="primarykeyvalue" classType="java.lang.String" passingType="in">
+				<value-key>careid</value-key>
+				<scope>2</scope>
+				<description>主键值</description>
+			</parameter>
+			<parameter id="2" name="result" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>CareDate</value-key>
+				<scope>2</scope>
+				<description>返回SaturnData</description>
+			</parameter>
+			<parameter id="3" name="" classType="java.util.ArrayList" passingType="out">
+				<value-key>careItems</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<connection source="1" target="2" style="1" name=""></connection>
+	<connection source="2" target="3" style="1" name=""></connection>
+</saturn-action>

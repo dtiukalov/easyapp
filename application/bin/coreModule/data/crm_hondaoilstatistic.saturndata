@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<saturn-data>
+	<data name="crm_hondaoilstatistic" namespace="http://crm/coreModule/data" dbType="mysql" connectname="connection1">
+		
+<fields>
+	<field name="statisticdate" length="10" type="DATE" column="STATISTICDATE" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_HONDAOILSTATISTIC">
+		<validates value-key="STATISTICDATE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="cararea" length="20" type="VARCHAR" column="CARAREA" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_HONDAOILSTATISTIC">
+		<validates value-key="CARAREA" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="oilstate" length="11" type="VARCHAR" column="OILSTATE" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_HONDAOILSTATISTIC">
+		<validates value-key="OILSTATE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="oilamount" length="20" type="VARCHAR" column="OILAMOUNT" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_HONDAOILSTATISTIC">
+		<validates value-key="OILAMOUNT" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="flag" length="20" type="VARCHAR" column="FLAG" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_HONDAOILSTATISTIC">
+		<validates value-key="FLAG" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+</fields>
+<description>'http://crm/coreModule/data::crm_hondaoilstatistic'</description></data>
+<sqls>
+	<sql>
+	
+	</sql>
+</sqls>
+</saturn-data>

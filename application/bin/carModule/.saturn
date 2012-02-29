@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-dir>
+   <version>1.0</version>
+   <description>车辆和车主信息管理</description>	
+   <type>module</type>
+   <time>1284694539781</time>
+   <name>carModule</name>
+</saturn-dir>	

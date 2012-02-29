@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-logic>
+	<information id="0" next="" x="0" y="0">
+		<key>/memberModule/logic/QueryIntegral.logic</key>
+		<name>QueryIntegral</name>
+		<loadstart>flase</loadstart>
+		<description></description>
+	</information>
+	<end id="3" next="" x="663" y="166">
+		<name>结束</name>
+		<parameters></parameters>
+		<description></description>
+	</end>
+	<component exception="" id="5" next="4" x="240" y="166">
+		<key>edu.ccut.saturn.basecomponent::/databaseComponent/QueryByPrimaryKeyComponent.component</key>
+		<name>依主健查询数据</name>
+		<parameters>
+			<parameter id="1" name="fullkey" classType="java.lang.String" passingType="in">
+				<value-key>'http://crm/coreModule/data::crm_member_view'</value-key>
+				<scope>1</scope>
+				<description>生成SaturnData所需的fullkey</description>
+			</parameter>
+			<parameter id="2" name="primarykeyvalue" classType="java.lang.String" passingType="in">
+				<value-key>memberid</value-key>
+				<scope>1</scope>
+				<description>主键值</description>
+			</parameter>
+			<parameter id="3" name="result" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description>返回SaturnData</description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>依主健查询数据组件</description>
+	</component>
+	<component exception="" id="4" next="3" x="406" y="163">
+		<key>edu.ccut.saturn.basecomponent::/databaseComponent/QueryByPrimaryKeyComponent.component</key>
+		<name>依主健查询数据</name>
+		<parameters>
+			<parameter id="1" name="fullkey" classType="java.lang.String" passingType="in">
+				<value-key>'http://crm/coreModule/data::crm_integral'</value-key>
+				<scope>1</scope>
+				<description>生成SaturnData所需的fullkey</description>
+			</parameter>
+			<parameter id="2" name="primarykeyvalue" classType="java.lang.String" passingType="in">
+				<value-key>integralid</value-key>
+				<scope>1</scope>
+				<description>主键值</description>
+			</parameter>
+			<parameter id="3" name="result" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>saturnData</value-key>
+				<scope>1</scope>
+				<description>返回SaturnData</description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>依主健查询数据组件</description>
+	</component>
+	<start id="1" next="5" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters>
+			<parameter id="1" name="" classType="java.lang.Integer" passingType="in">
+				<value-key>integralid</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="result" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>saturnData</value-key>
+				<scope>1</scope>
+				<description>返回SaturnData</description>
+			</parameter>
+			<parameter id="3" name="primarykeyvalue" classType="java.lang.String" passingType="in">
+				<value-key>memberid</value-key>
+				<scope>1</scope>
+				<description>主键值</description>
+			</parameter>
+			<parameter id="4" name="result" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description>返回SaturnData</description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</start>
+	<connection source="4" target="3" style="1" name=""></connection>
+	<connection source="5" target="4" style="1" name=""></connection>
+	<connection source="1" target="5" style="1" name=""></connection>
+</saturn-logic>

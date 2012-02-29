@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/memberModule/action/UpdateIntegral.action</key>
+		<name>UpdateIntegral</name>
+		<description></description>
+	</information>
+	<start id="1" next="3" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<data id="3" next="2" x="254" y="163">
+		<name>数据1</name>
+		<data-scope>2</data-scope>
+		<data-prefix>integral</data-prefix>
+		<data-key>saturnData</data-key>
+		<xmlkey></xmlkey>
+		<elementkey></elementkey>
+		<data-type classType="edu.ccut.saturn.component.SaturnData" namespace="http://crm/coreModule/data" saturnDataType="crm_integral"></data-type>
+		<parameters></parameters>
+		<description></description>
+	</data>
+	<action id="4" next="" x="601" y="161">
+		<key>crm::/memberModule/action/QueryIntegralList.action</key>
+		<name>QueryIntegralList</name>
+		<parameters></parameters>
+		<description></description>
+	</action>
+	<logic exception="" id="2" next="4" x="400" y="160">
+		<key>crm::/memberModule/logic/UpdateIntegral.logic</key>
+		<name>UpdateIntegral</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<value-key>saturnData</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="" classType="java.lang.String" passingType="in">
+				<value-key>${CRM_USER.userid}</value-key>
+				<scope>5</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="" classType="java.lang.String" passingType="in">
+				<value-key>${CRM_USER.userrealname}</value-key>
+				<scope>5</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<connection source="1" target="3" style="1" name=""></connection>
+	<connection source="2" target="4" style="1" name=""></connection>
+	<connection source="3" target="2" style="1" name=""></connection>
+</saturn-action>

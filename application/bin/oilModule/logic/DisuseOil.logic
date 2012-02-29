@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-logic>
+	<information id="0" next="" x="0" y="0">
+		<key>/oilModule/logic/DisuseOil.logic</key>
+		<name>DisuseOil</name>
+		<loadstart>flase</loadstart>
+		<description></description>
+	</information>
+	<component exception="" id="4" next="7" x="627" y="274">
+		<key>edu.ccut.saturn.basecomponent::/databaseComponent/UpdateByPrimaryKeyComponent.component</key>
+		<name>依主键更新</name>
+		<parameters>
+			<parameter id="1" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<value-key>saturnData</value-key>
+				<scope>1</scope>
+				<description>操作的saturnData</description>
+			</parameter>
+			<parameter id="2" name="result" classType="java.lang.Integer" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description>sql执行所修改的记录条数</description>
+			</parameter>
+			<parameter id="3" name="specialcolumn" classType="java.lang.String" passingType="in">
+				<value-key>'oilnumber'</value-key>
+				<scope>1</scope>
+				<description>需要插入0 和 null 的属性列表 形如： 'column1,column2,column5'</description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>依主键更新数据组件</description>
+	</component>
+	<end id="3" next="" x="812" y="108">
+		<name>结束</name>
+		<parameters></parameters>
+		<description></description>
+	</end>
+	<component exception="" id="9" next="5" x="83" y="318">
+		<key>edu.ccut.saturn.basecomponent::/baseService/GetSystemTime.component</key>
+		<name>得到系统时间</name>
+		<parameters>
+			<parameter id="1" name="currentTime" classType="java.lang.String" passingType="out">
+				<value-key>currentTime</value-key>
+				<scope>1</scope>
+				<description>系统当前时间</description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>获得系统当前时间 形如 2007-12-24 09:44:09</description>
+	</component>
+	<component exception="" id="5" next="6" x="225" y="272">
+		<key>edu.ccut.saturn.basecomponent::/dataOperationComponent/ObjectTranscateArrayList.component</key>
+		<name>转换字符串为ArrayList</name>
+		<parameters>
+			<parameter id="1" name="checkbox" classType="java.lang.String" passingType="in">
+				<value-key>oilidCk</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="list" classType="java.util.ArrayList" passingType="out">
+				<value-key>list</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>将Object 转换为list,如果Object是list,则直接返回，如果是String,则返回ArrayList含有String</description>
+	</component>
+	<end-iteration id="7" next="3" x="735" y="236">
+		<name>循环结束1</name>
+		<start-id>6</start-id>
+		<description></description>
+	</end-iteration>
+	<start id="1" next="9" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters>
+			<parameter id="1" name="checkbox" classType="java.lang.String" passingType="in">
+				<value-key>oilidCk</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</start>
+	<start-iteration id="6" next="10" x="387" y="283">
+		<name>循环开始1</name>
+		<iterator-list-key>list</iterator-list-key>
+		<item-key>data</item-key>
+		<end-id>7</end-id>
+		<description></description>
+	</start-iteration>
+	<component exception="" id="10" next="8" x="426" y="394">
+		<key>edu.ccut.saturn.basecomponent::/dataOperationComponent/CreateSaturnData.component</key>
+		<name>生成数据项</name>
+		<parameters>
+			<parameter id="1" name="fullkey" classType="java.lang.String" passingType="in">
+				<value-key>'http://crm/coreModule/data::crm_oil'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>saturnData</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>根据fullkey生成一个saturnData</description>
+	</component>
+	<component exception="" id="8" next="4" x="512" y="255">
+		<key>edu.ccut.saturn.basecomponent::/dataOperationComponent/SetDataValues.component</key>
+		<name>批量设置SaturnData中的字段的值</name>
+		<parameters>
+			<parameter id="1" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<value-key>saturnData</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="key" classType="java.lang.String" passingType="in">
+				<value-key>'updatetime'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="fieldValue" classType="java.lang.String" passingType="in">
+				<value-key>currentTime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="4" name="key" classType="java.lang.String" passingType="in">
+				<value-key>'oilid'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="5" name="fieldValue" classType="java.lang.String" passingType="in">
+				<value-key>${data}</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="6" name="" classType="java.lang.String" passingType="in">
+				<value-key>'flag'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="7" name="" classType="java.lang.String" passingType="in">
+				<value-key>'1'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>批量设置SaturnData中的字段的值</description>
+	</component>
+	<connection source="4" target="7" style="1" name=""></connection>
+	<connection source="9" target="5" style="1" name=""></connection>
+	<connection source="8" target="4" style="1" name=""></connection>
+	<connection source="5" target="6" style="1" name=""></connection>
+	<connection source="1" target="9" style="1" name=""></connection>
+	<connection source="6" target="10" style="1" name=""></connection>
+	<connection source="7" target="3" style="1" name=""></connection>
+	<connection source="10" target="8" style="1" name=""></connection>
+</saturn-logic>

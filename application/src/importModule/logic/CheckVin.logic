@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-logic>
+	<information id="0" next="" x="0" y="0">
+		<key>/importModule/logic/CheckVin.logic</key>
+		<name>校验VIN长度</name>
+		<loadstart>flase</loadstart>
+		<description>校验VIN长度</description>
+	</information>
+	<connection source="6" target="3" style="1" name=""></connection>
+	<end id="3" next="" x="720" y="118">
+		<name>结束</name>
+		<parameters></parameters>
+		<description></description>
+	</end>
+	<decision next="" id="5" x="411" y="132">
+		<name>选择5</name>
+		<if then="8" else="3">
+			<expr>flg==true</expr>
+		</if>
+		<parameters></parameters>
+		<description></description>
+	</decision>
+	<component exception="" id="4" next="5" x="260" y="116">
+		<key>crm::/importModule/component/CheckVin.component</key>
+		<name>CheckVin</name>
+		<parameters>
+			<parameter id="1" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<value-key>saturnData</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="flg" classType="java.lang.Boolean" passingType="out">
+				<value-key>flg</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description></description>
+	</component>
+	<start id="1" next="4" x="100" y="110">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters>
+			<parameter id="1" name="" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<value-key>saturnData</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="fieldValue" classType="java.lang.String" passingType="in">
+				<value-key>importtarget</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="" classType="java.lang.String" passingType="in">
+				<value-key>createtime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</start>
+	<component exception="" id="8" next="7" x="281" y="210">
+		<key>crm::/importModule/component/SetAlertMesg.component</key>
+		<name>拼接警告消息</name>
+		<parameters>
+			<parameter id="1" name="type" classType="java.lang.String" passingType="in">
+				<value-key>'alert'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="key1" classType="java.lang.String" passingType="in">
+				<value-key>'车架号'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="value1" classType="java.lang.String" passingType="in">
+				<value-key>${saturnData.carvin}</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="4" name="key2" classType="java.lang.String" passingType="in">
+				<value-key>key2</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="5" name="value2" classType="java.lang.String" passingType="in">
+				<value-key>value2</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="6" name="message" classType="java.lang.String" passingType="out">
+				<value-key>message</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description></description>
+	</component>
+	<logic exception="" id="7" next="3" x="507" y="278">
+		<key>crm::/importModule/logic/InsertError.logic</key>
+		<name>插入错误信息</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="fieldValue" classType="java.lang.String" passingType="in">
+				<value-key>'140001'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="fieldValue" classType="java.lang.String" passingType="in">
+				<value-key>importtarget</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="" classType="java.lang.String" passingType="in">
+				<value-key>message</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="4" name="" classType="java.lang.String" passingType="in">
+				<value-key>createtime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description>插入错误信息</description>
+	</logic>
+	<connection source="8" target="7" style="1" name=""></connection>
+	<connection source="4" target="5" style="1" name=""></connection>
+	<connection source="1" target="4" style="1" name=""></connection>
+	<connection source="5" target="3" style="2" name="未命名"></connection>
+	<connection source="5" target="8" style="1" name="未命名"></connection>
+	<connection source="7" target="3" style="1" name=""></connection>
+</saturn-logic>

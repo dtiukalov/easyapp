@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-data>
+	<data name="crm_oil" namespace="http://crm/coreModule/data" dbType="mysql" connectname="crm">
+		
+<fields>
+	<field name="oilid" length="11" type="INT" column="OILID" javaType="java.lang.Integer" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" sequenceName="" tableName="CRM_OIL" isPrimaryKey="true">
+		<validates value-key="OILID" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	<field name="carvin" length="17" type="VARCHAR" column="CARVIN" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_OIL">
+		<validates value-key="CARVIN" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="oilstoretime" length="19" type="DATETIME" column="OILSTORETIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_OIL">
+		<validates value-key="OILSTORETIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="oiltype" length="45" type="VARCHAR" column="OILTYPE" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_OIL" dictTypeId="crm_oilType">
+		<validates value-key="OILTYPE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="oilamount" length="12" type="FLOAT" column="OILAMOUNT" javaType="java.lang.Float" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_OIL">
+		<validates value-key="OILAMOUNT" classType="java.lang.Float" isValidate="false"></validates>
+	</field>
+	<field name="oilstaff" length="45" type="VARCHAR" column="OILSTAFF" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_OIL" dictTypeId="crm_waiter">
+		<validates value-key="OILSTAFF" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="oilstate" length="45" type="VARCHAR" column="OILSTATE" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_OIL" dictTypeId="crm_oilState">
+		<validates value-key="OILSTATE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="updatetime" length="19" type="DATETIME" column="UPDATETIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_OIL">
+		<validates value-key="UPDATETIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="oilouttime" length="19" type="DATETIME" column="OILOUTTIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_OIL">
+		<validates value-key="OILOUTTIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="oilnumber" length="45" type="VARCHAR" column="OILNUMBER" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_OIL">
+		<validates value-key="OILNUMBER" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="createtime" length="19" type="DATETIME" column="CREATETIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_OIL">
+		<validates value-key="CREATETIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="userid" length="20" type="VARCHAR" column="USERID" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_OIL">
+		<validates value-key="USERID" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="username" length="20" type="VARCHAR" column="USERNAME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_OIL">
+		<validates value-key="USERNAME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="servorderid" length="20" type="VARCHAR" column="SERVORDERID" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_OIL">
+		<validates value-key="SERVORDERID" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="flag" length="2" type="VARCHAR" column="FLAG" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_OIL">
+		<validates value-key="FLAG" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+</fields>
+<description>存油
+http://crm/coreModule/data::crm_oil</description></data>
+</saturn-data>

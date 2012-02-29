@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-data>
+	<data name="crm_service_view" namespace="http://crm/coreModule/data" dbType="mysql" connectname="crm2011">
+		
+<fields>
+	<field name="serviceid" length="10" type="INT UNSIGNED" column="SERVICEID" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVICE_VIEW">
+		<validates value-key="SERVICEID" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="servorderid" length="20" type="VARCHAR" column="SERVORDERID" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVICE_VIEW">
+		<validates value-key="SERVORDERID" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="servtransfer" length="45" type="VARCHAR" column="SERVTRANSFER" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVICE_VIEW" javaType="java.lang.Float">
+		<validates value-key="SERVTRANSFER" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carvin" length="17" type="VARCHAR" column="CARVIN" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVICE_VIEW">
+		<validates value-key="CARVIN" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="isrework" length="2" type="VARCHAR" column="ISREWORK" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVICE_VIEW">
+		<validates value-key="ISREWORK" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="servintime" length="19" type="DATETIME" column="SERVINTIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVICE_VIEW">
+		<validates value-key="SERVINTIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="servitems" length="45" type="VARCHAR" column="SERVITEMS" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVICE_VIEW">
+		<validates value-key="SERVITEMS" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="servkilometer" length="11" type="INT" column="SERVKILOMETER" javaType="java.lang.Integer" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVICE_VIEW">
+		<validates value-key="SERVKILOMETER" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	<field name="servhoursexp" length="12" type="FLOAT" column="SERVHOURSEXP" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVICE_VIEW" javaType="java.lang.Float">
+		<validates value-key="SERVHOURSEXP" classType="java.lang.Float" isValidate="false"></validates>
+	</field>
+	<field name="servpartsexp" length="12" type="FLOAT" column="SERVPARTSEXP" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVICE_VIEW" javaType="java.lang.Float">
+		<validates value-key="SERVPARTSEXP" classType="java.lang.Float" isValidate="false"></validates>
+	</field>
+	<field name="servcashexp" length="12" type="FLOAT" column="SERVCASHEXP" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVICE_VIEW" javaType="java.lang.Float">
+		<validates value-key="SERVCASHEXP" classType="java.lang.Float" isValidate="false"></validates>
+	</field>
+	<field name="servamountexp" length="12" type="FLOAT" column="SERVAMOUNTEXP" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVICE_VIEW" javaType="java.lang.Float">
+		<validates value-key="SERVAMOUNTEXP" classType="java.lang.Float" isValidate="false"></validates>
+	</field>
+	<field name="servticketexp" length="45" type="VARCHAR" column="SERVTICKETEXP" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVICE_VIEW" javaType="java.lang.Float">
+		<validates value-key="SERVTICKETEXP" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="servstaff" length="45" type="VARCHAR" column="SERVSTAFF" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVICE_VIEW" dictTypeId="crm_waiter">
+		<validates value-key="SERVSTAFF" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="servouttime" length="19" type="DATETIME" column="SERVOUTTIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVICE_VIEW">
+		<validates value-key="SERVOUTTIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="servtype" length="45" type="VARCHAR" column="SERVTYPE" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVICE_VIEW" dictTypeId="crm_serviceType">
+		<validates value-key="SERVTYPE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="resveorederid" length="20" type="VARCHAR" column="RESVEOREDERID" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVICE_VIEW">
+		<validates value-key="RESVEOREDERID" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="servmetalworker" length="20" type="VARCHAR" column="SERVMETALWORKER" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVICE_VIEW" dictTypeId="crm_worker">
+		<validates value-key="SERVMETALWORKER" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="servpaintworker" length="20" type="VARCHAR" column="SERVPAINTWORKER" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVICE_VIEW" dictTypeId="crm_worker">
+		<validates value-key="SERVPAINTWORKER" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="servelecworker" length="20" type="VARCHAR" column="SERVELECWORKER" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVICE_VIEW" dictTypeId="crm_worker">
+		<validates value-key="SERVELECWORKER" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carlicenceno" length="20" type="VARCHAR" column="CARLICENCENO" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVICE_VIEW">
+		<validates value-key="CARLICENCENO" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carbrand" length="45" type="VARCHAR" column="CARBRAND" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVICE_VIEW" dictTypeId="crm_carModel">
+		<validates value-key="CARBRAND" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carseries" length="45" type="VARCHAR" column="CARSERIES" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVICE_VIEW" dictTypeId="crm_carModel">
+		<validates value-key="CARSERIES" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carcardid" length="20" type="VARCHAR" column="CARCARDID" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVICE_VIEW">
+		<validates value-key="CARCARDID" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="isvisited" length="2" type="INT" column="ISVISITED" javaType="java.lang.Integer" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVICE_VIEW">
+		<validates value-key="ISVISITED" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+</fields>
+<description>http://crm/coreModule/data::crm_service_view</description></data>
+<sqls>
+	<sql id="crm_service_view">
+	select 
+    a.`serviceId` AS `serviceId`,
+    a.`servOrderId` AS `servOrderId`,
+    a.`servTransfer` AS `servTransfer`,
+    a.`carVin` AS `carVin`,
+    a.`servInTime` AS `servInTime`,
+    a.`servItems` AS `servItems`,
+    a.`servKilometer` AS `servKilometer`,
+    a.`servHoursExp` AS `servHoursExp`,
+    a.`servHoursReb` AS `servHoursReb`,
+    a.`servPartsExp` AS `servPartsExp`,
+    a.`servPartsReb` AS `servPartsReb`,
+    a.`servCashExp` AS `servCashExp`,
+    a.`servRepairExp` AS `servRepairExp`,
+    a.`servInsureExp` AS `servInsureExp`,
+    a.`servAmountExp` AS `servAmountExp`,
+    a.`servTicketExp` AS `servTicketExp`,
+    a.`servStaff` AS `servStaff`,
+    a.`servOutTime` AS `servOutTime`,
+    a.`servType` AS `servType`,
+    a.`servNotes` AS `servNotes`,
+    a.`servOperator` AS `servOperator`,
+    a.`createTime` AS `createTime`,
+    a.`updateTime` AS `updateTime`,
+    a.`isGoods` AS `isGoods`,
+    a.`resveOrederId` AS `resveOrederId`,
+    a.`servMetalWorker` AS `servMetalWorker`,
+    a.`servPaintWorker` AS `servPaintWorker`,
+    a.`servElecWorker` AS `servElecWorker`,
+    a.`servHoursMembReb` AS `servHoursMembReb`,
+    a.`servPartsMembReb` AS `servPartsMembReb`,
+    `crm_car`.`carLicenceNo` AS `carLicenceNo`,
+    `crm_car`.`carBrand` AS `carBrand`,
+    `crm_car`.`carSeries` AS `carSeries`,
+    `crm_car`.`carOwnerShip` AS `carOwnerShip`,
+    `crm_car`.`carCardId` AS `carCardId`,
+    a.`isRework` AS `isRework`,
+    a.`isVisited` AS `isVisited` 
+  from 
+    (
+	    (select *
+	    from `crm_service`
+	    where 1=1
+	    order BY servOrderId
+	    LIMIT 0,9) a 
+	  	left join 
+	  	`crm_car` 
+   		on((a.`carVin` = `crm_car`.`carVin`))
+   ) 
+	</sql>
+</sqls>
+</saturn-data>

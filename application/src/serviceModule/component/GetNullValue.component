@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-components>
+	<component key="/serviceModule/component/GetNullValue.component" name="GetNullValue" class="serviceModule.component.GetNullValue" projectname="crm">
+		<description></description>
+<parameters>
+	<parameter id="1" name="value1" classType="java.lang.String" passingType="in-out">
+		<scope>1</scope>
+		<value-key>value1</value-key>
+		<description></description>
+	</parameter>
+	<parameter id="2" name="value2" classType="java.lang.String" passingType="in-out">
+		<scope>1</scope>
+		<value-key>value2</value-key>
+		<description></description>
+	</parameter>
+</parameters>
+<loadstart>false</loadstart>
+	</component>
+</saturn-components>

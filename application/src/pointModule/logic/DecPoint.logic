@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-logic>
+	<information id="0" next="" x="0" y="0">
+		<key>/pointModule/logic/DecPoint.logic</key>
+		<name>兑换积分</name>
+		<loadstart>flase</loadstart>
+		<description></description>
+	</information>
+	<end id="3" next="" x="389" y="161">
+		<name>结束</name>
+		<parameters></parameters>
+		<description></description>
+	</end>
+	<component exception="" id="4" next="3" x="246" y="155">
+		<key>crm::/pointModule/component/DecPoint.component</key>
+		<name>兑换积分</name>
+		<parameters>
+			<parameter id="1" name="vin" classType="java.lang.String" passingType="in">
+				<value-key>vin</value-key>
+				<scope>1</scope>
+				<description>车辆vin</description>
+			</parameter>
+			<parameter id="2" name="pr_id" classType="java.lang.String" passingType="in">
+				<value-key>pr_id</value-key>
+				<scope>1</scope>
+				<description>兑换规则id</description>
+			</parameter>
+			<parameter id="3" name="pnum" classType="java.lang.String" passingType="in">
+				<value-key>pnum</value-key>
+				<scope>1</scope>
+				<description>兑换数量</description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>兑换积分</description>
+	</component>
+	<start id="1" next="4" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters>
+			<parameter id="1" name="vin" classType="java.lang.String" passingType="in">
+				<value-key>vin</value-key>
+				<scope>1</scope>
+				<description>车辆vin</description>
+			</parameter>
+			<parameter id="2" name="pr_id" classType="java.lang.String" passingType="in">
+				<value-key>pr_id</value-key>
+				<scope>1</scope>
+				<description>兑换规则id</description>
+			</parameter>
+			<parameter id="3" name="pnum" classType="java.lang.String" passingType="in">
+				<value-key>pnum</value-key>
+				<scope>1</scope>
+				<description>兑换数量</description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</start>
+	<connection source="1" target="4" style="1" name=""></connection>
+	<connection source="4" target="3" style="1" name=""></connection>
+</saturn-logic>

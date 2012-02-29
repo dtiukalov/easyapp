@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-logic>
+	<information id="0" next="" x="0" y="0">
+		<key>/pointModule/logic/AddPoint.logic</key>
+		<name>添加积分</name>
+		<loadstart>flase</loadstart>
+		<description></description>
+	</information>
+	<connection source="4" target="3" style="1" name=""></connection>
+	<connection source="5" target="3" style="1" name=""></connection>
+	<connection source="6" target="3" style="1" name=""></connection>
+	<component exception="" id="9" next="3" x="308" y="99">
+		<key>crm::/pointModule/component/AddPoint.component</key>
+		<name>添加积分</name>
+		<parameters>
+			<parameter id="1" name="vin" classType="java.lang.String" passingType="in">
+				<value-key>vin</value-key>
+				<scope>1</scope>
+				<description>车辆vin</description>
+			</parameter>
+			<parameter id="2" name="oid" classType="java.lang.String" passingType="in">
+				<value-key>oid</value-key>
+				<scope>1</scope>
+				<description>工单号</description>
+			</parameter>
+			<parameter id="3" name="typenum" classType="java.lang.String" passingType="in">
+				<value-key>typenum</value-key>
+				<scope>1</scope>
+				<description>积分类型</description>
+			</parameter>
+			<parameter id="4" name="money" classType="java.lang.String" passingType="in">
+				<value-key>money</value-key>
+				<scope>1</scope>
+				<description>消费积分消费金额</description>
+			</parameter>
+			<parameter id="5" name="indate" classType="java.lang.String" passingType="in">
+				<value-key>indate</value-key>
+				<scope>1</scope>
+				<description>进厂时间或操作时间</description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description></description>
+	</component>
+	<component exception="" id="8" next="9" x="299" y="246">
+		<key>crm::/pointModule/component/GetTypeNum.component</key>
+		<name>获得积分类型编号</name>
+		<parameters>
+			<parameter id="1" name="typenum" classType="java.lang.String" passingType="in-out">
+				<value-key>typenum</value-key>
+				<scope>1</scope>
+				<description>积分小类编号</description>
+			</parameter>
+			<parameter id="2" name="serv_type" classType="java.lang.String" passingType="in">
+				<value-key>serv_type</value-key>
+				<scope>1</scope>
+				<description>维修类型</description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description></description>
+	</component>
+	<end id="3" next="" x="422" y="178">
+		<name>结束</name>
+		<parameters></parameters>
+		<description></description>
+	</end>
+	<decision next="" id="7" x="169" y="168">
+		<name>serv_type!=null</name>
+		<if then="8" else="9">
+			<expr>serv_type!=null&amp;&amp;serv_type.trim()!=&quot;&quot;</expr>
+		</if>
+		<parameters></parameters>
+		<description></description>
+	</decision>
+	<start id="1" next="7" x="69" y="169">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters>
+			<parameter id="1" name="vin" classType="java.lang.String" passingType="in">
+				<value-key>vin</value-key>
+				<scope>1</scope>
+				<description>车辆vin</description>
+			</parameter>
+			<parameter id="2" name="oid" classType="java.lang.String" passingType="in">
+				<value-key>oid</value-key>
+				<scope>1</scope>
+				<description>工单号</description>
+			</parameter>
+			<parameter id="3" name="typenum" classType="java.lang.String" passingType="in">
+				<value-key>typenum</value-key>
+				<scope>1</scope>
+				<description>积分类型</description>
+			</parameter>
+			<parameter id="4" name="money" classType="java.lang.String" passingType="in">
+				<value-key>money</value-key>
+				<scope>1</scope>
+				<description>消费积分消费金额</description>
+			</parameter>
+			<parameter id="5" name="indate" classType="java.lang.String" passingType="in">
+				<value-key>indate</value-key>
+				<scope>1</scope>
+				<description>进厂时间或操作时间</description>
+			</parameter>
+			<parameter id="6" name="" classType="java.lang.String" passingType="in">
+				<value-key>serv_type</value-key>
+				<scope>1</scope>
+				<description>维修类型</description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</start>
+	<connection source="8" target="9" style="1" name=""></connection>
+	<connection source="1" target="7" style="1" name=""></connection>
+	<connection source="7" target="8" style="1" name="未命名"></connection>
+	<connection source="7" target="9" style="2" name="未命名"></connection>
+	<connection source="9" target="3" style="1" name=""></connection>
+</saturn-logic>

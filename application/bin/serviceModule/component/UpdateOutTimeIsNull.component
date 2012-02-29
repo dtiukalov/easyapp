@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-components>
+	<component key="/serviceModule/component/UpdateOutTimeIsNull.component" name="更新交车时间为null" class="serviceModule.component.UpdateOutTimeIsNull" projectname="crm">
+		<description>更新交车时间为null</description>
+<parameters>
+	<parameter id="1" name="serviceid" classType="java.lang.String" passingType="in">
+		<scope>1</scope>
+		<value-key>serviceid</value-key>
+		<description></description>
+	</parameter>
+	<parameter id="2" name="servouttime" classType="java.lang.String" passingType="in">
+		<scope>1</scope>
+		<value-key>servouttime</value-key>
+		<description></description>
+	</parameter>
+</parameters>
+<loadstart>false</loadstart>
+	</component>
+</saturn-components>

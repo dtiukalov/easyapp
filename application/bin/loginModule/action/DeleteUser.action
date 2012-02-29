@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/loginModule/action/DeleteUser.action</key>
+		<name>DeleteUser</name>
+		<description></description>
+	</information>
+	<logic exception="" id="2" next="3" x="302" y="164">
+		<key>crm::/loginModule/logic/DeleteUser.logic</key>
+		<name>DeleteUser</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="primarykeyValue" classType="java.lang.String" passingType="in">
+				<value-key>userid</value-key>
+				<scope>1</scope>
+				<description>primarykey</description>
+			</parameter>
+			<parameter id="2" name="result" classType="java.lang.Integer" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description>sql执行所修改的记录条数</description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<start id="1" next="2" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<action id="3" next="" x="528" y="178">
+		<key>crm::/loginModule/action/QueryUserList.action</key>
+		<name>QueryUserList</name>
+		<parameters></parameters>
+		<description></description>
+	</action>
+	<connection source="1" target="2" style="1" name=""></connection>
+	<connection source="2" target="3" style="1" name=""></connection>
+</saturn-action>

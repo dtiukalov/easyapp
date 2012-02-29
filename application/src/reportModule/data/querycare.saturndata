@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-data>
+	<data name="querycare" namespace="http://crm/reportModule/data" dbType="mysql" connectname="test26">
+		
+<fields>
+	<field name="careouttime" length="19" type="DATETIME" column="CAREOUTTIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CARE">
+		<validates value-key="CAREOUTTIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carestaff" length="45" type="VARCHAR" column="CARESTAFF" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CARE">
+		<validates value-key="CARESTAFF" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carebucketnum" length="11" type="INT" column="CAREBUCKETNUM" javaType="java.lang.Integer" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CARE">
+		<validates value-key="CAREBUCKETNUM" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	<field name="careexpense" length="12" type="FLOAT" column="CAREEXPENSE" javaType="java.lang.Float" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CARE">
+		<validates value-key="CAREEXPENSE" classType="java.lang.Float" isValidate="false"></validates>
+	</field>
+	<field name="cardid" length="20" type="VARCHAR" column="CARDID" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CARE">
+		<validates value-key="CARDID" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="careitemname" length="45" type="VARCHAR" column="CAREITEMNAME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_CAREITEM">
+		<validates value-key="CAREITEMNAME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="value" length="300" type="VARCHAR" column="VALUE" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="SATURN_DICT">
+		<validates value-key="VALUE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+</fields>
+<description>'http://crm/reportModule/data::querycare'</description></data>
+	<sqls>
+		<sql id="querycare">
+			select a.`careStaff`,b.`careItemName`,c.`VALUE`,sum(a.`careExpense`) as careExpense,sum(a.`careBucketNum`) as careBucketNum
+			from `crm_care` a,`crm_careitem` b,`saturn_dict` c
+			where a.`cardId`=b.`careId`
+            and b.`careItemName` = c.`CODE`
+         	<isNotEmpty prepend="AND" property="min_careInTime">
+				 a.`careInTime` BETWEEN '${min_careInTime}' and '${max_careInTime}'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="min_careOutTime">
+				 a.`careOutTime` BETWEEN '${min_careOutTime}' and '${max_careOutTime}'
+			</isNotEmpty>
+			group by a.`careStaff`,b.`careItemName`
+		</sql>
+		<sql id="querycarename">
+			select DISTINCT a.`careStaff` as careStaff,c.`VALUE` as value
+			from `crm_care` a,`crm_careitem` b,`saturn_dict` c
+			where a.`cardId`=b.`careId`
+            and a.`careStaff` = c.`CODE`
+			<isNotEmpty prepend="AND" property="min_careInTime">
+				 a.`careInTime` BETWEEN '${min_careInTime}' and '${max_careInTime}'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="min_careOutTime">
+				 a.`careOutTime` BETWEEN '${min_careOutTime}' and '${max_careOutTime}'
+			</isNotEmpty>
+		</sql>
+	</sqls>
+</saturn-data>

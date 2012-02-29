@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-components>
+<component key="/pointModule/component/AddPoint.component" name="添加积分" class="pointModule.component.AddPoint" projectname="crm">
+	<description></description>
+	<parameters>
+		<parameter id="1" classType="java.lang.String" passingType="in" name="vin">
+			<scope>1</scope>
+			<value-key>vin</value-key>
+			<description>车辆vin</description>
+		</parameter>
+		<parameter id="2" passingType="in" classType="java.lang.String" name="oid">
+			<scope>1</scope>
+			<value-key>oid</value-key>
+			<description>工单号</description>
+		</parameter>
+		<parameter id="3" passingType="in" classType="java.lang.String" name="typenum">
+			<scope>1</scope>
+			<value-key>typenum</value-key>
+			<description>积分类型</description>
+		</parameter>
+		<parameter id="4" classType="java.lang.String" passingType="in" name="money">
+			<scope>1</scope>
+			<value-key>money</value-key>
+			<description>消费积分消费金额</description>
+		</parameter>
+		<parameter id="5" classType="java.lang.String" passingType="in" name="indate">
+			<scope>1</scope>
+			<value-key>indate</value-key>
+			<description>进厂时间或操作时间</description>
+		</parameter>
+	</parameters>
+	<loadstart>false</loadstart>
+</component>
+</saturn-components>

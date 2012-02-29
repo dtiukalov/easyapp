@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<plmxml_bus:PLMXMLBusinessTypes xmlns:plmxml_bus="http://www.plmxml.org/Schemas/PLMXMLBusinessSchema" schemaVersion="4" date="2003-10-08" time="13:09:29" author="unset"> 
+    <plmxml_bus:SavedQueryDef id="id1" name="issues_RichClient" nameRef="id2" descriptionTextRef="id3" queryFlag="0" queryClass="FV9Issue" resultsType="0" >
+        <Description>问题统计查询报表中，供RichClient调用的自定义查询</Description> 
+        <plmxml_bus:QueryClause stringValue="SELECT qid FROM FV9Issue WHERE &quot;FV9IssueRevision&lt;-items_tag.Form:IMAN_specification.FV9IssueInfoStorage:data_file.fv9ProposedDate&quot; IS_NOT_NULL &quot;IS_NOT_NULL&quot; AND &quot;item_id&quot; = &quot;${item_id = }&quot;"></plmxml_bus:QueryClause>
+    </plmxml_bus:SavedQueryDef>
+    <Text id="id2" primary="en_US">
+        <Item  language="en_US">issues_RichClient</Item>
+        <Item  language="zh_CN"></Item>
+    </Text>
+    <Text id="id3" primary="en_US">
+        <Item  language="en_US">问题统计查询报表中，供RichClient调用的自定义查询</Item>
+        <Item  language="zh_CN"></Item>
+    </Text>
+</plmxml_bus:PLMXMLBusinessTypes>

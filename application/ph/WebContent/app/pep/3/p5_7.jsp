@@ -91,8 +91,7 @@
 					tooltip: {
 						formatter: function() {
 							return '<b>'+ this.x +'</b><br/>'+
-								 this.series.name +': '+ this.y + 
-								 'Total' + this.percentage
+								 this.series.name +': '+ this.y;
 						}
 					},
 					plotOptions: {

@@ -84,7 +84,7 @@
 						fontSize:'20px'
 					},
 					align:'left',
-					y:20
+					y:10
 				},
 				xAxis: {
 					lineWidth:0,
@@ -119,7 +119,6 @@
 					stackLabels: {
 						enabled: false,
 						style: {
-							fontWeight: 'bold',
 							fontSize:'14px',
 							color: 'black'
 						}
@@ -144,6 +143,7 @@
 				plotOptions: {
 					column: {
 						stacking: 'normal',
+						pointWidth:30,
 						borderWidth:0,
 						shadow:false,
 						dataLabels: {
@@ -152,8 +152,7 @@
 							verticalAlign: 'top',
 							y:-10,
 							style:{
-								fontSize:'14px',
-								fontWeight:'bold'
+								fontSize:'14px'
 							}
 						}
 					}
@@ -175,7 +174,7 @@
 					<h1><%=title %></h1>
 				</div>
 				<div id="content">
-					<div id="chart" style="width: 800px; height: 450px;margin:30px 50px"></div>
+					<div id="chart" style="width: 850px; height: 450px;margin:30px 50px"></div>
 				</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 			</div>	

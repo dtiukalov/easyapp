@@ -197,7 +197,6 @@
 							dataLabels: {
 								enabled: true,
 								style : {
-									fontWeight: 'bold',
 									fontSize:'12px'
 								},
 								color: 'black'
@@ -231,10 +230,11 @@
 				<h1><%=title %></h1>
 			</div>
 			<div id="top1" style="margin-top:20px"><h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LC BMG-Teile von ES Teileliste (KW48/11)</h2></div>
-			<div id="top2" align="right"><h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STATUS: <%=status %></h4></div>
-			<div id="content" style="margin:50px 120px;height:432px;">
-				<div id="chart1" style="width: 200px; height: 285px; float: left;margin-top:23px"></div>
-				<div id="chart2" style="width: 500px; height: 320px; float: left;"></div>
+			<div id="content" style="margin:30px 60px;height:491px;">
+				<div style="margin:50px auto">
+					<div id="chart1" style="width: 260px; height: 285px; float: left;margin-top:23px"></div>
+					<div id="chart2" style="width: 560px; height: 320px; float: left;"></div>
+				</div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

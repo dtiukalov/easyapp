@@ -1,0 +1,24 @@
+# =================================================================================================
+#
+#                            Copyright (c) 2006 Unigraphics Solutions Inc
+#                                        All rights reserved
+#
+# =================================================================================================
+#
+#     Filename: custom_head.ish
+#     Module  : custom
+#
+#     This file can be used to add cusom javascript files written as part of
+#     customization instead of adding the js files in head.ish
+#
+# =================================================================================================
+# Date         Name                    Description of Change
+# $HISTORY$
+# =================================================================================================
+#
+
+print '<script type="text/javascript" src="teamcenter/dhtml/custom/customform.js"></script>' + NL
+
+print '<script type="text/javascript" src="teamcenter/dhtml/custom/webitk_report.js"></script>' + NL
+
+

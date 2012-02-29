@@ -1,0 +1,24 @@
+include 'common/data/altid.isx'
+include 'common/data/formtemplates.isx'
+include 'common/data/lov.isx'
+
+# -------------------------------------------------------------------------------------------------
+# New Reoprt Demo
+# -------------------------------------------------------------------------------------------------
+print '
+<xml id="F6_Product_REPORT">
+<form name="' + imanText( 'web_foton_bom_title' ) + '" style="display:none">
+<field name="name" length="10" required="true" displayname="' + imanText( 'web_name_field' ) + '"></field>
+<field name="description" type="Note" length="10" displayname="' + imanText( 'web_desc_field' ) + '"></field>
+</form>
+</xml>'
+
+print '
+<xml id="F6_Product_REPORT22">
+<form name="' + imanText( 'web_foton_bom_title' ) + '" style="display:none">
+<field name="level" length="10" required="true" displayname="' + imanText( 'web_foton_level' ) + '"></field>
+<field name="type" length="10" required="true" displayname="' + imanText( 'web_inclass_type' ) + '" >'
+print '<lov><value id="WORD">WORD</value><value id="EXCEL">EXCEL</value></lov>'
+print '</field>
+</form>
+</xml>'

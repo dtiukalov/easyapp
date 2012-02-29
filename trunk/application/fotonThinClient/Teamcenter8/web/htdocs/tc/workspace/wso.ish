@@ -1,0 +1,281 @@
+# =================================================================================================
+#
+#                            Copyright (c) 2000 Unigraphics Solutions Inc
+#                                        All rights reserved
+#
+# =================================================================================================
+#
+#     Filename: wso.ish
+#     Module  : wrksp
+#
+#     Handles the display of WorkspaceObjects - mainly folders, items and revisions.
+#
+# =================================================================================================
+# Date         Name                    Description of Change
+# 16-Aug-2000  Peter Windle            add standard header, reset history
+# 22-Aug-2000  Peter Windle            add new cell transform
+# 23-Aug-2000  Peter Windle            factor wso table drawing out of wso.ish (for search.html)
+# 30-Aug-2000  Peter Windle            add preference name to table drawing
+# 31-Aug-2000  Peter Windle            add call to applyiMANTransforms
+# 06-Sep-2000  Peter Windle            add child type filtering
+# 08-Sep-2000  Charles Brown           spring clean MES
+# 20-Sep-2000  Peter Windle            add searches to menu
+# 03-Oct-2000  Peter Windle            add splash
+# 03-Oct-2000  Peter Windle            splash -> watermark
+# 04-Oct-2000  Peter Windle            i18n for watermark
+# 17-Oct-2000  Peter Windle            add line styler
+# 23-Oct-2000  Peter Windle            setup application and object name
+# 04-Dec-2000  scott ulrey             changing WSOLineWithObvChildren sig
+# 20-Dec-2000  scott ulrey             rm en
+# 19-Apr-2001  Hugh Stewart            supersede TreeRendererChildTypes by TreeRendererExpansionArgs
+# 06-Nov-2001  scott ulrey             JScript -> javascript
+# 14-Dec-2001  scott ulrey             check for flush bug
+# 09-Jul-2002  scott ulrey             change wso sig
+# 29-Sep-2003  ulrey                   mouse mods
+# 14-Jan-2004  ulrey                   change wsotoolbar.xml to toolbar.xml
+# 13-Feb-2004  ulrey                   rm logging
+# 26-Feb-2004  ulrey                   dont call renderTB anymore
+# 04-Mar-2004  ulrey                   rm menu xsl
+# 07-Apr-2004  ulrey                   adjust span around menu
+# 14-Sep-2004  Radha Kameswari M V     DHTML porting to Mozilla
+# 19-Oct-2004  Raajesh B.Kashyap       Introduce pref for display of pseudo folders
+# 28-Nov-2004  Syed Anwaruddin         Added application variable for parsing the aplication Name
+# 28-Oct-2004  Kranti Chaitanya        drawproptable has changed
+# 02-Dec-2004  Prasad                  Porting to v10
+# 07-Dec-2004  x_mukkam                State Preservation
+# 07-Dec-2004  x_mukkam                Merge
+# 11-Dec-2004  Hari Krishna Nitturi    Merge
+# 15-Dec-2004  Syed Anwaruddin         Resolve conflicts for p10.0.0.8
+# 26-Jan-2005  Charles Brown           change URLs for 4-tier
+# 26-Apr-2005  spl                     Edit drawPropTable signature
+# 25-Jul-2005  Hemanth                 Fix for PR#5161728
+# 22-Nov-2005  Anuradha Thouta         merge
+# 30-Nov-2005  x_sivap                 Pref Cleanup
+# 30-Nov-2005  Hemanth                 merge
+# 13-Mar-2006  Kranti Chaitanya        for TcX 2005
+# 15-Mar-2006  Kranti Chaitanya        for TcX 2005
+# 31-Mar-2006  Kranti Chaitanya        for PLM2007
+# 21-Feb-2006  x_mukkam                Support Summary View Display
+# 11-Apr-2006  x_mukkam                Merge
+# 02-May-2006  x_sivap                 TcX Integ
+# 20-Apr-2006  Kranti Chaitanya        uncomment processinboxobjects
+# 04-May-2006  Hemanth                 merge
+# $HISTORY$
+# =================================================================================================
+
+include 'common/basic.isx'
+include 'common/data/wsoline.isx'
+
+print htmlTag() + NL
+  print '<head>' + NL
+  print '<META NAME="save" CONTENT="history">' + NL
+    print '<style type="text/css">' + NL
+    print '.saveHistory{behavior:url(#default#savehistory);} ' + NL
+    print 'XML' + NL
+    print '{display:"none"}' + NL
+    print 'FORM' + NL
+    print '{display:"none"}' + NL
+    print '</style>' + NL
+
+    #Added for PLM2007
+    # for titling
+    application_name = imanText( 'web_myteamcenter_appname' )
+    object_name = argument.object_string
+
+    # load common JavaScript and stylesheets
+    include 'common/head.ish'
+
+    # set up the onload initialisation for the menu and tree
+    print '
+    <script type="text/javascript">
+    function WorkspaceLineStyler( line, row )
+    {
+        if ( line.getAttribute( "class" ) == "IMANRelation" )
+        {
+            row.className = "IMANRelation";
+            if ( askImanPreferenceValue( "WEB_display_pseudofolders" ) == "0" )
+            {
+                // hide the pseudo folder
+                row.style.display = "none";
+            }
+        }
+    }
+
+    var folderColumns;
+    function doLoad()
+    {
+        var treeNode;
+        var imandatatable_elem;
+        var browser_name = getBrowserName();
+
+        standardMenuSetup(browser_name);
+
+        setTreeRendererLineStyler( WorkspaceLineStyler );
+        setTreeRendererChildTypes( new Array( "GRM", "Folder" ) );
+        setTreeRendererExpansionArgs( \'"webclient/" + row.iman_tag + "?TC_file=common/data/wsochildren.xml"\' );
+        applyiMANTransforms();'
+
+        #If config rule set in preference is invalid, throw an alert and reloading the page with
+        #default rule Latest Working
+        if configruleFlag == TRUE
+        then
+            #Fix for PR#6260434
+            print 'alert("' + quoteImanText('web_default_configrule_invalid') + '");' + NL
+            print 'location.reload(); return;' + NL
+        endif
+
+        print ' if (folderColumns == 0 )
+               {
+                alertString( 63324 );' + NL
+        print '}'
+        print '
+         
+        //Added switches to fix home inbox performance issue Ref:PR# 5685030
+        var useLHNHomeComp = askImanPreferenceLogical("WEB_use_lhn_home_component");
+        var useLHNInboxComp = askImanPreferenceLogical("WEB_use_lhn_inbox_component");
+
+        if ( useLHNHomeComp )
+        {
+            var homefolder = document.getElementById("homefolderlisting");
+            var wsolines = homefolder.getElementsByTagName("lines");
+
+            // List Home Objects
+            processLHNObjects(wsolines[0]);
+		//alert(wsolines[0].getElementsByTagName("line")[0].getAttribute("name"));
+        }
+
+        if ( useLHNInboxComp )
+        {
+            var inboxfolder = document.getElementById("inboxlisting");
+            var tasklines = inboxfolder.getElementsByTagName("lines");
+
+            // Inbox Listing
+            processInboxObjects(tasklines[0]);
+        }
+
+        var imandt = document.getElementById("imandata");
+        var treeList = imandt.getElementsByTagName("lines");
+        treeNode=treeList[0];
+
+        // set style to DIV element
+        setDivStyle();
+
+        imandatatable_elem = document.getElementById("imandatatable");
+        historytable_elem = document.getElementById("historytable");
+
+        if( flushCheck( "imandatatable" ) )
+        {
+            imanTableBody = imandatatable_elem.lastChild;
+            historyTableBody = historytable_elem.lastChild;
+            node = historyTableBody.firstChild;
+
+            //Re render expand and collapse events
+            if(node != null)
+            {
+                //reload the table in synchronous mode
+                globalAsyncMode = false;
+                renderInitialTree( treeNode, imandatatable_elem);
+                reloadDataTable(imanTableBody ,historyTableBody,node);
+            }
+            else
+            {
+                renderInitialTree( treeNode, imandatatable_elem);
+            }
+
+            //Cancel context menu
+            document.onclick = doClickDocument;
+
+            //Use asynchronous mode after reload is completed.
+            globalAsyncMode = true;
+        }
+        else
+        {
+            return;
+        }
+    }
+    </script>' + NL + NL
+
+    # cache columns in IMAN_inherited for performance
+    columnHeaders = EMPTYARRAY
+    object_type = argument.object_type
+    columnHeaders = columnHeaderNames( argument, '' )
+    columnProps = columnPropNames( argument, '' )
+    IMAN_inherited = IMAN_inherited :: 'columnHeaders' :: 'columnProps' :: 'IMAN_user'
+    
+    # inline the appropriate iMAN data
+    print '<xml id="imandata" style="display:none">' + NL
+    print '<lines>' + NL
+
+    if argument isa 'WorkspaceObject'
+    then
+        print WSOLineWithObviousChildren( argument )
+    else
+        print '<error>'
+        print '<message>unsupported type</message>'
+        print '</error>'
+    endif
+
+    print '</lines>' + NL
+    print '</xml>' + NL + NL
+
+    #Added for PLM2007
+    print '<xml id="xmlMenuData" src="teamcenter/dhtml/common/intl/' + lang + '/wsomenu.xml"></xml>' + NL
+    print '<xml id="xmlCustomMenuData" src="teamcenter/dhtml/common/intl/' + lang + '/wsomenu_custom.xml" style="display:none"></xml>' + NL
+    print '<xml id="xmlToolBarData" src="teamcenter/dhtml/common/intl/' + lang + '/toolbar.xml" style="display:none"></xml>' + NL
+
+    QRY_find('Item - simple','query')
+    print NL + '<xml id="searchData">' + NL
+             + '<search id=' + query + ' />' + NL
+             + '</xml>' + NL
+
+    print NL + '</head>' + NL + NL
+
+    print '<body class="navigator" onload="doLoad();return true;" onResize="setDivStyle();return true;">' + NL
+
+    print '<!-- AppLauncherApplet -->' + NL
+    HTTP_HOST = getHost( HTTP_HOST )
+    base = getProtocol() + HTTP_HOST + DEPLOYED_APP_NAME + '/'
+    codebase = base + 'teamcenter/dhtml/apps/docmgt/'
+    print '<applet code="AppLauncherApplet.class" codebase="' + codebase + '" name="appLauncherApplet" width="1" height="1" mayscript="true" class="hideApplet"'
+       + ' ARCHIVE="AppLauncherApplet.jar,applauncher.jar,log4j.jar">'
+       + '<PARAM NAME=download_fail_1 VALUE="' + imanText( 'web_applet_download_fail_1' ) + '">'
+       + '<PARAM NAME=download_fail_2 VALUE="' + imanText( 'web_applet_download_fail_2' ) + '">'
+       + '</applet>' + NL + NL
+
+    include 'common/toolbar.ish'
+    print topLogo( DEPLOYED_APP_NAME )
+    print toolBarStart()
+
+    # menubar
+    print '<span><div id="divMenuToken"></div></span>' + NL
+
+    # treetable
+    include 'common/drawproptable.ish'
+    
+    print '<script type="text/javascript">'
+    if LENGTH(columnHeaders) == 0 then
+        print 'folderColumns= 0;'
+    endif
+    print '</script>'
+
+    drawPropTable( 'imandatatable', columnHeaders, '', application_name, '', object_type, DEPLOYED_APP_NAME )
+
+    # place holder for summary view
+    print '<div id="summaryviewdiv" style="display:none"></div>' + NL
+
+    print toolBarEnd()
+
+    #Added for PLM2007
+    # Pop-up menu
+    print '<span><div id="popupdiv" class="popupDivStyle"></div></span>' + NL
+
+    print NL + '<div id=dialogholder></div>' + NL
+    include 'common/dialogs/formtemplates.xml'
+    include 'common/dialogs/formtemplates_custom.xml'
+
+    # History table to save the history of expanded and collapsed rows.
+    print NL + '<table class="saveHistory" id="historytable" style="display:none"><tbody></tbody></table>' + NL
+
+  print NL + '</body>' + NL
+print '</html>' + NL
+

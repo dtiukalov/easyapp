@@ -1,0 +1,98 @@
+<script type="text/IMAN">
+
+include 'common/basic.isx'
+include 'common/actions/relations.isx'
+include 'common/actions/update.isx'
+
+print XMLDefaultHeader()
+
+try
+
+  WEB_string_to_int(_webitk_code, 'webitk_code')
+  
+  if EXISTS( '_selection' )
+  then
+      content = _selection + '__::__' + _args
+  else
+  	  content = _args	
+  endif
+  
+  USER_invoke_user_code_string(webitk_code, content, 'dummy_code', 'report_path_name')
+
+
+   # Copy the report to transient volume.
+   CRF_copy_report_to_transient_vol( report_path_name ,'transientVolumeDir','copiedFileName')
+   
+   #get the read ticket for the report copied into transient volumes
+   saveas_filename = copiedFileName    
+   filename = transientVolumeDir + '/' + copiedFileName
+   
+   #Now we are trying to pick the right assignedFSC in the list otherwise defaulting to first one of the pref list.
+   if EXISTS( '_assignedFSC' ) then
+       currentBootstrapURL = _assignedFSC       
+   else    
+       currentBootstrapURL = SinglePreference( 'Fms_BootStrap_Urls', 'TC_preference_all', FALSE )
+   endif
+     
+   try
+       access_method = EMPTYARRAY
+       file_type = EMPTYARRAY
+       server_mode = EMPTYARRAY
+       deleteSW = EMPTYARRAY
+       transFilename = EMPTYARRAY
+       url = EMPTYARRAY
+          
+       access_method = access_method :: 4      # 4-read, 2-write
+       server_mode = server_mode :: 4          # 4: four tier, 2: two tier
+       deleteSW = deleteSW :: 0                # 0: don't delete, 1: delete
+       transFilename = transFilename :: filename
+       file_type = file_type :: 8192           # decimal value of SS_BINARY
+       url = url :: ''
+           
+       WEB_IMF_get_transient_file_tickets( 'WEB', 1, access_method, file_type,
+                                            server_mode, deleteSW, transFilename,
+                                            url, 'ifails', 'rTickets' )
+   
+   
+       ticketInfos = SPLICE( rTickets, 'readTicket', ifails, 'ifail' )
+  
+       transientReadTicket = ''
+          
+       for ticketInfo in ticketInfos
+           if ticketInfo.ifail == 0 then
+               if currentBootstrapURL != '' then
+                   transientReadTicket = ticketInfo.readTicket
+               else
+                   # display the error on clicking: Fms_BootStrap_Urls pref not defined
+                   EMH_store_error( 1, 63153 )
+                   throw 'error'
+               endif
+           else
+               # there was an ifail, display the error on clicking: Failed to get read ticket
+               EMH_store_error( 1, 63154 )
+               throw 'error'
+           endif
+           break   # we expect only one ticket from the ITK
+       next
+   
+   catch error
+       # display the error on clicking - Failed to get read ticket
+       EMH_store_error( 1, 63154 )
+       print ErrorStack( 'FMS error' )
+   endtry       
+       
+   report_file_url = currentBootstrapURL + '/' + saveas_filename + '?ticket=' + transientReadTicket
+
+   #generate the xml repsonse content
+   report = '<form>'
+   report += '<field value="'+report_file_url+'"></field>'
+   report += '</form>'
+   
+   print report 
+      
+catch error
+  print ErrorStack( 'webitk_report' )
+endtry
+
+</script>
+

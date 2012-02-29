@@ -1,0 +1,1557 @@
+<?xml version="1.0" encoding="GB2312" standalone="yes"?>
+<!--
+===============================================================================
+                Copyright (c) 2003-2005 UGS Corporation
+                   Unpublished - All Rights Reserved
+===============================================================================
+File description:
+
+    File Name: weblocal.uih
+    Tc Web dialog strings
+
+    string naming guidelines for developers: start with 'web_' + dialog or page where used
+    (preferably wo spaces + description (again, no spaces) + type (button, field, title).
+    Improve on these guidelines as you see fit and backfix old strings when convenient.
+
+    It is preferable to lookup strings on the server, but if you need your text to be available
+    client side then you need to add it to /vobs/web_src/htdocs/tc/intl/web_gen_xml.dat
+    and then run $TC_BIN/web_gen_xml
+
+            XML File defining ___ module text/error messages.
+            This was previously done in UIH/UIL/VIL format.
+ -->
+  <textsrv filename="weblocal_locale.xml">
+    <key id="web_foton_bom_title">产品结构报表</key>
+    <key id="web_foton_level">层级</key>
+  
+    <key id="web_local_lang">cn</key>
+    <key id="web_ok">确定</key>
+    <key id="web_apply">应用</key>
+    <key id="web_submit">提交</key>
+    <key id="web_cancel">取消</key>
+    <key id="web_clear">清除</key>
+    <key id="web_find">查找</key>
+    <key id="web_up">上移</key>
+    <key id="web_down">下移</key>
+    <key id="web_reset">重置</key>
+    <key id="web_yes">是</key>
+    <key id="web_no">否</key>
+    <key id="web_save">保存</key>
+    <key id="web_assign_resource_to_task">将资源指派到任务</key>
+    <key id="web_add">添加</key>
+    <key id="web_remove">移除</key>
+    <key id="web_desc_field">描述</key>
+    <key id="web_name_field">名称</key>
+    <key id="web_type_field">类型</key>
+    <key id="web_uom_field">度量单位</key>
+    <key id="web_checkout_checkbox">创建时签出零组件版本</key>
+    <key id="web_rev_rule_field">版本规则</key>
+    <key id="web_eff_end_item_field">顶层零组件</key>
+    <key id="web_general_errmsg_title">Teamcenter Web 生成此页时出错</key>
+    <key id="web_general_whereused_errmsg_title">此功能无法用于数据集</key>
+    <key id="web_done">完成</key>
+    <key id="web_lov_other_option">其他...</key>
+    <key id="web_newitem_id">ID</key>
+    <key id="web_newitem_revid">版本 ID</key>
+    <key id="web_blank_id_for_auto_info">将 ID 与版本字段留空以用于自动指派</key>
+    <key id="web_newfolder_title">新建文件夹</key>
+    <key id="web_newdataset_title">新建数据集</key>
+    <key id="web_newdataset_id">ID</key>
+    <key id="web_newdataset_revid">版本 ID</key>
+    <key id="web_saveasdataset_title">保存数据集 </key>
+    <key id="web_saveasitemrev_title">保存零组件版本 </key>
+    <key id="web_saveas_title_as"> 为</key>
+    <key id="web_reviseitemrev_title">修订零组件版本</key>
+    <key id="web_newform_title">新建表单</key>
+    <key id="web_newcmviewerform_title">新建 CMViewerForm</key>
+    <key id="web_newmarkup_title">新建批注</key>
+    <key id="web_newweblink_title">新建 Web 链接</key>
+    <key id="web_newweblink_url">URL</key>
+    <key id="web_newinterfacedefinition_title">新建接口定义</key>
+    <key id="web_newprocessvariable_title">新建过程变量</key>
+    <key id="web_newec_title">创建/修订更改</key>
+    <key id="web_newec_type">更改类型</key>
+    <key id="web_newec_id">更改 ID</key>
+    <key id="web_newec_revid">更改版本 ID</key>
+    <key id="web_newec_name">更改名称</key>
+    <key id="web_newec_desc">更改描述</key>
+    <key id="web_blank_pr_no_for_auto_info">将 PR 编号与版本 ID 字段留为空白以进行自动指派</key>
+    <key id="web_newpr_title">新建问题报告</key>
+    <key id="web_newpr_id">PR 编号</key>
+    <key id="web_newpr_revid">版本 ID</key>
+    <key id="web_newpr_name">概要</key>
+    <key id="web_newpr_desc">PR 描述</key>
+    <key id="web_checkout_title">签出</key>
+    <key id="web_checkout_changeid">更改 ID</key>
+    <key id="web_checkout_reason">理由</key>
+    <key id="web_initproc_title">新建流程</key>
+    <key id="web_initproc_jobname">流程名称</key>
+    <key id="web_initproc_procname">流程模板</key>
+    <key id="web_initproc_done_msg">流程已提交。请导航至工作列表以查看进度。</key>
+    <key id="web_inbox_tasks_to_perform">要执行的任务</key>
+    <key id="web_inbox_tasks_to_track">要跟踪的任务</key>
+    <key id="web_inbox_targets">目标</key>
+    <key id="web_inbox_references">引用</key>
+    <key id="web_inbox_subprocesses">子流程</key>
+    <key id="web_inbox_interprocess_task_attachment">相依性</key>
+    <key id="web_crdecision_approve">批准</key>
+    <key id="web_crdecision_reject">拒绝</key>
+    <key id="web_crdecision_nodecision">不作决定</key>
+    <key id="web_crdecision_acknowledged">已认可</key>
+    <key id="web_crdecision_notacknowledged">未认可</key>
+    <key id="web_dotask_instructions">任务说明</key>
+    <key id="web_dotask_responsible">负责人</key>
+    <key id="web_dotask_complete">完成</key>
+    <key id="web_dotask_unable_to_complete">无法完成</key>
+    <key id="web_dotask_not_complete">未完成</key>
+    <key id="web_conditiontask_results">任务结果</key>
+    <key id="web_conditiontask_true">TRUE</key>
+    <key id="web_conditiontask_false">FALSE</key>
+    <key id="web_conditiontask_unset">未设置</key>
+    <key id="web_promote_title">提升</key>
+    <key id="web_demote_title">退回</key>
+    <key id="web_succeeded">已成功</key>
+    <key id="web_failed">已失败</key>
+    <key id="web_action_failure">不能获取该流程的发放级别任务</key>
+    <key id="web_assign_task">指派任务</key>
+    <key id="web_assign_group">组</key>
+    <key id="web_assign_role">角色</key>
+    <key id="web_assign_user">用户</key>
+    <key id="web_delegate_task">委派任务</key>
+    <key id="web_confirm_del_title">删除</key>
+    <key id="web_confirm_del">删除选定的对象吗？</key>
+    <key id="web_confirm_del_1">删除选定的对象：%1$？</key>
+    <key id="web_confirm_del_n">删除 %1$ 个选定的对象吗？</key>
+    <key id="web_confirm_del_all_seq">删除所有序列</key>
+    <key id="web_confirm_logout">要结束此 Teamcenter 会话吗？</key>
+    <key id="web_confirm_job_del">删除选定的流程吗？</key>
+    <key id="web_changepassword_title">更改密码</key>
+    <key id="web_old_password">旧密码</key>
+    <key id="web_new_password">新密码</key>
+    <key id="web_confirm_new_password">确认新密码</key>
+    <key id="web_password_changed">已成功地更改密码。</key>
+    <key id="web_options_title">用户设置</key>
+    <key id="web_default_group">默认组</key>
+    <key id="web_default_role">默认角色</key>
+    <key id="web_group_role">组 / 角色</key>
+    <key id="web_owning_site">所有权站点</key>
+    <key id="web_volume">卷</key>
+    <key id="web_roles_and_group_members">角色 / 组成员</key>
+    <key id="web_setvariants_title">设置变量</key>
+    <key id="web_saveconfig_title">保存变量配置</key>
+    <key id="web_loadconfig_title">加载已保存的变量配置</key>
+    <key id="web_setvrule_title">设置变量规则</key>
+    <key id="web_newdialog_relation_type">关系类型</key>
+    <key id="web_default_configrule_invalid">默认的配置规则无效。当前设置的规则为 Latest Working。请使用用户设置将其更改为有效规则。</key>
+    <key id="web_assigned">指派的</key>
+    <key id="web_all">全部</key>
+    <key id="web_process_filter_field">流程模板过滤器</key>
+    <!--View/Edit separation-->
+    <key id="web_edit">签出并编辑</key>
+    <key id="web_cancel_co">取消签出</key>
+    <key id="web_save_ci">签入</key>
+    <key id="web_save_and_ci">保存并签入</key>
+    <key id="web_save_co">保存</key>
+    <!-- Teamcenter-Globalservices Variables -->
+    <key id="web_TCGS_msgid">事务 ID</key>
+    <key id="web_TCGS_msgname">消息名称</key>
+    <key id="web_TCGS_creationtime">事务开始时间</key>
+    <key id="web_TCGS_completiontime">事务结束时间</key>
+    <key id="web_TCGS_msgstatus">消息状态</key>
+    <key id="web_TCGS_siteid">站点 ID</key>
+    <key id="web_TCGS_actid">活动 ID</key>
+    <key id="web_TCGS_actsrttme">活动开始时间</key>
+    <key id="web_TCGS_actfnshtme">活动完成时间</key>
+    <key id="web_TCGS_actstatus">活动状态</key>
+    <key id="web_TCGS_Grp">组</key>
+    <key id="web_TCGS_Owner">所有者</key>
+    <key id="web_TCGS_TrnsferOptn">传递选项</key>
+    <key id="web_TCGS_Log">日志</key>
+    <key id="web_TCGS_User">请求者</key>
+    <key id="web_TCGS_ObjectIdentifier">事务 ID</key>
+    <key id="web_TCGS_TranferOption">传递选项</key>
+    <key id="web_TCGS_StatusTab">状态..</key>
+    <key id="web_TCGS_QueryTab">查询..</key>
+    <key id="web_TCGS_Query">TcGS 查询 ..</key>
+    <key id="web_TCGS_RTM">TCGS 状态监控..</key>
+    <key id="web_TCGS_fail">失败</key>
+    <key id="web_TCGS_inprogress">进行中</key>
+    <key id="web_TCGS_complete">完成</key>
+    <key id="web_TCGS_wait">正在等待</key>
+    <key id="web_TCGS_close">关闭</key>
+    <key id="web_TCGS_back">上一步</key>
+    <key id="web_TCGS_next">下一步</key>
+    <key id="web_TCGS_query">查询</key>
+    <key id="web_TCGS_abort">中止</key>
+    <key id="web_TCGS_resume">恢复</key>
+    <!-- multi-column preference selection dialog column titles -->
+    <key id="web_pref_show">显示</key>
+    <key id="web_pref_hide">隐藏</key>
+    <key id="web_pref_move_up">向上移动</key>
+    <key id="web_pref_move_down">向下移动</key>
+    <!-- colummn management preferences -->
+    <key id="web_column_mgmt">列管理</key>
+    <key id="pref_item_columns_disp">零组件列</key>
+    <key id="pref_itemrevision_columns_disp">零组件版本列</key>
+    <key id="pref_dataset_columns_disp">数据集列</key>
+    <key id="pref_inbox_columns_disp">工作列表列</key>
+    <key id="pref_pse_columns_disp">PSE 列</key>
+    <key id="pref_folder_columns_disp">文件夹列</key>
+    <key id="pref_savedquery_columns_disp">已保存的查询列</key>
+    <key id="web_restore_default_button">恢复默认值</key>
+    <!-- Note the actual pref names (in weblocal.xml) when translating the display name (*_disp)
+     and descriptions (*_desc) below -->
+    <key id="pref_wso_cols_disp">工作区列</key>
+    <key id="pref_wso_cols_desc">要在网页中显示的工作区列</key>
+    <key id="pref_inbox_cols_disp">“我的工作列表”列</key>
+    <key id="pref_inbox_cols_desc">要在网页中显示的“我的工作列表”列</key>
+    <key id="pref_psm_cols_disp">PSE 列</key>
+    <key id="pref_psm_cols_desc">要在网页中显示的 PSE 列</key>
+    <key id="pref_item_shown_rels_disp">显示出的零组件关系</key>
+    <key id="pref_item_shown_rels_desc">显示在“零组件”页中的零组件关系</key>
+    <key id="pref_itemrev_shown_rels_disp">显示出的零组件版本关系</key>
+    <key id="pref_itemrev_shown_rels_desc">显示在“零组件”页中的零组件版本关系</key>
+    <key id="pref_form_types_disp">建议的表单类型</key>
+    <key id="pref_form_types_desc">“新建表单”页中建议的表单类型</key>
+    <key id="pref_pse_default_view_disp">默认的 PSE 视图类型</key>
+    <key id="pref_pse_default_view_desc">当 PSE 新建视图时所创建的视图类型</key>
+    <key id="pref_bom_precision_disp">BOM 精度首选项</key>
+    <key id="pref_bom_precision_desc">新建查看的默认精度</key>
+    <key id="pref_ignore_case_on_search_disp">搜索时不区分大小写</key>
+    <key id="pref_ignore_case_on_search_desc">查询时切换大小写</key>
+    <key id="pref_cp_grm_type_on_rev_disp">修订零组件 GRM 类型时复制</key>
+    <key id="pref_cp_grm_type_on_rev_desc">版本上复制的 GRM 对象</key>
+    <key id="pref_cp_datasettype_on_rev_disp">修订“零组件数据集”类型时复制</key>
+    <key id="pref_cp_datasettype_on_rev_desc">版本上复制的数据集类型</key>
+    <key id="pref_group_name_limit_disp">组名称长度显示限制</key>
+    <key id="pref_group_name_limit_desc">可显示的最大分层组数</key>
+    <key id="pref_config_rule_disp">默认版本规则</key>
+    <key id="pref_config_rule_desc">登录时设置为默认值的“版本规则”</key>
+    <key id="pref_style_sheet_disp">样式表</key>
+    <key id="pref_style_sheet_desc">用于配置 Teamcenter Web 显示风格的样式表</key>
+    <key id="pref_inclass_pagesize_disp">分类表的页面大小</key>
+    <key id="pref_inclass_pagesize_desc">分类表中的初始实例数</key>
+    <key id="pref_inclass_table_headers_disp">分类表标题样式</key>
+    <key id="pref_inclass_table_headers_desc">在分类表中显示长标题名或短标题名</key>
+    <key id="pref_show_unconf_revs_disp">显示所有版本</key>
+    <key id="pref_show_unconf_revs_desc">控制未配置版本的显示</key>
+    <key id="pref_pse_auto_pack_disp">打包 PSE BOM</key>
+    <key id="pref_pse_auto_pack_desc">BOM 的默认打包状态</key>
+    <key id="pref_pse_show_unconf_disp">显示未配置的变量</key>
+    <key id="pref_pse_show_unconf_desc">未配置的变量的默认显示行为</key>
+    <key id="web_coinfo_coed_to">签出者</key>
+    <key id="web_coinfo_coed_date">签出时间</key>
+    <key id="web_coinfo_not_coed">对象未签出</key>
+    <key id="web_coinfo_ds_not_coed_msg">您没有对此数据集的签出锁</key>
+    <key id="pref_wso_status_icons_disp">WSO 状态图标</key>
+    <key id="pref_wso_status_icons_desc">设置 WSO 状态图标</key>
+    <key id="pref_qry_ds_display_option_disp">显示最新的数据集版次</key>
+    <key id="pref_qry_ds_display_option_desc">设置最新数据集版次的显示</key>
+    <key id="pref_type_hierarchy_on_search_disp">启用分层类型搜索</key>
+    <key id="pref_type_hierarchy_on_search_desc">切换查询类型分层结构</key>
+    <key id="pref_favorite_queries_disp">喜好的查询</key>
+    <key id="pref_favorite_queries_desc">定义喜好的查询</key>
+    <key id="pref_WebDesignContextDefaultSearchDistance_disp">设计关联默认搜索距离值</key>
+    <key id="pref_WebDesignContextDefaultSearchDistance_desc">设置 WebDesignContextDefaultSearchDistance</key>
+    <key id="pref_PortalDesignContextMaxMatchingObjects_disp">设计关联最大匹配对象值</key>
+    <key id="pref_PortalDesignContextMaxMatchingObjects_desc">设置 PortalDesignContextMaxMatchingObjects</key>
+    <key id="pref_PortalDesignContextMaxMatchingBOMLines_disp">设计关联最大匹配 BOM 行值</key>
+    <key id="pref_PortalDesignContextMaxMatchingBOMLines_desc">设置 PortalDesignContextMaxMatchingBOMLines</key>
+    <key id="pref_display_pseudofolders_disp">显示伪文件夹</key>
+    <key id="pref_display_pseudofolders_desc">显示伪文件夹</key>
+    <key id="pref_lov_cols_disp">显示 LOV 描述</key>
+    <key id="pref_lov_cols_desc">描述应该显示或隐藏的值列表</key>
+    <key id="pref_summary_display_disp">显示汇总</key>
+    <key id="pref_summary_display_desc">指出是否要显示汇总视图</key>
+    <key id="pref_tracelink_display_disp">跟踪链接模式</key>
+    <key id="pref_tracelink_display_desc">跟踪链接创建首选项</key>
+    <key id="pref_search_history_limit_disp">搜索历史记录限制</key>
+    <key id="pref_search_locale_disp">搜索语言环境</key>
+    <key id="pref_use_lhn_home_disp">显示快速链接中的主目录内容</key>
+    <key id="pref_use_lhn_home_desc">指示主目录是否显示在 LHN 的快速链接中</key>
+    <key id="pref_use_lhn_inbox_disp">显示快速链接中的工作列表内容</key>
+    <key id="pref_use_lhn_inbox_desc">指示工作列表是否显示在 LHN 的快速链接中</key>
+    <key id="pref_use_applauncher_disp">启用 Office 客户端集成</key>
+    <key id="pref_use_applauncher_desc">通过 Teamcenter 应用程序启动程序来启动 MS Office，以便启用 Office 客户端集成。</key>
+
+    <!-- Application Names -->
+    <key id="web_myteamcenter_appname">我的 Teamcenter</key>
+    <key id="web_pse_appname">结构管理器</key>
+    <key id="web_rm_appname">需求管理器</key>
+    <key id="web_find_appname">查找</key>
+    <key id="web_whereref_appname">何处引用</key>
+    <key id="web_whereused_all_appname">何处使用 - 所有版本</key>
+    <key id="web_whereused_top_appname">何处使用 - 顶级</key>
+    <key id="web_whereused_appname">何处使用 - 按已配置的</key>
+    <key id="web_inbox_appname">我的工作列表</key>
+    <key id="web_supersedure_appname">取代</key>
+    <key id="web_inclass_appname">分类</key>
+    <key id="web_inclass_tree_appname">分类树</key>
+    <key id="web_inclass_query_appname">分类查询</key>
+    <key id="web_inclass_props_appname">分类属性</key>
+    <key id="web_inclass_table_appname">分类表</key>
+    <key id="web_ecm_appname">更改查看器</key>
+    <key id="web_cm_appname">更改管理器</key>
+    <key id="web_msv_appname">制造工艺规划器</key>
+    <key id="web_designcontext_appname">设计关联</key>
+    <key id="web_find_not_loading_those">要加载的对象过多。
+请尝试细化您的搜索准则。</key>
+    <key id="web_find_confirm_load_lots">对象很多 - 可能要花费较长时间。
+您要继续执行吗？</key>
+    <key id="web_find_status">结果：找到 %3$ 个对象，扫描了 %2$ 个对象，正在查看 %1$ 个对象。</key>
+    <!-- Fix for ER#6261145 -->
+    <key id="web_find_status_false">结果：找到第 %1$ 页的 %2$ 个对象</key>
+    <key id="web_find_status_true">结果：正在查看第 %1$ 页的结果</key>
+    <key id="web_find_next_30">下一页</key>
+    <key id="web_find_previous_30">上一页</key>
+    <key id="web_zero_results">找不到对象</key>
+    <key id="web_find_load_all">全部加载</key>
+    <key id="web_find_results">结果</key>
+    <key id="web_find_search">查找</key>
+    <key id="web_find_list_more">更多 ...</key>
+    <key id="web_find_list_dialog">查询</key>
+    <key id="web_keyword_search_prefix">关键字搜索</key>
+    <key id="web_keyword_search_label">关键字</key>
+    <key id="web_not_used">此版本未用在装配中。</key>
+    <key id="web_not_referenced">此对象未被其他对象所引用。</key>
+    <key id="web_not_defining">此对象不包含任何定义对象。</key>
+    <key id="web_not_complying">此对象不包含任何符合对象。</key>
+    <key id="web_save_vrule">保存 ...</key>
+    <key id="web_load_vrule">加载 ...</key>
+    <key id="web_bomrevrule_title">设置 BoM 的临时版本规则</key>
+    <key id="web_bomrevrule_date_field">日期</key>
+    <key id="web_bomrevrule_unit_field">单元</key>
+    <key id="web_relstatuseffs_title">有效性</key>
+    <key id="web_relstatuseffs_ei_field">顶层零组件</key>
+    <key id="web_relstatuseffs_display_ei_tooltip">显示顶层零组件</key>
+    <key id="web_relstatuseffs_type_field">单元/日期</key>
+    <key id="web_relstatuseffs_range_field">有效性范围</key>
+    <key id="web_relstatuseffs_protect_field">受保护的</key>
+    <key id="web_relstatuseffs_neweff_button">新建有效性</key>
+    <key id="web_relstatusold_title">发放状态</key>
+    <key id="web_relstatusold_jobname_field">相关作业名</key>
+    <key id="web_relstatusold_sdate_field">开始日期</key>
+    <key id="web_relstatusold_edate_field">结束日期</key>
+    <key id="web_relstatusold_reldate_field">发放日期</key>
+    <key id="web_no_text">无文本</key>
+    <key id="web_change_search">更改...</key>
+    <key id="web_system_defined_searches">系统定义的搜索</key>
+    <key id="web_search_history">搜索历史记录</key>
+    <key id="web_my_saved_search_rootfolder">我的已保存搜索</key>
+    <key id="web_delete_my_saved_search">删除</key>
+    <key id="web_my_saved_search_folder_name">名称</key>
+    <key id="web_new_my_saved_search_folder">新建文件夹...</key>
+    <key id="web_new_my_saved_search_folder_title">新建文件夹</key>
+    <key id="web_delete_my_saved_search_comfirm">确定要删除已保存的搜索吗？</key>
+    <key id="web_delete_my_saved_search_folder_comfirm">删除该文件夹不会删除其内容。要继续吗？</key>
+    <key id="web_clear_searchhistory">清除</key>
+    <key id="web_rename_my_saved_search">重命名</key>
+        <key id="web_modify_my_saved_search">修改</key>
+        <key id="web_shared_my_saved_search">共享的</key>
+    <key id="web_my_saved_search_newname">新名称</key>
+    <key id="web_rename_my_saved_search_title">重命名我的已保存搜索</key>
+    <key id="web_change_search_title">更改搜索</key>
+    <!-- Classification Web -->
+    <!-- Tree -->
+    <key id="web_inclass_count">计数</key>
+    <key id="web_inclass_id">ID</key>
+    <key id="web_inclass_type">类型</key>
+    <key id="web_inclass_load_tree">正在加载分类树</key>
+    <key id="web_inclass_long_query">注意！
+查询字符串（%1$）超过 2048 字节！</key>
+    <key id="web_inclass_perform_class_search">正在执行类搜索</key>
+    <key id="web_inclass_no_classes_found">找不到类！</key>
+    <key id="web_inclass_one_class_found">找到一个类：</key>
+    <key id="web_inclass_multi_classes_found">已找到 %1$ 个类：</key>
+    <key id="web_inclass_expand_tree">正在将树展开到类</key>
+    <key id="web_inclass_select">选择</key>
+    <key id="web_inclass_close">关闭</key>
+    <key id="web_inclass_class_search_results">类搜索结果</key>
+    <key id="web_inclass_select_class">选择您的类</key>
+    <key id="web_inclass_class_search_title">类搜索：</key>
+    <key id="web_inclass_class_name">类名</key>
+    <key id="web_inclass_class_id">类 ID</key>
+    <key id="web_inclass_att_name">属性名称</key>
+    <key id="web_inclass_att_id">属性 ID</key>
+    <key id="web_inclass_class_search">类搜索</key>
+    <key id="web_inclass_display_result">显示结果</key>
+    <key id="web_inclass_title">Teamcenter 分类</key>
+    <key id="web_inclass_bookmark_class_tree">书签类仅可用于分类树。</key>
+    <key id="web_inclass_bookmark_class_warning">选择一个要记入书签的类。</key>
+    <key id="web_inclass_classification_root">分类根</key>
+    <!-- Query -->
+    <key id="web_inclass_class_">类：</key>
+    <key id="web_inclass_view_">子类：</key>
+    <key id="web_inclass_matches">匹配数：</key>
+    <key id="web_inclass_oid_matches">OID 匹配：</key>
+    <key id="web_inclass_search">搜索</key>
+    <key id="web_inclass_oid_search">OID 搜索</key>
+    <key id="web_inclass_clear">清除</key>
+    <key id="web_inclass_object_id">对象 ID</key>
+    <key id="web_inclass_perform_search">正在执行搜索操作</key>
+    <key id="web_inclass_perform_oid_search">正在执行 OID 搜索操作</key>
+    <key id="web_inclass_revision_rule">版本规则</key>
+    <key id="web_inclass_revision_rule_initial">单击此处添加版本规则</key>
+    <key id="web_inclass_unlock">解锁</key>
+    <key id="web_inclass_lock">锁定</key>
+    <key id="web_inclass_unlockedAttr">单击以锁定属性</key>
+    <key id="web_inclass_lockedAttr">单击以解锁属性</key>
+    <key id="web_inclass_autofilterDialog">自动过滤对话框</key>
+    <key id="web_inclass_unlock_button">解锁</key>
+    <key id="web_inclass_lock_button">锁定</key>
+    <!-- Properties -->
+    <key id="web_inclass_class_an_object">将对象分类</key>
+    <key id="web_inclass_class_no_object">无对象分类</key>
+    <key id="web_inclass_first">第一个</key>
+    <key id="web_inclass_previous">上一个</key>
+    <key id="web_inclass_of">/</key>
+    <key id="web_inclass_next">下一个</key>
+    <key id="web_inclass_last">最后一个</key>
+    <key id="web_inclass_retrieve_class">正在调用新的类数据</key>
+    <key id="web_inclass_retrieve_instance">正在调用新的实例数据</key>
+    <key id="web_inclass_attribute_save">属性值已保存</key>
+    <key id="web_inclass_in_properties">您必须在“属性”选项卡中选择此选项</key>
+    <key id="web_inclass_no_value">没有输入任何值</key>
+    <key id="web_inclass_retrieve_matches">正在调用匹配标记</key>
+    <key id="web_inclass_ssearch">后续搜索（使用这些 ICO 值执行新的搜索）</key>
+
+    <!-- Table -->
+    <key id="web_inclass_to"> 到</key>
+    <key id="web_inclass_no">编号</key>
+    <key id="web_inclass_load_next_page">加载下一页实例</key>
+    <key id="web_inclass_load_all">加载所有找到的实例</key>
+    <key id="web_inclass_export">导出</key>
+    <key id="web_inclass_stp">停止</key>
+    <key id="web_inclass_hide">隐藏所有未选中的行</key>
+    <key id="web_inclass_show">显示所有隐藏的行</key>
+    <key id="web_inclass_hide_button">隐藏未选定的</key>
+    <key id="web_inclass_show_button">显示隐藏的</key>
+
+    <!-- Misc -->
+    <key id="web_inclass_tree">树</key>
+    <key id="web_inclass_query">查询</key>
+    <key id="web_inclass_properties">属性</key>
+    <key id="web_prop_name">属性名称</key>
+    <key id="web_inclass_table">表</key>
+    <key id="web_inclass_instance_image">实例图像</key>
+    <key id="web_inclass_d_instance_image">显示实例图像</key>
+    <key id="web_inclass_h_instance_image">隐藏实例图像</key>
+    <key id="web_inclass_class_image">类图像</key>
+    <key id="web_inclass_d_class_image">显示类图像</key>
+    <key id="web_inclass_h_class_image">隐藏类图像</key>
+    <key id="web_inclass_root">根节点</key>
+    <key id="web_inclass_group">组</key>
+    <key id="web_inclass_class">类</key>
+    <key id="web_inclass_abstract_class">抽象类</key>
+    <key id="web_inclass_storage_class">存储类</key>
+    <key id="web_inclass_view">子类</key>
+    <key id="web_inclass_unknown_ot">未知的对象类型</key>
+    <key id="web_inclass_go_back">单击&lt;a href=javascript:history.back()&gt;此处&lt;/a&gt;，回到前一页！</key>
+    <key id="web_inclass_no_access">无访问权限</key>
+    <key id="web_inclass_noico">找不到分类对象</key>
+    <key id="web_inclass_no_unit">请使用单位定义中的单位</key>
+
+    <key id="web_inclass_search_in">搜索范围...</key>
+    <key id="web_inclass_no_wso_attached">There is no workspace object attached to this instance.</key>
+    <key id="web_inclass_jt_image_is_associated">There is no browser-supported image (e.g., GIF or JPEG)\nassociated to the classified object, but there is a JT image.\nTo see this, select View-&gt;TcVis from the menu bar.</key>
+    <key id="web_inclass_jt_image_maybe_associated">There is no browser-supported image (e.g., GIF or JPEG) associated to the classified object!\nThere may be a JT image.\nTo see this, select View-&gt;TcVis from the menu bar.</key>
+
+    <!-- Dialogs -->
+    <key id="web_inclass_ico_exists">已经存在具有此名称的 ICO</key>
+    <key id="web_inclass_connect">想要连接它吗？</key>
+    <key id="web_inclass_no_ico">没有针对此组件的 ICO</key>
+    <key id="web_inclass_create">想要创建一个吗？</key>
+    <key id="web_inclass_new_ico">添加新的分类对象</key>
+    <key id="web_inclass_new_id">新建 ID</key>
+    <key id="web_inclass_add_ICO_img">添加分类对象图像</key>
+    <key id="web_inclass_delete_ico">真的想要删除分类对象吗？</key>
+    <key id="web_inclass_delete_img">真的想要删除分类对象图像吗？</key>
+    <key id="web_inclass_sorting_table">已加载实例的排序依据</key>
+    <key id="web_inclass_NoValues">找不到值...</key>
+    <key id="web_inclass_searchDlgtitle">搜索进程对话框</key>
+    <key id="web_inclass_searchDlgSearch">正在搜索...</key>
+    <key id="web_inclass_searchDlgFound">找到 %1$ 个实例</key>
+    <key id="web_inclass_translation_dialog_title">语言翻译</key>
+    <!-- Recipients -->
+    <key id="web_recipients_title">接收者 - </key>
+    <key id="web_recipients_selected">选定的接收者</key>
+    <key id="web_recipients_available">可联系上的接收者</key>
+    <key id="web_recipients_tooltip">接收者列表</key>
+    <key id="web_timetask_task">任务</key>
+    <key id="web_calendar_tooltip">工作日历</key>
+    <key id="web_timetask_due">截止日期</key>
+    <key id="web_timetask_recipients">接收者</key>
+    <key id="web_timetask_year">年数</key>
+    <key id="web_timetask_week">周数</key>
+    <key id="web_timetask_day">天数</key>
+    <key id="web_timetask_hour">小时数</key>
+    <key id="web_timetask_minute">分钟数</key>
+    <key id="web_timetask_due_title">设置截止日期 - </key>
+    <key id="web_timetask_duration_title">设置持续时间 - </key>
+    <key id="web_tooltip_late_flag">任务完成期限</key>
+    <!-- calendar tooltips -->
+    <key id="web_cal_prevYear_tooltip">上一年</key>
+    <key id="web_cal_nextYear_tooltip">下一年</key>
+    <key id="web_cal_prevMonth_tooltip">上一月</key>
+    <key id="web_cal_nextMonth_tooltip">下一月</key>
+    <key id="web_cal_date_tooltip">单击一个日期</key>
+    <!-- select signoff -->
+    <key id="web_go_to_process">单击以转至流程</key>
+    <key id="web_epmsignoff_addreviewer_msg">添加的审核者</key>
+    <key id="web_adhocsignoff_profile_label">概要表</key>
+    <key id="web_adhocsignoff_users_label">用户</key>
+    <key id="web_adhoc_users_title">特别用户</key>
+    <key id="web_selection_label">选择</key>
+    <key id="web_adhoc_adresses_title">特别地址列表</key>
+    <key id="web_adhoc_addresses">地址列表</key>
+    <key id="web_adhoc_done">特别完成</key>
+    <key id="web_review_quorum">审核法定人数</key>
+    <key id="web_acknowledge_quorum">认可法定人数</key>
+    <key id="web_wait_for_undecided_reviewers">等待所有未决定的审核者</key>
+    <key id="web_quorum_percent">法定人数百分比</key>
+    <key id="web_ack_quorum_percent">认可法定人数百分比</key>
+    <key id="web_svgnotinstalled_msg">未安装 Adobe SVG Viewer。要立即下载吗？</key>
+    <key id="web_svghowto_msg">使用 Ctrl 可缩放，使用 Alt 可平移</key>
+    <!-- perform signoff -->
+    <key id="web_epmsignoff_grprole_msg">您目前的组和角色与概要表不符。您想继续只读对话框吗？</key>
+    <!-- out-of-office -->
+    <key id="web_outoffice_confirm_no">您的外出状态已清除</key>
+    <key id="web_outoffice_confirm_yes">您被设置为“外出”，且将任务委派给</key>
+    <key id="web_outoffice_title">外出状态 </key>
+    <key id="web_outoffice_is_out">当前已外出</key>
+    <key id="web_outoffice_is_in">当前未外出</key>
+    <key id="web_outoffice_user">用户</key>
+    <key id="web_outoffice_from">自</key>
+    <key id="web_outoffice_until">至</key>
+    <key id="web_outoffice_delegatee">签发委派给</key>
+    <key id="web_outoffice_user_title">“外出”委派</key>
+    <!-- add participants -->
+    <key id="web_assign_participants">指派参与者</key>
+    <key id="web_ProposedReviewer">建议的审核者</key>
+    <key id="web_ProposedResponsibleParty">建议的责任方</key>
+    <key id="web_Analyst">分析员</key>
+    <key id="web_ChangeSpecialist1">更改专家 1</key>
+    <key id="web_ChangeReviewBoard">更改审核委员会</key>
+    <key id="web_Requestor">请求者</key>
+    <key id="web_ChangeImplementationBoard">更改实施委员会</key>
+    <key id="web_participant_users_label">参与者用户</key>
+    <key id="set_participants_successfully">参与者已成功设置。</key>
+    <key id="not_set_participants">参与者未设置。</key>
+    <key id="web_project_team_selection_checkbox">从项目小组中选择成员</key>
+    <key id="web_assign_project">项目小组</key>
+    <!-- genealogy -->
+    <key id="web_genealogy_nu_box">可能从未使用取代的零组件</key>
+    <key id="web_genealogy_parent_structure">父结构</key>
+    <key id="web_genealogy_no_parent_structure">没有父结构</key>
+    <key id="web_genealogy_eff">有效性</key>
+    <key id="web_genealogy_no_eff">无有效性</key>
+    <!-- Resource Pool Subscription -->
+    <key id="web_respool_subs_title">资源池订阅</key>
+    <!-- Remote Inbox Subscription -->
+    <key id="remote_inbox_for_subscription">可用的工作列表</key>
+    <key id="remote_inbox_subscribed">选定的工作列表</key>
+    <key id="remote_inbox_subscribe_title">订阅远程工作列表</key>
+    <!-- Route Task -->
+    <key id="web_route_task_review">审核</key>
+    <key id="web_route_task_acknowledge">认可</key>
+    <key id="web_route_task_notify">通知</key>
+    <!-- Option -->
+    <key id="web_preferences_title">选项</key>
+    <key id="web_crdecision_comments">注释</key>
+    <key id="web_crdecision_date">决定日期</key>
+    <key id="web_view_audit_file">查看审计文件</key>
+    <key id="web_view_home_folder">查看 Home 文件夹</key>
+    <key id="web_view_inbox">查看我的工作列表</key>
+    <key id="web_options_display">显示</key>
+    <!-- Search keyword is used for both option dialog and lhn search -->
+    <!-- Should take care if any changes made to this keyword in future -->
+    <key id="web_options_search">搜索</key>
+    <key id="web_options_pse">产品结构</key>
+    <key id="web_options_pse_precise">精确</key>
+    <key id="web_options_pse_imprecise">非精确</key>
+    <key id="web_options_advanced">高级</key>
+    <!-- xml loader -->
+    <key id="web_user_requested_stop">停止</key>
+    <key id="web_ds_no_children">该对象没有与其相关的文件</key>
+    <key id="web_ds_view">查看</key>
+    <key id="web_follow_link">执行</key>
+    <key id="web_buffer_flush">Teamcenter Web 服务器已经截断了响应 - 单击“确定”重试</key>
+    <key id="web_close">关闭</key>
+    <key id="pref_fcolumn_new_window">WEB_column_one_new_window</key>
+    <key id="pref_menu_new_window">WEB_menu_entry_new_window</key>
+    <key id="pref_fcolumn_new_window_disp">第一列新窗口</key>
+    <key id="pref_fcolumn_new_window_desc">位于表第一列的链接打开一个新窗口（在可能的地方）</key>
+    <key id="pref_menu_new_window_disp">菜单项新窗口</key>
+    <key id="pref_menu_new_window_desc">应该打开新窗口的菜单项</key>
+    <key id="web_aliaslist_add_tooltip">添加地址列表</key>
+    <key id="web_aliasmember_add_tooltip">添加地址列表成员</key>
+    <key id="web_aliaslist_remove_tooltip">移除地址列表</key>
+    <key id="web_aliasmember_remove_tooltip">移除地址列表成员</key>
+    <key id="web_aliaslist_members">成员</key>
+    <key id="web_create_aliaslist">创建/查看/修改地址列表</key>
+    <key id="web_add_adhoc_users">添加特别用户</key>
+    <key id="web_more">更多...</key>
+    <key id="web_less">更少...</key>
+    <key id="web_full_audit">显示完整审计信息</key>
+    <key id="web_brief_audit">显示简短审计信息</key>
+    <!-- thumbnail -->
+    <key id="web_thumbnail_no_image">没有可用的图像</key>
+    <!-- Audit Manager -->
+    <key id="web_audit_legacy_title">查看审计文件</key>
+    <key id="web_audit_title">查看审计日志</key>
+    <key id="web_audit_objectid_field">对象 ID</key>
+    <key id="web_audit_objectname_field">对象名称</key>
+    <key id="web_audit_jobname_field">作业名</key>
+    <key id="web_audit_objectrev_field">对象版本</key>
+    <key id="web_audit_objecttype_field">对象类型</key>
+    <key id="web_audit_eventtype_field">事件类型</key>
+    <key id="web_audit_userid_field">用户 ID</key>
+    <key id="web_audit_datecreated_before_field">创建时间早于</key>
+    <key id="web_audit_datecreated_after_field">创建时间晚于</key>
+    <key id="web_audit_status">结果：找到 %1$ 项记录</key>
+    <key id="web_audit_legacyinfo_button">原始审计文件</key>
+    <!-- Global Alternates -->
+    <key id="web_global_alternates_title">列出全局备选件</key>
+    <key id="web_global_alternates_list">单击此处以列出全局备选件</key>
+    <key id="web_global_alternates_preferred">首选备选件</key>
+    <key id="web_addglobalalternatebl_title">添加全局备选件</key>
+    <!-- View/Markup - Digital Sign -->
+    <key id="web_viewmarkup_title">我的查看/批注</key>
+    <key id="web_launch">启动</key>
+    <key id="web_applet_download_fail_1">下载操作失败。</key>
+    <key id="web_applet_download_fail_2">下载操作失败。尝试重新加载该页。</key>
+    <!-- Substitutes -->
+    <key id="web_alternates_prefer">设置首选的</key>
+    <key id="web_alternates_title">列出替代件</key>
+    <key id="web_alternates_list">单击此处以列出替代件</key>
+    <key id="web_addalternatebl_title">添加替代件</key>
+    <key id="web_bomchange_object">Bom 更改</key>
+    <key id="web_supersedure_object">取代</key>
+    <key id="web_bomchangetype_added">已添加</key>
+    <key id="web_bomchangetype_cancelled">被取消</key>
+    <key id="web_display_form">显示表单</key>
+    <key id="web_bomobject_form">显示表单</key>
+    <!-- Substitute -->
+    <key id="web_replacebl_title">替换 BOM 行</key>
+    <!-- Create snapshot -->
+    <key id="web_create_snapshot_title">创建快照</key>
+    <key id="web_snapshot_name_field">快照名</key>
+    <key id="web_snapshot_desc_field">快照描述</key>
+    <!-- Add New BOM line -->
+    <key id="web_add_new_bl_title">添加新的 BOM 行</key>
+    <key id="web_bl_sequence_number_field">查找编号</key>
+    <key id="web_bl_quantity_field">数量</key>
+    <!-- Create Baseline -->
+    <key id="web_create_baseline_title">创建基线</key>
+    <key id="web_baseline_item_rev_id_field">基线版本 ID</key>
+    <key id="web_baseline_job_name_field">作业名</key>
+    <key id="web_baseline_label_name_field">基线标签</key>
+    <key id="web_baseline_job_desc_field">作业描述</key>
+    <key id="web_baseline_template_field">基线模板</key>
+    <key id="web_baseline_open_on_create_field">创建后打开</key>
+    <key id="web_baseline_dry_run_field">空运行</key>
+    <key id="web_baseline_prcise_field">精确</key>
+    <key id="web_baseline_dry_run_output_msg">基线空运行的输出内容被保存到：</key>
+    <!-- override folder field-->
+    <key id="web_override_folder_field">替代文件夹</key>
+    <key id="web_search_results_dialog_title">搜索结果</key>
+    <key id="web_find_bom_view_revs_title">查找 BVR</key>
+    <key id="web_find_folders_title">查找文件夹</key>
+    <key id="web_find_items_title">查找零组件</key>
+    <!-- BOM Compare -->
+    <key id="web_bom_compare_dialog_title">BOM 比较</key>
+    <key id="web_bom_compare_left_bl_field">BOM 行 1</key>
+    <key id="web_bom_compare_right_bl_field">BOM 行 2</key>
+    <key id="web_bom_compare_mode_field">BOM 比较模式</key>
+    <!-- find in bill -->
+    <key id="web_find_in_bill_title">在显示内容中查找组件</key>
+    <key id="web_find_in_bill_attr_field">属性名称</key>
+    <key id="web_find_in_bill_rel_op_field">关系运算符</key>
+    <key id="web_find_in_bill_attr_val_field">属性值</key>
+    <key id="web_find_in_bill_logic_op_field">逻辑运算符</key>
+    <key id="web_find_in_bill_expression_field">表达式</key>
+    <key id="web_find_in_bill_caption_text">找到 BOM 行的数目</key>
+    <key id="web_find_in_bill_addbutton_alert_msg">不允许属性值为空。请输入一个有效的属性值。</key>
+    <key id="web_find_in_bill_wrong_expression_msg">纠正行中的表达式</key>
+    <key id="web_find_in_bill_add_button_tool_tip">添加该行至表达式</key>
+    <key id="web_find_in_bill_up_button_tool_tip">向上滚动查看结果</key>
+    <key id="web_find_in_bill_down_button_tool_tip">向下滚动查看结果</key>
+    <key id="web_find_in_bill_clear_button_tool_tip">清除高亮显示</key>
+    <!-- wolf -->
+    <key id="web_wolfdialog_title">完成外部链接</key>
+    <key id="web_wolflinks_title">Teamcenter 链接位于</key>
+    <key id="web_ods_publish_msg">已发布</key>
+    <key id="web_ods_unpublish_msg">已取消发布</key>
+    <key id="web_item_id_registered_msg">已注册</key>
+    <key id="web_item_must_be_selected">仅零组件可注册</key>
+    <!-- Labels for UGPartMassPropsForm -->
+    <key id="web_ugpmp_property">属性</key>
+    <key id="web_ugpmp_value">值</key>
+    <key id="web_ugpmp_errorestimate">错误（预计）</key>
+    <key id="web_ugpmp_density">密度</key>
+    <key id="web_ugpmp_mass">质量</key>
+    <key id="web_ugpmp_volume">体积</key>
+    <key id="web_ugpmp_area">表面积</key>
+    <key id="web_ugpmp_com_x">质心：X</key>
+    <key id="web_ugpmp_com_y">Y</key>
+    <key id="web_ugpmp_com_z">Z</key>
+    <key id="web_ugpmp_moi_xx">惯性矩：XX</key>
+    <key id="web_ugpmp_moi_yy">YY</key>
+    <key id="web_ugpmp_moi_zz">ZZ</key>
+    <key id="web_ugpmp_poi_xy">惯性积：XY</key>
+    <key id="web_ugpmp_poi_xz">XZ</key>
+    <key id="web_ugpmp_poi_yz">YZ</key>
+    <key id="web_ugpmp_units">所给的值为 SI 单位（米/千克）。</key>
+    <!-- project -->
+    <key id="web_project_for_selection">供选择的%1$s</key>
+    <key id="web_project_selected">选定的%1$s</key>
+    <key id="web_project_assign">指派</key>
+    <key id="web_project_to_project">到%1$s</key>
+    <key id="web_project_remove">移除</key>
+    <key id="web_project_from_project">从%1$s</key>
+    <key id="web_project_contents_label">内容</key>
+    <key id="web_project_folder_label">文件夹</key>
+    <key id="web_project_bomline_target_label">要指派的父级</key>
+    <key id="web_project_bomline_item">零组件</key>
+    <key id="web_project_bomline_item_rev">零组件版本</key>
+    <key id="web_project_bomline_level_label">子级</key>
+    <key id="web_project_bomline_entire_bom">整个 BOM</key>
+    <key id="web_project_owning_project">所有权 %1$ </key>
+    <!-- Labels for PLMXML Import Export -->
+    <key id="web_plmxml_imp_done">已成功完成从 plmxml 导入。</key>
+    <key id="web_plmxml_exp_done">已成功完成导出到 plmxml。</key>
+    <!-- Labels for Import Spec -->
+    <key id="web_imp_spec_done">已成功完成导入文档。请刷新文件夹。</key>
+    <!-- Single Sign-On (SSO) -->
+    <key id="web_sso_no_changepassword_page_msg">您那里正在使用 SSO。未指定密码修改工具，请与系统管理员联系。</key>
+    <key id="web_sso_with_changepassword_page_msg">您的站点正在使用 SSO。请单击此处更改全局 Teamcenter 密码。</key>
+    <!-- Report Writer -->
+    <key id="web_report_dialog_title">生成报告</key>
+    <key id="web_report_field_label">报告设计</key>
+    <key id="web_report_query_field_label">查询</key>
+    <key id="web_report_formatter_label">格式化程序</key>
+    <key id="web_report_query_button_label">查询</key>
+    <key id="web_report_query_no_criteria">没有准则</key>
+    <key id="web_report_save_to_dataset_label">保存到数据集</key>
+    <key id="web_report_first_cell_label">第一单元格</key>
+    <key id="web_report_dataset_name_label">数据集名称</key>
+    <key id="web_report_batchmode_label">批处理模式</key>
+    <key id="web_report_save_label">保存</key>
+    <key id="web_report_export_label">导出</key>
+    <key id="web_report_batch_append">附加选定数据的批处理文件</key>
+    <key id="web_report_reportformat_select">选择报告格式化程序</key>
+    <key id="web_nopref_def_transient_server">找不到 Default_Transient_Server 的首选项值</key>
+    <!-- MS Office Integration -->
+    <key id="web_mso_edit">编辑</key>
+    <key id="web_mso_install">Teamcenter 与 MS Office 集成
+ActiveX 控件没有安装在此机器上。
+您将重定向到“安装”页面。</key>
+    <key id="web_activex_support">浏览器不支持 ActiveX 对象</key>
+    <key id="web_outoffice_status">您目前“外出”状态被打开。您想将其关闭吗？</key>
+    <key id="web_initproc_msg_title">流程</key>
+    <key id="web_viewprocess_label">现在查看吗？</key>
+    <!-- Left Hand Nav -->
+    <key id="web_top_gohome_button">Home</key>
+    <key id="web_top_logout_button">退出</key>
+    <key id="web_lhn_findapp_title">简单查找</key>
+    <key id="web_outofoffice_user_status">此用户在指定的日期“外出”。请为这些日期选择另一个用户。</key>
+    <key id="web_logout_enablepopups_msg">警告：需要启用弹出窗口以使您的退出登录与可视化服务器通信。</key>
+    <!-- Data Type Display Name -->
+    <key id="web_lovuif_logical_disp_name">逻辑型</key>
+    <key id="web_lovuif_real_disp_name">实型</key>
+    <!-- V10 Work Context Project -->
+    <key id="web_workcontext_field">工作关联</key>
+    <key id="web_project_field">项目</key>
+    <!-- Alternative Text -->
+    <key id="web_clickto_collapse">单击以折叠</key>
+    <key id="web_clickto_expand">单击以展开</key>
+    <key id="web_create_alt_id_checkbox">创建备选 ID</key>
+    <key id="web_create_iddisplayrule_title">创建 ID 显示规则</key>
+    <key id="web_rulename_label">规则名称</key>
+    <key id="web_availablecontexts_label">可用的关联</key>
+    <key id="web_selectedcontexts_label">选定的关联</key>
+    <key id="web_modify_iddisplayrule_title">修改 ID 显示规则</key>
+    <key id="web_add_iddisplayrule_title">添加 ID 显示规则</key>
+    <key id="web_selecteduser_label">选定的用户</key>
+    <key id="web_rulesownedbyuser_label">选定用户所拥有的规则</key>
+    <key id="web_contextsofselectedrule_label">选定规则的关联</key>
+    <key id="web_displayrulelist_label">规则列表 </key>
+    <key id="web_iddisplayrule_title">ID 显示规则</key>
+    <key id="web_disprulelist_create_tooltip">创建 ID 显示规则</key>
+    <key id="web_disprulelist_remove_tooltip">移除选定的 ID 显示规则</key>
+    <key id="web_disprulelist_modify_tooltip">修改选定的 ID 显示规则</key>
+    <key id="web_disprulelist_add_tooltip">添加其他用户的显示规则到当前列表</key>
+    <key id="web_disprulelist_set_tooltip">将选定规则设置为当前的显示规则</key>
+    <key id="web_disprulelist_setcurrent_msg">当前显示规则已被更改。当前显示的数据将被更新。</key>
+    <key id="web_currentdisplayrule_label">当前的显示规则</key>
+    <key id="web_newaliasid_title">新建别名 ID</key>
+    <key id="web_newalternateid_title">新的备选 ID</key>
+    <key id="web_identifierbasic_label">基本标识符</key>
+    <key id="web_identifiercontext_field">选择关联</key>
+    <key id="web_identifiertype_field">选择类型</key>
+    <key id="web_additionalidinfo_label">其他 ID 信息</key>
+    <key id="web_additionalrevinfo_label">其他版本信息</key>
+    <key id="web_epm_action_title">EPM 操作</key>
+    <key id="web_search_collapse">单击以折叠搜索准则</key>
+    <key id="web_search_expand">单击以展开搜索准则</key>
+    <!-- Paste As -->
+    <key id="web_paste_as_title">粘贴为...</key>
+    <key id="web_paste_as_relation_field">粘贴为</key>
+    <key id="web_numeric_field">数字 ID</key>
+    <key id="web_add_table_row">添加行</key>
+    <key id="web_delete_table_row">删除行</key>
+    <key id="web_newitem_tab_label">零组件信息</key>
+    <key id="web_newitem_im_tab_label">零组件主属性表单信息</key>
+    <key id="web_newitem_irm_tab_label">零组件版本主属性表单信息</key>
+    <key id="web_newitem_attachment_tab_label">附件</key>
+    <!-- Sizes for Item id,name,description etc..
+     These values are taken from TC constants defined in Portal
+     src\RAC\com.teamcenter.rac.common\com\teamcenter\rac\common\TCConstants.java file -->
+    <key id="web_item_id_size">128</key>
+    <key id="web_item_desc_size">240</key>
+    <key id="web_item_name_size">128</key>
+    <key id="web_wso_type_name_size">32</key>
+    <key id="web_wso_rev_size">32</key>
+    <key id="web_wso_name_size">128</key>
+    <key id="web_wso_desc_size">240</key>
+    <key id="web_idcontext_name_size">64</key>
+    <!-- Added for export functionality in web -->
+    <key id="web_create_ai">新建 AI</key>
+    <key id="web_search_ai">搜索 AI</key>
+    <key id="web_transfer_mode">传递模式</key>
+    <key id="web_new_ai">新建应用程序接口</key>
+    <key id="web_export">导出</key>
+    <key id="web_export_type">导出类型</key>
+    <key id="web_plmxml_export">PLMXML 导出</key>
+    <key id="web_export_aif">通过 AIF 导出</key>
+    <!-- Error message for exportdialog.js -->
+    <key id="web_aif_need_ai_name">请提供应用程序接口名称。</key>
+    <key id="web_aif_need_desc">请选择描述。</key>
+    <key id="web_aif_need_transf_mode">请选择传递模式。</key>
+    <key id="web_search_results">搜索结果</key>
+    <key id="web_export_object_select">选择对象</key>
+    <key id="web_export_object_success">成功导出对象</key>
+    <key id="web_export_object_search">请先搜索对象</key>
+    <key id="web_plmxml_export_transfermode">您需要选择此传递模式</key>
+    <key id="web_plmxml_export_title">PLMXML 导出</key>
+    <key id="web_plmxml_export_transfer_context_field">传递模式</key>
+    <key id="web_plmxml_export_information">导出选定的对象？</key>
+    <key id="web_plmxml_import_title">PLMXML 导入</key>
+    <key id="web_plmxml_import_information">上传 PLMXML 文件</key>
+    <key id="web_plmxml_import_filename_field">XML 文件的文件名</key>
+    <key id="web_plmxml_import_transfer_context_field">传递关联</key>
+    <key id="web_import_spec_title">导入规格</key>
+    <key id="web_import_spec_information">上传文件</key>
+    <key id="web_import_spec_filename_field">文件名</key>
+    <key id="web_spec_type_field">规范类型</key>
+    <key id="web_specelement_type_field">导入为</key>
+    <key id="web_export_word_title">导出至 Word</key>
+    <key id="web_spec_exp_template">规范模板</key>
+    <key id="web_export_excel_title">导出至 Excel</key>
+    <key id="web_excel_exp_template">Excel 模板</key>
+    <key id="web_plmxml_export_select_object">您需要选择对象以进行导出。</key>
+    <key id="web_plmxml_export_select_transfermode">请选择传递模式。</key>
+    <key id="web_plmxml_export_object">要导出的选定对象的类型必须为文件夹、表单、零组件或数据集。</key>
+    <key id="web_plmxml_export_language_field">语言</key>
+    <key id="web_plmxml_export_select_language_tooltip">选择要导出的语言</key>
+    <key id="web_plmxml_export_select_languages_button">选择语言...</key>
+    <key id="web_plmxml_export_select_languages">语言选择</key>
+    <key id="web_plmxml_export_availablelanguages_label">可用语言</key>
+    <key id="web_plmxml_export_selectedlanguages_label">选定语言</key>
+    <!-- For MSV tab column -->
+    <key id="web_cme_invalid_tab_index">无效的表索引</key>
+    <key id="web_cme_product_tab_title">产品</key>
+    <key id="web_cme_process_tab_title">流程</key>
+    <key id="web_cme_plant_tab_title">工厂</key>
+    <key id="web_cme_others_tab_title">其他</key>
+    <!-- TcMfg L10N Strings -->
+    <key id="web_cme_select_object">需要选定一个对象。</key>
+    <key id="web_cme_select_filter">选择过滤器。</key>
+    <!-- TcMfg Pert Chart -->
+    <key id="web_cme_pert_zoomin">放大</key>
+    <key id="web_cme_pert_zoomout">缩小</key>
+    <key id="web_cme_pert_origview">原始视图</key>
+    <key id="web_cme_pert_quality">较高质量</key>
+    <key id="web_cme_pert_pause">暂停</key>
+    <key id="web_cme_pert_mute">静音</key>
+    <key id="web_cme_pert_find">查找...</key>
+    <key id="web_cme_pert_findagain">再次查找</key>
+    <key id="web_cme_pert_copytext">复制选定的文本</key>
+    <key id="web_cme_pert_copysvg">复制 SVG </key>
+    <key id="web_cme_pert_viewsvg">查看 SVG...</key>
+    <key id="web_cme_pert_viewsource">查看源...</key>
+    <key id="web_cme_pert_savesvg">SVG 另存为...</key>
+    <key id="web_cme_pert_drillup">上钻...</key>
+    <key id="web_cme_pert_drilldown">下钻...</key>
+    <key id="web_cme_pert_info">常规信息...</key>
+    <key id="web_cme_pert_grid">栅格开/关...</key>
+    <key id="web_cme_pert_print">打印...</key>
+    <key id="web_cme_pert_help">帮助...</key>
+    <key id="web_cme_pert_about">关于 SVG 查看器...</key>
+    <!-- FMS -->
+    <key id="web_upload_file_label">文件</key>
+    <key id="web_upload_ref_label">引用</key>
+    <key id="web_upload_label">上传</key>
+    <key id="web_download_no_ref">未找到任何命名的引用</key>
+    <!-- Web Assignment List Dialog -->
+    <key id="web_assignment_list">创建/编辑流程作业列表</key>
+    <key id="web_assign_assignment_list">指派流程作业列表</key>
+    <key id="web_assignment_list_create">创建作业列表</key>
+    <key id="web_assignment_list_modify">修改作业列表</key>
+    <key id="web_assignment_list_delete">删除作业列表</key>
+    <key id="web_assignment_list_assign">指派作业列表</key>
+    <key id="web_assignment_list_export">导出流程作业列表</key>
+    <key id="web_assignment_list_import">导入流程指派列表</key>
+    <key id="web_assignment_list_select_list_type">选择列表类型</key>
+    <key id="web_new_label">新建</key>
+    <key id="web_my_lists_label">我的列表</key>
+    <key id="web_my_group_lists_label">我的组列表</key>
+    <key id="web_other_lists_label">其他列表</key>
+    <key id="web_name_label">名称</key>
+    <key id="web_owner_label">所有者：</key>
+    <key id="web_description_label">描述</key>
+    <key id="web_proc_template_label">流程模板：</key>
+    <key id="web_last_modifying_user_label">上次修改用户：</key>
+    <key id="web_acknowledge_profile_label">认可概要表</key>
+    <key id="web_acknowledge_label">认可</key>
+    <key id="web_ad_hoc_members_label">特别成员</key>
+    <key id="web_assign_button">指派</key>
+    <key id="web_create_button">创建</key>
+    <key id="web_delete_button">删除</key>
+    <key id="web_modify_button">修改</key>
+    <key id="web_export_button">导出...</key>
+    <key id="web_import_button">导入...</key>
+    <key id="web_notify_label">通知</key>
+    <key id="web_quorum_button">法定人数</key>
+    <key id="web_quorum_tooltip">签发法定人数</key>
+    <key id="web_select_delete_resources">Select Resources to be deleted</key>
+    <key id="web_perform_label">执行</key>
+    <key id="web_review_profile_label">审核概要表</key>
+    <key id="web_review_label">审核</key>
+    <key id="web_assignmentlist_export_title">导出流程作业列表</key>
+    <key id="web_assignmentlist_import_title">导入流程指派列表</key>
+    <key id="web_assignmentlist_import_overwrite">覆盖重复指派列表：</key>
+
+    <!-- Web Condition Path Labels -->
+    <key id="web_true_condition_string">T</key>
+    <key id="web_false_condition_string">F</key>
+    <key id="web_elipsis_string">...</key>
+    <!--Web Success Failure Strings -->
+    <key id="web_completion_string">完成</key>
+    <key id="web_complete_string">完成</key>
+    <key id="web_unable_to_complete_string">无法完成</key>
+    <!-- Workflow Surrogate -->
+    <key id="web_from">自</key>
+    <key id="web_to">至</key>
+    <key id="web_modify">修改</key>
+    <key id="web_workflow_surrogate">工作流代理人...</key>
+    <key id="web_surrogate_actions">代理人操作</key>
+    <key id="web_surrogate_user">代理人用户</key>
+    <key id="web_cur_surrogate_users">当前代理人用户</key>
+    <key id="web_surrogate_eff_dates">代理人有效日期</key>
+    <key id="web_responsible_party">责任方</key>
+    <key id="web_task_name">任务名</key>
+    <key id="web_stand_in">代替</key>
+    <key id="web_release_to">发放</key>
+    <key id="web_transfer_checkouts">传递签出</key>
+    <key id="web_resp_party_not_allowed">不允许责任方作为代理人认领任务</key>
+    <key id="web_resource_pool_tasks">此操作不支持资源池所拥有的任务</key>
+    <key id="web_not_valid_surrogate">您不是有效的代理人，因此无权认领/发放任务</key>
+    <key id="web_active_surrogate">活动的代理人</key>
+    <key id="web_signoff_member">签发成员</key>
+    <key id="web_not_valid_surrogate_user">不是有效的代理用户</key>
+    <key id="web_surrogate_exists">代理用户已存在</key>
+    <key id="web_surrogate_not_in_list">代理人用户不属于列表</key>
+    <!-- LOV Enhancements -->
+    <key id="web_interdep_tool_tip">是相互依赖的</key>
+    <key id="web_hierarchical_lov_title">分层值列表</key>
+    <key id="web_interdependent_lov_title">相互依赖值选择向导</key>
+    <key id="web_range_lov_title">范围 LOV 对话框</key>
+    <key id="web_range_lov_input">输入范围内的值</key>
+    <key id="web_range_lov_lower_limit">下限：</key>
+    <key id="web_range_lov_upper_limit">上限：</key>
+    <!-- Web Eng Change  -->
+    <key id="web_create_ec_snapshot">仅可用于工程更改版本</key>
+    <key id="web_invalid_ec_snapshot">不是一个 ECSnapshot 数据集</key>
+    <key id="web_select_engchange_rev">请为该操作选择一个工程更改版本</key>
+    <key id="web_list_snapshots_title">选择快照</key>
+    <key id="web_list_snapshots_column1">对象</key>
+    <key id="web_list_snapshots_column2">创建日期</key>
+    <key id="web_no_ecsnapshots_msg">对于选定的工程更改版本，不存在 ECSnapshot 对象</key>
+    <!-- Web Related Substitutes  -->
+    <key id="web_related_alternates_for">相关替代件，用于</key>
+    <key id="web_no_related_alternates_for">没有相关替代件，用于</key>
+    <key id="web_alt_preview">预览</key>
+    <key id="web_alt_show_related">显示现有的</key>
+    <key id="web_alt_create">创建</key>
+    <key id="web_alt_remove">移除</key>
+    <key id="web_select_bomlines">选择两个 BOM 行</key>
+    <key id="web_no_packed_lines">您不能关联已打包 BOM 行的替代件。请解包并重新选择此功能部件。</key>
+    <key id="web_bomlines_no_alternates">一个或多个选定的 BOM 行没有替代件。 请选择带有替代件的 BOM 行。</key>
+    <key id="web_relate_alternates">关联替代件</key>
+    <!-- AlternateId -->
+    <key id="web_alternatid_msg">没有为备选 ID 定义规则</key>
+    <!-- Search -->
+    <key id="web_search_userinterface_msg">此查询无需用户接口。请按“查找”按钮执行查询</key>
+    <!-- Deep Copy Override  -->
+    <key id="web_copy_as_object">作为对象复制</key>
+    <key id="web_no_copy">不复制</key>
+    <key id="web_copy_as_ref">作为引用复制</key>
+    <key id="web_relate_to_lat">关联到最新版本</key>
+    <key id="web_rev_relate_lat">修订并关联到最新版本</key>
+    <!-- Compare Forms -->
+    <key id="web_invalid_operation">此操作仅对于表单类型的对象有效</key>
+    <key id="web_select_two_forms">选择相同类型的两个表单</key>
+    <key id="web_forms_identical_msg1">所选的表单与以前版本的表单相同，或与所基于的版本的表单相同</key>
+    <key id="web_forms_identical_msg2">选定的表单相同</key>
+    <key id="web_failed_toget_prevform">从以前的版本获取表单失败。父版本没有所基于的版本，或者所基于的版本没有附加表单。</key>
+    <key id="web_form_compare_results">表单比较结果</key>
+    <key id="web_forms_not_same">选定的表单不属于同一类型</key>
+    <key id="web_form_no_references">选定的表单没有引用</key>
+    <key id="web_form_no_parent_itemrev">选定的表单没有父零组件版本</key>
+    <!-- AliasId -->
+    <key id="web_aliasid_msg">没为别名 Id 定义规则</key>
+    <!-- Export Configured UG Assembly -->
+    <key id="export_config_ug">导出已配置的 NX 装配</key>
+    <key id="checkout_data_sets">签出目标零件数据集</key>
+    <key id="export_ug_naming_format">命名格式</key>
+    <key id="export_ug_auto_translate">自动转换</key>
+    <key id="export_ug_use_prefix">使用前缀</key>
+    <key id="export_ug_prefix_field">前缀</key>
+    <!-- PSE Optional Items -->
+    <key id="web_pse_optional_items">可选零组件...</key>
+    <key id="web_no_bvr">没有 BOM 视图版本</key>
+    <key id="web_invalid_operation_topbl">不是针对顶层 BOM 行的有效操作</key>
+    <key id="web_invalid_operation_packedbl">不是针对打包 BOM 行的有效操作。请解包，然后重新选择此操作</key>
+    <key id="web_select_bomline">选择一个 BOM 行</key>
+    <key id="web_add_opt_item_title">添加可选的零组件</key>
+    <key id="web_ps_cyclic_structure">试图创建循环结构</key>
+    <key id="web_ps_invalid_operation">不是针对选定对象的有效操作</key>
+    <!-- SVG Viewer is not supported in Mozilla -->
+    <key id="web_svg_support">浏览器不支持 SVG 查看器</key>
+    <key id="web_genealogy_support">浏览器不支持系谱</key>
+    <!-- Labels for TcLink Export -->
+    <key id="web_tclink_exp_done">成功发送消息到</key>
+    <key id="web_tclink_exp_fail">未能发送消息到</key>
+    <key id="web_tclink_has_unconfigured">装配的 BOM 行未配置 - 导出操作已中止</key>
+    <!-- For pertChart -->
+    <key id="web_pert_node_duration_title">持续时间</key>
+    <key id="web_pert_general_inforamtion_title">常规信息</key>
+    <key id="web_pert_general_inforamtion_operartions">操作</key>
+    <key id="web_pert_general_inforamtion_consumeditems">消耗零组件</key>
+    <!-- Opening multiple tabbed dialogs at a time. message This will be deleted when opening multiple tabbed dialogs bug is fixed-->
+    <key id="web_multiple_tabbed_dialogs_msg">对不起，您一次不能打开多个带选项卡的对话框。请关闭上一个带选项卡的对话框，并重试。</key>
+    <!-- For Note -->
+    <key id="web_note_types_title">备注</key>
+    <key id="web_note_types_existing_notes">现有备注</key>
+    <key id="web_note_types_text"> </key>
+    <key id="web_note_types_all_notes">创建</key>
+    <!-- For DPV(GDIS) project -->
+    <key id="web_gdisArchivecriteria_title">DPV 归档准则</key>
+    <key id="web_purgearchive_name_size">32</key>
+    <key id="web_Archivecriteria_plantid">工厂 ID</key>
+    <key id="web_Archivecriteria_devicetype">设备类型</key>
+    <key id="web_Archivecriteria_records">记录数</key>
+    <key id="web_Archivecriteria_timeunit">时间单位</key>
+    <key id="web_Archivecriteria_daysmonths">天数/月数</key>
+    <key id="web_gdisArchivecriteria_days">天</key>
+    <key id="web_gdisArchivecriteria_months">月</key>
+    <!-- For iddisplay rules -->
+    <key id="web_iddisplayrule_empty">空（只有初始 Id）</key>
+    <key id="web_iddisplayrule_notapplicable">N/A</key>
+    <key id="web_iddisplayrule_msg">请选择有效规则进行移除</key>
+    <!-- For Teamcenter Express -->
+    <key id="web_about_text_express">&amp;copy; 2005 UGS Corp.</key>
+    <key id="web_home_objects_title">Home</key>
+    <key id="web_inbox_objects_title">我的工作列表</key>
+    <key id="web_save_search">保存搜索</key>
+    <key id="web_savesearch_title">将搜索添加到“我的已保存搜索”</key>
+    <key id="web_savesearch_result_title">搜索查询：</key>
+    <key id="web_organize_favorites">组织收藏夹</key>
+    <key id="web_addfavorite_title">添加到收藏夹</key>
+    <key id="web_myfavorites_select">选择文件夹：</key>
+    <key id="web_myfavorites_or">或</key>
+    <key id="web_myfavorites_create">新建文件夹：</key>
+    <key id="web_myfavorites_rootfolder">收藏夹</key>
+    <key id="web_add_folder">添加文件夹</key>
+    <key id="web_rename">重命名</key>
+    <key id="web_update">更新</key>
+    <key id="web_org_favorites_addf">添加收藏夹</key>
+    <key id="web_org_favorites_foldername">文件夹名称</key>
+    <key id="web_org_favorites_delete">移除</key>
+    <key id="web_org_favorites_rename">重命名</key>
+    <key id="web_org_favorites_rename_fav">重命名收藏夹</key>
+    <key id="web_view_all">全部查看</key>
+    <key id="web_addlink">添加链接</key>
+    <key id="web_deletelink">移除链接</key>
+    <key id="web_deletelink_confirm">删除此 Web 链接吗？</key>
+    <key id="web_deletesearch_confirm">删除此行吗？</key>
+    <key id="web_updatelink">更新</key>
+    <key id="web_customize_title">定制</key>
+    <key id="web_mylinks_title">我的链接</key>
+    <key id="web_favorites_title">收藏夹</key>
+    <key id="web_history_title">历史记录...</key>
+    <key id="web_organize_title">组织</key>
+    <key id="web_iwt_title">我要</key>
+    <key id="web_saved_searches_title">我的已保存搜索</key>
+    <key id="web_customize_iwt">定制“我要...”操作</key>
+    <key id="web_simple_search_default_Item_ID">输入要搜索的零组件 ID</key>
+    <key id="web_simple_search_default_Item_Name">输入要搜索的零组件名称</key>
+    <key id="web_simple_search_default_Keyword_Search">输入要搜索的关键字</key>
+    <key id="web_simple_search_default_Dataset_Name">输入要搜索的数据集名称</key>
+    <key id="web_deletefav_confirm">删除此收藏夹吗？</key>
+    <key id="web_lhn_close">关闭</key>
+    <!-- Added for Adhoc configurator functionality in web -->
+    <key id="web_product_id">产品 Id</key>
+    <key id="web_select_product_id">选择产品 ID</key>
+    <key id="web_dataset">Plmxml 数据集</key>
+    <key id="web_product_rev">产品版本</key>
+    <key id="web_revision_rule">版本规则</key>
+    <key id="web_variant_rule">已保存的变量规则</key>
+    <key id="web_work_part">工作零件</key>
+    <key id="web_occurrences">事例</key>
+    <key id="web_proximity_filter">邻近度过滤器</key>
+    <key id="web_qpl_filter">过滤器</key>
+    <key id="web_attrib_filter">属性过滤器</key>
+    <key id="web_zone_filter">区域过滤器</key>
+    <key id="web_add_zone">添加区域过滤器</key>
+    <key id="web_add_attribute">添加属性过滤器</key>
+    <key id="web_delete_attribute">删除属性过滤器</key>
+    <key id="web_delete_zone">删除区域过滤器</key>
+    <key id="web_check_QPL">启用过滤选择</key>
+    <key id="web_execute">快速启动</key>
+    <key id="web_execute_tooltip">快速启动 Lifecycle Visualization</key>
+    <key id="Validate">验证过滤器</key>
+    <key id="web_interferes">干涉</key>
+    <key id="web_outside">超出</key>
+    <key id="web_within">不超出</key>
+    <key id="web_voo">仅有效叠加</key>
+    <!-- Link Related -->
+    <key id="web_newlink_title">新建链接</key>
+    <key id="web_newlink_tab_label">链接信息</key>
+    <!-- Remove mechatronics association -->
+    <key id="web_removedialog_title">移除关系</key>
+    <key id="web_related_bomlines_label">相关 BOM 行</key>
+    <key id="web_remove_relation_label">要取消关联的 BOM 行</key>
+    <!-- GMS -->
+    <key id="web_gms_exportgms_title">远程导出至 GMS 站点 ...</key>
+    <key id="web_gms_target_sites">选择目标站点</key>
+    <key id="web_gms_select_sites">为以下对象选择目标站点</key>
+    <key id="web_gms_site_list">可用的 GS 站点</key>
+    <key id="web_gms_selected_sites">选定的 GS 站点</key>
+    <key id="web_gms_option_set_mode">选定的选项集</key>
+    <key id="web_gms_select_target_sites">目标 GS 站点</key>
+    <key id="web_gms_advanced_options">高级选项</key>
+    <key id="web_gms_immediate_checkbox">立即传递</key>
+    <key id="web_gms_progress_checkbox">显示进度对话框</key>
+    <key id="web_gms_email_checkbox">接收电子邮件通知</key>
+    <key id="web_gms_selected_objects">选定的对象</key>
+    <key id="web_gms_options_set_form">选项集的高级选项</key>
+    <key id="web_gms_save_options">保存/恢复选项</key>
+    <key id="web_gms_save_options_as_default_tooltip">将这些值设为此选项集的默认值</key>
+    <key id="web_gms_save_options_as_default">保存选项为默认值</key>
+    <key id="web_gms_restore_options_as_default_tooltip">将值恢复为此选项集的系统默认值</key>
+    <key id="web_gms_restore_options_as_default">选项恢复为默认值</key>
+    <key id="web_gms_session_options">会话选项</key>
+    <key id="web_gms_transfer_ownership_tooltip">传递所有权到目标站点</key>
+    <key id="web_gms_transfer_ownership">传递所有权</key>
+    <key id="web_gms_preview_report_tooltip">通过电子邮件接收试运行报告</key>
+    <key id="web_gms_preview_report">预览并报告</key>
+    <key id="web_gms_modified_only_tooltip">仅包括上次导出后修改的对象</key>
+    <key id="web_gms_modified_Only">仅包括修改的对象</key>
+    <key id="web_gms_continue_on_error_tooltip">如果失败则继续处理选定的对象</key>
+    <key id="web_gms_continue_on_error">出错时继续</key>
+    <key id="web_gms_one_target_site">选择 1 个目标站点</key>
+    <key id="web_gms_xfer_owner_confirm">您已经选择了传递所有权。仅版本选项“所有版本”或“最新版本”有效。如果选择了“包括 BOM”，则只有“传递顶级”和“不包括传递受保护的组件 BOM”选项是有效的。您要继续吗？</key>
+    <key id="web_gms_one_revision_option">必须选择一个（且仅一个）版本选项。</key>
+    <!-- CRF Reports Generation -->
+    <key id="web_stylesheet_label">样式表</key>
+    <key id="web_report_definition_label">报告定义</key>
+    <key id="web_display_report_locale_label">报告显示语言环境</key>
+    <key id="web_generate_summary_report_title">生成汇总报告</key>
+    <key id="web_generate_item_report_title">生成零组件报告</key>
+    <key id="web_generate_custom_report_title">生成定制报告</key>
+    <key id="web_generate_builder_report_title">生成构建器报告</key>
+    <key id="web_cust_report_parameters_label">参数：</key>
+    <key id="web_cust_report_parameter_name">名称</key>
+    <key id="web_cust_report_parameter_value">值</key>
+    <key id="web_in_context_of_label">在关联中</key>
+    <key id="web_pack_bom_lines_label">打包 BOM 行</key>
+    <!-- Added to fix I18N prs -->
+    <key id="web_assign_ownership">更改所有权...</key>
+    <key id="web_column_relation">关系</key>
+    <key id="web_column_actions">操作</key>
+    <key id="web_back">上一步</key>
+    <key id="web_next">下一步</key>
+    <key id="web_finish">完成</key>
+    <key id="web_set">设置</key>
+    <key id="web_preference">首选项</key>
+    <key id="web_setpreference_title">设置%1$首选项</key>
+    <key id="web_create">创建</key>
+    <key id="web_setcurrent">设为当前</key>
+    <key id="web_itemtype">零组件类型</key>
+    <key id="web_type">类型</key>
+    <key id="web_name_title">名称</key>
+    <key id="web_sortby_title">排序依据</key>
+    <!-- XML Rendering Template(XRT) titleKey(s) respective to RAC Pattern: web_xrt_<titleKey>  -->
+    <key id="web_xrt_AttachedFiles">附加的文件</key>
+    <key id="web_xrt_AvailableRevisions">可用版本</key>
+    <key id="web_xrt_Summary">汇总</key>
+    <key id="web_xrt_impactanalysis">影响分析</key>
+    <key id="web_xrt_General">常规</key>
+    <key id="web_xrt_All">全部</key>
+    <key id="web_xrt_Reservation">预留</key>
+    <key id="web_xrt_Project">项目</key>
+    <key id="web_xrt_Workflow">工作流</key>
+    <key id="web_xrt_Shadow">阴影</key>
+    <key id="web_xrt_Artworks">图片</key>
+    <key id="web_xrt_BOM">BOM</key>
+    <key id="web_xrt_BrandAssets">品牌资产</key>
+    <key id="web_xrt_BrandEquities">品牌权益</key>
+    <key id="web_xrt_Briefs">概要</key>
+    <key id="web_xrt_cm_general_information">常规信息</key>
+    <key id="web_xrt_cm_additional_information">其他信息</key>
+    <key id="web_xrt_Contents">内容</key>
+    <key id="web_xrt_CopyElements">复制元素</key>
+    <key id="web_xrt_Copies">副本</key>
+    <key id="web_xrt_Claims">声明</key>
+    <key id="web_xrt_ClassificationProperties">分类属性</key>
+    <key id="web_xrt_DesignBriefs">设计概要</key>
+    <key id="web_xrt_Dielines">模线</key>
+    <key id="web_xrt_Family">族</key>
+    <key id="web_xrt_GraphicalElements">图形元素</key>
+    <key id="web_xrt_ItemProperties">零组件属性</key>
+    <key id="web_xrt_LocalCopies">本地副本</key>
+    <key id="web_xrt_MarketingBriefs">市场营销概要</key>
+    <key id="web_xrt_MasterCopy">主属性表副本</key>
+    <key id="web_xrt_newProc">提交以审核</key>
+    <key id="web_xrt_RelatedCopies">相关副本</key>
+    <key id="web_xrt_RelatedItems">相关零组件</key>
+    <key id="web_xrt_Overview">概述</key>
+    <key id="web_xrt_properties">属性</key>
+    <key id="web_xrt_Preview">预览</key>
+    <key id="web_xrt_PackageConcepts">包装概念</key>
+    <key id="web_xrt_PackageItems">包装项</key>
+    <key id="web_xrt_PackageRoughs">包装粗糙</key>
+    <key id="web_xrt_Packages">包装</key>
+    <key id="web_xrt_Products">产品</key>
+    <key id="web_xrt_Requirements">需求</key>
+    <key id="web_xrt_Specifications">规范</key>
+    <key id="web_xrt_TechnicalBriefs">技术概要</key>
+    <key id="web_xrt_ThemeBoards">主题板</key>
+    <key id="web_xrt_TradeItem">贸易项</key>
+    <key id="web_xrt_Vendors">提供商</key>
+    <key id="web_xrt_VendorParts">提供商零件</key>
+    <key id="web_xrt_ReferencedbyDesignBriefs">由设计概要引用</key>
+    <key id="web_xrt_ReferencedbyTechnicalBriefs">由技术概要引用</key>
+    <key id="web_xrt_ReferencedbyMarketingBriefs">由市场营销概要引用</key>
+    <key id="web_xrt_ItemInformation">零组件信息</key>
+    <key id="web_xrt_AdditionalItemInformation">其他零组件信息</key>
+    <key id="web_xrt_ItemRevisionInformation">零组件版本信息</key>
+    <key id="web_xrt_FolderInformation">文件夹信息</key>
+    
+    <!-- Keys for "I WantTo..." section of LHN -->
+    <key id="web_lhn_iwantto_create_item">创建零组件...</key>
+    <key id="web_lhn_iwantto_create_dataset">创建数据集...</key>
+    <key id="web_lhn_iwantto_create_workflow_process">创建工作流程...</key>
+    <!-- Add to search user lov -->
+    <key id="web_find_user_title">查找用户</key>
+    <key id="web_user_label">用户</key>
+    <!-- Alternate Id Revise dialog  -->
+    <key id="web_altidrevise_title">修订备选 ID</key>
+    <key id="web_altid_context">关联</key>
+    <key id="web_altid_tab_label">备选 ID 信息</key>
+    <!-- Key for Changeownership dialog incase user submits without selecting a group or user  -->
+    <key id="web_group_or_user_cannot_null">选定的用户或组不能为空</key>
+    <!-- Keys for the warning panel -->
+    <key id="web_error_panel_title">错误</key>
+    <key id="web_warning_panel_title">警告</key>
+    <key id="web_information_panel_title">信息</key>
+    <!-- Key for Advance search  -->
+    <key id="web_advanced_search_label">高级...</key>
+    <!-- NX Export Strings -->
+    <key id="web_export_in_progress">NX 转换正在进行中... 转换完成之前请勿关闭此窗口。</key>
+    <key id="web_export_Failed">导出失败。</key>
+    <key id="web_export_nx_assembly">导出 NX 装配...</key>
+    <key id="web_export_non_masters">导出非主文件</key>
+    <key id="web_export_associated_files">导出关联的文件</key>
+    <key id="web_export_request_created">转换请求已创建。</key>
+    <key id="web_export_request_creation_failed">未能创建转换请求。</key>
+    <key id="web_select_object">您需要选择此对象以导出它们。</key>
+    <key id="web_select_only_one_object">您需要选择单一 BOM 行以便导出。</key>
+    <key id="web_struct_modified_dates_not_in_sync">UGMASTER 和 BVRSyncInfoForm 的结构修改日期不同步。</key>
+    <key id="web_popups_blocked">弹出窗口已被阻止。允许在此站点弹出窗口，以便看到导出窗口。</key>
+    <key id="web_no_dataset_attached">没有将 UGMASTER 附加到零组件版本。</key>
+    <key id="web_no_named_ref_attached">没有将任何命名的引用附加到 UGMASTER。</key>
+    <key id="web_request_timed_out">请求已超时：单击“确定”继续，或单击“取消”中止。</key>
+    <key id="web_request_continue">请求仍在处理：请等待几分钟。</key>
+    <key id="web_request_aborted">请求已中止：新建数据下载请求。</key>
+    <key id="web_item_name">零组件名称：</key>
+    <key id="web_revRule_name">版本规则名称：</key>
+    <key id="web_suppress_confirmation">不再显示签出确认对话框</key>
+
+    <!-- Teamcenter VendorManagement Variables -->
+    <key id="web_newvendor_title">新建提供商</key>
+    <key id="web_newvendor_role_select">选择 %1$</key>
+    <key id="web_newmanufacturerpart_title">新建提供商零件</key>
+    <key id="web_newmanufacturerpart_tab_label">%1$ 信息</key>
+    <key id="web_newmanufacturerpart_vendorid">%1$ ID</key>
+    <key id="web_newmanufacturerpart_vendorname">%1$ 名称</key>
+    <key id="web_newmanufacturerpart_locationname">位置</key>
+    <key id="web_addvendor_role_form_label">添加 %1$</key>
+    <key id="web_deletevendor_role_form_label">移除 %1$</key>
+    <key id="web_addbp_title">添加 %1$</key>
+    <key id="web_vendor_part_table_title">%1$ 零组件用于</key>
+    <key id="web_bomvenpartrule_title">%1$ 选择规则</key>
+    <key id="web_venpart_rule_field">活动的规则</key>
+    <key id="web_change_vendor_form_title">更改 %1$</key>
+    <key id="web_new_vendor_label">新建 %1$</key>
+    <key id="web_select_new_vendor">选择新的 %1$</key>
+    <key id="web_selected_vendor_parts">选定的</key>
+    <key id="web_change_vendor_summary_form_title">更改 %1$ 汇总</key>
+    <key id="web_new_vendor_part_id_label">新的 %1$ ID</key>
+    <key id="web_old_vendor_part_id_label">旧的 %1$ ID</key>
+    <key id="web_change_vendor_notes_label">备注</key>
+
+
+    <key id="web_summary_actions_label">操作</key>
+    <key id="web_summary_attachments_label">附件</key>
+
+    <!-- new item-derived dialogs -->
+    <key id="web_item_new_title">新建 %1$</key>
+    <key id="web_item_info_tab">%1$ 信息</key>
+    <key id="web_item_addl_tab">其他 %1$ 信息</key>
+    <key id="web_item_rev_tab">%1$ 版本信息</key>
+    <key id="web_item_create_co">创建时签出 </key>
+    <!-- Company Variables -->
+    <key id="web_newcompanylocation_title">新建公司位置</key>
+    <key id="web_newcompanycontact_title">新建公司联系人</key>
+    <key id="web_street_field">街道</key>
+    <key id="web_city_field">城市</key>
+    <key id="web_state_province_field">省/自治区/直辖市</key>
+    <key id="web_postal_code_field">邮政编码</key>
+    <key id="web_country_field">国家/地区</key>
+    <key id="web_region_field">地区</key>
+    <key id="web_url_field">URL</key>
+    <key id="web_notes_field">备注</key>
+    <key id="web_first_name_field">名字</key>
+    <key id="web_last_name_field">姓</key>
+    <key id="web_title_field">标题</key>
+    <key id="web_suffix_field">后缀</key>
+    <key id="web_phone_business_field">电话（商务）</key>
+    <key id="web_phone_home_field">电话（家庭）</key>
+    <key id="web_phone_mobile_field">电话（手机）</key>
+    <key id="web_fax_number_field">传真</key>
+    <key id="web_pager_number_field">呼机</key>
+    <key id="web_email_address_field">电子邮件</key>
+    <!-- Calender title keys  -->
+    <key id="web_fromdate">开始日期</key>
+    <key id="web_todate">结束日期</key>
+    <!-- Search Progress Dialog -->
+    <key id="web_progress_dialog_title">进度信息</key>
+    <key id="web_execute_saved_query_msg">正在执行 %1$ 保存的查询。</key>
+    <!-- Key for FMS Upload/Download File-->
+    <key id="web_download_msg">开始下载...</key>
+    <key id="web_upload_msg">开始上传...</key>
+    <key id="web_download_percent">%1$ % 下载完成</key>
+    <key id="web_upload_percent">%1$ % 上传完成</key>
+    <key id="web_download_complete">下载完成</key>
+    <key id="web_upload_complete">上传完成</key>
+    <!-- Key for WEB_status_icons pref values -->
+    <key id="web_in_process">进行中</key>
+    <key id="web_configured">已配置的</key>
+    <key id="web_external_links">外部链接</key>
+    <!-- Key for Select owner in properties Dialog -->
+    <key id="web_select_owner">选择所有者</key>
+    <key id="web_select_owner_msg">要更改用户/组，请单击“选择所有者”按钮。</key>
+    <!-- ImpactAnalasys Strings -->
+    <key id="web_wherereferenced">何处引用</key>
+    <key id="web_whereused">何处使用</key>
+    <key id="web_complyingbjects">符合对象</key>
+    <key id="web_definingobjects">定义对象</key>
+    <!-- Key for navigate message on the page -->
+    <key id="web_navigate_msg">单击此处以导航至 Home 文件夹。</key>
+    <!-- Key for quick access queries -->
+    <key id="Item ID_tooltip">输入要搜索的零组件 ID</key>
+    <key id="Keyword Search_tooltip">输入要搜索的关键字</key>
+    <key id="Item Name_tooltip">输入要搜索的零组件名称</key>
+    <key id="Dataset Name_tooltip">输入要搜索的数据集名称</key>
+    <key id="Item ID_SearchAttributeDisplayName">零组件 ID</key>
+    <key id="Keyword Search_SearchAttributeDisplayName">关键字</key>
+    <key id="Item Name_SearchAttributeDisplayName">零组件名称</key>
+    <key id="Dataset Name_SearchAttributeDisplayName">数据集名称</key>
+    <key id="Item ID_DisplayName">零组件 ID</key>
+    <key id="Keyword Search_DisplayName">关键字搜索</key>
+    <key id="Item Name_DisplayName">零组件名称</key>
+    <key id="Dataset Name_DisplayName">数据集名称</key>
+    <key id="searchMessage">输入要搜索的 %1$</key>
+    <key id="web_doc_purge_item">未选定数据集或零组件版本。</key>
+    <key id="web_file_browse_title">浏览...</key>
+    <!-- Key for Change Management -->
+    <key id="web_cm_new_title">新建 %1$</key>
+    <key id="web_cm_rel_info_tab">关系信息</key>
+    <key id="web_cm_selected_objects">选定对象</key>
+    <key id="web_cm_add_folder">问题零组件将包含所选内容：</key>
+    <key id="web_cm_summary">汇总</key>
+    <key id="web_cm_properties">属性</key>
+    <key id="web_cm_bomchanges">BOM 更改</key>
+    <key id="web_cm_effectivity">有效性</key>
+    <key id="web_cm_invalid_operation">没有为选定的对象 %1$ 定义关系</key>
+    <key id="web_cm_problem_report">问题报告</key>
+    <key id="web_cm_change_request">更改请求</key>
+    <key id="web_cm_change_notice">更改通知</key>
+    <key id="web_cm_problem_items">问题零组件</key>
+    <key id="web_cm_implements">实施</key>
+    <key id="web_cm_implemented_by">被实施</key>
+    <key id="web_cm_paste_text">这些零组件将被添加到：</key>
+    <key id="web_cm_propagate_relations">传播关系</key>
+    <key id="web_cm_change_item">更改零组件</key>
+    <key id="web_cm_paste_not_allowed">不允许粘贴</key>
+    <key id="web_wso_displayname">业务对象</key>
+    <!-- For TcMfg Reports -->
+    <key id="web_tcmfg_rpt_downloaded">报告已成功复制。要查看它，则打开以下目录中的 index.html 文件：%1$。</key>
+
+    <!-- Key for Properties On Relation -->
+    <key id="web_enter_properties">输入属性：</key>
+    <key id="web_applyall">全部应用</key>
+    <!-- Key for adhoc sub process -->
+    <key id="web_inbox_parent_processes">父流程</key>
+    <key id="web_process_description">流程描述</key>
+
+
+    <!-- Key for Requirements Manager  -->
+    <key id="web_rm_selectreq">请选择需求规范或需求以在需求管理器中打开。</key>
+
+    <!-- Localization Strings -->
+    <key id="web_localization_button">单击以本地化文本</key>
+    <key id="translation_dialog_title">%1$ 的语言翻译</key>
+    <key id="translation_master_value">主值</key>
+    <key id="translation_master_locale">主语言环境</key>
+    <key id="translation_value">值</key>
+    <key id="translation_status">状态</key>
+    <key id="translation_locale">语言环境</key>
+    <key id="custom_translation_dialog_close">关闭</key>
+    <key id="add_translation_row">添加翻译行</key>
+    <key id="delete_translation_row">删除翻译行</key>
+    <key id="enter_properties_on">输入以下对象的属性：</key>
+    <key id="web_master_form_info">%1$ 主属性表单信息</key>
+    <key id="web_rev_master_form_info">%1$ 版本主属性表单信息</key>
+    <key id="web_revise">修订</key>
+    <key id="web_new_sub_process_title">新建子流程</key>
+    <key id="web_sub_process_name">子流程名称</key>
+    <key id="common_modifiable_properties">共同的可修改属性</key>
+
+    <!-- Strings,messages for classification user -->
+    <key id="web_plmxml_export_transfer_targetapp_field">目标应用程序</key>
+    <key id="web_plmxml_export_cls_information">导出选定的分类数据吗？</key>
+    <key id="web_inherit_targets_label">继承目标</key>
+    <key id="web_view_sub_process_title">查看子流程</key>
+    <key id="web_view_parent_process_title">查看父流程</key>
+    <key id="web_send_sub_process_label">子流程</key>
+    <key id="web_send_parent_process_label">父流程</key>
+
+    <!-- Key for Validation Manager -->
+    <key id="web_vo_result_pass">通过</key>
+    <key id="web_vo_result_fail">失败</key>
+    <key id="web_vo_validation">验证：</key>
+    <key id="web_vo_no_result">找不到结果。</key>
+    <key id="web_vo_open_button_label">打开</key>
+
+
+    <!-- key for Batch Print Strings -->
+    <key id="web_batchprint_form_title">批量打印</key>
+    <key id="web_batchprint_printconfiguration_field">打印配置</key>
+    <key id="web_batchprint_numbercopies_field">份数</key>
+    <key id="web_batchprint_printername_field">打印机名称</key>
+    <key id="web_batchprint_collate_field">逐份打印</key>
+    <key id="web_batchprint_userstamp_field">用户戳记</key>
+    <key id="web_batchprint_papersize_field">纸张尺寸</key>
+    <key id="web_batchprint_pagerange_field">页数范围</key>
+    <key id="web_batchprint_color_field">颜色</key>
+    <key id="web_batchprint_printscale_field">打印比例</key>
+    <key id="web_batchprint_printstamp_field">打印戳记</key>
+    <key id="web_batchprint_orientation_field">方向</key>
+    <key id="web_batchprint_bannerpage_field">标题页面</key>
+
+    <key id="web_batchprint_value_off">关</key>
+    <key id="web_batchprint_value_single">单个</key>
+    <key id="web_batchprint_value_allfiles">所有文件</key>
+    <key id="web_batchprint_value_portrait">纵向</key>
+    <key id="web_batchprint_value_landscape">横向</key>
+    <key id="web_batchprint_value_bestfit">最适合</key>
+    <key id="web_batchprint_value_firstpage">第一页</key>
+    <key id="web_batchprint_value_bannerpage">标题页面</key>
+    <key id="web_batchprint_value_allpages">所有页</key>
+    <key id="web_batchprint_value_both">两者皆是</key>
+    <key id="web_batchprint_color_color">彩色</key>
+    <key id="web_batchprint_color_monochrome">单色</key>
+
+    <key id="web_select_print_config">选择打印配置</key>
+
+    <!-- key for ICS_table_header_style Strings fix for PR#5818893 -->
+    <key id="web_table_header_short">短型</key>
+    <key id="web_table_header_long">长型</key>
+    <key id="web_table_header_id">ID</key>
+
+    <key id="web_folder_field">文件夹</key>
+
+    <!-- keys for Design Context (cacheless) application Prj: 010534-->
+    <key id="web_dc_ctxt_def_title">关联定义</key>
+    <key id="web_dc_config_work_part_ctxt_title">配置工作零件关联</key>
+    <key id="web_dc_config_filters_title">配置过滤器</key>
+    <key id="web_dc_installation_assembly_column">安装件</key>
+    <key id="web_dc_prd_items_title">产品零组件</key>
+    <key id="web_dc_prd_ctxt_title">产品关联</key>
+    <key id="web_dc_search_type_title">搜索类型</key>
+    <key id="web_dc_add_title">添加...</key>
+    <key id="web_dc_add_hint">查找并添加</key>
+    <key id="web_dc_apply_config_rules_hint">应用配置规则</key>
+    <key id="web_dc_target_part_app_title">目标零件外观</key>
+    <key id="web_dc_bg_part_app_title">背景零件外观</key>
+    <key id="web_dc_append_parts_title">附加零件</key>
+    <key id="web_dc_saved_query_title">已保存的查询</key>
+    <key id="web_dc_select_saved_query_title">选择保存的查询</key>
+    <key id="web_dc_occ_notes_title">事例注释</key>
+    <key id="web_dc_form_attr_title">表单属性</key>
+    <key id="web_dc_add_form_attr_title">添加表单属性...</key>
+    <key id="web_dc_parent_type_title">父类型</key>
+    <key id="web_dc_form_type_title">表单类型</key>
+    <key id="web_dc_operator_title">运算符</key>
+    <key id="web_dc_searching_value_title">搜索值</key>
+    <key id="web_dc_open_in_lv_title">在生命周期可视化中打开</key>
+    <key id="web_dc_newzone_dlg_title">新建区域</key>
+    <key id="web_dc_saveas_sco_dlg_title">另存为 RDV 结构关联对象</key>
+
+    <key id="web_adhoc_designcontext_appname">特别设计关联</key>
+    <key id="web_dc_clear_all_confirm_title">要清除所有字段吗？</key>
+    <key id="web_dc_search_hint">输入搜索准则</key>
+
+    <key id="web_dc_workparts_title">工作零件</key>
+    <key id="web_dc_ecr_title">工程更改版本</key>
+    <key id="web_dc_processes_title">流程</key>
+    <key id="web_dc_voo_unconfigured_appearances_info">背景外观不能与在任何可能的产品变量中出现的任一目标外观共存。</key>
+    <key id="web_dc_remove_attribute">移除属性过滤器</key>
+    <key id="web_dc_remove_zone">移除区域过滤器</key>
+    <key id="web_dc_add_occurrence_note">添加事例注释</key>
+    <key id="web_dc_remove_occurrence_note">移除事例注释</key>
+    <key id="web_dc_sco_static_title">静态</key>
+    <key id="web_dc_sco_dynamic_title">动态</key>
+    <key id="web_dc_configured_filters_title">已配置的过滤器</key>
+    <key id="web_dc_trueshape_title">真实形状过滤</key>
+    <key id="web_dc_sco_saved_info">The Structure Context object %1$ is successfully saved.</key>
+    <key id="web_dc_voosvr_msg">Both Variant Rule and Valid Overlays are applied. Since Valid Overlays will be performed, ensure there are no conflicting conditions with the applied Variant Rule.</key>
+    <key id="web_dc_no_bomlines_selected_for_launch">Select the BOM Lines to be opened in Lifecycle Visualization</key>
+    <key id="web_show_msg_again">不要再显示此消息?</key>
+
+    <key id="web_create_attachfail_msg">已创建对象 %1$，但无法附加到选定的位置。相反，该对象已放置在 Newstuff 文件夹中。</key>
+
+    <!-- key for Microsoft Office Communicator integration with Teamcenter -->
+    <key id="web_ocs_sign_into_communicator">需要登录到 Communicator。</key>
+    <key id="web_ocs_pinging_yourself">您正尝试自身 ping 连接。</key>
+    <key id="web_ocs_blankemailid">首选项 OCS_use_email_property 设为 true，但 Teamcenter 数据库不包含任何有效电子邮件 ID。</key>
+
+    <key id="web_saved_config_field">保存的配置</key>
+    <key id="web_saved_opt_field">手工设置变量选项</key>
+    <key id="web_saved_svr_field">选定已保存的变量规则</key>
+    <key id="web_no_priv_assign">您没有权限指派到选定的项目。新对象不会自动指派到此项目。</key>
+ </textsrv>

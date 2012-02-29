@@ -13,12 +13,30 @@
             categoryId="com.customer.fawvw.issues.commands.category"
             name="项目属性扩展">
       </command>
+      <command
+            id="com.customer.fawvw.issues.IssueSingleReportCommand"
+            categoryId="com.customer.fawvw.issues.commands.category"
+            name="单个问题汇报报表">
+      </command>
+      <command
+            id="com.customer.fawvw.issues.IssueSingleInfoReportCommand"
+            categoryId="com.customer.fawvw.issues.commands.category"
+            name="单个问题信息报表">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
       <handler
             class="com.customer.fawvw.issues.handler.TCPprojectHandler"
             commandId="com.customer.fawvw.issue.TCPprojectCommand">
+      </handler>
+      <handler
+            class="com.customer.fawvw.issues.handler.IssueSingleReportHandler"
+            commandId="com.customer.fawvw.issues.IssueSingleReportCommand">
+      </handler>
+      <handler
+            class="com.customer.fawvw.issues.handler.IssueSingleInfoReportHandler"
+            commandId="com.customer.fawvw.issues.IssueSingleInfoReportCommand">
       </handler>
    </extension>
    <extension
@@ -38,12 +56,28 @@
                label="FAW-VW"
                mnemonic="M"
                id="com.customer.fawvw.issues.menus.sampleMenu">
-            <command
-                  commandId="com.customer.fawvw.issue.TCPprojectCommand"
-                  icon="platform:/plugin/com.customer.fawvw.issues/coins/issueMenu.png"
-                  id="com.customer.fawvw.issue.TCPprojectCommand1"
-                  style="push">
-            </command>
+	            <command
+	                  commandId="com.customer.fawvw.issue.TCPprojectCommand"
+	                  icon="platform:/plugin/com.customer.fawvw.issues/coins/issueMenu.png"
+	                  id="com.customer.fawvw.issue.TCPprojectCommand1"
+	                  style="push">
+	            </command>
+	            <menu
+	                  label="问题管理">
+	               <command
+	                     commandId="com.customer.fawvw.issues.IssueSingleReportCommand"
+	                     icon="platform:/plugin/com.customer.fawvw.issues/coins/issueMenu.png"
+	                     id="IssueReport1">
+	               </command>
+	               <command
+	                     commandId="com.customer.fawvw.issues.IssueSingleInfoReportCommand"
+	                     icon="platform:/plugin/com.customer.fawvw.issues/coins/issueMenu.png"
+	                     id="IssueReport2">
+	               </command>
+
+	             
+	            </menu>
+
          </menu>
       </menuContribution>
       

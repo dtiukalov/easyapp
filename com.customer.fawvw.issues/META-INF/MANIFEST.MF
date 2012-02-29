@@ -14,3 +14,8 @@ Require-Bundle: org.eclipse.ui,
  com.teamcenter.rac.common;bundle-version="8000.3.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Eclipse-LazyStart: true
+Bundle-ClassPath: lib/dom4j-1.6.1.jar,
+ lib/poi-3.2-FINAL-20081019.jar,
+ lib/poi-contrib-3.2-FINAL-20081019.jar,
+ lib/poi-scratchpad-3.2-FINAL-20081019.jar,
+ .

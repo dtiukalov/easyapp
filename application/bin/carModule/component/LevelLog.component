@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<saturn-components>
-	<component key="/carModule/component/LevelLog.component" name="档案级别变更" class="carModule.component.LevelLog" projectname="crm">
-		<description></description>
-		<parameters></parameters>
-		<loadstart>false</loadstart>
-	</component>
-</saturn-components>

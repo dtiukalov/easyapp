@@ -3,9 +3,9 @@ function F6_Product_REPORTDialog(context) {
 	var browserName = getBrowserName();
 
 	if (browserName == "IE") {
-		form = F6_Product_REPORT.XMLDocument.documentElement;//TODO:和formemplates_custom.xml中的xml id一致
+		form = F6_Product_REPORT.XMLDocument.documentElement;//TODO:和formtemplates_custom.xml中的xml id一致
 	} else if (browserName == "Netscape") {
-		form = getFormByName(getString("web_foton_bom_title"));//TODO:和formemplates_custom.xml中的form name=一致
+		form = getFormByName(getString("web_foton_bom_title"));//TODO:和formtemplates_custom.xml中的form name=一致
 	}
 
 	popupFotonReportDialog(context, "webclient?TC_file=common/actions/webitk_report.xml&_webitk_code=101", form);//TODO:修改_webitk_code对应值
@@ -16,9 +16,9 @@ function F6_Product_REPORTDialog22(context) {
 	var browserName = getBrowserName();
 
 	if (browserName == "IE") {
-		form = F6_Product_REPORT22.XMLDocument.documentElement;//TODO:和formemplates_custom.xml中的xml id一致
+		form = F6_Product_REPORT22.XMLDocument.documentElement;//TODO:和formtemplates_custom.xml中的xml id一致
 	} else if (browserName == "Netscape") {
-		form = getFormByName(getString("web_foton_bom_title"));//TODO:和formemplates_custom.xml中的form name=一致
+		form = getFormByName(getString("web_foton_bom_title"));//TODO:和formtemplates_custom.xml中的form name=一致
 	}
 	
 	popupFotonReportDialog(context, "webclient?TC_file=common/actions/webitk_report.xml&_webitk_code=102", form);//TODO:修改_webitk_code对应值
@@ -79,7 +79,7 @@ function fotonReportAction(table, popDownOnSuccess, request) {
 	}
 	request += arg;
 	request += "&_assignedFSC=" + runningFSC;
-	alert(request);
+	//alert(request);
 	this.url = request;
 	this.callback = webitkReportCallback;
 

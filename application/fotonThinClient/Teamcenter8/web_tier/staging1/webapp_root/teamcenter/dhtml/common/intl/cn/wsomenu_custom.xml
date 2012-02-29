@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<menubar id="menubar" type="iMAN menubar">
+
+<menu type="webitk_reports" title="福田报表">
+    <menuentry title="产品结构报表" key="F6_Product_REPORT" url="javascript:F6_Product_REPORTDialog();"></menuentry>
+    <menuentry title="通用件明细表" key="F6_Product_REPORT22" url="javascript:F6_Product_REPORTDialog22();"></menuentry>
+</menu>
+
+</menubar>

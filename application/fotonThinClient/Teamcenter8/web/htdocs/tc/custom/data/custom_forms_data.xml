@@ -1,0 +1,42 @@
+# =================================================================================================
+#
+#                            Copyright (c) 2006 Unigraphics Solutions Inc
+#                                        All rights reserved
+#
+# =================================================================================================
+#
+#     Filename: custom_forms_data.xml
+#     Module  : custom
+#
+#     This file can be used to add custom fields for various forms based on the formtype.
+#     An example is given below
+#
+# The structure of the custom form fields should be in the following format.
+#
+# <customforms>
+#    <custom form_type="form_type_name1">
+#      <field name="name1" displayname="name1" value="" length="14" type="PROP_string" nomodnosub=""></field>
+#      <field name="name2" displayname="name2" value="" length="14" type="PROP_string" nomodnosub=""></field>
+#      <field name="name3" displayname="name3" value="" length="14" type="PROP_string" nomodnosub=""></field>
+#    </custom>
+#    <custom form_type="form_type_name2">
+#    </custom>
+#    <custom form_type="form_type_name3">
+#    </custom>
+# </customforms>
+#
+# =================================================================================================
+# Date         Name                    Description of Change
+# $HISTORY$
+# =================================================================================================
+<xml id="reportDemo">
+<form name="Report Demo" style="display:none">
+
+</form>
+FormForm += '<customforms>' + NL
+FormForm += '<custom form_type="reportDemo22">' + NL
+FormForm += '<field name="name" length="' + imanText( 'web_wso_name_size' ) + '" required="true" displayname="' + imanText( 'web_name_field' ) + '"></field>' + NL
+FormForm += '<field name="description" type="Note" length="' + imanText( 'web_wso_desc_size' ) + '" displayname="' + imanText( 'web_desc_field' ) + '"></field>' + NL
+FormForm += '<field name="webitk_code" displayname="Code" value="101"></field>' + NL
+FormForm += '</custom>' + NL
+FormForm += '</customforms>' + NL

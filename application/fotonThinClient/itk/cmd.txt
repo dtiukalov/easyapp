@@ -1,0 +1,3 @@
+compile -DIPLIB=libserver_exits "E:\01project\01current\new\fotonThinClient\itk\report\save_file.cxx"
+compile -DIPLIB=libserver_exits "E:\01project\01current\new\fotonThinClient\itk\webitk_register_callbacks.c"
+link_custom_exits webitk

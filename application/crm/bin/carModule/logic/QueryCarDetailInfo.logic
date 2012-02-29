@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-logic>
+	<information id="0" next="" x="0" y="0">
+		<key>/carModule/logic/QueryCarDetailInfo.logic</key>
+		<name>查询车辆档案详细</name>
+		<loadstart>flase</loadstart>
+		<description>查询车辆档案详细</description>
+	</information>
+	<end id="3" next="" x="618" y="165">
+		<name>结束</name>
+		<parameters></parameters>
+		<description></description>
+	</end>
+	<component exception="" id="4" next="6" x="249" y="155">
+		<key>edu.ccut.saturn.basecomponent::/databaseComponent/QueryByPrimaryKeyComponent.component</key>
+		<name>依主健查询数据</name>
+		<parameters>
+			<parameter id="1" name="fullkey" classType="java.lang.String" passingType="in">
+				<value-key>'http://crm/coreModule/data::crm_car'</value-key>
+				<scope>1</scope>
+				<description>生成SaturnData所需的fullkey</description>
+			</parameter>
+			<parameter id="2" name="primarykeyvalue" classType="java.lang.String" passingType="in">
+				<value-key>carid</value-key>
+				<scope>1</scope>
+				<description>主键值</description>
+			</parameter>
+			<parameter id="3" name="result" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>carData</value-key>
+				<scope>1</scope>
+				<description>返回SaturnData</description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>依主健查询数据组件</description>
+	</component>
+	<component exception="" id="6" next="7" x="358" y="58">
+		<key>edu.ccut.saturn.basecomponent::/databaseComponent/QueryByConditionExtComponent.component</key>
+		<name>依动态条件查询</name>
+		<parameters>
+			<parameter id="1" name="fullkey" classType="java.lang.String" passingType="in">
+				<value-key>'http://crm/coreModule/data::saturn_dict'</value-key>
+				<scope>1</scope>
+				<description>生成SaturnData所需的fullkey</description>
+			</parameter>
+			<parameter id="2" name="logicContext" classType="java.util.HashMap" passingType="in">
+				<value-key>${context}</value-key>
+				<scope>1</scope>
+				<description>logicContext</description>
+			</parameter>
+			<parameter id="3" name="result" classType="java.util.ArrayList" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description>返回SaturnData结果集</description>
+			</parameter>
+			<parameter id="4" name="" classType="java.lang.Object" passingType="in">
+				<value-key>'code='${carData.carseries}''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description></description>
+	</component>
+	<component exception="" id="7" next="5" x="332" y="288">
+		<key>edu.ccut.saturn.basecomponent::/dataOperationComponent/GetFirstSaturnDataFromList.component</key>
+		<name>得到数据项List中的第一条数据</name>
+		<parameters>
+			<parameter id="1" name="saturnDataList" classType="java.util.ArrayList" passingType="in">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>pinyinlist</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>GetFirstSaturnDataFromList</description>
+	</component>
+	<component exception="" id="5" next="3" x="401" y="206">
+		<key>edu.ccut.saturn.basecomponent::/databaseComponent/QueryByPrimaryKeyComponent.component</key>
+		<name>依主健查询数据</name>
+		<parameters>
+			<parameter id="1" name="fullkey" classType="java.lang.String" passingType="in">
+				<value-key>'http://crm/coreModule/data::crm_customer'</value-key>
+				<scope>1</scope>
+				<description>生成SaturnData所需的fullkey</description>
+			</parameter>
+			<parameter id="2" name="primarykeyvalue" classType="java.lang.String" passingType="in">
+				<value-key>customerid</value-key>
+				<scope>1</scope>
+				<description>主键值</description>
+			</parameter>
+			<parameter id="3" name="result" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>cstmData</value-key>
+				<scope>1</scope>
+				<description>返回SaturnData</description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>依主健查询数据组件</description>
+	</component>
+	<start id="1" next="4" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters>
+			<parameter id="1" name="primarykeyvalue" classType="java.lang.String" passingType="in">
+				<value-key>carid</value-key>
+				<scope>1</scope>
+				<description>主键值</description>
+			</parameter>
+			<parameter id="2" name="customerid" classType="java.lang.String" passingType="in">
+				<value-key>customerid</value-key>
+				<scope>1</scope>
+				<description>返回SaturnData</description>
+			</parameter>
+			<parameter id="3" name="result" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>cstmData</value-key>
+				<scope>1</scope>
+				<description>返回SaturnData</description>
+			</parameter>
+			<parameter id="4" name="result" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>carData</value-key>
+				<scope>1</scope>
+				<description>返回SaturnData</description>
+			</parameter>
+			<parameter id="5" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>pinyinlist</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</start>
+	<connection source="4" target="6" style="1" name=""></connection>
+	<connection source="5" target="3" style="1" name=""></connection>
+	<connection source="1" target="4" style="1" name=""></connection>
+	<connection source="6" target="7" style="1" name=""></connection>
+	<connection source="7" target="5" style="1" name=""></connection>
+</saturn-logic>

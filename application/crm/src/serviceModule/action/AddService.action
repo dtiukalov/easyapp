@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/serviceModule/action/AddService.action</key>
+		<name>添加维修信息</name>
+		<description></description>
+	</information>
+	<start id="1" next="2" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<data id="11" next="5" x="444" y="293">
+		<name>数据7</name>
+		<data-scope>2</data-scope>
+		<data-prefix>sb</data-prefix>
+		<data-key>shouBao</data-key>
+		<xmlkey></xmlkey>
+		<elementkey></elementkey>
+		<data-type classType="edu.ccut.saturn.component.SaturnData" namespace="http://crm/coreModule/data" saturnDataType="crm_servexp"></data-type>
+		<parameters></parameters>
+		<description></description>
+	</data>
+	<data id="10" next="11" x="282" y="424">
+		<name>数据6</name>
+		<data-scope>2</data-scope>
+		<data-prefix>bp</data-prefix>
+		<data-key>banPen</data-key>
+		<xmlkey></xmlkey>
+		<elementkey></elementkey>
+		<data-type classType="edu.ccut.saturn.component.SaturnData" namespace="http://crm/coreModule/data" saturnDataType="crm_servexp"></data-type>
+		<parameters></parameters>
+		<description></description>
+	</data>
+	<data id="8" next="9" x="183" y="286">
+		<name>数据4</name>
+		<data-scope>2</data-scope>
+		<data-prefix>yb</data-prefix>
+		<data-key>yiBan</data-key>
+		<xmlkey></xmlkey>
+		<elementkey></elementkey>
+		<data-type classType="edu.ccut.saturn.component.SaturnData" namespace="http://crm/coreModule/data" saturnDataType="crm_servexp"></data-type>
+		<parameters></parameters>
+		<description></description>
+	</data>
+	<data id="7" next="8" x="56" y="380">
+		<name>数据3</name>
+		<data-scope>2</data-scope>
+		<data-prefix>bx</data-prefix>
+		<data-key>baoXiu</data-key>
+		<xmlkey></xmlkey>
+		<elementkey></elementkey>
+		<data-type classType="edu.ccut.saturn.component.SaturnData" namespace="http://crm/coreModule/data" saturnDataType="crm_servexp"></data-type>
+		<parameters></parameters>
+		<description></description>
+	</data>
+	<data id="9" next="10" x="283" y="271">
+		<name>数据5</name>
+		<data-scope>2</data-scope>
+		<data-prefix>db</data-prefix>
+		<data-key>dingBao</data-key>
+		<xmlkey></xmlkey>
+		<elementkey></elementkey>
+		<data-type classType="edu.ccut.saturn.component.SaturnData" namespace="http://crm/coreModule/data" saturnDataType="crm_servexp"></data-type>
+		<parameters></parameters>
+		<description></description>
+	</data>
+	<connection source="12" target="4" style="1" name=""></connection>
+	<action id="4" next="" x="482" y="0">
+		<key>crm::/serviceModule/action/QueryServiceList.action</key>
+		<name>维修信息列表</name>
+		<parameters></parameters>
+		<description></description>
+	</action>
+	<connection source="15" target="13" style="1" name=""></connection>
+	<logic exception="" id="5" next="14" x="542" y="397">
+		<key>crm::/serviceModule/logic/AddService.logic</key>
+		<name>添加维修信息</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="in-out">
+				<value-key>serviceData</value-key>
+				<scope>1</scope>
+				<description>操作的saturnData</description>
+			</parameter>
+			<parameter id="2" name="" classType="java.lang.String" passingType="in">
+				<value-key>${CRM_USER.userid}</value-key>
+				<scope>5</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="" classType="java.lang.String" passingType="in">
+				<value-key>${CRM_USER.userrealname}</value-key>
+				<scope>5</scope>
+				<description></description>
+			</parameter>
+			<parameter id="4" name="dingBao" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<value-key>dingBao</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="5" name="banPen" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<value-key>banPen</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="6" name="baoXian" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<value-key>baoXian</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="7" name="shouBao" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<value-key>shouBao</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="8" name="yiBan" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<value-key>yiBan</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="9" name="baoXiu" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<value-key>baoXiu</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="10" name="" classType="java.lang.String" passingType="out">
+				<value-key>currentTime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<logic exception="" id="16" next="4" x="450" y="148">
+		<key>crm::/serviceModule/logic/UpdateShouBaoMile.logic</key>
+		<name>UpdateShouBaoMile</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="fieldValue" classType="java.lang.String" passingType="in">
+				<value-key>serv_servkilometer</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="" classType="java.lang.String" passingType="in">
+				<value-key>serv_servintime</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="" classType="java.lang.String" passingType="in">
+				<value-key>serv_carvin</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<logic exception="" id="17" next="18" x="808" y="302">
+		<key>crm::/serviceModule/logic/AddIntegral.logic</key>
+		<name>AddIntegral</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="amount" classType="java.lang.String" passingType="in">
+				<value-key>serv_servamountexp</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="carvin" classType="java.lang.String" passingType="in">
+				<value-key>serv_carvin</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="currentTime" classType="java.lang.String" passingType="in">
+				<value-key>serv_servintime</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="4" name="userid" classType="java.lang.String" passingType="in">
+				<value-key>${CRM_USER.userid}</value-key>
+				<scope>5</scope>
+				<description></description>
+			</parameter>
+			<parameter id="5" name="username" classType="java.lang.String" passingType="in">
+				<value-key>${CRM_USER.username}</value-key>
+				<scope>5</scope>
+				<description></description>
+			</parameter>
+			<parameter id="6" name="servorderid" classType="java.lang.String" passingType="in">
+				<value-key>serv_servorderid</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="7" name="servouttime" classType="java.lang.String" passingType="in">
+				<value-key>serv_servouttime</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<logic exception="" id="14" next="17" x="737" y="368">
+		<key>crm::/serviceModule/logic/AddTicket.logic</key>
+		<name>AddTicket</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="carvin" classType="java.lang.String" passingType="in">
+				<value-key>serv_carvin</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="currentTime" classType="java.lang.String" passingType="in">
+				<value-key>serv_servintime</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="ticketAmount" classType="java.lang.String" passingType="in">
+				<value-key>serv_servticketexp</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="4" name="orderid" classType="java.lang.String" passingType="in">
+				<value-key>serv_servorderid</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="5" name="userid" classType="java.lang.String" passingType="in">
+				<value-key>${CRM_USER.userid}</value-key>
+				<scope>5</scope>
+				<description></description>
+			</parameter>
+			<parameter id="6" name="username" classType="java.lang.String" passingType="in">
+				<value-key>${CRM_USER.userrealname}</value-key>
+				<scope>5</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<logic exception="" id="19" next="" x="651" y="110">
+		<key>crm::/serviceModule/logic/Querycar.logic</key>
+		<name>设置档案登记</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="serv_carvin" classType="java.lang.String" passingType="in">
+				<value-key>serv_carvin</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<decision next="" id="13" x="556" y="201">
+		<name>选择4</name>
+		<if then="16" else="4">
+			<expr>serviceData.servtype=='112004'</expr>
+		</if>
+		<parameters></parameters>
+		<description></description>
+	</decision>
+	<logic exception="" id="20" next="13" x="653" y="36">
+		<key>crm::/carModule/logic/TestLevelLog.logic</key>
+		<name>测试档案类型</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="type" classType="java.lang.String" passingType="in">
+				<value-key>'2'</value-key>
+				<scope>1</scope>
+				<description>级别变更日志类型 1:月刷新2单次刷新3手动死档</description>
+			</parameter>
+			<parameter id="2" name="vin" classType="java.lang.String" passingType="in">
+				<value-key>serv_carvin</value-key>
+				<scope>2</scope>
+				<description>要变更的车辆vin，只type为2,3时有效</description>
+			</parameter>
+			<parameter id="3" name="snote" classType="java.lang.String" passingType="in">
+				<value-key>snote</value-key>
+				<scope>1</scope>
+				<description>死档说明，只type为3时有效</description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<logic exception="" id="18" next="20" x="728" y="217">
+		<key>crm::/pointModule/logic/AddPoint.logic</key>
+		<name>添加积分</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="vin" classType="java.lang.String" passingType="in">
+				<value-key>serv_carvin</value-key>
+				<scope>2</scope>
+				<description>车辆vin</description>
+			</parameter>
+			<parameter id="2" name="" classType="java.lang.String" passingType="in">
+				<value-key>serv_servorderid</value-key>
+				<scope>2</scope>
+				<description>工单号</description>
+			</parameter>
+			<parameter id="3" name="typenum" classType="java.lang.String" passingType="in">
+				<value-key>typenum</value-key>
+				<scope>2</scope>
+				<description>积分类型</description>
+			</parameter>
+			<parameter id="4" name="money" classType="java.lang.String" passingType="in">
+				<value-key>serv_servamountexp</value-key>
+				<scope>2</scope>
+				<description>消费积分消费金额</description>
+			</parameter>
+			<parameter id="5" name="indate" classType="java.lang.String" passingType="in">
+				<value-key>serv_servintime</value-key>
+				<scope>2</scope>
+				<description>进厂时间或操作时间</description>
+			</parameter>
+			<parameter id="6" name="" classType="java.lang.String" passingType="in">
+				<value-key>serv_servtype</value-key>
+				<scope>2</scope>
+				<description>维修类型</description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<data id="2" next="21" x="210" y="103">
+		<name>数据1</name>
+		<data-scope>2</data-scope>
+		<data-prefix>serv</data-prefix>
+		<data-key>serviceData</data-key>
+		<xmlkey></xmlkey>
+		<elementkey></elementkey>
+		<data-type classType="edu.ccut.saturn.component.SaturnData" namespace="http://crm/coreModule/data" saturnDataType="crm_service"></data-type>
+		<parameters></parameters>
+		<description></description>
+	</data>
+	<logic exception="" id="21" next="6" x="199" y="182">
+		<key>crm::/serviceModule/logic/GetUserType.logic</key>
+		<name>获得用户类别</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="in-out">
+				<value-key>serviceData</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<data id="6" next="7" x="49" y="262">
+		<name>数据2</name>
+		<data-scope>2</data-scope>
+		<data-prefix>sg</data-prefix>
+		<data-key>baoXian</data-key>
+		<xmlkey></xmlkey>
+		<elementkey></elementkey>
+		<data-type classType="edu.ccut.saturn.component.SaturnData" namespace="http://crm/coreModule/data" saturnDataType="crm_servexp"></data-type>
+		<parameters></parameters>
+		<description></description>
+	</data>
+	<connection source="1" target="2" style="1" name=""></connection>
+	<connection source="5" target="14" style="1" name=""></connection>
+	<connection source="16" target="4" style="1" name=""></connection>
+	<connection source="17" target="18" style="1" name=""></connection>
+	<connection source="14" target="17" style="1" name=""></connection>
+	<connection source="20" target="13" style="1" name=""></connection>
+	<connection source="18" target="20" style="1" name=""></connection>
+	<connection source="2" target="21" style="1" name=""></connection>
+	<connection source="11" target="5" style="1" name=""></connection>
+	<connection source="10" target="11" style="1" name=""></connection>
+	<connection source="8" target="9" style="1" name=""></connection>
+	<connection source="6" target="7" style="1" name=""></connection>
+	<connection source="7" target="8" style="1" name=""></connection>
+	<connection source="9" target="10" style="1" name=""></connection>
+	<connection source="13" target="4" style="2" name="未命名"></connection>
+	<connection source="13" target="16" style="1" name="未命名"></connection>
+	<connection source="21" target="6" style="1" name=""></connection>
+</saturn-action>

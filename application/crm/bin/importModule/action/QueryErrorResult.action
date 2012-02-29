@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/importModule/action/QueryErrorResult.action</key>
+		<name>查询导入错误信息</name>
+		<description>查询导入错误信息</description>
+	</information>
+	<start id="1" next="2" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<view id="3" next="" x="444" y="162">
+		<name>queryError</name>
+		<type>jsp</type>
+		<location>/crm/importModule/web/queryError.jsp</location>
+		<description></description>
+	</view>
+	<logic exception="" id="2" next="3" x="253" y="158">
+		<key>crm::/importModule/logic/QueryErrorResult.logic</key>
+		<name>查询导入错误信息</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="" classType="java.lang.String" passingType="in-out">
+				<value-key>importtime</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="" classType="java.lang.String" passingType="in-out">
+				<value-key>importtarget</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="startIndex" classType="java.lang.Integer" passingType="in-out">
+				<value-key>startIndex</value-key>
+				<scope>2</scope>
+				<description>分页开始位置</description>
+			</parameter>
+			<parameter id="4" name="endIndex" classType="java.lang.Integer" passingType="in-out">
+				<value-key>endIndex</value-key>
+				<scope>2</scope>
+				<description>分页结束位置</description>
+			</parameter>
+			<parameter id="5" name="count" classType="java.lang.Integer" passingType="out">
+				<value-key>count</value-key>
+				<scope>2</scope>
+				<description>记录条数</description>
+			</parameter>
+			<parameter id="6" name="result" classType="java.util.ArrayList" passingType="out">
+				<value-key>result</value-key>
+				<scope>2</scope>
+				<description>返回SaturnData结果集</description>
+			</parameter>
+		</parameters>
+		<description>查询导入错误信息</description>
+	</logic>
+	<connection source="1" target="2" style="1" name=""></connection>
+	<connection source="2" target="3" style="1" name=""></connection>
+</saturn-action>

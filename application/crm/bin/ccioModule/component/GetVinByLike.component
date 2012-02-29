@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-components>
+	<component key="/ccioModule/component/GetVinByLike.component" name="动态获得vin" class="ccioModule.component.GetVinByLike" projectname="crm">
+		<description></description>
+<parameters>
+	<parameter id="1" name="vins" classType="java.lang.String" passingType="out">
+		<scope>1</scope>
+		<value-key>vins</value-key>
+		<description>jsontext vin串</description>
+	</parameter>
+	<parameter id="2" name="vinlike" classType="java.lang.String" passingType="in">
+		<scope>1</scope>
+		<value-key>vinlike</value-key>
+		<description>vin匹配参数</description>
+	</parameter>
+</parameters>
+<loadstart>false</loadstart>
+	</component>
+</saturn-components>

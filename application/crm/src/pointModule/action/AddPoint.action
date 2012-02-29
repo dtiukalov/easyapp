@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/pointModule/action/AddPoint.action</key>
+		<name>添加积分</name>
+		<description></description>
+	</information>
+	<connection source="2" target="3" style="1" name=""></connection>
+	<connection source="5" target="3" style="1" name=""></connection>
+	<start id="1" next="6" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<logic exception="" id="6" next="3" x="279" y="162">
+		<key>crm::/pointModule/logic/AddPoint.logic</key>
+		<name>添加积分</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="vin" classType="java.lang.String" passingType="in">
+				<value-key>vin</value-key>
+				<scope>2</scope>
+				<description>车辆vin</description>
+			</parameter>
+			<parameter id="2" name="typenum" classType="java.lang.String" passingType="in">
+				<value-key>typenum</value-key>
+				<scope>2</scope>
+				<description>积分类型</description>
+			</parameter>
+			<parameter id="3" name="money" classType="java.lang.Integer" passingType="in">
+				<value-key>money</value-key>
+				<scope>2</scope>
+				<description>消费积分消费金额</description>
+			</parameter>
+			<parameter id="4" name="indate" classType="java.lang.String" passingType="in">
+				<value-key>indate</value-key>
+				<scope>2</scope>
+				<description>进厂时间或操作时间</description>
+			</parameter>
+			<parameter id="5" name="" classType="java.lang.String" passingType="in">
+				<value-key>serv_type</value-key>
+				<scope>2</scope>
+				<description>维修类型</description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<view id="3" next="" x="480" y="192">
+		<name>pointlist</name>
+		<type>jsp</type>
+		<location>/crm/pointModule/web/pointlist.jsp</location>
+		<description></description>
+	</view>
+	<connection source="1" target="6" style="1" name=""></connection>
+	<connection source="6" target="3" style="1" name=""></connection>
+</saturn-action>

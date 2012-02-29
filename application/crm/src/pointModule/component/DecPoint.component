@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-components>
+	<component key="/pointModule/component/DecPoint.component" name="兑换积分" class="pointModule.component.DecPoint" projectname="crm">
+		<description>兑换积分</description>
+		<parameters>
+			<parameter id="1" name="vin" classType="java.lang.String" passingType="in">
+				<scope>1</scope>
+				<value-key>vin</value-key>
+				<description>车辆vin</description>
+			</parameter>
+			<parameter id="2" name="pr_id" classType="java.lang.String" passingType="in">
+				<scope>1</scope>
+				<value-key>pr_id</value-key>
+				<description>兑换规则id</description>
+			</parameter>
+			<parameter id="3" name="pnum" classType="java.lang.String" passingType="in">
+				<scope>1</scope>
+				<value-key>pnum</value-key>
+				<description>兑换数量</description>
+			</parameter>
+		</parameters>
+		<loadstart>false</loadstart>
+	</component>
+</saturn-components>

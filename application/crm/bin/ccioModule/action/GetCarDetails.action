@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/ccioModule/action/GetCarDetails.action</key>
+		<name>获得车辆基础信息</name>
+		<description></description>
+	</information>
+	<start id="1" next="12" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<connection source="4" target="9" style="1" name=""></connection>
+	<connection source="7" target="6" style="1" name=""></connection>
+	<connection source="9" target="5" style="1" name="未命名"></connection>
+	<connection source="9" target="7" style="2" name="未命名"></connection>
+	<connection source="11" target="6" style="2" name="未命名"></connection>
+	<connection source="11" target="5" style="1" name="未命名"></connection>
+	<connection source="6" target="8" style="1" name=""></connection>
+	<connection source="8" target="5" style="1" name=""></connection>
+	<decision next="" id="12" x="299" y="65">
+		<name>b_card==null</name>
+		<if then="5" else="14">
+			<expr>empty(b_card.trim())</expr>
+		</if>
+		<parameters></parameters>
+		<description></description>
+	</decision>
+	<decision next="" id="15" x="428" y="171">
+		<name>b_vin!=null</name>
+		<if then="13" else="5">
+			<expr>b_vin!=null</expr>
+		</if>
+		<parameters></parameters>
+		<description></description>
+	</decision>
+	<view id="5" next="" x="564" y="75">
+		<name>test</name>
+		<type>jsp</type>
+		<location>/crm/ccioModule/web/test.jsp</location>
+		<description></description>
+	</view>
+	<logic exception="" id="14" next="15" x="312" y="258">
+		<key>crm::/ccioModule/logic/GetVinByCard.logic</key>
+		<name>按卡获得vin</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="b_vin" classType="java.lang.String" passingType="out">
+				<value-key>b_vin</value-key>
+				<scope>1</scope>
+				<description>车辆vin</description>
+			</parameter>
+			<parameter id="2" name="b_card" classType="java.lang.String" passingType="in">
+				<value-key>b_card</value-key>
+				<scope>2</scope>
+				<description>车载卡号</description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<logic exception="" id="13" next="5" x="571" y="255">
+		<key>crm::/ccioModule/logic/GetCarByCard.logic</key>
+		<name>按车载卡获得信息</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>car_saturnData</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="customer_saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>customer_saturnData</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>member_saturnData</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="4" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>service_saturnData</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="5" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>care_saturnData</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="6" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>jy_saturnData</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="7" name="result" classType="java.util.ArrayList" passingType="out">
+				<value-key>oil_result</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="8" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>insurance_saturnData</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="9" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>integral_saturnData</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="10" name="b_vin" classType="java.lang.String" passingType="in">
+				<value-key>b_vin</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<connection source="1" target="12" style="1" name=""></connection>
+	<connection source="13" target="5" style="1" name=""></connection>
+	<connection source="12" target="5" style="1" name="未命名"></connection>
+	<connection source="12" target="14" style="2" name="未命名"></connection>
+	<connection source="14" target="15" style="1" name=""></connection>
+	<connection source="15" target="13" style="1" name="未命名"></connection>
+	<connection source="15" target="5" style="2" name="未命名"></connection>
+</saturn-action>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/dutyModule/action/ToAddPage1.action</key>
+		<name>跳到添加详细页</name>
+		<description></description>
+	</information>
+	<view id="2" next="" x="377" y="177">
+		<name>addDutyItem</name>
+		<type>jsp</type>
+		<location>/crm/dutyModule/web/addDutyItem.jsp</location>
+		<description></description>
+	</view>
+	<start id="1" next="2" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<connection source="1" target="2" style="1" name=""></connection>
+</saturn-action>

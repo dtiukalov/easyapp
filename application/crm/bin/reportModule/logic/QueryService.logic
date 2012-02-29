@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-logic>
+	<information id="0" next="" x="0" y="0">
+		<key>/reportModule/logic/QueryService.logic</key>
+		<name>查询接车</name>
+		<loadstart>flase</loadstart>
+		<description></description>
+	</information>
+	<component exception="" id="4" next="" x="282" y="43">
+		<key>edu.ccut.saturn.basecomponent::/databaseComponent/QueryByConditionExtComponent.component</key>
+		<name>依动态条件查询</name>
+		<parameters>
+			<parameter id="1" name="fullkey" classType="java.lang.String" passingType="in">
+				<value-key>'http://crm/coreModule/data::crm_service_oth'</value-key>
+				<scope>1</scope>
+				<description>生成SaturnData所需的fullkey</description>
+			</parameter>
+			<parameter id="2" name="logicContext" classType="java.util.HashMap" passingType="in">
+				<value-key>${context}</value-key>
+				<scope>1</scope>
+				<description>logicContext</description>
+			</parameter>
+			<parameter id="3" name="result" classType="java.util.ArrayList" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description>返回SaturnData结果集</description>
+			</parameter>
+			<parameter id="4" name="'substr(servintime,1,10)=${servintime}'" classType="java.lang.Object" passingType="in">
+				<value-key>'substr(servInTime,1,10)=${servintime}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description></description>
+	</component>
+	<connection source="5" target="3" style="1" name=""></connection>
+	<start id="1" next="7" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters>
+			<parameter id="1" name="servintime" classType="java.lang.Object" passingType="in">
+				<value-key>servintime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="result" classType="java.util.ArrayList" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description>返回SaturnData结果集</description>
+			</parameter>
+			<parameter id="3" name="crm_waiter" classType="java.lang.Object" passingType="in">
+				<value-key>crm_waiter</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="4" name="result" classType="java.util.ArrayList" passingType="out">
+				<value-key>resultmonth</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</start>
+	<component exception="" id="7" next="8" x="215" y="157">
+		<key>edu.ccut.saturn.basecomponent::/databaseComponent/QueryBySaturnSQLComponent.component</key>
+		<name>依SQL查询</name>
+		<parameters>
+			<parameter id="1" name="fullkey" classType="java.lang.String" passingType="in">
+				<value-key>'http://crm/coreModule/data::saturn_dict_serv'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="sqlkey" classType="java.lang.String" passingType="in">
+				<value-key>'crm_service_dict'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="result" classType="java.util.ArrayList" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="4" name="servInTime" classType="java.lang.Object" passingType="in">
+				<value-key>'servInTime=${servintime}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description></description>
+	</component>
+	<end id="3" next="" x="525" y="161">
+		<name>结束</name>
+		<parameters></parameters>
+		<description></description>
+	</end>
+	<component exception="" id="8" next="3" x="378" y="160">
+		<key>edu.ccut.saturn.basecomponent::/databaseComponent/QueryBySaturnSQLComponent.component</key>
+		<name>依SQL查询</name>
+		<parameters>
+			<parameter id="1" name="fullkey" classType="java.lang.String" passingType="in">
+				<value-key>'http://crm/coreModule/data::saturn_dict_serv'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="sqlkey" classType="java.lang.String" passingType="in">
+				<value-key>'crm_service_dict_mon'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="result" classType="java.util.ArrayList" passingType="out">
+				<value-key>resultmonth</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="4" name="'servInTime=${servintime}'" classType="java.lang.Object" passingType="in">
+				<value-key>'servInTime=${servintime}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description></description>
+	</component>
+	<connection source="7" target="8" style="1" name=""></connection>
+	<connection source="8" target="3" style="1" name=""></connection>
+	<connection source="1" target="7" style="1" name=""></connection>
+</saturn-logic>

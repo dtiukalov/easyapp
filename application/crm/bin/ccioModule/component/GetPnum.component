@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-components>
+	<component key="/ccioModule/component/GetPnum.component" name="编辑新建批号lable" class="ccioModule.component.GetPnum" projectname="crm">
+		<description></description>
+<parameters>
+	<parameter id="1" name="pnum" classType="java.lang.String" passingType="in">
+		<scope>1</scope>
+		<value-key>pnum</value-key>
+		<description></description>
+	</parameter>
+	<parameter id="2" name="plable" classType="java.lang.String" passingType="out">
+		<scope>1</scope>
+		<value-key>plable</value-key>
+		<description></description>
+	</parameter>
+</parameters>
+<loadstart>false</loadstart>
+	</component>
+</saturn-components>

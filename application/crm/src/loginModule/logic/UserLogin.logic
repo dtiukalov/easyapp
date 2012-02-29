@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-logic>
+	<information id="0" next="" x="0" y="0">
+		<key>/loginModule/logic/UserLogin.logic</key>
+		<name>UserLogin</name>
+		<loadstart>flase</loadstart>
+		<description></description>
+	</information>
+	<end id="3" next="" x="604" y="168">
+		<name>结束</name>
+		<parameters></parameters>
+		<description></description>
+	</end>
+	<start id="1" next="4" x="109" y="156">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters>
+			<parameter id="1" name="" classType="java.lang.String" passingType="in">
+				<value-key>userpasswd</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="" classType="java.lang.String" passingType="in">
+				<value-key>username</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>saturnData</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</start>
+	<component exception="" id="4" next="5" x="257" y="162">
+		<key>edu.ccut.saturn.basecomponent::/databaseComponent/QueryByConditionWithPageExtComponent.component</key>
+		<name>分页查询</name>
+		<parameters>
+			<parameter id="1" name="fullkey" classType="java.lang.String" passingType="in">
+				<value-key>'http://crm/coreModule/data::crm_user'</value-key>
+				<scope>1</scope>
+				<description>生成SaturnData所需的fullkey</description>
+			</parameter>
+			<parameter id="2" name="logicContext" classType="java.util.HashMap" passingType="in">
+				<value-key>${context}</value-key>
+				<scope>1</scope>
+				<description>logicContext</description>
+			</parameter>
+			<parameter id="3" name="startIndex" classType="java.lang.Integer" passingType="in">
+				<value-key>0</value-key>
+				<scope>1</scope>
+				<description>分页开始位置</description>
+			</parameter>
+			<parameter id="4" name="endIndex" classType="java.lang.Integer" passingType="in">
+				<value-key>9</value-key>
+				<scope>1</scope>
+				<description>分页结束位置</description>
+			</parameter>
+			<parameter id="5" name="result" classType="java.util.ArrayList" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description>返回SaturnData结果集</description>
+			</parameter>
+			<parameter id="6" name="tableWord" classType="java.lang.String" passingType="in">
+				<value-key>tableWord</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="7" name="" classType="java.lang.String" passingType="in">
+				<value-key>'username=${username}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="8" name="" classType="java.lang.String" passingType="in">
+				<value-key>'password=${userpasswd}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>分页查询</description>
+	</component>
+	<component exception="" id="5" next="3" x="388" y="169">
+		<key>edu.ccut.saturn.basecomponent::/dataOperationComponent/GetFirstSaturnDataFromList.component</key>
+		<name>得到数据项List中的第一条数据</name>
+		<parameters>
+			<parameter id="1" name="saturnDataList" classType="java.util.ArrayList" passingType="in">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>saturnData</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>GetFirstSaturnDataFromList</description>
+	</component>
+	<connection source="5" target="3" style="1" name=""></connection>
+	<connection source="4" target="5" style="1" name=""></connection>
+	<connection source="1" target="4" style="1" name=""></connection>
+</saturn-logic>

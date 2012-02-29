@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-logic>
+	<information id="0" next="" x="0" y="0" >
+		<key>/serviceModule/logic/UpdateServiceExp.logic</key>
+		<name>UpdateServiceExp</name>
+		<loadstart>flase</loadstart>
+		<description></description>
+	</information>
+	<start id="1" next="" x="81" y="161" >
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+	</start>
+	<end id="3" next="" x="389" y="161" >
+		<name>结束</name>
+	</end>
+</saturn-logic>

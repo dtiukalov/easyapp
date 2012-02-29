@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-components>
+	<component key="/serviceModule/component/SetTicketData.component" name="SetTicketData" class="serviceModule.component.SetTicketData" projectname="crm">
+		<description></description>
+		<parameters>
+			<parameter id="1" name="carvin" classType="java.lang.String" passingType="in">
+				<scope>1</scope>
+				<value-key>carvin</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="ticketAmount" classType="java.lang.String" passingType="in">
+				<scope>1</scope>
+				<value-key>ticketAmount</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="currentTime" classType="java.lang.String" passingType="in">
+				<scope>1</scope>
+				<value-key>currentTime</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="4" classType="java.lang.String" passingType="in" name="servorderid">
+				<scope>1</scope>
+				<value-key>orderid</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="5" name="userid" classType="java.lang.String" passingType="in">
+				<scope>1</scope>
+				<description></description>
+				<value-key>userid</value-key>
+			</parameter>
+			<parameter id="6" name="username" classType="java.lang.String" passingType="in">
+				<scope>1</scope>
+				<description></description>
+				<value-key>username</value-key>
+			</parameter>
+			<parameter id="7" name="servorderid" classType="java.lang.String" passingType="in">
+				<scope>1</scope>
+				<description></description>
+				<value-key>servorderid</value-key>
+			</parameter>
+			<parameter id="8" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<scope>1</scope>
+				<description></description>
+				<value-key>saturnData</value-key>
+			</parameter>
+		</parameters>
+		<loadstart>false</loadstart>
+	</component>
+</saturn-components>

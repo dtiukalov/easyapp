@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/carModule/action/TestLevelLog.action</key>
+		<name>测试档案类型</name>
+		<description></description>
+	</information>
+	<connection source="2" target="3" style="1" name=""></connection>
+	<start id="1" next="4" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<view id="3" next="" x="363" y="181">
+		<name>carinfo</name>
+		<type>jsp</type>
+		<location>/crm/carModule/web/carinfo.jsp</location>
+		<description></description>
+	</view>
+	<logic exception="" id="4" next="5" x="217" y="188">
+		<key>crm::/carModule/logic/TestLevelLog.logic</key>
+		<name>测试档案类型</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="type" classType="java.lang.String" passingType="in">
+				<value-key>'1'</value-key>
+				<scope>1</scope>
+				<description>级别变更日志类型 1:月刷新2单次刷新3手动死档</description>
+			</parameter>
+			<parameter id="2" name="vin" classType="java.lang.String" passingType="in">
+				<value-key>vin</value-key>
+				<scope>1</scope>
+				<description>要变更的车辆vin，只type为2,3时有效</description>
+			</parameter>
+			<parameter id="3" name="snote" classType="java.lang.String" passingType="in">
+				<value-key>snote</value-key>
+				<scope>1</scope>
+				<description>死档说明，只type为3时有效</description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<view id="5" next="" x="361" y="261">
+		<name>levelloglist</name>
+		<type>jsp</type>
+		<location>/crm/carModule/web/levelloglist.jsp</location>
+		<description></description>
+	</view>
+	<connection source="1" target="4" style="1" name=""></connection>
+	<connection source="4" target="5" style="1" name=""></connection>
+</saturn-action>

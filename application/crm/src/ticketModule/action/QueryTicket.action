@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/ticketModule/action/QueryTicket.action</key>
+		<name>QueryTicket</name>
+		<description></description>
+	</information>
+	<view id="3" next="" x="552" y="154">
+		<name>editTicket</name>
+		<type>jsp</type>
+		<location>/crm/ticketModule/web/editTicket.jsp</location>
+		<description></description>
+	</view>
+	<start id="1" next="2" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<logic exception="" id="2" next="3" x="290" y="145">
+		<key>crm::/ticketModule/logic/QueryTicket.logic</key>
+		<name>QueryTicket</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="" classType="java.lang.String" passingType="in">
+				<value-key>ticketid</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="result" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>saturnData</value-key>
+				<scope>2</scope>
+				<description>返回SaturnData</description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<connection source="1" target="2" style="1" name=""></connection>
+	<connection source="2" target="3" style="1" name=""></connection>
+</saturn-action>

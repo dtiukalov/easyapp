@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-data>
+	<data name="crm_jy_view" namespace="http://crm/coreModule/data" dbType="mysql" connectname="crm">
+		<description></description>
+<fields>
+	<field name="jyid" length="11" type="INT" column="JYID" javaType="java.lang.Integer" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_JY_VIEW">
+		<validates value-key="JYID" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	<field name="jybignum" length="11" type="INT" column="JYBIGNUM" javaType="java.lang.Integer" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_JY_VIEW">
+		<validates value-key="JYBIGNUM" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	<field name="jysmallnum" length="11" type="INT" column="JYSMALLNUM" javaType="java.lang.Integer" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_JY_VIEW">
+		<validates value-key="JYSMALLNUM" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	<field name="servorderid" length="20" type="VARCHAR" column="SERVORDERID" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_JY_VIEW">
+		<validates value-key="SERVORDERID" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="jystaff" length="20" type="VARCHAR" column="JYSTAFF" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_JY_VIEW" dictTypeId="crm_waiter">
+		<validates value-key="JYSTAFF" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carvin" length="20" type="VARCHAR" column="CARVIN" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_JY_VIEW">
+		<validates value-key="CARVIN" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="jytype" length="20" type="VARCHAR" column="JYTYPE" javaType="java.lang.String" showName="" defaultValue="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_JY_VIEW" dictTypeId="crm_jyType">
+		<validates value-key="JYTYPE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="jyselltime" length="10" type="DATE" column="JYSELLTIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_JY_VIEW">
+		<validates value-key="JYSELLTIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="carcardid" length="20" type="VARCHAR" column="CARCARDID" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_JY_VIEW">
+		<validates value-key="CARCARDID" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="jystate" length="2" type="VARCHAR" column="JYSTATE" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_JY_VIEW">
+		<validates value-key="JYSTATE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+</fields>
+	</data>
+</saturn-data>

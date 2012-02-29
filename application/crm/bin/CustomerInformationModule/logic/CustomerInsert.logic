@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-logic>
+	<information id="0" next="" x="0" y="0">
+		<key>/CustomerInformationModule/logic/CustomerInsert.logic</key>
+		<name>添加客户信息</name>
+		<loadstart>flase</loadstart>
+		<description></description>
+	</information>
+	<start id="1" next="4" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters>
+			<parameter id="1" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="in-out">
+				<value-key>saturnData</value-key>
+				<scope>1</scope>
+				<description>操作的saturnData</description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</start>
+	<end id="3" next="" x="389" y="161">
+		<name>结束</name>
+		<parameters></parameters>
+		<description></description>
+	</end>
+	<component exception="" id="4" next="3" x="232" y="158">
+		<key>edu.ccut.saturn.basecomponent::/databaseComponent/InsertComponent.component</key>
+		<name>插入一条记录</name>
+		<parameters>
+			<parameter id="1" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="in-out">
+				<value-key>saturnData</value-key>
+				<scope>1</scope>
+				<description>操作的saturnData</description>
+			</parameter>
+			<parameter id="2" name="result" classType="java.lang.Integer" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description>sql执行所修改的记录条数</description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>插入一条记录组件</description>
+	</component>
+	<connection source="1" target="4" style="1" name=""></connection>
+	<connection source="4" target="3" style="1" name=""></connection>
+</saturn-logic>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/reportModule/action/QueryNewOil.action</key>
+		<name>导出存油报表</name>
+		<description></description>
+	</information>
+	<view id="4" next="" x="674" y="194">
+		<name>querynewsoil</name>
+		<type>jsp</type>
+		<location>/crm/reportModule/web/querynewsoil.jsp</location>
+		<description></description>
+	</view>
+	<start id="1" next="2" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<logic exception="" id="3" next="4" x="524" y="173">
+		<key>crm::/reportModule/logic/SelectOilCount.logic</key>
+		<name>查询存油量</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="count" classType="java.lang.Integer" passingType="out">
+				<value-key>count</value-key>
+				<scope>2</scope>
+				<description>记录条数</description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<logic exception="" id="2" next="3" x="285" y="176">
+		<key>crm::/reportModule/logic/QueryOil.logic</key>
+		<name>存油查询</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="servintime" classType="java.lang.Object" passingType="in">
+				<value-key>servintime</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="result" classType="java.util.ArrayList" passingType="out">
+				<value-key>result</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<connection source="1" target="2" style="1" name=""></connection>
+	<connection source="2" target="3" style="1" name=""></connection>
+	<connection source="3" target="4" style="1" name=""></connection>
+</saturn-action>

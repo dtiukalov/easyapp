@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/dictModule/action/QueryCarList1.action</key>
+		<name>其他车型</name>
+		<description></description>
+	</information>
+	<view id="3" next="" x="476" y="157">
+		<name>carmodellist1</name>
+		<type>jsp</type>
+		<location>/crm/dictModule/web/carmodellist1.jsp</location>
+		<description></description>
+	</view>
+	<start id="1" next="2" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<logic exception="" id="2" next="3" x="276" y="163">
+		<key>crm::/dictModule/logic/QueryDictList.logic</key>
+		<name>QueryDictList</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="" classType="java.lang.String" passingType="in">
+				<value-key>'crm_carModel'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="" classType="java.lang.String" passingType="in-out">
+				<value-key>code</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="" classType="java.lang.String" passingType="in-out">
+				<value-key>value</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="4" name="hiddenFlag" classType="java.lang.String" passingType="in">
+				<value-key>hiddenFlag</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="5" name="startIndex" classType="java.lang.Integer" passingType="in">
+				<value-key>startIndex</value-key>
+				<scope>2</scope>
+				<description>分页开始位置</description>
+			</parameter>
+			<parameter id="6" name="endIndex" classType="java.lang.Integer" passingType="in">
+				<value-key>endIndex</value-key>
+				<scope>2</scope>
+				<description>分页结束位置</description>
+			</parameter>
+			<parameter id="7" name="count" classType="java.lang.Integer" passingType="out">
+				<value-key>count</value-key>
+				<scope>2</scope>
+				<description>记录条数</description>
+			</parameter>
+			<parameter id="8" name="result" classType="java.util.ArrayList" passingType="out">
+				<value-key>result</value-key>
+				<scope>2</scope>
+				<description>返回SaturnData结果集</description>
+			</parameter>
+			<parameter id="9" name="pinyin" classType="java.lang.String" passingType="in">
+				<value-key>'0'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="10" name="parent_code" classType="java.lang.Object" passingType="in">
+				<value-key>parent_code</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<connection source="1" target="2" style="1" name=""></connection>
+	<connection source="2" target="3" style="1" name=""></connection>
+</saturn-action>

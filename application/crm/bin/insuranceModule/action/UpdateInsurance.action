@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/insuranceModule/action/UpdateInsurance.action</key>
+		<name>UpdateInsurance</name>
+		<description></description>
+	</information>
+	<connection source="2" target="3" style="1" name=""></connection>
+	<start id="1" next="5" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<action id="3" next="" x="617" y="173">
+		<key>crm::/insuranceModule/action/QueryInsuranceList.action</key>
+		<name>查询保险信息</name>
+		<parameters></parameters>
+		<description>查询保险信息</description>
+	</action>
+	<data id="5" next="4" x="220" y="184">
+		<name>数据3</name>
+		<data-scope>2</data-scope>
+		<data-prefix>insur</data-prefix>
+		<data-key>insuranceData</data-key>
+		<xmlkey></xmlkey>
+		<elementkey></elementkey>
+		<data-type classType="edu.ccut.saturn.component.SaturnData" namespace="http://crm/coreModule/data" saturnDataType="crm_insurance"></data-type>
+		<parameters></parameters>
+		<description></description>
+	</data>
+	<logic exception="" id="4" next="3" x="396" y="172">
+		<key>crm::/insuranceModule/logic/UpdateInsurance.logic</key>
+		<name>UpdateInsurance</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<value-key>insuranceData</value-key>
+				<scope>1</scope>
+				<description>操作的saturnData</description>
+			</parameter>
+			<parameter id="2" name="" classType="java.lang.String" passingType="in">
+				<value-key>${CRM_USER.userid}</value-key>
+				<scope>5</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="" classType="java.lang.String" passingType="in">
+				<value-key>${CRM_USER.userrealname}</value-key>
+				<scope>5</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<connection source="1" target="5" style="1" name=""></connection>
+	<connection source="4" target="3" style="1" name=""></connection>
+	<connection source="5" target="4" style="1" name=""></connection>
+</saturn-action>

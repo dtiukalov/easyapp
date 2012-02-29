@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/ccioModule/action/UpdateCardForVB.action</key>
+		<name>修改写卡状态</name>
+		<description></description>
+	</information>
+	<logic exception="" id="2" next="3" x="293" y="271">
+		<key>crm::/ccioModule/logic/UpdateCardForVB.logic</key>
+		<name>修改写卡状态</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="result" classType="java.lang.Integer" passingType="out">
+				<value-key>result</value-key>
+				<scope>2</scope>
+				<description>sql执行所修改的记录条数</description>
+			</parameter>
+			<parameter id="2" name="c_card" classType="java.lang.String" passingType="in">
+				<value-key>c_card</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<start id="1" next="4" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<view id="3" next="" x="478" y="195">
+		<name>cardforvb</name>
+		<type>jsp</type>
+		<location>/crm/ccioModule/web/cardforvb.jsp</location>
+		<description></description>
+	</view>
+	<decision next="" id="4" x="173" y="158">
+		<name>c_card==null</name>
+		<if then="3" else="2">
+			<expr>c_card==null||c_card==&quot;&quot;</expr>
+		</if>
+		<parameters></parameters>
+		<description></description>
+	</decision>
+	<connection source="1" target="4" style="1" name=""></connection>
+	<connection source="2" target="3" style="1" name=""></connection>
+	<connection source="4" target="3" style="1" name="未命名"></connection>
+	<connection source="4" target="2" style="2" name="未命名"></connection>
+</saturn-action>

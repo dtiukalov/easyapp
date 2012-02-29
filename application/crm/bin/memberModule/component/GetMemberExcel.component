@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-components>
+	<component key="/memberModule/component/GetMemberExcel.component" name="获得excel列表" class="memberModule.component.GetMemberExcel" projectname="crm">
+		<description>获得excel列表</description>
+		<parameters>
+			<parameter id="1" name="memberList" classType="java.util.ArrayList" passingType="out">
+				<scope>1</scope>
+				<value-key>memberList</value-key>
+				<description>结果集</description>
+			</parameter>
+			<parameter id="2" name="count" classType="java.lang.Integer" passingType="out">
+				<scope>1</scope>
+				<value-key>count</value-key>
+				<description>记录总数</description>
+			</parameter>
+			<parameter id="3" name="carvin" classType="java.lang.String" passingType="in">
+				<scope>1</scope>
+				<value-key>carvin</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="4" name="carbrand" classType="java.lang.String" passingType="in">
+				<scope>1</scope>
+				<value-key>carbrand</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="5" name="carseries" classType="java.lang.String" passingType="in">
+				<scope>1</scope>
+				<value-key>carseries</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="6" name="carmodel" classType="java.lang.String" passingType="in">
+				<scope>1</scope>
+				<value-key>carmodel</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="7" name="cararea" classType="java.lang.String" passingType="in">
+				<scope>1</scope>
+				<value-key>cararea</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="8" name="cstmname" classType="java.lang.String" passingType="in">
+				<scope>1</scope>
+				<value-key>cstmname</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="9" name="min_membjoindate" classType="java.lang.String" passingType="in">
+				<scope>1</scope>
+				<value-key>min_membjoindate</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="10" name="max_membjoindate" classType="java.lang.String" passingType="in">
+				<scope>1</scope>
+				<value-key>max_membjoindate</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="11" name="min_sumpoint" classType="java.lang.String" passingType="in">
+				<scope>1</scope>
+				<value-key>min_sumpoint</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="12" name="max_sumpoint" classType="java.lang.String" passingType="in">
+				<scope>1</scope>
+				<value-key>max_sumpoint</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="13" name="membcardid" classType="java.lang.String" passingType="in">
+				<scope>1</scope>
+				<value-key>membcardid</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="14" name="membtype" classType="java.lang.String" passingType="in">
+				<scope>1</scope>
+				<value-key>membtype</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="15" name="startIndex" classType="java.lang.String" passingType="in">
+				<scope>1</scope>
+				<value-key>startIndex</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="16" name="endIndex" classType="java.lang.String" passingType="in">
+				<scope>1</scope>
+				<value-key>endIndex</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="17" name="carlicenceno" classType="java.lang.String" passingType="in">
+				<scope>1</scope>
+				<value-key>carlicenceno</value-key>
+				<description></description>
+			</parameter>
+			<parameter id="18" name="carcardid" classType="java.lang.String" passingType="in">
+				<scope>1</scope>
+				<value-key>carcardid</value-key>
+				<description></description>
+			</parameter>
+		</parameters>
+		<loadstart>false</loadstart>
+	</component>
+</saturn-components>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-data>
+	<data name="Point" namespace="http://crm/pointModule/data" dbType="mysql" connectname="ccio">
+		
+<fields>
+	<field name="p_id" length="20" type="BIGINT" column="P_ID" javaType="java.lang.Long" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" sequenceName="" tableName="CRM_POINT" isPrimaryKey="true">
+		<validates value-key="P_ID" classType="java.lang.Long" isValidate="false"></validates>
+	</field>
+	<field name="p_vin" length="20" type="VARCHAR" column="P_VIN" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_POINT">
+		<validates value-key="P_VIN" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="p_addpoint" length="11" type="INT" column="P_ADDPOINT" javaType="java.lang.Integer" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_POINT">
+		<validates value-key="P_ADDPOINT" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	<field name="p_decpoint" length="11" type="INT" column="P_DECPOINT" javaType="java.lang.Integer" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_POINT">
+		<validates value-key="P_DECPOINT" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	<field name="p_sumpoint" length="11" type="INT" column="P_SUMPOINT" javaType="java.lang.Integer" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_POINT">
+		<validates value-key="P_SUMPOINT" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	<field name="p_date" length="20" type="VARCHAR" column="P_DATE" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_POINT">
+		<validates value-key="P_DATE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="p_state" length="11" type="INT" column="P_STATE" javaType="java.lang.Integer" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_POINT">
+		<validates value-key="P_STATE" classType="java.lang.Integer" isValidate="false"></validates>
+	</field>
+	<field name="p_datetime" length="19" type="TIMESTAMP" column="P_DATETIME" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_POINT">
+		<validates value-key="P_DATETIME" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="p_title" length="20" type="VARCHAR" column="P_TITLE" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_POINT">
+		<validates value-key="P_TITLE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="p_oid" length="30" type="VARCHAR" column="P_OID" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_POINT">
+		<validates value-key="P_OID" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="p_note" length="500" type="VARCHAR" column="P_NOTE" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_POINT">
+		<validates value-key="P_NOTE" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+</fields>
+<description>'http://crm/pointModule/data::Point'</description></data>
+</saturn-data>

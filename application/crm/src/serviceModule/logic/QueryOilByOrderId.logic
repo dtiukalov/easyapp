@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-logic>
+	<information id="0" next="" x="0" y="0">
+		<key>/serviceModule/logic/QueryOilByOrderId.logic</key>
+		<name>QueryOilByOrderId</name>
+		<loadstart>flase</loadstart>
+		<description></description>
+	</information>
+	<end id="3" next="" x="734" y="154">
+		<name>结束</name>
+		<parameters></parameters>
+		<description></description>
+	</end>
+	<decision next="" id="6" x="503" y="171">
+		<name>选择6</name>
+		<if then="8" else="7">
+			<expr>saturnData==null</expr>
+		</if>
+		<parameters></parameters>
+		<description></description>
+	</decision>
+	<component exception="" id="5" next="6" x="400" y="136">
+		<key>edu.ccut.saturn.basecomponent::/dataOperationComponent/GetFirstSaturnDataFromList.component</key>
+		<name>得到数据项List中的第一条数据</name>
+		<parameters>
+			<parameter id="1" name="saturnDataList" classType="java.util.ArrayList" passingType="in">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="out">
+				<value-key>saturnData</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>GetFirstSaturnDataFromList</description>
+	</component>
+	<component exception="" id="7" next="3" x="618" y="79">
+		<key>edu.ccut.saturn.basecomponent::/dataOperationComponent/SetValue.component</key>
+		<name>赋值</name>
+		<parameters>
+			<parameter id="1" name="source" classType="java.lang.String" passingType="in">
+				<value-key>${saturnData.oilid}</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="target" classType="java.lang.String" passingType="out">
+				<value-key>oilid</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>变量赋值</description>
+	</component>
+	<start id="1" next="9" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters>
+			<parameter id="1" name="" classType="java.lang.String" passingType="in">
+				<value-key>servorderid</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="target" classType="java.lang.String" passingType="out">
+				<value-key>oilid</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</start>
+	<component exception="" id="4" next="5" x="253" y="163">
+		<key>edu.ccut.saturn.basecomponent::/databaseComponent/QueryByConditionExtComponent.component</key>
+		<name>依动态条件查询</name>
+		<parameters>
+			<parameter id="1" name="fullkey" classType="java.lang.String" passingType="in">
+				<value-key>'http://crm/coreModule/data::crm_oil'</value-key>
+				<scope>1</scope>
+				<description>生成SaturnData所需的fullkey</description>
+			</parameter>
+			<parameter id="2" name="logicContext" classType="java.util.HashMap" passingType="in">
+				<value-key>${context}</value-key>
+				<scope>1</scope>
+				<description>logicContext</description>
+			</parameter>
+			<parameter id="3" name="result" classType="java.util.ArrayList" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description>返回SaturnData结果集</description>
+			</parameter>
+			<parameter id="4" name="" classType="java.lang.String" passingType="in">
+				<value-key>'servorderid=${servorderid}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description></description>
+	</component>
+	<component exception="" id="8" next="3" x="600" y="277">
+		<key>edu.ccut.saturn.basecomponent::/dataOperationComponent/SetValue.component</key>
+		<name>赋值</name>
+		<parameters>
+			<parameter id="1" name="source" classType="java.lang.String" passingType="in">
+				<value-key>''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="target" classType="java.lang.String" passingType="out">
+				<value-key>oilid</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>变量赋值</description>
+	</component>
+	<decision next="" id="9" x="189" y="244">
+		<name>选择9</name>
+		<if then="8" else="4">
+			<expr>servorderid==null||servorderid==''</expr>
+		</if>
+		<parameters></parameters>
+		<description></description>
+	</decision>
+	<connection source="1" target="9" style="1" name=""></connection>
+	<connection source="4" target="5" style="1" name=""></connection>
+	<connection source="5" target="6" style="1" name=""></connection>
+	<connection source="6" target="8" style="1" name="未命名"></connection>
+	<connection source="6" target="7" style="2" name="未命名"></connection>
+	<connection source="7" target="3" style="1" name=""></connection>
+	<connection source="8" target="3" style="1" name=""></connection>
+	<connection source="9" target="8" style="1" name="未命名"></connection>
+	<connection source="9" target="4" style="2" name="未命名"></connection>
+</saturn-logic>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/importModule/action/InsertCar.action</key>
+		<name>导入新增车辆和车主数据</name>
+		<description>导入新增车辆和车主数据</description>
+	</information>
+	<connection source="2" target="4" style="1" name=""></connection>
+	<start id="1" next="7" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<connection source="3" target="5" style="1" name=""></connection>
+	<connection source="4" target="3" style="1" name=""></connection>
+	<logic exception="" id="7" next="8" x="208" y="161">
+		<key>crm::/importModule/logic/UploadExcel.logic</key>
+		<name>UploadExcel</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="file" classType="java.lang.Object" passingType="in">
+				<value-key>excelFile</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="saveType" classType="java.lang.String" passingType="in">
+				<value-key>'car'</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="" classType="java.lang.String" passingType="out">
+				<value-key>filePath</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<action id="14" next="" x="572" y="202">
+		<key>crm::/importModule/action/QueryImportResult.action</key>
+		<name>查询导入结果</name>
+		<parameters></parameters>
+		<description>查询导入结果</description>
+	</action>
+	<decision next="" id="8" x="336" y="241">
+		<name>选择6</name>
+		<if then="12" else="10">
+			<expr>filePath==null</expr>
+		</if>
+		<parameters></parameters>
+		<description></description>
+	</decision>
+	<view id="12" next="" x="215" y="368">
+		<name>error</name>
+		<type>jsp</type>
+		<location>/crm/importModule/web/error.jsp</location>
+		<description></description>
+	</view>
+	<logic exception="" id="13" next="14" x="537" y="78">
+		<key>crm::/importModule/logic/InsertImportData.logic</key>
+		<name>插入导入信息记录</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="fullkey" classType="java.lang.String" passingType="in">
+				<value-key>'http://crm/coreModule/data::crm_car'</value-key>
+				<scope>2</scope>
+				<description>生成SaturnData所需的Fullkey</description>
+			</parameter>
+			<parameter id="2" name="" classType="java.lang.String" passingType="in">
+				<value-key>importdate</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="fieldValue" classType="java.lang.String" passingType="in">
+				<value-key>importtarget</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="4" name="" classType="java.lang.String" passingType="in">
+				<value-key>importoper</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description>插入导入信息记录</description>
+	</logic>
+	<view id="16" next="" x="460" y="367">
+		<name>errornew</name>
+		<type>jsp</type>
+		<location>/crm/importModule/web/errornew.jsp</location>
+		<description></description>
+	</view>
+	<logic exception="" id="10" next="15" x="393" y="75">
+		<key>crm::/importModule/logic/InsertCarAll.logic</key>
+		<name>InsertCarAll</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="currentTime" classType="java.lang.String" passingType="out">
+				<value-key>importdate</value-key>
+				<scope>2</scope>
+				<description>系统当前时间</description>
+			</parameter>
+			<parameter id="2" name="importType" classType="java.lang.String" passingType="in">
+				<value-key>'car'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="filePath" classType="java.lang.String" passingType="in">
+				<value-key>filePath</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="4" name="fieldValue" classType="java.lang.String" passingType="in">
+				<value-key>importtarget</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="5" name="result" classType="java.lang.String" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<decision next="" id="15" x="462" y="245">
+		<name>选择13</name>
+		<if then="13" else="16">
+			<expr>result == &quot;success&quot;</expr>
+		</if>
+		<parameters></parameters>
+		<description></description>
+	</decision>
+	<connection source="1" target="7" style="1" name=""></connection>
+	<connection source="7" target="8" style="1" name=""></connection>
+	<connection source="13" target="14" style="1" name=""></connection>
+	<connection source="10" target="15" style="1" name=""></connection>
+	<connection source="15" target="13" style="1" name="未命名"></connection>
+	<connection source="15" target="16" style="2" name="未命名"></connection>
+	<connection source="8" target="10" style="2" name="未命名"></connection>
+	<connection source="8" target="12" style="1" name="未命名"></connection>
+</saturn-action>

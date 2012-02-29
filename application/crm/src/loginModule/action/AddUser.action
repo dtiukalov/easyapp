@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-action>
+	<information id="0" next="" x="0" y="0">
+		<key>/loginModule/action/AddUser.action</key>
+		<name>AddUser</name>
+		<description></description>
+	</information>
+	<start id="1" next="3" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters></parameters>
+		<description></description>
+	</start>
+	<action id="4" next="" x="647" y="162">
+		<key>crm::/loginModule/action/QueryUserList.action</key>
+		<name>QueryUserList</name>
+		<parameters></parameters>
+		<description></description>
+	</action>
+	<data id="3" next="2" x="278" y="171">
+		<name>数据18</name>
+		<data-scope>2</data-scope>
+		<data-prefix>user</data-prefix>
+		<data-key>saturnData</data-key>
+		<xmlkey></xmlkey>
+		<elementkey></elementkey>
+		<data-type classType="edu.ccut.saturn.component.SaturnData" namespace="http://crm/coreModule/data" saturnDataType="crm_user"></data-type>
+		<parameters></parameters>
+		<description></description>
+	</data>
+	<logic exception="" id="2" next="4" x="452" y="163">
+		<key>crm::/loginModule/logic/AddUser.logic</key>
+		<name>AddUser</name>
+		<transaction type="supports"></transaction>
+		<parameters>
+			<parameter id="1" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="in-out">
+				<value-key>saturnData</value-key>
+				<scope>1</scope>
+				<description>操作的saturnData</description>
+			</parameter>
+			<parameter id="2" name="result" classType="java.lang.Integer" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description>sql执行所修改的记录条数</description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</logic>
+	<connection source="1" target="3" style="1" name=""></connection>
+	<connection source="2" target="4" style="1" name=""></connection>
+	<connection source="3" target="2" style="1" name=""></connection>
+</saturn-action>

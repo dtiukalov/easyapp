@@ -116,9 +116,6 @@
 					color: #000000;
 					text-indent: 10px;
 				}
-			#content{
-				margin-left:100px;
-			}
 		</style>
 		<script type="text/javascript">
 		var chart;
@@ -173,8 +170,7 @@
 						dataLabels: {
 							enabled: true,
 							style : {
-								fontWeight: 'bold',
-								fontSize:'12px'
+								fontSize:'14px'
 							},
 							color: 'black'
 						}
@@ -208,8 +204,7 @@
 					dataLabels: {
 						enabled: true,
 						style : {
-							fontWeight: 'bold',
-							fontSize:'12px'
+							fontSize:'14px'
 						},
 						color: 'white'
 					}
@@ -244,8 +239,7 @@
 					dataLabels: {
 						enabled: true,
 						style : {
-							fontWeight: 'bold',
-							fontSize:'10px'
+							fontSize:'14px'
 						},
 						color: 'white'
 					}
@@ -277,7 +271,7 @@
 				<h1><%=title %></h1>
 			</div>
 				<div id="content" >
-					<div id="left" style="width: 400px; height: auto; margin: 0 auto; float: left;">
+					<div id="left" style="width: 400px; height: auto; margin: 0 50px; float: left;">
 						<div id="chart" style="width: 400px; height: 400px; margin: 0px auto; float: left;"></div>
 						<div style="width: 400px; height: 100px; margin: 0px 20px; float: left;">
 							<div style="width: 120px; height: 30px; float: left; vertical-align: middle; padding-top: 10px; padding-left: 10px;">

@@ -183,7 +183,7 @@
 				<h1><%=title %></h1>
 			</div>
 			<div id="content">
-				<div id="chart" style="width: 800px; height: 400px; margin: 0 30px"></div>
+				<div id="chart" style="width: 900px; height: 400px;margin:0 -20px"></div>
 					<%
 					int[] arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9KWNo"));
 					
@@ -227,7 +227,7 @@
 					%>
 				<div id="meilsteinouter" style="width: 800px;">
 				
-				<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 245px; text-align: center; overflow: hidden; ">
+				<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 200px; text-align: center; overflow: hidden; ">
 					<div style=" width: <%=value1 %>px; height: 30px; float: left; background-color: #99FF99; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">VFF</span></div>
 					<div style=" width: <%=value2 %>px; height: 30px; float: left; background-color: #33CC33; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">PVS</span></div>
 					<div style=" width: <%=value3 %>px; height: 30px; float: left; background-color: #006600; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">0S</span></div>

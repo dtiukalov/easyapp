@@ -164,5 +164,14 @@
       </menuContribution>
       
    </extension>
+   
+   <!-- 修改Item图标  -->
+   <extension point="com.teamcenter.rac.common.tcLabelProviderDelegates">
+        <labelProviderDelegate>
+            <typeDelegate class="com.customer.fawvw.issues.status.UpdateItemPic" 
+            	parentType="FV9IssueRevision" priority="100">                      
+            </typeDelegate>
+        </labelProviderDelegate>
+    </extension>  
 
 </plugin>

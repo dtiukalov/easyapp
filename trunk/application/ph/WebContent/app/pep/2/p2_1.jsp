@@ -32,7 +32,7 @@
 				<div id="german">
 					<input type="button" class="china" onclick="changeChinese()" />
 				</div>
-				<div id="datatable1" style="width: 800px;margin:10px auto">
+				<div id="datatable1" style="margin:10px auto">
 					<table width="96%" border="0" cellspacing="5" cellpadding="0" class="ed">
 				        <tr>
 				        	<td width="19%">&nbsp;</td>
@@ -106,7 +106,7 @@
 			      <div id="china" style="display: none;">
 				  	<input type="button" class="german" onclick="changeGerman()"/>
 				  </div>
-			      <div id="datatable2" style="width: 800px; display: none;margin:10px auto">
+			      <div id="datatable2" style=" display: none;margin:10px auto">
 					<table width="96%" border="0" cellspacing="5" cellpadding="0" class="ed">
 				        <tr>
 				        	<td width="19%">&nbsp;</td>

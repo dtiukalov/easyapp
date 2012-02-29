@@ -124,7 +124,6 @@
 						enabled: true,
 						y:-15,
 						style: {
-							fontWeight: 'bold',
 							color: 'black',
 							fontSize:'12px'
 						}
@@ -156,7 +155,6 @@
 						dataLabels: {
 							enabled: true,
 							style : {
-								fontWeight: 'bold',
 								fontSize:'12px'
 							},
 							color: 'black'
@@ -171,7 +169,6 @@
 					dataLabels: {
 						enabled: true,
 						style : {
-							fontWeight: 'bold',
 							fontSize:'12px'
 						},
 						color: 'white'
@@ -249,7 +246,6 @@
 						enabled: true,
 						y:-15,
 						style: {
-							fontWeight: 'bold',
 							color: 'black',
 							fontSize:'12px'
 						}
@@ -289,7 +285,6 @@
 						dataLabels: {
 							enabled: true,
 							style : {
-								fontWeight: 'bold',
 								fontSize:'12px'
 							},
 							color: 'black'
@@ -304,7 +299,6 @@
 					dataLabels: {
 						enabled: true,
 						style : {
-							fontWeight: 'bold',
 							fontSize:'12px'
 						},
 						color: 'white'
@@ -331,8 +325,8 @@
 				<h1><%=title %></h1>
 			</div>
 			<div id="content">
-				<div id="chart1" style="width: 550px; height: 400px; margin: 50px 70px; float: left;"></div>
-				<div id="chart2" style="width: 390px; height: 400px; margin: 36px -100px; float: left;"></div>
+				<div id="chart1" style="width: 600px; height: 400px; margin: 50px 30px; float: left;"></div>
+				<div id="chart2" style="width: 420px; height: 400px; margin: 36px -80px; float: left;"></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

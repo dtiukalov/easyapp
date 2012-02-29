@@ -167,9 +167,9 @@
 				<div class="fr"> STATUS 19.10.2010</div>
 				<h1><%=title %></h1>
 			</div>
-			<div id="content" style="margin:30px auto;">
-				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto"></div>
-				<div id="table" style="width: 800px; height: 400px; margin: 0 70px">
+			<div id="content">
+				<div id="chart" style="width: 850px; height: 400px; margin: 0 auto"></div>
+				<div id="table" style="width: 800px; height: 400px; margin: 0 37px">
 					<table class="table2" style="border-color: #000;border-collapse:collapse;" cellpadding="0" cellspacing="0" border="1"">
 						<%-- <tr>
 							<td>&nbsp;</td>

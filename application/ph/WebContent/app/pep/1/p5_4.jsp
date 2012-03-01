@@ -146,7 +146,7 @@
 				<h1><%=title %></h1>
 			</div>
 			<div id="content">
-				<div id="chart" style="width: 850px; height: 400px; margin: 30px auto;"></div>
+				<div id="chart" style="width: 850px; height: 450px; margin: 30px 50px;"></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

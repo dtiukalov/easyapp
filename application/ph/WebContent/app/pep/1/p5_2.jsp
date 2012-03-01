@@ -114,7 +114,6 @@
 						dataLabels: {
 							enabled: true,
 							style : {
-								fontWeight: 'bold',
 								fontSize:'10px'
 							},
 							color: 'black'
@@ -153,10 +152,15 @@
 					dataLabels: {
 						enabled: true,
 						style : {
-							fontWeight: 'bold',
 							fontSize:'16px'
 						},
 						color: 'black'
+					},
+					marker:{
+						fillColor: '#FFFFFF',
+		                lineWidth: 2,
+		                lineColor: null,
+		                radius: 3
 					}
 				}, {
 					type: 'spline',
@@ -166,10 +170,15 @@
 					dataLabels: {
 						enabled: true,
 						style : {
-							fontWeight: 'bold',
 							fontSize:'16px'
 						},
 						color: 'black'
+					},
+					marker:{
+						fillColor: '#FFFFFF',
+		                lineWidth: 2,
+		                lineColor: null,
+		                radius: 3
 					}
 				}]
 			});

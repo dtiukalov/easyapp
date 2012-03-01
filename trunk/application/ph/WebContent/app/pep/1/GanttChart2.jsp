@@ -42,15 +42,15 @@
 		this.getMix = function(){ return _mix};
 		this.getType = function(){return _type};
 		this.getTypeLeft = function(){
-			var left = 171;
+			var left = 178;
 			if ('VFF' == _type) {
 				return left + '';
 			} else if ('PVS' == _type) {
-				return left + 65 + '';
+				return left + 60 + '';
 			} else if ('0S' == _type) {
-				return left + 130 + '';
+				return left + 120 + '';
 			} else if ('SOP' == _type) {
-				return left + 195 + '';
+				return left + 180 + '';
 			} 
 		};
 	}
@@ -71,7 +71,8 @@
 			var _minDate = new Date();	
 			var _maxLevel = 0;
 			var _dTemp = new Date();
-			var _firstRowStr = "<table border=1 style='border-collapse:collapse;border:#000000 2px solid'><tr style='background-color:feffbe;text-align:center;'><td rowspan='3' width='50px' style='width:50px;font-size:9px'>Porjekt</td><td rowspan='3' width='80px' style='width:80px;font-size:9px'>DERIVAT</td><td rowspan='3' width='30px' style='width:30px;font-size:9px'>Stufe</td><td rowspan='3' width='60px' style='width:60px;font-size:9px'>VFF</td><td rowspan='3' width='60px' style='width:60px;font-size:9px'>PVS</td><td rowspan='3' width='60px' style='width:60px;font-size:9px'>OS</td><td rowspan='3' width='60px' style='width:60px;font-size:9px'>SOP</td><td rowspan='3' width='60px' style='width:60px;font-size:9px'>MIX</td>";
+			var _firstRowStr = 
+"<table border=1 style='border-collapse:collapse;border:#000000 2px solid'><tr style='background-color:feffbe;text-align:center;'><td rowspan='3' width='50px' style='width:50px;font-size:9px'>Porjekt</td><td rowspan='3' width='80px' style='width:90px;font-size:9px'>DERIVAT</td><td rowspan='3' width='30px' style='width:30px;font-size:9px'>Stufe</td><td rowspan='3' width='80px' style='width:60px;font-size:9px'>VFF</td><td rowspan='3' width='80px' style='width:60px;font-size:9px'>PVS</td><td rowspan='3' width='80px' style='width:60px;font-size:9px'>OS</td><td rowspan='3' width='80px' style='width:60px;font-size:9px'>SOP</td><td rowspan='3' width='60px' style='width:60px;font-size:9px'>MIX</td>";
 			var _secondRow = "";
 			var _thirdRow = ""; 
 			var _gStr = "";		
@@ -155,14 +156,14 @@
 					_dateDiff = (task.getTo().getFullYear() - task.getFrom().getFullYear()) * 12 + (task.getTo().getMonth() - task.getFrom().getMonth()) + 1;
 					
 					if (task.getType() == 'SOP') {
-						_gStr += "<div style='position:absolute; top:" + (26 * (_level + 2) - 4) + "; left:" + (_offSet * offWidth + 485) + "; width:" + (offWidth * _dateDiff - 1 + 100) + "'><div title='" + task.getTask() + "' class='GTaska' style='float:left; width:" + (offWidth * _dateDiff - 1) + "px;'>" + task.getResource() + "</div></div>";
+						_gStr += "<div style='position:absolute; top:" + (26 * (_level + 2) - 4) + "; left:" + (_offSet * offWidth + 476) + "; width:" + (offWidth * _dateDiff - 1 + 100) + "'><div title='" + task.getTask() + "' class='GTaska' style='float:left; width:" + (offWidth * _dateDiff - 1) + "px;'>" + task.getResource() + "</div></div>";
 					
 					} else {
-						_gStr += "<div style='position:absolute; top:" + (26 * (_level + 2)) + "; left:" + (_offSet * offWidth + 485) + "; width:" + (offWidth * _dateDiff - 1 + 100) + "'><div title='" + task.getTask() + "' class='GTask' style='float:left; width:" + (offWidth * _dateDiff - 1) + "px;'>" + task.getResource() + "</div></div>";
+						_gStr += "<div style='position:absolute; top:" + (26 * (_level + 2)) + "; left:" + (_offSet * offWidth + 476) + "; width:" + (offWidth * _dateDiff - 1 + 100) + "'><div title='" + task.getTask() + "' class='GTask' style='float:left; width:" + (offWidth * _dateDiff - 1) + "px;'>" + task.getResource() + "</div></div>";
 					}
 					_gStr += "<div style='position:absolute; top:" + (26 * (_level + 2) + 1) + "; left:5px'>" + task.getProject() + "</div>";
 					_gStr += "<div style='position:absolute; top:" + (26 * (_level + 2) + 1) + "; left:60px'>" + task.getTask() + "</div>";
-					_gStr += "<div style='position:absolute; top:" + (26 * (_level + 2) + 1) + "; left:145px'>" + task.getLevel() + "</div>";
+					_gStr += "<div style='position:absolute; top:" + (26 * (_level + 2) + 1) + "; left:155px'>" + task.getLevel() + "</div>";
 					_gStr += "<div style='position:absolute; top:" + (26 * (_level + 2) + 1) + "; left:431px'>" + task.getMix() + "%</div>";
 					if (task.getType() == 'PVS' || task.getType() == '0S' || task.getType() == 'SOP' || task.getType() == 'VFF' ) {
 						_gStr += "<div style='position:absolute; top:" + (26 * (_level + 2) + 1) + "; left:" + task.getTypeLeft() + "px'>" + task.getFromStr() + "</div>";

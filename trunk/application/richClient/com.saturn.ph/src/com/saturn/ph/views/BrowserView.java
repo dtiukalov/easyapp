@@ -14,6 +14,7 @@ import com.saturn.ph.Activator;
 import com.teamcenter.rac.aif.kernel.AIFComponentContext;
 import com.teamcenter.rac.common.IContextInputService;
 import com.teamcenter.rac.kernel.TCComponent;
+import com.teamcenter.rac.kernel.TCPreferenceService;
 import com.teamcenter.rac.util.OSGIUtil;
 import com.teamcenter.rac.util.Utilities;
 
@@ -51,34 +52,42 @@ public class BrowserView extends ViewPart {
 		}
 
 	}
-	
+
 	public void changeUrl() {
 		AIFComponentContext ctxt = null;
-		
+
 		try {
 			ctxt = (AIFComponentContext) Utilities.getAdapter(
 					((StructuredSelection) selection).getFirstElement(),
-					AIFComponentContext.class, 
-					true);
+					AIFComponentContext.class, true);
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
-			//e1.printStackTrace();
+			// e1.printStackTrace();
 		}
-		
+
 		if (ctxt != null) {
 			TCComponent comp = (TCComponent) ctxt.getComponent();
 			if (comp != null) {
 				try {
 					String uid = comp.getUid();
 					String name = comp.getProperty("object_name");
-					
-					String url = "http://localhost:8080/ph/app/pep/do/preview.do?uid=" + uid;
+
+					String url = getUrlFromPreference(comp)
+							+ uid;
 					setUrl(url, "PH Preview - " + name);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		}
+	}
+
+	public String getUrlFromPreference(TCComponent comp) {
+		TCPreferenceService prefs = comp.getSession().getPreferenceService();
+
+		return prefs.getString(TCPreferenceService.TC_preference_all,
+				"FV9_PH_PREVIEW_URL",
+				"http://localhost:8080/ph/app/pep/do/preview.do?uid=");
 	}
 
 	public void createPartControl(Composite paramComposite) {
@@ -89,10 +98,11 @@ public class BrowserView extends ViewPart {
 						BrowserView.this.closeView();
 					}
 				});
-		
+
 		this.listener = new ViewSelectionListener();
-		
-		super.getSite().getWorkbenchWindow().getSelectionService().addSelectionListener(this.listener);
+
+		super.getSite().getWorkbenchWindow().getSelectionService()
+				.addSelectionListener(this.listener);
 	}
 
 	public void setFocus() {

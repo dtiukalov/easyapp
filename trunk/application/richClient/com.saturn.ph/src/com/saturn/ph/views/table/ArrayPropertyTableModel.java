@@ -267,6 +267,8 @@ public class ArrayPropertyTableModel extends AbstractTableModel
     	}
     	return false;
     }
+    
+    
     /**
      * remove assigned rows
      * @param rows	remove rows

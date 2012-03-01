@@ -48,7 +48,7 @@ public class CreateIssueExcelByRichiClient {
 		HashMap<String, Object> values = IssueReportLoaderRichClient.load(parameters);
 			
 		//存在符合条件的数据
-		if (values != null){ //$NON-NLS-1$
+		if (values != null){ 
 
 			FileOutputStream fileOut = null;
 			//数据存在，生成报表
@@ -56,22 +56,22 @@ public class CreateIssueExcelByRichiClient {
 		
 			File excelTmp = new File(TEMPLATE_FILE_PATH);
 			InputStream inputStream = new FileInputStream(excelTmp);
-			System.out.println("模板位置：" + TEMPLATE_FILE_PATH);  //$NON-NLS-1$
+			System.out.println("模板位置：" + TEMPLATE_FILE_PATH);  
 			
-			System.out.println("获取模板成功"); //$NON-NLS-1$
+			System.out.println("获取模板成功"); 
 			
 			POIFSFileSystem fs = new POIFSFileSystem(inputStream);
 			HSSFWorkbook workbook = new HSSFWorkbook(fs);
 
-			System.out.println("开始写入：问题统计列表"); //$NON-NLS-1$
+			System.out.println("开始写入：问题统计列表"); 
 			HSSFSheet sheetPage1 = workbook.getSheetAt(0);
 			IssuesReportWrite.importDataPage(workbook, sheetPage1, values, parameters);
 			
-			System.out.println("开始写入：按责任部门统计");			 //$NON-NLS-1$
+			System.out.println("开始写入：按责任部门统计");			 
 			HSSFSheet sheetPage2 = workbook.getSheetAt(1);
 			DepartmentStatusWrite.importDataPage(workbook, sheetPage2, values);
 			
-			System.out.println("开始写入：按问题类型统计"); //$NON-NLS-1$
+			System.out.println("开始写入：按问题类型统计"); 
 			HSSFSheet sheetPage3 = workbook.getSheetAt(2);
 			PartTypeStatusWrite.importDataPage(workbook, sheetPage3, values);
 			
@@ -95,13 +95,13 @@ public class CreateIssueExcelByRichiClient {
 			workbook.write(fileOut);
 			fileOut.close();
 			
-			System.out.println("创建Excel成功"); //$NON-NLS-1$
+			System.out.println("创建Excel成功"); 
 			
 			return true;
 			
 		} else {
-			MessageBox.post("没有符合条件的数据",  //$NON-NLS-1$
-					"问题统计报表", MessageBox.INFORMATION); //$NON-NLS-1$
+			MessageBox.post("没有符合条件的数据",  
+					"问题统计报表", MessageBox.INFORMATION); 
 			return false;
 		}
 		

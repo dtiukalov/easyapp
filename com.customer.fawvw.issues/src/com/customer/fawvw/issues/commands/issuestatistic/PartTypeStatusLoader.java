@@ -10,57 +10,85 @@ public class PartTypeStatusLoader {
 	
     private static Map<String, Integer> partStatus = new HashMap<String, Integer>(); //零件状态
     private static Map<String, Integer> bodySize = new HashMap<String, Integer>(); //车身尺寸
-    private static Map<String, Integer> techAndEqu = new HashMap<String, Integer>(); //工艺及设备
     private static Map<String, Integer> partMatch = new HashMap<String, Integer>(); //零件匹配
     private static Map<String, Integer> pdm = new HashMap<String, Integer>(); //PDM
+    private static Map<String, Integer> structure = new HashMap<String, Integer>(); //结构
+    private static Map<String, Integer> quality = new HashMap<String, Integer>(); //零件质量
+    private static Map<String, Integer> detail = new HashMap<String, Integer>(); //明细表
+    private static Map<String, Integer> other = new HashMap<String, Integer>(); //其他
+    
 	
 	public static  Map<String,Object> load(ArrayList<HashMap<String, Object>> values){
 		
-		partStatus.put("red", 0); //$NON-NLS-1$
-		partStatus.put("green", 0); //$NON-NLS-1$
-		partStatus.put("yellow", 0); //$NON-NLS-1$
+		partStatus.put("red", 0); 
+		partStatus.put("green", 0); 
+		partStatus.put("yellow", 0); 
 		
-		bodySize.put("red", 0); //$NON-NLS-1$
-		bodySize.put("green", 0); //$NON-NLS-1$
-		bodySize.put("yellow", 0); //$NON-NLS-1$
+		bodySize.put("red", 0); 
+		bodySize.put("green", 0); 
+		bodySize.put("yellow", 0); 
 		
-		techAndEqu.put("red", 0); //$NON-NLS-1$
-		techAndEqu.put("green", 0); //$NON-NLS-1$
-		techAndEqu.put("yellow", 0); //$NON-NLS-1$
+		partMatch.put("red", 0); 
+		partMatch.put("green", 0); 
+		partMatch.put("yellow", 0); 
 		
-		partMatch.put("red", 0); //$NON-NLS-1$
-		partMatch.put("green", 0); //$NON-NLS-1$
-		partMatch.put("yellow", 0); //$NON-NLS-1$
+		pdm.put("red", 0); 
+		pdm.put("green", 0); 
+		pdm.put("yellow", 0); 
 		
-		pdm.put("red", 0); //$NON-NLS-1$
-		pdm.put("green", 0); //$NON-NLS-1$
-		pdm.put("yellow", 0); //$NON-NLS-1$
+		structure.put("red", 0); 
+		structure.put("green", 0); 
+		structure.put("yellow", 0); 
+		
+		quality.put("red", 0); 
+		quality.put("green", 0); 
+		quality.put("yellow", 0); 
+		
+		detail.put("red", 0); 
+		detail.put("green", 0); 
+		detail.put("yellow", 0); 
+		
+		other.put("red", 0); 
+		other.put("green", 0); 
+		other.put("yellow", 0); 
 		
 		for (int k=0; k<values.size(); k++) {
 			String parttype = (String)(values.get(k)).get("fv9IssueType");
-			if ("零件状态".equals(parttype)) {  //$NON-NLS-2$ //$NON-NLS-1$
-				partStatus = sumLightStatue(partStatus, (String)(values.get(k)).get("fv9RGStatus")); //$NON-NLS-1$
+			if ("零件状态".equals(parttype)) {   
+				partStatus = sumLightStatue(partStatus, (String)(values.get(k)).get("fv9RGStatus")); 
 			}
-			if ("车身尺寸".equals(parttype)) {  //$NON-NLS-2$ //$NON-NLS-1$
-				bodySize = sumLightStatue(bodySize, (String)(values.get(k)).get("fv9RGStatus")); //$NON-NLS-1$
+			if ("车身尺寸".equals(parttype)) {   
+				bodySize = sumLightStatue(bodySize, (String)(values.get(k)).get("fv9RGStatus")); 
 			}
-			if ("工艺及设备".equals(parttype)) {  //$NON-NLS-2$ //$NON-NLS-1$
-				techAndEqu = sumLightStatue(techAndEqu, (String)(values.get(k)).get("fv9RGStatus")); //$NON-NLS-1$
+			if ("零件匹配".equals(parttype)) {  
+				partMatch = sumLightStatue(partMatch, (String)(values.get(k)).get("fv9RGStatus")); 
 			}
-			if ("零件匹配".equals(parttype)) { //$NON-NLS-1$ //$NON-NLS-2$
-				partMatch = sumLightStatue(partMatch, (String)(values.get(k)).get("fv9RGStatus")); //$NON-NLS-1$
+			if ("PDM".equals(parttype)) {  
+				pdm = sumLightStatue(pdm, (String)(values.get(k)).get("fv9RGStatus")); 
 			}
-			if ("PDM".equals(parttype)) { //$NON-NLS-1$ //$NON-NLS-2$
-				pdm = sumLightStatue(pdm, (String)(values.get(k)).get("fv9RGStatus")); //$NON-NLS-1$
+			if ("明细表".equals(parttype)) {
+				detail = sumLightStatue(detail, (String)(values.get(k)).get("fv9RGStatus")); 
+			}
+			if ("结构".equals(parttype)) {
+				structure = sumLightStatue(structure, (String)(values.get(k)).get("fv9RGStatus")); 
+			}
+			if ("零件质量".equals(parttype)) {
+				quality = sumLightStatue(quality, (String)(values.get(k)).get("fv9RGStatus")); 
+			}
+			if ("其它".equals(parttype)) {
+				other = sumLightStatue(other, (String)(values.get(k)).get("fv9RGStatus")); 
 			}
 			
 		}
 		
-		partType.put("partStatus", partStatus); //$NON-NLS-1$
-		partType.put("bodySize", bodySize); //$NON-NLS-1$
-		partType.put("techAndEqu", techAndEqu); //$NON-NLS-1$
-		partType.put("partMatch", partMatch); //$NON-NLS-1$
-		partType.put("pdm", pdm); //$NON-NLS-1$
+		partType.put("partStatus", partStatus); 
+		partType.put("bodySize", bodySize); 
+		partType.put("partMatch", partMatch); 
+		partType.put("pdm", pdm); 
+		partType.put("structure", structure); 
+		partType.put("quality", quality); 
+		partType.put("detail", detail); 
+		partType.put("other", other); 
 		
 		return partType;
 				
@@ -70,14 +98,14 @@ public class PartTypeStatusLoader {
 			Map<String,Integer> parts, 
 			String lightStatue){
 		
-		if ("红".equals(lightStatue)) { //$NON-NLS-1$
-			parts.put("red", (Integer)parts.get("red")+1); //$NON-NLS-1$ //$NON-NLS-2$
+		if ("红".equals(lightStatue)) { 
+			parts.put("red", (Integer)parts.get("red")+1);  
 		}
-		if ("黄".equals(lightStatue)) { //$NON-NLS-1$
-			parts.put("yellow", (Integer)parts.get("yellow")+1); //$NON-NLS-1$ //$NON-NLS-2$
+		if ("黄".equals(lightStatue)) { 
+			parts.put("yellow", (Integer)parts.get("yellow")+1);  
 		}
-		if ("绿".equals(lightStatue)) { //$NON-NLS-1$
-			parts.put("green", (Integer)parts.get("green")+1); //$NON-NLS-1$ //$NON-NLS-2$
+		if ("绿".equals(lightStatue)) { 
+			parts.put("green", (Integer)parts.get("green")+1); 
 		}
 		
 		return parts;

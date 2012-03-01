@@ -263,4 +263,9 @@ public class DateUtil {
 		return new Long(sec).intValue();
 	}
 	
+	 public static String transDateToString(Date date, String format) {
+		 SimpleDateFormat sdf = new SimpleDateFormat(format);
+		 return sdf.format(date);
+		
+	}
 }

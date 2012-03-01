@@ -218,7 +218,6 @@
 	</head>
 	<body>
 	<div class="containerLeft">
-			<%=prev %>
 		</div>
 		<div id="container">
 			<div id="nr">

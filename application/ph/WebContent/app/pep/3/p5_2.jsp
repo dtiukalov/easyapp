@@ -125,9 +125,24 @@
 				sopPillarNum =  Web.getNum(sopArr,arr);;//柱子个数
 				
 				value1 = vffPillarNum * pillar ; 
-				value2 = pvsPillarNum * pillar ;
-				value3 = osPillarNum * pillar ;
-				value4 = sopPillarNum * pillar ;
+				
+				if(vffPillarNum > 0 && pvsPillarNum != 0){
+					value2 = (pvsPillarNum - 1)* pillar ;
+				} else {
+					value2 = pvsPillarNum * pillar ;
+				}
+				
+				if(pvsPillarNum > 0 && osPillarNum != 0){
+					value3 = (osPillarNum - 1 )* pillar ;	
+				} else {
+					value3 = osPillarNum * pillar ;
+				}
+				
+				if(osPillarNum > 0 && sopPillarNum != 0){
+					value4 = (sopPillarNum - 1)* pillar ;			
+				} else {
+					value4 = sopPillarNum* pillar ;
+				}
 			}
 			
 			double sum = value1 + value2 + value3 + value4;
@@ -1022,7 +1037,7 @@
 				<div id="chart5" class="chart"></div>
 				<div class="clear1">&nbsp;</div>
 				<div id="meilsteinouter" style="width: 800px;">
-				<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 238px; text-align: center; overflow: hidden; ">
+				<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 254px; text-align: center; overflow: hidden; ">
 					<div style=" width: <%=value1 %>px; height: 30px; float: left; background-color: #99FF99; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">VFF</span></div>
 					<div style=" width: <%=value2 %>px; height: 30px; float: left; background-color: #33CC33; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">PVS</span></div>
 					<div style=" width: <%=value3 %>px; height: 30px; float: left; background-color: #006600; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">0S</span></div>

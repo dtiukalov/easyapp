@@ -100,4 +100,5 @@
 		$('#datatable2').css("display", "none");
 		$('#china').css("display", "none");
 	}
+	
 </script>

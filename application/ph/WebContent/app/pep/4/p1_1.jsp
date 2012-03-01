@@ -262,7 +262,7 @@
 			<div id="content">
 				<div style="width: 50px; height: 400px; margin: 0 auto; float: left;"></div>
 				<div id="chart1" style="width: 260px; height: 400px; margin: 20px auto; float: left;"></div>
-				<div id="chart2" style="width: 600px; height: 400px; margin: 0 auto; float: left;margin-top:40px"></div>
+				<div id="chart2" style="width: 500px; height: 400px; margin: 0 auto; float: left;margin-top:40px"></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

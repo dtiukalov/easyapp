@@ -20,6 +20,7 @@
 		String data = "[]";	
 		List<String> fv9StyleName = (List<String>)form.get("fv9StyleName");
 		List<String> fv9StyleNum = (List<String>)form.get("fv9StyleNum");
+		int total = 25;
 		if(fv9StyleName.size()>0 && fv9StyleNum.size()> 0 &&fv9StyleName.size() == fv9StyleNum.size()){
 		
 			int index1 = fv9StyleName.indexOf("Planungs durchlauf");
@@ -66,7 +67,7 @@
 				data += "{ y:" + values[i] + ", low:" + lows[i] + ", color:" + colors[i] + "}, ";
 			}
 			data += "{ y:" + values[keys.length-1] + ", low:" + lows[keys.length-1] + ", color:" + colors[keys.length-1] + "}";
-		
+			total = values[0] + 20;
 		}
 		%>
 		<script type="text/javascript">
@@ -160,7 +161,24 @@
 			    series: [{
 					name: 'Anzahl Änderungen',
 					data: [<%=data%>]
-				}]
+				},{
+					data: [[4.75, 0], [ 4.7501, <%=total%>]],
+		//			color: 'black',
+					dashStyle: 'dash',
+					lineWidth: 1,
+					marker: {enabled: false},
+					shadow: false,
+					showInLegend: false,
+					enableMouseTracking: false,
+					type: 'line',
+					name :"",
+					dataLabels: {
+						enabled: true,
+						formatter: function() {
+							return "<B></B>";
+						}
+					}
+			}]
 			});
 		});
 		</script>

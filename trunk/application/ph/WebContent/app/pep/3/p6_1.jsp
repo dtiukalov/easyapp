@@ -34,6 +34,53 @@
 		String fv9PrognoseIO = Web.getNumberListStr(PrognoseIO);
 		
 		%>
+			<%
+			int total = 125;
+			int[] arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9KWNo"));
+			int size = arr.length;//一共有多少个柱子 
+			double pillar = 0.0;
+			int vffNum =  0;//柱子个数
+			int pvsNum = 0;//柱子个数
+			int osNum =  0;//柱子个数
+			int sopNum =  0;//柱子个数
+			
+			if(size > 0){
+				int maxKw = arr[size-1];
+				int minKw = arr[0];
+			
+				String vff_start = "";
+				String pvs_start = "";
+				String os_start = "";
+				String sop_start = "";
+				String me_start = "";
+				
+				if(request.getSession().getAttribute("DATE_VFF") != null){
+					vff_start = request.getSession().getAttribute("DATE_VFF").toString();
+				}
+				if(request.getSession().getAttribute("DATE_PVS") != null){
+					pvs_start = request.getSession().getAttribute("DATE_PVS").toString();
+				}
+				if(request.getSession().getAttribute("DATE_0S") != null){
+					os_start = request.getSession().getAttribute("DATE_0S").toString();
+				}
+				if(request.getSession().getAttribute("DATE_SOP") != null){
+					sop_start = request.getSession().getAttribute("DATE_SOP").toString();
+				}
+				if(request.getSession().getAttribute("DATE_ME") != null){
+					me_start = request.getSession().getAttribute("DATE_ME").toString();
+				}
+				
+				int[] vffArr = Web.getMilepostArr(vff_start,pvs_start);
+				int[] pvsArr = Web.getMilepostArr(pvs_start,os_start);
+				int[] osArr = Web.getMilepostArr(os_start,sop_start);
+				int[] sopArr = Web.getMilepostArr(sop_start,me_start);
+				
+				 vffNum =  Web.getNum(vffArr,arr);//柱子个数
+				 pvsNum = Web.getNum(pvsArr,arr);;//柱子个数
+				 osNum =  Web.getNum(osArr,arr);;//柱子个数
+				 sopNum =  Web.getNum(sopArr,arr);;//柱子个数
+			}
+			%>
 		<script type="text/javascript">
 		var chart;
 			$(document).ready(function() {
@@ -166,8 +213,10 @@
 							radius : 3
 						},
 						data: <%=fv9PrognoseIO%>
-					}, {
-						data: [[1, 0], [1.0001, 2500]],
+					}
+<%if(vffNum > 0){%>
+					,{
+						data: [[<%=vffNum-1%> + 0.3, 0], [<%=vffNum-1%> + 0.3001, <%=total%>]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,
@@ -183,29 +232,10 @@
 								return "<B>VFF</B>";
 							}
 						}
-					},{
-						data: [[3, 0], [3.0001, 2500]],
-						name :"PVS",
-				//		color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						showInLegend: false,
-						enableMouseTracking: false,
-						type: 'line',
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B>PVS</B>";
-							}
-						},marker: {
-								symbol: 'url(../graphics/sun.png)'
-							}
-
-					},{
-						data: [[5, 0], [5.0001, 2500]],
-						name :"0-S",
+					}
+	<%}%><%if(pvsNum > 0){%>
+					,{
+						data: [[<%=vffNum + pvsNum-1%> + 0.3, 0], [<%=vffNum + pvsNum-1%> + 0.3001, <%=total%>]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,
@@ -214,13 +244,54 @@
 						showInLegend: false,
 						enableMouseTracking: false,
 						type: 'line',
+						name :"PVS",
 						dataLabels: {
 							enabled: true,
 							formatter: function() {
-								return "<B>OS</B>";
+								return "<B>PVS</B>";
 							}
 						}
-					}]
+					}
+	<%}%><%if(osNum > 0){%>
+					, {
+						data: [[<%=vffNum + pvsNum + osNum-1%> + 0.3, 0], [<%=vffNum + pvsNum + osNum - 1%> + 0.3001, <%=total%>]],
+			//			color: 'black',
+						dashStyle: 'dash',
+						lineWidth: 2,
+						marker: {enabled: false},
+						shadow: false,
+						showInLegend: false,
+						enableMouseTracking: false,
+						type: 'line',
+						name :"0-S",
+						dataLabels: {
+							enabled: true,
+							formatter: function() {
+								return "<B>0-S</B>";
+							}
+						}
+					}
+	<%}%><%if(sopNum > 0){%>
+					, {
+						data: [[<%=vffNum + pvsNum + osNum + sopNum-1%> + 0.3, 0], [<%=vffNum + pvsNum + osNum + sopNum-1%> + 0.3001, <%=total%>]],
+			//			color: 'black',
+						dashStyle: 'dash',
+						lineWidth: 2,
+						marker: {enabled: false},
+						shadow: false,
+						showInLegend: false,
+						enableMouseTracking: false,
+						type: 'line',
+						name :"SOP",
+						dataLabels: {
+							enabled: true,
+							formatter: function() {
+								return "<B>SOP</B>";
+							}
+						}
+					}
+	<%}%>				
+					]
 				});
 			});
 		</script>

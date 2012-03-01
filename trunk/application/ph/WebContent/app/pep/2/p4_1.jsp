@@ -252,11 +252,10 @@
 					}
 				},
 				legend: {
-					enabled: true,
 					layout: 'horizontal',
 					align: 'right',
 					verticalAlign: 'bottom',
-					x: -60,
+					x: -30,
 					y: -50,
 					borderWidth: 0,
 					shadow: false,
@@ -325,8 +324,8 @@
 				<h1><%=title %></h1>
 			</div>
 			<div id="content">
-				<div id="chart1" style="width: 600px; height: 400px; margin: 50px 30px; float: left;"></div>
-				<div id="chart2" style="width: 420px; height: 400px; margin: 36px -80px; float: left;"></div>
+				<div id="chart1" style="width: 580px; height: 400px; margin: 50px 30px; float: left;"></div>
+				<div id="chart2" style="width: 320px; height: 400px; margin: 36px -50px; float: left;"></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

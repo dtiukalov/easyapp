@@ -2,8 +2,9 @@
 	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, Helvetica, sans-serif; COLOR: #000; LIST-STYLE-IMAGE: none; PADDING-TOP: 0px
 }
 
+
 #content {
-	MARGIN: 30px auto; HEIGHT: 540px; OVERFLOW: hidden;
+	margin: 30px 0px; width:890px; HEIGHT: 540px; OVERFLOW: hidden;
 }
 
 #no-state {
@@ -11,9 +12,14 @@
 	padding:1px;color:green;
 	font-weight:bold;font-size:30px;font-family:隶书;
 }
-
+.containerLeft{
+	margin: 0px; width: 37px; height:60px; overflow: hidden; float: left; text-align: center; margin-top: 330px;
+}
+.containerRight{
+	margin: 0px; width: 37px; height:60px; overflow: hidden; float: left; text-align: center; margin-top: 330px;
+}
 #container {
-	MARGIN: 0px auto; WIDTH: 950px; HEIGHT: 720px;font-family:Arial;
+	MARGIN: 0px auto; WIDTH: 950px; HEIGHT: 720px;font-family:Arial; float: left;
 }
 #container #nr {
 	MARGIN: 0px auto; WIDTH: 950px

@@ -5,6 +5,8 @@
 	pageEncoding="UTF-8"%>
 <%@page import="com.saturn.ph.FormManager"%>
 <%@page import="java.util.Map"%>
+<%@page import="java.util.List"%>
+<%@page import="com.saturn.web.Web"%>
 <script type="text/javascript" src="<%=request.getContextPath()%>/app/js/jquery-1.4.4.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/app/js/highcharts.src.js"></script>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/app/pep/include/base.css">
@@ -44,6 +46,33 @@
 	if (session.getAttribute("sop") != null &&
 			(Double)session.getAttribute("sop") != 0.0) {
 		sop = (Double)session.getAttribute("sop");
+	}
+	
+	Map __form = (Map)request.getAttribute("form");
+	out.print(Web.getFormState(__form));	
+
+	List indexes = (List)session.getAttribute("indexes"); 
+	String current = (String)request.getAttribute("current");
+	
+	if (current == null) {
+		current = "1";
+	} 
+	
+	int cur = Integer.parseInt(current);
+	
+	String next = "<img src=\"/ph/app/pep/images/n2.jpg\" width=\"19\" height=\"18\">";
+	String prev = "<img src=\"/ph/app/pep/images/p1.jpg\" width=\"19\" height=\"18\">";
+	
+	if (indexes != null) {
+		int pageSize = indexes.size();
+		
+		if (cur > 1) {
+			prev = "<a href='" + request.getContextPath() + "/app/pep/view/view.do?current=" + (cur-1) + "'><img src=\"/ph/app/pep/images/p1.jpg\" width=\"19\" height=\"18\" style=\"border:none\"></a>";
+		}
+		
+		if (cur < pageSize) {
+			next = "<a href='" + request.getContextPath() + "/app/pep/view/view.do?current=" + (cur+1) + "'><img src=\"/ph/app/pep/images/n2.jpg\" width=\"19\" height=\"18\" style=\"border:none\"></a>";
+		}
 	}
 	
 %>

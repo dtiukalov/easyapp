@@ -71,24 +71,27 @@ public class ActionLoaderListener implements ServletContextListener {
 	}
 
 	public String getClassFullName(String filePath, String actionRootPath) {
+		
 		String classPath = new File(ActionLoaderListener.class.getResource("/")
 				.getFile()).getAbsolutePath();
-		
 		String className = null;
 		if (filePath.startsWith(classPath)) {
 			className = filePath.replace(classPath, "");
 		} else {
-			actionRootPath = actionRootPath.replace("/", File.separator);
-			if (!filePath.startsWith(actionRootPath)) {
-				int index = filePath.indexOf(actionRootPath);
-				if (index != -1) {
-					className = filePath.substring(index);
-				}
+			className = filePath;
+		}
+		actionRootPath = actionRootPath.replace("/", File.separator);
+		if (!className.startsWith(actionRootPath)) {
+			int index = className.indexOf(actionRootPath);
+			if (index != -1) {
+				System.out.println("3true");
+				className = className.substring(index);
 			}
 		}
 		
 		className = className.replace(File.separatorChar + "", ".");
 		className = className.replace(".class", "");
+		
 		return className.substring(1);
 	}
 }

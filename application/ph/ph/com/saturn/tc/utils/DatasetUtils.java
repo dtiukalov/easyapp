@@ -37,14 +37,16 @@ public class DatasetUtils {
 			
 			if (refs.length > 0) {
 				dms.getProperties(refs, "file_name", "original_file_name");
-				ImanFile[] files = new ImanFile[refs.length];
+				
+				ImanFile file = null;
 				for (int i = 0; i < refs.length; ++i) {
-					files[i] = (ImanFile)refs[i];
+					if (refs[i] instanceof ImanFile) {
+						file = (ImanFile)refs[i];
+						break;
+					}
 				}
 				
-				if (files.length > 0) {
-					ImanFile file = (ImanFile) files[0];
-				
+				if (file != null) {
 					String location = directory + File.separator + file.get_original_file_name();
 					File f = new File(location);
 					if(!f.exists()){

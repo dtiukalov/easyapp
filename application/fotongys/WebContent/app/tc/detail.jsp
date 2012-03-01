@@ -25,16 +25,12 @@
 					field : 'ck',
 					checkbox : true
 				}, {
-					field : 'mailuid',
-					title : '标识',
-					width : 140
-				} ] ],
-				columns : [ [ {
 					field : 'title',
 					title : '主题',
-					width : 150,
+					width : 250,
 					sortable : true
-				}, {
+				}] ],
+				columns : [ [{
 					field : 'fromUser',
 					title : '发件人',
 					width : 150,
@@ -47,29 +43,34 @@
 				}, {
 					field : 'content',
 					title : '内容',
-					width : 200,
+					width : 330,
 					sortable : true
 				}, {
 					field : 'datetime',
-					title : '时间',
-					width : 200,
+					title : '发放时间',
+					width : 120,
 					sortable : true
 				}, {
 					field : 'hasDownload',
+					title : '已下载',
+					width : 50,
+					rowspan : 2,
+					formatter : function(value, rec) {
+						if (value == '1') {
+							return '<span>是</span>';
+						
+						} else if (value == '0'){
+							return '<span>否</span>';
+						}
+					}
+				}, {
+					field : 'opt',
 					title : '操作',
 					width : 100,
 					rowspan : 2,
 					formatter : function(value, rec) {
-						if (value == '1') {
-							return '<span><a href="#" onclick="editVO(\'' + rec.mailuid + '\');"><img src="<%=request.getContextPath()%>/app/themes/icons/edit.png" width="16" height="16" border="0" /></a>'+
-						'&nbsp&nbsp<a href="#" onclick="deleteVO(\'' + rec.mailuid + '\');"><img src="<%=request.getContextPath()%>/app/themes/icons/cancel.png" width="14" height="14" border="0" /></a></span>';
-						
-						} else if (value == '0'){
-							return '<span><a href="#" onclick="editVO(\'' + rec.mailuid + '\');"><img src="<%=request.getContextPath()%>/app/themes/icons/edit.png" width="16" height="16" border="0" /></a></span>';
-						
-						}
+						return '<span><a href="#" onclick="editVO(\'' + rec.mailuid + '\');">查看</a>&nbsp|&nbsp<a href="#" onclick="deleteVO(\'' + rec.mailuid + '\');">删除</a></span>';
 					}
-				
 				} ] ],
 				pagination : true,
 				rownumbers : true,
@@ -90,7 +91,7 @@
 						}
 						
 						
-						$.messager.confirm('确认删除项', '确认删除该选项', function(result){
+						$.messager.confirm('确认删除项', '如果邮件没有被下载，不能被删除！', function(result){
 							if (result){
 								window.parent.location.href='<%=request.getContextPath()%>/app/tc/foton/gys/delete.action?ids='+ids;
 							}
@@ -118,7 +119,7 @@
 		}
 		
 		function deleteVO(id){
-			$.messager.confirm('确认删除项', '确认删除该选项', function(result){
+			$.messager.confirm('确认删除项', '如果邮件没有被下载，不能被删除！', function(result){
 				if (result){
 					window.location.href='<%=request.getContextPath()%>/app/tc/foton/gys/delete.action?ids=' + id;
 				}

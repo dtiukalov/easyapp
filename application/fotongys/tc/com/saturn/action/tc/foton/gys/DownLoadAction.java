@@ -1,16 +1,8 @@
 package com.saturn.action.tc.foton.gys;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,14 +12,13 @@ import com.saturn.app.web.IAction;
 import com.saturn.app.web.IView;
 import com.saturn.app.web.view.JspView;
 import com.saturn.tc.clientx.TCSession;
-import com.saturn.tc.foton.gys.Attachment;
 import com.saturn.tc.foton.gys.Mail;
 import com.saturn.tc.utils.DatasetUtils;
 import com.saturn.tc.utils.DownLoadAttachmentUtil;
 import com.saturn.tc.utils.EmailUtils;
 import com.saturn.tc.utils.WorkspaceUtils;
-import com.teamcenter.soa.client.model.strong.Dataset;
 import com.teamcenter.soa.client.model.strong.ImanFile;
+import com.teamcenter.soa.client.model.strong.User;
 
 public class DownLoadAction implements IAction {
 
@@ -35,12 +26,14 @@ public class DownLoadAction implements IAction {
 
 	public static final String ATTACHMENT_ROOT = "tcattachments";
 
-	@SuppressWarnings( { "unchecked", "deprecation" })
+	@SuppressWarnings( "deprecation")
 	public IView execute(HttpServletRequest request,
 			HttpServletResponse response) {
 		TCSession session = (TCSession) request.getSession().getAttribute(
 				"TC_session");
-		String userUid = (String) request.getSession().getAttribute("TC_uid");
+		User user = (User) request.getSession().getAttribute("TC_USER");
+		String userUid = user.getUid();
+		
 		String mailuid = request.getParameter("uid");// 获取的是该数据集所在邮件的uid
 		// String attachmentsPaths = request.getParameter("idpaths");//
 		// 获取的是数据集的文件路径
@@ -79,7 +72,7 @@ public class DownLoadAction implements IAction {
 				// }
 			}
 		}
-		Mail vo = Mail.getByUid(request, session, mailuid);
+		Mail vo = Mail.getByUid(user, session, mailuid);
 	//	if (attachments.size() > 1) {
 			this.tempPath = request.getRealPath("/") + ATTACHMENT_ROOT + File.separator + userUid
 					+ File.separator;
@@ -154,7 +147,9 @@ public class DownLoadAction implements IAction {
 
 	private void updateMail(HttpServletRequest request, TCSession session,
 			String id, List<String> attachments) {
-		Mail vo = Mail.getByUid(request, session, id);
+		User user = (User) request.getSession().getAttribute("TC_USER");
+		
+		Mail vo = Mail.getByUid(user, session, id);
 		Mail dbvo = Mail.getMailFromDB(id);
 		vo.setDatetime(DateUtils.getSystemTime());
 		vo.setDownloadNum(String.valueOf((Integer.parseInt(dbvo

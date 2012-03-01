@@ -15,6 +15,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+import javax.naming.InitialContext;
 
 public class EmailUtils {
 
@@ -36,13 +37,22 @@ public class EmailUtils {
 //		props.setProperty("mail.smtp.socketFactory.fallback", "false");
 //		props.setProperty("mail.smtp.port", "465");
 //		props.setProperty("mail.smtp.socketFactory.port", "465");
-
-		Session session = Session.getDefaultInstance(props);
-		session.setDebug(true);//查看发送邮件的日志
 		
-//		定义消息对象，设置消息内容
-		MimeMessage message = new MimeMessage(session);
+		Session session = null;
+
 		try {
+			InitialContext ic = new InitialContext();
+			session = (Session) ic.lookup("myMailSession");
+			
+			if (session == null) {
+				session = Session.getDefaultInstance(props);
+			}
+			
+			session.setDebug(true);//查看发送邮件的日志
+			
+//			定义消息对象，设置消息内容
+			MimeMessage message = new MimeMessage(session);
+			
 //			加载发件人地址
 			message.setFrom(new InternetAddress(fromEmail));
 //			加载收件人地址
@@ -82,7 +92,10 @@ public class EmailUtils {
 		} catch (MessagingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
+		} catch (Exception e) {
+			e.printStackTrace();
+			// TODO: handle exception
+		}
 	
 		
 	}

@@ -5,7 +5,7 @@
 	pageEncoding="UTF-8"%>
 
 <%
-	Map __form = (Map)request.getAttribute("form");
+	/* Map __form = (Map)request.getAttribute("form");
 	out.print(Web.getFormState(__form));	
 
 	List indexes = (List)session.getAttribute("indexes"); 
@@ -30,7 +30,7 @@
 		if (cur < pageSize) {
 			next = "<a href='" + request.getContextPath() + "/app/pep/view/view.do?current=" + (cur+1) + "'><img src=\"/ph/app/pep/images/n2.jpg\" width=\"19\" height=\"18\" style=\"border:none\"></a>";
 		}
-	}
+	} */
 %>
 <div id="footer">
 	<div class="foot">

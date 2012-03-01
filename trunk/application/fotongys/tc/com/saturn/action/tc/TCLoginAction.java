@@ -8,7 +8,9 @@ import com.saturn.app.web.IView;
 import com.saturn.app.web.view.JspView;
 import com.saturn.tc.clientx.TCSession;
 import com.saturn.tc.utils.WorkspaceUtils;
+import com.saturn.tc.utils.server.EasyDataManagementService;
 import com.teamcenter.schemas.soa._2006_03.exceptions.InvalidCredentialsException;
+import com.teamcenter.soa.client.model.strong.Envelope;
 import com.teamcenter.soa.client.model.strong.User;
 
 public class TCLoginAction implements IAction {
@@ -24,11 +26,17 @@ public class TCLoginAction implements IAction {
 		String password = (String) request.getParameter("password");
 		String host = WorkspaceUtils.HOST;
 		TCSession tcsession = new TCSession(host);
-		
+
 		User user = null;
 
 		try {
 			user = tcsession.login(name, password);
+
+			EasyDataManagementService service = new EasyDataManagementService(
+					tcsession);
+
+			service.getProperties(user, "userid", "user_name");
+
 			request.getSession().setAttribute("TC_USER", user);
 			request.getSession().setAttribute("authUser", user);
 			request.getSession().setAttribute("TC_uid", user.getUid());

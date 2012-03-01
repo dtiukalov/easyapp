@@ -22,8 +22,8 @@ public class AppXRequestListener implements RequestListener {
 	 * the console.
 	 */
 	public void serviceResponse(final Info info) {
-		System.out
-				.println(info.id + ": " + info.service + "." + info.operation);
+//		System.out
+//				.println(info.id + ": " + info.service + "." + info.operation);
 	}
 
 }

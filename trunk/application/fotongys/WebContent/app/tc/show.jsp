@@ -25,15 +25,11 @@
 			frozenColumns : [ [ {//不可被删除的列
 				field : 'ck',
 				checkbox : true
-			}, {
-				field : 'uid',
-				title : '标识',
-				width : 140
-			} ] ],
+			}] ],
 			columns : [ [ {
 				field : 'name',
 				title : '名称',
-				width : 500,
+				width : 640,
 				formatter : function(value, rec) {
 					var type = rec.type;
 					if ("Folder" != type  && rec.path != "") {
@@ -123,7 +119,7 @@
 					<td><div id="fromUserTip"></div></td>
 				</tr>
 				<tr>
-					<td style="text-align:right">日期:</td>
+					<td style="text-align:right">发放日期:</td>
 					<td><input id="datetime" name="datetime" type="text" value="${mail.datetime}" readonly="readonly"></input></td>
 					<td><div id="datetimeTip"></div></td>
 				</tr>

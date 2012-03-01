@@ -4,8 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.json.JSONObject;
 
 import com.saturn.app.db.ORMapping;
@@ -31,6 +29,7 @@ public class Mail {
 
 	private String from;
 	private String fromUser;
+	private String fromUserId;
 	private String userid;// 收件人 ：当前登录供应商
 	private String userName;// 收件人 ：当前登录供应商
 	private String to;
@@ -51,7 +50,7 @@ public class Mail {
 		super();
 	}
 
-	public static List<Mail> getAll(HttpServletRequest request,
+	public static List<Mail> getAll(User user,
 			TCSession session, String userId, String fromUser, String title,
 			String hasDownload, String datetime) {
 		EasyDataManagementService service = new EasyDataManagementService(
@@ -65,13 +64,11 @@ public class Mail {
 			service.getProperties(workspaceObjects, "uid", "pid",
 					"object_name", "object_type", "object_desc", "object_type",
 					"envelopeReadFlag", "last_mod_user", "hasDownload");
-			service.getProperties((User) request.getSession().getAttribute(
-					"TC_USER"), "userid", "user_name");
 
 			for (WorkspaceObject wos : workspaceObjects) {
 				Envelope envelope = (Envelope) wos;
 
-				Mail mail = new Mail(request, session, envelope);
+				Mail mail = new Mail(user, session, envelope);
 
 				Mail dbmail = Mail.getMailFromDB(mail.getMailuid());
 
@@ -117,13 +114,11 @@ public class Mail {
 		 */
 
 		return SimpleDaoTemplate
-				.update(
-						"INSERT INTO \"download\" (\"mailuid\", \"mailpid\", \"fromUser\", \"userid\", \"datetime\", \"hasDownload\", \"downloadNum\") VALUES(?, ?, ?, ?, ?, ?, ?)",
-						mail.getMailuid(), mail.getMailpid(), mail
-								.getFromUser()
-								+ "_" + mail.getTitle(), mail.getUserid() + "("
-								+ mail.getUserName() + ")", mail.getDatetime(),
-						mail.getHasDownload(), "0");
+				.update("INSERT INTO \"download\" (\"mailuid\", \"mailpid\", \"fromUser\", \"userid\", \"datetime\", \"hasDownload\", \"downloadNum\") VALUES(?, ?, ?, ?, ?, ?, ?)",
+						mail.getMailuid(), mail.getMailpid(),
+						mail.getFromUser() + "_" + mail.getTitle(),
+						mail.getUserid() + "(" + mail.getUserName() + ")",
+						mail.getDatetime(), mail.getHasDownload(), "0");
 	}
 
 	public static int editMailFromDB(Mail mail) {
@@ -134,14 +129,13 @@ public class Mail {
 		/*
 		 * return SimpleDaoTemplate .update( "UPDATE download SET datetime = ?,
 		 * hasDownload = ?, downloadNum = ? WHERE mailuid = ?",
-		 * mail.getDatetime(), mail.getHasDownload(), mail .getDownloadNum(),
+		 * mail.getDatetime(), mail.get(), mail .getDownloadNum(),
 		 * mail.getMailuid()); mysql
 		 */
 		return SimpleDaoTemplate
-				.update(
-						"UPDATE \"download\" SET \"datetime\" = ?, \"hasDownload\" = ?, \"downloadNum\" = ? WHERE \"mailuid\" = ?",
-						mail.getDatetime(), mail.getHasDownload(), mail
-								.getDownloadNum(), mail.getMailuid());
+				.update("UPDATE \"download\" SET \"datetime\" = ?, \"hasDownload\" = ?, \"downloadNum\" = ? WHERE \"mailuid\" = ?",
+						mail.getDatetime(), mail.getHasDownload(),
+						mail.getDownloadNum(), mail.getMailuid());
 	}
 
 	public static Mail getMailFromDB(String uid) {
@@ -150,34 +144,39 @@ public class Mail {
 		// 指定插入表名称(tableName)。例子：如user表，tableName=user
 		// 指定O-R映射规则对象。默认mapping
 
-		/*Mail test = SimpleDaoTemplate.queryOne(
-				"SELECT * FROM download WHERE 1 = 1 and mailuid = '" + uid
-						+ "'", null, mapping, Mail.class);*/
-		
+		/*
+		 * Mail test = SimpleDaoTemplate.queryOne(
+		 * "SELECT * FROM download WHERE 1 = 1 and mailuid = '" + uid + "'",
+		 * null, mapping, Mail.class);
+		 */
+
 		Mail test = SimpleDaoTemplate.queryOne(
-				"SELECT * FROM \"download\" WHERE 1 = 1 and \"mailuid\" = '" + uid
-						+ "'", null, mapping, Mail.class);
+				"SELECT * FROM \"download\" WHERE 1 = 1 and \"mailuid\" = '"
+						+ uid + "'", null, mapping, Mail.class);
 		return test;
 	}
 
 	public static int removeMailFromDB(final String uid) {
 		// 指定插入表名称(tableName)。例子：如user表，tableName=user
-	/*	return SimpleDaoTemplate.update("DELETE FROM download WHERE uid = ?",
-				uid);*/
-		return SimpleDaoTemplate.update("DELETE FROM \"download\" WHERE \"uid\" = ?",
-				uid);
+		/*
+		 * return SimpleDaoTemplate.update("DELETE FROM download WHERE uid = ?",
+		 * uid);
+		 */
+		return SimpleDaoTemplate.update(
+				"DELETE FROM \"download\" WHERE \"uid\" = ?", uid);
 	}
 
 	/*
-	 * public static void reviseProperties(Envelope envelope,TCSession session) {
+	 * public static void reviseProperties(Envelope envelope,TCSession session)
+	 * {
 	 * 
 	 * try { String flag = envelope.get_envelopeReadFlag() + ""; } catch
 	 * (NotLoadedException e) { // TODO Auto-generated catch block
 	 * e.printStackTrace(); } // Get the service stub DataManagementService
 	 * dmService = DataManagementService.getService(session.getConnection());
 	 * 
-	 * ReviseProperties revProps = new ReviseProperties(); revProps.description =
-	 * "describe testRevise";
+	 * ReviseProperties revProps = new ReviseProperties(); revProps.description
+	 * = "describe testRevise";
 	 * 
 	 * Map<String,String> attrs = new HashMap<String,String>();
 	 * attrs.put("project_id", "true");
@@ -190,8 +189,7 @@ public class Mail {
 	 * e.printStackTrace(); } }
 	 */
 
-	public static Mail getByUid(HttpServletRequest request, TCSession session,
-			String uid) {
+	public static Mail getByUid(User user, TCSession session, String uid) {
 		EasyDataManagementService service = new EasyDataManagementService(
 				session);
 		Envelope envelope = (Envelope) service.loadModelObject(uid);
@@ -199,31 +197,26 @@ public class Mail {
 				"object_desc", "object_type", "envelopeReadFlag",
 				"last_mod_user", "contents");
 
-		service.getProperties((User) request.getSession().getAttribute(
-				"TC_USER"), "userid", "user_name");
-
-		Mail mail = new Mail(request, session, envelope);
+		Mail mail = new Mail(user, session, envelope);
 
 		return mail;
 	}
 
-	public Mail(HttpServletRequest request, TCSession session, Envelope envelope) {
+	public Mail(User receiveUser, TCSession session, Envelope envelope) {
 		EasyDataManagementService service = new EasyDataManagementService(
 				session);
 
 		try {
 			this.mailuid = envelope.getUid();
 			this.mailpid = envelope.get_pid() + "";
-			this.userid = ((User) request.getSession().getAttribute("TC_USER"))
-					.get_userid();
-			this.userName = ((User) request.getSession()
-					.getAttribute("TC_USER")).get_user_name();
+			this.userid = receiveUser.get_userid();
+			this.userName = receiveUser.get_user_name();
 			this.title = envelope.get_object_name();
 			this.type = envelope.get_object_type();
 			this.content = envelope.get_object_desc();
 			this.downloadNum = "0";
-			SimpleDateFormat format = new SimpleDateFormat(DateUtils
-					.getTimeFormat());
+			SimpleDateFormat format = new SimpleDateFormat(
+					DateUtils.getTimeFormat());
 			this.datetime = format.format(envelope.get_last_mod_date()
 					.getTime());
 
@@ -238,7 +231,8 @@ public class Mail {
 			User user = (User) envelope.get_last_mod_user();
 			Person fromPerson = (Person) user.get_person();
 			service.getProperties(fromPerson, "PA9");
-			this.fromUser = user.get_user_name() + "_" + user.getUid();
+			this.fromUser = user.get_user_name();
+			this.fromUserId = user.getUid();
 			this.from = fromPerson.get_PA9();
 		} catch (NotLoadedException e) {
 			e.printStackTrace();
@@ -247,12 +241,18 @@ public class Mail {
 	}
 
 	public static void remove(TCSession session, final String id) {
+		Mail vo = Mail.getMailFromDB(id);
+		if ("0".equals(vo.hasDownload)) {
+			//如果邮件没有被下载，不能删除；
+			return;
+		}
+		
 		EasyDataManagementService service = new EasyDataManagementService(
 				session);
 
 		Envelope envelope = (Envelope) service.loadModelObject(id);
 		service.deleteObjects(envelope);
-		Mail vo = Mail.getMailFromDB(id);
+		
 		vo.setDatetime(DateUtils.getSystemTime());
 		vo.setHasDownload("2");
 		Mail.editMailFromDB(vo);
@@ -398,4 +398,13 @@ public class Mail {
 	public void setMailpid(String mailpid) {
 		this.mailpid = mailpid;
 	}
+
+	public String getFromUserId() {
+		return fromUserId;
+	}
+
+	public void setFromUserId(String fromUserId) {
+		this.fromUserId = fromUserId;
+	}
+
 }

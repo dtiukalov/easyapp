@@ -187,11 +187,27 @@
 						double totalWidth = 540.0;//总长度是 750px 
 						pillar = totalWidth/size;  //每个柱子的宽度 px
 					
-						String vff_start = request.getSession().getAttribute("DATE_VFF").toString();
-						String pvs_start = request.getSession().getAttribute("DATE_PVS").toString();
-						String os_start = request.getSession().getAttribute("DATE_0S").toString();
-						String sop_start = request.getSession().getAttribute("DATE_SOP").toString();
-						String me_start = request.getSession().getAttribute("DATE_ME").toString();
+						String vff_start = "";
+						String pvs_start = "";
+						String os_start = "";
+						String sop_start = "";
+						String me_start = "";
+						
+						if(request.getSession().getAttribute("DATE_VFF") != null){
+							vff_start = request.getSession().getAttribute("DATE_VFF").toString();
+						}
+						if(request.getSession().getAttribute("DATE_PVS") != null){
+							pvs_start = request.getSession().getAttribute("DATE_PVS").toString();
+						}
+						if(request.getSession().getAttribute("DATE_0S") != null){
+							os_start = request.getSession().getAttribute("DATE_0S").toString();
+						}
+						if(request.getSession().getAttribute("DATE_SOP") != null){
+							sop_start = request.getSession().getAttribute("DATE_SOP").toString();
+						}
+						if(request.getSession().getAttribute("DATE_ME") != null){
+							me_start = request.getSession().getAttribute("DATE_ME").toString();
+						}
 						
 						int[] vffArr = Web.getMilepostArr(vff_start,pvs_start);
 						int[] pvsArr = Web.getMilepostArr(pvs_start,os_start);

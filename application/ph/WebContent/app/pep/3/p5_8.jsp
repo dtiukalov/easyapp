@@ -145,12 +145,24 @@
 						type: 'spline',
 						name: 'Prognose',
 						data: <%=fv9PrognoseNum%>,
-						color: '#99FF99'
+						color: '#99FF99',
+						marker:{
+							fillColor: '#FFFFFF',
+			                lineWidth: 2,
+			                lineColor: null,
+			                radius: 3
+						}
 					}, {
 						type: 'spline',
 						name: 'Konzernziel',
 						data: <%=fv9KonzernNum%>,
-						color: '#E63110'
+						color: '#E63110',
+						marker:{
+							fillColor: '#FFFFFF',
+			                lineWidth: 2,
+			                lineColor: null,
+			                radius: 3
+						}
 					}]
 				});
 			});

@@ -182,7 +182,7 @@
 				<h1><%=title %></h1>
 			</div>
 			<div id="content">
-				<div id="chart" style="width: 900px; height: 400px;margin:0 -20px"></div>
+				<div id="chart" style="width: 850px; height: 400px;margin:0 -30px"></div>
 					<%
 					int[] arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9KWNo"));
 					

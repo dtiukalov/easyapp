@@ -132,14 +132,17 @@
 					}
 				},
 				tooltip: {
-					/* formatter: function() {
-						return '<b> - '+ this.x +'</b><br/>' +'- '+ this.y +'<br/>'+
-							 'Total: '+ this.point.stackTotal;
-					} */
-					formatter: function() {
-						return '<b> - '+ this.x +'</b><br/>' +'- '+ this.y +'<br/>'+
-						 'Total: '+ this.point.stackTotal + '<br/><b>'+ this.point.desc +'</b><br/>';
-					}
+					borderColor: '#000000',
+			        borderRadius: 0,
+			        borderWidth: 1,
+			        shared:false,
+			        useHTML: true,
+			        headerFormat: '<table width="300" height="100">',
+			        pointFormat: '<tr><td>-xxx</td>' +
+			        '</tr>' +'<tr><td>-yyy</td></tr>'+'<tr><td>&nbsp;</td></tr>'
+			        +'<tr><td>&nbsp;</td></tr>',
+			        footerFormat: '</table>',
+			        valueDecimals: 2
 				},
 				plotOptions: {
 					column: {
@@ -212,9 +215,11 @@
 		});
 				
 		</script>
-		
 	</head>
 	<body>
+	<div class="containerLeft">
+			<%=prev %>
+		</div>
 		<div id="container">
 			<div id="nr">
 				<div id="top">
@@ -228,5 +233,8 @@
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	
+		<div class="containerRight">
+			<%=next %>
+		</div>
 	</body>
 </html>

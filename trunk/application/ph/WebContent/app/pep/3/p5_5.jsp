@@ -407,7 +407,7 @@
 				<h1><%=title %></h1>
 			</div>
 				<div id="content">
-					<div id="left" style="width: 400px; height: auto; margin: 0 50px; float: left;">
+					<div id="left" style="width: 400px; height: auto; margin: 0 30px; float: left;">
 						<div id="chart" style="width: 400px; height: 450px; margin: 0 auto; float: left;"></div>
 						<div style="width: 400px; height: 100px; margin: 0px 20px; float: left; font-size: 12px;font-family: '宋体'">
 							<div style="width: 100px; height: 30px; float: left; vertical-align: middle; padding-top: 10px; ">

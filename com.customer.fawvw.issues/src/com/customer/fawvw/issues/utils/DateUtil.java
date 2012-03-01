@@ -113,6 +113,18 @@ public class DateUtil {
 
 		  return c.get(Calendar.WEEK_OF_YEAR);
 	}
+	
+    /**
+     * 根据日期获取所在周
+     */
+    public static int getYearByDate(Date date) {
+    	Calendar c = new GregorianCalendar();
+		  c.setFirstDayOfWeek(Calendar.MONDAY);
+		  c.setMinimalDaysInFirstWeek(7);
+		  c.setTime(date);
+
+		  return c.get(Calendar.YEAR);
+	}
 
 	 /** 
 	 * 得到某一年周的总数 

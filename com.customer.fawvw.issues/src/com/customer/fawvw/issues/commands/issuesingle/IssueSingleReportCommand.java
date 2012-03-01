@@ -84,7 +84,7 @@ public class IssueSingleReportCommand extends AbstractAIFCommand implements
 			Runtime.getRuntime().exec("cmd  /c  start excel " + file); //$NON-NLS-1$
  
 		} catch (Exception e) {
-
+			e.printStackTrace();
 			throw new FawvmLoaderException(e.getMessage());
 			
 		} 

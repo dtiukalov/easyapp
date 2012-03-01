@@ -69,27 +69,24 @@ public class ImageUtil {
 	
 	public static final String YELLOW_LIGHT_PATH2 = System.getenv("TPR") + "\\plugins\\Template\\images\\yellowLightR.jpg"; //$NON-NLS-1$ //$NON-NLS-2$
 	
-	public static final String ASW = System.getenv("TPR") + "\\plugins\\Template\\images\\ASW.png"; //$NON-NLS-1$ //$NON-NLS-2$
+	public static final String ASW = System.getenv("TPR") + "\\plugins\\Template\\images\\ASW.jpg"; //$NON-NLS-1$ //$NON-NLS-2$
+	public static final String BMG = System.getenv("TPR") + "\\plugins\\Template\\images\\BMG.jpg"; //$NON-NLS-1$ //$NON-NLS-2$
+	public static final String EMTAnl = System.getenv("TPR") + "\\plugins\\Template\\images\\EMTAnl.jpg"; //$NON-NLS-1$ //$NON-NLS-2$
+	public static final String SWZTeile = System.getenv("TPR") + "\\plugins\\Template\\images\\SWZ-Teile.jpg"; //$NON-NLS-1$ //$NON-NLS-2$
+	public static final String Note1 = System.getenv("TPR") + "\\plugins\\Template\\images\\Note1.jpg"; //$NON-NLS-1$ //$NON-NLS-2$
+	public static final String Note3 = System.getenv("TPR") + "\\plugins\\Template\\images\\Note3.jpg"; //$NON-NLS-1$ //$NON-NLS-2$
+	public static final String WZGErst = System.getenv("TPR") + "\\plugins\\Template\\images\\WZG-Erst.jpg"; //$NON-NLS-1$ //$NON-NLS-2$
+	public static final String WZGVerl = System.getenv("TPR") + "\\plugins\\Template\\images\\WZG-Verl.jpg"; //$NON-NLS-1$ //$NON-NLS-2$
 	
-	public static final String BMG = System.getenv("TPR") + "\\plugins\\Template\\images\\BMG.png"; //$NON-NLS-1$ //$NON-NLS-2$
+	public static final String TBTVFF = System.getenv("TPR") + "\\plugins\\Template\\images\\TBT_VFF.jpg"; //$NON-NLS-1$ //$NON-NLS-2$
+	public static final String TBTPVS = System.getenv("TPR") + "\\plugins\\Template\\images\\TBT_PVS.jpg"; //$NON-NLS-1$ //$NON-NLS-2$
+	public static final String TBT0S = System.getenv("TPR") + "\\plugins\\Template\\images\\TBT_0S.jpg"; //$NON-NLS-1$ //$NON-NLS-2$
+	public static final String TBTSOP = System.getenv("TPR") + "\\plugins\\Template\\images\\TBT_SOP.jpg"; //$NON-NLS-1$ //$NON-NLS-2$
 	
-	public static final String EMTAnl = System.getenv("TPR") + "\\plugins\\Template\\images\\EMTAnl.png"; //$NON-NLS-1$ //$NON-NLS-2$
-	
-	public static final String SWZTeile = System.getenv("TPR") + "\\plugins\\Template\\images\\SWZ-Teile.png"; //$NON-NLS-1$ //$NON-NLS-2$
-	
-	public static final String Note1 = System.getenv("TPR") + "\\plugins\\Template\\images\\Note1.png"; //$NON-NLS-1$ //$NON-NLS-2$
-	
-	public static final String Note3 = System.getenv("TPR") + "\\plugins\\Template\\images\\Note3.png"; //$NON-NLS-1$ //$NON-NLS-2$
-	
-	public static final String WZGErst = System.getenv("TPR") + "\\plugins\\Template\\images\\WZG-Erst.png"; //$NON-NLS-1$ //$NON-NLS-2$
-	
-	public static final String WZGVerl = System.getenv("TPR") + "\\plugins\\Template\\images\\WZG-Verl.png"; //$NON-NLS-1$ //$NON-NLS-2$
-	
-	public static final String TBTVFF = System.getenv("TPR") + "\\plugins\\Template\\images\\TBT_VFF.png"; //$NON-NLS-1$ //$NON-NLS-2$
-	
-	public static final String TBTPVS = System.getenv("TPR") + "\\plugins\\Template\\images\\TBT_PVS.png"; //$NON-NLS-1$ //$NON-NLS-2$
-	
-	public static final String TBT0S = System.getenv("TPR") + "\\plugins\\Template\\images\\TBT_0S.png"; //$NON-NLS-1$ //$NON-NLS-2$
+	public static final String VFF = System.getenv("TPR") + "\\plugins\\Template\\images\\VFF.jpg"; //$NON-NLS-1$ //$NON-NLS-2$
+	public static final String PVS = System.getenv("TPR") + "\\plugins\\Template\\images\\PVS.jpg"; //$NON-NLS-1$ //$NON-NLS-2$
+	public static final String OS = System.getenv("TPR") + "\\plugins\\Template\\images\\0S.jpg"; //$NON-NLS-1$ //$NON-NLS-2$
+	public static final String SOP = System.getenv("TPR") + "\\plugins\\Template\\images\\SOP.jpg"; //$NON-NLS-1$ //$NON-NLS-2$
 	
 	public static final String RED = System.getenv("TPR") + "\\plugins\\Template\\images\\redSmall.jpg"; //$NON-NLS-1$ //$NON-NLS-2$
 	public static final String YELLOW = System.getenv("TPR") + "\\plugins\\Template\\images\\yellowSmall.jpg"; //$NON-NLS-1$ //$NON-NLS-2$
@@ -418,6 +415,17 @@ public class ImageUtil {
 		}
 	}
 	
+	public static BufferedImage getTBTSOP() throws Exception {
+		try {
+			File image = new File(TBTSOP);
+			InputStream ins = new FileInputStream(image);
+			return readBufferedImg(ins);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			throw new FawvmLoaderException("TBTSOP.jpg不存在"); //$NON-NLS-1$
+		}
+	}
+	
 	public static BufferedImage getRed() throws Exception {
 		try {
 			File image = new File(RED);
@@ -477,6 +485,50 @@ public class ImageUtil {
 			File image = new File(CAR);
 	//		InputStream ins = new readBufferedImg2(image);
 			return readBufferedImg(image);
+	}
+	
+	public static BufferedImage getVFF() throws Exception {
+		try {
+			File image = new File(VFF);
+			InputStream ins = new FileInputStream(image);
+			return readBufferedImg(ins);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			throw new FawvmLoaderException("VFF.jpg不存在"); //$NON-NLS-1$
+		}
+	}
+	
+	public static BufferedImage getPVS() throws Exception {
+		try {
+			File image = new File(PVS);
+			InputStream ins = new FileInputStream(image);
+			return readBufferedImg(ins);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			throw new FawvmLoaderException("PVS.jpg不存在"); //$NON-NLS-1$
+		}
+	}
+	
+	public static BufferedImage get0S() throws Exception {
+		try {
+			File image = new File(OS);
+			InputStream ins = new FileInputStream(image);
+			return readBufferedImg(ins);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			throw new FawvmLoaderException("0S.jpg不存在"); //$NON-NLS-1$
+		}
+	}
+	
+	public static BufferedImage getSOP() throws Exception {
+		try {
+			File image = new File(SOP);
+			InputStream ins = new FileInputStream(image);
+			return readBufferedImg(ins);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			throw new FawvmLoaderException("SOP.jpg不存在"); //$NON-NLS-1$
+		}
 	}
 	
 	// 将图片显示在区域中

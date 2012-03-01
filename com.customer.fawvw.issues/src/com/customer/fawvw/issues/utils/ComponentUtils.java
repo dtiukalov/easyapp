@@ -1,8 +1,10 @@
 package com.customer.fawvw.issues.utils;
 
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import javax.swing.JComboBox;
@@ -329,7 +331,7 @@ public class ComponentUtils {
 	 *            子组件属性key
 	 * @param propertyValue
 	 *            子组件属性value
-	 * 
+	 * 此方法只查询出TC中可显示的子对象，注意首选项中配置关系虚拟文件夹的显示
 	 * @return 不存在返回null
 	 */
 	public static InterfaceAIFComponent getChildComponentByType(
@@ -541,4 +543,33 @@ System.out.println("projects.length = " + projects.length);	 //$NON-NLS-1$
 		return projectInfos;
 	}
 	
+	/*
+	 * 获取ItemRev某关系下的某类型的对象
+	 * @param object
+	 * @param relation
+	 * @param type
+	 * @return 
+	 */
+	
+	public static List<TCComponent> getComponentByRelationAndType(
+			TCComponent object, String relation, String type) {
+		
+		List<TCComponent> tcComponents = new ArrayList<TCComponent>();
+		
+		try {
+			TCComponent[] components = object.getRelatedComponents(relation);
+			
+			for (int i = 0; i < components.length; i++) {
+				String objectType = components[i].getType();
+				if (type.equals(objectType)) {
+					tcComponents.add(components[i]);
+				}
+			}
+		} catch (TCException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return tcComponents;
+	}
 }

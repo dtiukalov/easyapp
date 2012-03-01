@@ -72,11 +72,16 @@ public class ReportIssueSingleLoader {
 				System.out.println("问题描述：" + fv9IssueRevision  //$NON-NLS-1$
 						.getProperty("fv9IssueDesc")); //$NON-NLS-1$
 				
-/*				values.put("fv9Decision", fv9IssueRevision //$NON-NLS-1$
-						.getProperty("fv9Decision")); //$NON-NLS-1$
-				System.out.println(Messages.ReportIssueSingleLoader_22 + fv9IssueRevision 
-						.getProperty("fv9Decision")); //$NON-NLS-1$
-*/				
+				values.put("fv9IssueTempSolution", "临时措施：" + fv9IssueRevision //$NON-NLS-1$
+						.getProperty("fv9IssueTempSolution")); //$NON-NLS-1$
+				System.out.println("临时措施：" + fv9IssueRevision 
+						.getProperty("fv9IssueTempSolution")); //$NON-NLS-1$
+				
+				values.put("fv9TempSolutionDL", fv9IssueRevision //$NON-NLS-1$
+						.getProperty("fv9TempSolutionDL")); //$NON-NLS-1$
+				System.out.println("临时措施完成期限：" + fv9IssueRevision 
+						.getProperty("fv9TempSolutionDL")); //$NON-NLS-1$
+				
 				values.put("fv9Solution1", fv9IssueRevision //$NON-NLS-1$
 						.getProperty("fv9Solution1")); //$NON-NLS-1$
 				System.out.println("措施1：" + fv9IssueRevision  //$NON-NLS-1$
@@ -86,12 +91,7 @@ public class ReportIssueSingleLoader {
 						.getProperty("fv9SlDLDate1")); //$NON-NLS-1$
 				System.out.println("措施1完成日期： " + fv9IssueRevision  //$NON-NLS-1$
 						.getProperty("fv9SlDLDate1")); //$NON-NLS-1$
-				
-/*				values.put("fv9SlResOwner1", fv9IssueRevision //$NON-NLS-1$
-						.getProperty("fv9SlResOwner1")); //$NON-NLS-1$
-				System.out.println(Messages.ReportIssueSingleLoader_fv9SlResOwner1 + fv9IssueRevision 
-						.getProperty("fv9SlResOwner1")); //$NON-NLS-1$
-*/				
+			
 				values.put("fv9Solution2", fv9IssueRevision //$NON-NLS-1$
 						.getProperty("fv9Solution2")); //$NON-NLS-1$
 				System.out.println("措施2：" + fv9IssueRevision  //$NON-NLS-1$
@@ -101,12 +101,7 @@ public class ReportIssueSingleLoader {
 						.getProperty("fv9SlDLDate2")); //$NON-NLS-1$
 				System.out.println("措施2完成日期：" + fv9IssueRevision  //$NON-NLS-1$
 						.getProperty("fv9SlDLDate2")); //$NON-NLS-1$
-				
-/*				values.put("fv9SlResOwner2", fv9IssueRevision //$NON-NLS-1$
-						.getProperty("fv9SlResOwner2")); //$NON-NLS-1$
-				System.out.println(Messages.ReportIssueSingleLoader_fv9SlResOwner2 + fv9IssueRevision 
-						.getProperty("fv9SlResOwner2")); //$NON-NLS-1$
-*/				
+								
 				values.put("fv9Solution3", fv9IssueRevision //$NON-NLS-1$
 						.getProperty("fv9Solution3")); //$NON-NLS-1$
 				System.out.println("措施3：" + fv9IssueRevision  //$NON-NLS-1$
@@ -117,11 +112,6 @@ public class ReportIssueSingleLoader {
 				System.out.println("措施3完成日期：" + fv9IssueRevision  //$NON-NLS-1$
 						.getProperty("fv9SlDLDate3")); //$NON-NLS-1$
 				
-/*				values.put("fv9SlResOwner3", fv9IssueRevision //$NON-NLS-1$
-						.getProperty("fv9SlResOwner3")); //$NON-NLS-1$
-				System.out.println(Messages.ReportIssueSingleLoader_fv9SlResOwner3 + fv9IssueRevision 
-						.getProperty("fv9SlResOwner3")); //$NON-NLS-1$
-*/				
 				values.put("fv9Solution4", fv9IssueRevision //$NON-NLS-1$
 						.getProperty("fv9Solution4")); //$NON-NLS-1$
 				System.out.println("措施4：" + fv9IssueRevision  //$NON-NLS-1$
@@ -132,11 +122,6 @@ public class ReportIssueSingleLoader {
 				System.out.println("措施4完成日期： " + fv9IssueRevision  //$NON-NLS-1$
 						.getProperty("fv9SlDLDate4")); //$NON-NLS-1$
 				
-/*				values.put("fv9SlResOwner4", fv9IssueRevision //$NON-NLS-1$
-						.getProperty("fv9SlResOwner4")); //$NON-NLS-1$
-				System.out.println(Messages.ReportIssueSingleLoader_fv9SlResOwner4 + fv9IssueRevision 
-						.getProperty("fv9SlResOwner4")); //$NON-NLS-1$
-*/				
 				values.put("fv9Solution5", fv9IssueRevision //$NON-NLS-1$
 						.getProperty("fv9Solution5")); //$NON-NLS-1$
 				System.out.println("措施5：" + fv9IssueRevision  //$NON-NLS-1$
@@ -147,11 +132,6 @@ public class ReportIssueSingleLoader {
 				System.out.println("措施5完成日期：" + fv9IssueRevision  //$NON-NLS-1$
 						.getProperty("fv9SlDLDate5")); //$NON-NLS-1$
 				
-/*				values.put("fv9SlResOwner5", fv9IssueRevision //$NON-NLS-1$
-						.getProperty("fv9SlResOwner5")); //$NON-NLS-1$
-				System.out.println(Messages.ReportIssueSingleLoader_fv9SlResOwner5 + fv9IssueRevision 
-						.getProperty("fv9SlResOwner5")); //$NON-NLS-1$
-*/				
 				values.put("fv9RGStatus", fv9IssueRevision //$NON-NLS-1$
 						.getProperty("fv9RGStatus")); //$NON-NLS-1$
 			
@@ -169,14 +149,6 @@ public class ReportIssueSingleLoader {
 				System.out.println("供应商名称：" + fv9IssueRevision  //$NON-NLS-1$
 						.getProperty("fv9SupplierName")); //$NON-NLS-1$
 				
-				/*values.put("fv9RespPerson", fv9IssueRevision //$NON-NLS-1$
-						.getProperty("fv9RespPerson")); //$NON-NLS-1$
-				
-				System.out.println(Messages.ReportIssueSingleLoader_15 + fv9IssueRevision 
-						.getProperty("fv9RespPerson")); //$NON-NLS-1$
-*/				
-				/*values.put("project_ids", fv9IssueRevision.getProperty("project_ids")); //$NON-NLS-1$ //$NON-NLS-2$
-*/				
 				values.put("itemId", fv9IssueRevision.getProperty("item_id")); //$NON-NLS-1$ //$NON-NLS-2$
 				
 				//项目所属项目ID
@@ -233,42 +205,80 @@ public class ReportIssueSingleLoader {
 					//FV9_11ProjectTermin的fv9SOPMLDate
 					//FV9_11VorserienTer的fv9VFFTBTZP7、fv9PVSTBTZP7、fv90STBTZP7
 					TCComponent PHReportRev = QueryLastCreateTCComponent(list);
-					InterfaceAIFComponent FV9_11ProjectTermin = ComponentUtils.
-						getChildComponentByType(PHReportRev, "FV9_11ProjectTermin"); //$NON-NLS-1$
-					if (FV9_11ProjectTermin instanceof TCComponentForm) {
-						TCComponentForm form = (TCComponentForm)FV9_11ProjectTermin;
-						Date sop = form.getDateProperty("fv9SOPMLDate"); //$NON-NLS-1$
-						if (sop == null) {
-							values.put("PH_SOP", null); //$NON-NLS-1$
-						} else {
-							values.put("PH_SOP", sop); //$NON-NLS-1$
+//					InterfaceAIFComponent FV9_11ProjectTermin = ComponentUtils.
+//						getChildComponentByType(PHReportRev, "FV9_11ProjectTermin"); //$NON-NLS-1$
+					if ((List<TCComponent>)ComponentUtils.getComponentByRelationAndType(
+							PHReportRev, "FV9PMPH_Rel", "FV9_11ProjectTermin") != null &&
+						((List<TCComponent>)ComponentUtils.getComponentByRelationAndType(
+							PHReportRev, "FV9PMPH_Rel", "FV9_11ProjectTermin")).size() > 0) {
+						
+						TCComponent FV9_11ProjectTermin = ((List<TCComponent>)ComponentUtils.getComponentByRelationAndType(
+								PHReportRev, "FV9PMPH_Rel", "FV9_11ProjectTermin")).get(0);
+						
+						if (FV9_11ProjectTermin instanceof TCComponentForm) {
+							TCComponentForm form = (TCComponentForm)FV9_11ProjectTermin;
+							Date vff = form.getDateProperty("fv9VFFMLDate");
+							Date pvs = form.getDateProperty("fv9PVSMLDate");
+							Date os = form.getDateProperty("fv90SMLDate");
+							Date sop = form.getDateProperty("fv9SOPMLDate"); 
+							if (vff == null) {
+								values.put("PH_VFF", null);
+							} else {
+								values.put("PH_VFF", vff);
+							}
+							if (pvs == null) {
+								values.put("PH_PVS", null);
+							} else {
+								values.put("PH_PVS", pvs);
+							}
+							if (os == null) {
+								values.put("PH_0S", null);
+							} else {
+								values.put("PH_0S", os);
+							}
+							if (sop == null) {
+								values.put("PH_SOP", null); 
+							} else {
+								values.put("PH_SOP", sop); 
+							}
+							
 						}
 					}
-					InterfaceAIFComponent FV9_11VorserienTer = ComponentUtils.
-						getChildComponentByType(PHReportRev, "FV9_11VorserienTer"); //$NON-NLS-1$
-					if (FV9_11VorserienTer instanceof TCComponentForm) {
-						TCComponentForm form = (TCComponentForm)FV9_11VorserienTer;
-						Date TBT_VFF = form.getDateProperty("fv9VFFTBTZP7"); //$NON-NLS-1$
-						if (TBT_VFF == null) {
-							values.put("TBT_VFF", null); //$NON-NLS-1$
-						} else {
-							values.put("TBT_VFF", TBT_VFF); //$NON-NLS-1$
-						}
+					
+//					InterfaceAIFComponent FV9_11VorserienTer = ComponentUtils.
+//						getChildComponentByType(PHReportRev, "FV9_11VorserienTer"); 
+					if ((List<TCComponent>)ComponentUtils.getComponentByRelationAndType(
+							PHReportRev, "FV9PMPH_Rel", "FV9_11VorserienTer") != null &&
+						((List<TCComponent>)ComponentUtils.getComponentByRelationAndType(
+							PHReportRev, "FV9PMPH_Rel", "FV9_11VorserienTer")).size() > 0) {
 						
-						Date TBT_PVS = form.getDateProperty("fv9PVSTBTZP7"); //$NON-NLS-1$
-						if (TBT_PVS == null) {
-							values.put("TBT_PVS", null); //$NON-NLS-1$
-						} else {
-							values.put("TBT_PVS", TBT_PVS); //$NON-NLS-1$
-						}
+						TCComponent FV9_11VorserienTer = ((List<TCComponent>)ComponentUtils.getComponentByRelationAndType(
+								PHReportRev, "FV9PMPH_Rel", "FV9_11VorserienTer")).get(0);
 						
-						Date TBT_0S = form.getDateProperty("fv90STBTZP7"); //$NON-NLS-1$
-						if (TBT_0S == null) {
-							values.put("TBT_0S", null); //$NON-NLS-1$
-						} else {
-							values.put("TBT_0S", TBT_0S); //$NON-NLS-1$
+						if (FV9_11VorserienTer instanceof TCComponentForm) {
+							TCComponentForm form = (TCComponentForm)FV9_11VorserienTer;
+							Date TBT_VFF = form.getDateProperty("fv9VFFTBTZP7"); 
+							if (TBT_VFF == null) {
+								values.put("TBT_VFF", null); 
+							} else {
+								values.put("TBT_VFF", TBT_VFF); 
+							}
+							
+							Date TBT_PVS = form.getDateProperty("fv9PVSTBTZP7"); 
+							if (TBT_PVS == null) {
+								values.put("TBT_PVS", null); 
+							} else {
+								values.put("TBT_PVS", TBT_PVS); 
+							}
+							
+							Date TBT_0S = form.getDateProperty("fv90STBTZP7"); 
+							if (TBT_0S == null) {
+								values.put("TBT_0S", null); 
+							} else {
+								values.put("TBT_0S", TBT_0S); 
+							}
+							
 						}
-						
 					}
 					
 				}
@@ -277,17 +287,17 @@ public class ReportIssueSingleLoader {
 				
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
-//				e.printStackTrace();
-				throw new FawvmLoaderException("程序执行失败,请参考日志"); //$NON-NLS-1$
+				e.printStackTrace();
+				throw new FawvmLoaderException("程序执行失败,请参考日志"); 
 			}
 
 		} catch (TCException e) {
-			
-			throw new FawvmLoaderException("程序执行失败,请参考日志"); //$NON-NLS-1$
+			e.printStackTrace();
+			throw new FawvmLoaderException("程序执行失败,请参考日志"); 
 			
 		} catch (Exception e) {
-			
-			throw new FawvmLoaderException("程序执行失败,请参考日志"); //$NON-NLS-1$
+			e.printStackTrace();
+			throw new FawvmLoaderException("程序执行失败,请参考日志"); 
 			
 		}
 
@@ -298,15 +308,15 @@ public class ReportIssueSingleLoader {
 		
 		//如果只有一个PHReportItemRevs，则取此PHReportItemRevs
 		//如果存在一个以上的PHReportItemRevs，则取创建时间最晚的
-		if (list.size() > 1) {
+		if (list.size() > 0) {
 			//按创建时间倒序排序(晚——>早)
 			Collections.sort(list, new Comparator<TCComponent>() {
 				public int compare(TCComponent tc1, TCComponent tc2) {
 					Date date1;
 					Date date2;
 					try {
-						date1 = tc1.getDateProperty("creation_date"); //$NON-NLS-1$
-						date2 = tc2.getDateProperty("creation_date"); //$NON-NLS-1$
+						date1 = tc1.getDateProperty("creation_date"); 
+						date2 = tc2.getDateProperty("creation_date"); 
 						return DateUtil.dateDiffSecond(date1,date2);
 					} catch (TCException e) {
 						// TODO Auto-generated catch block

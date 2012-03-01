@@ -279,7 +279,7 @@
 							int maxKw = arr[size-1];
 							int minKw = arr[0];
 							//假定总长度是595.0px 先算出一共有多少个柱子，每个柱子的宽度 px
-							double totalWidth = 595.0;//总长度是 750px 
+							double totalWidth = 640.0;//总长度是 750px 
 							pillar = totalWidth/size;  //每个柱子的宽度 px
 						
 							String vff_start = "";
@@ -326,7 +326,7 @@
 				<div id="chart1" style="width: 700px; height: 450px; margin: 0 50px; float: left;"></div>
 				<div id="chart2" style="width: 100px; height: 450px; margin: 0 -75px; float: left;margin-top:-10px; "></div>
 				<div id="meilsteinouter" style="width: 800px;">
-					<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 108px; text-align: center; overflow: hidden; ">
+					<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 92px; text-align: center; overflow: hidden; ">
 						<div style=" width: <%=value1 %>px; height: 30px; float: left; background-color: #99FF99; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">VFF</span></div>
 						<div style=" width: <%=value2 %>px; height: 30px; float: left; background-color: #33CC33; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">PVS</span></div>
 						<div style=" width: <%=value3 %>px; height: 30px; float: left; background-color: #006600; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">0S</span></div>

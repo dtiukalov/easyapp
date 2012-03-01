@@ -182,6 +182,7 @@
 						double value2 = 0;
 						double value3 = 0;
 						double value4 = 0;
+						
 						if(size > 0){
 							int maxKw = arr[size-1];
 							int minKw = arr[0];

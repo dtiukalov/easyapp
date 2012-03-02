@@ -132,17 +132,11 @@
 					}
 				},
 				tooltip: {
-					borderColor: '#000000',
-			        borderRadius: 0,
-			        borderWidth: 1,
-			        shared:false,
-			        useHTML: true,
-			        headerFormat: '<table width="300" height="100">',
-			        pointFormat: '<tr><td>-xxx</td>' +
-			        '</tr>' +'<tr><td>-yyy</td></tr>'+'<tr><td>&nbsp;</td></tr>'
-			        +'<tr><td>&nbsp;</td></tr>',
-			        footerFormat: '</table>',
-			        valueDecimals: 2
+					borderWidth: 0,
+					shadow:false,
+					 formatter: function() {
+						return '<table style="border-collapse:collapse;border:solid 1px #000;" width="200" height="100" cellpadding="0" cellspacing="0"><tr><td> &nbsp;'+ 'x:'+ this.x +'</td></tr><tr><td>&nbsp;'+ 'y:' + this.y +'</td></tr><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td></tr></table>';
+					}
 				},
 				plotOptions: {
 					column: {
@@ -223,8 +217,6 @@
 		</script>
 	</head>
 	<body>
-	<div class="containerLeft">
-		</div>
 		<div id="container">
 			<div id="nr">
 				<div id="top">
@@ -238,8 +230,5 @@
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	
-		<div class="containerRight">
-			<%=next %>
-		</div>
 	</body>
 </html>

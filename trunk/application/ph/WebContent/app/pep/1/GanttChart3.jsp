@@ -92,7 +92,7 @@ function Task(from, to, task, resource, progress, level, color) {
 				
 					
 					_gStr += "<td class='GDay'><div style='width:" + width + "px;'>" + dArr[1] + "</div></td>";
-					_secondRow += "<td class='GDay'><div style='width: + width + px;'>" + (start--) + "</div></td>";
+					_secondRow += "<td class='GDay'><div style='width: + width + px;'>" + (dArr[1]) + "</div></td>";
 					_thirdRow += "<td id='GC_" + (counter++) + "' class='GDay'style='height:" + ((_maxLevel+1) * 21) + "'>&nbsp;</td>";
 					
 					_colSpan++;
@@ -116,7 +116,7 @@ function Task(from, to, task, resource, progress, level, color) {
 				_firstRowStr += "</tr>";	
 				_gStr += "</tr>";
 				_secondRow += "</tr>"
-				_gStr = _firstRowStr + _gStr + _secondRow + _thirdRow + "</table>";
+				_gStr = _firstRowStr + _gStr + _thirdRow + _secondRow + "</table>";
 			//	_gStr = _firstRowStr + _thirdRow + "</table>";	
 					
 				var offWidth = 27;
@@ -364,7 +364,7 @@ function Task(from, to, task, resource, progress, level, color) {
 <%	}%>
 <%if(!"".equals(fv9VFFVorStart) && fv9VFFVorStart != null
 	&& !"".equals(fv9VFFVorEnd) && fv9VFFVorEnd != null	){%>
-	g.AddTaskDetail(new Task('<%=fv9VFFVorStart%>', '<%=fv9VFFVorEnd%>', '<b><%=fv9VFFVorBatches%> Batches(<%=fv9VFFVorFzg%> Fzg.)*</b>', 'VFF',  50, 1, 'background-color:#000000;color:#FFF;font-weight:bold;'));
+	g.AddTaskDetail(new Task('<%=fv9VFFVorStart%>', '<%=fv9VFFVorEnd%>', '<b><%=fv9VFFVorBatches%> Batches(<%=fv9VFFVorFzg%> Fzg.)*</b>', 'VFF&nbsp&nbsp<b><%=fv9VFFVorBatches%> Batches(<%=fv9VFFVorFzg%> Fzg.)*</b>',  50, 1, 'background-color:#000000;color:#FFF;font-weight:bold;'));
 <%	}%>
 <%if(!"".equals(fv9VFFAbsStart) && fv9VFFAbsStart != null
 		&& !"".equals(fv9VFFAbsEnd) && fv9VFFAbsEnd != null){%>
@@ -381,7 +381,7 @@ function Task(from, to, task, resource, progress, level, color) {
 <%	}%>
 <%if(!"".equals(fv9PVSVorStart) && fv9PVSVorStart != null
 		&& !"".equals(fv9PVSVorEnd) && fv9PVSVorEnd != null){%>
-	g.AddTaskDetail(new Task('<%=fv9PVSVorStart%>', '<%=fv9PVSVorEnd%>', '<b><%=fv9PVSVorBatches%> Batches(<%=fv9PVSVorFzg%> Fzg.)*</b></b>', 'PVS', 50, 3, 'background-color:#000000;color:#FFF;font-weight:bold;'));
+	g.AddTaskDetail(new Task('<%=fv9PVSVorStart%>', '<%=fv9PVSVorEnd%>', '<b><%=fv9PVSVorBatches%> Batches(<%=fv9PVSVorFzg%> Fzg.)*</b>', 'PVS&nbsp&nbsp<b><%=fv9PVSVorBatches%> Batches(<%=fv9PVSVorFzg%> Fzg.)*</b>', 50, 3, 'background-color:#000000;color:#FFF;font-weight:bold;'));
 <%	}%>
 <%if(!"".equals(fv9PVSAbsStart) && fv9PVSAbsStart != null
 		&& !"".equals(fv9PVSAbsEnd) && fv9PVSAbsEnd != null){%>
@@ -398,7 +398,7 @@ function Task(from, to, task, resource, progress, level, color) {
 <%	}%>
 <%if(!"".equals(fv90SVorStart) && fv90SVorStart != null
 		&& !"".equals(fv90SVorEnd) && fv90SVorEnd != null){%>
-	g.AddTaskDetail(new Task('<%=fv90SVorStart%>', '<%=fv90SVorEnd%>', '<b><%=fv90SVorBatches%> Batches(<%=fv90SVorFzg%> Fzg.)*</b>', 'OS', 50, 5, 'background-color:#000000;color:#FFF;font-weight:bold;'));
+	g.AddTaskDetail(new Task('<%=fv90SVorStart%>', '<%=fv90SVorEnd%>', '<b><%=fv90SVorBatches%> Batches(<%=fv90SVorFzg%> Fzg.)*</b>', 'OS&nbsp&nbsp<b><%=fv90SVorBatches%> Batches(<%=fv90SVorFzg%> Fzg.)*</b>', 50, 5, 'background-color:#000000;color:#FFF;font-weight:bold;'));
 <%	}%>
 <%if(!"".equals(fv90SAbsStart) && fv90SAbsStart != null
 		&& !"".equals(fv90SAbsEnd) && fv90SAbsEnd != null){%>

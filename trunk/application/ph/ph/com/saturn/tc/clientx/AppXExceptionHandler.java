@@ -63,6 +63,7 @@ public class AppXExceptionHandler implements ExceptionHandler {
 							+ ise.getMessage()
 							+ "\nThis is most likely the result of a programming error."
 							+ "\nA RuntimeException will be thrown.");
+			ise.printStackTrace();
 			throw new RuntimeException(ise.getMessage());
 		}
 

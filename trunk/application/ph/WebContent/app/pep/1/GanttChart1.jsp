@@ -51,7 +51,8 @@
 			var _minDate = new Date();	
 			var _maxLevel = 0;
 			var _dTemp = new Date();
-			var _firstRowStr = "<table border=1 style='border-collapse:collapse;border:#000000 2px solid'><tr style='background-color:feffbe;text-align:center;'>";
+			var _firstRowStr = 
+"<table border=1 style='border-collapse:collapse;border:#000000 2px solid'><tr style='background-color:feffbe;text-align:center;'><td rowspan='2' width='50' style='width:50px;font-size:12px'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Porjekt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
 			var _secondRow = "";
 			var _thirdRow = ""; 
 			var _gStr = "";		
@@ -95,14 +96,14 @@
 				
 				_gStr = "";
 				_gStr += "<tr style='background-color:feffbe;text-align:center;'>";
-				_secondRow = "<tr style='background-color:feffbe;text-align:center;'>";
-				_thirdRow = "<tr>";
+				//_secondRow = "<tr style='background-color:feffbe;text-align:center;'>";
+				_thirdRow = "<tr><td>&nbsp;</td>";
 				_dTemp.setFullYear(_minDate.getFullYear(), _minDate.getMonth(), _minDate.getDate());
 				
 				while (Date.parse(_dTemp) <= Date.parse(_maxDate)) {	
 					
 					_gStr += "<td class='GDay'><div style='width:" + width + "px;'>" + (_dTemp.getMonth()+1) + "</div></td>";
-					_secondRow += "<td class='GDay'><div style='width: + width + px;'>" + (start--) + "</div></td>";
+					//_secondRow += "<td class='GDay'><div style='width: + width + px;'>" + (start--) + "</div></td>";
 					if (_dTemp.getFullYear() == _currentDate.getFullYear() && _dTemp.getMonth() == _currentDate.getMonth())	{					
 						_thirdRow += "<td id='GC_" + (counter++) + "' class='GToDay' style='height:" + ((_maxLevel+1) * 21) + "'>&nbsp;</td>";
 					} else {
@@ -117,9 +118,9 @@
 						_dTemp.setFullYear(_dTemp.getFullYear() + 1, 0, 1);
 					} else {
 						_dTemp.setFullYear(_dTemp.getFullYear(), _dTemp.getMonth() + 1, 1);
-						if (_dTemp.getFullYear() == _maxDate.getFullYear() && _dTemp.getMonth() == _maxDate.getMonth() ) {
-							_firstRowStr += "<td class='GMonth' colspan='" + (_colSpan+1) + "'>" + _dTemp.getFullYear() + "</td>";
-						}
+						//if (_dTemp.getFullYear() == _maxDate.getFullYear() && _dTemp.getMonth() == _maxDate.getMonth() ) {
+						//	_firstRowStr += "<td class='GMonth' colspan='" + (_colSpan+1) + "'>" + _dTemp.getFullYear() + "</td>";
+						//}
 					}
 				}
 		//		_thirdRow += "</tr>"; 				
@@ -130,11 +131,12 @@
 				_thirdRow += "</tr>"; 	
 				_firstRowStr += "</tr>";	
 				_gStr += "</tr>";
-				_secondRow += "</tr>"
+			//	_secondRow += "</tr>"
 				_gStr = _firstRowStr + _gStr + _secondRow + _thirdRow + "</table>";
 			//	_gStr = _firstRowStr + _thirdRow + "</table>";	
 					
 				var offWidth = width + 3;
+				var preWidth = 103;
 				
 				for(i = 0; i < _taskList.length; i++)
 				{	
@@ -148,9 +150,10 @@
 					_dateDiff = (task.getTo().getFullYear() - task.getFrom().getFullYear()) * 12 + (task.getTo().getMonth() - task.getFrom().getMonth()) + 1;
 					
 					if (task.getFrom().getFullYear() == task.getTo().getFullYear() && task.getFrom().getMonth() == task.getTo().getMonth()) {
-						_gStr += "<div style='position:absolute; top:" + (20 * (_level + 2)) + "; left:" + (_offSet * offWidth + 14) + "; width:" + (offWidth * _dateDiff - 1 + 100) + "'><div title='" + task.getTask() + "' class='GTaska' style='float:left; width:" + (offWidth * _dateDiff - 1) + "px;'>" + task.getResource() + "</div></div>";
+						_gStr += "<div style='position:absolute; top:" + (20 * (_level + 2)) + "; left:" + (_offSet * offWidth + 14 + preWidth) + "; width:" + (offWidth * _dateDiff - 1 + 100) + "'><div title='" + task.getTask() + "' class='GTaska' style='float:left; width:" + (offWidth * _dateDiff - 1) + "px;'>" + task.getResource() + "</div></div>";
+						_gStr += "<div style='position:absolute; top:" + (26 * (_level + 2) + 1) + "; left:5px'>" + task.getTask() + "</div>";
 					} else {
-						_gStr += "<div style='position:absolute; top:" + (20 * (_level + 2)) + "; left:" + (_offSet * offWidth) + "; width:" + (offWidth * _dateDiff - 1 + 100) + "'><div title='" + task.getTask() + "' class='GTask' style='float:left; width:" + (offWidth * _dateDiff - 1) + "px;" + "background-color:" + task.getColor()+ ";border:#000000 1px solid;text-align:center;'>" + task.getResource() + "</div></div>";
+						_gStr += "<div style='position:absolute; top:" + (20 * (_level + 2)) + "; left:" + (_offSet * offWidth + preWidth) + "; width:" + (offWidth * _dateDiff - 1 + 100) + "'><div title='" + task.getTask() + "' class='GTask' style='float:left; width:" + (offWidth * _dateDiff - 1) + "px;" + "background-color:" + task.getColor()+ ";border:#000000 1px solid;text-align:center;'>" + task.getResource() + "</div></div>";
 					}
 				}
 				_GanttDiv.innerHTML = _gStr;
@@ -412,9 +415,9 @@
 	} 
 	%>
  
-	g.AddTaskDetail(new Task('<%=Producktidefinition_S%>', '<%=Producktidefinition_E%>', '<b>Sample task 1 1</b>', '9 MO', 50, 5, '#f3f3f3'));
-	g.AddTaskDetail(new Task('<%=Konzept_S%>', '<%=Konzept_E%>', '<b>Sample task 1 1</b>', '27 MO', 50, 5, '#b0b0b0'));
-	g.AddTaskDetail(new Task('<%=Serienvorboreitung_S%>', '<%=Serienvorboreitung_E%>', '<b>Sample task 1 1</b>', '15 MO', 50, 5, '#414141'));
+	g.AddTaskDetail(new Task('<%=Producktidefinition_S%>', '<%=Producktidefinition_E%>', '<b></b>', '9 MO', 50, 5, '#f3f3f3'));
+	g.AddTaskDetail(new Task('<%=Konzept_S%>', '<%=Konzept_E%>', '<b></b>', '27 MO', 50, 5, '#b0b0b0'));
+	g.AddTaskDetail(new Task('<%=Serienvorboreitung_S%>', '<%=Serienvorboreitung_E%>', '<b></b>', '15 MO', 50, 5, '#414141'));
 	
 	g.Draw(49, 19);	
 </script>

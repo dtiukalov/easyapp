@@ -130,7 +130,13 @@
 						style : {
 							fontSize:'12px'
 						},
-						color: 'black'
+						color: 'black',
+						formatter: function() {
+							if (this.y == 0) {
+								return '';
+							}
+							return this.y + '';
+						}
 					}
 				},{
 					type: 'column',
@@ -142,7 +148,13 @@
 						style : {
 							fontSize:'12px'
 						},
-						color: 'black'
+						color: 'black',
+						formatter: function() {
+							if (this.y == 0) {
+								return '';
+							}
+							return this.y + '';
+						}
 					}
 				}, {
 					type: 'spline',
@@ -154,7 +166,13 @@
 						style : {
 							fontSize:'16px'
 						},
-						color: 'black'
+						color: 'black',
+						formatter: function() {
+							if (this.y == 0) {
+								return '';
+							}
+							return this.y + '';
+						}
 					},
 					marker:{
 						fillColor: '#FFFFFF',
@@ -172,7 +190,13 @@
 						style : {
 							fontSize:'16px'
 						},
-						color: 'black'
+						color: 'black',
+						formatter: function() {
+							if (this.y == 0) {
+								return '';
+							}
+							return this.y + '';
+						}
 					},
 					marker:{
 						fillColor: '#FFFFFF',
@@ -194,7 +218,7 @@
 			<div id="top">
 				<div class="fl"> VW471 CN-Pilothalle VFF,20.10.2010</div>
 				<div class="fr"> STATUS 19.10.2010</div>
-				<h1><%=title %> </h1>
+				<h1><%=title %></h1>
 			</div>
 			<div id="content">
 				<div id="chart" style="width: 800px; height: 400px; margin:50px auto;"></div>

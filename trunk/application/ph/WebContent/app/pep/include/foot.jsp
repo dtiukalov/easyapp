@@ -17,21 +17,29 @@
 	
 	int cur = Integer.parseInt(current);
 	
-	String next = "<img src=\"/ph/app/pep/images/n.jpg\">";
-	String prev = "<img src=\"/ph/app/pep/images/p.jpg\">";
-	
+	/* String next = "<img src=\"/ph/app/pep/images/n.jpg\" width=\"40\" height=\"70\">";
+	String prev = "<img src=\"/ph/app/pep/images/p.jpg\" width=\"40\" height=\"70\">"; */
+	String next = "<img src=\"/ph/app/pep/images/n2.jpg\" width=\"19\" height=\"18\">";
+	String prev = "<img src=\"/ph/app/pep/images/p1.jpg\" width=\"19\" height=\"18\">";
 	if (indexes != null) {
 		int pageSize = indexes.size();
 		
 		if (cur > 1) {
-			prev = "<a href='" + request.getContextPath() + "/app/pep/view/view.do?current=" + (cur-1) + "'><img src=\"/ph/app/pep/images/p.jpg\" width=\"50\" height=\"70\" style=\"border:none\"></a>";
+			prev = "<a href='" + request.getContextPath() + "/app/pep/view/view.do?current=" + (cur-1) + "'><img src=\"/ph/app/pep/images/p1.jpg\" width=\"19\" height=\"18\" style=\"border:none\"></a>";
 		}
 		
 		if (cur < pageSize) {
-			next = "<a href='" + request.getContextPath() + "/app/pep/view/view.do?current=" + (cur+1) + "'><img src=\"/ph/app/pep/images/n.jpg\" width=\"50\" height=\"70\" style=\"border:none\"></a>";
+			next = "<a href='" + request.getContextPath() + "/app/pep/view/view.do?current=" + (cur+1) + "'><img src=\"/ph/app/pep/images/n2.jpg\" width=\"19\" height=\"18\" style=\"border:none\"></a>";
 		}
 	}
 %>
+
+<!-- <script>
+$(document).ready(function(){
+	$("#texiao").fadeIn(2000,function(){$("#texiao").fadeOut(3000);});
+});
+
+</script> -->
 <div id="footer">
 	<div class="foot">
 		<!-- <div class="lanst">&nbsp;</div> -->
@@ -45,9 +53,11 @@
 			</a>
 		</div>
 	    <div class="page">
+	    <%-- <div id="texiao" height="200px" width="50px">
 	    	<div class="P"><%=prev %></div>
 			<div class="N"><%=next %></div>
-		    <P>Seite<%=current %></P>
+		</div> --%>
+		    <P><%=prev %>Seite<%=current %><%=next %></P>
 	    </div>
 	    <div class="ylogo">
 	    <%

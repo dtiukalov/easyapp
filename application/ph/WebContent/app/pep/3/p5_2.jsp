@@ -181,6 +181,12 @@
 							y:1,
 							style: {
 								color: 'black'
+							},
+							formatter: function() {
+								if (this.total == 0) {
+									return '';
+								}
+								return this.total + '';
 							}
 						},
 						labels: {
@@ -345,6 +351,12 @@
 							y:1,
 							style: {
 								color: 'black'
+							},
+							formatter: function() {
+								if (this.total == 0) {
+									return '';
+								}
+								return this.total + '';
 							}
 						},
 						labels: {
@@ -521,6 +533,12 @@
 							y:1,
 							style: {
 								color: 'black'
+							},
+							formatter: function() {
+								if (this.total == 0) {
+									return '';
+								}
+								return this.total + '';
 							}
 						},
 						labels: {
@@ -697,6 +715,12 @@
 							y:1,
 							style: {
 								color: 'black'
+							},
+							formatter: function() {
+								if (this.total == 0) {
+									return '';
+								}
+								return this.total + '';
 							}
 						},
 						labels: {
@@ -873,6 +897,12 @@
 							y:1,
 							style: {
 								color: 'black'
+							},
+							formatter: function() {
+								if (this.total == 0) {
+									return '';
+								}
+								return this.total + '';
 							}
 						},
 						labels: {

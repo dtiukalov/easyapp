@@ -394,6 +394,8 @@
 	String Konzept_E = fv9SOPML_Date;
 	String Serienvorboreitung_S = fv9SOPML_Date;
 	String Serienvorboreitung_E = fv9MEML_Date;
+	
+	String project = (String)request.getSession().getAttribute("project");
 %>
 <body>	
 	<div style="position:relative" class="Gantt" id="GanttChart"></div>
@@ -406,9 +408,9 @@
 		for(int j=0; j< list.size(); j++){
 			
 			Map<String,String> map = list.get(j);
-			if(map.get("date") != null){
+			if(map.get("date") != null && !"".equals(map.get("date"))){
 				%>
-				g.AddTaskDetail(new Task('<%=map.get("date")%>', '<%=map.get("date")%>', '<b>kkkk</b>', '<%=map.get("lichengbei")%><br /><h6 style="color: white" class="GTaska" ><%=map.get("org")%></h6>', 50, 1));
+				g.AddTaskDetail(new Task('<%=map.get("date")%>', '<%=map.get("date")%>', '<b><%=project%></b>', '<%=map.get("lichengbei")%><br /><h6 style="color: white" class="GTaska" ><%=map.get("org")%></h6>', 50, 1));
 				<%
 			}
 		}

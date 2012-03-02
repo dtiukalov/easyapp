@@ -73,6 +73,12 @@
 							style: {
 								color: 'black',
 								fontSize:'12px'
+							},
+							formatter: function() {
+								if (this.total == 0) {
+									return '';
+								}
+								return this.total + '';
 							}
 						}
 					},
@@ -103,7 +109,13 @@
 								style : {
 									fontSize:'11px'
 								},
-								color: 'white'
+								color: 'white',
+								formatter: function() {
+									if (this.y == 0) {
+										return '';
+									}
+									return this.y + '';
+								}
 							}
 						}
 					},
@@ -118,28 +130,70 @@
 							style : {
 								fontSize:'11px'
 							},
-							color: 'black'
+							color: 'black',
+							formatter: function() {
+								if (this.y == 0) {
+									return '';
+								}
+								return this.y + '';
+							}
 						}
 					}, {
 						type: 'column',
 						name: 'Karosseriebau',
 						data: <%=fv9Karosseriebau%>,
-						color: '#AED4F8'
+						color: '#AED4F8',
+						dataLabels: {
+							enabled:true,
+							formatter: function() {
+								if (this.y == 0) {
+									return '';
+								}
+								return this.y + '';
+							}
+						}
 					}, {
 						type: 'column',
 						name: 'Kaufteil',
 						data: <%=fv9Kaufteile%>,
-						color: '#91AFFF'
+						color: '#91AFFF',
+						dataLabels: {
+							enabled:true,
+							formatter: function() {
+								if (this.y == 0) {
+									return '';
+								}
+								return this.y + '';
+							}
+						}
 					}, {
 						type: 'column',
 						name: 'Lack',
 						data: <%=fv9Lack%>,
-						color: '#BBC2C5'
+						color: '#BBC2C5',
+						dataLabels: {
+							enabled:true,
+							formatter: function() {
+								if (this.y == 0) {
+									return '';
+								}
+								return this.y + '';
+							}
+						}
 					}, {
 						type: 'column',
 						name: 'Montage',
 						data: <%=fv9Montage%>,
-						color: '#00235A'
+						color: '#00235A',
+						dataLabels: {
+							enabled:true,
+							formatter: function() {
+								if (this.y == 0) {
+									return '';
+								}
+								return this.y + '';
+							}
+						}
 					}, {
 						type: 'spline',
 						name: 'Prognose',

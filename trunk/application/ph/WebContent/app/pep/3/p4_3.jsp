@@ -157,6 +157,12 @@
 							y:-10,
 							style:{
 								fontSize:'14px'
+							},
+							formatter: function() {
+								if (this.y == 0) {
+									return '';
+								}
+								return this.y + '';
 							}
 						}
 					}

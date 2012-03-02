@@ -356,9 +356,6 @@
 					legend: {
 						enabled: false
 					},
-					legend: {
-						enabled: false
-					},
 					tooltip: {
 						formatter: function() {
 							return '<b>'+ this.x +'</b><br/>'+
@@ -378,7 +375,13 @@
 									fontSize:'10px',
 									align:'top'
 								},
-								color: '#4C5258'
+								color: '#4C5258',
+								formatter: function() {
+									if (this.y == 0) {
+										return '';
+									}
+									return this.y + '';
+								}
 							}
 						}
 					},
@@ -548,7 +551,13 @@
 									fontSize:'10px',
 									align:'top'
 								},
-								color: '#4C5258'
+								color: '#4C5258',
+								formatter: function() {
+									if (this.y == 0) {
+										return '';
+									}
+									return this.y + '';
+								}
 							}
 						}
 					},
@@ -718,7 +727,13 @@
 									fontSize:'10px',
 									align:'top'
 								},
-								color: '#4C5258'
+								color: '#4C5258',
+								formatter: function() {
+									if (this.y == 0) {
+										return '';
+									}
+									return this.y + '';
+								}
 							}
 						}
 					},
@@ -888,7 +903,13 @@
 									fontSize:'10px',
 									align:'top'
 								},
-								color: '#4C5258'
+								color: '#4C5258',
+								formatter: function() {
+									if (this.y == 0) {
+										return '';
+									}
+									return this.y + '';
+								}
 							}
 						}
 					},

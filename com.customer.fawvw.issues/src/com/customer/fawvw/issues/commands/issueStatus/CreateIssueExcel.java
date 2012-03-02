@@ -26,7 +26,7 @@ public class CreateIssueExcel {
 	public static final String TEMPLATE_FILE_PATH2 = System.getenv("TPR") + "\\plugins\\Template\\IssueStatusReport_Template2.xls"; //$NON-NLS-1$ //$NON-NLS-2$
 	
 	public static Boolean createExcel(HashMap<String, Object> parameters, 
-			String path1, String path2) throws Exception  {
+			String path1, String path2, String project_id) throws Exception  {
 		
 		HashMap<String, Object> values = IssueStatusReportLoader.load(parameters);
 		
@@ -40,7 +40,6 @@ public class CreateIssueExcel {
 			System.out.println("path = " + path1); //$NON-NLS-1$
 			System.out.println("parameters = " + parameters); //$NON-NLS-1$
 			String user_id = ((TCSession)parameters.get("session")).getUser().getUserId(); //$NON-NLS-1$
-			String project_id = (String)parameters.get("project_id"); //$NON-NLS-1$
 			String remote_template = "\\\\" + server_ip + "\\TCData\\IssueTemplate\\" + user_id + "_IssueStatusReport_" + project_id + ".xls"; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 			String remote_temp = "\\\\" + server_ip + "\\TCData\\IssueTemplate\\" + user_id + "_IssueStatusReport_" + project_id + Math.abs(new Random().nextInt()) + ".xls";  //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 	System.out.println("remote_template = " + remote_template); //$NON-NLS-1$

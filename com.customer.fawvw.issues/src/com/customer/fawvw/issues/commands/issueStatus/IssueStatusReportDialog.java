@@ -206,14 +206,18 @@ public class IssueStatusReportDialog extends AbstractFawvwPepDialog{
 		parameters.put("forecast", forecastValue.getText()); 
 		
 //		用户ID_IssueStatusReport_项目ID.xls
-		this.path = getSavePathTextField().getText().trim()
-			+ "\\" + super.getSession().getUser().getUserId() + "_IssueStatusReport_" +   
-			((TCComponentProject)this.projectComboBox.getSelectedItem()).getProperty("project_id");
+		String projectID = ((TCComponentProject)this.projectComboBox.getSelectedItem()).getProperty("project_id");
+		projectID = projectID.replaceAll("\\\\", "-");
+		projectID = projectID.replaceAll("/", "-");
 		
+
+		this.path = getSavePathTextField().getText().trim()
+			+ "\\" + super.getSession().getUser().getUserId() + "_IssueStatusReport_"
+			+ projectID;
 		String path1 = this.path + "_" + Math.abs(new Random().nextInt()) + ".xls"; 
 		String path2 = this.path + "_" + Math.abs(new Random().nextInt()) + ".xls"; 
 		
-		if (CreateIssueExcel.createExcel(parameters, path1, path2)) {
+		if (CreateIssueExcel.createExcel(parameters, path1, path2, projectID)) {
 			path1 = "\"" + path1 + "\"";   
 			path2 = "\"" + path2 + "\"";   
 			Runtime.getRuntime().exec("cmd  /c  start excel " + path1); 

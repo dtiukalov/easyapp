@@ -99,7 +99,13 @@
 							},
 							color: 'white',
 							rotation: -90,
-							x:5
+							x:5,
+							formatter: function() {
+								if (this.y == 0) {
+									return '';
+								}
+								return this.y + '';
+							}
 						}
 					}
 				},
@@ -252,7 +258,13 @@
 				                style: {
 				                    fontSize:'12px'
 				                	},
-				                	color:'black'
+				                	color:'black',
+									formatter: function() {
+										if (this.y == 0) {
+											return '';
+										}
+										return this.y + '';
+									}
 				           		 }
 				       		 }
 				},

@@ -88,9 +88,11 @@ public class ImageUtil {
 	public static final String OS = System.getenv("TPR") + "\\plugins\\Template\\images\\0S.jpg"; //$NON-NLS-1$ //$NON-NLS-2$
 	public static final String SOP = System.getenv("TPR") + "\\plugins\\Template\\images\\SOP.jpg"; //$NON-NLS-1$ //$NON-NLS-2$
 	
-	public static final String RED = System.getenv("TPR") + "\\plugins\\Template\\images\\redSmall.jpg"; //$NON-NLS-1$ //$NON-NLS-2$
-	public static final String YELLOW = System.getenv("TPR") + "\\plugins\\Template\\images\\yellowSmall.jpg"; //$NON-NLS-1$ //$NON-NLS-2$
-	public static final String GREEN = System.getenv("TPR") + "\\plugins\\Template\\images\\greenSmall.jpg"; //$NON-NLS-1$ //$NON-NLS-2$
+	public static final String RED = System.getenv("TPR") + "\\plugins\\Template\\images\\red_01.png"; //$NON-NLS-1$ //$NON-NLS-2$
+	public static final String YELLOW = System.getenv("TPR") + "\\plugins\\Template\\images\\yellow_01.png"; //$NON-NLS-1$ //$NON-NLS-2$
+	public static final String GREEN = System.getenv("TPR") + "\\plugins\\Template\\images\\green_01.png"; //$NON-NLS-1$ //$NON-NLS-2$
+	public static final String WHITE = System.getenv("TPR") + "\\plugins\\Template\\images\\white.png"; //$NON-NLS-1$ //$NON-NLS-2$
+	
 	
 	public static final String CAR = System.getenv("TPR") + "\\plugins\\Template\\images\\car.png"; //$NON-NLS-1$ //$NON-NLS-2$
 	public static final String TOP = System.getenv("TPR") + "\\plugins\\Template\\images\\top.jpg"; //$NON-NLS-1$ //$NON-NLS-2$
@@ -433,7 +435,7 @@ public class ImageUtil {
 			return readBufferedImg(ins);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			throw new FawvmLoaderException("red.jpg不存在"); //$NON-NLS-1$
+			throw new FawvmLoaderException("red_01.png不存在"); //$NON-NLS-1$
 		}
 	}
 	
@@ -444,7 +446,7 @@ public class ImageUtil {
 			return readBufferedImg(ins);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			throw new FawvmLoaderException("yellow.jpg不存在"); //$NON-NLS-1$
+			throw new FawvmLoaderException("yellow_01.png不存在"); //$NON-NLS-1$
 		}
 	}
 	
@@ -455,7 +457,18 @@ public class ImageUtil {
 			return readBufferedImg(ins);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			throw new FawvmLoaderException("green.jpg不存在"); //$NON-NLS-1$
+			throw new FawvmLoaderException("green_01.png不存在"); //$NON-NLS-1$
+		}
+	}
+	
+	public static BufferedImage getWhite() throws Exception {
+		try {
+			File image = new File(WHITE);
+			InputStream ins = new FileInputStream(image);
+			return readBufferedImg(ins);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			throw new FawvmLoaderException("white.png不存在"); //$NON-NLS-1$
 		}
 	}
 	

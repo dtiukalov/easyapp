@@ -34,7 +34,7 @@ public class LoadAction implements IAction {
 		if (item == null) {
 			return new JspErrorView("Item:Name=[" + name + "] 不存在");
 		}
-
+		String project = name.split("_")[0];
 		String roadmap = name.split("_")[1];
 		
 		Map<String, Object> formIds = ItemUtils.getLastRevisionFormIds(item);
@@ -42,6 +42,7 @@ public class LoadAction implements IAction {
 		
 		request.getSession().setAttribute("milepost", roadmap);
 		request.getSession().setAttribute("indexes", indexes);
+		request.getSession().setAttribute("project", project);
 		
 		request.setAttribute("current", "1");
 		return new JspView(indexes.get(0));

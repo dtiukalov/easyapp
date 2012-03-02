@@ -12,30 +12,27 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<%@ include file="/app/pep/include/header.jsp"%>
 	<title><%=title %></title>
-	<style type="text/css">
-		
-	</style>
 	<%
 		String uid = (String)request.getAttribute("uid");
 	%>
+	
 </head>
 <body>	
-	<div id="container" >
-		<div id="nr" style="margin-left:35px">
-			<div id="top" >
+	<div id="container" style="">
+	<div id="nr" style="margin:0 35px;width:850px">
+			<div id="top" style="border-bottom:#000099 2px solid;height:80px;width:930px;">
 				<div class="fl"> VW471 CN-Pilothalle VFF,20.10.2010</div>
 				<div class="fr"> STATUS 19.10.2010</div>
-				<h1><%=title %></h1>
+				<h1><%=title %>3</h1>
 			</div>
-			<div id="content" style="height:400px;margin:100px 10px">
-				<iframe id="ff" name= "ff" frameborder="0" 
+			<div id="content">
+				<%-- <iframe id="ff" name= "ff" frameborder="0" 
 					    src="<%=request.getContextPath() %>/app/pep/1/GanttChart1.jsp?uid=<%=uid %>" 
-					    style="width:100%;height:280px;margin:0 150px">
-				</iframe>
+					    style="width:630px;height:280px;margin:50px 70px">
+				</iframe> --%>
 			</div>
-			
-			<%@ include file="/app/pep/include/foot.jsp"%>
-		</div>
+			<%@ include file="/app/pep/include/foot1.jsp"%>
+	</div>
 	</div>	
 </body>
 </html>

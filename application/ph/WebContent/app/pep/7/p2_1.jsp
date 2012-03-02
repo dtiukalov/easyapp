@@ -18,17 +18,17 @@
 	<div id="container">
 		<div id="nr">
 		<div id="top">
-				<div class="fl"> VW471 CN-Pilothalle VFF,20.10.2010</div>
-				<div class="fr"> STATUS 19.10.2010</div>
+			<div class="fl"> VW471 CN-Pilothalle VFF,20.10.2010</div>
+			<div class="fr"> STATUS 19.10.2010</div>
 				<h1><%=title %></h1>
 			</div>
-		<div id="content">
+			<div id="content">
 				<div class="box">
 						<img src = "<%=src%>" />
 				</div>
-		</div>
-		<%@ include file="/app/pep/include/foot.jsp"%>
-	</div>	
+			</div>
+			<%@ include file="/app/pep/include/foot.jsp"%>
+		</div>	
 	</div>
 </body>
 </html>

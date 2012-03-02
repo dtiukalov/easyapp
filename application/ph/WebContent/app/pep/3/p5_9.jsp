@@ -110,9 +110,10 @@
 						shadow: false
 					},
 					tooltip: {
-						formatter: function() {
-			                return '<b>'+ this.series.name +'</b><br/>'+
-							this.x +'<br/>'+ this.y;
+						borderWidth: 0,
+						shadow:false,
+						 formatter: function() {
+							return '<table style="border-collapse:collapse;border:solid 1px #000;" width="350" height="50" cellpadding="0" cellspacing="0"><tr><td width="50%" style="border-bottom:solid 1px #000;border-right:solid 1px #000;text-align:left;"> '+  this.series.name +'</td><td width="30%" style="border-bottom:solid 1px #000;border-right:solid 1px #000">'+ this.y +'</td><td width="25%" style="border-bottom:solid 1px #000;text-align:center">×</td></tr><tr><td style="border:solid 1px #000;border-bottom:none;border-left:none">'+  this.series.name +'</td><td style="border:solid 1px #000;border-bottom:none">'+ this.x +'</td><td style="border:solid 1px #000;border-bottom:none;border-right:none;text-align:center">√</td></tr></table>';
 						}
 					},
 					plotOptions: {
@@ -149,7 +150,8 @@
 			                lineWidth: 2,
 			                lineColor: null,
 			                radius: 3
-						}
+						},
+						enableMouseTracking: false
 					}, {
 						type: 'spline',
 						name: 'Konzernziel',
@@ -160,7 +162,8 @@
 			                lineWidth: 2,
 			                lineColor: null,
 			                radius: 3
-						}
+						},
+						enableMouseTracking: false
 					}]
 				});
 			});

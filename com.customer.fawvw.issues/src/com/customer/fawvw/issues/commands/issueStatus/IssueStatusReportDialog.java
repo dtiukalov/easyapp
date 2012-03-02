@@ -53,7 +53,7 @@ public class IssueStatusReportDialog extends AbstractFawvwPepDialog{
 	private JButton updateButton;
 	private JButton shutButton;
 	
-	private String path = ""; //$NON-NLS-1$
+	private String path = ""; 
 	
 	public IssueStatusReportDialog(AbstractFawvwPepCommand command) {
 		super(command);
@@ -64,7 +64,7 @@ public class IssueStatusReportDialog extends AbstractFawvwPepDialog{
 		/* 所属平台 */
 		inputPanel = new JPanel(new PropertyLayout());
 		timeLabel = new JLabel("当前时间");
-		timeValue = createTextField("", 30, TCConstants //$NON-NLS-1$
+		timeValue = createTextField("", 30, TCConstants 
 				.getDefaultMaxNameSize(super.getSession()), true);
 		timeValue.disable();
 		timeValue.setText(getCurrentTime());
@@ -74,21 +74,21 @@ public class IssueStatusReportDialog extends AbstractFawvwPepDialog{
 		ComponentUtils.initializeProject(super.getSession(), projectComboBox);
 		
 		mileStoneLabel = new JLabel("里程碑");
-		mileStoneLov = new LOVComboBox(super.getSession(), "FV9VSCPhase"); //$NON-NLS-1$
+		mileStoneLov = new LOVComboBox(super.getSession(), "FV9VSCPhase"); 
 		
 		forecastLabel = new JLabel("预测显示周数");
-		forecastValue = createTextField("", 30, TCConstants //$NON-NLS-1$
+		forecastValue = createTextField("", 30, TCConstants 
 				.getDefaultMaxNameSize(super.getSession()), true);
-		forecastValue.setText("0"); //$NON-NLS-1$
+		forecastValue.setText("0"); 
 		
 		savePathLabel = new JLabel("保存路径");
-		savePathTextField = createTextField("", 30, TCConstants //$NON-NLS-1$
+		savePathTextField = createTextField("", 30, TCConstants 
 				.getDefaultMaxNameSize(super.getSession()), true);
 		savePathButton = new JButton("浏览");
 		savePathButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JFileChooser jChooser = new JFileChooser();
-				jChooser.setCurrentDirectory(new File("D:/")); //$NON-NLS-1$
+				jChooser.setCurrentDirectory(new File("D:/")); 
 				jChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);// 只能打开文件夹
 				int index = jChooser.showDialog(null,
 						"打开");
@@ -143,39 +143,39 @@ public class IssueStatusReportDialog extends AbstractFawvwPepDialog{
 		buttonPanel.add(updateButton);
 		buttonPanel.add(shutButton);
 		
-		inputPanel.add("1.1.right.top.preferred.preferred", timeLabel); //$NON-NLS-1$
-		inputPanel.add("1.2.center.center.preferred.preferred", timeValue); //$NON-NLS-1$
-		inputPanel.add("2.1.right.top.preferred.preferred", projectLabel); //$NON-NLS-1$
-		inputPanel.add("2.2.center.center.preferred.preferred", projectComboBox); //$NON-NLS-1$
-		inputPanel.add("3.1.right.top.preferred.preferred", mileStoneLabel); //$NON-NLS-1$
-		inputPanel.add("3.2.center.center.preferred.preferred", mileStoneLov); //$NON-NLS-1$
-		inputPanel.add("4.1.right.top.preferred.preferred", forecastLabel); //$NON-NLS-1$
-		inputPanel.add("4.2.center.center.preferred.preferred", forecastValue); //$NON-NLS-1$
-		inputPanel.add("5.1.right.top.preferred.preferred", savePathLabel); //$NON-NLS-1$
-		inputPanel.add("5.2.center.center.preferred.preferred", savePathTextField); //$NON-NLS-1$
-		inputPanel.add("5.3.center.center.preferred.preferred", savePathButton); //$NON-NLS-1$
-		super.getLeftPanel().add("unbound.bind.center.top", inputPanel);  //$NON-NLS-1$
-		super.getLeftPanel().add("unbound.bind.center.top", inputPanel); //$NON-NLS-1$
-		parentPanel.add("bottom.bind.center.top", buttonPanel); //$NON-NLS-1$
+		inputPanel.add("1.1.right.top.preferred.preferred", timeLabel); 
+		inputPanel.add("1.2.center.center.preferred.preferred", timeValue); 
+		inputPanel.add("2.1.right.top.preferred.preferred", projectLabel); 
+		inputPanel.add("2.2.center.center.preferred.preferred", projectComboBox); 
+		inputPanel.add("3.1.right.top.preferred.preferred", mileStoneLabel); 
+		inputPanel.add("3.2.center.center.preferred.preferred", mileStoneLov); 
+		inputPanel.add("4.1.right.top.preferred.preferred", forecastLabel); 
+		inputPanel.add("4.2.center.center.preferred.preferred", forecastValue); 
+		inputPanel.add("5.1.right.top.preferred.preferred", savePathLabel); 
+		inputPanel.add("5.2.center.center.preferred.preferred", savePathTextField); 
+		inputPanel.add("5.3.center.center.preferred.preferred", savePathButton); 
+		super.getLeftPanel().add("unbound.bind.center.top", inputPanel);  
+		super.getLeftPanel().add("unbound.bind.center.top", inputPanel); 
+		parentPanel.add("bottom.bind.center.top", buttonPanel); 
 	}
 	
 	public String getCurrentTime() {
-//		String currentTime = "KW22/2011"; //$NON-NLS-1$
+//		String currentTime = "KW22/2011"; 
 		String year = DateUtil.getCurrentYear();
-		String week = DateUtil.getWeekOfYear2(DateUtil.getSystTime()) + ""; //$NON-NLS-1$
-		return week + "-" + year; //$NON-NLS-1$
+		String week = DateUtil.getWeekOfYear2(DateUtil.getSystTime()) + ""; 
+		return week + "-" + year; 
 	}
 	
 	public boolean doValidate() {
 		this.path = getSavePathTextField().getText().trim();
-		if ("".equals(this.path) || this.path == null) {  //$NON-NLS-1$
+		if ("".equals(this.path) || this.path == null) {  
 			MessageBox.post("请选择保存位置", 
 					getTitle(),
 					MessageBox.INFORMATION);
 			return false;
 		}
 		
-		if ("".equals(this.mileStoneLov.getSelectedItem().toString()) || //$NON-NLS-1$
+		if ("".equals(this.mileStoneLov.getSelectedItem().toString()) || 
 				this.mileStoneLov.getSelectedItem().toString() == null) {
 			MessageBox.post("请选择里程碑", 
 					getTitle(), 
@@ -194,28 +194,30 @@ public class IssueStatusReportDialog extends AbstractFawvwPepDialog{
 	}
 	
 	public void generateExcel() throws Exception {
-		System.out.println("generateExcel"); //$NON-NLS-1$
+		System.out.println("generateExcel"); 
 		HashMap<String, Object> parameters = new HashMap<String, Object>();
-		parameters.put("week", getCurrentTime()); //$NON-NLS-1$
-		parameters.put("project_id", ((TCComponentProject)this.projectComboBox.getSelectedItem()) //$NON-NLS-1$
-				.getProperty("project_id")); //$NON-NLS-1$
-		parameters.put("project_name", ((TCComponentProject)this.projectComboBox.getSelectedItem()) //$NON-NLS-1$
-				.getProperty("project_name")); //$NON-NLS-1$
-		parameters.put("mile_stone", this.mileStoneLov.getSelectedItem().toString()); //$NON-NLS-1$
-		parameters.put("session", super.getSession()); //$NON-NLS-1$
-		parameters.put("forecast", forecastValue.getText()); //$NON-NLS-1$
+		parameters.put("week", getCurrentTime()); 
+		parameters.put("project_id", ((TCComponentProject)this.projectComboBox.getSelectedItem()) 
+				.getProperty("project_id")); 
+		parameters.put("project_name", ((TCComponentProject)this.projectComboBox.getSelectedItem()) 
+				.getProperty("project_name")); 
+		parameters.put("mile_stone", this.mileStoneLov.getSelectedItem().toString()); 
+		parameters.put("session", super.getSession()); 
+		parameters.put("forecast", forecastValue.getText()); 
 		
 //		用户ID_IssueStatusReport_项目ID.xls
 		this.path = getSavePathTextField().getText().trim()
-			+ "\\" + super.getSession().getUser().getUserId() + "_IssueStatusReport_" +  //$NON-NLS-1$ //$NON-NLS-2$
-			((TCComponentProject)this.projectComboBox.getSelectedItem()).getProperty("project_id") + "_" +  //$NON-NLS-1$ //$NON-NLS-2$
-			Math.abs(new Random().nextInt()) + ".xls"; //$NON-NLS-1$
+			+ "\\" + super.getSession().getUser().getUserId() + "_IssueStatusReport_" +   
+			((TCComponentProject)this.projectComboBox.getSelectedItem()).getProperty("project_id");
 		
-		Boolean flag = CreateIssueExcel.createExcel(parameters, path);
+		String path1 = this.path + "_" + Math.abs(new Random().nextInt()) + ".xls"; 
+		String path2 = this.path + "_" + Math.abs(new Random().nextInt()) + ".xls"; 
 		
-		if (flag) {
-			path = "\"" + path + "\"";  //$NON-NLS-1$ //$NON-NLS-2$
-			Runtime.getRuntime().exec("cmd  /c  start excel " + this.path); //$NON-NLS-1$
+		if (CreateIssueExcel.createExcel(parameters, path1, path2)) {
+			path1 = "\"" + path1 + "\"";   
+			path2 = "\"" + path2 + "\"";   
+			Runtime.getRuntime().exec("cmd  /c  start excel " + path1); 
+			Runtime.getRuntime().exec("cmd  /c  start excel " + path2); 
 		}
 
 	}

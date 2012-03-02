@@ -115,7 +115,13 @@
 								style : {
 									fontSize:'12px'
 								},
-								color: 'black'
+								color: 'black',
+								formatter: function() {
+									if (this.y == 0) {
+										return '';
+									}
+									return this.y + '';
+								}
 							}
 						}
 					}, series: [{

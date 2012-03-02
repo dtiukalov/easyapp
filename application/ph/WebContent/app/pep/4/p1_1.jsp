@@ -138,7 +138,13 @@
 								fontSize:'10px',
 								align:'top'
 							},
-							color: '#4C5258'
+							color: '#4C5258',
+							formatter: function() {
+								if (this.y == 0) {
+									return '';
+								}
+								return this.y + '';
+							}
 						}
 					}
 				},

@@ -84,12 +84,6 @@
 							fontWeight: 'bold',
 							color: 'black',
 							fontSize:'14px'
-						},
-						formatter: function() {
-							if (this.y == 0) {
-								return '';
-							}
-							return this.y + '';
 						}
 					}
 				},
@@ -179,12 +173,6 @@
 		                lineWidth: 2,
 		                lineColor: null,
 		                radius: 3
-					},
-					formatter: function() {
-						if (this.y == 0) {
-							return '';
-						}
-						return this.y + '';
 					}
 				}, {
 					type: 'spline',
@@ -196,19 +184,19 @@
 						style : {
 							fontSize:'16px'
 						},
-						color: 'black'
+						color: 'black',
+						formatter: function() {
+							if (this.y == 0) {
+								return '';
+							}
+							return this.y + '';
+						}
 					},
 					marker:{
 						fillColor: '#FFFFFF',
 		                lineWidth: 2,
 		                lineColor: null,
 		                radius: 3
-					},
-					formatter: function() {
-						if (this.y == 0) {
-							return '';
-						}
-						return this.y + '';
 					}
 				}]
 			});

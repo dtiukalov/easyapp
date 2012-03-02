@@ -84,6 +84,12 @@
 							fontWeight: 'bold',
 							color: 'black',
 							fontSize:'14px'
+						},
+						formatter: function() {
+							if (this.y == 0) {
+								return '';
+							}
+							return this.y + '';
 						}
 					}
 				},
@@ -130,7 +136,13 @@
 						style : {
 							fontSize:'12px'
 						},
-						color: 'black'
+						color: 'black',
+						formatter: function() {
+							if (this.y == 0) {
+								return '';
+							}
+							return this.y + '';
+						}
 					}
 				},{
 					type: 'column',
@@ -142,7 +154,13 @@
 						style : {
 							fontSize:'12px'
 						},
-						color: 'black'
+						color: 'black',
+						formatter: function() {
+							if (this.y == 0) {
+								return '';
+							}
+							return this.y + '';
+						}
 					}
 				}, {
 					type: 'spline',
@@ -161,6 +179,12 @@
 		                lineWidth: 2,
 		                lineColor: null,
 		                radius: 3
+					},
+					formatter: function() {
+						if (this.y == 0) {
+							return '';
+						}
+						return this.y + '';
 					}
 				}, {
 					type: 'spline',
@@ -179,6 +203,12 @@
 		                lineWidth: 2,
 		                lineColor: null,
 		                radius: 3
+					},
+					formatter: function() {
+						if (this.y == 0) {
+							return '';
+						}
+						return this.y + '';
 					}
 				}]
 			});

@@ -26,12 +26,12 @@
 				<h1><%=title %>3</h1>
 			</div>
 			<div id="content">
-				<%-- <iframe id="ff" name= "ff" frameborder="0" 
+				<iframe id="ff" name= "ff" frameborder="0" 
 					    src="<%=request.getContextPath() %>/app/pep/1/GanttChart1.jsp?uid=<%=uid %>" 
-					    style="width:630px;height:280px;margin:50px 70px">
-				</iframe> --%>
+					    style="width:850px;height:280px;margin:50px 10px">
+				</iframe> 
 			</div>
-			<%@ include file="/app/pep/include/foot1.jsp"%>
+			<%@ include file="/app/pep/include/foot.jsp"%>
 	</div>
 	</div>	
 </body>

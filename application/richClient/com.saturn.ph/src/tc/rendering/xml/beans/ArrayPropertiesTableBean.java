@@ -173,8 +173,8 @@ public class ArrayPropertiesTableBean extends JPanel implements
 						unSelectAll();
 				}
 			});
-			JLabel label = new JLabel("¹¤ÐòÀàÐÍ");
-			// opTypeCom = new LOVUIComponent(session, "Z4_³åÑ¹¹¤ÐòÀàÐÍ");
+			JLabel label = new JLabel("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+			// opTypeCom = new LOVUIComponent(session, "Z4_ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 			// opTypeCom.setEnabled(false);
 
 			appendButton = new JButton("append");
@@ -213,7 +213,7 @@ public class ArrayPropertiesTableBean extends JPanel implements
 	@Override
 	public boolean isPropertyModified(TCProperty prop) throws Exception {
 		//return this.table.getModel().isModified();
-		return true;
+		return this.table.hasModified();
 	}
 
 	@Override
@@ -279,12 +279,12 @@ public class ArrayPropertiesTableBean extends JPanel implements
 			}
 		});
 
-		addButton.setToolTipText("ÐÂÔöÐÐ");
-		insertButton.setToolTipText("²åÈëÐÐ");
-		copyButton.setToolTipText("¸´ÖÆÐÐ");
-		removeButton.setToolTipText("É¾³ýÐÐ");
-		upButton.setToolTipText("ÉÏÒÆ");
-		downButton.setToolTipText("ÏÂÒÆ");
+		addButton.setToolTipText("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+		insertButton.setToolTipText("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+		copyButton.setToolTipText("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+		removeButton.setToolTipText("É¾ï¿½ï¿½ï¿½ï¿½");
+		upButton.setToolTipText("ï¿½ï¿½ï¿½ï¿½");
+		downButton.setToolTipText("ï¿½ï¿½ï¿½ï¿½");
 		panel.add(addButton);
 		panel.add(insertButton);
 		panel.add(copyButton);
@@ -371,18 +371,18 @@ public class ArrayPropertiesTableBean extends JPanel implements
 
 			table.setDefaultRenderer(Object.class,
 					new MultiLineTableCellRenderer());
-			// {//Ìí¼Ó²¿·Ö1
+			// {//ï¿½ï¿½Ó²ï¿½ï¿½ï¿½1
 			// public boolean isCellEditable(int row, int column)
 			// {
 			// return false;
 			// }
 			// };
 
-			// CellPopupEditor editor = new CellPopupEditor("±à¼­PFMEA");
+			// CellPopupEditor editor = new CellPopupEditor("ï¿½à¼­PFMEA");
 			table.setDefaultEditor(Object.class,
 					new ArrayPropertyTableCellEditor(form.getSession(), table));
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-		table.getTableHeader().addMouseListener(new MouseAdapter() // ±íÍ·Ìí¼ÓÊÂ¼þ
+		table.getTableHeader().addMouseListener(new MouseAdapter() // ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
 				{
 					public void mousePressed(MouseEvent e) {
 						TableCellEditor editor = table.getCellEditor();
@@ -391,7 +391,7 @@ public class ArrayPropertiesTableBean extends JPanel implements
 					}
 				});
 
-		editor = new PopupCell(form.getSession(), "±à¼­PFMEA");
+		editor = new PopupCell(form.getSession(), "ï¿½à¼­PFMEA");
 		editor.setTableModal(table.getModel());
 
 		JScrollPane sp = UIUtil.setNonOpaque(new JScrollPane(this.table));

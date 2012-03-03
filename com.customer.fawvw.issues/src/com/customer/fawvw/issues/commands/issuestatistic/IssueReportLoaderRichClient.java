@@ -132,16 +132,17 @@ System.out.println("tcComponents.length = " + tcComponents.length);
 //					ArrayList<HashMap<String, Object>> issuelist = transVOToArrayList(issueVos);
 					//按照各个维度统计数据
 					//责任部门
+
 					Map<String,Object> department = DepartmentStatusLoader.load(issuelist);
 					System.out.println("按责任部门统计" 
-							+ "\r\n" + "PM:" + department.get("PM")  
-							+ "\r\n" + "SU:" + department.get("SU") 
-							+ "\r\n" + "PE:" + department.get("PE") 
-							+ "\r\n" + "ME:" + department.get("ME") 
+							+ "\r\n" + "BS:" + department.get("BS")  
+							+ "\r\n" + "CA:" + department.get("CA") 
+							+ "\r\n" + "LO:" + department.get("LO") 
+							+ "\r\n" + "PA:" + department.get("PA") 
 							+ "\r\n" + "PL:" + department.get("PL") 
-							+ "\r\n" + "QA:" + department.get("QA") 
-							+ "\r\n" + "VSC:" + department.get("VSC") 
-							+ "\r\n" + "LO" + department.get("LO")); 
+							+ "\r\n" + "QAPP:" + department.get("QAPP") 
+							+ "\r\n" + "SU:" + department.get("SU") 
+							+ "\r\n" + "VSC" + department.get("VSC")); 
 					
 					//零件类型
 					Map<String,Object> partType = PartTypeStatusLoader.load(issuelist);

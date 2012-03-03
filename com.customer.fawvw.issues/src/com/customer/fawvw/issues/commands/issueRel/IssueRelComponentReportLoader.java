@@ -61,10 +61,25 @@ public class IssueRelComponentReportLoader {
 						tempData.put("assPlacement", itemRevision.getProperty("fv9AssPlacement"));
 						tempData.put("issueReqCarNo", itemRevision.getProperty("fv9IssueReqCarNo"));
 						tempData.put("issueCause", itemRevision.getProperty("fv9IssueCause"));
-						tempData.put("Solution1", itemRevision.getProperty("fv9Solution1"));
-						tempData.put("SlResDep1", itemRevision.getProperty("fv9SlResDep1"));
-						tempData.put("Solution2", itemRevision.getProperty("fv9Solution2"));
-						tempData.put("SlResDep2", itemRevision.getProperty("fv9SlResDep2"));
+						
+						tempData.put("fv9SolutionBS", itemRevision.getProperty("fv9SolutionBS"));
+						tempData.put("fv9SolutionCA", itemRevision.getProperty("fv9SolutionCA"));
+						tempData.put("fv9SolutionLO", itemRevision.getProperty("fv9SolutionLO"));
+						tempData.put("fv9SolutionPA", itemRevision.getProperty("fv9SolutionPA"));
+						tempData.put("fv9SolutionPL", itemRevision.getProperty("fv9SolutionPL"));
+						tempData.put("fv9SolutionQAPP", itemRevision.getProperty("fv9SolutionQAPP"));
+						tempData.put("fv9SolutionSU", itemRevision.getProperty("fv9SolutionSU"));
+						tempData.put("fv9SolutionVSC", itemRevision.getProperty("fv9SolutionVSC"));
+						
+						tempData.put("fv9SlResDepBS", itemRevision.getProperty("fv9SlResDepBS"));
+						tempData.put("fv9SlResDepCA", itemRevision.getProperty("fv9SlResDepCA"));
+						tempData.put("fv9SlResDepLO", itemRevision.getProperty("fv9SlResDepLO"));
+						tempData.put("fv9SlResDepPA", itemRevision.getProperty("fv9SlResDepPA"));
+						tempData.put("fv9SlResDepPL", itemRevision.getProperty("fv9SlResDepPL"));
+						tempData.put("fv9SlResDepQAPP", itemRevision.getProperty("fv9SlResDepQAPP"));
+						tempData.put("fv9SlResDepSU", itemRevision.getProperty("fv9SlResDepSU"));
+						tempData.put("fv9SlResDepVSC", itemRevision.getProperty("fv9SlResDepVSC"));
+						
 						tempData.put("RGStatus", itemRevision.getProperty("fv9RGStatus"));
 						tempData.put("SolDeadlineDate", itemRevision.getProperty("fv9SolDeadlineDate"));
 						tempData.put("CompletedDate", itemRevision.getProperty("fv9CompletedDate"));

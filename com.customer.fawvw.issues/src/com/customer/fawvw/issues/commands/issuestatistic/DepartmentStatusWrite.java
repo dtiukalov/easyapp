@@ -12,6 +12,7 @@ public class DepartmentStatusWrite {
 	/**
 	 *写入“按责任部门统计”页
 	 */
+
 	static void importDataPage(HSSFWorkbook workbook,
 			HSSFSheet sheetPage, Map<String, Object> values) {
 		
@@ -25,35 +26,35 @@ public class DepartmentStatusWrite {
 			if (cell_21_2 == null) {
 				cell_21_2 = row21.createCell(2);
 			}
-			cell_21_2.setCellValue(((Map<String, Integer>) departments.get("PE")) 
+			cell_21_2.setCellValue(((Map<String, Integer>) departments.get("PL")) 
 					.get("red")); 
 			
 			HSSFCell cell_21_3 = row21.getCell(3);
 			if (cell_21_3 == null) {
 				cell_21_3 = row21.createCell(3);
 			}
-			cell_21_3.setCellValue(((Map<String, Integer>) departments
-					.get("QA")).get("red"));  
+			cell_21_3.setCellValue(((Map<String, Integer>) departments.get("QAPP")).
+					get("red"));  
 			
 			HSSFCell cell_21_4 = row21.getCell(4);
 			if (cell_21_4 == null) {
 				cell_21_4 = row21.createCell(4);
 			}
 			cell_21_4.setCellValue(((Map<String, Integer>) departments.get("LO")) 
-							.get("red")); 
+					.get("red")); 
 			
 			HSSFCell cell_21_5 = row21.getCell(5);
 			if (cell_21_5 == null) {
 				cell_21_5 = row21.createCell(5);
 			}
-			cell_21_5.setCellValue(((Map<String, Integer>) departments
-					.get("ME")).get("red"));  
+			cell_21_5.setCellValue(((Map<String, Integer>) departments.get("BS"))
+					.get("red"));  
 			
 			HSSFCell cell_21_6 = row21.getCell(6);
 			if (cell_21_6 == null) {
 				cell_21_6 = row21.createCell(6);
 			}
-			cell_21_6.setCellValue(((Map<String, Integer>) departments.get("PL")) 
+			cell_21_6.setCellValue(((Map<String, Integer>) departments.get("PA")) 
 					.get("red")); 
 			
 			HSSFCell cell_21_7 = row21.getCell(7);
@@ -74,7 +75,7 @@ public class DepartmentStatusWrite {
 			if (cell_21_9 == null) {
 				cell_21_9 = row21.createCell(9);
 			}
-			cell_21_9.setCellValue(((Map<String, Integer>) departments.get("PM")) 
+			cell_21_9.setCellValue(((Map<String, Integer>) departments.get("CA")) 
 					.get("red")); 
 			
 			HSSFCell cell_21_10 = row21.getCell(10);
@@ -89,15 +90,15 @@ public class DepartmentStatusWrite {
 			if (cell_22_2 == null) {
 				cell_22_2 = row22.createCell(2);
 			}
-			cell_22_2.setCellValue(((Map<String, Integer>) departments.get("PE")) 
+			cell_22_2.setCellValue(((Map<String, Integer>) departments.get("PL")) 
 					.get("yellow")); 
 			
 			HSSFCell cell_22_3 = row22.getCell(3);
 			if (cell_22_3 == null) {
 				cell_22_3 = row22.createCell(3);
 			}
-			cell_22_3.setCellValue(((Map<String, Integer>) departments
-					.get("QA")).get("yellow"));  
+			cell_22_3.setCellValue(((Map<String, Integer>) departments.get("QAPP"))
+					.get("yellow"));  
 			
 			HSSFCell cell_22_4 = row22.getCell(4);
 			if (cell_22_4 == null) {
@@ -110,14 +111,14 @@ public class DepartmentStatusWrite {
 			if (cell_22_5 == null) {
 				cell_22_5 = row22.createCell(5);
 			}
-			cell_22_5.setCellValue(((Map<String, Integer>) departments.get("ME")) 
+			cell_22_5.setCellValue(((Map<String, Integer>) departments.get("BS")) 
 					.get("yellow"));  
 			
 			HSSFCell cell_22_6 = row22.getCell(6);
 			if (cell_22_6 == null) {
 				cell_22_6 = row22.createCell(6);
 			}
-			cell_22_6.setCellValue(((Map<String, Integer>) departments.get("PL")) 
+			cell_22_6.setCellValue(((Map<String, Integer>) departments.get("PA")) 
 					.get("yellow")); 
 			
 			HSSFCell cell_22_7 = row22.getCell(7);
@@ -138,7 +139,7 @@ public class DepartmentStatusWrite {
 			if (cell_22_9 == null) {
 				cell_22_9 = row22.createCell(9);
 			}
-			cell_22_9.setCellValue(((Map<String, Integer>) departments.get("PM")) 
+			cell_22_9.setCellValue(((Map<String, Integer>) departments.get("CA")) 
 					.get("yellow")); 
 			
 			HSSFCell cell_22_10 = row22.getCell(10);
@@ -154,35 +155,35 @@ public class DepartmentStatusWrite {
 			if (cell_23_2 == null) {
 				cell_23_2 = row23.createCell(2);
 			}
-			cell_23_2.setCellValue(((Map<String, Integer>) departments.get("PE")) 
+			cell_23_2.setCellValue(((Map<String, Integer>) departments.get("PL")) 
 					.get("green")); 
 			
 			HSSFCell cell_23_3 = row23.getCell(3);
 			if (cell_23_3 == null) {
 				cell_23_3 = row23.createCell(3);
 			}
-			cell_23_3.setCellValue(((Map<String, Integer>) departments
-					.get("QA")).get("green"));  
+			cell_23_3.setCellValue(((Map<String, Integer>) departments.get("QAPP"))
+					.get("green"));  
 			
 			HSSFCell cell_23_4 = row23.getCell(4);
 			if (cell_23_4 == null) {
 				cell_23_4 = row23.createCell(4);
 			}
 			cell_23_4.setCellValue(((Map<String, Integer>) departments.get("LO")) 
-							.get("green")); 
+					.get("green")); 
 			
 			HSSFCell cell_23_5 = row23.getCell(5);
 			if (cell_23_5 == null) {
 				cell_23_5 = row23.createCell(5);
 			}
-			cell_23_5.setCellValue(((Map<String, Integer>) departments
-					.get("ME")).get("green"));  
+			cell_23_5.setCellValue(((Map<String, Integer>) departments.get("BS"))
+					.get("green"));  
 			
 			HSSFCell cell_23_6 = row23.getCell(6);
 			if (cell_23_6 == null) {
 				cell_23_6 = row23.createCell(6);
 			}
-			cell_23_6.setCellValue(((Map<String, Integer>) departments.get("PL")) 
+			cell_23_6.setCellValue(((Map<String, Integer>) departments.get("PA")) 
 					.get("green")); 
 			
 			HSSFCell cell_23_7 = row23.getCell(7);
@@ -203,7 +204,7 @@ public class DepartmentStatusWrite {
 			if (cell_23_9 == null) {
 				cell_23_9 = row23.createCell(9);
 			}
-			cell_23_9.setCellValue(((Map<String, Integer>) departments.get("PM")) 
+			cell_23_9.setCellValue(((Map<String, Integer>) departments.get("CA")) 
 					.get("green")); 
 			
 			HSSFCell cell_23_10 = row23.getCell(10);

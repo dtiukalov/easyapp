@@ -10,110 +10,85 @@ public class DepartmentStatusLoader {
 
 	private static Map<String, Object> departments = new HashMap<String, Object>();
 	
-	private static Map<String, Object> plDePartment = new HashMap<String, Object>(); 
-	private static Map<String, Object> qaDePartment = new HashMap<String, Object>(); 
-    private static Map<String, Object> meDepartment = new HashMap<String, Object>();
-	
-    private static Map<String, Integer> pms = new HashMap<String, Integer>();
-    private static Map<String, Integer> sus = new HashMap<String, Integer>();
-    private static Map<String, Integer> pes = new HashMap<String, Integer>();
-    private static Map<String, Integer> mes = new HashMap<String, Integer>();
-    private static Map<String, Integer> pls = new HashMap<String, Integer>();
-	private static Map<String, Integer> qas = new HashMap<String, Integer>();
-	private static Map<String, Integer> vscs = new HashMap<String, Integer>();
-	private static Map<String, Integer> los = new HashMap<String, Integer>();
-	
+    private static Map<String, Integer> PL = new HashMap<String, Integer>();
+    private static Map<String, Integer> QAPP = new HashMap<String, Integer>();
+    private static Map<String, Integer> LO = new HashMap<String, Integer>();
+    private static Map<String, Integer> BS = new HashMap<String, Integer>();
+    private static Map<String, Integer> PA = new HashMap<String, Integer>();
+	private static Map<String, Integer> SU = new HashMap<String, Integer>();
+	private static Map<String, Integer> VSC = new HashMap<String, Integer>();
+	private static Map<String, Integer> CA = new HashMap<String, Integer>();
 	
 	public static  Map<String,Object> load(ArrayList<HashMap<String, Object>> values){
-		//质保部
-		qaDePartment.put("内饰质保科", "QA");  //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$
-		qaDePartment.put("电子电器质保科", "PL");  //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$
-		qaDePartment.put("车身底盘质保科", "PL");  //$NON-NLS-2$  //$NON-NLS-1$ //$NON-NLS-1$
-		//规划部
-		plDePartment.put("冲压规划科", "PL");  //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$
-		plDePartment.put("焊装规划科", "PL");  //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$
-		plDePartment.put("涂装规划科", "PL");  //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$
-		plDePartment.put("总装规划科", "PL");  //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$
-		//厂家
-		meDepartment.put("一厂冲压", "ME");  //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$
-		meDepartment.put("一厂焊装", "ME");  //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$
-		meDepartment.put("一厂涂装", "ME");  //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$
-		meDepartment.put("一厂总装", "ME");  //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$
 		
-		meDepartment.put("二厂冲压", "ME");  //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$
-		meDepartment.put("二厂焊装", "ME");  //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$
-		meDepartment.put("二厂涂装", "ME");  //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$
-		meDepartment.put("二厂总装", "ME");  //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$
+		PL.put("red", 0); 
+		PL.put("green", 0); 
+		PL.put("yellow", 0); 
 		
-		pms.put("red", 0); //$NON-NLS-1$
-		pms.put("green", 0); //$NON-NLS-1$
-		pms.put("yellow", 0); //$NON-NLS-1$
+		QAPP.put("red", 0); 
+		QAPP.put("green", 0); 
+		QAPP.put("yellow", 0); 
 		
-		sus.put("red", 0); //$NON-NLS-1$
-		sus.put("green", 0); //$NON-NLS-1$
-		sus.put("yellow", 0); //$NON-NLS-1$
+		LO.put("red", 0); 
+		LO.put("green", 0); 
+		LO.put("yellow", 0); 
 		
-		pes.put("red", 0); //$NON-NLS-1$
-		pes.put("green", 0); //$NON-NLS-1$
-		pes.put("yellow", 0); //$NON-NLS-1$
+		BS.put("red", 0); 
+		BS.put("green", 0); 
+		BS.put("yellow", 0); 
 		
-		qas.put("red", 0); //$NON-NLS-1$
-		qas.put("green", 0); //$NON-NLS-1$
-		qas.put("yellow", 0); //$NON-NLS-1$
+		PA.put("red", 0); 
+		PA.put("green", 0); 
+		PA.put("yellow", 0); 
 		
-		los.put("red", 0); //$NON-NLS-1$
-		los.put("green", 0); //$NON-NLS-1$
-		los.put("yellow", 0); //$NON-NLS-1$
+		SU.put("red", 0); 
+		SU.put("green", 0); 
+		SU.put("yellow", 0); 
 		
-		mes.put("red", 0); //$NON-NLS-1$
-		mes.put("green", 0); //$NON-NLS-1$
-		mes.put("yellow", 0); //$NON-NLS-1$
+		VSC.put("red", 0); 
+		VSC.put("green", 0); 
+		VSC.put("yellow", 0); 
 		
-		pls.put("red", 0); //$NON-NLS-1$
-		pls.put("green", 0); //$NON-NLS-1$
-		pls.put("yellow", 0); //$NON-NLS-1$
+		CA.put("red", 0); 
+		CA.put("green", 0); 
+		CA.put("yellow", 0); 
 		
-		vscs.put("red", 0); //$NON-NLS-1$
-		vscs.put("green", 0); //$NON-NLS-1$
-		vscs.put("yellow", 0); //$NON-NLS-1$
-		
-
 		for (int k=0; k<values.size(); k++) {
-			if ("产品管理部".equals((String)(values.get(k)).get("fv9SlResDep1"))) {  //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-1$
-				pms = sumLightStatue(pms,(String)(values.get(k)).get("fv9RGStatus")); //$NON-NLS-1$
+			if ("BS".equals((String)(values.get(k)).get("fv9SlResDepBS"))) {  //$NON-NLS-2$  
+				BS = sumLightStatue(BS,(String)(values.get(k)).get("fv9RGStatus")); 
 			}
-			if ("采购部".equals((String)(values.get(k)).get("fv9SlResDep1"))) {  //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-1$
-				sus = sumLightStatue(sus,(String)(values.get(k)).get("fv9RGStatus")); //$NON-NLS-1$
+			if ("CA".equals((String)(values.get(k)).get("fv9SlResDepCA"))) {  //$NON-NLS-2$  
+				CA = sumLightStatue(CA,(String)(values.get(k)).get("fv9RGStatus")); 
 			}
-			if ("技术开发部".equals((String)(values.get(k)).get("fv9SlResDep1"))) {  //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-1$
-				pes = sumLightStatue(pes,(String)(values.get(k)).get("fv9RGStatus")); //$NON-NLS-1$
+			if ("LO".equals((String)(values.get(k)).get("fv9SlResDepLO"))) {  //$NON-NLS-2$  
+				LO = sumLightStatue(LO,(String)(values.get(k)).get("fv9RGStatus")); 
 			}
-			if (meDepartment.containsKey((String)(values.get(k)).get("fv9SlResDep1"))) { //$NON-NLS-1$
-				mes = sumLightStatue(mes,(String)(values.get(k)).get("fv9RGStatus")); //$NON-NLS-1$
+			if ("PA".equals((String)(values.get(k)).get("fv9SlResDepPA"))){  //$NON-NLS-2$
+				PA = sumLightStatue(PA, (String)(values.get(k)).get("fv9RGStatus")); 
 			}
-			if (plDePartment.containsKey((String)(values.get(k)).get("fv9SlResDep1"))) { //$NON-NLS-1$
-				pls = sumLightStatue(pls,(String)(values.get(k)).get("fv9RGStatus")); //$NON-NLS-1$
+			if ("PL".equals((String)(values.get(k)).get("fv9SlResDepPL"))) {  //$NON-NLS-2$
+				PL = sumLightStatue(PL, (String)(values.get(k)).get("fv9RGStatus")); 
 			}
-			if (qaDePartment.containsKey((String)(values.get(k)).get("fv9SlResDep1"))) { //$NON-NLS-1$
-				qas = sumLightStatue(qas,(String)(values.get(k)).get("fv9RGStatus")); //$NON-NLS-1$
+			if ("QAPP".equals((String)(values.get(k)).get("fv9SlResDepQAPP"))){  //$NON-NLS-2$
+				QAPP = sumLightStatue(QAPP, (String)(values.get(k)).get("fv9RGStatus")); 
 			}
-			if ("VSC".equals((String)(values.get(k)).get("fv9SlResDep1"))){ //$NON-NLS-1$ //$NON-NLS-2$
-				vscs = sumLightStatue(vscs, (String)(values.get(k)).get("fv9RGStatus")); //$NON-NLS-1$
+			if ("SU".equals((String)(values.get(k)).get("fv9SlResDepSU"))) {  //$NON-NLS-2$
+				SU = sumLightStatue(SU, (String)(values.get(k)).get("fv9RGStatus")); 
 			}
-			if ("LO".equals((String)(values.get(k)).get("fv9SlResDep1"))) { //$NON-NLS-1$ //$NON-NLS-2$
-				los = sumLightStatue(los, (String)(values.get(k)).get("fv9RGStatus")); //$NON-NLS-1$
+			if ("VSC".equals((String)(values.get(k)).get("fv9SlResDepVSC"))){  //$NON-NLS-2$
+				VSC = sumLightStatue(VSC, (String)(values.get(k)).get("fv9RGStatus")); 
 			}
 			
 		}
 		
-		departments.put("PM", pms); //$NON-NLS-1$
-		departments.put("SU", sus); //$NON-NLS-1$
-		departments.put("PE", pes); //$NON-NLS-1$
-		departments.put("ME", mes); //$NON-NLS-1$
-		departments.put("PL", pls); //$NON-NLS-1$
-		departments.put("QA", qas); //$NON-NLS-1$
-		departments.put("VSC", vscs); //$NON-NLS-1$
-		departments.put("LO", los); //$NON-NLS-1$
+		departments.put("BS", BS); 
+		departments.put("CA", CA); 
+		departments.put("LO", LO); 
+		departments.put("PA", PA); 
+		departments.put("PL", PL); 
+		departments.put("QAPP", QAPP); 
+		departments.put("SU", SU); 
+		departments.put("VSC", VSC); 
 		
 		return departments;
 				
@@ -122,14 +97,14 @@ public class DepartmentStatusLoader {
 	
 	public static Map<String,Integer> sumLightStatue (Map<String,Integer> parts,String lightStatue){
 		
-		if ("红".equals(lightStatue)) { //$NON-NLS-1$
-			parts.put("red", (Integer)parts.get("red")+1); //$NON-NLS-1$ //$NON-NLS-2$
+		if ("红".equals(lightStatue)) { 
+			parts.put("red", (Integer)parts.get("red")+1);  //$NON-NLS-2$
 		}
-		if ("黄".equals(lightStatue)) { //$NON-NLS-1$
-			parts.put("yellow", (Integer)parts.get("yellow")+1); //$NON-NLS-1$ //$NON-NLS-2$
+		if ("黄".equals(lightStatue)) { 
+			parts.put("yellow", (Integer)parts.get("yellow")+1);  //$NON-NLS-2$
 		}
-		if ("绿".equals(lightStatue)) { //$NON-NLS-1$
-			parts.put("green", (Integer)parts.get("green")+1); //$NON-NLS-1$ //$NON-NLS-2$
+		if ("绿".equals(lightStatue)) { 
+			parts.put("green", (Integer)parts.get("green")+1);  //$NON-NLS-2$
 		}
 		
 		return parts;

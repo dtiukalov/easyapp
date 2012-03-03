@@ -228,7 +228,7 @@
 					borderRadius: 0,
 					borderWidth: 1,
 					 formatter: function() {
-						return '<table width="200" height="100"><tr><td>'+ 'x:' + this.x +'</td></tr><tr><td>'+'y:'+ this.y +'</td></tr><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td></tr></table>';
+						return '<table width="200" height="100"><tr><td>'+ this.point.desc +'</td></tr><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td></tr></table>';
 					}
 				},
 				plotOptions: {

@@ -1,3 +1,4 @@
+<%@page import="com.saturn.tc.utils.International"%>
 <%@page import="com.saturn.tc.foton.gys.Attachment"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -6,12 +7,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>邮件详情</title>
+<title><%=International.get(request, "mail.detail") %></title>
 <%@ include file="/app/includes/header.jsp"%>
 <script type="text/javascript">
 	$(function() {
 		$('#queryTable').treegrid({
-			title : '附件列表',
+			title : '<%=International.get(request, "attachment.list") %>',
 			prerendered: false,
 			iconCls : 'icon-datalist',
 			nowrap : false,
@@ -28,7 +29,7 @@
 			}] ],
 			columns : [ [ {
 				field : 'name',
-				title : '名称',
+				title : '<%=International.get(request, "attachment.name") %>',
 				width : 640,
 				formatter : function(value, rec) {
 					var type = rec.type;
@@ -40,11 +41,11 @@
 				}
 			}, {
 				field : 'type',
-				title : '类型',
+				title : '<%=International.get(request, "attachment.type") %>',
 				width : 150
 			}, {
 				field : 'opt',
-				title : '操作',
+				title : '<%=International.get(request, "operation") %>',
 				width : 100,
 				align : 'center',
 				rowspan : 2,	
@@ -53,7 +54,7 @@
 					var type = rec.type;
 					var uid = rec.uid;
 					if ("Folder" != type  && rec.path != "") {     
-						return '<span><a href="javascript:downloadSingle(\'' + uid + '\')">下载</a></span>';
+						return '<span><a href="javascript:downloadSingle(\'' + uid + '\')"><%=International.get(request, "attachment.download") %></a></span>';
 					} else {
 						return '<span></span>';
 					}
@@ -63,12 +64,12 @@
 			rownumbers : true,
 			toolbar : [ {
 				id : 'btndownload',
-				text : '批量下载',
+				text : '<%=International.get(request, "batch.download") %>',
 				iconCls : 'icon-download',
 				handler : function() {
 					var rows = $('#queryTable').treegrid('getSelections');
 					if (rows.length == 0) {
-						$.messager.alert('提示','请选择下载数据集','info');
+						$.messager.alert('<%=International.get(request, "info") %>','<%=International.get(request, "download.noselect") %>','info');
 						return;
 					} 
 					
@@ -77,7 +78,7 @@
 						ids.push(rows[i].uid);
 					}					
 										
-					$.messager.confirm('确认下载项', '确认下载吗?', function(result){
+					$.messager.confirm('<%=International.get(request, "info") %>', '<%=International.get(request, "download.info") %>', function(result){
 						if (result){
 							window.open('<%=request.getContextPath()%>/app/tc/foton/gys/download.action?uid=${mail.mailuid}&ids=' + ids);
 						}
@@ -95,13 +96,13 @@
 			window.open('<%=request.getContextPath()%>/app/tc/foton/gys/download.action?uid=${mail.mailuid}&ids=' + ids);
 		//	window.location.href='<%=request.getContextPath()%>/app/tc/foton/gys/download.action?uid=${mail.mailuid}&filename='+filename+'&ids=' + ids;
 		} else {
-			alert('请选择要下载的数据集！');
+			alert('<%=International.get(request, "download.noselect") %>');
 		}
 	} 
 </script>
 </head>
 <body>
-	<div id="panel" class="easyui-panel" title="邮件详情"
+	<div id="panel" class="easyui-panel" title="<%=International.get(request, "mail.detail") %>"
 		icon="icon-edit-form" collapsible="true" style="padding: 10px;">
 
 		<form id="editForm"
@@ -109,22 +110,22 @@
 			method="post">
 			<table class="table-form">
 				<tr>
-					<td style="text-align:right">主题:</td>
+					<td style="text-align:right"><%=International.get(request, "mail.title") %>:</td>
 					<td><input id="title" name="title" type="text" value="${mail.title}" readonly="readonly"></input></td>
 					<td><div id="titleTip"></div></td>
 				</tr>
 				<tr>
-					<td style="text-align:right">发件人:</td>
+					<td style="text-align:right"><%=International.get(request, "mail.from.user") %>:</td>
 					<td><input id="fromUser" name="fromUser" type="text" value="${mail.fromUser}" readonly="readonly"></input></td>
 					<td><div id="fromUserTip"></div></td>
 				</tr>
 				<tr>
-					<td style="text-align:right">发放日期:</td>
+					<td style="text-align:right"><%=International.get(request, "mail.send.time") %>:</td>
 					<td><input id="datetime" name="datetime" type="text" value="${mail.datetime}" readonly="readonly"></input></td>
 					<td><div id="datetimeTip"></div></td>
 				</tr>
 				<tr>
-					<td style="text-align:right">内容:</td>
+					<td style="text-align:right"><%=International.get(request, "mail.content") %>:</td>
 					<td><textarea id="content" cols="50" rows="5">${mail.content}</textarea></td>
 					<td><div id="contentTip"></div></td>
 				</tr>
@@ -133,7 +134,7 @@
 		<table id="queryTable"></table>
 		<div style="padding: 10px;">
 			 <a href="javascript:history.back(-1)"
-				class="easyui-linkbutton" iconCls="icon-back">返回</a>
+				class="easyui-linkbutton" iconCls="icon-back"><%=International.get(request, "back") %></a>
 		</div>
 	</div>
 </body>

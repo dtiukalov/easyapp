@@ -1,16 +1,17 @@
 
+<%@page import="com.saturn.tc.utils.International"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>首页</title>
+<title><%=International.get(request, "mail.list") %></title>
 <%@ include file="/app/includes/header.jsp"%>
 <script type="text/javascript">
 		$(function() {
 			$('#queryTable').datagrid({
-				title : '邮件列表',
+				title : '<%=International.get(request, "mail.list") %>',
 				iconCls : 'icon-datalist',
 				nowrap : false,
 				striped : true, //数据条纹显示
@@ -26,62 +27,62 @@
 					checkbox : true
 				}, {
 					field : 'title',
-					title : '主题',
-					width : 250,
+					title : '<%=International.get(request, "mail.title") %>',
+					width : 200,
 					sortable : true
 				}] ],
 				columns : [ [{
 					field : 'fromUser',
-					title : '发件人',
+					title : '<%=International.get(request, "mail.from.user") %>',
 					width : 150,
 					sortable : true
 				},{
 					field : 'userName',
-					title : '收件人',
+					title : '<%=International.get(request, "mail.receive.user") %>',
 					width : 150,
 					sortable : true
 				}, {
 					field : 'content',
-					title : '内容',
-					width : 330,
+					title : '<%=International.get(request, "mail.content") %>',
+					width : 300,
 					sortable : true
 				}, {
 					field : 'datetime',
-					title : '发放时间',
+					title : '<%=International.get(request, "mail.send.time") %>',
 					width : 120,
 					sortable : true
 				}, {
 					field : 'hasDownload',
-					title : '已下载',
-					width : 50,
+					title : '<%=International.get(request, "has.download") %>',
+					width : 80,
 					rowspan : 2,
 					formatter : function(value, rec) {
 						if (value == '1') {
-							return '<span>是</span>';
+							return '<span><%=International.get(request, "yes") %></span>';
 						
 						} else if (value == '0'){
-							return '<span>否</span>';
+							return '<span><%=International.get(request, "no") %></span>';
 						}
 					}
 				}, {
 					field : 'opt',
-					title : '操作',
+					title : '<%=International.get(request, "operation") %>',
 					width : 100,
 					rowspan : 2,
 					formatter : function(value, rec) {
-						return '<span><a href="#" onclick="editVO(\'' + rec.mailuid + '\');">查看</a>&nbsp|&nbsp<a href="#" onclick="deleteVO(\'' + rec.mailuid + '\');">删除</a></span>';
+						return '<span><a href="#" onclick="editVO(\'' + rec.mailuid + '\');"><%=International.get(request, "view") %></a>&nbsp|&nbsp<a href="#" onclick="deleteVO(\'' + rec.mailuid + '\');"><%=International.get(request, "delete") %></a></span>';
 					}
 				} ] ],
 				pagination : true,
 				rownumbers : true,
 				toolbar : [ {
 					id : 'btndelete',
-					text : '批量删除',
+					text : '<%=International.get(request, "batch.delete") %>',
 					iconCls : 'icon-remove',
 					handler : function() {
 						var rows = $('#queryTable').datagrid('getSelections');
 						if (rows.length == 0) {
-							$.messager.alert('提示','请选择删除项','info');
+							$.messager.alert('<%=International.get(request, "info") %>','<%=International.get(request, "delete.noselect") %>','info');
 							return;
 						} 
 
@@ -91,7 +92,7 @@
 						}
 						
 						
-						$.messager.confirm('确认删除项', '如果邮件没有被下载，不能被删除！', function(result){
+						$.messager.confirm('<%=International.get(request, "info") %>', '<%=International.get(request, "delete.info") %>', function(result){
 							if (result){
 								window.parent.location.href='<%=request.getContextPath()%>/app/tc/foton/gys/delete.action?ids='+ids;
 							}
@@ -108,6 +109,7 @@
 					fromUser : $('#fromUser').val(),
 					title : $('#title').val(),
 					hasDownload : $('#hasDownload').val(),
+					content : $('#content').val(),
 					datetime : $('#datetime').datebox('getValue')
 			}});
 			
@@ -119,7 +121,7 @@
 		}
 		
 		function deleteVO(id){
-			$.messager.confirm('确认删除项', '如果邮件没有被下载，不能被删除！', function(result){
+			$.messager.confirm('<%=International.get(request, "info") %>', '<%=International.get(request, "delete.info") %>', function(result){
 				if (result){
 					window.location.href='<%=request.getContextPath()%>/app/tc/foton/gys/delete.action?ids=' + id;
 				}
@@ -134,33 +136,35 @@
 	</script>
 </head>
 <body>
-<div id="panel" class="easyui-panel" title="查询条件"
+<div id="panel" class="easyui-panel" title="<%=International.get(request, "query.condition") %>"
 	icon="icon-query-form" collapsible="true" style="padding: 10px;">
 
 	<form id="queryForm" method="post">
 		<table>
 			<tr align="right">
-				<td>发件人:</td>
-				<td><input id="fromUser" name="fromUser" type="text"></input></td>
-				<td>主题:</td>
+				<td><%=International.get(request, "mail.title") %>:</td>
 				<td><input id="title" name="title" type="text"></input></td>
-				<td>时间:</td>
+				<td><%=International.get(request, "mail.from.user") %>:</td>
+				<td><input id="fromUser" name="fromUser" type="text"></input></td>
+				<td><%=International.get(request, "mail.content") %>:</td>
+				<td><input id="content" name="content" type="text"></input></td>
+				<td><%=International.get(request, "mail.send.time") %>:</td>
 				<td><input id="datetime" name="datetime" type="text" class="easyui-datebox" ></input></td>
-				<td>已下载:</td>
+				<td><%=International.get(request, "has.download") %>:</td>
 				<td>
 					<select id="hasDownload" name="hasDownload">
-						<option value="">   全部   </option>
-						<option value="0">   否   </option>
-						<option value="1" >   是   </option>
+						<option value=""><%=International.get(request, "all") %></option>
+						<option value="1"><%=International.get(request, "yes") %></option>
+						<option value="0" ><%=International.get(request, "no") %></option>
 					</select>
 				</td>
 			</tr>
 		</table>
 		<div style="padding: 10px;" >
 			<a href="#" class="easyui-linkbutton" onclick="queryVO();" 
-				iconCls="icon-search">确定</a>
+				iconCls="icon-search"><%=International.get(request, "ok") %></a>
 			<a href="#" class="easyui-linkbutton" onclick="clearQueryForm();" 
-				iconCls="icon-cancel">取消</a>
+				iconCls="icon-cancel"><%=International.get(request, "cancel") %></a>
 		</div>
 	</form>
 </div>

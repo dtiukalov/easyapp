@@ -42,7 +42,11 @@ public class EmailUtils {
 
 		try {
 			InitialContext ic = new InitialContext();
-			session = (Session) ic.lookup("myMailSession");
+			try {
+				session = (Session) ic.lookup("myMailSession");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			
 			if (session == null) {
 				session = Session.getDefaultInstance(props);

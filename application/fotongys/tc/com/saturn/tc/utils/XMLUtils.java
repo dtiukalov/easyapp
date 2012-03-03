@@ -37,16 +37,12 @@ public class XMLUtils {
 			
 			return relations;
 		} catch (DOMException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SAXException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -54,7 +50,6 @@ public class XMLUtils {
 	}
 	
 	public static String getCurrentPath() {
-		
 		String className = XMLUtils.class.getName(); 
 		String classNamePath = className.replace(".", "/") + ".class";
 		URL is = XMLUtils.class.getClassLoader().getResource(classNamePath);

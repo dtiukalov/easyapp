@@ -50,9 +50,9 @@ public class Mail {
 		super();
 	}
 
-	public static List<Mail> getAll(User user,
-			TCSession session, String userId, String fromUser, String title,
-			String hasDownload, String datetime) {
+	public static List<Mail> getAll(User user, TCSession session,
+			String userId, String fromUser, String title, String hasDownload,
+			String datetime) {
 		EasyDataManagementService service = new EasyDataManagementService(
 				session);
 		List<Mail> mails = new ArrayList<Mail>();
@@ -66,31 +66,30 @@ public class Mail {
 					"envelopeReadFlag", "last_mod_user", "hasDownload");
 
 			for (WorkspaceObject wos : workspaceObjects) {
-				Envelope envelope = (Envelope) wos;
+				
+				if (wos instanceof Envelope) {
+					Envelope envelope = (Envelope) wos;
+					Mail mail = new Mail(user, session, envelope);
+					Mail dbmail = Mail.getMailFromDB(mail.getMailuid());
+					if (dbmail != null) {
+						mail.downloadNum = dbmail.getDownloadNum();
+						mail.hasDownload = dbmail.getHasDownload();
+					} else {
+						Mail.addMailtoDB(mail);
+					}
+					if ((fromUser == null || "".equals(fromUser.trim()) || mail
+							.getFromUser().indexOf(fromUser) >= 0)
+							&& (title == null || "".equals(title.trim()) || mail
+									.getTitle().indexOf(title) >= 0)
+							&& (hasDownload == null
+									|| "".equals(hasDownload.trim()) || mail
+									.getHasDownload().indexOf(hasDownload) >= 0)
+							&& (datetime == null || "".equals(datetime.trim()) || mail
+									.getDatetime().indexOf(datetime) >= 0)) {
 
-				Mail mail = new Mail(user, session, envelope);
-
-				Mail dbmail = Mail.getMailFromDB(mail.getMailuid());
-
-				if (dbmail != null) {
-					mail.downloadNum = dbmail.getDownloadNum();
-					mail.hasDownload = dbmail.getHasDownload();
-				} else {
-					Mail.addMailtoDB(mail);
-				}
-
-				if ((fromUser == null || "".equals(fromUser.trim()) || mail
-						.getFromUser().indexOf(fromUser) >= 0)
-						&& (title == null || "".equals(title.trim()) || mail
-								.getTitle().indexOf(title) >= 0)
-						&& (hasDownload == null
-								|| "".equals(hasDownload.trim()) || mail
-								.getHasDownload().indexOf(hasDownload) >= 0)
-						&& (datetime == null || "".equals(datetime.trim()) || mail
-								.getDatetime().indexOf(datetime) >= 0)) {
-
-					mails.add(mail);
-					// reviseProperties(envelope,session);
+						mails.add(mail);
+						// reviseProperties(envelope,session);
+					}
 				}
 			}
 		} catch (NotLoadedException e) {
@@ -207,6 +206,7 @@ public class Mail {
 				session);
 
 		try {
+			service.refreshObjects(envelope);
 			this.mailuid = envelope.getUid();
 			this.mailpid = envelope.get_pid() + "";
 			this.userid = receiveUser.get_userid();
@@ -227,11 +227,11 @@ public class Mail {
 			if (this.attachments != null && this.attachments.length > 0) {
 				this.hasAttachment = "true";
 			}
-
 			User user = (User) envelope.get_last_mod_user();
 			Person fromPerson = (Person) user.get_person();
+			service.refreshObjects(fromPerson);
 			service.getProperties(fromPerson, "PA9");
-			this.fromUser = user.get_user_name();
+			this.fromUser = fromPerson.get_user_name();
 			this.fromUserId = user.getUid();
 			this.from = fromPerson.get_PA9();
 		} catch (NotLoadedException e) {
@@ -243,16 +243,16 @@ public class Mail {
 	public static void remove(TCSession session, final String id) {
 		Mail vo = Mail.getMailFromDB(id);
 		if ("0".equals(vo.hasDownload)) {
-			//如果邮件没有被下载，不能删除；
+			// 如果邮件没有被下载，不能删除；
 			return;
 		}
-		
+
 		EasyDataManagementService service = new EasyDataManagementService(
 				session);
 
 		Envelope envelope = (Envelope) service.loadModelObject(id);
 		service.deleteObjects(envelope);
-		
+
 		vo.setDatetime(DateUtils.getSystemTime());
 		vo.setHasDownload("2");
 		Mail.editMailFromDB(vo);

@@ -51,6 +51,8 @@ public class Attachment {
 	@SuppressWarnings("unchecked")
 	public static List<Attachment> getByMailId(TCSession session,
 			String mailId, String userUid, String directory) {
+		
+		List<Attachment> datasetAttachment = new ArrayList<Attachment>();
 		EasyDataManagementService service = new EasyDataManagementService(
 				session);
 		List<Attachment> attachments = new ArrayList<Attachment>();
@@ -160,6 +162,7 @@ public class Attachment {
 						Attachment childdataset = new Attachment(mailId, file,
 								attachment.getUid());
 						attachments.add(childdataset);
+						datasetAttachment.add(childdataset);
 						try {
 							childdataset.setName(file.get_original_file_name());
 							childdataset.setPath(file.get_original_file_name());

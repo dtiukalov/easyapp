@@ -37,7 +37,8 @@ public class DictionaryManager {
 			return "there is no " + key + " in dicts ";
 		}
 		if (!isValueExit(key, value)) {
-			if (DictionaryLoader.ANGLE.equalsIgnoreCase(key)
+			if (DictionaryLoader.ANGLEINTER.equalsIgnoreCase(key)
+					|| DictionaryLoader.ANGLEOUTER.equalsIgnoreCase(key)
 					|| DictionaryLoader.YEAR.equalsIgnoreCase(key)
 					|| DictionaryLoader.INTEROUTER.equalsIgnoreCase(key)
 					|| DictionaryLoader.OUTER.equalsIgnoreCase(key)
@@ -96,7 +97,8 @@ public class DictionaryManager {
 			if (dicts.get(key).contains(newValue)) {
 				return newValue + "　already exits in " + key;
 			}
-			if (DictionaryLoader.ANGLE.equalsIgnoreCase(key)
+			if (DictionaryLoader.ANGLEINTER.equalsIgnoreCase(key)
+					|| DictionaryLoader.ANGLEOUTER.equalsIgnoreCase(key)
 					|| DictionaryLoader.YEAR.equalsIgnoreCase(key)
 					|| DictionaryLoader.INTEROUTER.equalsIgnoreCase(key)
 					|| DictionaryLoader.OUTER.equalsIgnoreCase(key)
@@ -140,8 +142,12 @@ public class DictionaryManager {
 		return dicts.get(DictionaryLoader.YEAR);
 	}
 
-	public List<String> getAngleList() {
-		return dicts.get(DictionaryLoader.ANGLE);
+	public List<String> getAngleInterList() {
+		return dicts.get(DictionaryLoader.ANGLEINTER);
+	}
+	
+	public List<String> getAngleOuterList() {
+		return dicts.get(DictionaryLoader.ANGLEOUTER);
 	}
 
 	public List<String> getCountryList() {
@@ -169,7 +175,8 @@ public class DictionaryManager {
 
 	public String toXML(String type, List<String> list) {
 		try {
-			if (DictionaryLoader.ANGLE.equalsIgnoreCase(type)
+			if (DictionaryLoader.ANGLEINTER.equalsIgnoreCase(type)
+					|| DictionaryLoader.ANGLEOUTER.equalsIgnoreCase(type)
 					|| DictionaryLoader.YEAR.equalsIgnoreCase(type)
 					|| DictionaryLoader.INTEROUTER.equalsIgnoreCase(type)
 					|| DictionaryLoader.OUTER.equalsIgnoreCase(type)
@@ -228,7 +235,8 @@ public class DictionaryManager {
 			return "there is no  " + key + " in  dicts";
 		}
 		
-		if (DictionaryLoader.ANGLE.equalsIgnoreCase(key)
+		if (DictionaryLoader.ANGLEINTER.equalsIgnoreCase(key)
+				|| DictionaryLoader.ANGLEOUTER.equalsIgnoreCase(key)
 				|| DictionaryLoader.YEAR.equalsIgnoreCase(key)
 				|| DictionaryLoader.INTEROUTER.equalsIgnoreCase(key)
 				|| DictionaryLoader.OUTER.equalsIgnoreCase(key)

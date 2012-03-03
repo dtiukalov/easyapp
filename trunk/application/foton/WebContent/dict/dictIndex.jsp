@@ -51,8 +51,12 @@
 			<div ><input class="img_bnt" type="submit" value="外饰局部"/></div> 
 		</form>
 		<form id="hiddeForm" action="<%=request.getContextPath()%>/SearchDictServlet" method="post">
-			<input type="hidden" id="type" name="type" value="<%=DictionaryLoader.ANGLE %>"/>
-			<div ><input class="img_bnt" type="submit" value="整  体"/></div>
+			<input type="hidden" id="type" name="type" value="<%=DictionaryLoader.ANGLEINTER %>"/>
+			<div ><input class="img_bnt" type="submit" value="内饰整体"/></div>
+		</form>
+		<form id="hiddeForm" action="<%=request.getContextPath()%>/SearchDictServlet" method="post">
+			<input type="hidden" id="type" name="type" value="<%=DictionaryLoader.ANGLEOUTER %>"/>
+			<div ><input class="img_bnt" type="submit" value="外饰整体"/></div>
 		</form>
 	</div>
 </div>

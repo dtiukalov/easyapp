@@ -49,7 +49,8 @@ import foton.picture.xml.DictionaryManager;
 		request.getSession().setAttribute("dictresultList", list);
 		request.getSession().setAttribute("dict_current_page", page - 1);
 		
-		if (DictionaryLoader.ANGLE.equalsIgnoreCase(type)
+		if (DictionaryLoader.ANGLEINTER.equalsIgnoreCase(type)
+				|| DictionaryLoader.ANGLEOUTER.equalsIgnoreCase(type)
 				|| DictionaryLoader.YEAR.equalsIgnoreCase(type)
 				|| DictionaryLoader.INTEROUTER.equalsIgnoreCase(type)
 				|| DictionaryLoader.OUTER.equalsIgnoreCase(type)

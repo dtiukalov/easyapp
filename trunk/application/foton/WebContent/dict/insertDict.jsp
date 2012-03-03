@@ -57,7 +57,8 @@
     		      <input type="text" id="addvalue" name="addvalue" size="40"  value=""/>	
 			 
 			      <input type="button" name="Submit" value="完成" onclick="submitForm()"/>
-			      <%if (DictionaryLoader.ANGLE.equalsIgnoreCase(type)
+			      <%if (DictionaryLoader.ANGLEINTER.equalsIgnoreCase(type)
+			    		  || DictionaryLoader.ANGLEOUTER.equalsIgnoreCase(type)
 							|| DictionaryLoader.YEAR.equalsIgnoreCase(type)
 							|| DictionaryLoader.INTEROUTER.equalsIgnoreCase(type)
 							|| DictionaryLoader.OUTER.equalsIgnoreCase(type)

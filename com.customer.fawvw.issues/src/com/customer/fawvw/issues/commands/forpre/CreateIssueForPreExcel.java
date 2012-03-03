@@ -45,12 +45,12 @@ public class CreateIssueForPreExcel {
 			File excelTmp = new File(TEMPLATE_FILE_PATH);
 			InputStream inputStream = new FileInputStream(excelTmp);
 			POIFSFileSystem fs = new POIFSFileSystem(inputStream);
-			System.out.println("模板路径：" + TEMPLATE_FILE_PATH); //$NON-NLS-1$
-			System.out.println("获取模板成功"); //$NON-NLS-1$
+			System.out.println("模板路径：" + TEMPLATE_FILE_PATH); 
+			System.out.println("获取模板成功"); 
 			
 			//存在符合条件的问题
-			if (((ArrayList<Map<String, Object>>)values.get("Issues")).size() > 0 //$NON-NLS-1$
-					&& ((ArrayList<Map<String, Object>>)values.get("Issues")) != null) { //$NON-NLS-1$
+			if (((ArrayList<Map<String, Object>>)values.get("Issues")).size() > 0 
+					&& ((ArrayList<Map<String, Object>>)values.get("Issues")) != null) { 
 				
 				
 				
@@ -58,26 +58,25 @@ public class CreateIssueForPreExcel {
 				HSSFSheet sheet = workbook.getSheetAt(0);
 				HSSFPatriarch patri = sheet.createDrawingPatriarch();
 				
-				System.out.println("开始写入报表"); //$NON-NLS-1$
+				System.out.println("开始写入报表"); 
 				
 				importData(workbook, sheet, patri, values);
 
 				workbook.write(fileOut);
 				
-				System.out.println("创建Excel报表成功"); //$NON-NLS-1$
+				System.out.println("创建Excel报表成功"); 
 				
 				flag = true;
 				
 			} else {
 				
-				MessageBox.post("不存在符合条件的问题", "预批量车问题", MessageBox.INFORMATION); //$NON-NLS-1$ //$NON-NLS-1$
+				MessageBox.post("不存在符合条件的问题", "预批量车问题", MessageBox.INFORMATION);  
 			}
 			
 		} catch (FileNotFoundException e) {
-			MessageBox.post("Excel模板不存在", //$NON-NLS-1$
-					"预批量车问题", //$NON-NLS-1$
+			MessageBox.post("Excel模板不存在", 
+					"预批量车问题", 
 					MessageBox.INFORMATION);
-//			throw new FawvmLoaderException(Messages.CreateIssueForPreExcel_3);
 			
 		} catch (Exception e) {
 			
@@ -100,7 +99,7 @@ public class CreateIssueForPreExcel {
 			//生成logo
 			ImageCellInfo imageCell = new ImageCellInfo(0, 6, 0, 7);
 			ImageUtil.GenerateImage(wb, sheet, patri, imageCell, ImageUtil.getLogoImage());
-			System.out.println("写入报表logo图片"); //$NON-NLS-1$
+			System.out.println("写入报表logo图片"); 
 
 			HSSFRow baserow = sheet.getRow(1);
 			if (baserow == null) {
@@ -108,17 +107,17 @@ public class CreateIssueForPreExcel {
 			}
 
 			HSSFCell namecell = baserow.createCell(1);// 项目名称
-			namecell.setCellValue(new HSSFRichTextString(values.get("ProjectName") //$NON-NLS-1$
+			namecell.setCellValue(new HSSFRichTextString(values.get("ProjectName") 
 					.toString()));
-			System.out.println("写入项目名称"); //$NON-NLS-1$
+			System.out.println("写入项目名称"); 
 			
 			HSSFCell timecell1 = baserow.createCell(6);// 制表日期
-			timecell1.setCellValue(new HSSFRichTextString(values.get("CreatTime") //$NON-NLS-1$
+			timecell1.setCellValue(new HSSFRichTextString(values.get("CreatTime") 
 					.toString()));
-			System.out.println("写入制表日期"); //$NON-NLS-1$
+			System.out.println("写入制表日期"); 
 
 			List<Map<String, Object>> Issues = (List<Map<String, Object>>) values
-					.get("Issues"); //$NON-NLS-1$
+					.get("Issues"); 
 			int i = 3;
 
 			for (Map<String, Object> Issue : Issues) {
@@ -128,30 +127,39 @@ public class CreateIssueForPreExcel {
 					row = sheet.createRow(i);
 				}
 				row.createCell(0).setCellValue(
-						new HSSFRichTextString(Issue.get("item_id").toString())); //$NON-NLS-1$
+						new HSSFRichTextString(Issue.get("item_id").toString())); 
 				row.getCell(0).setCellStyle(rowStyle.getCell(0).getCellStyle());
 
 				row.createCell(1).setCellValue(
-								new HSSFRichTextString(Issue.get("fv9IssueDesc") //$NON-NLS-1$
+								new HSSFRichTextString(Issue.get("fv9IssueDesc") 
 										.toString()));
 				row.getCell(1).setCellStyle(rowStyle.getCell(1).getCellStyle());
 				
 				//措施
-				String fv9Solution = ""; //$NON-NLS-1$
-				if (!"".equals(Issue.get("fv9Solution1"))) { //$NON-NLS-1$ //$NON-NLS-2$
-					fv9Solution += "1、" + ((String)Issue.get("fv9Solution1")).replaceAll("\n", ";");  //$NON-NLS-1$//$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-1$
+				String fv9Solution = ""; 
+				if (!"".equals(Issue.get("fv9SolutionBS"))) {  
+					fv9Solution += "BS:" + ((String)Issue.get("fv9SolutionBS")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
 				}
-				if (!"".equals(Issue.get("fv9Solution2"))) { //$NON-NLS-1$ //$NON-NLS-2$
-					fv9Solution += "\r\n" + "2、" + ((String)Issue.get("fv9Solution2")).replaceAll("\n", ";"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-2$
+				if (!"".equals(Issue.get("fv9SolutionCA"))) {  
+					fv9Solution += "\r\n" + "CA:" + ((String)Issue.get("fv9SolutionCA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
 				}
-				if (!"".equals(Issue.get("fv9Solution3"))) { //$NON-NLS-1$ //$NON-NLS-2$
-					fv9Solution += "\r\n" + "3、" + ((String)Issue.get("fv9Solution3")).replaceAll("\n", ";"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-2$
+				if (!"".equals(Issue.get("fv9SolutionLO"))) {  
+					fv9Solution += "\r\n" + "LO:" + ((String)Issue.get("fv9SolutionLO")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
 				}
-				if (!"".equals(Issue.get("fv9Solution4"))) { //$NON-NLS-1$ //$NON-NLS-2$
-					fv9Solution += "\r\n" + "4、" + ((String)Issue.get("fv9Solution4")).replaceAll("\n", ";"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-2$
+				if (!"".equals(Issue.get("fv9SolutionPA"))) {  
+					fv9Solution += "\r\n" + "PA:" + ((String)Issue.get("fv9SolutionPA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
 				}
-				if (!"".equals(Issue.get("fv9Solution5"))) { //$NON-NLS-1$ //$NON-NLS-2$
-					fv9Solution += "\r\n" + "5、" + ((String)Issue.get("fv9Solution5")).replaceAll("\n", ";"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-2$
+				if (!"".equals(Issue.get("fv9SolutionPL"))) {  
+					fv9Solution += "\r\n" + "PL:" + ((String)Issue.get("fv9SolutionPL")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
+				if (!"".equals(Issue.get("fv9SolutionQAPP"))) {  
+					fv9Solution += "\r\n" + "QAPP:" + ((String)Issue.get("fv9SolutionQAPP")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
+				if (!"".equals(Issue.get("fv9SolutionSU"))) {  
+					fv9Solution += "\r\n" + "SU:" + ((String)Issue.get("fv9SolutionSU")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
+				if (!"".equals(Issue.get("fv9SolutionVSC"))) {  
+					fv9Solution += "\r\n" + "VSC:" + ((String)Issue.get("fv9SolutionVSC")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
 				}
 				row.createCell(2).setCellValue(
 								new HSSFRichTextString(fv9Solution));
@@ -159,30 +167,53 @@ public class CreateIssueForPreExcel {
 				
 				row.createCell(3).setCellValue(new HSSFRichTextString());
 				row.getCell(3).setCellStyle(rowStyle.getCell(3).getCellStyle());
-				ExcelUtil.fillTheCellColor(wb,row.getCell(3),Issue.get("fv9RGStatus") //$NON-NLS-1$
-						.toString(), ""); //$NON-NLS-1$
+				ExcelUtil.fillTheCellColor(wb,row.getCell(3),Issue.get("fv9RGStatus") 
+						.toString(), ""); 
 				
 				row.createCell(4).setCellValue(
-						new HSSFRichTextString(Issue.get("fv9ProposedDate") //$NON-NLS-1$
+						new HSSFRichTextString(Issue.get("fv9ProposedDate") 
 								.toString()));
 				row.getCell(4).setCellStyle(rowStyle.getCell(4).getCellStyle());
 				
 				row.createCell(5).setCellValue(
-						new HSSFRichTextString(Issue.get("fv9SolDeadlineDate") //$NON-NLS-1$
+						new HSSFRichTextString(Issue.get("fv9SolDeadlineDate") 
 								.toString()));
 				row.getCell(5).setCellStyle(rowStyle.getCell(5).getCellStyle());
 				
-				row.createCell(6).setCellValue(
-						new HSSFRichTextString(Issue.get("fv9SlResDep1") //$NON-NLS-1$
-								.toString()));
+				String slResDep = "";
+				if (!"".equals(Issue.get("fv9SlResDepBS"))) {  
+					slResDep += ((String)Issue.get("fv9SlResDepBS")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
+				}
+				if (!"".equals(Issue.get("fv9SlResDepCA"))) {  
+					slResDep += "\r\n" + ((String)Issue.get("fv9SlResDepCA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
+				if (!"".equals(Issue.get("fv9SlResDepLO"))) {  
+					slResDep += "\r\n" + ((String)Issue.get("fv9SlResDepLO")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
+				if (!"".equals(Issue.get("fv9SlResDepPA"))) {  
+					slResDep += "\r\n" + ((String)Issue.get("fv9SlResDepPA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
+				if (!"".equals(Issue.get("fv9SlResDepPL"))) {  
+					slResDep += "\r\n" + ((String)Issue.get("fv9SlResDepPL")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
+				if (!"".equals(Issue.get("fv9SlResDepQAPP"))) {  
+					slResDep += "\r\n" + ((String)Issue.get("fv9SlResDepQAPP")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
+				if (!"".equals(Issue.get("fv9SlResDepSU"))) {  
+					slResDep += "\r\n" + ((String)Issue.get("fv9SlResDepSU")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
+				if (!"".equals(Issue.get("fv9SlResDepVSC"))) {  
+					slResDep += "\r\n" + ((String)Issue.get("fv9SlResDepVSC")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
+				row.createCell(6).setCellValue(slResDep);
 				row.getCell(6).setCellStyle(rowStyle.getCell(6).getCellStyle());
 				
 				row.createCell(7).setCellValue(
-						new HSSFRichTextString(Issue.get("fv9IssueReqCarNo") //$NON-NLS-1$
+						new HSSFRichTextString(Issue.get("fv9IssueReqCarNo") 
 								.toString()));//车号
 				row.getCell(7).setCellStyle(rowStyle.getCell(7).getCellStyle());
 				
-				System.out.println("写入问题" + Issue.get("itemRevision") + "信息成功"); //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-1$
+				System.out.println("写入问题" + Issue.get("itemRevision") + "信息成功");   
 
 				i++;
 			}

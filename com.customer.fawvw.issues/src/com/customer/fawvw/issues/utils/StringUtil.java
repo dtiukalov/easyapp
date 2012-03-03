@@ -12,7 +12,6 @@ public class StringUtil {
 				String arr[] = contents.split(","); //$NON-NLS-1$
 				for (int i=0; i<arr.length; i++) {
 					if (arr[i].equalsIgnoreCase(substr)){
-						System.out.println("111111111");
 						return true;
 					}
 				}
@@ -23,7 +22,6 @@ public class StringUtil {
 				String arr[] = contents.split("，"); //$NON-NLS-1$
 				for (int i=0; i<arr.length; i++) {
 					if (arr[i].equalsIgnoreCase(substr)){
-						System.out.println("22222222");
 						return true;
 					}
 				}
@@ -33,7 +31,6 @@ public class StringUtil {
 			if (!contents.contains(",") && !contents.contains("，")) { //$NON-NLS-1$ //$NON-NLS-2$
 				if (contents.equalsIgnoreCase(substr)){
 					//包含子串
-					System.out.println("333333333");
 					return true;
 				} else {
 					//不包含子串
@@ -51,7 +48,6 @@ public class StringUtil {
 						String arr2[] = arr[i].split("，"); //$NON-NLS-1$
 						for (int j=0; j<arr2.length; j++) {
 							if (arr2[j].equalsIgnoreCase(substr)) {
-								System.out.println("4444444444");
 								return true;
 							}
 						}

@@ -172,20 +172,30 @@ public class IssueShiftReportLoader {
 								
 								//计划sheet
 								Map<String, Object> planMap = new HashMap<String, Object>();
+								
 								planMap.put("item_id", itemRevision //$NON-NLS-1$
 										.getProperty("item_id"));// 问题单号 //$NON-NLS-1$
 								planMap.put("fv9IssueDesc", itemRevision //$NON-NLS-1$
 										.getProperty("fv9IssueDesc"));// 问题描述 //$NON-NLS-1$
-								planMap.put("fv9Solution1", itemRevision //$NON-NLS-1$
-										.getProperty("fv9Solution1"));// 措施1 //$NON-NLS-1$
-								planMap.put("fv9Solution2", itemRevision //$NON-NLS-1$
-										.getProperty("fv9Solution2"));// 措施2 //$NON-NLS-1$
-								planMap.put("fv9Solution3", itemRevision //$NON-NLS-1$
-										.getProperty("fv9Solution3"));// 措施3 //$NON-NLS-1$
-								planMap.put("fv9Solution4", itemRevision //$NON-NLS-1$
-										.getProperty("fv9Solution4"));// 措施4 //$NON-NLS-1$
-								planMap.put("fv9Solution5", itemRevision //$NON-NLS-1$
-										.getProperty("fv9Solution5"));// 措施5 //$NON-NLS-1$
+								//措施
+								planMap.put("fv9SolutionBS", itemRevision.getProperty("fv9SolutionBS"));
+								planMap.put("fv9SolutionCA", itemRevision.getProperty("fv9SolutionCA"));
+								planMap.put("fv9SolutionLO", itemRevision.getProperty("fv9SolutionLO"));
+								planMap.put("fv9SolutionPA", itemRevision.getProperty("fv9SolutionPA"));
+								planMap.put("fv9SolutionPL", itemRevision.getProperty("fv9SolutionPL"));
+								planMap.put("fv9SolutionQAPP", itemRevision.getProperty("fv9SolutionQAPP"));
+								planMap.put("fv9SolutionSU", itemRevision.getProperty("fv9SolutionSU"));
+								planMap.put("fv9SolutionVSC", itemRevision.getProperty("fv9SolutionVSC"));
+								
+								planMap.put("fv9SlResDepBS", itemRevision.getProperty("fv9SlResDepBS"));
+								planMap.put("fv9SlResDepCA", itemRevision.getProperty("fv9SlResDepCA"));
+								planMap.put("fv9SlResDepLO", itemRevision.getProperty("fv9SlResDepLO"));
+								planMap.put("fv9SlResDepPA", itemRevision.getProperty("fv9SlResDepPA"));
+								planMap.put("fv9SlResDepPL", itemRevision.getProperty("fv9SlResDepPL"));
+								planMap.put("fv9SlResDepQAPP", itemRevision.getProperty("fv9SlResDepQAPP"));
+								planMap.put("fv9SlResDepSU", itemRevision.getProperty("fv9SlResDepSU"));
+								planMap.put("fv9SlResDepVSC", itemRevision.getProperty("fv9SlResDepVSC"));
+
 								planMap.put("fv9RGStatus", itemRevision //$NON-NLS-1$
 										.getProperty("fv9RGStatus"));// 红绿灯状态 //$NON-NLS-1$
 								planMap.put("carNumber", (String) parameters //$NON-NLS-1$
@@ -237,16 +247,25 @@ public class IssueShiftReportLoader {
 										.getProperty("item_id"));// 问题单号 //$NON-NLS-1$
 								actualMap.put("fv9IssueDesc", itemRevision //$NON-NLS-1$
 										.getProperty("fv9IssueDesc"));// 问题描述 //$NON-NLS-1$
-								actualMap.put("fv9Solution1", itemRevision //$NON-NLS-1$
-										.getProperty("fv9Solution1"));// 措施1 //$NON-NLS-1$
-								actualMap.put("fv9Solution2", itemRevision //$NON-NLS-1$
-										.getProperty("fv9Solution2"));// 措施2 //$NON-NLS-1$
-								actualMap.put("fv9Solution3", itemRevision //$NON-NLS-1$
-										.getProperty("fv9Solution3"));// 措施3 //$NON-NLS-1$
-								actualMap.put("fv9Solution4", itemRevision //$NON-NLS-1$
-										.getProperty("fv9Solution4"));// 措施4 //$NON-NLS-1$
-								actualMap.put("fv9Solution5", itemRevision //$NON-NLS-1$
-										.getProperty("fv9Solution5"));// 措施5 //$NON-NLS-1$
+								
+								actualMap.put("fv9SolutionBS", itemRevision.getProperty("fv9SolutionBS"));
+								actualMap.put("fv9SolutionCA", itemRevision.getProperty("fv9SolutionCA"));
+								actualMap.put("fv9SolutionLO", itemRevision.getProperty("fv9SolutionLO"));
+								actualMap.put("fv9SolutionPA", itemRevision.getProperty("fv9SolutionPA"));
+								actualMap.put("fv9SolutionPL", itemRevision.getProperty("fv9SolutionPL"));
+								actualMap.put("fv9SolutionQAPP", itemRevision.getProperty("fv9SolutionQAPP"));
+								actualMap.put("fv9SolutionSU", itemRevision.getProperty("fv9SolutionSU"));
+								actualMap.put("fv9SolutionVSC", itemRevision.getProperty("fv9SolutionVSC"));
+								
+								actualMap.put("fv9SlResDepBS", itemRevision.getProperty("fv9SlResDepBS"));
+								actualMap.put("fv9SlResDepCA", itemRevision.getProperty("fv9SlResDepCA"));
+								actualMap.put("fv9SlResDepLO", itemRevision.getProperty("fv9SlResDepLO"));
+								actualMap.put("fv9SlResDepPA", itemRevision.getProperty("fv9SlResDepPA"));
+								actualMap.put("fv9SlResDepPL", itemRevision.getProperty("fv9SlResDepPL"));
+								actualMap.put("fv9SlResDepQAPP", itemRevision.getProperty("fv9SlResDepQAPP"));
+								actualMap.put("fv9SlResDepSU", itemRevision.getProperty("fv9SlResDepSU"));
+								actualMap.put("fv9SlResDepVSC", itemRevision.getProperty("fv9SlResDepVSC"));
+								
 								actualMap.put("fv9RGStatus", itemRevision //$NON-NLS-1$
 										.getProperty("fv9RGStatus"));// 红绿灯状态 //$NON-NLS-1$
 								actualMap.put("carNumber", (String) parameters //$NON-NLS-1$

@@ -132,11 +132,13 @@
 	                     icon="platform:/plugin/com.customer.fawvw.issues/coins/issueMenu.png"
 	                     id="IssueReport1">
 	               </command>
+	               <!--
 	               <command
 	                     commandId="com.customer.fawvw.issues.IssueSingleInfoReportCommand"
 	                     icon="platform:/plugin/com.customer.fawvw.issues/coins/issueMenu.png"
 	                     id="IssueReport2">
 	               </command>
+	               -->
 				   <command
                      	commandId="com.customer.fawvw.issues.IssueReportCommand"
                      icon="platform:/plugin/com.customer.fawvw.issues/coins/issueMenu.png"

@@ -132,22 +132,84 @@ public class IssuesReportWrite {
 				 }
 				 
 				 row.getCell(7).setCellStyle(rowStyle.getCell(7).getCellStyle());
-				 
-				 String solution = Issue.get("fv9Solution1") + "\r\n" + 
-				 					Issue.get("fv9Solution2") + "\r\n" +
-				 					Issue.get("fv9Solution3") + "\r\n" +  
-				 					Issue.get("fv9Solution4") + "\r\n" + 
-				 					Issue.get("fv9Solution5");
-				 String resDep = Issue.get("fv9SlResDep1") + "\r\n" + 
-				 					Issue.get("fv9SlResDep2") + "\r\n" +
-				 					Issue.get("fv9SlResDep3") + "\r\n" +  
-				 					Issue.get("fv9SlResDep4") + "\r\n" + 
-				 					Issue.get("fv9SlResDep5");
-				 String resOwner = Issue.get("fv9SlResOwner1") + "\r\n" + 
-				 					Issue.get("fv9SlResOwner2") + "\r\n" +
-				 					Issue.get("fv9SlResOwner3") + "\r\n" +  
-				 					Issue.get("fv9SlResOwner4") + "\r\n" + 
-				 					Issue.get("fv9SlResOwner5");
+				//¥Î ©
+				String solution = ""; 
+				if (!"".equals(Issue.get("fv9SolutionBS"))) {  
+					solution += "BS:" + ((String)Issue.get("fv9SolutionBS")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
+				}
+				if (!"".equals(Issue.get("fv9SolutionCA"))) {  
+					solution += "\r\n" + "CA:" + ((String)Issue.get("fv9SolutionCA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
+				if (!"".equals(Issue.get("fv9SolutionLO"))) {  
+					solution += "\r\n" + "LO:" + ((String)Issue.get("fv9SolutionLO")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
+				if (!"".equals(Issue.get("fv9SolutionPA"))) {  
+					solution += "\r\n" + "PA:" + ((String)Issue.get("fv9SolutionPA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
+				if (!"".equals(Issue.get("fv9SolutionPL"))) {  
+					solution += "\r\n" + "PL:" + ((String)Issue.get("fv9SolutionPL")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
+				if (!"".equals(Issue.get("fv9SolutionQAPP"))) {  
+					solution += "\r\n" + "QAPP:" + ((String)Issue.get("fv9SolutionQAPP")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
+				if (!"".equals(Issue.get("fv9SolutionSU"))) {  
+					solution += "\r\n" + "SU:" + ((String)Issue.get("fv9SolutionSU")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
+				if (!"".equals(Issue.get("fv9SolutionVSC"))) {  
+					solution += "\r\n" + "VSC:" + ((String)Issue.get("fv9SolutionVSC")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
+
+				String resDep = "";
+				if (!"".equals(Issue.get("fv9SlResDepBS"))) {  
+					resDep += ((String)Issue.get("fv9SlResDepBS")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
+				}
+				if (!"".equals(Issue.get("fv9SlResDepCA"))) {  
+					resDep += "\r\n" + ((String)Issue.get("fv9SlResDepCA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
+				if (!"".equals(Issue.get("fv9SlResDepLO"))) {  
+					resDep += "\r\n" + ((String)Issue.get("fv9SlResDepLO")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
+				if (!"".equals(Issue.get("fv9SlResDepPA"))) {  
+					resDep += "\r\n" + ((String)Issue.get("fv9SlResDepPA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
+				if (!"".equals(Issue.get("fv9SlResDepPL"))) {  
+					resDep += "\r\n" + ((String)Issue.get("fv9SlResDepPL")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
+				if (!"".equals(Issue.get("fv9SlResDepQAPP"))) {  
+					resDep += "\r\n" + ((String)Issue.get("fv9SlResDepQAPP")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
+				if (!"".equals(Issue.get("fv9SlResDepSU"))) {  
+					resDep += "\r\n" + ((String)Issue.get("fv9SlResDepSU")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
+				if (!"".equals(Issue.get("fv9SlResDepVSC"))) {  
+					resDep += "\r\n" + ((String)Issue.get("fv9SlResDepVSC")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
+				
+				String resOwner = "";
+				if (!"".equals(Issue.get("fv9SlResOwnerBS"))) {  
+					resOwner += ((String)Issue.get("fv9SlResOwnerBS")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
+				}
+				if (!"".equals(Issue.get("fv9SlResOwnerCA"))) {  
+					resOwner += "\r\n" + ((String)Issue.get("fv9SlResOwnerCA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
+				if (!"".equals(Issue.get("fv9SlResOwnerLO"))) {  
+					resOwner += "\r\n" + ((String)Issue.get("fv9SlResOwnerLO")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
+				if (!"".equals(Issue.get("fv9SlResOwnerPA"))) {  
+					resOwner += "\r\n" + ((String)Issue.get("fv9SlResOwnerPA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
+				if (!"".equals(Issue.get("fv9SlResOwnerPL"))) {  
+					resOwner += "\r\n" + ((String)Issue.get("fv9SlResOwnerPL")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
+				if (!"".equals(Issue.get("fv9SlResOwnerQAPP"))) {  
+					resOwner += "\r\n" + ((String)Issue.get("fv9SlResOwnerQAPP")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
+				if (!"".equals(Issue.get("fv9SlResOwnerSU"))) {  
+					resOwner += "\r\n" + ((String)Issue.get("fv9SlResOwnerSU")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
+				if (!"".equals(Issue.get("fv9SlResOwnerVSC"))) {  
+					resOwner += "\r\n" + ((String)Issue.get("fv9SlResOwnerVSC")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				}
 
 				 //¥Î ©
 				 HSSFCell cell_i8 = row.getCell(8);	

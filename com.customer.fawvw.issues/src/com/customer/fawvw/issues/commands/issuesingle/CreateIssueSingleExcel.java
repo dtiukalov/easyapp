@@ -40,7 +40,7 @@ import com.teamcenter.rac.util.MessageBox;
 
 public class CreateIssueSingleExcel {
 
-	public static final String TEMPLATE_FILE_PATH = System.getenv("TPR") + "\\plugins\\Template\\IssueSingleReport_Template.xls"; //$NON-NLS-1$ //$NON-NLS-2$
+	public static final String TEMPLATE_FILE_PATH = System.getenv("TPR") + "\\plugins\\Template\\IssueSingleReport_Template.xls"; //$NON-NLS-1$ 
 
 	public static final String LOGO_FILE_PATH = "/xls/logo.JPG"; //$NON-NLS-1$
 
@@ -141,15 +141,17 @@ public class CreateIssueSingleExcel {
 				HSSFRow row0 = sheet.getRow(0);
 				HSSFRow row1 = sheet.getRow(1);
 				HSSFRow row4 = sheet.getRow(4);
-				HSSFRow row9 = sheet.getRow(9);
+				HSSFRow row7 = sheet.getRow(7);
 				HSSFRow row10 = sheet.getRow(10);
-				HSSFRow row14 = sheet.getRow(14);
+				HSSFRow row13 = sheet.getRow(13);
 				HSSFRow row16 = sheet.getRow(16);
 				HSSFRow row19 = sheet.getRow(19);
 				HSSFRow row22 = sheet.getRow(22);
 				HSSFRow row24 = sheet.getRow(24);
+				HSSFRow row25 = sheet.getRow(25);
 				HSSFRow row28 = sheet.getRow(28);
 				HSSFRow row29 = sheet.getRow(29);
+				HSSFRow row31 = sheet.getRow(31);
 				HSSFRow row34 = sheet.getRow(34);
 				HSSFRow row35 = sheet.getRow(35);
 				HSSFRow row36 = sheet.getRow(36);
@@ -197,7 +199,7 @@ public class CreateIssueSingleExcel {
 //				descCell.setCellStyle(cellTopStyle);
 				
 				//问题描述图片	
-				if (((HashMap)values.get("problemImage")).containsKey("FV9DescPhoto")) { //$NON-NLS-1$ //$NON-NLS-2$
+				if (((HashMap)values.get("problemImage")).containsKey("FV9DescPhoto")) { //$NON-NLS-1$ 
 					HSSFClientAnchor anchor = new HSSFClientAnchor();
 					Map<String, Object> problemImage = (Map<String, Object>)values.get("problemImage"); //$NON-NLS-1$
 					BufferedImage imageBuffer = (BufferedImage)problemImage.get("FV9DescPhoto"); //$NON-NLS-1$
@@ -205,7 +207,7 @@ public class CreateIssueSingleExcel {
 	
 					HSSFPicture picture = patri.createPicture(anchor, wb.addPicture(
 							imageValue, HSSFWorkbook.PICTURE_TYPE_JPEG));
-					ImageCellInfo problemCellnfo = new ImageCellInfo(15, 0, 33, 18);	
+					ImageCellInfo problemCellnfo = new ImageCellInfo(13, 0, 30, 18);	
 					ImageUtil.GenerateImage(wb, sheet, patri, problemCellnfo, imageBuffer);
 					System.out.println("写入问题描述图片"); //$NON-NLS-1$
 				} 
@@ -215,159 +217,209 @@ public class CreateIssueSingleExcel {
 				if (tempSolCell1 == null) {
 					tempSolCell1 = row4.createCell(19);
 				}
-				tempSolCell1.setCellValue((String)values.get("fv9IssueTempSolution")); //$NON-NLS-1$
+				tempSolCell1.setCellValue("临时措施：" + (String)values.get("fv9IssueTempSolution")); //$NON-NLS-1$
 				
 				//临时措施完成期限
 				HSSFCell tempSolTerminCell1 = row4.getCell(53);
 				if (tempSolTerminCell1 == null) {
 					tempSolTerminCell1 = row4.createCell(53);
 				}
-				if (!"".equals((String)values.get("fv9TempSolutionDL"))) { //$NON-NLS-1$ //$NON-NLS-2$
-					tempSolTerminCell1.setCellValue(DateUtil.getWeekOfYear((String)values.get("fv9TempSolutionDL")) + "/" +  //$NON-NLS-1$ //$NON-NLS-2$
+				if (!"".equals((String)values.get("fv9TempSolutionDL"))) { //$NON-NLS-1$ 
+					tempSolTerminCell1.setCellValue(DateUtil.getWeekOfYear((String)values.get("fv9TempSolutionDL")) + "/" +  //$NON-NLS-1$ 
 							((String)values.get("fv9TempSolutionDL")).substring(0, 4)); //$NON-NLS-1$
 				} else {
 					tempSolTerminCell1.setCellValue(""); //$NON-NLS-1$
 				}
 				
-				//措施1
-				HSSFCell solCell1 = row9.getCell(19);
+				//BS措施
+				HSSFCell solCell1 = row7.getCell(19);
 				if (solCell1 == null) {
-					solCell1 = row9.createCell(19);
+					solCell1 = row7.createCell(19);
 				}
-				solCell1.setCellValue((String)values.get("fv9Solution1")); //$NON-NLS-1$
+				solCell1.setCellValue("BS措施：" + (String)values.get("fv9SolutionBS")); //$NON-NLS-1$
 				
-				//措施1解决期限
-				HSSFCell solTerminCell1 = row9.getCell(53);
+				//BS措施解决期限
+				HSSFCell solTerminCell1 = row7.getCell(53);
 				if (solTerminCell1 == null) {
-					solTerminCell1 = row9.createCell(53);
+					solTerminCell1 = row7.createCell(53);
 				}
-				if (!"".equals((String)values.get("fv9SlDLDate1"))) { //$NON-NLS-1$ //$NON-NLS-2$
-					solTerminCell1.setCellValue(DateUtil.getWeekOfYear((String)values.get("fv9SlDLDate1")) + "/" +  //$NON-NLS-1$ //$NON-NLS-2$
-							((String)values.get("fv9SlDLDate1")).substring(0, 4)); //$NON-NLS-1$
+				if (!"".equals((String)values.get("fv9SlDLDateBS"))) { //$NON-NLS-1$ 
+					solTerminCell1.setCellValue(DateUtil.getWeekOfYear((String)values.get("fv9SlDLDateBS")) + "/" +  //$NON-NLS-1$ 
+							((String)values.get("fv9SlDLDateBS")).substring(0, 4)); //$NON-NLS-1$
 				} else {
 					solTerminCell1.setCellValue(""); //$NON-NLS-1$
 				}
 				
-				
-				//措施2
-				HSSFCell solCell2 = row14.getCell(19);
+				//CA措施
+				HSSFCell solCell2 = row10.getCell(19);
 				if (solCell2 == null) {
-					solCell2 = row14.createCell(19);
+					solCell2 = row10.createCell(19);
 				}
-				solCell2.setCellValue((String)values.get("fv9Solution2")); //$NON-NLS-1$
+				solCell2.setCellValue("CA措施：" + (String)values.get("fv9SolutionCA")); //$NON-NLS-1$
 				
-				//措施2解决期限
-				HSSFCell solTerminCell2 = row14.getCell(53);
+				//CA措施解决期限
+				HSSFCell solTerminCell2 = row10.getCell(53);
 				if (solTerminCell2 == null) {
-					solTerminCell2 = row14.createCell(53);
+					solTerminCell2 = row10.createCell(53);
 				}
-				if (!"".equals((String)values.get("fv9SlDLDate2"))) { //$NON-NLS-1$ //$NON-NLS-2$
-					solTerminCell2.setCellValue(DateUtil.getWeekOfYear((String)values.get("fv9SlDLDate2")) + "/" +  //$NON-NLS-1$ //$NON-NLS-2$
-							((String)values.get("fv9SlDLDate2")).substring(0, 4)); //$NON-NLS-1$
+				if (!"".equals((String)values.get("fv9SlDLDateCA"))) { //$NON-NLS-1$ 
+					solTerminCell2.setCellValue(DateUtil.getWeekOfYear((String)values.get("fv9SlDLDateCA")) + "/" +  //$NON-NLS-1$ 
+							((String)values.get("fv9SlDLDateCA")).substring(0, 4)); //$NON-NLS-1$
 				} else {
 					solTerminCell2.setCellValue(""); //$NON-NLS-1$
 				}
 				
-				//措施3
-				HSSFCell solCell3 = row19.getCell(19);
+				//LO措施
+				HSSFCell solCell3 = row13.getCell(19);
 				if (solCell3 == null) {
-					solCell3 = row19.createCell(19);
+					solCell3 = row13.createCell(19);
 				}
-				solCell3.setCellValue((String)values.get("fv9Solution3")); //$NON-NLS-1$
-//				solCell3.setCellStyle(cellTopStyle);
+				solCell3.setCellValue("LO措施：" + (String)values.get("fv9SolutionLO")); 
 				
-				//措施3解决期限
-				HSSFCell solTerminCell3 = row19.getCell(53);
+				//LO措施解决期限
+				HSSFCell solTerminCell3 = row13.getCell(53);
 				if (solTerminCell3 == null) {
-					solTerminCell3 = row19.createCell(53);
+					solTerminCell3 = row13.createCell(53);
 				}
-				if (!"".equals((String)values.get("fv9SlDLDate3"))) { //$NON-NLS-1$ //$NON-NLS-2$
-					solTerminCell3.setCellValue(DateUtil.getWeekOfYear((String)values.get("fv9SlDLDate3")) + "/" +  //$NON-NLS-1$ //$NON-NLS-2$
-							((String)values.get("fv9SlDLDate3")).substring(0, 4)); //$NON-NLS-1$
+				if (!"".equals((String)values.get("fv9SlDLDateLO"))) { //$NON-NLS-1$ 
+					solTerminCell3.setCellValue(DateUtil.getWeekOfYear((String)values.get("fv9SlDLDateLO")) + "/" +  //$NON-NLS-1$ 
+							((String)values.get("fv9SlDLDateLO")).substring(0, 4)); //$NON-NLS-1$
 				} else {
 					solTerminCell3.setCellValue(""); //$NON-NLS-1$
 				}
-//				solTerminCell3.setCellStyle(cellTopStyle);
 				
-				//措施4
-				HSSFCell solCell4 = row24.getCell(19);
+				//PA措施
+				HSSFCell solCell4 = row16.getCell(19);
 				if (solCell4 == null) {
-					solCell4 = row24.createCell(19);
+					solCell4 = row16.createCell(19);
 				}
-				solCell4.setCellValue((String)values.get("fv9Solution4")); //$NON-NLS-1$
-//				solCell4.setCellStyle(cellTopStyle);
+				solCell4.setCellValue("PA措施：" + (String)values.get("fv9SolutionPA")); 
 				
-				//措施4解决期限
-				HSSFCell solTerminCell4 = row24.getCell(53);
+				//PA措施解决期限
+				HSSFCell solTerminCell4 = row16.getCell(53);
 				if (solTerminCell4 == null) {
-					solTerminCell4 = row24.createCell(53);
+					solTerminCell4 = row16.createCell(53);
 				}
-				if (!"".equals((String)values.get("fv9SlDLDate4"))) { //$NON-NLS-1$ //$NON-NLS-2$
-					solTerminCell4.setCellValue(DateUtil.getWeekOfYear((String)values.get("fv9SlDLDate4")) + "/" +  //$NON-NLS-1$ //$NON-NLS-2$
-							((String)values.get("fv9SlDLDate4")).substring(0, 4)); //$NON-NLS-1$
+				if (!"".equals((String)values.get("fv9SlDLDatePA"))) { //$NON-NLS-1$ 
+					solTerminCell4.setCellValue(DateUtil.getWeekOfYear((String)values.get("fv9SlDLDatePA")) + "/" +  //$NON-NLS-1$ 
+							((String)values.get("fv9SlDLDatePA")).substring(0, 4)); //$NON-NLS-1$
 				} else {
 					solTerminCell4.setCellValue(""); //$NON-NLS-1$
 				}
-//				solTerminCell4.setCellStyle(cellTopStyle);
 				
-				//措施5
-				HSSFCell solCell5 = row29.getCell(19);
+				//PL措施
+				HSSFCell solCell5 = row19.getCell(19);
 				if (solCell5 == null) {
-					solCell5 = row29.createCell(19);
+					solCell5 = row19.createCell(19);
 				}
-				solCell5.setCellValue((String)values.get("fv9Solution5")); //$NON-NLS-1$
-//				solCell5.setCellStyle(cellTopStyle);
+				solCell5.setCellValue("PL措施：" + (String)values.get("fv9SolutionPL")); //$NON-NLS-1$
 				
-				//措施5解决期限
-				HSSFCell solTerminCell5 = row29.getCell(53);
+				//PL措施解决期限
+				HSSFCell solTerminCell5 = row19.getCell(53);
 				if (solTerminCell5 == null) {
-					solTerminCell5 = row29.createCell(53);
+					solTerminCell5 = row19.createCell(53);
 				}
-				if (!"".equals((String)values.get("fv9SlDLDate5"))) { //$NON-NLS-1$ //$NON-NLS-2$
-					solTerminCell5.setCellValue(DateUtil.getWeekOfYear((String)values.get("fv9SlDLDate5")) + "/" +  //$NON-NLS-1$ //$NON-NLS-2$
-							((String)values.get("fv9SlDLDate5")).substring(0, 4)); //$NON-NLS-1$
+				if (!"".equals((String)values.get("fv9SlDLDatePL"))) { //$NON-NLS-1$ 
+					solTerminCell5.setCellValue(DateUtil.getWeekOfYear((String)values.get("fv9SlDLDatePL")) + "/" +  //$NON-NLS-1$ 
+							((String)values.get("fv9SlDLDatePL")).substring(0, 4)); //$NON-NLS-1$
 				} else {
 					solTerminCell5.setCellValue(""); //$NON-NLS-1$
 				}
-//				solTerminCell5.setCellStyle(cellTopStyle);
+				
+				//QAPP措施
+				HSSFCell solCell6 = row22.getCell(19);
+				if (solCell6 == null) {
+					solCell6 = row22.createCell(19);
+				}
+				solCell6.setCellValue("QAPP措施：" + (String)values.get("fv9SolutionQAPP")); //$NON-NLS-1$
+				
+				//QAPP措施解决期限
+				HSSFCell solTerminCell6 = row22.getCell(53);
+				if (solTerminCell6 == null) {
+					solTerminCell6 = row22.createCell(53);
+				}
+				if (!"".equals((String)values.get("fv9SlDLDateQAPP"))) { //$NON-NLS-1$ 
+					solTerminCell6.setCellValue(DateUtil.getWeekOfYear((String)values.get("fv9SlDLDateQAPP")) + "/" +  //$NON-NLS-1$ 
+							((String)values.get("fv9SlDLDateQAPP")).substring(0, 4)); //$NON-NLS-1$
+				} else {
+					solTerminCell6.setCellValue(""); //$NON-NLS-1$
+				}
+				
+				//SU措施
+				HSSFCell solCell7 = row25.getCell(19);
+				if (solCell7 == null) {
+					solCell7 = row25.createCell(19);
+				}
+				solCell7.setCellValue("SU措施：" + (String)values.get("fv9SolutionSU")); //$NON-NLS-1$
+				
+				//SU措施解决期限
+				HSSFCell solTerminCell7 = row25.getCell(53);
+				if (solTerminCell7 == null) {
+					solTerminCell7 = row25.createCell(53);
+				}
+				if (!"".equals((String)values.get("fv9SlDLDateSU"))) { //$NON-NLS-1$ 
+					solTerminCell7.setCellValue(DateUtil.getWeekOfYear((String)values.get("fv9SlDLDateSU")) + "/" +  //$NON-NLS-1$ 
+							((String)values.get("fv9SlDLDateSU")).substring(0, 4)); //$NON-NLS-1$
+				} else {
+					solTerminCell7.setCellValue(""); //$NON-NLS-1$
+				}
+				
+				//VSC措施
+				HSSFCell solCell8 = row28.getCell(19);
+				if (solCell8 == null) {
+					solCell8 = row28.createCell(19);
+				}
+				solCell8.setCellValue("VSC措施：" + (String)values.get("fv9SolutionVSC")); //$NON-NLS-1$
+				
+				//VSC措施解决期限
+				HSSFCell solTerminCell8 = row28.getCell(53);
+				if (solTerminCell8 == null) {
+					solTerminCell8 = row28.createCell(53);
+				}
+				if (!"".equals((String)values.get("fv9SlDLDateVSC"))) { //$NON-NLS-1$ 
+					solTerminCell8.setCellValue(DateUtil.getWeekOfYear((String)values.get("fv9SlDLDateVSC")) + "/" +  //$NON-NLS-1$ 
+							((String)values.get("fv9SlDLDateVSC")).substring(0, 4)); //$NON-NLS-1$
+				} else {
+					solTerminCell8.setCellValue(""); //$NON-NLS-1$
+				}
 				
 				//ASW
-				ImageCellInfo ASW = new ImageCellInfo(35, 3, 35, 3);
+				ImageCellInfo ASW = new ImageCellInfo(32, 3, 32, 3);
 				ImageUtil.GenerateImage(wb, sheet, patri, ASW, ImageUtil.getASW());
 				System.out.println("写入图片：ASW.jpg"); //$NON-NLS-1$
 				
 				//WZG-Erst
-				ImageCellInfo WZGErst = new ImageCellInfo(35, 6, 35, 6);
+				ImageCellInfo WZGErst = new ImageCellInfo(32, 6, 32, 6);
 				ImageUtil.GenerateImage(wb, sheet, patri, WZGErst, ImageUtil.getWZGErst());
 				System.out.println("写入图片：WZGErst.jpg"); //$NON-NLS-1$
 				
 				//WZG-Verl
-				ImageCellInfo WZGVerl = new ImageCellInfo(35, 9, 35, 9);
+				ImageCellInfo WZGVerl = new ImageCellInfo(32, 9, 32, 9);
 				ImageUtil.GenerateImage(wb, sheet, patri, WZGVerl, ImageUtil.getWZGVerl());
 				System.out.println("写入图片：WZG-Verl.jpg"); //$NON-NLS-1$
 				
 				//SWZ-Teile
-				ImageCellInfo SWZTeile = new ImageCellInfo(35, 12, 35, 12);
+				ImageCellInfo SWZTeile = new ImageCellInfo(32, 12, 32, 12);
 				ImageUtil.GenerateImage(wb, sheet, patri, SWZTeile, ImageUtil.getSWZTeile());
 				System.out.println("写入图片：SWZ-Teile.jpg"); //$NON-NLS-1$
 				
 				//EMTAnl
-				ImageCellInfo EMTAnl = new ImageCellInfo(35, 15, 35, 15);
+				ImageCellInfo EMTAnl = new ImageCellInfo(32, 15, 32, 15);
 				ImageUtil.GenerateImage(wb, sheet, patri, EMTAnl, ImageUtil.getEMTAnl());
 				System.out.println("写入图片：EMTAnl.jpg"); //$NON-NLS-1$
 				
 				//Note3
-				ImageCellInfo Note3 = new ImageCellInfo(35, 18, 35, 18);
+				ImageCellInfo Note3 = new ImageCellInfo(32, 18, 32, 18);
 				ImageUtil.GenerateImage(wb, sheet, patri, Note3, ImageUtil.getNote3());
 				System.out.println("写入图片：Note3.jpg"); //$NON-NLS-1$
 				
 				//BMG
-				ImageCellInfo BMG = new ImageCellInfo(35, 21, 35, 21);
+				ImageCellInfo BMG = new ImageCellInfo(32, 21, 32, 21);
 				ImageUtil.GenerateImage(wb, sheet, patri, BMG, ImageUtil.getBMG());
 				System.out.println("写入图片：BMG.jpg"); //$NON-NLS-1$
 				
 				//Note1
-				ImageCellInfo Note1 = new ImageCellInfo(35, 24, 35, 24);
+				ImageCellInfo Note1 = new ImageCellInfo(32, 24, 32, 24);
 				ImageUtil.GenerateImage(wb, sheet, patri, Note1, ImageUtil.getNote1());
 				System.out.println("写入图片：Note1.jpg"); //$NON-NLS-1$
 				
@@ -435,44 +487,44 @@ public class CreateIssueSingleExcel {
 					
 					//J行合并单元格
 					int begin = 1;
-					if (Integer.parseInt(result.get("cols_before2") + "") > 0) {  //$NON-NLS-2$
-						sheet.addMergedRegion(new Region(34, (short)begin, 34, (short)(begin+Integer.parseInt(result.get("cols_before2") + "")-1)));   //$NON-NLS-2$
-						HSSFCell before2Cell = row34.getCell(begin);
+					if (Integer.parseInt(result.get("cols_before2") + "") > 0) {  
+						sheet.addMergedRegion(new Region(31, (short)begin, 31, (short)(begin+Integer.parseInt(result.get("cols_before2") + "")-1)));   
+						HSSFCell before2Cell = row31.getCell(begin);
 						if (before2Cell == null) {
-							before2Cell = row34.createCell(begin);
+							before2Cell = row31.createCell(begin);
 						}
-						before2Cell.setCellValue(result.get("year_before2") + "");  //$NON-NLS-2$
-						begin += Integer.parseInt(result.get("cols_before2") + "");  //$NON-NLS-2$
+						before2Cell.setCellValue(result.get("year_before2") + "");  
+						begin += Integer.parseInt(result.get("cols_before2") + "");  
 					}
-					if (Integer.parseInt(result.get("cols_before1") + "") > 0) {  //$NON-NLS-2$
-						sheet.addMergedRegion(new Region(34, (short)begin, 34, (short)(begin+Integer.parseInt(result.get("cols_before1") + "")-1)));   //$NON-NLS-2$
+					if (Integer.parseInt(result.get("cols_before1") + "") > 0) {  
+						sheet.addMergedRegion(new Region(31, (short)begin, 31, (short)(begin+Integer.parseInt(result.get("cols_before1") + "")-1)));   
 						
-						HSSFCell before1Cell = row34.getCell(begin);
+						HSSFCell before1Cell = row31.getCell(begin);
 						if (before1Cell == null) {
-							before1Cell = row34.createCell(begin);
+							before1Cell = row31.createCell(begin);
 						}
-						before1Cell.setCellValue(result.get("year_before1") + "");  //$NON-NLS-2$
-						begin += Integer.parseInt(result.get("cols_before1") + "");  //$NON-NLS-2$
+						before1Cell.setCellValue(result.get("year_before1") + "");  
+						begin += Integer.parseInt(result.get("cols_before1") + "");  
 					}
-					if (Integer.parseInt(result.get("cols_current") + "") > 0) {  //$NON-NLS-2$
-						sheet.addMergedRegion(new Region(34, (short)begin, 34, (short)(begin+Integer.parseInt(result.get("cols_current") + "")-1)));   //$NON-NLS-2$
+					if (Integer.parseInt(result.get("cols_current") + "") > 0) {  
+						sheet.addMergedRegion(new Region(31, (short)begin, 31, (short)(begin+Integer.parseInt(result.get("cols_current") + "")-1)));   
 						
-						HSSFCell currentCell = row34.getCell(begin);
+						HSSFCell currentCell = row31.getCell(begin);
 						if (currentCell == null) {
-							currentCell = row34.createCell(begin);
+							currentCell = row31.createCell(begin);
 						}
-						currentCell.setCellValue(result.get("year_current") + "");  //$NON-NLS-2$
-						begin += Integer.parseInt(result.get("cols_current") + "");  //$NON-NLS-2$
+						currentCell.setCellValue(result.get("year_current") + "");  
+						begin += Integer.parseInt(result.get("cols_current") + "");  
 					}
-					if (Integer.parseInt(result.get("cols_after") + "") > 0) {  //$NON-NLS-2$
-						sheet.addMergedRegion(new Region(34, (short)begin, 34, (short)(begin+Integer.parseInt(result.get("cols_after") + "")-1)));   //$NON-NLS-2$
+					if (Integer.parseInt(result.get("cols_after") + "") > 0) {  
+						sheet.addMergedRegion(new Region(31, (short)begin, 31, (short)(begin+Integer.parseInt(result.get("cols_after") + "")-1)));   
 						
-						HSSFCell afterCell = row34.getCell(begin);
+						HSSFCell afterCell = row31.getCell(begin);
 						if (afterCell == null) {
-							afterCell = row34.createCell(begin);
+							afterCell = row31.createCell(begin);
 						}
-						afterCell.setCellValue(result.get("year_after") + "");  //$NON-NLS-2$
-						begin += Integer.parseInt(result.get("cols_current") + "");  //$NON-NLS-2$
+						afterCell.setCellValue(result.get("year_after") + "");  
+						begin += Integer.parseInt(result.get("cols_current") + "");  
 					}
 					
 					//计算Soll中TBT和各个里程碑的时间所在单元格
@@ -485,16 +537,16 @@ public class CreateIssueSingleExcel {
 					//首先计算周数组中的第一周的周一的日期
 					int firstKW = kws[0];
 					int firstYear = 0; //周数组中的第一年
-					if (Integer.parseInt(result.get("cols_after") + "") > 0) {  //$NON-NLS-2$
+					if (Integer.parseInt(result.get("cols_after") + "") > 0) {  
 						firstYear = (Integer)result.get("year_after"); 
 					}
-					if (Integer.parseInt(result.get("cols_current") + "") > 0) {  //$NON-NLS-2$
+					if (Integer.parseInt(result.get("cols_current") + "") > 0) {  
 						firstYear = (Integer)result.get("year_current"); 
 					}
-					if (Integer.parseInt(result.get("cols_before1") + "") > 0) {  //$NON-NLS-2$
+					if (Integer.parseInt(result.get("cols_before1") + "") > 0) {  
 						firstYear = (Integer)result.get("year_before1"); 
 					}
-					if (Integer.parseInt(result.get("cols_before2") + "") > 0) {  //$NON-NLS-2$
+					if (Integer.parseInt(result.get("cols_before2") + "") > 0) {  
 						firstYear = (Integer)result.get("year_before2"); 
 					}
 					Date firstDate = DateUtil.getFirstDayOfWeek(firstYear, firstKW); //第一周的周一日期
@@ -520,70 +572,70 @@ public class CreateIssueSingleExcel {
 					
 					//循环写入74周
 					for (int i = 0; i < kws.length; i++) {
-						HSSFCell kwCell = row39.getCell(i+1);
+						HSSFCell kwCell = row36.getCell(i+1);
 						System.out.println("i = " + i);
 						if (kwCell == null) {
-							kwCell = row39.createCell(i+1);
+							kwCell = row36.createCell(i+1);
 						}
 						if (i == tbt_vff) {
-							ImageCellInfo vffCell = new ImageCellInfo(37, i+1, 37, i+1);
+							ImageCellInfo vffCell = new ImageCellInfo(34, i+1, 34, i+1);
 							ImageUtil.GenerateImage(wb, sheet, patri, vffCell, ImageUtil.getTBTVFF());
 							System.out.println("写入图片：TBT-VFF.jpg"); 
 						}
 						if (i == vff) {
-							ImageCellInfo vffCell = new ImageCellInfo(36, i, 36, i+4);
+							ImageCellInfo vffCell = new ImageCellInfo(33, i, 33, i+4);
 							ImageUtil.GenerateImage(wb, sheet, patri, vffCell, ImageUtil.getVFF());
 							System.out.println("写入图片：VFF.jpg"); 
 						}
 						if (i == tbt_pvs) {
-							ImageCellInfo pvsCell = new ImageCellInfo(37, i+1, 37, i+1);
+							ImageCellInfo pvsCell = new ImageCellInfo(34, i+1, 34, i+1);
 							ImageUtil.GenerateImage(wb, sheet, patri, pvsCell, ImageUtil.getTBTPVS());
 							System.out.println("写入图片：TBT-PVS.jpg"); 
 						}
 						if (i == pvs) {
-							ImageCellInfo vffCell = new ImageCellInfo(36, i, 36, i+8);
+							ImageCellInfo vffCell = new ImageCellInfo(33, i, 33, i+8);
 							ImageUtil.GenerateImage(wb, sheet, patri, vffCell, ImageUtil.getPVS());
 							System.out.println("写入图片：PVS.jpg"); 
 						}
 						if (i == tbt_0s) {
-							ImageCellInfo osCell = new ImageCellInfo(37, i+1, 37, i+1);
+							ImageCellInfo osCell = new ImageCellInfo(34, i+1, 34, i+1);
 							ImageUtil.GenerateImage(wb, sheet, patri, osCell, ImageUtil.getTBT0S());
 							System.out.println("写入图片：TBT-0S.jpg"); 
 						}
 						if (i == os) {
-							ImageCellInfo vffCell = new ImageCellInfo(36, i, 36, os+6);
+							ImageCellInfo vffCell = new ImageCellInfo(33, i, 33, os+6);
 							ImageUtil.GenerateImage(wb, sheet, patri, vffCell, ImageUtil.get0S());
 							System.out.println("写入图片：0S.jpg"); 
 						}
 						if (i == tbt_sop) {
-							ImageCellInfo sopCell = new ImageCellInfo(37, i+1, 37, i+1);
+							ImageCellInfo sopCell = new ImageCellInfo(34, i+1, 34, i+1);
 							ImageUtil.GenerateImage(wb, sheet, patri, sopCell, ImageUtil.getTBTSOP());
 							System.out.println("写入图片：TBT-SOP.jpg"); 
 						}
 						if (i == sop) {
-							ImageCellInfo vffCell = new ImageCellInfo(36, i, 36, sop+10);
+							ImageCellInfo vffCell = new ImageCellInfo(33, i, 33, sop+10);
 							ImageUtil.GenerateImage(wb, sheet, patri, vffCell, ImageUtil.getSOP());
 							System.out.println("写入图片：SOP.jpg"); 
 						}
 						//写入TBT三个字母
 						if ((i==tbt_vff+1) || (i==tbt_pvs+1) || (i==tbt_0s+1) || (i==tbt_sop+1)) {
-							HSSFCell vffCell = row37.getCell(i+1);
+							HSSFCell vffCell = row34.getCell(i+1);
 							if (vffCell == null) {
-								vffCell = row37.createCell(i+1);
+								vffCell = row34.createCell(i+1);
 							}
 							vffCell.setCellValue("T");
 						}
 						if ((i==tbt_vff+2) || (i==tbt_pvs+2) || (i==tbt_0s+2) || (i==tbt_sop+2)) {
-							HSSFCell vffCell = row37.getCell(i+1);
+							HSSFCell vffCell = row34.getCell(i+1);
 							if (vffCell == null) {
-								vffCell = row37.createCell(i+1);
+								vffCell = row34.createCell(i+1);
 							}
 							vffCell.setCellValue("B");
 						}
 						if ((i==tbt_vff+3) || (i==tbt_pvs+3) || (i==tbt_0s+3) || (i==tbt_sop+3)) {
-							HSSFCell vffCell = row37.getCell(i+1);
+							HSSFCell vffCell = row34.getCell(i+1);
 							if (vffCell == null) {
-								vffCell = row37.createCell(i+1);
+								vffCell = row34.createCell(i+1);
 							}
 							vffCell.setCellValue("T");
 						}

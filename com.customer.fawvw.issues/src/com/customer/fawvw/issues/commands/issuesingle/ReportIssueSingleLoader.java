@@ -45,126 +45,156 @@ public class ReportIssueSingleLoader {
 		
 		try {
 			fv9IssueRevision = ((TCComponentItem) targetcompontent).getLatestItemRevision();
-			values.put("fv9IssueRevision", fv9IssueRevision); //$NON-NLS-1$
+			values.put("fv9IssueRevision", fv9IssueRevision); 
 			
 			try {
 				Map<String, Object> problemImage = ComponentUtils
 					.loadComponentItemRelatedImage1(
-						(TCComponentItem) targetcompontent, "FV9DescPhoto"); //$NON-NLS-1$
-				values.put("problemImage", problemImage); //$NON-NLS-1$
+						(TCComponentItem) targetcompontent, "FV9DescPhoto"); 
+				values.put("problemImage", problemImage); 
 				
-				if (problemImage.containsKey("datasetName")) { //$NON-NLS-1$
-					System.out.println("对象关系为FV9DescPhoto的Image数据集为：" + problemImage.get("datasetName")); //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$
+				if (problemImage.containsKey("datasetName")) { 
+					System.out.println("对象关系为FV9DescPhoto的Image数据集为：" + problemImage.get("datasetName")); //$NON-NLS-2$         
 				}
 				
-				values.put("fv9PartNumber", fv9IssueRevision //$NON-NLS-1$
-						.getProperty("fv9PartNumber")); //$NON-NLS-1$
-				System.out.println("涉及零件编号：" + fv9IssueRevision //$NON-NLS-1$
-						.getProperty("fv9PartNumber")); //$NON-NLS-1$
+				values.put("fv9PartNumber", fv9IssueRevision 
+						.getProperty("fv9PartNumber")); 
+				System.out.println("涉及零件编号：" + fv9IssueRevision 
+						.getProperty("fv9PartNumber")); 
 				
-				values.put("fv9PartName", fv9IssueRevision //$NON-NLS-1$
-						.getProperty("fv9PartName")); //$NON-NLS-1$
-				System.out.println("零件名称：" + fv9IssueRevision  //$NON-NLS-1$
-						.getProperty("fv9PartName")); //$NON-NLS-1$
+				values.put("fv9PartName", fv9IssueRevision 
+						.getProperty("fv9PartName")); 
+				System.out.println("零件名称：" + fv9IssueRevision  
+						.getProperty("fv9PartName")); 
 				
-				values.put("fv9IssueDesc", fv9IssueRevision //$NON-NLS-1$
-						.getProperty("fv9IssueDesc")); //$NON-NLS-1$
-				System.out.println("问题描述：" + fv9IssueRevision  //$NON-NLS-1$
-						.getProperty("fv9IssueDesc")); //$NON-NLS-1$
+				values.put("fv9IssueDesc", fv9IssueRevision 
+						.getProperty("fv9IssueDesc")); 
+				System.out.println("问题描述：" + fv9IssueRevision  
+						.getProperty("fv9IssueDesc")); 
 				
-				values.put("fv9IssueTempSolution", "临时措施：" + fv9IssueRevision //$NON-NLS-1$
-						.getProperty("fv9IssueTempSolution")); //$NON-NLS-1$
+				values.put("fv9IssueTempSolution", fv9IssueRevision 
+						.getProperty("fv9IssueTempSolution")); 
 				System.out.println("临时措施：" + fv9IssueRevision 
-						.getProperty("fv9IssueTempSolution")); //$NON-NLS-1$
+						.getProperty("fv9IssueTempSolution")); 
 				
-				values.put("fv9TempSolutionDL", fv9IssueRevision //$NON-NLS-1$
-						.getProperty("fv9TempSolutionDL")); //$NON-NLS-1$
+				values.put("fv9TempSolutionDL", fv9IssueRevision 
+						.getProperty("fv9TempSolutionDL")); 
 				System.out.println("临时措施完成期限：" + fv9IssueRevision 
-						.getProperty("fv9TempSolutionDL")); //$NON-NLS-1$
+						.getProperty("fv9TempSolutionDL")); 
 				
-				values.put("fv9Solution1", fv9IssueRevision //$NON-NLS-1$
-						.getProperty("fv9Solution1")); //$NON-NLS-1$
-				System.out.println("措施1：" + fv9IssueRevision  //$NON-NLS-1$
-						.getProperty("fv9Solution1")); //$NON-NLS-1$
+				values.put("fv9SolutionBS", fv9IssueRevision 
+						.getProperty("fv9SolutionBS")); 
+				System.out.println("BS措施：" + fv9IssueRevision  
+						.getProperty("fv9SolutionBS")); 
 				
-				values.put("fv9SlDLDate1", fv9IssueRevision //$NON-NLS-1$
-						.getProperty("fv9SlDLDate1")); //$NON-NLS-1$
-				System.out.println("措施1完成日期： " + fv9IssueRevision  //$NON-NLS-1$
-						.getProperty("fv9SlDLDate1")); //$NON-NLS-1$
+				values.put("fv9SlDLDateBS", fv9IssueRevision 
+						.getProperty("fv9SlDLDateBS")); 
+				System.out.println("BS措施完成期限： " + fv9IssueRevision  
+						.getProperty("fv9SlDLDateBS")); 
 			
-				values.put("fv9Solution2", fv9IssueRevision //$NON-NLS-1$
-						.getProperty("fv9Solution2")); //$NON-NLS-1$
-				System.out.println("措施2：" + fv9IssueRevision  //$NON-NLS-1$
-						.getProperty("fv9Solution2")); //$NON-NLS-1$
+				values.put("fv9SolutionCA", fv9IssueRevision 
+						.getProperty("fv9SolutionCA")); 
+				System.out.println("CA措施：" + fv9IssueRevision  
+						.getProperty("fv9SolutionCA")); 
 				
-				values.put("fv9SlDLDate2", fv9IssueRevision //$NON-NLS-1$
-						.getProperty("fv9SlDLDate2")); //$NON-NLS-1$
-				System.out.println("措施2完成日期：" + fv9IssueRevision  //$NON-NLS-1$
-						.getProperty("fv9SlDLDate2")); //$NON-NLS-1$
+				values.put("fv9SlDLDateCA", fv9IssueRevision 
+						.getProperty("fv9SlDLDateCA")); 
+				System.out.println("CA措施完成期限：" + fv9IssueRevision  
+						.getProperty("fv9SlDLDateCA")); 
 								
-				values.put("fv9Solution3", fv9IssueRevision //$NON-NLS-1$
-						.getProperty("fv9Solution3")); //$NON-NLS-1$
-				System.out.println("措施3：" + fv9IssueRevision  //$NON-NLS-1$
-						.getProperty("fv9Solution3")); //$NON-NLS-1$
+				values.put("fv9SolutionLO", fv9IssueRevision 
+						.getProperty("fv9SolutionLO")); 
+				System.out.println("LO措施：" + fv9IssueRevision  
+						.getProperty("fv9SolutionLO")); 
 				
-				values.put("fv9SlDLDate3", fv9IssueRevision //$NON-NLS-1$
-						.getProperty("fv9SlDLDate3")); //$NON-NLS-1$
-				System.out.println("措施3完成日期：" + fv9IssueRevision  //$NON-NLS-1$
-						.getProperty("fv9SlDLDate3")); //$NON-NLS-1$
+				values.put("fv9SlDLDateLO", fv9IssueRevision 
+						.getProperty("fv9SlDLDateLO")); 
+				System.out.println("LO措施完成期限：" + fv9IssueRevision  
+						.getProperty("fv9SlDLDateLO")); 
 				
-				values.put("fv9Solution4", fv9IssueRevision //$NON-NLS-1$
-						.getProperty("fv9Solution4")); //$NON-NLS-1$
-				System.out.println("措施4：" + fv9IssueRevision  //$NON-NLS-1$
-						.getProperty("fv9Solution4")); //$NON-NLS-1$
+				values.put("fv9SolutionPA", fv9IssueRevision 
+						.getProperty("fv9SolutionPA")); 
+				System.out.println("PA措施：" + fv9IssueRevision  
+						.getProperty("fv9SolutionPA")); 
 				
-				values.put("fv9SlDLDate4", fv9IssueRevision //$NON-NLS-1$
-						.getProperty("fv9SlDLDate4")); //$NON-NLS-1$
-				System.out.println("措施4完成日期： " + fv9IssueRevision  //$NON-NLS-1$
-						.getProperty("fv9SlDLDate4")); //$NON-NLS-1$
+				values.put("fv9SlDLDatePA", fv9IssueRevision 
+						.getProperty("fv9SlDLDatePA")); 
+				System.out.println("PA措施完成期限： " + fv9IssueRevision  
+						.getProperty("fv9SlDLDatePA")); 
 				
-				values.put("fv9Solution5", fv9IssueRevision //$NON-NLS-1$
-						.getProperty("fv9Solution5")); //$NON-NLS-1$
-				System.out.println("措施5：" + fv9IssueRevision  //$NON-NLS-1$
-						.getProperty("fv9Solution5")); //$NON-NLS-1$
+				values.put("fv9SolutionPL", fv9IssueRevision 
+						.getProperty("fv9SolutionPL")); 
+				System.out.println("PL措施：" + fv9IssueRevision  
+						.getProperty("fv9SolutionPL")); 
 				
-				values.put("fv9SlDLDate5", fv9IssueRevision //$NON-NLS-1$
-						.getProperty("fv9SlDLDate5")); //$NON-NLS-1$
-				System.out.println("措施5完成日期：" + fv9IssueRevision  //$NON-NLS-1$
-						.getProperty("fv9SlDLDate5")); //$NON-NLS-1$
+				values.put("fv9SlDLDatePL", fv9IssueRevision 
+						.getProperty("fv9SlDLDatePL")); 
+				System.out.println("PL措施完成期限：" + fv9IssueRevision  
+						.getProperty("fv9SlDLDatePL")); 
 				
-				values.put("fv9RGStatus", fv9IssueRevision //$NON-NLS-1$
-						.getProperty("fv9RGStatus")); //$NON-NLS-1$
+				values.put("fv9SolutionQAPP", fv9IssueRevision 
+						.getProperty("fv9SolutionQAPP")); 
+				System.out.println("QAPP措施：" + fv9IssueRevision  
+						.getProperty("fv9SolutionQAPP")); 
+				
+				values.put("fv9SlDLDateQAPP", fv9IssueRevision 
+						.getProperty("fv9SlDLDateQAPP")); 
+				System.out.println("QAPP措施完成期限：" + fv9IssueRevision  
+						.getProperty("fv9SlDLDateQAPP")); 
+				
+				values.put("fv9SolutionSU", fv9IssueRevision 
+						.getProperty("fv9SolutionSU")); 
+				System.out.println("SU措施：" + fv9IssueRevision  
+						.getProperty("fv9SolutionSU")); 
+				
+				values.put("fv9SlDLDateSU", fv9IssueRevision 
+						.getProperty("fv9SlDLDateSU")); 
+				System.out.println("SU措施完成期限：" + fv9IssueRevision  
+						.getProperty("fv9SlDLDateSU")); 
+				
+				values.put("fv9SolutionVSC", fv9IssueRevision 
+						.getProperty("fv9SolutionVSC")); 
+				System.out.println("VSC措施：" + fv9IssueRevision  
+						.getProperty("fv9SolutionVSC")); 
+				
+				values.put("fv9SlDLDateVSC", fv9IssueRevision 
+						.getProperty("fv9SlDLDateVSC")); 
+				System.out.println("VSC措施完成期限：" + fv9IssueRevision  
+						.getProperty("fv9SlDLDateVSC")); 
+				
+				values.put("fv9RGStatus", fv9IssueRevision 
+						.getProperty("fv9RGStatus")); 
 			
-				System.out.println("红绿灯状态：" + fv9IssueRevision  //$NON-NLS-1$
-						.getProperty("fv9RGStatus")); //$NON-NLS-1$
+				System.out.println("红绿灯状态：" + fv9IssueRevision  
+						.getProperty("fv9RGStatus")); 
 				
-				values.put("fv9SupplierID", fv9IssueRevision //$NON-NLS-1$
-						.getProperty("fv9SupplierID")); //$NON-NLS-1$
-				System.out.println("供应商号：" + fv9IssueRevision //$NON-NLS-1$
-						.getProperty("fv9SupplierID")); //$NON-NLS-1$
+				values.put("fv9SupplierID", fv9IssueRevision 
+						.getProperty("fv9SupplierID")); 
+				System.out.println("供应商号：" + fv9IssueRevision 
+						.getProperty("fv9SupplierID")); 
 				
-				values.put("fv9SupplierName", fv9IssueRevision //$NON-NLS-1$
-						.getProperty("fv9SupplierName")); //$NON-NLS-1$
+				values.put("fv9SupplierName", fv9IssueRevision 
+						.getProperty("fv9SupplierName")); 
 				
-				System.out.println("供应商名称：" + fv9IssueRevision  //$NON-NLS-1$
-						.getProperty("fv9SupplierName")); //$NON-NLS-1$
+				System.out.println("供应商名称：" + fv9IssueRevision  
+						.getProperty("fv9SupplierName")); 
 				
-				values.put("itemId", fv9IssueRevision.getProperty("item_id")); //$NON-NLS-1$ //$NON-NLS-2$
+				values.put("itemId", fv9IssueRevision.getProperty("item_id"));  //$NON-NLS-2$
 				
 				//项目所属项目ID
 				TCComponent[] projects = ComponentUtils.getItemRevisionProjectIds(
-						fv9IssueRevision, "fv9ProjectLov"); //$NON-NLS-1$
-				String project_id = ""; //$NON-NLS-1$
+						fv9IssueRevision, "fv9ProjectLov"); 
+				String project_id = ""; 
 				//取第一个项目的SOP TBT等时间
 				if (projects.length > 0) {
-					project_id = projects[0].getProperty("project_id"); //$NON-NLS-1$
+					project_id = projects[0].getProperty("project_id"); 
 				}
 				//如果问题属于某个项目，获取属于该项目的FV9PHReportItemRev
 				//条件是：FV9PHReportItemRev已发放，Owner的角色是产品经理，且创建时间最晚
-				String[] condition = {"项目 ID", "名称"}; //$NON-NLS-1$ //$NON-NLS-2$
-				String[] value = {project_id, "TCM Released"}; //$NON-NLS-1$
+				String[] condition = {"项目 ID", "名称"};  //$NON-NLS-2$
+				String[] value = {project_id, "TCM Released"}; 
 				TCComponent[] PHReportItemRevs = ComponentUtils.findTCComponentByQuery(
-						session, "QueryLastPHReportRevision", condition, value); //$NON-NLS-1$
+						session, "QueryLastPHReportRevision", condition, value); 
 				
 				List<TCComponent> list = new ArrayList<TCComponent>();
 				//遍历符合条件的owning_user，找到所有者角色为"产品经理"的PHReportItemRevs
@@ -172,11 +202,11 @@ public class ReportIssueSingleLoader {
 				for (int i = 0; i < PHReportItemRevs.length; i++) {
 					
 					TCComponent itemRev = (TCComponent)PHReportItemRevs[i];
-					TCComponent owning_user = itemRev.getReferenceProperty("owning_user"); //$NON-NLS-1$
+					TCComponent owning_user = itemRev.getReferenceProperty("owning_user"); 
 					if (owning_user instanceof TCComponentUser) {
 						TCComponentUser user = (TCComponentUser)owning_user;
 						Map groupRoles = user.getGroupRolesTable();
-						System.out.println("groupRoles = " + groupRoles); //$NON-NLS-1$
+						System.out.println("groupRoles = " + groupRoles); 
 						
 						Collection<List<TCComponentRole>> allRoles = groupRoles.values();
 						
@@ -185,7 +215,7 @@ public class ReportIssueSingleLoader {
 						for (; it.hasNext(); ) {
 							List<TCComponentRole> roleList = (List<TCComponentRole>)it.next();
 							for (TCComponentRole role : roleList) {
-								if ("产品经理".equals(role.getProperty("role_name"))) { //$NON-NLS-1$ //$NON-NLS-2$
+								if ("产品经理".equals(role.getProperty("role_name"))) {  //$NON-NLS-2$
 									list.add(itemRev);
 								}
 							}
@@ -196,17 +226,17 @@ public class ReportIssueSingleLoader {
 				
 				//不存在符合条件的PHReportItemRevs
 				if (list.size() <= 0) {
-					values.put("PH_SOP", null); //$NON-NLS-1$
-					values.put("TBT_VFF", null); //$NON-NLS-1$
-					values.put("TBT_PVS", null); //$NON-NLS-1$
-					values.put("TBT_0S", null); //$NON-NLS-1$
+					values.put("PH_SOP", null); 
+					values.put("TBT_VFF", null); 
+					values.put("TBT_PVS", null); 
+					values.put("TBT_0S", null); 
 				} else {
 					//获取创建日期最晚的
 					//FV9_11ProjectTermin的fv9SOPMLDate
 					//FV9_11VorserienTer的fv9VFFTBTZP7、fv9PVSTBTZP7、fv90STBTZP7
 					TCComponent PHReportRev = QueryLastCreateTCComponent(list);
 //					InterfaceAIFComponent FV9_11ProjectTermin = ComponentUtils.
-//						getChildComponentByType(PHReportRev, "FV9_11ProjectTermin"); //$NON-NLS-1$
+//						getChildComponentByType(PHReportRev, "FV9_11ProjectTermin"); 
 					if ((List<TCComponent>)ComponentUtils.getComponentByRelationAndType(
 							PHReportRev, "FV9PMPH_Rel", "FV9_11ProjectTermin") != null &&
 						((List<TCComponent>)ComponentUtils.getComponentByRelationAndType(

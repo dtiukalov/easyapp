@@ -59,7 +59,8 @@ public class SearchDictServlet extends javax.servlet.http.HttpServlet implements
 		request.getSession().setAttribute("type", type);
 		request.getSession().setAttribute("dictresultList", list);
 		request.getSession().setAttribute("dictcount", allItemsCount);
-		if (DictionaryLoader.ANGLE.equalsIgnoreCase(type)
+		if (DictionaryLoader.ANGLEINTER.equalsIgnoreCase(type)
+				|| DictionaryLoader.ANGLEOUTER.equalsIgnoreCase(type)
 				|| DictionaryLoader.YEAR.equalsIgnoreCase(type)
 				|| DictionaryLoader.INTEROUTER.equalsIgnoreCase(type)
 				|| DictionaryLoader.OUTER.equalsIgnoreCase(type)

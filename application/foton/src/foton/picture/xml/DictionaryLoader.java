@@ -37,7 +37,9 @@ public class DictionaryLoader {
 
 	public static final String YEAR = "year"; //$NON-NLS-1$
 
-	public static final String ANGLE = "angle"; //$NON-NLS-1$
+	public static final String ANGLEINTER = "angleinter"; //$NON-NLS-1$
+	
+	public static final String ANGLEOUTER = "angleouter"; //$NON-NLS-1$
 
 	public static final String KEY = "key"; //$NON-NLS-1$
 
@@ -49,7 +51,8 @@ public class DictionaryLoader {
 		load(INTER);
 		load(OUTER);
 		load(YEAR);
-		load(ANGLE);
+		load(ANGLEINTER);
+		load(ANGLEOUTER);
 		load(COUNTRY);
 	}
 

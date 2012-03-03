@@ -20,7 +20,8 @@
 		<div class="top">
 		<div class="img_bnt_1"><a href="/foton/dict/dictIndex.jsp">数据字典管理</a></div>	
 		<%
-					if (DictionaryLoader.ANGLE.equalsIgnoreCase(type)
+					if (DictionaryLoader.ANGLEINTER.equalsIgnoreCase(type)
+							|| DictionaryLoader.ANGLEOUTER.equalsIgnoreCase(type)
 					|| DictionaryLoader.YEAR.equalsIgnoreCase(type)
 					|| DictionaryLoader.INTEROUTER.equalsIgnoreCase(type)
 					|| DictionaryLoader.OUTER.equalsIgnoreCase(type)

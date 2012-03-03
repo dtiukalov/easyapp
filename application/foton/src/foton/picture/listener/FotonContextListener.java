@@ -80,7 +80,7 @@ public class FotonContextListener implements ServletContextListener {
 
 									}
 									for (String angle : DictionaryManager
-											.getInstance().getAngleList()) {
+											.getInstance().getAngleInterList()) {
 										generateFolder(folderpath + cartype
 												+ "/" + country + "/" + band
 												+ "/" + subband + "/" + year
@@ -99,7 +99,7 @@ public class FotonContextListener implements ServletContextListener {
 
 									}
 									for (String angle : DictionaryManager
-											.getInstance().getAngleList()) {
+											.getInstance().getAngleOuterList()) {
 										generateFolder(folderpath + cartype
 												+ "/" + country + "/" + band
 												+ "/" + subband + "/" + year

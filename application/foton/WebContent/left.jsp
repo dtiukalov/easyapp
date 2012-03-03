@@ -26,7 +26,8 @@
 		List<String> interOunter = DictionaryManager.getInstance().getInterOuterList();
 		List<String> outers = DictionaryManager.getInstance().getOuterList();
 		List<String> inters = DictionaryManager.getInstance().getInterList();
-    	List<String> angles = DictionaryManager.getInstance().getAngleList();
+    	List<String> anglesinter = DictionaryManager.getInstance().getAngleInterList();
+    	List<String> anglesouter = DictionaryManager.getInstance().getAngleOuterList();
 		String countryValue = (String)request.getSession().getAttribute("countryValue");
 		String bandValue = (String)request.getSession().getAttribute("bandValue");
 		String carTypeValue = (String)request.getSession().getAttribute("carTypeValue");
@@ -63,25 +64,36 @@
 			$(window.parent.rightFrame.document).find("#hiddeForm").submit();
 		}
 	
-		function getSelectedValue(name, inter, outer){
+		function getSelectedValue(name, inter, outer, angleinter, angleouter){
 			var obj = document.getElementById(name);
 			var int = document.getElementById(inter);
 			var out = document.getElementById(outer);
+			var angleint = document.getElementById(angleinter);
+			var angleout = document.getElementById(angleouter);
+			
 			var interouter = obj.value;
 	
 			if (interouter == "内饰"){
 				out.value = "";
 				out.disabled = "disabled";
 				int.disabled = "";
+				angleout.disabled = "disabled";
+				angleint.disabled = "";
 			}else if(interouter == "外饰"){
 				int.value = "";
 				int.disabled = "disabled";
 				out.disabled = "";
+				angleint.disabled = "disabled";
+				angleout.disabled = "";
 			}else {
 				int.value = "";
 				int.disabled = "disabled";
 				out.value = "";
 				out.disabled = "disabled";
+				angleint.value = "";
+				angleint.disabled = "disabled";
+				angleout.value = "";
+				angleout.disabled = "disabled";
 			}
 		}
 		
@@ -95,22 +107,33 @@
 			var out = document.getElementById('outer');
 			var band = document.getElementById('band');
 			var subband = document.getElementById('subband');
-			
+			var angleint = document.getElementById('angleinter');
+			var angleout = document.getElementById('angleouter');
 			if (interouter == "内饰"){
 				out.value = "";
 				out.disabled = "disabled";
 				int.disabled = "";
 				
+				angleout.value = "";
+				angleout.disabled = "disabled";
+				angleint.disabled = "";
 			}else if(interouter == "外饰"){
 				int.value = "";
 				int.disabled = "disabled";
 				out.disabled = "";
 				
+				angleint.value = "";
+				angleint.disabled = "disabled";
+				angleout.disabled = "";
 			}else {
 				int.value = "";
 				out.value = "";
 				int.disabled = "disabled";
 				out.disabled = "disabled";
+				angleint.value = "";
+				angleout.value = "";
+				angleint.disabled = "disabled";
+				angleout.disabled = "disabled";
 			}
 			
 			if (countryList == 'null' || bandList == 'null') {
@@ -314,7 +337,7 @@
             <tr>
             	<td>内外饰：</td>
                 <td>
-                	<select id="interouter" name="interouter" onchange="getSelectedValue('interouter','inter','outer')">
+                	<select id="interouter" name="interouter" onchange="getSelectedValue('interouter','inter','outer','angleinter','angleouter')">
                 		<option value="">请选择</option>
                 	<%  
 						for(String io : interOunter) {
@@ -329,6 +352,26 @@
                 	</select>
                 </td>
             </tr>
+           
+           <tr>
+            	<td>内饰局部：</td>
+                <td>
+                	<select id="inter" name="inter">
+                		<option value="">请选择</option>
+                	<%  
+                		for(String inter : inters) { 
+					%>
+						<option value="<%=inter%>" 
+							<%if(compareStr(interValue, inter)){out.print("selected=\"selected\"");}%>>
+							<%=inter%>
+						</option>				
+					<%
+					  }
+					%>	
+                	</select>
+                </td>
+            </tr>
+            
              <tr>
             	<td>外饰局部：</td>
                 <td>
@@ -347,31 +390,33 @@
                 	</select>
                 </td>
             </tr>
+
             <tr>
-            	<td>内饰局部：</td>
+            	<td>内饰整体：</td>
                 <td>
-                	<select id="inter" name="inter">
+                	<select id="angleinter" name="angle">
                 		<option value="">请选择</option>
-                	<%  
-                		for(String inter : inters) { 
+                	<%   
+                		for(String angle : anglesinter) { 
 					%>
-						<option value="<%=inter%>" 
-							<%if(compareStr(interValue, inter)){out.print("selected=\"selected\"");}%>>
-							<%=inter%>
-						</option>				
+						<option value="<%=angle%>" 
+							<%if(compareStr(angleValue, angle)){out.print("selected=\"selected\"");}%>>
+							<%=angle%>
+						</option>			
 					<%
 					  }
 					%>	
                 	</select>
                 </td>
             </tr>
+            
             <tr>
-            	<td>整  体：</td>
+            	<td>外饰整体：</td>
                 <td>
-                	<select id="angle" name="angle">
+                	<select id="angleouter" name="angle">
                 		<option value="">请选择</option>
                 	<%   
-                		for(String angle : angles) { 
+                		for(String angle : anglesouter) { 
 					%>
 						<option value="<%=angle%>" 
 							<%if(compareStr(angleValue, angle)){out.print("selected=\"selected\"");}%>>

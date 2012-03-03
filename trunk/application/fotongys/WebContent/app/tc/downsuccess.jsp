@@ -1,3 +1,4 @@
+<%@page import="com.saturn.tc.utils.International"%>
 <%@page import="com.saturn.tc.foton.gys.Attachment"%>
 <%@page import="java.util.List"%>
 <%@page import="java.io.File"%>
@@ -7,12 +8,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>邮件详情</title>
+<title><%=International.get(request, "mail.detail") %></title>
 <%@ include file="/app/includes/header.jsp"%>
 
 </head>
 <body>
-	<div id="panel" class="easyui-panel" title="邮件详情"
+	<div id="panel" class="easyui-panel" title="<%=International.get(request, "mail.detail") %>"
 		icon="icon-edit-form" collapsible="true" style="padding: 10px;">
 		<%
 			String hrefstr = (String)request.getAttribute("zipPath");
@@ -22,14 +23,14 @@
 			if(hrefstr.contains("zip")){
 			%>
 		<center>
-			下载打包完毕！请<a href="<%=request.getContextPath() + hrefstr%>">保存</a>
+			<a href="<%=request.getContextPath() + hrefstr%>"><%=International.get(request, "attachment.detail") %></a>
 		</center>
 			<% 
 			} else {
 				//hrefstr =  hrefstr.replace("/", File.separator);
 			%>
 		<center>
-			出错了！请重新登陆下载
+			Error!Please login!
 		</center>
 			<%	
 			}

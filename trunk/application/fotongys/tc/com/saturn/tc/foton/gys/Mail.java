@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.json.JSONObject;
 
+import com.saturn.app.db.ListData;
 import com.saturn.app.db.ORMapping;
 import com.saturn.app.db.ResultORMapping;
 import com.saturn.app.db.SimpleDaoTemplate;
@@ -13,7 +14,6 @@ import com.saturn.app.utils.DateUtils;
 import com.saturn.tc.clientx.TCSession;
 import com.saturn.tc.utils.WorkspaceUtils;
 import com.saturn.tc.utils.server.EasyDataManagementService;
-import com.teamcenter.soa.client.model.ModelObject;
 import com.teamcenter.soa.client.model.strong.Envelope;
 import com.teamcenter.soa.client.model.strong.Folder;
 import com.teamcenter.soa.client.model.strong.Person;
@@ -41,8 +41,6 @@ public class Mail {
 
 	private String hasDownload;// 0:不可以删除,没被下载过 1:可以删除,已经被下载过 2:已经被删除了
 	private String hasRead;
-	private String hasAttachment;
-	private ModelObject[] attachments;
 
 	private static ORMapping<Mail> mapping = new ResultORMapping<Mail>();
 
@@ -50,55 +48,98 @@ public class Mail {
 		super();
 	}
 
-	public static List<Mail> getAll(User user, TCSession session,
-			String userId, String fromUser, String title, String hasDownload,
-			String datetime) {
+	public static WorkspaceObject[] getAllTcMailObject(User user,
+			TCSession session) {
 		EasyDataManagementService service = new EasyDataManagementService(
 				session);
-		List<Mail> mails = new ArrayList<Mail>();
 
+		WorkspaceObject[] workspaceObjects = null;
 		try {
-			Folder mailbox = WorkspaceUtils.getMailBox(session, userId);
-			WorkspaceObject[] workspaceObjects = mailbox.get_contents();
+			Folder mailbox = WorkspaceUtils.getMailBox(session, user.getUid());
+			workspaceObjects = mailbox.get_contents();
 
 			service.getProperties(workspaceObjects, "uid", "pid",
 					"object_name", "object_type", "object_desc", "object_type",
 					"envelopeReadFlag", "last_mod_user", "hasDownload");
 
-			for (WorkspaceObject wos : workspaceObjects) {
-				
-				if (wos instanceof Envelope) {
-					Envelope envelope = (Envelope) wos;
-					Mail mail = new Mail(user, session, envelope);
-					Mail dbmail = Mail.getMailFromDB(mail.getMailuid());
-					if (dbmail != null) {
-						mail.downloadNum = dbmail.getDownloadNum();
-						mail.hasDownload = dbmail.getHasDownload();
-					} else {
-						Mail.addMailtoDB(mail);
-					}
-					if ((fromUser == null || "".equals(fromUser.trim()) || mail
-							.getFromUser().indexOf(fromUser) >= 0)
-							&& (title == null || "".equals(title.trim()) || mail
-									.getTitle().indexOf(title) >= 0)
-							&& (hasDownload == null
-									|| "".equals(hasDownload.trim()) || mail
-									.getHasDownload().indexOf(hasDownload) >= 0)
-							&& (datetime == null || "".equals(datetime.trim()) || mail
-									.getDatetime().indexOf(datetime) >= 0)) {
-
-						mails.add(mail);
-						// reviseProperties(envelope,session);
-					}
-				}
-			}
 		} catch (NotLoadedException e) {
 			e.printStackTrace();
 		}
 
-		return mails;
+		return workspaceObjects;
 	}
 
+	public static ListData<Mail> getAll(User user, TCSession session,
+			WorkspaceObject[] workspaceObjects, Mail condition, String start,
+			String offset) {
+
+		List<Mail> mails = new ArrayList<Mail>();
+
+		for (WorkspaceObject wos : workspaceObjects) {
+			Envelope envelope = (Envelope) wos;
+
+			Mail mail = new Mail(user, session, envelope);
+
+			Mail dbmail = Mail.getMailFromDB(mail.getMailuid());
+
+			if (dbmail != null) {
+				mail.downloadNum = dbmail.getDownloadNum();
+				mail.hasDownload = dbmail.getHasDownload();
+			} else {
+				Mail.addMailtoDB(mail);
+			}
+
+			String fromUser = condition.fromUser;
+			String title = condition.title;
+			String hasDownload = condition.hasDownload;
+			String datetime = condition.datetime;
+			String content = condition.content;
+			
+			if (like(mail.fromUser, fromUser)
+					&& like(mail.title, title)
+					&& like(mail.hasDownload, hasDownload)
+					&& like(mail.content, content)
+					&& like(mail.datetime, datetime)) {
+
+				mails.add(mail);
+				// reviseProperties(envelope,session);
+			}
+		}
+		
+		int startValue = 0;
+		if (start != null && !"".equals(start)) {
+			try {
+				startValue = Integer.parseInt(start);
+			} catch (NumberFormatException e) {
+			//	e.printStackTrace();
+			}
+		}
+		
+		int rowsValue = 10;
+		if (offset != null && !"".equals(offset)) {
+			try {
+				rowsValue = Integer.parseInt(offset);
+			} catch (NumberFormatException e) {
+			//	e.printStackTrace();
+			}
+		}
+		
+		List<Mail> result = new ArrayList<Mail>();
+		
+		int size = mails.size();
+		for (int i = startValue; i < startValue+rowsValue; ++i) {
+			if (i < size) {
+				result.add(mails.get(i));
+			}
+		}
+
+		return new ListData<Mail>(workspaceObjects.length, result);
+	}
+
+	private static boolean like(String src, String con) {
+		return (con == null || "".equals(con.trim()) || src.indexOf(con) >= 0);
+	}
+	
 	public static int addMailtoDB(Mail mail) {
 		// 指定值对象类型(VOClass)。例子：User
 		// 指定插入表名称(tableName)。例子：如user表3个列，tableName=user(id, name, gender)
@@ -206,7 +247,6 @@ public class Mail {
 				session);
 
 		try {
-			service.refreshObjects(envelope);
 			this.mailuid = envelope.getUid();
 			this.mailpid = envelope.get_pid() + "";
 			this.userid = receiveUser.get_userid();
@@ -222,16 +262,11 @@ public class Mail {
 
 			this.hasDownload = "0";
 			this.hasRead = envelope.get_envelopeReadFlag() + "";
-			this.hasAttachment = "false";
-			this.attachments = WorkspaceUtils.getChildren(session, envelope);
-			if (this.attachments != null && this.attachments.length > 0) {
-				this.hasAttachment = "true";
-			}
+
 			User user = (User) envelope.get_last_mod_user();
 			Person fromPerson = (Person) user.get_person();
-			service.refreshObjects(fromPerson);
 			service.getProperties(fromPerson, "PA9");
-			this.fromUser = fromPerson.get_user_name();
+			this.fromUser = user.get_user_name();
 			this.fromUserId = user.getUid();
 			this.from = fromPerson.get_PA9();
 		} catch (NotLoadedException e) {
@@ -330,28 +365,12 @@ public class Mail {
 		this.hasDownload = hasDownload;
 	}
 
-	public String getHasAttachment() {
-		return hasAttachment;
-	}
-
-	public void setHasAttachment(String hasAttachment) {
-		this.hasAttachment = hasAttachment;
-	}
-
 	public String getHasRead() {
 		return hasRead;
 	}
 
 	public void setHasRead(String hasRead) {
 		this.hasRead = hasRead;
-	}
-
-	public ModelObject[] getAttachments() {
-		return attachments;
-	}
-
-	public void setAttachments(ModelObject[] attachments) {
-		this.attachments = attachments;
 	}
 
 	@Override

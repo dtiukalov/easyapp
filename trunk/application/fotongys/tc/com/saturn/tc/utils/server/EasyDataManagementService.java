@@ -1,5 +1,7 @@
 package com.saturn.tc.utils.server;
 
+import java.util.Map;
+
 import com.saturn.tc.clientx.TCSession;
 import com.teamcenter.services.strong.core.DataManagementService;
 import com.teamcenter.soa.client.model.ModelObject;
@@ -22,6 +24,19 @@ public class EasyDataManagementService {
 	
 	public ModelObject loadModelObject(String arg) {
 		ServiceData serviceData = getService().loadObjects(new String[] {arg});
+		
+		if (serviceData != null && serviceData.sizeOfPlainObjects() > 0) {
+			ModelObject modelObject = serviceData.getPlainObject(0);
+			
+			return refreshObjects(modelObject);			
+		}
+		
+		return null;
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public ModelObject editModelObject(ModelObject object, Map arg) {
+		ServiceData serviceData = getService().setProperties(new ModelObject[] {object}, arg);
 		
 		if (serviceData != null && serviceData.sizeOfPlainObjects() > 0) {
 			ModelObject modelObject = serviceData.getPlainObject(0);

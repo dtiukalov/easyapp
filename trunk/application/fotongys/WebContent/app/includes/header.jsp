@@ -1,3 +1,4 @@
+<%@page import="com.saturn.tc.utils.International"%>
 <META http-equiv="Pragma" content="no-cache">
 <META http-equiv="Expires" content="-1">
 
@@ -11,7 +12,15 @@
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/app/js/jquery-1.4.4.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/app/js/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/app/js/easyui-lang-zh_CN.js"></script>
+<%
+	String __local = (String)session.getAttribute(International.LOCAL);
+
+	if (!"en".equals(__local)) {
+		%>
+<script type="text/javascript" src="<%=request.getContextPath()%>/app/js/easyui-lang-zh_CN.js"></script>		
+		<%
+	}
+%>
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/app/js/formValidator.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/app/js/formValidatorRegex.js"></script>
@@ -31,7 +40,7 @@
 			showType:'show'
 		});*/
 		$.messager.confirm('用户过期', '请重新登录', function(r){
-			top.location.href = '<%=request.getContextPath()%>/app/login.jsp';
+			top.location.href = '<%=request.getContextPath()%>/app/tc/index.jsp';
 		});
 	});
 	<%

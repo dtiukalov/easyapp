@@ -1,15 +1,11 @@
 package com.saturn.tc.foton.gys;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
 
 import org.json.JSONObject;
-import com.saturn.app.utils.DateUtils;
+
 import com.saturn.tc.clientx.TCSession;
 import com.saturn.tc.utils.DatasetUtils;
 import com.saturn.tc.utils.IconUtils;
@@ -18,6 +14,7 @@ import com.saturn.tc.utils.WorkspaceUtils;
 import com.saturn.tc.utils.XMLUtils;
 import com.saturn.tc.utils.server.EasyDataManagementService;
 import com.teamcenter.soa.client.model.ModelObject;
+import com.teamcenter.soa.client.model.strong.Dataset;
 import com.teamcenter.soa.client.model.strong.Envelope;
 import com.teamcenter.soa.client.model.strong.Folder;
 import com.teamcenter.soa.client.model.strong.ImanFile;
@@ -25,7 +22,6 @@ import com.teamcenter.soa.client.model.strong.Item;
 import com.teamcenter.soa.client.model.strong.ItemRevision;
 import com.teamcenter.soa.client.model.strong.WorkspaceObject;
 import com.teamcenter.soa.exceptions.NotLoadedException;
-import com.teamcenter.soa.client.model.strong.Dataset;
 
 public class Attachment {
 	
@@ -51,8 +47,6 @@ public class Attachment {
 	@SuppressWarnings("unchecked")
 	public static List<Attachment> getByMailId(TCSession session,
 			String mailId, String userUid, String directory) {
-		
-		List<Attachment> datasetAttachment = new ArrayList<Attachment>();
 		EasyDataManagementService service = new EasyDataManagementService(
 				session);
 		List<Attachment> attachments = new ArrayList<Attachment>();
@@ -162,7 +156,6 @@ public class Attachment {
 						Attachment childdataset = new Attachment(mailId, file,
 								attachment.getUid());
 						attachments.add(childdataset);
-						datasetAttachment.add(childdataset);
 						try {
 							childdataset.setName(file.get_original_file_name());
 							childdataset.setPath(file.get_original_file_name());

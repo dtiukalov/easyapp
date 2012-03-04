@@ -583,7 +583,7 @@ public class CreateIssueSingleExcel {
 							System.out.println("–¥»ÎÕº∆¨£∫TBT-VFF.jpg"); 
 						}
 						if (i == vff) {
-							ImageCellInfo vffCell = new ImageCellInfo(33, i, 33, i+4);
+							ImageCellInfo vffCell = new ImageCellInfo(33, i, 33, tbt_pvs);
 							ImageUtil.GenerateImage(wb, sheet, patri, vffCell, ImageUtil.getVFF());
 							System.out.println("–¥»ÎÕº∆¨£∫VFF.jpg"); 
 						}
@@ -593,7 +593,7 @@ public class CreateIssueSingleExcel {
 							System.out.println("–¥»ÎÕº∆¨£∫TBT-PVS.jpg"); 
 						}
 						if (i == pvs) {
-							ImageCellInfo vffCell = new ImageCellInfo(33, i, 33, i+8);
+							ImageCellInfo vffCell = new ImageCellInfo(33, i, 33, tbt_0s);
 							ImageUtil.GenerateImage(wb, sheet, patri, vffCell, ImageUtil.getPVS());
 							System.out.println("–¥»ÎÕº∆¨£∫PVS.jpg"); 
 						}
@@ -613,7 +613,7 @@ public class CreateIssueSingleExcel {
 							System.out.println("–¥»ÎÕº∆¨£∫TBT-SOP.jpg"); 
 						}
 						if (i == sop) {
-							ImageCellInfo vffCell = new ImageCellInfo(33, i, 33, sop+10);
+							ImageCellInfo vffCell = new ImageCellInfo(33, i, 33, sop+6);
 							ImageUtil.GenerateImage(wb, sheet, patri, vffCell, ImageUtil.getSOP());
 							System.out.println("–¥»ÎÕº∆¨£∫SOP.jpg"); 
 						}

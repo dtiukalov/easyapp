@@ -416,10 +416,28 @@
 		}
 	} 
 	%>
- 
+
+	<%if(Producktidefinition_S != null && !"".equals(Producktidefinition_S) && 
+				Producktidefinition_E != null && !"".equals(Producktidefinition_E)){
+	%>	
 	g.AddTaskDetail(new Task('<%=Producktidefinition_S%>', '<%=Producktidefinition_E%>', '<b></b>', '9 MO', 50, 5, '#f3f3f3'));
+
+	<%}%>
+	
+	<%if(Konzept_S != null && !"".equals(Konzept_S) && 
+			Konzept_E != null && !"".equals(Konzept_E)){
+		%>
 	g.AddTaskDetail(new Task('<%=Konzept_S%>', '<%=Konzept_E%>', '<b></b>', '27 MO', 50, 5, '#b0b0b0'));
+
+		<%	
+	}%>
+	
+	<%if(Serienvorboreitung_S != null && !"".equals(Serienvorboreitung_S) && 
+			Serienvorboreitung_E != null && !"".equals(Serienvorboreitung_E)){
+		%>	
 	g.AddTaskDetail(new Task('<%=Serienvorboreitung_S%>', '<%=Serienvorboreitung_E%>', '<b></b>', '15 MO', 50, 5, '#414141'));
+		<%	
+	}%>
 	
 	g.Draw(49, 19);	
 </script>

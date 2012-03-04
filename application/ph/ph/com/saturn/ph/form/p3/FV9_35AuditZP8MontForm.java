@@ -9,7 +9,7 @@ public class FV9_35AuditZP8MontForm extends Form {
 		"fv9Note3Num", "fv9Note2Num", "fv9Note1Num",
 		"fv9KW", "fv9Name", "fv9Score", "fv9Option",
 		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
-		"fv9PlatformType","fv9OtherUid"
+		"fv9PlatformType","fv9otherUid"
 	};
 
 	public String[] getAttributes() {

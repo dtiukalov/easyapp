@@ -8,7 +8,7 @@ public class FV9_41NominLieferForm extends Form {
 		"fv9Nominiert", "fv9Nichtnominiert", "fv9KritischeNomini", "fv9KWNo",
 		"fv9KWNumber", "fv9KWCom",
 		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
-		"fv9PlatformType" ,"fv9OtherUid"
+		"fv9PlatformType" ,"fv9otherUid"
 	};
 
 	public String[] getAttributes() {

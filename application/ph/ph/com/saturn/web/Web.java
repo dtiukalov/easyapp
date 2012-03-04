@@ -226,6 +226,11 @@ public class Web {
 
 	public static int getNum(int[] milepostArr, int[] wkArr) {
 		int result = 0;
+		
+		if(milepostArr == null || wkArr == null){
+			return result;
+		}
+		
 		int size1 = milepostArr.length;
 		int size2 = wkArr.length;
 		if (milepostArr != null && wkArr != null && size1 > 0 && size2 > 0) {

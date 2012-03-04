@@ -342,16 +342,14 @@
 <script>
 	var g = new Gantt(document.all.GanttChart);
 <%
-	if(fv9Stufe.size() > 0){
+	if(fv9Stufe != null && fv9Stufe.size() > 0){
 		for(int i=0; i<fv9Stufe.size(); i++){
-			int level = 3*i + 1;
-			%>
+			int level = 3*i + 1;%>
 			g.AddTaskDetail(new Task('<%=fv9KarossStart.get(i)%>', '<%=fv9KarossEnd.get(i)%>', '<b><%=fv9Stufe.get(i)%>Fahrzeuge<br \>Soll: <%=fv9FahrSoll.get(i)%>  Ist: <%=fv9Fahrlst.get(i)%> <br \>Karosserien <br \>Soll: <%=fv9KarossSoll.get(i)%>  Ist: <%=fv9Karosslst.get(i)%> </b>', 'A', 50, <%=level%>, '#AED4F8'));
 			g.AddTaskDetail(new Task('<%=fv9LackStart.get(i)%>', '<%=fv9LackEnd.get(i)%>', '', 'B', 50, <%=level+1%>, '#BBC2C5'));
 			g.AddTaskDetail(new Task('<%=fv9MontageStart.get(i)%>', '<%=fv9MontageEnd.get(i)%>', '', 'C', 50, <%=level+2%>, '#00235A'));
 			g.AddTaskDetail(new Task('<%=fv9ObergabeStart.get(i)%>', '<%=fv9ObergabeEnd.get(i)%>', '', 'D', 50, <%=level+2%>, '#91AFFF'));
-<%  	
-		}	
+<%  	}	
 	}
 	%>
 	

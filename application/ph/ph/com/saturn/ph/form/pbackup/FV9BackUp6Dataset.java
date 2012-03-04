@@ -6,7 +6,7 @@ public class FV9BackUp6Dataset extends Form {
 	
 	private static final String[] attr = {
 		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
-		"fv9PlatformType","fv9OtherUid"
+		"fv9PlatformType","fv9otherUid"
 	};
 	
 	public String[] getAttributes() {

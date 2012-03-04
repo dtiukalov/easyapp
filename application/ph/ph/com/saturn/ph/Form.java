@@ -31,7 +31,7 @@ public abstract class Form {
 			getProperties(model, attributes);
 
 			for (String attr : attributes) {
-//				System.out.println("attr = " + attr);
+				System.out.println("attr = " + attr);
 				try {
 					PropertyDescription propertyDescription = model
 							.getProperty(attr).getPropertyDescription();
@@ -45,7 +45,7 @@ public abstract class Form {
 								List<String> values = new ArrayList<String>(
 										ps.length);
 		
-								if (ps != null) {
+								if (ps != null && ps.length > 0) {
 									for (String p : ps) {
 										values.add(p + "");
 									}
@@ -59,7 +59,7 @@ public abstract class Form {
 								List<String> values = new ArrayList<String>(
 										ps.length);
 	
-								if (ps != null) {
+								if (ps != null && ps.length > 0) {
 									for (int p : ps) {
 										values.add(p + "");
 									}
@@ -73,7 +73,7 @@ public abstract class Form {
 								List<String> values = new ArrayList<String>(
 										ps.length);
 	
-								if (ps != null) {
+								if (ps != null && ps.length > 0) {
 									for (double p : ps) {
 										values.add(p + "");
 									}
@@ -86,9 +86,13 @@ public abstract class Form {
 								Calendar[] date = model.getProperty(attr)
 									.getDateArrayValue();
 								List<String> values = new ArrayList<String>(date.length);
-								if (date != null) {
+								if (date != null && date.length > 0) {
 									for (Calendar cal : date){
-										values.add(df.format(cal.getTime()));
+										if (cal != null) {
+											values.add(df.format(cal.getTime()));
+										} else {
+											values.add("1900-01-01 00:00:00");
+										}
 									}
 									value.put(attr, values);
 								}
@@ -109,8 +113,7 @@ public abstract class Form {
 								if (date != null) {
 									value.put(attr, df.format(date.getTime()));
 								} else {
-									//value.put(attr, df.format(""));
-									value.put(attr, date);
+									value.put(attr, "1900-01-01 00:00:00");
 								}
 								
 								break;

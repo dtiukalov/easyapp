@@ -89,11 +89,11 @@ public class PreviewAction implements IAction {
 						request.getSession().setAttribute(public_type, otherForm);
 						
 						//里程碑开始时间
-						String DATE_VFF = (String)otherForm.get("fv9VFFMLDate") + " 00:00";   //2013-07-31
-						String DATE_PVS = (String)otherForm.get("fv9PVSMLDate") + " 00:00"; //2013-10-31
-						String DATE_0S = (String)otherForm.get("fv90SMLDate") + " 00:00"; //2014-03-29
-						String DATE_SOP = (String)otherForm.get("fv9SOPMLDate") + " 00:00"; //2014-06-30
-						String DATE_ME = (String)otherForm.get("fv9MEMLDate") + " 00:00";
+						String DATE_VFF = getDateValue(otherForm.get("fv9VFFMLDate")) + " 00:00";   //2013-07-31
+						String DATE_PVS = getDateValue(otherForm.get("fv9PVSMLDate")) + " 00:00"; //2013-10-31
+						String DATE_0S = getDateValue(otherForm.get("fv90SMLDate")) + " 00:00"; //2014-03-29
+						String DATE_SOP = getDateValue(otherForm.get("fv9SOPMLDate")) + " 00:00"; //2014-06-30
+						String DATE_ME = getDateValue(otherForm.get("fv9MEMLDate")) + " 00:00";
 						
 						request.getSession().setAttribute("DATE_VFF", DATE_VFF);
 						request.getSession().setAttribute("DATE_PVS", DATE_PVS);
@@ -101,7 +101,7 @@ public class PreviewAction implements IAction {
 						request.getSession().setAttribute("DATE_SOP", DATE_SOP);
 						request.getSession().setAttribute("DATE_ME", DATE_ME);
 						
-						request.getSession().setAttribute("SOP_DATE", (String)otherForm.get("fv9SOPMLDate"));
+						request.getSession().setAttribute("SOP_DATE", getDateValue(otherForm.get("fv9SOPMLDate")));
 
 						//里程碑开始周
 						int KW_VFF =DateUtils.getWeekOfYear(DATE_VFF);
@@ -140,17 +140,17 @@ public class PreviewAction implements IAction {
 					if ("FV9_11VorserienTer".equals(public_type)) {
 						request.getSession().setAttribute(public_type, otherForm);
 						
-						String fv9VFFTBTZP5 = (String)otherForm.get("fv9VFFTBTZP5") + " 00:00"; //2011-12-10
-						String fv9VFFTBTZP7 = (String)otherForm.get("fv9VFFTBTZP7") + " 00:00"; //2012-01-10
+						String fv9VFFTBTZP5 = getDateValue(otherForm.get("fv9VFFTBTZP5")) + " 00:00"; //2011-12-10
+						String fv9VFFTBTZP7 = getDateValue(otherForm.get("fv9VFFTBTZP7")) + " 00:00"; //2012-01-10
 						
-						String fv9PVSTBTZP5 = (String)otherForm.get("fv9PVSTBTZP5") + " 00:00"; //2012-01-30
-						String fv9PVSTBTZP7 = (String)otherForm.get("fv9PVSTBTZP7") + " 00:00"; //2012-02-04
+						String fv9PVSTBTZP5 = getDateValue(otherForm.get("fv9PVSTBTZP5")) + " 00:00"; //2012-01-30
+						String fv9PVSTBTZP7 = getDateValue(otherForm.get("fv9PVSTBTZP7")) + " 00:00"; //2012-02-04
 						
-						String fv90STBTZP5 = (String)otherForm.get("fv90STBTZP5") + " 00:00"; //2012-03-22
-						String fv90STBTZP7 = (String)otherForm.get("fv90STBTZP7") + " 00:00"; //2012-04-11
+						String fv90STBTZP5 = getDateValue(otherForm.get("fv90STBTZP5")) + " 00:00"; //2012-03-22
+						String fv90STBTZP7 = getDateValue(otherForm.get("fv90STBTZP7")) + " 00:00"; //2012-04-11
 						
 						//ZP7的SOP取自项目的SOP，ZP5的SOP是ZP7 SOP的前两周
-						String fv9ZP7SOP = (String)request.getSession().getAttribute("SOP_DATE") + " 00:00";
+						String fv9ZP7SOP = (String)getDateValue(request.getSession().getAttribute("SOP_DATE")) + " 00:00";
 						String fv9ZP5SOP = DateUtils.oneDateAddOrSubDays(fv9ZP7SOP, 2, "-") + " 00:00";
 						
 						request.getSession().setAttribute("fv9VFFTBTZP5", fv9VFFTBTZP5);
@@ -183,6 +183,14 @@ public class PreviewAction implements IAction {
 					result = true;
 				}
 			}
+		}
+		return result;
+	}
+	
+	private String getDateValue(Object o){
+		String result = DateUtils.getSysDate();
+		if(o != null){
+			result = o.toString();
 		}
 		return result;
 	}

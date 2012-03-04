@@ -7,6 +7,10 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
+import com.saturn.action.ph.PreviewAction;
+import com.saturn.action.ph.view.LoadAction;
+import com.saturn.action.ph.view.LoginAction;
+import com.saturn.action.ph.view.ViewAction;
 import com.saturn.app.utils.LogManager;
 
 public class ActionManager {
@@ -17,6 +21,10 @@ public class ActionManager {
 
 	private static List<Class<?>> actionClass = new ArrayList<Class<?>>();
 
+	static {
+		defaultAction();
+	}
+	
 	private ActionManager() {
 
 	}
@@ -66,6 +74,13 @@ public class ActionManager {
 		}
 
 		return action;
+	}
+	
+	public static void defaultAction() {
+		add(new PreviewAction());
+		add(new LoadAction());
+		add(new LoginAction());
+		add(new ViewAction());
 	}
 
 }

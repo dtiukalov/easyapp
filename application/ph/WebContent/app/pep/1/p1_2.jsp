@@ -23,7 +23,7 @@
 			<div id="top" style="border-bottom:#000099 2px solid;height:80px;width:930px;">
 				<div class="fl"> VW471 CN-Pilothalle VFF,20.10.2010</div>
 				<div class="fr"> STATUS 19.10.2010</div>
-				<h1><%=title %>3</h1>
+				<h1><%=title %></h1>
 			</div>
 			<div id="content">
 				<iframe id="ff" name= "ff" frameborder="0" 

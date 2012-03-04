@@ -14,7 +14,8 @@ public class DateUtils {
 
 	public static void main(String[] args) {
 //		DateUtils.getKWArray("2011-12-10 00:00", "2012-01-01 00:00");
-		System.out.println(oneDateAddOrSubDays("2011-12-10", 3, "-"));
+		System.out.println(getSysDate());
+		
 	}
 	
 	public static String getLastTwoNum(int year) {

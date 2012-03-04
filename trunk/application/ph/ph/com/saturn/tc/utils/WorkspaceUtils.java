@@ -21,8 +21,8 @@ public class WorkspaceUtils {
 	
 	public static String HOST = "http://localhost:7001/tc";
 	
-	public static String DatasetType = "FV9PHJPEG";
-	public static String OtherUid = "fv9OtherUid";
+	public static String DatasetType = "FV9PHPPt";
+	public static String OtherUid = "fv9otherUid";
 	public static String DatasetPageName = "fv9PageName";
 	
 	public static Folder getHome(TCSession session, String userId) {

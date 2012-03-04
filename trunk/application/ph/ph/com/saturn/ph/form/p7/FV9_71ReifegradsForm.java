@@ -17,7 +17,7 @@ public class FV9_71ReifegradsForm extends Form {
 		"fv9DokuStatus","fv9DokuCom","fv9DokuComC",
 		"fv9TermineStatus","fv9TermineCom","fv9TermineComC",
 		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
-		"fv9PlatformType","fv9OtherUid"
+		"fv9PlatformType","fv9otherUid"
 	};
 
 	public String[] getAttributes() {

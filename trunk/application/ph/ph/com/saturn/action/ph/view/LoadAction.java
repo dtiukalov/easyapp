@@ -38,6 +38,7 @@ public class LoadAction implements IAction {
 		String roadmap = name.split("_")[1];
 		
 		Map<String, Object> formIds = ItemUtils.getLastRevisionFormIds(item);
+
 		List<String> indexes = PHManager.getIndexes(roadmap, formIds);
 		
 		request.getSession().setAttribute("milepost", roadmap);
@@ -45,8 +46,13 @@ public class LoadAction implements IAction {
 		request.getSession().setAttribute("project", project);
 		
 		request.setAttribute("current", "1");
-		return new JspView(indexes.get(0));
-		//return new JspView("/app/pep/catalogue.jsp");
+		
+		//PH下存在数据
+		if (indexes != null && indexes.size() > 0) {
+			return new JspView(indexes.get(0));
+		}
+		//PH下不存在符合条件的数据
+		return new JspView("/app/pep/blank.jsp");
 	}
 	
 }

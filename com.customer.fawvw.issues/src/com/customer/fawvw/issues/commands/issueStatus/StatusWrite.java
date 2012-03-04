@@ -1,5 +1,6 @@
 package com.customer.fawvw.issues.commands.issueStatus;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
@@ -9,19 +10,21 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
+import com.customer.fawvw.issues.utils.DateUtil;
+
 public class StatusWrite {
 
 	static void importDataPage(HSSFWorkbook workbook,
-			HSSFSheet sheetPage, HashMap<String, Object> values, int forecastDay) {
+			HSSFSheet sheetPage, HashMap<String, Object> values, 
+			ArrayList<IssueStatus> statusList) {
 		
-		HashMap<String, Object> statusMap = (HashMap<String, Object>)values.get("status"); //$NON-NLS-1$
-
-		int red_sum = (Integer)statusMap.get("red"); //$NON-NLS-1$
-		int yellow_sum = (Integer)statusMap.get("yellow"); //$NON-NLS-1$
-		int green_sum = (Integer)statusMap.get("green"); //$NON-NLS-1$
-		int sum = red_sum + yellow_sum + green_sum;
-System.out.println("status = " + statusMap);	 //$NON-NLS-1$
-System.out.println("today     = " + (String)values.get("week")); //$NON-NLS-1$ //$NON-NLS-2$
+		int red_sum = 0; 
+		int yellow_sum = 0; 
+		int green_sum = 0; 
+		int sum = 0;
+		
+		int n = statusList.size();
+		
 		HSSFRow row2 = sheetPage.getRow(2);//项目ID
 		HSSFRow row3 = sheetPage.getRow(3);//周数
 		HSSFRow row4 = sheetPage.getRow(4);//红
@@ -33,84 +36,27 @@ System.out.println("today     = " + (String)values.get("week")); //$NON-NLS-1$ /
 		HSSFRow row20 = sheetPage.getRow(20);//黄灯总数
 		HSSFRow row25 = sheetPage.getRow(25);//绿灯总数
 		
-		int i = 2;
-		
 		HSSFCell cell_2_2 = row2.getCell(2);
-		cell_2_2.setCellValue((String)values.get("project_name")); //$NON-NLS-1$
+		cell_2_2.setCellValue((String)values.get("project_name")); 
 		
-		System.out.println("row3.getLastCellNum() = " + row3.getLastCellNum()); //$NON-NLS-1$
-		//写入当前周的问题数
-		for (i = 2; i < row3.getLastCellNum()-2; i++) {
-System.out.println("i = " + i); //$NON-NLS-1$
-System.out.println("last week = " + row3.getCell(i).getRichStringCellValue().toString()); //$NON-NLS-1$
+		if (statusList != null && statusList.size() > 0) {
+			red_sum = statusList.get(n-1).red;
+			yellow_sum = statusList.get(n-1).yellow;
+			green_sum = statusList.get(n-1).green;
+			sum = statusList.get(n-1).sum;
 			
-			//原模板中此单元格无数据
-			if ("".equals(row3.getCell(i).getRichStringCellValue().toString()) //$NON-NLS-1$
-					|| "0".equals(row3.getCell(i).getRichStringCellValue().toString())){ //$NON-NLS-1$
-				row3.getCell(i).setCellValue((String)values.get("week")); //$NON-NLS-1$
-				row4.getCell(i).setCellValue(red_sum);
-				row5.getCell(i).setCellValue(yellow_sum);
-				row6.getCell(i).setCellValue(green_sum);
-				if (row7.getCell(i) == null){
-					row7.createCell(i).setCellValue((Integer)statusMap.get("sum")); //$NON-NLS-1$
-				} else {
-					row7.getCell(i).setCellValue((Integer)statusMap.get("sum")); //$NON-NLS-1$
-				}
-				i++;
-				break;
-			} 
+			int col = 2;
 			
-			if (((String)values.get("week")).equals((row3.getCell(i).getRichStringCellValue()).getString())) { //$NON-NLS-1$
-				//原模板中此单元格有数据，且值是当前周
-				row3.getCell(i).setCellValue((String)values.get("week")); //$NON-NLS-1$
-				row4.getCell(i).setCellValue(red_sum);
-				row5.getCell(i).setCellValue(yellow_sum);
-				row6.getCell(i).setCellValue(green_sum);
-				if (row7.getCell(i) == null){
-					row7.createCell(i).setCellValue((Integer)statusMap.get("sum")); //$NON-NLS-1$
-				} else {
-					row7.getCell(i).setCellValue((Integer)statusMap.get("sum")); //$NON-NLS-1$
-				}
-				i++;
-				break;
-			} 
-		}
-		
-		//写入预测周的问题数
-		int count = 0; //显示出来的预测周数
-		for (int j = 1; j < forecastDay+1; j++) {
-			if ((HashMap<String, Object>)values.get("forecast"+j) != null) { //$NON-NLS-1$
-				row3.createCell(i+j-1);
-				row3.getCell(i+j-1).setCellValue((String)((HashMap<String, Object>)values.get("forecast"+j)).get("forecastWeek")); //$NON-NLS-1$ //$NON-NLS-2$
-				row6.createCell(i+j-1);
-				row6.getCell(i+j-1).setCellValue((Integer)((HashMap<String, Object>)values.get("forecast"+j)).get("forecastNum")); //$NON-NLS-1$ //$NON-NLS-2$
-				if (row7.getCell(i+j-1) == null){
-					row7.createCell(i+j-1).setCellValue((Integer)((HashMap<String, Object>)values.get("forecast"+j)).get("forecastNum")); //$NON-NLS-1$ //$NON-NLS-2$
-				} else {
-					row7.getCell(i+j-1).setCellValue((Integer)((HashMap<String, Object>)values.get("forecast"+j)).get("forecastNum")); //$NON-NLS-1$ //$NON-NLS-2$
-				}
-				count++;
+			for (IssueStatus issue : statusList) {
+				
+				row3.createCell(col).setCellValue(issue.kw); 
+				row4.createCell(col).setCellValue(issue.red);
+				row5.createCell(col).setCellValue(issue.yellow);
+				row6.createCell(col).setCellValue(issue.green);
+				row7.createCell(col).setCellValue(issue.sum); 
+				col++;
 			}
 		}
-		//补齐至30周
-		if ((i+count) < 32) {
-			for (int l = i+count; l<32; l++) {
-				row3.createCell(l).setCellValue("0"); //$NON-NLS-1$
-				row4.createCell(l).setCellValue(0);
-				row5.createCell(l).setCellValue(0);
-				row6.createCell(l).setCellValue(0);
-				if (row7.getCell(l) == null){
-					row7.createCell(l).setCellValue(0);
-				} else {
-					row7.getCell(l).setCellValue(0);
-				}
-			}
-			        
-		}
-		
-		//写入问题总数Gesamt
-//		HSSFCell cell_10_5 = row10.createCell(5);
-//		cell_10_5.setCellValue(sum);
 		
 		//写入本周红绿灯的总数，显示在图表右侧
 		
@@ -119,22 +65,24 @@ System.out.println("last week = " + row3.getCell(i).getRichStringCellValue().toS
 		
 		HSSFCellStyle cellStyle = workbook.createCellStyle();
 		cellStyle.setWrapText(true);   
-		cellStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER);
+		cellStyle.setAlignment(HSSFCellStyle.ALIGN_LEFT);
 		cellStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);
 		cellStyle.setFont(font);
 		
-		HSSFCell cell_15_10 = row15.createCell(10);
+		HSSFCell cell_15_10 = row15.createCell(15);
 		cell_15_10.setCellStyle(cellStyle);
 		cell_15_10.setCellValue(red_sum);
 		cell_15_10.setCellStyle(cellStyle);
 		
-		HSSFCell cell_20_10 = row20.createCell(10);
+		HSSFCell cell_20_10 = row20.createCell(15);
 		cell_20_10.setCellValue(yellow_sum);
 		cell_20_10.setCellStyle(cellStyle);
 		
-		HSSFCell cell_25_10 = row25.createCell(10);
+		HSSFCell cell_25_10 = row25.createCell(15);
 		cell_25_10.setCellValue(green_sum);
 		cell_25_10.setCellStyle(cellStyle);
+
+		
 		
 	}
 	

@@ -43,6 +43,7 @@ public class IssueStatusStatistics {
 		map.put("yellow", yellow_sum); //$NON-NLS-1$
 		map.put("green", green_sum); //$NON-NLS-1$
 		map.put("sum", red_sum + yellow_sum + green_sum); //$NON-NLS-1$
+		
 		return map;
 		
 	}

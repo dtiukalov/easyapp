@@ -160,7 +160,7 @@ public class IssueStatusReportDialog extends AbstractFawvwPepDialog{
 	}
 	
 	public String getCurrentTime() {
-//		String currentTime = "KW22/2011"; 
+//		String currentTime = "22-2012"; 
 		String year = DateUtil.getCurrentYear();
 		String week = DateUtil.getWeekOfYear2(DateUtil.getSystTime()) + ""; 
 		return week + "-" + year; 
@@ -197,6 +197,7 @@ public class IssueStatusReportDialog extends AbstractFawvwPepDialog{
 		System.out.println("generateExcel"); 
 		HashMap<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("week", getCurrentTime()); 
+//		parameters.put("week", "45-2012"); 
 		parameters.put("project_id", ((TCComponentProject)this.projectComboBox.getSelectedItem()) 
 				.getProperty("project_id")); 
 		parameters.put("project_name", ((TCComponentProject)this.projectComboBox.getSelectedItem()) 
@@ -222,6 +223,7 @@ public class IssueStatusReportDialog extends AbstractFawvwPepDialog{
 			path2 = "\"" + path2 + "\"";   
 			Runtime.getRuntime().exec("cmd  /c  start excel " + path1); 
 			Runtime.getRuntime().exec("cmd  /c  start excel " + path2); 
+			
 		}
 
 	}

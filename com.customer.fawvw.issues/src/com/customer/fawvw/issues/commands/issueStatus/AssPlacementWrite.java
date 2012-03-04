@@ -1,9 +1,11 @@
 package com.customer.fawvw.issues.commands.issueStatus;
 
+import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFPatriarch;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -35,26 +37,27 @@ public class AssPlacementWrite {
 			HSSFRow row29 = sheetPage.getRow(29);
 			
 			int sum = ((Map<String, Integer>) AssIssues.get("front")).get("red") +   
-			((Map<String, Integer>) AssIssues.get("front")).get("yellow") +   
-			((Map<String, Integer>) AssIssues.get("front")).get("green") +   
-			((Map<String, Integer>) AssIssues.get("chassis")).get("red") +   
-			((Map<String, Integer>) AssIssues.get("chassis")).get("yellow") +   
-			((Map<String, Integer>) AssIssues.get("chassis")).get("green") +   
-			((Map<String, Integer>) AssIssues.get("electronik")).get("red") +   
-			((Map<String, Integer>) AssIssues.get("electronik")).get("yellow") +   
-			((Map<String, Integer>) AssIssues.get("electronik")).get("green") +   
-			((Map<String, Integer>) AssIssues.get("driver")).get("red") +   
-			((Map<String, Integer>) AssIssues.get("driver")).get("yellow") +   
-			((Map<String, Integer>) AssIssues.get("driver")).get("green") +   
-			((Map<String, Integer>) AssIssues.get("door")).get("red") +   
-			((Map<String, Integer>) AssIssues.get("door")).get("yellow") +   
-			((Map<String, Integer>) AssIssues.get("door")).get("green") +   
-			((Map<String, Integer>) AssIssues.get("inner")).get("red") +   
-			((Map<String, Integer>) AssIssues.get("inner")).get("yellow") +   
-			((Map<String, Integer>) AssIssues.get("inner")).get("green") +   
-			((Map<String, Integer>) AssIssues.get("behind")).get("red") +   
-			((Map<String, Integer>) AssIssues.get("behind")).get("yellow") +  
-			((Map<String, Integer>) AssIssues.get("behind")).get("green");  
+						((Map<String, Integer>) AssIssues.get("front")).get("yellow") +   
+						((Map<String, Integer>) AssIssues.get("front")).get("green") +   
+						((Map<String, Integer>) AssIssues.get("chassis")).get("red") +   
+						((Map<String, Integer>) AssIssues.get("chassis")).get("yellow") +   
+						((Map<String, Integer>) AssIssues.get("chassis")).get("green") +   
+						((Map<String, Integer>) AssIssues.get("electronik")).get("red") +   
+						((Map<String, Integer>) AssIssues.get("electronik")).get("yellow") +   
+						((Map<String, Integer>) AssIssues.get("electronik")).get("green") +   
+						((Map<String, Integer>) AssIssues.get("driver")).get("red") +   
+						((Map<String, Integer>) AssIssues.get("driver")).get("yellow") +   
+						((Map<String, Integer>) AssIssues.get("driver")).get("green") +   
+						((Map<String, Integer>) AssIssues.get("door")).get("red") +   
+						((Map<String, Integer>) AssIssues.get("door")).get("yellow") +   
+						((Map<String, Integer>) AssIssues.get("door")).get("green") +   
+						((Map<String, Integer>) AssIssues.get("inner")).get("red") +   
+						((Map<String, Integer>) AssIssues.get("inner")).get("yellow") +   
+						((Map<String, Integer>) AssIssues.get("inner")).get("green") +   
+						((Map<String, Integer>) AssIssues.get("behind")).get("red") +   
+						((Map<String, Integer>) AssIssues.get("behind")).get("yellow") +  
+						((Map<String, Integer>) AssIssues.get("behind")).get("green");  
+			
 	
 			//Ð´ÈëÎÊÌâ×ÜÊýGesamt
 			HSSFCell cell_5_2 = row5.getCell(2);
@@ -62,7 +65,7 @@ public class AssPlacementWrite {
 				cell_5_2 = row5.createCell(2);
 			}
 			cell_5_2.setCellValue(sum);
-	
+			
 			//Ç°¶Ë
 			HSSFCell cell_27_3 = row27.getCell(3);
 			cell_27_3.setCellValue(((Map<String, Integer>) AssIssues
@@ -169,32 +172,48 @@ public class AssPlacementWrite {
 			
 			HashMap<String, Object> AssIssues = (HashMap<String, Object>)values.get("assPlacement"); 
 			
-			int sum = ((Map<String, Integer>) AssIssues.get("front")).get("red") +   
-			((Map<String, Integer>) AssIssues.get("front")).get("yellow") +   
-			((Map<String, Integer>) AssIssues.get("front")).get("green") +   
-			((Map<String, Integer>) AssIssues.get("chassis")).get("red") +   
-			((Map<String, Integer>) AssIssues.get("chassis")).get("yellow") +   
-			((Map<String, Integer>) AssIssues.get("chassis")).get("green") +   
-			((Map<String, Integer>) AssIssues.get("electronik")).get("red") +   
-			((Map<String, Integer>) AssIssues.get("electronik")).get("yellow") +   
-			((Map<String, Integer>) AssIssues.get("electronik")).get("green") +   
-			((Map<String, Integer>) AssIssues.get("driver")).get("red") +   
-			((Map<String, Integer>) AssIssues.get("driver")).get("yellow") +   
-			((Map<String, Integer>) AssIssues.get("driver")).get("green") +   
-			((Map<String, Integer>) AssIssues.get("door")).get("red") +   
-			((Map<String, Integer>) AssIssues.get("door")).get("yellow") +   
-			((Map<String, Integer>) AssIssues.get("door")).get("green") +   
-			((Map<String, Integer>) AssIssues.get("inner")).get("red") +   
-			((Map<String, Integer>) AssIssues.get("inner")).get("yellow") +   
-			((Map<String, Integer>) AssIssues.get("inner")).get("green") +   
-			((Map<String, Integer>) AssIssues.get("behind")).get("red") +   
-			((Map<String, Integer>) AssIssues.get("behind")).get("yellow") +  
-			((Map<String, Integer>) AssIssues.get("behind")).get("green");  
+			Map<String, Integer> front = (Map<String, Integer>) AssIssues.get("front");
+			Map<String, Integer> chassis = (Map<String, Integer>) AssIssues.get("chassis");
+			Map<String, Integer> electronik = (Map<String, Integer>) AssIssues.get("electronik");
+			Map<String, Integer> driver = (Map<String, Integer>) AssIssues.get("driver");
+			Map<String, Integer> door = (Map<String, Integer>) AssIssues.get("door");
+			Map<String, Integer> inner = (Map<String, Integer>) AssIssues.get("inner");
+			Map<String, Integer> behind = (Map<String, Integer>) AssIssues.get("behind");
+			
+			int sum = front.get("red") + front.get("yellow") + front.get("green") +   
+				chassis.get("red") + chassis.get("yellow") + chassis.get("green") +   
+				electronik.get("red") + electronik.get("yellow") + electronik.get("green") +   
+				driver.get("red") + driver.get("yellow") + driver.get("green") +   
+				door.get("red") + door.get("yellow") + door.get("green") +   
+				inner.get("red") + inner.get("yellow") + inner.get("green") +   
+				behind.get("red") + behind.get("yellow") + behind.get("green");  
+			
+
+			int sum_yellow = front.get("yellow") + chassis.get("yellow") +   
+						electronik.get("yellow") + driver.get("yellow") +   
+						door.get("yellow") + inner.get("yellow") +   
+						behind.get("yellow");
+			
+			int sum_red = front.get("red") + chassis.get("red") +   
+						electronik.get("red") + driver.get("red") +   
+						door.get("red") + inner.get("red") +   
+						behind.get("red");
 	
+			HSSFCellStyle textStyle = workbook.createCellStyle();   
+			textStyle.setWrapText(true);   
+			textStyle.setAlignment(HSSFCellStyle.ALIGN_LEFT);
+			textStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_TOP);
+			
 			//Ð´ÈëÎÊÌâ×ÜÊýGesamt
 			HSSFRow row0 = sheetPage.getRow(0);
 			HSSFCell gesamtCell = row0.createCell(5);
 			gesamtCell.setCellValue(sum);
+			
+			HSSFCell yellowCell = row0.createCell(10);
+			yellowCell.setCellValue(sum_yellow);
+			
+			HSSFCell redCell = row0.createCell(15);
+			redCell.setCellValue(sum_red);
 			
 			try {
 				ImageCellInfo carTopCell = new ImageCellInfo(10, 9, 13, 29);
@@ -207,271 +226,216 @@ public class AssPlacementWrite {
 				
 				HSSFRow row3 = sheetPage.getRow(3);
 				HSSFRow row5 = sheetPage.getRow(5);
+				HSSFRow row6 = sheetPage.getRow(6);
 				HSSFRow row7 = sheetPage.getRow(7);
 				HSSFRow row8 = sheetPage.getRow(8);
+				HSSFRow row9 = sheetPage.getRow(9);
 				HSSFRow row10 = sheetPage.getRow(10);
+				HSSFRow row11 = sheetPage.getRow(11);
 				HSSFRow row12 = sheetPage.getRow(12);
 				HSSFRow row26 = sheetPage.getRow(26);
+				HSSFRow row27 = sheetPage.getRow(27);
 				HSSFRow row28 = sheetPage.getRow(28);
 				HSSFRow row30 = sheetPage.getRow(30);
 				
-				if (((Map<String, Integer>) AssIssues.get("driver")).get("red") > 0) {
-					ImageCellInfo driverRedCell = new ImageCellInfo(8, 7, 8, 7);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, driverRedCell, ImageUtil.getRed());
-					System.out.println("Ð´Èë¼ÝÊ»Ä£¿éºìµÆÍ¼Æ¬£ºredSmall.jpg"); 
-					
-					HSSFCell cell_8_8 = row8.createCell(8);
-					cell_8_8.setCellValue(((Map<String, Integer>) AssIssues.get("driver")).get("red"));
-				} else {
-					ImageCellInfo driverRedCell = new ImageCellInfo(8, 7, 8, 7);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, driverRedCell, ImageUtil.getWhite());
-				}
+				//¼ÝÊ»Ä£¿é
+				ImageCellInfo driverCell = new ImageCellInfo(9, 7, 11, 7);
+				ImageUtil.GenerateImage(workbook, sheetPage, patri, driverCell, getRYGImage(driver));
 				
-				if (((Map<String, Integer>) AssIssues.get("driver")).get("yellow") > 0) {
-					ImageCellInfo driverYellowCell = new ImageCellInfo(10, 7, 10, 7);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, driverYellowCell, ImageUtil.getYellow());
-					System.out.println("Ð´Èë¼ÝÊ»Ä£¿é»ÆµÆÍ¼Æ¬£ºyellowSmall.jpg"); 
-					
+				if (driver.get("red") > 0) {
+					HSSFCell cell_9_8 = row9.createCell(8);
+					cell_9_8.setCellValue(driver.get("red"));
+					cell_9_8.setCellStyle(textStyle);
+				} 
+				
+				if (driver.get("yellow") > 0) {
 					HSSFCell cell_10_8 = row10.createCell(8);
-					cell_10_8.setCellValue(((Map<String, Integer>) AssIssues.get("driver")).get("yellow"));
-				} else {
-					ImageCellInfo driverYellowCell = new ImageCellInfo(10, 7, 10, 7);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, driverYellowCell, ImageUtil.getWhite());
-				}
+					cell_10_8.setCellValue(driver.get("yellow"));
+					cell_10_8.setCellStyle(textStyle);
+				} 
 				
-				if (((Map<String, Integer>) AssIssues.get("driver")).get("green") > 0) {
-					ImageCellInfo driverGreenCell = new ImageCellInfo(12, 7, 12, 7);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, driverGreenCell, ImageUtil.getGreen());
-					System.out.println("Ð´Èë¼ÝÊ»Ä£¿éÂÌµÆÍ¼Æ¬£ºgreenSmall.jpg"); 
-					
-					HSSFCell cell_12_8 = row12.createCell(8);
-					cell_12_8.setCellValue(((Map<String, Integer>) AssIssues.get("driver")).get("green"));
-				} else {
-					ImageCellInfo driverGreenCell = new ImageCellInfo(12, 7, 12, 7);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, driverGreenCell, ImageUtil.getWhite());
-				}
+				if (driver.get("green") > 0) {
+					HSSFCell cell_11_8 = row11.createCell(8);
+					cell_11_8.setCellValue(driver.get("green"));
+					cell_11_8.setCellStyle(textStyle);
+				} 
 				
-				if (((Map<String, Integer>) AssIssues.get("door")).get("red") > 0) {
-					ImageCellInfo doorRedCell = new ImageCellInfo(3, 15, 3, 15);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, doorRedCell, ImageUtil.getRed());
-					System.out.println("Ð´Èë³µÃÅºìµÆÍ¼Æ¬£ºredSmall.jpg"); 
-					
-					HSSFCell cell_3_16 = row3.createCell(16);
-					cell_3_16.setCellValue(((Map<String, Integer>) AssIssues.get("door")).get("red"));
-				} else {
-					ImageCellInfo doorRedCell = new ImageCellInfo(3, 15, 3, 15);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, doorRedCell, ImageUtil.getWhite());
-				}
+				//³µÃÅ
+				ImageCellInfo doorCell = new ImageCellInfo(6, 15, 8, 15);
+				ImageUtil.GenerateImage(workbook, sheetPage, patri, doorCell, getRYGImage(door));
 				
-				if (((Map<String, Integer>) AssIssues.get("door")).get("yellow") > 0) {
-					ImageCellInfo doorYellowCell = new ImageCellInfo(5, 15, 5, 15);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, doorYellowCell, ImageUtil.getYellow());
-					System.out.println("Ð´Èë³µÃÅºìµÆÍ¼Æ¬£ºyellowSmall.jpg"); 
-					
-					HSSFCell cell_5_16 = row5.createCell(16);
-					cell_5_16.setCellValue(((Map<String, Integer>) AssIssues.get("door")).get("yellow"));
-				} else {
-					ImageCellInfo doorYellowCell = new ImageCellInfo(5, 15, 5, 15);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, doorYellowCell, ImageUtil.getWhite());
-				}
+				if (door.get("red") > 0) {
+					HSSFCell cell_6_16 = row6.createCell(16);
+					cell_6_16.setCellValue(door.get("red"));
+					cell_6_16.setCellStyle(textStyle);
+				} 
 				
-				if (((Map<String, Integer>) AssIssues.get("door")).get("green") > 0) {
-					ImageCellInfo doorGreenCell = new ImageCellInfo(7, 15, 7, 15);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, doorGreenCell, ImageUtil.getGreen());
-					System.out.println("Ð´Èë³µÃÅÂÌµÆÍ¼Æ¬£ºgreenSmall.jpg"); 
-					
+				if (door.get("yellow") > 0) {
 					HSSFCell cell_7_16 = row7.createCell(16);
-					cell_7_16.setCellValue(((Map<String, Integer>) AssIssues.get("door")).get("green"));
-				} else {
-					ImageCellInfo doorGreenCell = new ImageCellInfo(7, 15, 7, 15);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, doorGreenCell, ImageUtil.getWhite());
+					cell_7_16.setCellValue(door.get("yellow"));
+					cell_7_16.setCellStyle(textStyle);
+				} 
+				
+				if (door.get("green") > 0) {
+					HSSFCell cell_8_16 = row8.createCell(16);
+					cell_8_16.setCellValue(door.get("green"));
+					cell_8_16.setCellStyle(textStyle);
 				}
 				
-				if (((Map<String, Integer>) AssIssues.get("inner")).get("red") > 0) {
-					ImageCellInfo innerRedCell = new ImageCellInfo(3, 21, 3, 21);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, innerRedCell, ImageUtil.getRed());
-					System.out.println("Ð´ÈëÄÚÊÎºìµÆÍ¼Æ¬£ºredSmall.jpg"); 
-					
-					HSSFCell cell_3_22 = row3.createCell(22);
-					cell_3_22.setCellValue(((Map<String, Integer>) AssIssues.get("inner")).get("red"));
-				} else {
-					ImageCellInfo innerRedCell = new ImageCellInfo(3, 21, 3, 21);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, innerRedCell, ImageUtil.getWhite());
-				}
+				//ÄÚÊÎ
+				ImageCellInfo innerCell = new ImageCellInfo(6, 21, 8, 21);
+				ImageUtil.GenerateImage(workbook, sheetPage, patri, innerCell, getRYGImage(inner));
 				
-				if (((Map<String, Integer>) AssIssues.get("inner")).get("yellow") > 0) {
-					ImageCellInfo innerYellowCell = new ImageCellInfo(5, 21, 5, 21);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, innerYellowCell, ImageUtil.getYellow());
-					System.out.println("Ð´ÈëÄÚÊÎ»ÆµÆÍ¼Æ¬£ºyellowSmall.jpg"); 
-					
-					HSSFCell cell_5_22 = row5.createCell(22);
-					cell_5_22.setCellValue(((Map<String, Integer>) AssIssues.get("inner")).get("yellow"));
-				} else {
-					ImageCellInfo innerYellowCell = new ImageCellInfo(5, 21, 5, 21);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, innerYellowCell, ImageUtil.getWhite());
-				}
+				if (inner.get("red") > 0) {
+					HSSFCell cell_6_22 = row6.createCell(22);
+					cell_6_22.setCellValue(inner.get("red"));
+					cell_6_22.setCellStyle(textStyle);
+				} 
 				
-				if (((Map<String, Integer>) AssIssues.get("inner")).get("green") > 0) {
-					ImageCellInfo innerGreenCell = new ImageCellInfo(7, 21, 7, 21);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, innerGreenCell, ImageUtil.getGreen());
-					System.out.println("Ð´ÈëÄÚÊÎÂÌµÆÍ¼Æ¬£ºgreenSmall.jpg"); 
-					
+				if (inner.get("yellow") > 0) {
 					HSSFCell cell_7_22 = row7.createCell(22);
-					cell_7_22.setCellValue(((Map<String, Integer>) AssIssues.get("inner")).get("green"));
-				} else {
-					ImageCellInfo innerGreenCell = new ImageCellInfo(7, 21, 7, 21);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, innerGreenCell, ImageUtil.getWhite());
-				}
+					cell_7_22.setCellValue(inner.get("yellow"));
+					cell_7_22.setCellStyle(textStyle);
+				} 
 				
-				if (((Map<String, Integer>) AssIssues.get("behind")).get("red") > 0) {
-					ImageCellInfo heckRedCell = new ImageCellInfo(3, 28, 3, 28);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, heckRedCell, ImageUtil.getRed());
-					System.out.println("Ð´Èëºó¶ËºìµÆÍ¼Æ¬£ºredSmall.jpg"); 
-					
-					HSSFCell cell_3_29 = row3.createCell(29);
-					cell_3_29.setCellValue(((Map<String, Integer>) AssIssues.get("behind")).get("red"));
-				} else {
-					ImageCellInfo heckRedCell = new ImageCellInfo(3, 28, 3, 28);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, heckRedCell, ImageUtil.getWhite());
-				}
+				if (inner.get("green") > 0) {
+					HSSFCell cell_8_22 = row8.createCell(22);
+					cell_8_22.setCellValue(inner.get("green"));
+					cell_8_22.setCellStyle(textStyle);
+				} 
 				
-				if (((Map<String, Integer>) AssIssues.get("behind")).get("yellow") > 0) {
-					ImageCellInfo heckYellowCell = new ImageCellInfo(5, 28, 5, 28);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, heckYellowCell, ImageUtil.getYellow());
-					System.out.println("Ð´Èëºó¶Ë»ÆµÆÍ¼Æ¬£ºyellowSmall.jpg"); 
-					
-					HSSFCell cell_5_29 = row5.createCell(29);
-					cell_5_29.setCellValue(((Map<String, Integer>) AssIssues.get("behind")).get("yellow"));
-				} else {
-					ImageCellInfo heckYellowCell = new ImageCellInfo(5, 28, 5, 28);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, heckYellowCell, ImageUtil.getWhite());
-				}
+				//ºó¶Ë
+				ImageCellInfo heckRedCell = new ImageCellInfo(6, 28, 8, 28);
+				ImageUtil.GenerateImage(workbook, sheetPage, patri, heckRedCell, getRYGImage(behind));
 				
-				if (((Map<String, Integer>) AssIssues.get("behind")).get("green") > 0) {
-					ImageCellInfo heckGreenCell = new ImageCellInfo(7, 28, 7, 28);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, heckGreenCell, ImageUtil.getGreen());
-					System.out.println("Ð´Èëºó¶ËÂÌµÆÍ¼Æ¬£ºgreenSmall.jpg"); 
-					
+				if (behind.get("red") > 0) {
+					HSSFCell cell_6_29 = row6.createCell(29);
+					cell_6_29.setCellValue(behind.get("red"));
+					cell_6_29.setCellStyle(textStyle);
+				} 
+				
+				if (behind.get("yellow") > 0) {
 					HSSFCell cell_7_29 = row7.createCell(29);
-					cell_7_29.setCellValue(((Map<String, Integer>) AssIssues.get("behind")).get("green"));
+					cell_7_29.setCellValue(behind.get("yellow"));
+					cell_7_29.setCellStyle(textStyle);
+				} 
+				
+				if (behind.get("green") > 0) {
+					HSSFCell cell_8_29 = row8.createCell(29);
+					cell_8_29.setCellValue(behind.get("green"));
+					cell_8_29.setCellStyle(textStyle);
 				}
 				
-				if (((Map<String, Integer>) AssIssues.get("front")).get("red") > 0) {
-					ImageCellInfo vordRedCell = new ImageCellInfo(26, 6, 26, 6);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, vordRedCell, ImageUtil.getRed());
-					System.out.println("Ð´ÈëÇ°¶ËºìµÆÍ¼Æ¬£ºredSmall.jpg"); 
-					
+				//Ç°¶Ë
+				ImageCellInfo vordRedCell = new ImageCellInfo(26, 6, 28, 6);
+				ImageUtil.GenerateImage(workbook, sheetPage, patri, vordRedCell, getRYGImage(front));
+				
+				if (front.get("red") > 0) {
 					HSSFCell cell_26_7 = row26.createCell(7);
-					cell_26_7.setCellValue(((Map<String, Integer>) AssIssues.get("front")).get("red"));
-				} else {
-					ImageCellInfo vordRedCell = new ImageCellInfo(26, 6, 26, 6);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, vordRedCell, ImageUtil.getWhite());
+					cell_26_7.setCellValue(front.get("red"));
+					cell_26_7.setCellStyle(textStyle);
+				} 
+				
+				if (front.get("yellow") > 0) {
+					HSSFCell cell_27_7 = row27.createCell(7);
+					cell_27_7.setCellValue(front.get("yellow"));
+					cell_27_7.setCellStyle(textStyle);
 				}
 				
-				if (((Map<String, Integer>) AssIssues.get("front")).get("yellow") > 0) {
-					ImageCellInfo vordYellowCell = new ImageCellInfo(28, 6, 28, 6);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, vordYellowCell, ImageUtil.getYellow());
-					System.out.println("Ð´ÈëÇ°¶Ë»ÆµÆÍ¼Æ¬£ºyellowSmall.jpg"); 
-					
+				if (front.get("green") > 0) {
 					HSSFCell cell_28_7 = row28.createCell(7);
-					cell_28_7.setCellValue(((Map<String, Integer>) AssIssues.get("front")).get("yellow"));
-				} else {
-					ImageCellInfo vordYellowCell = new ImageCellInfo(28, 6, 28, 6);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, vordYellowCell, ImageUtil.getWhite());
-				}
+					cell_28_7.setCellValue(front.get("green"));
+					cell_28_7.setCellStyle(textStyle);
+				} 
 				
-				if (((Map<String, Integer>) AssIssues.get("front")).get("green") > 0) {
-					ImageCellInfo vordGreenCell = new ImageCellInfo(30, 6, 30, 6);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, vordGreenCell, ImageUtil.getGreen());
-					System.out.println("Ð´ÈëÇ°¶ËÂÌµÆÍ¼Æ¬£ºgreenSmall.jpg"); 
-					
-					HSSFCell cell_30_7 = row30.createCell(7);
-					cell_30_7.setCellValue(((Map<String, Integer>) AssIssues.get("front")).get("green"));
-				} else {
-					ImageCellInfo vordGreenCell = new ImageCellInfo(30, 6, 30, 6);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, vordGreenCell, ImageUtil.getWhite());
-				}
+				//µ×ÅÌ
+				ImageCellInfo chassicRedCell = new ImageCellInfo(26, 17, 28, 17);
+				ImageUtil.GenerateImage(workbook, sheetPage, patri, chassicRedCell, getRYGImage(chassis));
 				
-				if (((Map<String, Integer>) AssIssues.get("chassis")).get("red") > 0) {
-					ImageCellInfo chassicRedCell = new ImageCellInfo(26, 17, 26, 17);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, chassicRedCell, ImageUtil.getRed());
-					System.out.println("Ð´Èëµ×ÅÌºìµÆÍ¼Æ¬£ºredSmall.jpg"); 
-					
+				if (chassis.get("red") > 0) {
 					HSSFCell cell_26_18 = row26.createCell(18);
-					cell_26_18.setCellValue(((Map<String, Integer>) AssIssues.get("chassis")).get("red"));
-				} else {
-					ImageCellInfo chassicRedCell = new ImageCellInfo(26, 17, 26, 17);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, chassicRedCell, ImageUtil.getWhite());
+					cell_26_18.setCellValue(chassis.get("red"));
+					cell_26_18.setCellStyle(textStyle);
 				}
 				
-				if (((Map<String, Integer>) AssIssues.get("chassis")).get("yellow") > 0) {
-					ImageCellInfo chassicYellowCell = new ImageCellInfo(28, 17, 28, 17);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, chassicYellowCell, ImageUtil.getYellow());
-					System.out.println("Ð´Èëµ×ÅÌ»ÆµÆÍ¼Æ¬£ºyellowSmall.jpg"); 
-					
+				if (chassis.get("yellow") > 0) {
+					HSSFCell cell_27_18 = row27.createCell(18);
+					cell_27_18.setCellValue(chassis.get("yellow"));
+					cell_27_18.setCellStyle(textStyle);
+				}
+				
+				if (chassis.get("green") > 0) {
 					HSSFCell cell_28_18 = row28.createCell(18);
-					cell_28_18.setCellValue(((Map<String, Integer>) AssIssues.get("chassis")).get("yellow"));
-				} else {
-					ImageCellInfo chassicYellowCell = new ImageCellInfo(28, 17, 28, 17);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, chassicYellowCell, ImageUtil.getWhite());
-				}
+					cell_28_18.setCellValue(chassis.get("green"));
+					cell_28_18.setCellStyle(textStyle);
+				} 
 				
-				if (((Map<String, Integer>) AssIssues.get("chassis")).get("green") > 0) {
-					ImageCellInfo chassicGreenCell = new ImageCellInfo(30, 17, 30, 17);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, chassicGreenCell, ImageUtil.getGreen());
-					System.out.println("Ð´Èëµ×ÅÌÂÌµÆÍ¼Æ¬£ºgreenSmall.jpg"); 
-					
-					HSSFCell cell_30_18 = row30.createCell(18);
-					cell_30_18.setCellValue(((Map<String, Integer>) AssIssues.get("chassis")).get("green"));
-				} else {
-					ImageCellInfo chassicGreenCell = new ImageCellInfo(30, 17, 30, 17);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, chassicGreenCell, ImageUtil.getWhite());
-				}
+				//µçÆ÷
+				ImageCellInfo eleckRedCell = new ImageCellInfo(26, 26, 28, 26);
+				ImageUtil.GenerateImage(workbook, sheetPage, patri, eleckRedCell, getRYGImage(electronik));
 				
-				if (((Map<String, Integer>) AssIssues.get("electronik")).get("red") > 0) {
-					ImageCellInfo eleckRedCell = new ImageCellInfo(26, 26, 26, 26);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, eleckRedCell, ImageUtil.getRed());
-					System.out.println("Ð´ÈëµçÆ÷ºìµÆÍ¼Æ¬£ºredSmall.jpg"); 
-					
+				if (electronik.get("red") > 0) {
 					HSSFCell cell_26_27 = row26.createCell(27);
-					cell_26_27.setCellValue(((Map<String, Integer>) AssIssues.get("electronik")).get("red"));
-				} else {
-					ImageCellInfo eleckRedCell = new ImageCellInfo(26, 26, 26, 26);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, eleckRedCell, ImageUtil.getWhite());
+					cell_26_27.setCellValue(electronik.get("red"));
+					cell_26_27.setCellStyle(textStyle);
+				} 
+				
+				if (electronik.get("yellow") > 0) {
+					HSSFCell cell_27_27 = row27.createCell(27);
+					cell_27_27.setCellValue(electronik.get("yellow"));
+					cell_27_27.setCellStyle(textStyle);
 				}
 				
-				if (((Map<String, Integer>) AssIssues.get("electronik")).get("yellow") > 0) {
-					ImageCellInfo eleckYellowCell = new ImageCellInfo(28, 26, 28, 26);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, eleckYellowCell, ImageUtil.getYellow());
-					System.out.println("Ð´ÈëµçÆ÷»ÆµÆÍ¼Æ¬£ºyellowSmall.jpg"); 
-					
+				if (electronik.get("green") > 0) {
 					HSSFCell cell_28_27 = row28.createCell(27);
-					cell_28_27.setCellValue(((Map<String, Integer>) AssIssues.get("electronik")).get("yellow"));
-				} else {
-					ImageCellInfo eleckYellowCell = new ImageCellInfo(28, 26, 28, 26);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, eleckYellowCell, ImageUtil.getWhite());
-				}
-				
-				
-				if (((Map<String, Integer>) AssIssues.get("electronik")).get("green") > 0) {
-					ImageCellInfo eleckGreenCell = new ImageCellInfo(30, 26, 30, 26);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, eleckGreenCell, ImageUtil.getGreen());
-					System.out.println("Ð´ÈëµçÆ÷ÂÌµÆÍ¼Æ¬£ºgreenSmall.jpg"); 
-					
-					HSSFCell cell_30_27 = row30.createCell(27);
-					cell_30_27.setCellValue(((Map<String, Integer>) AssIssues.get("electronik")).get("green"));
-				} else {
-					ImageCellInfo eleckGreenCell = new ImageCellInfo(30, 26, 30, 26);
-					ImageUtil.GenerateImage(workbook, sheetPage, patri, eleckGreenCell, ImageUtil.getWhite());
+					cell_28_27.setCellValue(electronik.get("green"));
+					cell_28_27.setCellStyle(textStyle);
 				}
 				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-		
 		}
+	}
+	
+
+	/**
+	 * Í¨¹ý×°³µÎ»ÖÃµÄºì»ÆÂÌµÆµÄ¸öÊýÅÐ¶ÏÐ´ÈëÄÄÕÅÍ¼Æ¬
+	 */
+	public static BufferedImage getRYGImage(Map<String, Integer> assplace) {
+		try {
+			if (assplace.get("red") > 0) {
+				if (assplace.get("yellow") > 0) {
+					if (assplace.get("green") > 0) {
+						return ImageUtil.getRYG(); //ºì»ÆÂÌ
+					} else {
+						return ImageUtil.getRYW(); //ºì»Æ
+					}
+				} else {
+					if (assplace.get("green") > 0) {
+						return ImageUtil.getRWG(); //ºì ÂÌ
+					} else {
+						return ImageUtil.getRWW(); //ºì
+					}
+				}
+			} else if (assplace.get("yellow") > 0) {
+				if (assplace.get("green") > 0) {
+					return ImageUtil.getWYG(); //»Æ ÂÌ
+				} else {
+					return ImageUtil.getWYW(); //»Æ 
+				}
+			} else if (assplace.get("green") > 0) {
+				return ImageUtil.getWWG(); //ÂÌ
+			} else {
+				return ImageUtil.getWWW();//¶¼ÊÇ°×µÆ
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 }
 

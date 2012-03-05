@@ -10,48 +10,137 @@
 	<%@ include file="/app/pep/include/header.jsp"%>
 	<title><%=title %></title>
 	<%
-		String milepost = (String)request.getSession().getAttribute("milepost");
-		String fv9ProjectStatus = (String) form.get("fv9FunktionStatus");
+		String milepost = "";
 	
-		String fv9ProductstandStatus = (String) form.get("fv9ProductstandStatus");
-		String fv9ProdStatusCom = (String) form.get("fv9ProdStatusCom");
-		String fv9ProdStatusComC = (String) form.get("fv9ProdStatusComC");
+		if(request.getSession().getAttribute("milepost") != null){
+			milepost = (String)request.getSession().getAttribute("milepost");
+		}
 		
-		String fv9FunktionStatus =(String) form.get("fv9FunktionStatus");
-		String fv9FunktionCom = (String) form.get("fv9FunktionCom");
-		String fv9FunktionComC = (String) form.get("fv9FunktionComC");
+		String fv9ProjectStatus = "";
+		if(form.get("fv9FunktionStatus") != null){
+			fv9ProjectStatus = (String) form.get("fv9FunktionStatus");
+		}
+		String fv9ProductstandStatus = "";
+		if(form.get("fv9ProductstandStatus") != null){
+			 fv9ProductstandStatus = (String) form.get("fv9ProductstandStatus");
+		}
+		String fv9ProdStatusCom = "";
+		if(form.get("fv9ProdStatusCom") != null){
+		 	 fv9ProdStatusCom = (String) form.get("fv9ProdStatusCom");
+		}
+		String fv9ProdStatusComC = "";
+		if(form.get("fv9ProdStatusComC") != null){		
+			 fv9ProdStatusComC = (String) form.get("fv9ProdStatusComC");
+		}
+		String fv9FunktionStatus ="";
+		if(form.get("fv9FunktionStatus") != null){		
+			 fv9FunktionStatus =(String) form.get("fv9FunktionStatus");
+		}
+		String fv9FunktionCom = "";
+		if(form.get("fv9FunktionCom") != null){		
+			 fv9FunktionCom = (String) form.get("fv9FunktionCom");
+		}
+		String fv9FunktionComC = "";
+		if(form.get("fv9FunktionComC") != null){	
+			 fv9FunktionComC = (String) form.get("fv9FunktionComC");
+		}
+		String fv9ProduktionStatus ="";
+		if(form.get("fv9ProduktionStatus") != null){	
+			 fv9ProduktionStatus = (String) form.get("fv9ProduktionStatus");
+		}
+		String fv9ProduktionCom = "";
+		if(form.get("fv9ProduktionCom") != null){	
+			 fv9ProduktionCom =  (String) form.get("fv9ProduktionCom");
+		}
+		String fv9ProduktionComC = "";
+		if(form.get("fv9ProduktionComC") != null){	
+			 fv9ProduktionComC =  (String) form.get("fv9ProduktionComC");
+		}
+		String fv9BeschaffStatus ="";
+		if(form.get("fv9BeschaffStatus") != null){	
+			 fv9BeschaffStatus = (String) form.get("fv9BeschaffStatus");
+		}
+		String fv9BeschaffCom ="";
+		if(form.get("fv9BeschaffCom") != null){	
+			 fv9BeschaffCom =  (String) form.get("fv9BeschaffCom");
+		}
+		String fv9BeschaffComC ="";
+		if(form.get("fv9BeschaffComC") != null){	
+			 fv9BeschaffComC =  (String) form.get("fv9BeschaffComC");
+		}
+		String fv9QualitStatus = "";
+		if(form.get("fv9QualitStatus") != null){	
+			 fv9QualitStatus = (String) form.get("fv9QualitStatus");
+		}
+		String fv9QualitCom = "";
+		if(form.get("fv9QualitCom") != null){	
+			 fv9QualitCom =  (String) form.get("fv9QualitCom");
+		}
+		String fv9QualitComC ="";
+		if(form.get("fv9QualitComC") != null){	
+			 fv9QualitComC =  (String) form.get("fv9QualitComC");
+		}
+		String fv9VertriebStatus ="";
+		if(form.get("fv9VertriebStatus") != null){	
+			 fv9VertriebStatus = (String) form.get("fv9VertriebStatus");
+		}
+		String fv9VertriebCom = "";
+		if(form.get("fv9VertriebCom") != null){	
+			 fv9VertriebCom =  (String) form.get("fv9VertriebCom");
+		}
+		String fv9VertriebComC ="";
+		if(form.get("fv9VertriebComC") != null){	
+			 fv9VertriebComC =  (String) form.get("fv9VertriebComC");
+		}
+		String fv9FinanzenStatus = "";
+		if(form.get("fv9FinanzenStatus") != null){	
+			 fv9FinanzenStatus = (String) form.get("fv9FinanzenStatus");
+		}
+		String fv9FinanzenCom ="";
+		if(form.get("fv9FinanzenCom") != null){	
+			 fv9FinanzenCom =  (String) form.get("fv9FinanzenCom");
+		}
+		String fv9FinanzenComC ="";
+		if(form.get("fv9FinanzenComC") != null){	
+			 fv9FinanzenComC =  (String) form.get("fv9FinanzenComC");
+		}
+		String fv9GewichtStatus = "";
+		if(form.get("fv9GewichtStatus") != null){	
+			 fv9GewichtStatus =  (String) form.get("fv9GewichtStatus");
+		}
+		String fv9GewichtCom ="";
+		if(form.get("fv9GewichtCom") != null){	
+			 fv9GewichtCom =  (String) form.get("fv9GewichtCom");
+		}
+		String fv9GewichtComC ="";
+		if(form.get("fv9GewichtComC") != null){	
+			 fv9GewichtComC =  (String) form.get("fv9GewichtComC");
+		}
+		String fv9DokuStatus ="";
+		if(form.get("fv9DokuStatus") != null){	
+			 fv9DokuStatus = (String) form.get("fv9DokuStatus");
+		}
+		String fv9DokuCom = "";
+		if(form.get("fv9DokuCom") != null){	
+			 fv9DokuCom = (String) form.get("fv9DokuCom");
+		}
+		String fv9DokuComC = "";
+		if(form.get("fv9DokuComC") != null){	
+			 fv9DokuComC = (String) form.get("fv9DokuComC");
+		}
+		String fv9TermineStatus ="";
+		if(form.get("fv9TermineStatus") != null){	
+			 fv9TermineStatus = (String) form.get("fv9TermineStatus");
+		}
+		String fv9TermineCom = "";
+		if(form.get("fv9TermineCom") != null){	
+			 fv9TermineCom =  (String) form.get("fv9TermineCom");
+		}
+		String fv9TermineComC = "";
+		if(form.get("fv9TermineComC") != null){	
+			 fv9TermineComC = (String) form.get("fv9TermineComC");
+		}
 		
-		String fv9ProduktionStatus = (String) form.get("fv9ProduktionStatus");
-		String fv9ProduktionCom =  (String) form.get("fv9ProduktionCom");
-		String fv9ProduktionComC =  (String) form.get("fv9ProduktionComC");
-		
-		String fv9BeschaffStatus = (String) form.get("fv9BeschaffStatus");
-		String fv9BeschaffCom =  (String) form.get("fv9BeschaffCom");
-		String fv9BeschaffComC =  (String) form.get("fv9BeschaffComC");
-		
-		String fv9QualitStatus = (String) form.get("fv9QualitStatus");
-		String fv9QualitCom =  (String) form.get("fv9QualitCom");
-		String fv9QualitComC =  (String) form.get("fv9QualitComC");
-		
-		String fv9VertriebStatus = (String) form.get("fv9VertriebStatus");
-		String fv9VertriebCom =  (String) form.get("fv9VertriebCom");
-		String fv9VertriebComC =  (String) form.get("fv9VertriebComC");
-		
-		String fv9FinanzenStatus = (String) form.get("fv9FinanzenStatus");
-		String fv9FinanzenCom =  (String) form.get("fv9FinanzenCom");
-		String fv9FinanzenComC =  (String) form.get("fv9FinanzenComC");
-		
-		String fv9GewichtStatus =  (String) form.get("fv9GewichtStatus");
-		String fv9GewichtCom =  (String) form.get("fv9GewichtCom");
-		String fv9GewichtComC =  (String) form.get("fv9GewichtComC");
-		
-		String fv9DokuStatus = (String) form.get("fv9DokuStatus");
-		String fv9DokuCom = (String) form.get("fv9DokuCom");
-		String fv9DokuComC = (String) form.get("fv9DokuComC");
-		
-		String fv9TermineStatus = (String) form.get("fv9TermineStatus");
-		String fv9TermineCom =  (String) form.get("fv9TermineCom");
-		String fv9TermineComC =  (String) form.get("fv9TermineComC");
 	%>
 </head>
 <body>

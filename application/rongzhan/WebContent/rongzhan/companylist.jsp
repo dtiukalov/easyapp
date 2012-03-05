@@ -152,9 +152,9 @@
 	                        	<div class="lg"><img src="images/logo_hoda.gif" /></div>
 	                        </div><!--左侧-->
 	                        <div class="right1">
-	                        	<div class="tupian"><a href="javascript:void(0);" target="_blank"><img src="images/suihua.jpg" /></a></div>
+	                        	<div class="tupian"><a href="../honda/index.jsp" target="_blank"><img src="images/suihua.jpg" /></a></div>
 	                            <div class="mingcheng">
-	                            <p><a href="javascript:void(0);" target="_blank"><span>融展东风本田专营店</span></a></p>
+	                            <p><a href="../honda/index.jsp" target="_blank"><span>融展东风本田专营店</span></a></p>
 	                            <p>地址：</p>
 	                            <p>销售：</p>
 	                            <p>客服：</p>
@@ -194,9 +194,9 @@
 	                        	<div class="lg"><img src="images/logo_xfl.gif" /></div>
 	                        </div><!--左侧-->
 	                        <div class="right1">
-	                        	<div class="tupian"><a href="javascript:void(0);" target="_blank"><img src="images/suihua.jpg" /></a></div>
+	                        	<div class="tupian"><a href="../xuefulan/index.jsp" target="_blank"><img src="images/suihua.jpg" /></a></div>
 	                            <div class="mingcheng">
-	                            <p><a href="javascript:void(0);" target="_blank"><span>融展雪弗兰专营店</span></a></p>
+	                            <p><a href="../xuefulan/index.jsp" target="_blank"><span>融展雪弗兰专营店</span></a></p>
 	                            <p>地址：</p>
 	                            <p>销售：</p>
 	                            <p>客服：</p>

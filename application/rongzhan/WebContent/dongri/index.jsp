@@ -49,7 +49,9 @@
         </div>
         
         <div id="divYou">
-        	<div id="divRjg"></div>
+        	<div id="divRjg">
+        	<%@ include file="include/images.jsp" %>
+        	</div>
             <div id="divFay">
             	<div id="divGfy"><a href="<%=WebUtils.getLink(rootcid+".new", null)%>" class="ahgh">更多..</a></div>
             	<%

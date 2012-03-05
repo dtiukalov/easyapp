@@ -40,7 +40,7 @@
     <div class="bq">
 <p>版权所有哈尔滨融展兴邦专营店</p>
 <p>地址:哈尔滨市道外区先锋路3号</p>
-<p>电话:0451-82460181</p>
+<p>电话:0451-82460181&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%@ include file="../../include/flux.jsp" %></p>
     </div></div>
 <div class="clear"></div>
 </div>

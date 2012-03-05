@@ -40,7 +40,7 @@
     <div class="bq">
 <p>版权所有东风日产融展瑞合专营店</p>
 <p>地址:吉林市船营区越山路235号</p>
-<p>电话:0432-62717999/62719666</p>
+<p>电话:0432-62717999/62719666&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%@ include file="../../include/flux.jsp" %></p>
     </div></div>
 <div class="clear"></div>
 </div>

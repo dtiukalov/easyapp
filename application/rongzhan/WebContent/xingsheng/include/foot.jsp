@@ -41,7 +41,7 @@
     <div class="bq">
 <p>版权所有绥化融展兴盛别克专营店</p>
 <p>地址:北林区西二环路电力名苑南</p>
-<p>电话:0455-8251969</p>
+<p>电话:0455-8251969&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%@ include file="../../include/flux.jsp" %></p>
     </div>
 
 </div><!--底部-->

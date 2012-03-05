@@ -41,7 +41,7 @@
     <div class="bq">
 <p>版权所有通化鑫宇一汽-大众专营店</p>
 <p>地址:吉林省通化市新胜北路2355号(通梅零公里)</p>
-<p>电话:0435-3628519</p>
+<p>电话:0435-3628519&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%@ include file="../../include/flux.jsp" %></p>
     </div>
 
 </div><!--底部-->

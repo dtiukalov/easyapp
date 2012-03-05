@@ -37,7 +37,9 @@
             </div>
         	<div class="yfndx"><img src="images/yfnd_x.gif" /></div>
     	</div><!--关于英菲尼迪-->
-    <div class="qiehuan"><img src="images/qh.jpg" /></div>
+    <div class="qiehuan">
+    <%@ include file="include/images.jsp" %>
+    </div>
     	<div class="gyyfnd">
         	<div class="yfnd">
     			<h1>新闻动态</h1>
@@ -90,7 +92,7 @@
 			if(i==0){
 				%>
   			<tr align="center" height="98px" bgcolor="<%=bgcolor%>">
-	      <td height="120" style="border-top: dashed thin #ababab;border-width:1px;"><img src="<%=car.getImage()!=null?car.getImage():"images/car.gif" %>" width="160" height="86" /></td>
+	      <td height="120" style="border-top: dashed thin #ababab;border-width:1px;"><img src="<%=car.getImage()!=null?car.getImage():"images/car.gif" %>" width="130" height="98" /></td>
 	      <td style="border-top: dashed thin #ababab;border-width:1px;"><a href="cus_cardetail.jsp?cid=<%=WebUtils.getRootCid(request) %>.sall&model=<%=car.getModel() %>"><span style="color:#1478c6;"><%=car.getSeriesName() %></span></a></td>
 	      <td style="border-top: dashed thin #ababab;border-width:1px;"><span style="color:#da251c;">&nbsp;<%=car.getPrice() %></span></td>
 	      <td style="border-top: dashed thin #ababab;border-width:1px;"><a href="cus_cardetail.jsp?cid=<%=WebUtils.getRootCid(request) %>.sall&model=<%=car.getModel() %>">详情</a></td>
@@ -104,7 +106,7 @@
    				}else{
      		%>
        		<tr align="center" height="98px" bgcolor="<%=bgcolor%>">
-		      <td ><span style="border-top: dashed thin #ababab;border-width:1px;"><img src="<%=car.getImage()!=null?car.getImage():"images/car.gif" %>" width="160" height="86" /></span></td>
+		      <td ><span style="border-top: dashed thin #ababab;border-width:1px;"><img src="<%=car.getImage()!=null?car.getImage():"images/car.gif" %>" width="130" height="98" /></span></td>
 		      <td ><a href="cus_cardetail.jsp?cid=<%=WebUtils.getRootCid(request) %>.sall&model=<%=car.getModel() %>"><span style="color:#1478c6;"><%=car.getSeriesName() %></span></a></td>
 		      <td ><span style="color:#da251c;">&nbsp;<%=car.getPrice() %></span></td>
 		      <td ><a href="cus_cardetail.jsp?cid=<%=WebUtils.getRootCid(request) %>.sall&model=<%=car.getModel() %>">详情</a></td>

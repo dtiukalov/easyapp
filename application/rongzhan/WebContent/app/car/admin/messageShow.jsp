@@ -106,7 +106,7 @@
 					width : 40,
 					sortable : true,
 					formatter : function(value, rec) {
-						return '<span><a href="<%=request.getContextPath()%>/app/website/message/show.action?show=' + rec.id + '">' + rec.hasShowName +'</a>';
+						return '<span><a href="<%=request.getContextPath()%>/app/website/admin/message/show.action?cid=<%=cid%>&amp;show=' + rec.id + '">' + rec.hasShowName +'</a>';
 					}
 				}, {
 					field : 'opt',
@@ -227,7 +227,7 @@
 			return false;
 		}
 		function editVO(id){
-			window.location.href='<%=request.getContextPath()%>/app/website/message/query.action?id='+ id;
+			window.location.href='<%=request.getContextPath()%>/app/website/admin/message/query.action?id='+ id;
 			return false;
 		}
 	</script>

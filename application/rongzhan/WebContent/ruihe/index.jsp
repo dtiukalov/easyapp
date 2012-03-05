@@ -49,7 +49,9 @@
         </div>
         
         <div id="divYou">
-        	<div id="divRjg"></div>
+        	<div id="divRjg">
+        	<%@ include file="include/images.jsp" %>	
+        	</div>
             <div id="divView">
             	<embed src=" http://static.youku.com/v1.0.0149/v/swf/qplayer_rtmp.swf?VideoIDS=XMzM2OTcyMjM2&winType=adshow&isAutoPlay=true" quality="high" width="272" height="203" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" isAutoPlay="true"></embed>
             </div>

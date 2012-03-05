@@ -41,7 +41,7 @@
     <div class="bq">
 <p>版权所有雪弗兰4S店</p>
 <p>地址:</p>
-<p>电话:</p>
+<p>电话:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%@ include file="../../include/flux.jsp" %></p>
     </div>
 
 </div><!--底部-->

@@ -40,7 +40,7 @@
     <div class="bq">
 <p>版权所有东风日产绥化融展绥鑫专营店</p>
 <p>地址:绥化市北林区西二环路凤凰城对过</p>
-<p>电话:0455-8626662/8626669</p>
+<p>电话:0455-8626662/8626669&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%@ include file="../../include/flux.jsp" %></p>
     </div></div>
 <div class="clear"></div>
 </div>

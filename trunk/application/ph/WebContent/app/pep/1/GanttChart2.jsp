@@ -286,14 +286,42 @@
 <%
 	String uid = request.getParameter("uid");
 	Map form = FormManager.getFormValue(uid,true);
-
-	List<String> fv9ProjectDerivat =(List<String>)form.get("fv9ProjectDerivat");
-	List<String> fv9ProjectStufe =	(List<String>)form.get("fv9ProjectStufe");
-	List<String> fv9ProjectPVS =(List<String>)form.get("fv9ProjectPVS");
-	List<String> fv9ProjectVFF =(List<String>)form.get("fv9ProjectVFF");
-	List<String> fv9Project0S =(List<String>)form.get("fv9Project0S");
-	List<String> fv9ProjectSOP =(List<String>)form.get("fv9ProjectSOP");
-	List<String> fv9ProjectMix =(List<String>)form.get("fv9ProjectMix");
+	
+	List<String> fv9ProjectDerivat = new ArrayList<String>(); 
+	List<String> fv9ProjectStufe = new ArrayList<String>(); 
+	List<String> fv9ProjectPVS = new ArrayList<String>(); 
+	List<String> fv9ProjectVFF = new ArrayList<String>(); 
+	List<String> fv9Project0S = new ArrayList<String>(); 
+	List<String> fv9ProjectSOP = new ArrayList<String>(); 
+	List<String> fv9ProjectMix = new ArrayList<String>(); 	
+	
+	if (form.get("fv9ProjectDerivat") != null ){
+		fv9ProjectDerivat = (List<String>)form.get("fv9ProjectDerivat");
+	}
+	
+	if (form.get("fv9ProjectStufe") != null ){
+		fv9ProjectStufe =	(List<String>)form.get("fv9ProjectStufe");
+	}
+	
+	if (form.get("fv9ProjectPVS") != null ){
+		fv9ProjectPVS =(List<String>)form.get("fv9ProjectPVS");
+	}
+	
+	if (form.get("fv9ProjectVFF") != null ){
+		fv9ProjectVFF =(List<String>)form.get("fv9ProjectVFF");
+	}
+	
+	if (form.get("fv9Project0S") != null ){
+		fv9Project0S =(List<String>)form.get("fv9Project0S");
+	}
+	
+	if (form.get("fv9ProjectSOP") != null ){
+		fv9ProjectSOP =(List<String>)form.get("fv9ProjectSOP");
+	}
+	
+	if (form.get("fv9ProjectMix") != null ){
+		fv9ProjectMix =(List<String>)form.get("fv9ProjectMix");	
+	}	
 %>
 <body>	
 	<div style="position:relative;width:1100px" class="Gantt" id="GanttChart2"></div>

@@ -1,0 +1,30 @@
+INSERT INTO `app_dict` (`key`, `value`, `type`, `pinyin`) VALUES
+  ('1.6L 手动 时尚型','1.6L 手动 时尚型','car.yiqivw.suteng','1'),
+  ('1.6L 自动 时尚型','1.6L 自动 时尚型','car.yiqivw.suteng','1'),
+  ('1.6L 手动 舒适型','1.6L 手动 舒适型','car.yiqivw.suteng','1'),
+  ('1.6L 自动 舒适型','1.6L 自动 舒适型','car.yiqivw.suteng','1'),
+  ('1.4L 手动 技术型','1.4L 手动 技术型','car.yiqivw.suteng','1'),
+  ('1.4L 自动 技术型','1.4L 自动 技术型','car.yiqivw.suteng','1'),
+  ('1.4L 手动 豪华型','1.4L 手动 豪华型','car.yiqivw.suteng','1'),
+  ('1.4L 自动 豪华型','1.4L 自动 豪华型','car.yiqivw.suteng','1'),
+  ('1.8L 手动 冠军型','1.8L 手动 冠军型','car.yiqivw.suteng','1'),
+  ('1.8L 自动 冠军型','1.8L 自动 冠军型','car.yiqivw.suteng','1'),
+  ('1.6L 手动 特别型','1.6L 手动 特别型','car.yiqivw.suteng','1'),
+  ('1.6L 自动 特别型','1.6L 自动 特别型','car.yiqivw.suteng','1'),
+  
+  
+INSERT INTO car_newcar(cid, brand, brandName, model, 
+modelName, series, seriesName, image, price, realPrice, gift, saller) VALUES
+	('xinyu','car.yiqivw','一汽大众','car.yiqivw.suteng','速腾','1.6L 手动 时尚型','1.6L 手动 时尚型','/rongzhan/attached/appCar/20120305/20120305154602_577.jpg','13.28','13.28','',''),
+	('xinyu','car.yiqivw','一汽大众','car.yiqivw.suteng','速腾','1.6L 自动 时尚型','1.6L 自动 时尚型','/rongzhan/attached/appCar/20120305/20120305154602_577.jpg','14.48','14.48','',''),
+	('xinyu','car.yiqivw','一汽大众','car.yiqivw.suteng','速腾','1.6L 手动 舒适型','1.6L 手动 舒适型','/rongzhan/attached/appCar/20120305/20120305154602_577.jpg','13.58','13.58','',''),
+	('xinyu','car.yiqivw','一汽大众','car.yiqivw.suteng','速腾','1.6L 自动 舒适型','1.6L 自动 舒适型','/rongzhan/attached/appCar/20120305/20120305154602_577.jpg','14.78','14.78','',''),
+	('xinyu','car.yiqivw','一汽大众','car.yiqivw.suteng','速腾','1.4L 手动 技术型','1.4L 手动 技术型','/rongzhan/attached/appCar/20120305/20120305154602_577.jpg','14.88','14.88','',''),
+	('xinyu','car.yiqivw','一汽大众','car.yiqivw.suteng','速腾','1.4L 自动 技术型','1.4L 自动 技术型','/rongzhan/attached/appCar/20120305/20120305154602_577.jpg','16.28','16.28','',''),
+	('xinyu','car.yiqivw','一汽大众','car.yiqivw.suteng','速腾','1.4L 手动 豪华型','1.4L 手动 豪华型','/rongzhan/attached/appCar/20120305/20120305154602_577.jpg','15.58','15.58','',''),
+	('xinyu','car.yiqivw','一汽大众','car.yiqivw.suteng','速腾','1.4L 自动 豪华型','1.4L 自动 豪华型','/rongzhan/attached/appCar/20120305/20120305154602_577.jpg','16.98','16.98','',''),
+	('xinyu','car.yiqivw','一汽大众','car.yiqivw.suteng','速腾','1.8L 手动 冠军型','1.8L 手动 冠军型','/rongzhan/attached/appCar/20120305/20120305154602_577.jpg','17.28','17.28','',''),
+	('xinyu','car.yiqivw','一汽大众','car.yiqivw.suteng','速腾','1.8L 自动 冠军型','1.8L 自动 冠军型','/rongzhan/attached/appCar/20120305/20120305154602_577.jpg','18.48','18.48','',''),
+	('xinyu','car.yiqivw','一汽大众','car.yiqivw.suteng','速腾','1.6L 手动 特别型','1.6L 手动 特别型','/rongzhan/attached/appCar/20120305/20120305154602_577.jpg','14.38','14.38','',''),
+	('xinyu','car.yiqivw','一汽大众','car.yiqivw.suteng','速腾','1.6L 自动 特别型','1.6L 自动 特别型','/rongzhan/attached/appCar/20120305/20120305154602_577.jpg','15.58','15.58','',''),
+	

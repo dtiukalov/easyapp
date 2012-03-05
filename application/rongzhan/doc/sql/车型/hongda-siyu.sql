@@ -1,0 +1,30 @@
+INSERT INTO `app_dict` (`key`, `value`, `type`, `pinyin`) VALUES
+  ('1.8L 手动 EXi舒适版 2012款','1.8L 手动 EXi舒适版 2012款','car.dongfenghonda.civic','1'),
+  ('1.8L 自动 EXi舒适版 2012款','1.8L 自动 EXi舒适版 2012款','car.dongfenghonda.civic','1'),
+  ('1.8L 自动 VTi豪华版 2012款','1.8L 自动 VTi豪华版 2012款','car.dongfenghonda.civic','1'),
+  ('1.8L 自动 VTi豪华导航版 2012款','1.8L 自动 VTi豪华导航版 2012款','car.dongfenghonda.civic','1'),
+  ('2.0L 自动 TYPE-S 2012款','2.0L 自动 TYPE-S 2012款','car.dongfenghonda.civic','1'),
+  ('2.0L 自动 TYPE-S导航版 2012款','2.0L 自动 TYPE-S导航版 2012款','car.dongfenghonda.civic','1'),
+  ('1.8L 手动 EXi舒适版 2011款','1.8L 手动 EXi舒适版 2011款','car.dongfenghonda.civic','1'),
+  ('1.8L 自动 EXi舒适版 2011款','1.8L 自动 EXi舒适版 2011款','car.dongfenghonda.civic','1'),
+  ('1.8L 自动 VTi豪华版 2011款','1.8L 自动 VTi豪华版 2011款','car.dongfenghonda.civic','1'),
+  ('1.8L 自动 VTi豪华导航版 2011款','1.8L 自动 VTi豪华导航版 2011款','car.dongfenghonda.civic','1'),
+  ('2.0L 自动 TYPE-S 2011款','2.0L 自动 TYPE-S 2011款','car.dongfenghonda.civic','1'),
+  ('2.0L 自动 TYPE-S导航版 2011款','2.0L 自动 TYPE-S导航版 2011款','car.dongfenghonda.civic','1'),
+             
+           
+  
+INSERT INTO car_newcar(cid, brand, brandName, model, 
+modelName, series, seriesName, image, price, realPrice, gift, saller) VALUES
+	('honda','car.dongfenghonda','东风本田','car.dongfenghonda.civic','思域','1.8L 手动 EXi舒适版 2012款','1.8L 手动 EXi舒适版 2012款','/rongzhan/attached/appCar/20120305/20120305193747_585.jpg','13.18','','',''),
+	('honda','car.dongfenghonda','东风本田','car.dongfenghonda.civic','思域','1.8L 自动 EXi舒适版 2012款','1.8L 自动 EXi舒适版 2012款','/rongzhan/attached/appCar/20120305/20120305193747_585.jpg','13.98','','',''),
+	('honda','car.dongfenghonda','东风本田','car.dongfenghonda.civic','思域','1.8L 自动 VTi豪华版 2012款','1.8L 自动 VTi豪华版 2012款','/rongzhan/attached/appCar/20120305/20120305193747_585.jpg','15.78','','',''),
+	('honda','car.dongfenghonda','东风本田','car.dongfenghonda.civic','思域','1.8L 自动 VTi豪华导航版 2012款','1.8L 自动 VTi豪华导航版 2012款','/rongzhan/attached/appCar/20120305/20120305193747_585.jpg','16.78','','',''),
+	('honda','car.dongfenghonda','东风本田','car.dongfenghonda.civic','思域','2.0L 自动 TYPE-S 2012款','2.0L 自动 TYPE-S 2012款','/rongzhan/attached/appCar/20120305/20120305193747_585.jpg','17.58','','',''),
+	('honda','car.dongfenghonda','东风本田','car.dongfenghonda.civic','思域','2.0L 自动 TYPE-S导航版 2012款','2.0L 自动 TYPE-S导航版 2012款','/rongzhan/attached/appCar/20120305/20120305193747_585.jpg','18.58','','',''),
+	('honda','car.dongfenghonda','东风本田','car.dongfenghonda.civic','思域','1.8L 手动 EXi舒适版 2011款','1.8L 手动 EXi舒适版 2011款','/rongzhan/attached/appCar/20120305/20120305193747_585.jpg','13.18','','',''),
+	('honda','car.dongfenghonda','东风本田','car.dongfenghonda.civic','思域','1.8L 自动 EXi舒适版 2011款','1.8L 自动 EXi舒适版 2011款','/rongzhan/attached/appCar/20120305/20120305193747_585.jpg','13.98','','',''),
+	('honda','car.dongfenghonda','东风本田','car.dongfenghonda.civic','思域','1.8L 自动 VTi豪华版 2011款','1.8L 自动 VTi豪华版 2011款','/rongzhan/attached/appCar/20120305/20120305193747_585.jpg','15.78','','',''),
+	('honda','car.dongfenghonda','东风本田','car.dongfenghonda.civic','思域','1.8L 自动 VTi豪华导航版 2011款','1.8L 自动 VTi豪华导航版 2011款','/rongzhan/attached/appCar/20120305/20120305193747_585.jpg','16.78','','',''),
+	('honda','car.dongfenghonda','东风本田','car.dongfenghonda.civic','思域','2.0L 自动 TYPE-S 2011款','2.0L 自动 TYPE-S 2011款','/rongzhan/attached/appCar/20120305/20120305193747_585.jpg','17.58','','',''),
+	('honda','car.dongfenghonda','东风本田','car.dongfenghonda.civic','思域','2.0L 自动 TYPE-S导航版 2011款','2.0L 自动 TYPE-S导航版 2011款','/rongzhan/attached/appCar/20120305/20120305193747_585.jpg','18.58','','',''),

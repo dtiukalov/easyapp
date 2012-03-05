@@ -34,17 +34,19 @@ public class LoadAction implements IAction {
 		if (item == null) {
 			return new JspErrorView("Item:Name=[" + name + "] 不存在");
 		}
+		
 		String project = name.split("_")[0];
 		String roadmap = name.split("_")[1];
-		
-		Map<String, Object> formIds = ItemUtils.getLastRevisionFormIds(item);
-
-		List<String> indexes = PHManager.getIndexes(roadmap, formIds);
-		
 		request.getSession().setAttribute("milepost", roadmap);
-		request.getSession().setAttribute("indexes", indexes);
 		request.getSession().setAttribute("project", project);
 		
+		Map<String, Object> formIds = ItemUtils.getLastRevisionFormIds(item);
+		List<String> indexes = new ArrayList<String>();
+		
+		if(formIds.size() > 0){
+			indexes = PHManager.getIndexes(roadmap, formIds);
+		}
+		request.getSession().setAttribute("indexes", indexes);
 		request.setAttribute("current", "1");
 		
 		//PH下存在数据

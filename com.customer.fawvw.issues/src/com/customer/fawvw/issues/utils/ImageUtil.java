@@ -94,7 +94,7 @@ public class ImageUtil {
 	public static final String WHITE = System.getenv("TPR") + "\\plugins\\Template\\images\\white.png"; 
 	
 	
-	public static final String CAR = System.getenv("TPR") + "\\plugins\\Template\\images\\car.png"; 
+	public static final String CAR = System.getenv("TPR") + "\\plugins\\Template\\images\\car.jpg"; 
 	public static final String TOP = System.getenv("TPR") + "\\plugins\\Template\\images\\top.jpg"; 
 	public static final String BOTTOM = System.getenv("TPR") + "\\plugins\\Template\\images\\bottom.jpg"; 
 
@@ -586,9 +586,14 @@ public class ImageUtil {
 	}
 	
 	public static BufferedImage getCarImage() throws Exception {
+		try {
 			File image = new File(CAR);
-	//		InputStream ins = new readBufferedImg2(image);
-			return readBufferedImg(image);
+			InputStream ins = new FileInputStream(image);
+			return readBufferedImg(ins);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			throw new FawvmLoaderException("car.jpg²»´æÔÚ"); //$NON-NLS-1$
+		}
 	}
 	
 	public static BufferedImage getVFF() throws Exception {

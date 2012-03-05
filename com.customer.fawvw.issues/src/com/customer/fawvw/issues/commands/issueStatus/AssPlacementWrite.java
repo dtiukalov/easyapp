@@ -216,13 +216,17 @@ public class AssPlacementWrite {
 			redCell.setCellValue(sum_red);
 			
 			try {
-				ImageCellInfo carTopCell = new ImageCellInfo(10, 9, 13, 29);
-				ImageUtil.GenerateImage(workbook, sheetPage, patri, carTopCell, ImageUtil.getCarTop());
-				System.out.println("Ð´ÈëÍ¼Æ¬£ºtop.jpg"); 
+//				ImageCellInfo carTopCell = new ImageCellInfo(10, 9, 13, 29);
+//				ImageUtil.GenerateImage(workbook, sheetPage, patri, carTopCell, ImageUtil.getCarTop());
+//				System.out.println("Ð´ÈëÍ¼Æ¬£ºtop.jpg"); 
+//				
+//				ImageCellInfo carBottomCell = new ImageCellInfo(14, 4, 22, 29);
+//				ImageUtil.GenerateImage(workbook, sheetPage, patri, carBottomCell, ImageUtil.getCarBottom());
+//				System.out.println("Ð´ÈëÍ¼Æ¬£ºbottom.jpg"); 
 				
-				ImageCellInfo carBottomCell = new ImageCellInfo(14, 4, 22, 29);
-				ImageUtil.GenerateImage(workbook, sheetPage, patri, carBottomCell, ImageUtil.getCarBottom());
-				System.out.println("Ð´ÈëÍ¼Æ¬£ºbottom.jpg"); 
+				ImageCellInfo carCell = new ImageCellInfo(10, 4, 28, 30);
+				ImageUtil.GenerateImage(workbook, sheetPage, patri, carCell, ImageUtil.getCarImage());
+				System.out.println("Ð´ÈëÍ¼Æ¬£ºcar.jpg"); 
 				
 				HSSFRow row3 = sheetPage.getRow(3);
 				HSSFRow row5 = sheetPage.getRow(5);
@@ -237,27 +241,31 @@ public class AssPlacementWrite {
 				HSSFRow row27 = sheetPage.getRow(27);
 				HSSFRow row28 = sheetPage.getRow(28);
 				HSSFRow row30 = sheetPage.getRow(30);
+				HSSFRow row31 = sheetPage.getRow(31);
+				HSSFRow row32 = sheetPage.getRow(32);
+				HSSFRow row33 = sheetPage.getRow(33);
+				HSSFRow row34 = sheetPage.getRow(34);
 				
 				//¼ÝÊ»Ä£¿é
-				ImageCellInfo driverCell = new ImageCellInfo(9, 7, 11, 7);
+				ImageCellInfo driverCell = new ImageCellInfo(6, 7, 8, 7);
 				ImageUtil.GenerateImage(workbook, sheetPage, patri, driverCell, getRYGImage(driver));
 				
 				if (driver.get("red") > 0) {
-					HSSFCell cell_9_8 = row9.createCell(8);
-					cell_9_8.setCellValue(driver.get("red"));
-					cell_9_8.setCellStyle(textStyle);
+					HSSFCell cell_6_8 = row6.createCell(8);
+					cell_6_8.setCellValue(driver.get("red"));
+					cell_6_8.setCellStyle(textStyle);
 				} 
 				
 				if (driver.get("yellow") > 0) {
-					HSSFCell cell_10_8 = row10.createCell(8);
-					cell_10_8.setCellValue(driver.get("yellow"));
-					cell_10_8.setCellStyle(textStyle);
+					HSSFCell cell_7_8 = row7.createCell(8);
+					cell_7_8.setCellValue(driver.get("yellow"));
+					cell_7_8.setCellStyle(textStyle);
 				} 
 				
 				if (driver.get("green") > 0) {
-					HSSFCell cell_11_8 = row11.createCell(8);
-					cell_11_8.setCellValue(driver.get("green"));
-					cell_11_8.setCellStyle(textStyle);
+					HSSFCell cell_8_8 = row8.createCell(8);
+					cell_8_8.setCellValue(driver.get("green"));
+					cell_8_8.setCellStyle(textStyle);
 				} 
 				
 				//³µÃÅ
@@ -327,69 +335,69 @@ public class AssPlacementWrite {
 				}
 				
 				//Ç°¶Ë
-				ImageCellInfo vordRedCell = new ImageCellInfo(26, 6, 28, 6);
+				ImageCellInfo vordRedCell = new ImageCellInfo(32, 6, 34, 6);
 				ImageUtil.GenerateImage(workbook, sheetPage, patri, vordRedCell, getRYGImage(front));
 				
 				if (front.get("red") > 0) {
-					HSSFCell cell_26_7 = row26.createCell(7);
-					cell_26_7.setCellValue(front.get("red"));
-					cell_26_7.setCellStyle(textStyle);
+					HSSFCell cell_32_7 = row32.createCell(7);
+					cell_32_7.setCellValue(front.get("red"));
+					cell_32_7.setCellStyle(textStyle);
 				} 
 				
 				if (front.get("yellow") > 0) {
-					HSSFCell cell_27_7 = row27.createCell(7);
-					cell_27_7.setCellValue(front.get("yellow"));
-					cell_27_7.setCellStyle(textStyle);
+					HSSFCell cell_33_7 = row33.createCell(7);
+					cell_33_7.setCellValue(front.get("yellow"));
+					cell_33_7.setCellStyle(textStyle);
 				}
 				
 				if (front.get("green") > 0) {
-					HSSFCell cell_28_7 = row28.createCell(7);
-					cell_28_7.setCellValue(front.get("green"));
-					cell_28_7.setCellStyle(textStyle);
+					HSSFCell cell_34_7 = row34.createCell(7);
+					cell_34_7.setCellValue(front.get("green"));
+					cell_34_7.setCellStyle(textStyle);
 				} 
 				
 				//µ×ÅÌ
-				ImageCellInfo chassicRedCell = new ImageCellInfo(26, 17, 28, 17);
+				ImageCellInfo chassicRedCell = new ImageCellInfo(32, 17, 34, 17);
 				ImageUtil.GenerateImage(workbook, sheetPage, patri, chassicRedCell, getRYGImage(chassis));
 				
 				if (chassis.get("red") > 0) {
-					HSSFCell cell_26_18 = row26.createCell(18);
-					cell_26_18.setCellValue(chassis.get("red"));
-					cell_26_18.setCellStyle(textStyle);
+					HSSFCell cell_32_18 = row32.createCell(18);
+					cell_32_18.setCellValue(chassis.get("red"));
+					cell_32_18.setCellStyle(textStyle);
 				}
 				
 				if (chassis.get("yellow") > 0) {
-					HSSFCell cell_27_18 = row27.createCell(18);
-					cell_27_18.setCellValue(chassis.get("yellow"));
-					cell_27_18.setCellStyle(textStyle);
+					HSSFCell cell_33_18 = row33.createCell(18);
+					cell_33_18.setCellValue(chassis.get("yellow"));
+					cell_33_18.setCellStyle(textStyle);
 				}
 				
 				if (chassis.get("green") > 0) {
-					HSSFCell cell_28_18 = row28.createCell(18);
-					cell_28_18.setCellValue(chassis.get("green"));
-					cell_28_18.setCellStyle(textStyle);
+					HSSFCell cell_34_18 = row34.createCell(18);
+					cell_34_18.setCellValue(chassis.get("green"));
+					cell_34_18.setCellStyle(textStyle);
 				} 
 				
 				//µçÆ÷
-				ImageCellInfo eleckRedCell = new ImageCellInfo(26, 26, 28, 26);
+				ImageCellInfo eleckRedCell = new ImageCellInfo(32, 26, 34, 26);
 				ImageUtil.GenerateImage(workbook, sheetPage, patri, eleckRedCell, getRYGImage(electronik));
 				
 				if (electronik.get("red") > 0) {
-					HSSFCell cell_26_27 = row26.createCell(27);
-					cell_26_27.setCellValue(electronik.get("red"));
-					cell_26_27.setCellStyle(textStyle);
+					HSSFCell cell_32_27 = row32.createCell(27);
+					cell_32_27.setCellValue(electronik.get("red"));
+					cell_32_27.setCellStyle(textStyle);
 				} 
 				
 				if (electronik.get("yellow") > 0) {
-					HSSFCell cell_27_27 = row27.createCell(27);
-					cell_27_27.setCellValue(electronik.get("yellow"));
-					cell_27_27.setCellStyle(textStyle);
+					HSSFCell cell_33_27 = row33.createCell(27);
+					cell_33_27.setCellValue(electronik.get("yellow"));
+					cell_33_27.setCellStyle(textStyle);
 				}
 				
 				if (electronik.get("green") > 0) {
-					HSSFCell cell_28_27 = row28.createCell(27);
-					cell_28_27.setCellValue(electronik.get("green"));
-					cell_28_27.setCellStyle(textStyle);
+					HSSFCell cell_34_27 = row34.createCell(27);
+					cell_34_27.setCellValue(electronik.get("green"));
+					cell_34_27.setCellStyle(textStyle);
 				}
 				
 			} catch (Exception e) {

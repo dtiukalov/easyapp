@@ -81,6 +81,7 @@ import com.saturn.ph.form.pbackup.FV9BackUp5Dataset;
 import com.saturn.ph.form.pbackup.FV9BackUp6Dataset;
 import com.saturn.ph.form.pbackup.FV9BackUp7Dataset;
 import com.saturn.ph.form.pbackup.FV9BackUpDataset;
+import com.saturn.tc.utils.WorkspaceUtils;
 import com.teamcenter.soa.client.model.ModelObject;
 import com.teamcenter.soa.exceptions.NotLoadedException;
 
@@ -100,10 +101,12 @@ public class FormManager {
 
 		if (object != null) {
 			String type = object.getType().getName();
-			if (type.equalsIgnoreCase("JPEG")) {
+			if (type.equalsIgnoreCase(WorkspaceUtils.DatasetType)) {
 				try {
-					type = object.getProperty("object_name")
-							.getDisplayableValue();
+					if(object.getProperty(WorkspaceUtils.DatasetPageName) != null){
+						type = object.getProperty(WorkspaceUtils.DatasetPageName)
+						.getDisplayableValue();
+					}
 				} catch (NotLoadedException e) {
 					e.printStackTrace();
 				}

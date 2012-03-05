@@ -29,29 +29,33 @@
 			 if(form.get("fv9AekoBig2Woch") != null && ((List<String>)form.get("fv9AekoBig2Woch")).size() > 0){
 				fv9AekoBig2Woch = Web.getNumberListStrSubFirst((List<String>)form.get("fv9AekoBig2Woch"));
 			 }
-			 if(((List<String>)form.get("fv9AekoAbgesch")).size() > 0 &&
-					 ((List<String>)form.get("fv9AekoSmall2Woch")).size() > 0&&
-					 ((List<String>)form.get("fv9AekoBig2Woch")).size() > 0 ){
-				 
-				 List<String> sumList = Web.SumList((List<String>)form.get("fv9AekoAbgesch"), 
-							(List<String>)form.get("fv9AekoSmall2Woch"),
-							(List<String>)form.get("fv9AekoBig2Woch"));
-				 deviationa = Web.compareByKW(sumList);
+			 if(form.get("fv9AekoAbgesch") != null && 
+					 form.get("fv9AekoSmall2Woch") != null &&
+					 form.get("fv9AekoBig2Woch") != null ){
+					 if(((List<String>)form.get("fv9AekoAbgesch")).size() > 0 &&
+							 ((List<String>)form.get("fv9AekoSmall2Woch")).size() > 0&&
+							 ((List<String>)form.get("fv9AekoBig2Woch")).size() > 0 ){
+						 
+						 List<String> sumList = Web.SumList((List<String>)form.get("fv9AekoAbgesch"), 
+									(List<String>)form.get("fv9AekoSmall2Woch"),
+									(List<String>)form.get("fv9AekoBig2Woch"));
+						 deviationa = Web.compareByKW(sumList);
+					 }
 			 }
 			
 			int fv9PronoseAbgesch = 0;
 			int fv9PronoseSmall2Woch = 0;
 			int fv9PronoseBig2Woch = 0;
 		
-			if(form.get("fv9PronoseAbgesch")!= null && !"".equals(form.get("fv9PronoseAbgesch")) ){
+			if(form.get("fv9PronoseAbgesch")!= null){
 				fv9PronoseAbgesch = Integer.parseInt((String)form.get("fv9PronoseAbgesch"));
 			}
 			
-			if(form.get("fv9PronoseSmall2Woch")!= null && !"".equals(form.get("fv9PronoseSmall2Woch")) ){
+			if(form.get("fv9PronoseSmall2Woch")!= null ){
 				fv9PronoseSmall2Woch = Integer.parseInt((String)form.get("fv9PronoseSmall2Woch"));
 			}
 
-			if(form.get("fv9PronoseBig2Woch")!= null && !"".equals(form.get("fv9PronoseBig2Woch")) ){
+			if(form.get("fv9PronoseBig2Woch")!= null ){
 				fv9PronoseBig2Woch = Integer.parseInt((String)form.get("fv9PronoseBig2Woch"));
 			}
 

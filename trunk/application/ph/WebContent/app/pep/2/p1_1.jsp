@@ -11,13 +11,36 @@
 	<%@ include file="/app/pep/include/header.jsp"%>
 	<title><%=title %></title>
 	<%
-	List<String> fv9FreigabeStyle = (List<String>)form.get("fv9FreigabeStyle");
-	List<String> fv9FreigabeStatus = (List<String>)form.get("fv9FreigabeStatus");
-	List<String> fv9AnzahlNum = (List<String>)form.get("fv9AnzahlNum");
-	List<String> fv9FreigSollNum = (List<String>)form.get("fv9FreigSollNum");
-	List<String> fv9FreiglstNum = (List<String>)form.get("fv9FreiglstNum");
-	List<String> fv9FreigCom_CN = (List<String>)form.get("fv9FreigCom_CN");
-	List<String> fv9FreigCom_GM = (List<String>)form.get("fv9FreigCom_GM");
+	List<String> fv9FreigabeStyle = new ArrayList<String>();
+	List<String> fv9FreigabeStatus = new ArrayList<String>();
+	List<String> fv9AnzahlNum = new ArrayList<String>();
+	List<String> fv9FreigSollNum = new ArrayList<String>();
+	List<String> fv9FreiglstNum = new ArrayList<String>();
+	List<String> fv9FreigCom_CN = new ArrayList<String>();
+	List<String> fv9FreigCom_GM = new ArrayList<String>();
+	
+	if(form.get("fv9FreigabeStyle") != null){
+		fv9FreigabeStyle = (List<String>)form.get("fv9FreigabeStyle");
+	}
+	if(form.get("fv9FreigabeStatus") != null){
+		fv9FreigabeStatus = (List<String>)form.get("fv9FreigabeStatus");
+	}
+	if(form.get("fv9AnzahlNum") != null){
+		fv9AnzahlNum = (List<String>)form.get("fv9AnzahlNum");
+	}
+	if(form.get("fv9FreigSollNum") != null){		
+		fv9FreigSollNum = (List<String>)form.get("fv9FreigSollNum");
+	}
+	if(form.get("fv9FreiglstNum") != null){		
+		fv9FreiglstNum = (List<String>)form.get("fv9FreiglstNum");
+	}
+	if(form.get("fv9FreigCom_CN") != null){		
+		fv9FreigCom_CN = (List<String>)form.get("fv9FreigCom_CN");
+	}
+	if(form.get("fv9FreigCom_GM") != null){		
+		fv9FreigCom_GM = (List<String>)form.get("fv9FreigCom_GM");
+	}		
+	
 	List<Integer> fv9OffenNum = new ArrayList<Integer>();
 	if (fv9AnzahlNum != null && fv9AnzahlNum.size() > 0) {
 		for(int i=0; i<fv9AnzahlNum.size(); i++) {

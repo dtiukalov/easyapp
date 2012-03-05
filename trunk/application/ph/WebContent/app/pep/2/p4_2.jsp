@@ -18,9 +18,19 @@
 		<%
 		String categories ="[]";
 		String data = "[]";	
-		List<String> fv9StyleName = (List<String>)form.get("fv9StyleName");
-		List<String> fv9StyleNum = (List<String>)form.get("fv9StyleNum");
-		int total = 25;
+		List<String> fv9StyleName = new ArrayList<String>();
+		List<String> fv9StyleNum = new ArrayList<String>(); 
+		
+		if(form.get("fv9StyleName") != null){
+			 fv9StyleName = (List<String>)form.get("fv9StyleName");
+		}
+		
+		if(form.get("fv9StyleNum") != null){
+			fv9StyleNum = (List<String>)form.get("fv9StyleNum");
+		}
+		
+		int total = 25;// TODO:计算total的值   
+			
 		if(fv9StyleName.size()>0 && fv9StyleNum.size()> 0 &&fv9StyleName.size() == fv9StyleNum.size()){
 		
 			int index1 = fv9StyleName.indexOf("Planungs durchlauf");

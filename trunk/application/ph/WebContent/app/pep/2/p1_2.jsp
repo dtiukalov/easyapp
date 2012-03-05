@@ -16,39 +16,52 @@
 	<%
 		
 		//专业组
-		List<String> fv9PFMajor = (List<String>) form.get("fv9PFMajor");
+		List<String> fv9PFMajor =  new ArrayList<String>();
+	
+		if(form.get("fv9PFMajor") != null){
+			 fv9PFMajor = (List<String>) form.get("fv9PFMajor");
+		}
+	
 		fv9PFMajor.add("Gesamt"); 
 		String PFMajor = Web.getStrListStr(fv9PFMajor) ;
-		System.out.println("PFMajor = " + PFMajor);
 		
 		//Gesamt
-		List<String> fv9PFGesamtNum = (List<String>) form.get("fv9PFGesamtNum");
+		List<String> fv9PFGesamtNum = new ArrayList<String>();
+		
+		if(form.get("fv9PFGesamtNum") != null){
+			fv9PFGesamtNum = (List<String>) form.get("fv9PFGesamtNum");
+		}
+		
 		int pfGesamt = 0;
 		for (int i=0; i<fv9PFGesamtNum.size(); i++) {
 			pfGesamt += Integer.parseInt(fv9PFGesamtNum.get(i));
 		}
-		fv9PFGesamtNum.add(pfGesamt+"");
+		fv9PFGesamtNum.add(pfGesamt + "");
 		String PFGesamtNum = Web.getNumberListStr(fv9PFGesamtNum);
 		
 		//Soll
-		List<String> fv9PFSollNum = (List<String>) form.get("fv9PFSollNum");
+		List<String> fv9PFSollNum = new ArrayList<String>();
+		if(form.get("fv9PFSollNum") != null){
+			fv9PFSollNum = (List<String>) form.get("fv9PFSollNum");
+		}
 		int pfSoll = 0;
 		for (int i=0; i<fv9PFSollNum.size(); i++) {
 			pfSoll += Integer.parseInt(fv9PFSollNum.get(i));
 		}
-		fv9PFSollNum.add(pfSoll+"");
+		fv9PFSollNum.add(pfSoll + "");
 		String PFSollNum = Web.getNumberListStr(fv9PFSollNum);
-		System.out.println("PFSollNum = " + PFSollNum);
 	
 		//Ist
-		List<String> fv9PFlstNum = (List<String>) form.get("fv9PFlstNum");
+		List<String> fv9PFlstNum = new ArrayList<String>();
+		if(form.get("fv9PFlstNum") != null){
+			fv9PFlstNum = (List<String>) form.get("fv9PFlstNum");
+		}
 		int pflst = 0;
 		for (int i=0; i<fv9PFlstNum.size(); i++) {
 			pflst += Integer.parseInt(fv9PFlstNum.get(i));
 		}
-		fv9PFlstNum.add(pflst+"");
+		fv9PFlstNum.add(pflst + "");
 		String PFlstNum = Web.getNumberListStr(fv9PFlstNum);
-		System.out.println("PFlstNum = " + PFlstNum);
 		
 		//offen
 		List<Integer> fv9PFoffenNum = new ArrayList<Integer>();
@@ -190,7 +203,7 @@
 						<tr>
 							<td style="text-align: left;">&nbsp;Pos.Gesamt</td>
 							<%
-							for (int i=0; i<fv9PFGesamtNum.size(); i++){
+							for (int i=0; i < fv9PFGesamtNum.size(); i++){
 							%>
 							<td><%= fv9PFGesamtNum.get(i)%></td>
 							<%
@@ -200,7 +213,7 @@
 						<tr>
 							<td style="text-align: left;">&nbsp;P - Soll</td>
 							<%
-							for (int i=0; i<fv9PFSollNum.size(); i++){
+							for (int i=0; i < fv9PFSollNum.size(); i++){
 							%>
 							<td><%= fv9PFSollNum.get(i)%></td>
 							<%

@@ -12,13 +12,32 @@
 		<%@ include file="/app/pep/include/header.jsp"%>
 		<title><%=title %></title>
 		<%
-			List<String> fv9ErprobStyle = (List)form.get("fv9ErprobStyle"); //实验及路试
-			List<String> fv9ErprobStatus = (List)form.get("fv9ErprobStatus"); //实验及路试状态
-			List<String> fv9ErprobStCom_GM = (List)form.get("fv9ErprobStCom_GM"); //当前状态描述-德文
-			List<String> fv9ErprobStCom_CN = (List)form.get("fv9ErprobStCom_CN"); //当前状态描述-中文
-			List<String> fv9ErprobNachSch_GM = (List)form.get("fv9ErprobNachSch_GM"); //下一步工作描述-德文
-			List<String> fv9ErprobNachSch_CN = (List)form.get("fv9ErprobNachSch_CN"); //下一步工作描述-中文
-		%>
+			List<String> fv9ErprobStyle = new ArrayList<String>(); //实验及路试
+			List<String> fv9ErprobStatus = new ArrayList<String>(); //实验及路试状态
+			List<String> fv9ErprobStCom_GM = new ArrayList<String>(); //当前状态描述-德文
+			List<String> fv9ErprobStCom_CN = new ArrayList<String>(); //当前状态描述-中文
+			List<String> fv9ErprobNachSch_GM = new ArrayList<String>(); //下一步工作描述-德文
+			List<String> fv9ErprobNachSch_CN = new ArrayList<String>(); //下一步工作描述-中文
+			
+			if(form.get("fv9ErprobStyle") != null){
+				fv9ErprobStyle = (List)form.get("fv9ErprobStyle"); //实验及路试
+			}
+			if(form.get("fv9ErprobStatus") != null){
+				fv9ErprobStatus = (List)form.get("fv9ErprobStatus"); //实验及路试状态
+			}
+			if(form.get("fv9ErprobStCom_GM") != null){
+				fv9ErprobStCom_GM = (List)form.get("fv9ErprobStCom_GM"); //当前状态描述-德文
+			}
+			if(form.get("fv9ErprobStCom_CN") != null){
+				fv9ErprobStCom_CN = (List)form.get("fv9ErprobStCom_CN"); //当前状态描述-中文
+			}
+			if(form.get("fv9ErprobNachSch_CN") != null){
+				fv9ErprobNachSch_GM = (List)form.get("fv9ErprobNachSch_GM"); //下一步工作描述-德文
+			}
+			if(form.get("fv9ErprobNachSch_CN") != null){
+				fv9ErprobNachSch_CN = (List)form.get("fv9ErprobNachSch_CN"); //下一步工作描述-中文
+			}
+			%>
 	</head>
 	<body>
 		<div id="container">

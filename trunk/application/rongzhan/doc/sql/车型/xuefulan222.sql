@@ -1,0 +1,120 @@
+INSERT INTO `app_dict` (`key`, `value`, `type`, `pinyin`) VALUES
+  ('car.xuefulan.jingcheng','景程','car.xuefulan','1'),
+  ('car.xuefulan.kepaqi','科帕奇','car.xuefulan','1'),
+  ('car.xuefulan.mairuibao','迈锐宝','car.xuefulan','1'),
+  ('car.xuefulan.aiweiou2','爱唯欧两厢','car.xuefulan','1'),
+  ('car.xuefulan.aiweiou3','爱唯欧三厢','car.xuefulan','1'),
+  ('car.xuefulan.keluzi','科鲁兹','car.xuefulan','1'),
+  ('car.xuefulan.saiou2','赛欧两厢','car.xuefulan','1'),
+  ('car.xuefulan.saiou3','赛欧三厢','car.xuefulan','1'),
+  
+  ('1.8L 手动 SE 舒适版 2012款','1.8L 手动 SE 舒适版 2012款','car.xuefulan.jingcheng','1'),
+  ('1.8L 自动 SE 舒适版 2012款','1.8L 自动 SE 舒适版 2012款','car.xuefulan.jingcheng','1'),
+  ('1.8L 手动 SX 豪华版 2012款','1.8L 手动 SX 豪华版 2012款','car.xuefulan.jingcheng','1'),
+  ('1.8L 自动 SX 豪华版 2012款','1.8L 自动 SX 豪华版 2012款','car.xuefulan.jingcheng','1'),
+  
+  ('2.4L 自动 5座 城市版 2011款','2.4L 自动 5座 城市版 2011款','car.xuefulan.kepaqi','1'),
+  ('2.4L 自动 5座 城市导航版 2011款','2.4L 自动 5座 城市导航版 2011款','car.xuefulan.kepaqi','1'),
+  
+  ('2.0L 经典版 2012款','2.0L 经典版 2012款','car.xuefulan.mairuibao','1'),
+  ('2.0L 舒适版 2012款','2.0L 舒适版 2012款','car.xuefulan.mairuibao','1'),
+  ('2.0L 豪华版 2012款','2.0L 豪华版 2012款','car.xuefulan.mairuibao','1'),
+  ('2.4L 豪华版 2012款','2.4L 豪华版 2012款','car.xuefulan.mairuibao','1'),
+  ('2.4L 旗舰版 2012款','2.4L 旗舰版 2012款','car.xuefulan.mairuibao','1'),
+  
+  ('1.4L SL 手动 2011款','1.4L SL 手动 2011款','car.xuefulan.aiweiou2','1'),
+  ('1.4L SE 手动 2011款','1.4L SE 手动 2011款','car.xuefulan.aiweiou2','1'),
+  ('1.4L SL 自动 2011款','1.4L SL 自动 2011款','car.xuefulan.aiweiou2','1'),
+  ('1.4L SE 自动 2011款','1.4L SE 自动 2011款','car.xuefulan.aiweiou2','1'),
+  ('1.6L SX 手动 2011款','1.6L SX 手动 2011款','car.xuefulan.aiweiou2','1'),
+  ('1.6L SX 自动 2011款','1.6L SX 自动 2011款','car.xuefulan.aiweiou2','1'),
+  
+  ('1.4L SL 手动 2011款','1.4L SL 手动 2011款','car.xuefulan.aiweiou3','1'),
+  ('1.4L SE 手动 2011款','1.4L SE 手动 2011款','car.xuefulan.aiweiou3','1'),
+  ('1.4L SL 自动 2011款','1.4L SL 自动 2011款','car.xuefulan.aiweiou3','1'),
+  ('1.4L SE 自动 2011款','1.4L SE 自动 2011款','car.xuefulan.aiweiou3','1'),
+  ('1.6L SX 手动 2011款','1.6L SX 手动 2011款','car.xuefulan.aiweiou3','1'),
+  ('1.6L SX 自动 2011款','1.6L SX 自动 2011款','car.xuefulan.aiweiou3','1'),
+  
+  ('1.6T SE 手动2011款','1.6T SE 手动2011款','car.xuefulan.keluzi','1'),
+  ('1.8 SE 自动2011款','1.8 SE 自动2011款','car.xuefulan.keluzi','1'),
+  ('1.6 SL 手动2011款','1.6 SL 手动2011款','car.xuefulan.keluzi','1'),
+  ('1.6 SL 手动 天地版','1.6 SL 手动 天地版','car.xuefulan.keluzi','1'),
+  ('1.6 SL 自动 天地版','1.6 SL 自动 天地版','car.xuefulan.keluzi','1'),
+  ('1.6 SE 手动2011款','1.6 SE 手动2011款','car.xuefulan.keluzi','1'),
+  ('1.6 SE 自动2011款','1.6 SE 自动2011款','car.xuefulan.keluzi','1'),
+  ('1.6L SE 手动变形金刚版 2011款','1.6L SE 手动变形金刚版 2011款','car.xuefulan.keluzi','1'),
+  ('1.6L SE 自动变形金刚版 2011款','1.6L SE 自动变形金刚版 2011款','car.xuefulan.keluzi','1'),
+  ('1.8 SX 自动 2011款','1.8 SX 自动 2011款','car.xuefulan.keluzi','1'),
+  
+  ('1.2 SE MT 理想版','1.2 SE MT 理想版','car.xuefulan.saiou2','1'),
+  ('1.2 SL MT 温馨版','1.2 SL MT 温馨版','car.xuefulan.saiou2','1'),
+  ('1.2 SE EMT 理想版','1.2 SE EMT 理想版','car.xuefulan.saiou2','1'),
+  ('1.4 SX MT 优逸版','1.4 SX MT 优逸版','car.xuefulan.saiou2','1'),
+  
+  ('1.4 SE MT 理想版','1.4 SX MT 理想版','car.xuefulan.saiou3','1'),
+  ('1.4 SX MT 优逸版','1.4 SX MT 优逸版','car.xuefulan.saiou3','1'),
+  ('1.2 SL MT 温馨版','1.2 SL MT 温馨版','car.xuefulan.saiou3','1'),
+  ('1.2 SE MT 理想版','1.2 SE MT 理想版','car.xuefulan.saiou3','1'),
+  ('1.2 SL MT 时尚版','1.2 SL MT 时尚版','car.xuefulan.saiou3','1'),
+  ('1.2 SE EMT 理想版','1.2 SE EMT 理想版','car.xuefulan.saiou3','1'),
+  ('1.4 SX EMT 优逸版','1.4 SX EMT 优逸版','car.xuefulan.saiou3','1'),
+  
+INSERT INTO car_newcar(cid, brand, brandName, model, 
+modelName, series, seriesName, image, price, realPrice, gift, saller) VALUES
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.jingcheng','景程','1.8L 手动 SE 舒适版 2012款','1.8L 手动 SE 舒适版 2012款','/rongzhan/attached/appCar/20120305/20120305203901_93.jpg','12.99','12.99','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.jingcheng','景程','1.8L 自动 SE 舒适版 2012款','1.8L 自动 SE 舒适版 2012款','/rongzhan/attached/appCar/20120305/20120305203901_93.jpg','13.99','13.99','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.jingcheng','景程','1.8L 手动 SX 豪华版 2012款','1.8L 手动 SX 豪华版 2012款','/rongzhan/attached/appCar/20120305/20120305203901_93.jpg','14.69','14.69','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.jingcheng','景程','1.8L 自动 SX 豪华版 2012款','1.8L 自动 SX 豪华版 2012款','/rongzhan/attached/appCar/20120305/20120305203901_93.jpg','15.69','15.69','',''),
+
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.kepaqi','科帕奇','2.4L 自动 5座 城市版 2011款','2.4L 自动 5座 城市版 2011款','/rongzhan/attached/appCar/20120305/20120305204605_911.jpg','21.98','21.98','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.kepaqi','科帕奇','2.4L 自动 5座 城市导航版 2011款','2.4L 自动 5座 城市导航版 2011款','/rongzhan/attached/appCar/20120305/20120305204605_911.jpg','22.58','22.58','',''),
+
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.mairuibao','迈锐宝','2.0L 经典版 2012款','2.0L 经典版 2012款','/rongzhan/attached/appCar/20120305/20120305205441_976.jpg','16.29','16.29','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.mairuibao','迈锐宝','2.0L 舒适版 2012款','2.0L 舒适版 2012款','/rongzhan/attached/appCar/20120305/20120305205441_976.jpg','16.99','16.99','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.mairuibao','迈锐宝','2.0L 豪华版 2012款','2.0L 豪华版 2012款','/rongzhan/attached/appCar/20120305/20120305205441_976.jpg','17.99','17.99','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.mairuibao','迈锐宝','2.4L 豪华版 2012款','2.4L 豪华版 2012款','/rongzhan/attached/appCar/20120305/20120305205441_976.jpg','19.99','19.99','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.mairuibao','迈锐宝','2.4L 旗舰版 2012款','2.4L 旗舰版 2012款','/rongzhan/attached/appCar/20120305/20120305205441_976.jpg','22.99','22.99','',''),
+
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.aiweiou2','爱唯欧两厢','1.4L SL 手动 2011款','1.4L SL 手动 2011款','/rongzhan/attached/appCar/20120305/20120305210732_331.jpg','8.18','8.18','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.aiweiou2','爱唯欧两厢','1.4L SE 手动 2011款','1.4L SE 手动 2011款','/rongzhan/attached/appCar/20120305/20120305210732_331.jpg','8.78','8.78','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.aiweiou2','爱唯欧两厢','1.4L SL 自动 2011款','1.4L SL 自动 2011款','/rongzhan/attached/appCar/20120305/20120305210732_331.jpg','9.38','9.38','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.aiweiou2','爱唯欧两厢','1.4L SE 自动 2011款','1.4L SE 自动 2011款','/rongzhan/attached/appCar/20120305/20120305210732_331.jpg','10.18','10.18','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.aiweiou2','爱唯欧两厢','1.6L SX 手动 2011款','1.6L SX 手动 2011款','/rongzhan/attached/appCar/20120305/20120305210732_331.jpg','9.98','9.98','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.aiweiou2','爱唯欧两厢','1.6L SX 自动 2011款','1.6L SX 自动 2011款','/rongzhan/attached/appCar/20120305/20120305210732_331.jpg','11.18','11.18','',''),
+	
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.aiweiou3','爱唯欧三厢','1.4L SL 手动 2011款','1.4L SL 手动 2011款','/rongzhan/attached/appCar/20120305/20120305212045_445.jpg','8.18','8.18','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.aiweiou3','爱唯欧三厢','1.4L SE 手动 2011款','1.4L SE 手动 2011款','/rongzhan/attached/appCar/20120305/20120305212045_445.jpg','8.78','8.78','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.aiweiou3','爱唯欧三厢','1.4L SL 自动 2011款','1.4L SL 自动 2011款','/rongzhan/attached/appCar/20120305/20120305212045_445.jpg','9.38','9.38','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.aiweiou3','爱唯欧三厢','1.4L SE 自动 2011款','1.4L SE 自动 2011款','/rongzhan/attached/appCar/20120305/20120305212045_445.jpg','10.18','10.18','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.aiweiou3','爱唯欧三厢','1.6L SX 手动 2011款','1.6L SX 手动 2011款','/rongzhan/attached/appCar/20120305/20120305212045_445.jpg','9.98','9.98','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.aiweiou3','爱唯欧三厢','1.6L SX 自动 2011款','1.6L SX 自动 2011款','/rongzhan/attached/appCar/20120305/20120305212045_445.jpg','11.18','11.18','',''),
+	
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.keluzi','科鲁兹','1.6T SE 手动2011款','1.6T SE 手动2011款','/rongzhan/attached/appCar/20120305/20120305214043_456.jpg','15.99','15.99','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.keluzi','科鲁兹','1.8 SE 自动2011款','1.8 SE 自动2011款','/rongzhan/attached/appCar/20120305/20120305214043_456.jpg','13.69','13.69','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.keluzi','科鲁兹','1.6 SL 手动2011款','1.6 SL 手动2011款','/rongzhan/attached/appCar/20120305/20120305214043_456.jpg','10.89','10.89','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.keluzi','科鲁兹','1.6 SL 手动 天地版','1.6 SL 手动 天地版','/rongzhan/attached/appCar/20120305/20120305214043_456.jpg','11.39','11.39','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.keluzi','科鲁兹','1.6 SL 自动 天地版','1.6 SL 自动 天地版','/rongzhan/attached/appCar/20120305/20120305214043_456.jpg','12.79','12.79','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.keluzi','科鲁兹','1.6 SE 手动2011款','1.6 SE 手动2011款','/rongzhan/attached/appCar/20120305/20120305214043_456.jpg','11.99','11.99','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.keluzi','科鲁兹','1.6 SE 自动2011款','1.6 SE 自动2011款','/rongzhan/attached/appCar/20120305/20120305214043_456.jpg','13.49','13.49','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.keluzi','科鲁兹','1.6L SE 手动变形金刚版 2011款','1.6L SE 手动变形金刚版 2011款','/rongzhan/attached/appCar/20120305/20120305214043_456.jpg','13.39','13.39','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.keluzi','科鲁兹','1.6L SE 自动变形金刚版 2011款','1.6L SE 自动变形金刚版 2011款','/rongzhan/attached/appCar/20120305/20120305214043_456.jpg','13.89','13.89','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.keluzi','科鲁兹','1.8 SX 自动 2011款','1.8 SX 自动 2011款','/rongzhan/attached/appCar/20120305/20120305214043_456.jpg','15.12','15.12','',''),
+	
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.saiou2','赛欧两厢','1.2 SE MT 理想版','1.2 SE MT 理想版','/rongzhan/attached/appCar/20120305/20120305215607_964.jpg','6.18','6.18','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.saiou2','赛欧两厢','1.2 SL MT 温馨版','1.2 SL MT 温馨版','/rongzhan/attached/appCar/20120305/20120305215607_964.jpg','5.68','5.68','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.saiou2','赛欧两厢','1.2 SE EMT 理想版','1.2 SE EMT 理想版','/rongzhan/attached/appCar/20120305/20120305215607_964.jpg','6.68','6.68','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.saiou2','赛欧两厢','1.4 SX MT 优逸版','1.4 SX MT 优逸版','/rongzhan/attached/appCar/20120305/20120305215607_964.jpg','6.88','6.88','',''),
+	
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.saiou3','赛欧三厢','1.4 SE MT 理想版','1.4 SE MT 理想版','/rongzhan/attached/appCar/20120305/20120305220622_708.jpg','6.48','6.48','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.saiou3','赛欧三厢','1.4 SX MT 优逸版','1.4 SX MT 优逸版','/rongzhan/attached/appCar/20120305/20120305220622_708.jpg','6.88','6.88','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.saiou3','赛欧三厢','1.2 SL MT 温馨版','1.2 SL MT 温馨版','/rongzhan/attached/appCar/20120305/20120305220622_708.jpg','5.68','5.68','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.saiou3','赛欧三厢','1.2 SE MT 理想版','1.2 SE MT 理想版','/rongzhan/attached/appCar/20120305/20120305220622_708.jpg','6.18','6.18','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.saiou3','赛欧三厢','1.2 SL MT 时尚版','1.2 SL MT 时尚版','/rongzhan/attached/appCar/20120305/20120305220622_708.jpg','5.78','5.78','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.saiou3','赛欧三厢','1.2 SE EMT 理想版','1.2 SE EMT 理想版','/rongzhan/attached/appCar/20120305/20120305220622_708.jpg','6.68','6.68','',''),
+	('xufulan','car.xuefulan','雪佛兰','car.xuefulan.saiou3','赛欧三厢','1.4 SX EMT 优逸版','1.4 SX EMT 优逸版','/rongzhan/attached/appCar/20120305/20120305220622_708.jpg','7.58','7.58','',''),
+	
+	
+	
+	
+	

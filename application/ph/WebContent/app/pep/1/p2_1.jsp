@@ -12,11 +12,30 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title><%=title %></title>
 	<%
-		List<String> fv9Aktion_GM = (List<String>)form.get("fv9Aktion_GM");  //德文
-		List<String> fv9Aktion_CN = (List<String>)form.get("fv9Aktion_CN"); //中文
-		List<String> fv9Verantwortlich = (List<String>)form.get("fv9Verantwortlich");  //责任人
-		List<String> fv9Termin = (List<String>)form.get("fv9Termin"); //解决期限
-		List<String> fv9Status = (List<String>)form.get("fv9Status"); //状态
+		List<String> fv9Aktion_GM = new ArrayList<String>();
+		if(form.get("fv9Aktion_GM") != null){
+			fv9Aktion_GM = (List<String>)form.get("fv9Aktion_GM");  //德文
+		}
+		
+		List<String> fv9Aktion_CN = new ArrayList<String>();
+		if(form.get("fv9Aktion_CN") != null){
+			fv9Aktion_CN = (List<String>)form.get("fv9Aktion_CN"); //中文
+		}
+		
+		List<String> fv9Verantwortlich = new ArrayList<String>();
+		if(form.get("fv9Verantwortlich") != null){
+			fv9Verantwortlich =(List<String>)form.get("fv9Verantwortlich");  //责任人
+		}
+		
+		List<String> fv9Termin = new ArrayList<String>();
+		if(form.get("fv9Termin") != null){
+			 fv9Termin = (List<String>)form.get("fv9Termin"); //解决期限
+		}
+		
+		List<String> fv9Status = new ArrayList<String>();
+		if(form.get("fv9Status") != null){
+			fv9Status = (List<String>)form.get("fv9Status"); //状态
+		}
 	%>
 </head>
 	<body>

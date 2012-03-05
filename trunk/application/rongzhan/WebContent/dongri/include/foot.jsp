@@ -40,7 +40,7 @@
     <div class="bq">
 <p>版权所有哈尔滨融展东日专营店</p>
 <p>地址:哈尔滨市道里区机场路18号</p>
-<p>电话:0451-84302992</p>
+<p>电话:0451-84302992&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%@ include file="../../include/flux.jsp" %></p>
     </div></div>
 <div class="clear"></div>
 </div>

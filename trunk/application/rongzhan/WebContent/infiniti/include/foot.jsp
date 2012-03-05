@@ -41,7 +41,7 @@
     <div class="bq">
 <p>版权所有英菲尼迪长春融展兴盛专营店</p>
 <p>地址:吉林省长春市西新区长沈路3999号</p>
-<p>电话:0431-81501592</p>
+<p>电话:0431-81501592&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%@ include file="../../include/flux.jsp" %></p>
     </div>
 
 </div><!--底部-->

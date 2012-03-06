@@ -52,7 +52,7 @@ public class Dict {
 
 		return SimpleDaoTemplate.query(
 				"SELECT * FROM app_dict WHERE 1 = 1", new DymaticCondition()
-				.addSimpleCondition(dict, "key", "value", "type", "pinyin")
+				.addSimpleCondition(dict, "key", "value", "pinyin").addCondition(" AND type = '?'", dict.type)
 						.addCondition("ORDER BY {0} {1}", orderBy, order),
 				mapping, Dict.class, start, offset);
 	}

@@ -39,7 +39,7 @@ public class IdCardUtil {
 				sum = sum + ai * wi;
 			}
 			
-			return buffer.append(checkBit[sum % 11]).toString();
+			return buffer.append(checkBit[sum % 11]).toString().toUpperCase();
 		}
 
 		return id;
@@ -106,6 +106,9 @@ public class IdCardUtil {
 				char c = str.charAt(i);
 				
 				if ('0' <= c && c <= '9' || c == 'X' || c == 'x') {
+					if ( c == 'x') {
+						c -= 32;
+					}
 					buffer.append(c);
 				}
 			}

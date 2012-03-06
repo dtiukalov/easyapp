@@ -235,7 +235,7 @@
 							value="<%=request.getParameter("id")%>">
 						<table>
 							<tr align="right">
-								<td>原因:</td>
+								<td>乡镇街初审意见:</td>
 								<td><textarea id="note" name="note"
 										style="width: 500px; height: 100px;"></textarea>
 								</td>

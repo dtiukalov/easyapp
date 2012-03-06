@@ -13,6 +13,7 @@ import com.saturn.app.db.ORMapping;
 import com.saturn.app.db.ResultORMapping;
 import com.saturn.app.db.SimpleDaoTemplate;
 import com.saturn.app.utils.DateUtils;
+import com.saturn.auth.Organization;
 import com.saturn.auth.User;
 
 public class Person {
@@ -135,6 +136,20 @@ public class Person {
 						order), mapping, Person.class, start, offset);
 	}
 
+	public static ListData<Person> getAllWithoutCreater(Person vo, String start,
+			String offset, String orderBy, String order) {
+		// 指定值对象类型(VOClass)。例子VOClass=User
+		// 指定插入表名称(tableName)。例子：如user表，tableName=user
+		// 指定O-R映射规则对象。默认mapping
+		return SimpleDaoTemplate.query(
+				"SELECT * FROM sldb_person WHERE 1 = 1",
+				new DymaticCondition().addSimpleCondition(vo, "state",
+						"identify", "name", "gender", "createrName",
+						"createTime")
+						.addCondition("ORDER BY {0} {1}", orderBy,
+						order), mapping, Person.class, start, offset);
+	}
+	
 	public static int confirm(final String id, final String userId,
 			final String note, final String department) {
 		return SimpleDaoTemplate.update(new ITransaction() {
@@ -183,7 +198,7 @@ public class Person {
 						note, department);
 
 				state(connection, id, nextState);
-				PersonState.add(connection, personState);
+				PersonState.addRefuse(connection, personState);
 
 				return 1;
 			}
@@ -191,7 +206,11 @@ public class Person {
 	}
 
 	public static int refuse(final String[] ids, final String userId,
-			final String note, final String department) {
+			final String note) {
+		
+		Organization organization = Organization.getOneOrganizationByUser(userId);
+		String department = organization.getName();
+		
 		for (String id : ids) {
 			refuse(id, userId, note, department);
 		}
@@ -199,6 +218,11 @@ public class Person {
 		return 1;
 	}
 
+	public static int replay(String id, String state) {
+		return SimpleDaoTemplate.update(
+				"UPDATE sldb_person SET state = ? where id = ?", state,id);
+	}
+	
 	private static int state(Connection connection, String id, String state) {
 		return SimpleDaoTemplate.update(connection,
 				"UPDATE sldb_person SET state = ? WHERE id = ?", state, id);

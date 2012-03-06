@@ -41,6 +41,14 @@
 					</td>
 				</tr>
 				<tr>
+					<td style="text-align:right">登录密码:</td>
+					<td><input id="password" name="password" type="text" value=""></input>
+					</td>
+					<td>
+						<div id="passwordTip"></div>
+					</td>
+				</tr>
+				<tr>
 					<td style="text-align:right">邮箱:</td>
 					<td><input id="email" name="email" type="text"
 						value="${user.email}"></input>
@@ -102,6 +110,13 @@
 			onerror : "不超过100个字符"
 		});
 
+		$("#password").formValidator({
+			onfocus : "密码位数在6到12之间"
+		}).inputValidator({
+			min : 6,
+			max : 12
+		});
+		
 		$("#phone").formValidator({
 			empty : true,
 			onfocus : "请正确填写电话(11位)，例如：13566969636"

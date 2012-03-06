@@ -53,6 +53,16 @@ public class Role {
 				null, mapping, Role.class);
 	}
 
+	public static Role getRole(String id) {
+		//指定值对象类型(VOClass)。例子VOClass=User
+		//指定表主键(key)。例子:key=id
+		//指定插入表名称(tableName)。例子：如user表，tableName=user
+		//指定O-R映射规则对象。默认mapping
+		return SimpleDaoTemplate.queryOne(
+				"SELECT * FROM auth_re_user_role WHERE 1 = 1 and userId = '" + id + "'",
+				null, mapping, Role.class);
+	}
+	
 	public static ListData<Role> getRoles(Role role, String start,
 			String offset, String orderBy, String order) {
 

@@ -21,13 +21,14 @@ public class Dict {
 	private String value;
 	private String type;
 	private String pinyin;
+	private String name;
 
 	private static ORMapping<Dict> mapping = new ResultORMapping<Dict>();
 
 	public static int add(Dict dict) {
 		return SimpleDaoTemplate.update(
-				"INSERT INTO app_dict(`key`, value, type, pinyin) VALUES(?, ?, ?, ?)", dict.getKey(),
-				dict.getValue(), dict.getType(), dict.getPinyin());
+				"INSERT INTO app_dict(`key`, value, type, pinyin ,name) VALUES(?, ?, ?, ?, ?)", dict.getKey(),
+				dict.getValue(), dict.getType(), dict.getPinyin(), dict.getName());
 	}
 
 	public static Dict get(String id) {
@@ -52,7 +53,7 @@ public class Dict {
 
 		return SimpleDaoTemplate.query(
 				"SELECT * FROM app_dict WHERE 1 = 1", new DymaticCondition()
-				.addSimpleCondition(dict, "key", "value", "type", "pinyin")
+				.addSimpleCondition(dict, "key", "value", "type", "pinyin", "name")
 						.addCondition("ORDER BY {0} {1}", orderBy, order),
 				mapping, Dict.class, start, offset);
 	}
@@ -69,7 +70,18 @@ public class Dict {
 					}
 		}, StringBuffer.class);
 	}
-	
+	public static List<StringBuffer> getAllDictName() {
+		return SimpleDaoTemplate.query("SELECT distinct(name) as nameStr from app_dict where name is not null order by name", null,
+				new ORMapping<StringBuffer>() {
+					
+					@Override
+					public void mappingResult(ResultSet rs, StringBuffer t)
+							throws SQLException {
+					
+						t.append(rs.getString("nameStr"));
+					}
+		}, StringBuffer.class);
+	}
 	public static void change(final String firstId, final String secondId) {
 		SimpleDaoTemplate.update(new ITransaction() {
 			public int execute(Connection connection) {
@@ -141,6 +153,24 @@ public class Dict {
 		return buffer.toString();
 	}
 
+	public static String getAllNameJSON() {
+		List<StringBuffer> datas = getAllDictName();
+		StringBuffer buffer = new StringBuffer("[");
+
+		for (int i = 0; i < datas.size(); ++i) {
+			Object data = datas.get(i);
+			buffer.append("{\"id\":\"").append(data).append("\", \"text\":\"")
+					.append(data).append("\"},");
+		}
+
+		if (!datas.isEmpty()) {
+			buffer.deleteCharAt(buffer.length() - 1);
+		}
+		buffer.append("]");
+
+		return buffer.toString();
+	}
+	
 	public static int remove(final String id) {
 		return SimpleDaoTemplate
 				.update("DELETE FROM app_dict WHERE id = ?", id);
@@ -157,13 +187,14 @@ public class Dict {
 	public Dict() {
 	}
 
-	public Dict(String id, String key, String value, String type, String pinyin) {
+	public Dict(String id, String key, String value, String type, String pinyin, String name) {
 		super();
 		this.id = id;
 		this.key = key;
 		this.value = value;
 		this.type = type;
 		this.pinyin = pinyin;
+		this.name =  name;
 	}
 
 	public String getId() {
@@ -209,5 +240,13 @@ public class Dict {
 	@Override
 	public String toString() {
 		return new JSONObject(this).toString();
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
 	}
 }

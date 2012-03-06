@@ -127,8 +127,9 @@
 		}
 		
 		function check() {
+			alert($('#way').val());
 			$.ajax({
-				url : '<%=request.getContextPath()%>/app/sldb/check/check.action?pid=<%=pid%>', 
+				url : '<%=request.getContextPath()%>/app/sldb/check/check.action?pid=<%=pid%>&id='+$('#way').combobox('getValue'),
 				type : 'post',         
 				dataType : 'json',     
 				data : '',         
@@ -155,8 +156,13 @@
 <body>
 	<div id="panel" class="easyui-panel" title="户主信息"
 		icon="icon-query-form" collapsible="true" style="padding: 10px;">
+				<label>核对方式:</label>
+						<select id="way" name="way" class="easyui-combobox">
+							<option value="identify">身份证号</option>
+							<option value="name">姓名</option>
+							<option value="all">姓名以及身份证号</option>
+						</select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<input type="button" value="核对" onclick="check()"/>
-		
 		<table id="queryTable"></table>
     </div>
 	

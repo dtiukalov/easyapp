@@ -27,6 +27,12 @@
 		
 		$('#key').focus();
 	});
+	$(function() {
+		$('#name').combobox({
+			width : 256
+		});
+		
+	});
 </script>
 </head>
 <body>
@@ -36,6 +42,15 @@
 			action="<%=request.getContextPath()%>/app/system/dict/addDict.action"
 			method="post">
 			<table class="table-form">
+				<tr>
+					<td style="text-align:right"><span style="color: red">*</span>名称:</td>
+					<td><select id="name" class="easyui-combobox"
+						name="name" url="<%=request.getContextPath()%>/app/system/dict/queryDictName.action" valueField="id"
+						textField="text" editable="true"></select>
+					</td>
+					<td><div id="nameTip"></div>
+					</td>
+				</tr>
 				<tr>
 					<td style="text-align:right"><span style="color: red">*</span>类型:</td>
 					<td><select id="type" class="easyui-combobox"
@@ -127,6 +142,7 @@
 			max : 100,
 			onerror : "不超过100个字符"
 		});
+
 	});
 </script>
 </html>

@@ -31,7 +31,7 @@
 			showType:'show'
 		});*/
 		$.messager.confirm('用户过期', '请重新登录', function(r){
-			top.location.href = '<%=request.getContextPath()%>/app/login.jsp';
+			top.location.href = '<%=request.getContextPath()%>/app/login2.jsp';
 		});
 	});
 	<%

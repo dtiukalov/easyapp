@@ -88,18 +88,7 @@
 					title : '申报人',
 					width : 70,
 					sortable : true
-				}, {
-					field : 'opt',
-					title : '操作',
-					width : 100,
-					align : 'center',
-					rowspan : 2,	
-					formatter : function(value, rec) {
-						return '<span><a href="#" onclick="confirmVO(\'' + rec.id + '\');"><img src="<%=request.getContextPath()%>/app/themes/icons/ok.png" width="16" height="16" border="0" /></a>'+
-						'&nbsp&nbsp<a href="#" onclick="showVO(\'' + rec.id + '\');"><img src="<%=request.getContextPath()%>/app/themes/icons/author.png" width="16" height="16" border="0" /></a>'+
-						'&nbsp&nbsp<a href="#" onclick="deleteVO(\'' + rec.id + '\');"><img src="<%=request.getContextPath()%>/app/themes/icons/back.png" width="14" height="14" border="0" /></a></span>';
-					}
-				} ] ],
+				}] ],
 				pagination : true,
 				rownumbers : true,
 				toolbar : [ {
@@ -115,7 +104,7 @@
 							$.messager.alert('提示','只能选择一项','info');
 							return;
 						}
-						window.location.href='<%=request.getContextPath()%>/app/sldb/person/sub/queryPersonTab.action?id='+rows[0].id;
+						window.location.href='<%=request.getContextPath()%>/app/sldb/person/sub/queryPersonTab.action?id='+rows[0].id + '&type=1';
 						return false;
 					}
 				}, '-', {
@@ -134,7 +123,8 @@
 						window.location.href='<%=request.getContextPath()%>/app/sldb/check/show.jsp?pid='+rows[0].id;
 						return false;
 					}
-				}, {
+				}
+				/* {
 					id : 'btnItem',
 					text : '通过',
 					iconCls : 'icon-ok',
@@ -170,7 +160,8 @@
 
 						deleteVO(ids.join('__'));
 					}
-				}]
+				} */
+				]
 			});
 			
 			$('#gender').combobox({
@@ -181,7 +172,7 @@
 		});
 		
 		function showVO(id) {
-			window.location.href='<%=request.getContextPath()%>/app/sldb/person/sub/queryPersonTab.action?id='+ id;
+			window.location.href='<%=request.getContextPath()%>/app/sldb/person/sub/queryPersonTab.action?id='+ id + '&type=0';
 			return false;
 		}
 		

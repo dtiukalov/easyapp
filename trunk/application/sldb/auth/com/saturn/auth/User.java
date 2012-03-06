@@ -31,9 +31,9 @@ public class User {
 
 		user.setPassword(CodeUtils.encode(user.getPassword()));
 		return SimpleDaoTemplate.update(
-				"INSERT INTO auth_users VALUES(?, ?, ?, ?, ?)", user.getId(),
+				"INSERT INTO auth_users VALUES(?, ?, ?, ?, ?, ?)", user.getId(),
 				user.getName(), user.getPassword(), user.getEmail(),
-				user.getPhone());
+				user.getPhone(), user.getTemplate());
 
 	}
 
@@ -66,10 +66,18 @@ public class User {
 	}
 
 	public static int edit(User user) {
+		user.setPassword(CodeUtils.encode(user.getPassword()));
 		return SimpleDaoTemplate
 				.update("UPDATE auth_users SET name = ?, password = ?, email = ?, phone = ?, template = ? WHERE id = ?",
 						user.getName(), user.getPassword(), user.getEmail(),
 						user.getPhone(), user.getTemplate(), user.getId());
+	}
+	
+	public static int updateUserPassword(User user) {
+		user.setPassword(CodeUtils.encode(user.getPassword()));
+		return SimpleDaoTemplate
+				.update("UPDATE auth_users SET password = ? WHERE id = ?",
+						user.getPassword(),user.getId());
 	}
 	
 	public static User get(String id) {

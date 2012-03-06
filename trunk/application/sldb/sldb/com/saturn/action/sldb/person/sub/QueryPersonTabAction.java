@@ -28,6 +28,8 @@ public class QueryPersonTabAction implements IAction{
 		String type = request.getParameter("type");
 		if (null != type && "0".equals(type)){
 			return new JspView("/app/sldb/person/sub/tab.jsp");
+		} else if ("1".equals(type)){
+			return new JspView("/app/sldb/person/sub/checkTab.jsp");
 		} else {
 			return new JspView("/app/sldb/person/sub/personTab.jsp");
 		}

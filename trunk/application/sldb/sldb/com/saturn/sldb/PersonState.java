@@ -25,6 +25,7 @@ public class PersonState {
 
 	private String state;
 	private String note;
+	private String type;
 	
 	
 	private static ORMapping<PersonState> mapping = new ResultORMapping<PersonState>();
@@ -38,8 +39,8 @@ public class PersonState {
 		//指定插入表名称(tableName)。例子：如user表3个列，tableName=user(id, name, gender)
 		//根据列的顺序获取值对象的属性值。例子：vo.getId(), vo.getName(), vo.getGender()
 		return SimpleDaoTemplate.update(connection,
-				"INSERT INTO sldb_person_state(pid, userId, userName, createTime, name, identify, state, note, department)" +
-				" VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)", 
+				"INSERT INTO sldb_person_state(pid, userId, userName, createTime, name, identify, state, note, department, type)" +
+				" VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, '1')", 
 				vo.pid,
 				vo.userId,
 				vo.userName,
@@ -48,8 +49,33 @@ public class PersonState {
 				vo.identify,
 				vo.state,
 				vo.note,
-				vo.department
+				vo.department,
+				vo.type
 		);
+	}
+	
+	public static int addRefuse(Connection connection, PersonState vo) {
+		//指定值对象类型(VOClass)。例子：User
+		//指定插入表名称(tableName)。例子：如user表3个列，tableName=user(id, name, gender)
+		//根据列的顺序获取值对象的属性值。例子：vo.getId(), vo.getName(), vo.getGender()
+		return SimpleDaoTemplate.update(connection,
+				"INSERT INTO sldb_person_state(pid, userId, userName, createTime, name, identify, state, note, department, type)" +
+				" VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, '0')", 
+				vo.pid,
+				vo.userId,
+				vo.userName,
+				vo.createTime,
+				vo.name,
+				vo.identify,
+				vo.state,
+				vo.note,
+				vo.department,
+				vo.type
+		);
+	}
+	public static int update(String id) {
+		return SimpleDaoTemplate.update(
+				"UPDATE sldb_person_state SET type = 2 where pid = ?", id);
 	}
 	
 	public static int edit(PersonState vo) {
@@ -88,7 +114,7 @@ public class PersonState {
 		//指定插入表名称(tableName)。例子：如user表，tableName=user
 		//指定O-R映射规则对象。默认mapping
 		return SimpleDaoTemplate.query("SELECT * FROM sldb_person_state WHERE 1 = 1",
-				new DymaticCondition().addSimpleCondition(vo, "pid")
+				new DymaticCondition().addCondition("and pid = '?' ", vo.getPid())
 						.addCondition("ORDER BY {0} {1}", orderBy, order),
 				mapping, PersonState.class, start, offset);
 	}
@@ -98,7 +124,14 @@ public class PersonState {
 		return SimpleDaoTemplate.update(
 				"DELETE FROM sldb_person_state WHERE id = ?", id);
 	}
-
+	
+	public static int removeByPid(final String id) {
+		// 指定插入表名称(tableName)。例子：如user表，tableName=user
+		return SimpleDaoTemplate.update(
+				"DELETE FROM sldb_person_state WHERE pid = ?", id);
+		
+	}
+	
 	public static void removes(String[] ids) {
 		if (ids != null) {
 			for (String id : ids) {
@@ -211,4 +244,13 @@ public class PersonState {
 	public String getDepartment() {
 		return department;
 	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getType() {
+		return type;
+	}
+
 }

@@ -14,16 +14,24 @@
 		}
 	</script>
 	<style type="text/css">
+		body {
+			width: 100%;
+			height: 668px;
+			overflow: hidden;
+			
+		}
 		.login {
 			background-image: url(../themes/saturn/images/saturn/login.jpg);
 			background-repeat: no-repeat;
 			height: 595px;
 			width: 997px;
-			margin: 0px;
+
 			text-align: center;
 			vertical-align: middle;
-			margin-top: 86px;
-
+			/*margin-top: 86px;*/
+			margin-left:auto;
+			margin-right:auto;
+			margin-top: 40px;
 		}
 		.login_form {
 			width: 265px; 

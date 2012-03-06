@@ -31,6 +31,7 @@ public class International {
 	}
 	
 	private static void inital() {
+		en.put("login_title", "Foton Motor PLM system");
 		en.put("username", "User");
 		en.put("password", "Password");
 		en.put("login", "Login");
@@ -69,6 +70,7 @@ public class International {
 		en.put("info", "Info");
 		
 		
+		cn.put("login_title", "福田汽车PLM系统");
 		cn.put("username", "用户名");
 		cn.put("password", "密码");
 		cn.put("login", "登录");

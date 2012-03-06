@@ -32,7 +32,6 @@ public class IssueReportLoaderRichClient {
 		try {
 		
 			String projectId = ((TCComponentProject)parameters.get("projectInfo")).getProperty("project_id");  
-	System.out.println("projectId = " + projectId);		 
 			for (int i = 0; i < tccomponents.length; i++) {
 					
 				TCComponentItemRevision itemRevision = ((TCComponentItem)tccomponents[i]).getLatestItemRevision();
@@ -103,15 +102,16 @@ System.out.println("tcComponents.length = " + tcComponents.length);
 						item.put("fv9SolutionQAPP", fv9IssueRevision.getProperty("fv9SolutionQAPP"));
 						item.put("fv9SolutionSU", fv9IssueRevision.getProperty("fv9SolutionSU"));
 						item.put("fv9SolutionVSC", fv9IssueRevision.getProperty("fv9SolutionVSC"));
+						item.put("fv9SolutionTE", fv9IssueRevision.getProperty("fv9SolutionTE"));
 						
-						item.put("fv9SlResDepBS", fv9IssueRevision.getProperty("fv9SlResDepBS"));
-						item.put("fv9SlResDepCA", fv9IssueRevision.getProperty("fv9SlResDepCA"));
-						item.put("fv9SlResDepLO", fv9IssueRevision.getProperty("fv9SlResDepLO"));
-						item.put("fv9SlResDepPA", fv9IssueRevision.getProperty("fv9SlResDepPA"));
-						item.put("fv9SlResDepPL", fv9IssueRevision.getProperty("fv9SlResDepPL"));
-						item.put("fv9SlResDepQAPP", fv9IssueRevision.getProperty("fv9SlResDepQAPP"));
-						item.put("fv9SlResDepSU", fv9IssueRevision.getProperty("fv9SlResDepSU"));
-						item.put("fv9SlResDepVSC", fv9IssueRevision.getProperty("fv9SlResDepVSC"));
+//						item.put("fv9SlResDepBS", fv9IssueRevision.getProperty("fv9SlResDepBS"));
+//						item.put("fv9SlResDepCA", fv9IssueRevision.getProperty("fv9SlResDepCA"));
+//						item.put("fv9SlResDepLO", fv9IssueRevision.getProperty("fv9SlResDepLO"));
+//						item.put("fv9SlResDepPA", fv9IssueRevision.getProperty("fv9SlResDepPA"));
+//						item.put("fv9SlResDepPL", fv9IssueRevision.getProperty("fv9SlResDepPL"));
+//						item.put("fv9SlResDepQAPP", fv9IssueRevision.getProperty("fv9SlResDepQAPP"));
+//						item.put("fv9SlResDepSU", fv9IssueRevision.getProperty("fv9SlResDepSU"));
+//						item.put("fv9SlResDepVSC", fv9IssueRevision.getProperty("fv9SlResDepVSC"));
 						
 						item.put("fv9SlResOwnerBS", fv9IssueRevision.getProperty("fv9SlResOwnerBS"));
 						item.put("fv9SlResOwnerCA", fv9IssueRevision.getProperty("fv9SlResOwnerCA"));
@@ -121,6 +121,7 @@ System.out.println("tcComponents.length = " + tcComponents.length);
 						item.put("fv9SlResOwnerQAPP", fv9IssueRevision.getProperty("fv9SlResOwnerQAPP"));
 						item.put("fv9SlResOwnerSU", fv9IssueRevision.getProperty("fv9SlResOwnerSU"));
 						item.put("fv9SlResOwnerVSC", fv9IssueRevision.getProperty("fv9SlResOwnerVSC"));
+						item.put("fv9SlResOwnerTE", fv9IssueRevision.getProperty("fv9SlResOwnerTE"));
 						
 						item.put("fv9CompletedDate", fv9IssueRevision.getDateProperty("fv9CompletedDate")); 
 						item.put("fv9RGStatus", fv9IssueRevision.getProperty("fv9RGStatus")); 

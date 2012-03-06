@@ -186,15 +186,16 @@ public class IssueShiftReportLoader {
 								planMap.put("fv9SolutionQAPP", itemRevision.getProperty("fv9SolutionQAPP"));
 								planMap.put("fv9SolutionSU", itemRevision.getProperty("fv9SolutionSU"));
 								planMap.put("fv9SolutionVSC", itemRevision.getProperty("fv9SolutionVSC"));
+								planMap.put("fv9SolutionTE", itemRevision.getProperty("fv9SolutionTE"));
 								
-								planMap.put("fv9SlResDepBS", itemRevision.getProperty("fv9SlResDepBS"));
-								planMap.put("fv9SlResDepCA", itemRevision.getProperty("fv9SlResDepCA"));
-								planMap.put("fv9SlResDepLO", itemRevision.getProperty("fv9SlResDepLO"));
-								planMap.put("fv9SlResDepPA", itemRevision.getProperty("fv9SlResDepPA"));
-								planMap.put("fv9SlResDepPL", itemRevision.getProperty("fv9SlResDepPL"));
-								planMap.put("fv9SlResDepQAPP", itemRevision.getProperty("fv9SlResDepQAPP"));
-								planMap.put("fv9SlResDepSU", itemRevision.getProperty("fv9SlResDepSU"));
-								planMap.put("fv9SlResDepVSC", itemRevision.getProperty("fv9SlResDepVSC"));
+//								planMap.put("fv9SlResDepBS", itemRevision.getProperty("fv9SlResDepBS"));
+//								planMap.put("fv9SlResDepCA", itemRevision.getProperty("fv9SlResDepCA"));
+//								planMap.put("fv9SlResDepLO", itemRevision.getProperty("fv9SlResDepLO"));
+//								planMap.put("fv9SlResDepPA", itemRevision.getProperty("fv9SlResDepPA"));
+//								planMap.put("fv9SlResDepPL", itemRevision.getProperty("fv9SlResDepPL"));
+//								planMap.put("fv9SlResDepQAPP", itemRevision.getProperty("fv9SlResDepQAPP"));
+//								planMap.put("fv9SlResDepSU", itemRevision.getProperty("fv9SlResDepSU"));
+//								planMap.put("fv9SlResDepVSC", itemRevision.getProperty("fv9SlResDepVSC"));
 
 								planMap.put("fv9RGStatus", itemRevision //$NON-NLS-1$
 										.getProperty("fv9RGStatus"));// ºìÂÌµÆ×´Ì¬ //$NON-NLS-1$

@@ -137,29 +137,41 @@ public class CreateIssueForPreExcel {
 				
 				//措施
 				String fv9Solution = ""; 
+				String slResDep = ""; //责任部门
+				if (!"".equals(Issue.get("fv9SolutionTE"))) {
+					fv9Solution += "TE:" + ((String)Issue.get("fv9SolutionTE")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
+					slResDep += "TE\r\n";
+				}
 				if (!"".equals(Issue.get("fv9SolutionBS"))) {  
-					fv9Solution += "BS:" + ((String)Issue.get("fv9SolutionBS")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
+					fv9Solution += "\r\nBS:" + ((String)Issue.get("fv9SolutionBS")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
+					slResDep += "BS\r\n";
 				}
 				if (!"".equals(Issue.get("fv9SolutionCA"))) {  
 					fv9Solution += "\r\n" + "CA:" + ((String)Issue.get("fv9SolutionCA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "CA\r\n";
 				}
 				if (!"".equals(Issue.get("fv9SolutionLO"))) {  
 					fv9Solution += "\r\n" + "LO:" + ((String)Issue.get("fv9SolutionLO")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "LO\r\n";
 				}
 				if (!"".equals(Issue.get("fv9SolutionPA"))) {  
 					fv9Solution += "\r\n" + "PA:" + ((String)Issue.get("fv9SolutionPA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "PA\r\n";
 				}
 				if (!"".equals(Issue.get("fv9SolutionPL"))) {  
 					fv9Solution += "\r\n" + "PL:" + ((String)Issue.get("fv9SolutionPL")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
 				}
 				if (!"".equals(Issue.get("fv9SolutionQAPP"))) {  
 					fv9Solution += "\r\n" + "QAPP:" + ((String)Issue.get("fv9SolutionQAPP")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "QAPP\r\n";
 				}
 				if (!"".equals(Issue.get("fv9SolutionSU"))) {  
 					fv9Solution += "\r\n" + "SU:" + ((String)Issue.get("fv9SolutionSU")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "SU\r\n";
 				}
 				if (!"".equals(Issue.get("fv9SolutionVSC"))) {  
 					fv9Solution += "\r\n" + "VSC:" + ((String)Issue.get("fv9SolutionVSC")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "VSC";
 				}
 				row.createCell(2).setCellValue(
 								new HSSFRichTextString(fv9Solution));
@@ -180,31 +192,7 @@ public class CreateIssueForPreExcel {
 								.toString()));
 				row.getCell(5).setCellStyle(rowStyle.getCell(5).getCellStyle());
 				
-				String slResDep = "";
-				if (!"".equals(Issue.get("fv9SlResDepBS"))) {  
-					slResDep += ((String)Issue.get("fv9SlResDepBS")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
-				}
-				if (!"".equals(Issue.get("fv9SlResDepCA"))) {  
-					slResDep += "\r\n" + ((String)Issue.get("fv9SlResDepCA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-				}
-				if (!"".equals(Issue.get("fv9SlResDepLO"))) {  
-					slResDep += "\r\n" + ((String)Issue.get("fv9SlResDepLO")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-				}
-				if (!"".equals(Issue.get("fv9SlResDepPA"))) {  
-					slResDep += "\r\n" + ((String)Issue.get("fv9SlResDepPA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-				}
-				if (!"".equals(Issue.get("fv9SlResDepPL"))) {  
-					slResDep += "\r\n" + ((String)Issue.get("fv9SlResDepPL")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-				}
-				if (!"".equals(Issue.get("fv9SlResDepQAPP"))) {  
-					slResDep += "\r\n" + ((String)Issue.get("fv9SlResDepQAPP")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-				}
-				if (!"".equals(Issue.get("fv9SlResDepSU"))) {  
-					slResDep += "\r\n" + ((String)Issue.get("fv9SlResDepSU")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-				}
-				if (!"".equals(Issue.get("fv9SlResDepVSC"))) {  
-					slResDep += "\r\n" + ((String)Issue.get("fv9SlResDepVSC")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-				}
+				
 				row.createCell(6).setCellValue(slResDep);
 				row.getCell(6).setCellStyle(rowStyle.getCell(6).getCellStyle());
 				

@@ -82,7 +82,14 @@ public class DepartmentStatusWrite {
 			if (cell_21_10 == null) {
 				cell_21_10 = row21.createCell(10);
 			}
-			cell_21_10.setCellFormula("SUM(C22:J22)"); 
+			cell_21_10.setCellValue(((Map<String, Integer>) departments.get("TE")) 
+					.get("red")); 
+			
+			HSSFCell cell_21_11 = row21.getCell(11);
+			if (cell_21_11 == null) {
+				cell_21_11 = row21.createCell(11);
+			}
+			cell_21_11.setCellFormula("SUM(C22:K22)"); 
 	
 			HSSFRow row22 = sheetPage.getRow(22);
 	
@@ -146,7 +153,14 @@ public class DepartmentStatusWrite {
 			if (cell_22_10 == null) {
 				cell_22_10 = row22.createCell(10);
 			}
-			cell_22_10.setCellFormula("SUM(C23:J23)"); 
+			cell_22_10.setCellValue(((Map<String, Integer>) departments.get("TE")) 
+					.get("yellow")); 
+			
+			HSSFCell cell_22_11 = row22.getCell(11);
+			if (cell_22_11 == null) {
+				cell_22_11 = row22.createCell(11);
+			}
+			cell_22_11.setCellFormula("SUM(C23:K23)"); 
 			
 	
 			HSSFRow row23 = sheetPage.getRow(23);
@@ -211,7 +225,14 @@ public class DepartmentStatusWrite {
 			if (cell_23_10 == null) {
 				cell_23_10 = row23.createCell(10);
 			}
-			cell_23_10.setCellFormula("SUM(C24:J24)"); 
+			cell_23_10.setCellValue(((Map<String, Integer>) departments.get("TE")) 
+					.get("green")); 
+			
+			HSSFCell cell_23_11 = row23.getCell(11);
+			if (cell_23_11 == null) {
+				cell_23_11 = row23.createCell(11);
+			}
+			cell_23_11.setCellFormula("SUM(C24:K24)"); 
 		}
 	}
 }

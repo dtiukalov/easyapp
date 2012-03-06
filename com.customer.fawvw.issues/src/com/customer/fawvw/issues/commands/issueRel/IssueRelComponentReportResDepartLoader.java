@@ -16,6 +16,7 @@ public class IssueRelComponentReportResDepartLoader {
 	private static Map<String, Integer> SU = new HashMap<String, Integer>();
 	private static Map<String, Integer> VSC = new HashMap<String, Integer>();
 	private static Map<String, Integer> CA = new HashMap<String, Integer>();
+	private static Map<String, Integer> TE = new HashMap<String, Integer>();
 	
 	
 	public static  HashMap<String,Object> load(ArrayList<HashMap<String, Object>> values){
@@ -51,30 +52,37 @@ public class IssueRelComponentReportResDepartLoader {
 		CA.put("green", 0); 
 		CA.put("yellow", 0); 
 		
+		TE.put("red", 0); 
+		TE.put("green", 0); 
+		TE.put("yellow", 0); 
+		
 		for (int k=0; k<values.size(); k++) {
-			if ("BS".equals((String)(values.get(k)).get("fv9SlResDepBS"))) {   
+			if (!"".equals((String)(values.get(k)).get("fv9SolutionBS"))) {   
 				BS = sumLightStatue(BS,(String)(values.get(k)).get("RGStatus")); 
 			}
-			if ("CA".equals((String)(values.get(k)).get("fv9SlResDepCA"))) {   
+			if (!"".equals((String)(values.get(k)).get("fv9SolutionCA"))) {   
 				CA = sumLightStatue(CA,(String)(values.get(k)).get("RGStatus")); 
 			}
-			if ("LO".equals((String)(values.get(k)).get("fv9SlResDepLO"))) {   
+			if (!"".equals((String)(values.get(k)).get("fv9SolutionLO"))) {   
 				LO = sumLightStatue(LO,(String)(values.get(k)).get("RGStatus")); 
 			}
-			if ("PA".equals((String)(values.get(k)).get("fv9SlResDepPA"))){ 
+			if (!"".equals((String)(values.get(k)).get("fv9SolutionPA"))){ 
 				PA = sumLightStatue(PA, (String)(values.get(k)).get("RGStatus")); 
 			}
-			if ("PL".equals((String)(values.get(k)).get("fv9SlResDepPL"))) { 
+			if (!"".equals((String)(values.get(k)).get("fv9SolutionPL"))) { 
 				PL = sumLightStatue(PL, (String)(values.get(k)).get("RGStatus")); 
 			}
-			if ("QAPP".equals((String)(values.get(k)).get("fv9SlResDepQAPP"))){ 
+			if (!"".equals((String)(values.get(k)).get("fv9SolutionQAPP"))){ 
 				QAPP = sumLightStatue(QAPP, (String)(values.get(k)).get("RGStatus")); 
 			}
-			if ("SU".equals((String)(values.get(k)).get("fv9SlResDepSU"))) { 
+			if (!"".equals((String)(values.get(k)).get("fv9SolutionSU"))) { 
 				SU = sumLightStatue(SU, (String)(values.get(k)).get("RGStatus")); 
 			}
-			if ("VSC".equals((String)(values.get(k)).get("fv9SlResDepVSC"))){ 
+			if (!"".equals((String)(values.get(k)).get("fv9SolutionVSC"))){ 
 				VSC = sumLightStatue(VSC, (String)(values.get(k)).get("RGStatus")); 
+			}
+			if (!"".equals((String)(values.get(k)).get("fv9SolutionTE"))){ 
+				TE = sumLightStatue(TE, (String)(values.get(k)).get("RGStatus")); 
 			}
 			
 		}
@@ -87,6 +95,7 @@ public class IssueRelComponentReportResDepartLoader {
 		departments.put("QAPP", QAPP); 
 		departments.put("SU", SU); 
 		departments.put("VSC", VSC); 
+		departments.put("TE", TE); 
 		
 		return departments;
 				

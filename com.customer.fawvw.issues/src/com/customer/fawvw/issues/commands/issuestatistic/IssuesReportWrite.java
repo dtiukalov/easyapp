@@ -134,58 +134,48 @@ public class IssuesReportWrite {
 				 row.getCell(7).setCellStyle(rowStyle.getCell(7).getCellStyle());
 				//¥Î ©
 				String solution = ""; 
+				String resDep = "";
+				if (!"".equals(Issue.get("fv9SolutionTE"))) {  
+					solution += "TE:" + ((String)Issue.get("fv9SolutionTE")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
+					resDep += "TE\r\n";
+				}
 				if (!"".equals(Issue.get("fv9SolutionBS"))) {  
 					solution += "BS:" + ((String)Issue.get("fv9SolutionBS")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
+					resDep += "BS\r\n";
 				}
 				if (!"".equals(Issue.get("fv9SolutionCA"))) {  
 					solution += "\r\n" + "CA:" + ((String)Issue.get("fv9SolutionCA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					resDep += "CA\r\n";
 				}
 				if (!"".equals(Issue.get("fv9SolutionLO"))) {  
 					solution += "\r\n" + "LO:" + ((String)Issue.get("fv9SolutionLO")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					resDep += "LO\r\n";
 				}
 				if (!"".equals(Issue.get("fv9SolutionPA"))) {  
 					solution += "\r\n" + "PA:" + ((String)Issue.get("fv9SolutionPA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					resDep += "PA\r\n";
 				}
 				if (!"".equals(Issue.get("fv9SolutionPL"))) {  
 					solution += "\r\n" + "PL:" + ((String)Issue.get("fv9SolutionPL")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					resDep += "PL\r\n";
 				}
 				if (!"".equals(Issue.get("fv9SolutionQAPP"))) {  
 					solution += "\r\n" + "QAPP:" + ((String)Issue.get("fv9SolutionQAPP")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					resDep += "QAPP\r\n";
 				}
 				if (!"".equals(Issue.get("fv9SolutionSU"))) {  
 					solution += "\r\n" + "SU:" + ((String)Issue.get("fv9SolutionSU")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					resDep += "SU\r\n";
 				}
 				if (!"".equals(Issue.get("fv9SolutionVSC"))) {  
 					solution += "\r\n" + "VSC:" + ((String)Issue.get("fv9SolutionVSC")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-				}
-
-				String resDep = "";
-				if (!"".equals(Issue.get("fv9SlResDepBS"))) {  
-					resDep += ((String)Issue.get("fv9SlResDepBS")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
-				}
-				if (!"".equals(Issue.get("fv9SlResDepCA"))) {  
-					resDep += "\r\n" + ((String)Issue.get("fv9SlResDepCA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-				}
-				if (!"".equals(Issue.get("fv9SlResDepLO"))) {  
-					resDep += "\r\n" + ((String)Issue.get("fv9SlResDepLO")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-				}
-				if (!"".equals(Issue.get("fv9SlResDepPA"))) {  
-					resDep += "\r\n" + ((String)Issue.get("fv9SlResDepPA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-				}
-				if (!"".equals(Issue.get("fv9SlResDepPL"))) {  
-					resDep += "\r\n" + ((String)Issue.get("fv9SlResDepPL")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-				}
-				if (!"".equals(Issue.get("fv9SlResDepQAPP"))) {  
-					resDep += "\r\n" + ((String)Issue.get("fv9SlResDepQAPP")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-				}
-				if (!"".equals(Issue.get("fv9SlResDepSU"))) {  
-					resDep += "\r\n" + ((String)Issue.get("fv9SlResDepSU")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-				}
-				if (!"".equals(Issue.get("fv9SlResDepVSC"))) {  
-					resDep += "\r\n" + ((String)Issue.get("fv9SlResDepVSC")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					resDep += "VSC\r\n";
 				}
 				
 				String resOwner = "";
+				if (!"".equals(Issue.get("fv9SlResOwnerTE"))) {  
+					resOwner += ((String)Issue.get("fv9SlResOwnerTE")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
+				}
 				if (!"".equals(Issue.get("fv9SlResOwnerBS"))) {  
 					resOwner += ((String)Issue.get("fv9SlResOwnerBS")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
 				}

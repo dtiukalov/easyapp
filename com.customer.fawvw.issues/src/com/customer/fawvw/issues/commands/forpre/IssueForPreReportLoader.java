@@ -37,7 +37,6 @@ public class IssueForPreReportLoader {
 			
 			TCComponent[] tcComponents = ComponentUtils
 					.findTCComponentItemByType(session, "FV9Issue"); 
-System.out.println("tcComponents.length = " + tcComponents.length); 
 			if (tcComponents.length > 0) {
 				for (TCComponent component : tcComponents) {
 					TCComponentItemRevision itemRevision = ((TCComponentItem) component)
@@ -49,7 +48,6 @@ System.out.println("tcComponents.length = " + tcComponents.length);
 							itemRevision, "fv9ProjectLov"); 
 					String[] projectIds = ComponentUtils.getProjectInfos(projects, "project_id"); 
 					String projectInfos = StringUtil.ArrayToString(projectIds);
-System.out.println("projectInfos = " + projectInfos);					 
 
 					//问题的项目列表包含项目ID
 					// TODO:判断“涉及车辆编号（IssueReqCarNo）”属性值包含用户输入的预批量车编号
@@ -73,15 +71,16 @@ System.out.println("projectInfos = " + projectInfos);
 						issue.put("fv9SolutionQAPP", itemRevision.getProperty("fv9SolutionQAPP"));
 						issue.put("fv9SolutionSU", itemRevision.getProperty("fv9SolutionSU"));
 						issue.put("fv9SolutionVSC", itemRevision.getProperty("fv9SolutionVSC"));
+						issue.put("fv9SolutionTE", itemRevision.getProperty("fv9SolutionTE"));
 						
-						issue.put("fv9SlResDepBS", itemRevision.getProperty("fv9SlResDepBS"));
-						issue.put("fv9SlResDepCA", itemRevision.getProperty("fv9SlResDepCA"));
-						issue.put("fv9SlResDepLO", itemRevision.getProperty("fv9SlResDepLO"));
-						issue.put("fv9SlResDepPA", itemRevision.getProperty("fv9SlResDepPA"));
-						issue.put("fv9SlResDepPL", itemRevision.getProperty("fv9SlResDepPL"));
-						issue.put("fv9SlResDepQAPP", itemRevision.getProperty("fv9SlResDepQAPP"));
-						issue.put("fv9SlResDepSU", itemRevision.getProperty("fv9SlResDepSU"));
-						issue.put("fv9SlResDepVSC", itemRevision.getProperty("fv9SlResDepVSC"));
+//						issue.put("fv9SlResDepBS", itemRevision.getProperty("fv9SlResDepBS"));
+//						issue.put("fv9SlResDepCA", itemRevision.getProperty("fv9SlResDepCA"));
+//						issue.put("fv9SlResDepLO", itemRevision.getProperty("fv9SlResDepLO"));
+//						issue.put("fv9SlResDepPA", itemRevision.getProperty("fv9SlResDepPA"));
+//						issue.put("fv9SlResDepPL", itemRevision.getProperty("fv9SlResDepPL"));
+//						issue.put("fv9SlResDepQAPP", itemRevision.getProperty("fv9SlResDepQAPP"));
+//						issue.put("fv9SlResDepSU", itemRevision.getProperty("fv9SlResDepSU"));
+//						issue.put("fv9SlResDepVSC", itemRevision.getProperty("fv9SlResDepVSC"));
 						
 						issue.put("fv9RGStatus", itemRevision.getProperty("fv9RGStatus"));// 红绿灯状态 
 						

@@ -18,6 +18,7 @@ public class DepartmentStatusLoader {
 	private static Map<String, Integer> SU = new HashMap<String, Integer>();
 	private static Map<String, Integer> VSC = new HashMap<String, Integer>();
 	private static Map<String, Integer> CA = new HashMap<String, Integer>();
+	private static Map<String, Integer> TE = new HashMap<String, Integer>();
 	
 	public static  Map<String,Object> load(ArrayList<HashMap<String, Object>> values){
 		
@@ -53,32 +54,38 @@ public class DepartmentStatusLoader {
 		CA.put("green", 0); 
 		CA.put("yellow", 0); 
 		
+		TE.put("red", 0); 
+		TE.put("green", 0); 
+		TE.put("yellow", 0); 
+		
 		for (int k=0; k<values.size(); k++) {
-			if ("BS".equals((String)(values.get(k)).get("fv9SlResDepBS"))) {  //$NON-NLS-2$  
+			if (!"".equals((String)(values.get(k)).get("fv9SolutionTE"))) {  //$NON-NLS-2$  
+				TE = sumLightStatue(TE,(String)(values.get(k)).get("fv9RGStatus")); 
+			}
+			if (!"".equals((String)(values.get(k)).get("fv9SolutionBS"))) {  //$NON-NLS-2$  
 				BS = sumLightStatue(BS,(String)(values.get(k)).get("fv9RGStatus")); 
 			}
-			if ("CA".equals((String)(values.get(k)).get("fv9SlResDepCA"))) {  //$NON-NLS-2$  
+			if (!"".equals((String)(values.get(k)).get("fv9SolutionCA"))) {  //$NON-NLS-2$  
 				CA = sumLightStatue(CA,(String)(values.get(k)).get("fv9RGStatus")); 
 			}
-			if ("LO".equals((String)(values.get(k)).get("fv9SlResDepLO"))) {  //$NON-NLS-2$  
+			if (!"".equals((String)(values.get(k)).get("fv9SolutionLO"))) {  //$NON-NLS-2$  
 				LO = sumLightStatue(LO,(String)(values.get(k)).get("fv9RGStatus")); 
 			}
-			if ("PA".equals((String)(values.get(k)).get("fv9SlResDepPA"))){  //$NON-NLS-2$
+			if (!"".equals((String)(values.get(k)).get("fv9SolutionPA"))){  //$NON-NLS-2$
 				PA = sumLightStatue(PA, (String)(values.get(k)).get("fv9RGStatus")); 
 			}
-			if ("PL".equals((String)(values.get(k)).get("fv9SlResDepPL"))) {  //$NON-NLS-2$
+			if (!"".equals((String)(values.get(k)).get("fv9SolutionPL"))) {  //$NON-NLS-2$
 				PL = sumLightStatue(PL, (String)(values.get(k)).get("fv9RGStatus")); 
 			}
-			if ("QAPP".equals((String)(values.get(k)).get("fv9SlResDepQAPP"))){  //$NON-NLS-2$
+			if (!"".equals((String)(values.get(k)).get("fv9SolutionQAPP"))){  //$NON-NLS-2$
 				QAPP = sumLightStatue(QAPP, (String)(values.get(k)).get("fv9RGStatus")); 
 			}
-			if ("SU".equals((String)(values.get(k)).get("fv9SlResDepSU"))) {  //$NON-NLS-2$
+			if (!"".equals((String)(values.get(k)).get("fv9SolutionSU"))) {  //$NON-NLS-2$
 				SU = sumLightStatue(SU, (String)(values.get(k)).get("fv9RGStatus")); 
 			}
-			if ("VSC".equals((String)(values.get(k)).get("fv9SlResDepVSC"))){  //$NON-NLS-2$
+			if (!"".equals((String)(values.get(k)).get("fv9SolutionVSC"))){  //$NON-NLS-2$
 				VSC = sumLightStatue(VSC, (String)(values.get(k)).get("fv9RGStatus")); 
 			}
-			
 		}
 		
 		departments.put("BS", BS); 
@@ -89,6 +96,7 @@ public class DepartmentStatusLoader {
 		departments.put("QAPP", QAPP); 
 		departments.put("SU", SU); 
 		departments.put("VSC", VSC); 
+		departments.put("TE", TE); 
 		
 		return departments;
 				

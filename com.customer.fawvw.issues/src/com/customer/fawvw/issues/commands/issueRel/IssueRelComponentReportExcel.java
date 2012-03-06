@@ -159,58 +159,44 @@ public class IssueRelComponentReportExcel {
 				issueCauseCell.setCellValue(new HSSFRichTextString(issueCause));
 				
 				String fv9Solution = ""; 
+				String slResDep = "";
+				if (!"".equals((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionTE"))) {  
+					fv9Solution += "TE:" + ((String)(String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionTE")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
+					slResDep += "TE\r\n";
+				}
 				if (!"".equals((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionBS"))) {  
-					fv9Solution += "BS:" + ((String)(String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionBS")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
+					fv9Solution += "\r\nBS:" + ((String)(String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionBS")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
+					slResDep += "BS\r\n";
 				}
 				if (!"".equals((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionCA"))) {  
 					fv9Solution += "\r\n" + "CA:" + ((String)(String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionCA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "CA\r\n";
 				}
 				if (!"".equals((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionLO"))) {  
 					fv9Solution += "\r\n" + "LO:" + ((String)(String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionLO")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "LO\r\n";
 				}
 				if (!"".equals((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionPA"))) {  
 					fv9Solution += "\r\n" + "PA:" + ((String)(String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionPA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
 				}
 				if (!"".equals((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionPL"))) {  
 					fv9Solution += "\r\n" + "PL:" + ((String)(String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionPL")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "PL\r\n";
 				}
 				if (!"".equals((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionQAPP"))) {  
 					fv9Solution += "\r\n" + "QAPP:" + ((String)(String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionQAPP")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "QAPP\r\n";
 				}
 				if (!"".equals((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionSU"))) {  
 					fv9Solution += "\r\n" + "SU:" + ((String)(String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionSU")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
 				}
 				if (!"".equals((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionVSC"))) {  
 					fv9Solution += "\r\n" + "VSC:" + ((String)(String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionVSC")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "VSC\r\n";
 				}
 				HSSFCell Solution1Cell = datarow.createCell(7);
 				Solution1Cell.setCellValue(new HSSFRichTextString(fv9Solution));
 				
-				String slResDep = "";
-				if (!"".equals((String)((HashMap<String, Object>)values.get(i)).get("fv9SlResDepBS"))) {  
-					slResDep += ((String)(String)((HashMap<String, Object>)values.get(i)).get("fv9SlResDepBS")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
-				}
-				if (!"".equals((String)((HashMap<String, Object>)values.get(i)).get("fv9SlResDepCA"))) {  
-					slResDep += "\r\n" + ((String)(String)((HashMap<String, Object>)values.get(i)).get("fv9SlResDepCA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-				}
-				if (!"".equals((String)((HashMap<String, Object>)values.get(i)).get("fv9SlResDepLO"))) {  
-					slResDep += "\r\n" + ((String)(String)((HashMap<String, Object>)values.get(i)).get("fv9SlResDepLO")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-				}
-				if (!"".equals((String)((HashMap<String, Object>)values.get(i)).get("fv9SlResDepPA"))) {  
-					slResDep += "\r\n" + ((String)(String)((HashMap<String, Object>)values.get(i)).get("fv9SlResDepPA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-				}
-				if (!"".equals((String)((HashMap<String, Object>)values.get(i)).get("fv9SlResDepPL"))) {  
-					slResDep += "\r\n" + ((String)(String)((HashMap<String, Object>)values.get(i)).get("fv9SlResDepPL")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-				}
-				if (!"".equals((String)((HashMap<String, Object>)values.get(i)).get("fv9SlResDepQAPP"))) {  
-					slResDep += "\r\n" + ((String)(String)((HashMap<String, Object>)values.get(i)).get("fv9SlResDepQAPP")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-				}
-				if (!"".equals((String)((HashMap<String, Object>)values.get(i)).get("fv9SlResDepSU"))) {  
-					slResDep += "\r\n" + ((String)(String)((HashMap<String, Object>)values.get(i)).get("fv9SlResDepSU")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-				}
-				if (!"".equals((String)((HashMap<String, Object>)values.get(i)).get("fv9SlResDepVSC"))) {  
-					slResDep += "\r\n" + ((String)(String)((HashMap<String, Object>)values.get(i)).get("fv9SlResDepVSC")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-				}
 				HSSFCell SlResDep1Cell = datarow.createCell(8);
 				SlResDep1Cell.setCellValue(new HSSFRichTextString(slResDep));
 				
@@ -252,25 +238,26 @@ public class IssueRelComponentReportExcel {
 				+ "\r\n" + "PL:" + department.get("PL") 
 				+ "\r\n" + "QAPP:" + department.get("QAPP") 
 				+ "\r\n" + "SU:" + department.get("SU") 
-				+ "\r\n" + "VSC" + department.get("VSC")); 
+				+ "\r\n" + "VSC" + department.get("VSC")
+				+ "\r\n" + "TE" + department.get("TE")); 
 		
 		if (department != null) { 
 
 			HSSFRow red_depart = sheet.getRow(25);
-			HSSFCell red_pe = red_depart.getCell(3);
-			red_pe.setCellValue(((Map<String, Integer>) department.get("PL")).get("red"));   
+			HSSFCell red_pl = red_depart.getCell(3);
+			red_pl.setCellValue(((Map<String, Integer>) department.get("PL")).get("red"));   
 						
-			HSSFCell red_qa = red_depart.getCell(4);
-			red_qa.setCellValue(((Map<String, Integer>) department.get("QAPP")).get("red"));  
+			HSSFCell red_qapp = red_depart.getCell(4);
+			red_qapp.setCellValue(((Map<String, Integer>) department.get("QAPP")).get("red"));  
 			
 			HSSFCell red_lo = red_depart.getCell(5);
 			red_lo.setCellValue(((Map<String, Integer>) department.get("LO")).get("red"));   
 			
-			HSSFCell red_me = red_depart.getCell(6);
-			red_me.setCellValue(((Map<String, Integer>) department.get("BS")).get("red"));   
+			HSSFCell red_bs = red_depart.getCell(6);
+			red_bs.setCellValue(((Map<String, Integer>) department.get("BS")).get("red"));   
 			
-			HSSFCell red_pl = red_depart.getCell(7);
-			red_pl.setCellValue(((Map<String, Integer>) department.get("PA")).get("red"));  
+			HSSFCell red_pa = red_depart.getCell(7);
+			red_pa.setCellValue(((Map<String, Integer>) department.get("PA")).get("red"));  
 			
 			HSSFCell red_su = red_depart.getCell(8);
 			red_su.setCellValue(((Map<String, Integer>) department.get("SU")).get("red"));  
@@ -278,28 +265,31 @@ public class IssueRelComponentReportExcel {
 			HSSFCell red_vsc = red_depart.getCell(9);
 			red_vsc.setCellValue(((Map<String, Integer>) department.get("VSC")).get("red"));   
 			
-			HSSFCell red_pm = red_depart.getCell(10);
-			red_pm.setCellValue(((Map<String, Integer>) department.get("CA")).get("red"));   
+			HSSFCell red_ca = red_depart.getCell(10);
+			red_ca.setCellValue(((Map<String, Integer>) department.get("CA")).get("red"));   
 			
-			HSSFCell red_total = red_depart.getCell(11);
-			red_total.setCellFormula("SUM(D26:K26)"); 
+			HSSFCell red_te = red_depart.getCell(11);
+			red_te.setCellValue(((Map<String, Integer>) department.get("TE")).get("red"));   
+			
+			HSSFCell red_total = red_depart.getCell(12);
+			red_total.setCellFormula("SUM(D26:L26)"); 
 	
 			
 			HSSFRow yellow_depart = sheet.getRow(26);
-			HSSFCell yellow_pe = yellow_depart.getCell(3);
-			yellow_pe.setCellValue(((Map<String, Integer>) department.get("PL")).get("yellow"));   
+			HSSFCell yellow_pl = yellow_depart.getCell(3);
+			yellow_pl.setCellValue(((Map<String, Integer>) department.get("PL")).get("yellow"));   
 			
-			HSSFCell yellow_qa = yellow_depart.getCell(4);
-			yellow_qa.setCellValue(((Map<String, Integer>) department.get("QAPP")).get("yellow"));  
+			HSSFCell yellow_qapp = yellow_depart.getCell(4);
+			yellow_qapp.setCellValue(((Map<String, Integer>) department.get("QAPP")).get("yellow"));  
 			
 			HSSFCell yellow_lo = yellow_depart.getCell(5);
 			yellow_lo.setCellValue(((Map<String, Integer>) department.get("LO")).get("yellow"));   
 			
-			HSSFCell yellow_me = yellow_depart.getCell(6);
-			yellow_me.setCellValue(((Map<String, Integer>) department.get("BS")).get("yellow"));   
+			HSSFCell yellow_bs = yellow_depart.getCell(6);
+			yellow_bs.setCellValue(((Map<String, Integer>) department.get("BS")).get("yellow"));   
 			
-			HSSFCell yellow_pl = yellow_depart.getCell(7);
-			yellow_pl.setCellValue(((Map<String, Integer>) department.get("PA")).get("yellow"));  
+			HSSFCell yellow_pa = yellow_depart.getCell(7);
+			yellow_pa.setCellValue(((Map<String, Integer>) department.get("PA")).get("yellow"));  
 			
 			HSSFCell yellow_su = yellow_depart.getCell(8);
 			yellow_su.setCellValue(((Map<String, Integer>) department.get("SU")).get("yellow"));  
@@ -307,27 +297,31 @@ public class IssueRelComponentReportExcel {
 			HSSFCell yellow_vsc = yellow_depart.getCell(9);
 			yellow_vsc.setCellValue(((Map<String, Integer>) department.get("VSC")).get("yellow"));   
 			
-			HSSFCell yellow_pm = yellow_depart.getCell(10);
-			yellow_pm.setCellValue(((Map<String, Integer>) department.get("CA")).get("yellow"));   
+			HSSFCell yellow_ca = yellow_depart.getCell(10);
+			yellow_ca.setCellValue(((Map<String, Integer>) department.get("CA")).get("yellow"));   
 			
-			HSSFCell yellow_total = yellow_depart.getCell(11);
-			yellow_total.setCellFormula("SUM(D27:K27)"); 
+			HSSFCell yellow_te = yellow_depart.getCell(11);
+			yellow_te.setCellValue(((Map<String, Integer>) department.get("TE")).get("yellow"));   
+			
+			HSSFCell yellow_total = yellow_depart.getCell(12);
+			yellow_total.setCellFormula("SUM(D27:L27)"); 
 			
 			HSSFRow green_depart = sheet.getRow(27);
-			HSSFCell green_pe = green_depart.getCell(3);
-			green_pe.setCellValue(((Map<String, Integer>) department.get("PL")).get("green"));   
 			
-			HSSFCell green_qa = green_depart.getCell(4);
-			green_qa.setCellValue(((Map<String, Integer>) department.get("QAPP")).get("green"));  
+			HSSFCell green_pl = green_depart.getCell(3);
+			green_pl.setCellValue(((Map<String, Integer>) department.get("PL")).get("green"));   
+			
+			HSSFCell green_qapp = green_depart.getCell(4);
+			green_qapp.setCellValue(((Map<String, Integer>) department.get("QAPP")).get("green"));  
 			
 			HSSFCell green_lo = green_depart.getCell(5);
 			green_lo.setCellValue(((Map<String, Integer>) department.get("LO")).get("green"));   
 			
-			HSSFCell green_me = green_depart.getCell(6);
-			green_me.setCellValue(((Map<String, Integer>) department.get("BS")).get("green"));   
+			HSSFCell green_bs = green_depart.getCell(6);
+			green_bs.setCellValue(((Map<String, Integer>) department.get("BS")).get("green"));   
 			
-			HSSFCell green_pl = green_depart.getCell(7);
-			green_pl.setCellValue(((Map<String, Integer>) department.get("PA")).get("green"));  
+			HSSFCell green_pa = green_depart.getCell(7);
+			green_pa.setCellValue(((Map<String, Integer>) department.get("PA")).get("green"));  
 			
 			HSSFCell green_su = green_depart.getCell(8);
 			green_su.setCellValue(((Map<String, Integer>) department.get("SU")).get("green"));  
@@ -335,11 +329,14 @@ public class IssueRelComponentReportExcel {
 			HSSFCell green_vsc = green_depart.getCell(9);
 			green_vsc.setCellValue(((Map<String, Integer>) department.get("VSC")).get("green"));   
 			
-			HSSFCell green_pm = green_depart.getCell(10);
-			green_pm.setCellValue(((Map<String, Integer>) department.get("CA")).get("green"));   
+			HSSFCell green_ca = green_depart.getCell(10);
+			green_ca.setCellValue(((Map<String, Integer>) department.get("CA")).get("green"));   
 			
-			HSSFCell green_total = green_depart.getCell(11);
-			green_total.setCellFormula("SUM(D28:K28)"); 
+			HSSFCell green_te = green_depart.getCell(11);
+			green_te.setCellValue(((Map<String, Integer>) department.get("TE")).get("green")); 
+			
+			HSSFCell green_total = green_depart.getCell(12);
+			green_total.setCellFormula("SUM(D28:L28)"); 
 			
 			System.out.println("写入按部门统计页"); 
 			

@@ -381,13 +381,15 @@
 .german:hover{background:url(../images/german2.jpg) no-repeat;}
 
 .bj {
-	height: 300px;
-	width: 424px;
+	height: 768px;
+	width: 1024px;
 	margin-right: auto;
 	margin-left: auto;
 	background-image: url(../images/login.jpg);
+
 	padding-top: 443px;
 	padding-left: 600px;
+
 	font-family: "黑体";
 	font-size: 14px;
 	color: #000000;

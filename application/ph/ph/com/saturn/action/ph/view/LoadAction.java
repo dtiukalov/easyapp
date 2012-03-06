@@ -1,6 +1,7 @@
 package com.saturn.action.ph.view;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -16,9 +17,22 @@ import com.saturn.ph.PHManager;
 import com.saturn.tc.utils.ItemUtils;
 import com.teamcenter.soa.client.model.ModelObject;
 import com.teamcenter.soa.client.model.strong.Item;
+import com.teamcenter.soa.client.model.strong.ItemRevision;
+import com.teamcenter.soa.exceptions.NotLoadedException;
 
 public class LoadAction implements IAction {
 
+	private static final String[] relations = {
+		"FV9LOPH_Rel",
+		"FV9PLPH_Rel",
+		"FV9PMPH_Rel",
+		"FV9QAPH_Rel",
+		"FV9SUPH_Rel",
+		"FV9TEPH_Rel",
+		"FV9VSCPH_Rel",
+		"FV9SCPH_Rel"
+	};
+	
 	public String requestMapping() {
 		return "/app/pep/view/load.do";
 	}
@@ -30,24 +44,55 @@ public class LoadAction implements IAction {
 //		String platformType = (String)request.getParameter("platformType");
 		
 		Item item = PH.getQueryService().queryItemByName(name);
+		PH.getDataService().getProperties(item, "object_name",
+			"displayable_revisions");
 		
-		if (item == null) {
-			return new JspErrorView("Item:Name=[" + name + "] 不存在");
-		}
+		String project = "";
+		String roadmap = "";
 		
-		String project = name.split("_")[0];
-		String roadmap = name.split("_")[1];
-		request.getSession().setAttribute("milepost", roadmap);
-		request.getSession().setAttribute("project", project);
-		
-		Map<String, Object> formIds = ItemUtils.getLastRevisionFormIds(item);
+		Map<String, Object> formIds = new HashMap<String, Object>();
 		List<String> indexes = new ArrayList<String>();
 		
-		if(formIds.size() > 0){
-			indexes = PHManager.getIndexes(roadmap, formIds);
+		if (item != null) {
+			try {
+				ModelObject[] itemRevs = (ModelObject[]) item.get_displayable_revisions();
+				
+				if (itemRevs.length > 0) {
+					ItemRevision itemRev = (ItemRevision) itemRevs[itemRevs.length - 1];
+					
+					PH.getDataService().getProperties(itemRev, "object_name",
+							"item_revision_id", "current_revision_id",
+							"IMAN_specification", "view", "IMAN_requirement",
+							"IMAN_reference", "TC_WorkContext_Relation",
+							"TC_Attaches", "VisItemRevCreatedSnapshot2D",
+							"project_ids", "fv9MLName");
+					
+					PH.getDataService().getProperties(itemRev, relations);
+					
+					String projects = itemRev.getPropertyDisplayableValue("project_ids");
+					if (!"".equals(projects)) {
+						project = projects.split(",")[0];
+					}
+					roadmap = itemRev.getPropertyDisplayableValue("fv9MLName");
+					
+					request.getSession().setAttribute("milepost", roadmap);
+					request.getSession().setAttribute("project", project);
+					
+					formIds = ItemUtils.getLastRevisionFormIds(itemRev, relations);
+					
+					if(formIds.size() > 0){
+						indexes = PHManager.getIndexes(roadmap, formIds);
+					}
+					request.getSession().setAttribute("indexes", indexes);
+					request.setAttribute("current", "1");
+				}
+			} catch (NotLoadedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		} else {
+			return new JspErrorView("Item:Name=[" + name + "] 不存在");
 		}
-		request.getSession().setAttribute("indexes", indexes);
-		request.setAttribute("current", "1");
 		
 		//PH下存在数据
 		if (indexes != null && indexes.size() > 0) {

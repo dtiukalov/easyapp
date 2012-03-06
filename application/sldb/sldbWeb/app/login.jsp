@@ -50,6 +50,7 @@
 				验证码： <input id="testCode" name="testCode" type="text" class="login_input" value="" /><br /> <br /> 
 				<input name="Submit" type="button" class="login_ok" onclick="login()"
 					value="登录" /> <img id="testCodeImage" alt="验证码" onclick="reload()" style="cursor:hand">
+					<div style="text-align:right;margin-right:30px;"><a href="<%=request.getContextPath()%>/app/login2.jsp" style="text-decoration: none;color: black;">指纹登录</a></div>
 			</form>
 		</div>
 	</div>

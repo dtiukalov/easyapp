@@ -30,6 +30,7 @@
 				sortName : 'createTime',
 				sortOrder : 'desc',
 				remoteSort : true,
+				pageSize : 20,
 				frozenColumns : [ [ {//不可被删除的列
 					field : 'ck',
 					checkbox : true

@@ -38,6 +38,11 @@
 					title : '用户标识',
 					width : 60,
 					sortable : true
+				}, {
+					field : 'state',
+					title : '审核状态',
+					width : 100,
+					sortable : true
 				},{
 					field : 'userName',
 					title : '审核人',
@@ -58,12 +63,7 @@
 					title : '身份证号',
 					width : 150,
 					sortable : true
-				}, {
-					field : 'state',
-					title : '审核状态',
-					width : 100,
-					sortable : true
-				}, {
+				},{
 					field : 'note',
 					title : '备注',
 					width : 70,
@@ -71,8 +71,23 @@
 				}, {
 					field : 'department',
 					title : '部门',
-					width : 70,
+					width : 120,
 					sortable : true
+				}, {
+					field : 'opt',
+					title : '操作',
+					width : 100,
+					align : 'center',
+					rowspan : 2,	
+					formatter : function(value, rec) {
+						if (rec.state == '驳回' && rec.type == 0) {
+							return '<span><a href="#" onclick="replayVO(\'' + rec.pid + '\');">重申</a>'  +
+							'</span>';
+						} else if (rec.type == 2) {
+							return '<span>已重申</span>'
+						}
+						return '<span></span>'
+					}
 				}] ],
 				pagination : true,
 				rownumbers : true,
@@ -108,6 +123,14 @@
 			$('#queryForm').form('clear');
 		}
 		
+		function replayVO(pid){
+			$.messager.confirm('确认重申', '确认重申该选项', function(result){
+				if (result){
+					window.location.href='<%=request.getContextPath()%>/app/sldb/person/replay.action?id='+ pid;
+				}
+			});
+			return false;
+		}
 	</script>
 </head>
 <body>

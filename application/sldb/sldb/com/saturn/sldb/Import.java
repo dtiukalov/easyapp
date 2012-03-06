@@ -225,7 +225,7 @@ public class Import {
 				String name = columnNames[i];
 				if (name != null && name.indexOf("identify") > 0) {//身份证校验
 					String value = IdCardUtil.filterStr(values[i]);
-					
+					values[i] = value;
 					if (value != null && value.trim().length() != 18) {
 						importType = IMPORT_TYPE_IDENTIF_CHANGE;
 						importError = value;

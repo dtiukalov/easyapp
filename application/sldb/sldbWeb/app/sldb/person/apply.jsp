@@ -15,7 +15,7 @@
 				striped : true, //数据条纹显示
 				collapsible : true,
 				singleSelect : false,//只能选一行
-				url : '<%=request.getContextPath()%>/app/sldb/person/list.action',
+				url : '<%=request.getContextPath()%>/app/sldb/person/listApply.action',
 				queryParams : {
 					state : '创建'
 				},
@@ -194,7 +194,7 @@
 							$.messager.alert('提示','只能选择一项','info');
 							return;
 						}
-						window.location.href='<%=request.getContextPath()%>/app/sldb/person/sub/queryPersonTab.action?id='+rows[0].id + '&type=0'; 
+						window.location.href='<%=request.getContextPath()%>/app/sldb/person/sub/queryPersonTab.action?id='+rows[0].id + '&type=1'; 
 						//带参数传入下一个jsp页面
 						return false;//解决IE6的不跳转的bug
 					}

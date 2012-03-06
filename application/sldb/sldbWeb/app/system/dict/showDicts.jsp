@@ -15,7 +15,12 @@
 					queryVO();
 	            }
 			});
-			
+			$('#name').combobox({
+				width : 180,
+				onSelect:function(record){
+					queryVO();
+	            }
+			});
 			$('#dictTable').datagrid({
 				title : '数据字典列表',
 				iconCls : 'icon-save',
@@ -31,7 +36,13 @@
 				frozenColumns : [ [ {//不可被删除的列
 					field : 'ck',
 					checkbox : true
-				}, {
+				},
+				{
+					title : '名称',
+					field : 'name',
+					width : 150,
+					sortable : true
+				},{
 					title : '标识',
 					field : 'key',
 					width : 150,
@@ -42,7 +53,7 @@
 					title : '值',
 					width : 120,
 					sortable : true
-				}, {
+				},{
 					field : 'pinyin',
 					title : '拼音',
 					width : 120,
@@ -151,6 +162,7 @@
 		function queryVO() {
 			$('#dictTable').datagrid({
 				queryParams : {
+					name : $('#name').combobox('getValue'),
 					key : $('#key').val(),
 					value : $('#value').val(),
 					pinyin : $('#pinyin').val(),
@@ -171,6 +183,9 @@
 		icon="icon-save" collapsible="true" style="padding: 10px;">
 
 		<form id="dictQueryForm" method="post">
+			<label for="name">名称:</label> 
+			<select id="name" class="easyui-combobox" name="name" 
+				url="<%=request.getContextPath()%>/app/system/dict/queryDictName.action" valueField="id" textField="text" mode="remote" value="<%=request.getParameter("name") == null ? "" : request.getParameter("name")%>"></select>
 			<label for="key">标识:</label> 
 			<input id="key" name="key" type="text"></input>
 			<label for="value">值:</label>

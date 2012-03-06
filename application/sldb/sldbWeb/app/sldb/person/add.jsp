@@ -122,6 +122,9 @@
 <body>
 	<%
 		User user = (User)session.getAttribute("authUser");
+		String userId = user.getId();
+		Organization organizationUser = Organization.getOneOrganizationByUser(userId);
+		String name = organizationUser.getName();
 		List organizations = Organization.getOrganizationByUser(user.getId());
 		String department = "";
 		if (organizations != null && !organizations.isEmpty()) {
@@ -263,8 +266,8 @@
 					<td><div id="contactTip"></div></td>
 				</tr>
 				<tr>
-					<td style="text-align:right"><span style="color: red">*</span>所属街道:</td>
-					<td><input id="street" name="street" type="text"></input></td>
+					<td style="text-align:right"><span style="color: red">*</span>所属乡镇街 :</td>
+					<td><input id="street" name="street" type="text" value="<%=name %>" readonly="readonly"></input></td>
 					<td><div id="streetTip"></div></td>
 				</tr>
 				<tr>

@@ -1,3 +1,4 @@
+<%@page import="com.saturn.sldb.Person"%>
 <%@page import="java.util.List"%>
 <%@page import="com.saturn.auth.Organization"%>
 <%@page import="com.saturn.auth.User"%>
@@ -127,6 +128,12 @@
 		if (organizations != null && !organizations.isEmpty()) {
 			department = ((Organization)organizations.get(0)).getName();
 		}
+		String userId = request.getParameter("id");
+		Person person =  Person.get(userId);
+		
+		String address = person.getAddress();
+		String street = person.getStreet();
+		String type = person.getType();
 	%>
 	<div id="panel" class="easyui-panel" title="添加家庭成员信息" icon="icon-add-form"
 		collapsible="true" style="padding: 10px;">
@@ -136,9 +143,10 @@
 			<table class="table-form">
 				<tr>
 					<td style="text-align:right"><span style="color: red">*</span>类型:</td>
-					<td><select id="type" class="easyui-combobox"
+					<%-- <td><select id="type" class="easyui-combobox"
 								name="type" url="<%=request.getContextPath()%>/app/system/dict/listDictByType.action?type=sldb.person.type" valueField="id"
-								textField="text" editable="false"></select></td>
+								textField="text" editable="false"></select></td> --%>
+					<td><input id="type" name="type" type="text" value="<%=type%>" readonly="readonly"></input></td>
 					<td><div id="combo_typeTip"></div></td>
 				</tr>
 				<tr>
@@ -257,12 +265,12 @@
 				</tr>
 				<tr>
 					<td style="text-align:right"><span style="color: red">*</span>所属街道:</td>
-					<td><input id="street" name="street" type="text"></input></td>
+					<td><input id="street" name="street" type="text" value="<%=street %>" readonly="readonly"></input></td>
 					<td><div id="streetTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right"><span style="color: red">*</span>地址:</td>
-					<td><input id="address" name="address" type="text"></input></td>
+					<td><input id="address" name="address" type="text" value="<%=address%>" readonly="readonly"></input></td>
 					<td><div id="addressTip"></div></td>
 				</tr>
 				<tr>

@@ -283,7 +283,7 @@ public class IdCheck {
 
 		return "true";
 	}
-
+	
 	@SuppressWarnings("rawtypes")
 	public static void checkOnePerson(String pid, String identify, String name) {
 		List<IdCheck> checks = new ArrayList<IdCheck>();
@@ -293,7 +293,7 @@ public class IdCheck {
 
 		if (getAll(id, null, null, null, null).getTotal() > 0) {
 			remove(id);
-		}
+		}//删除重复核对过的数据
 
 		for (ImportInfo info : infos) {
 			Import importLast = getLastImport(info.getId());
@@ -365,6 +365,183 @@ public class IdCheck {
 		return new ArrayList<HashMap>();
 	}
 
+	//根据姓名进行核对
+	public static String checkByName(String pid) {
+		Person person = Person.get(pid);
+		List<PersonSub> subs = PersonSub.getByPid(pid);
+
+		checkOnePerson_name(pid, person.getIdentify(), person.getName());
+
+		for (PersonSub sub : subs) {
+			checkOnePerson(sub.getId(), sub.getIdentify(), sub.getName());
+		}
+		return "true";
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public static void checkOnePerson_name(String pid, String identify, String name) {
+		List<IdCheck> checks = new ArrayList<IdCheck>();
+		List<ImportInfo> infos = ImportInfo.getAllList();
+
+		String id = pid + "_" + identify;
+
+		if (getAll(id, null, null, null, null).getTotal() > 0) {
+			remove(id);
+		}//删除重复核对过的数据
+
+		for (ImportInfo info : infos) {
+			Import importLast = getLastImport(info.getId());
+
+			if (importLast != null) {
+				List<HashMap> results = checkOne_name(name,
+						importLast.getId());
+				String key = info.getName() + "(" + importLast.getImportDate()
+						+ ")";
+
+				if (results.isEmpty()) {
+					add(new IdCheck(id, key, "无", info.getId(), ""));
+				} else {
+					List<IdCheck> checkResult = getList(results, id, key,
+							info.getId());
+
+					checks.addAll(checkResult);
+					addAll(checkResult);
+				}
+			}
+		}
+	}
+	@SuppressWarnings("rawtypes")
+	public static List<HashMap> checkOne_name(String name,
+			String importId) {
+		Import imp = Import.get(importId);
+		String type = imp.getType();
+
+		ImportInfo info = ImportInfo.get(type);
+		String tableName = info.getTableName() + imp.getImportDate();
+
+		return checkTable_name(name, tableName);
+	}
+
+	@SuppressWarnings("rawtypes")
+	public static List<HashMap> checkTable_name(String name,
+			String tableName) {
+
+		if ((name == null || "".equals(name.trim()))) {
+			return new ArrayList<HashMap>();
+		}
+
+		try {
+			if (tableName.indexOf("marry") >= 0) {
+				return SimpleDaoTemplate
+						.query("SELECT * FROM `" + tableName + "` WHERE 1 = 1",
+								new DymaticCondition()
+										.addCondition(
+												" AND (wName like '%?%' OR mName like '%?%')",
+												name), mappingMap,
+								HashMap.class);
+			} else {
+				return SimpleDaoTemplate.query(
+						"SELECT * FROM `" + tableName + "` WHERE 1 = 1",
+						new DymaticCondition()
+								.addCondition(" AND name like '%?%'", name),
+						mappingMap, HashMap.class);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return new ArrayList<HashMap>();
+	}
+	//根据身份证号核对数据
+	public static String checkByIdentify(String pid) {
+		Person person = Person.get(pid);
+		List<PersonSub> subs = PersonSub.getByPid(pid);
+
+		checkOnePerson(pid, person.getIdentify(), person.getName());
+
+		for (PersonSub sub : subs) {
+			checkOnePerson(sub.getId(), sub.getIdentify(), sub.getName());
+		}
+
+		return "true";
+	}
+	//根据身份证号核对数据
+	@SuppressWarnings("rawtypes")
+	public static void checkOnePerson_identify(String pid, String identify) {
+		List<IdCheck> checks = new ArrayList<IdCheck>();
+		List<ImportInfo> infos = ImportInfo.getAllList();
+
+		String id = pid + "_" + identify;
+
+		if (getAll(id, null, null, null, null).getTotal() > 0) {
+			remove(id);
+		}//删除重复核对过的数据
+
+		for (ImportInfo info : infos) {
+			Import importLast = getLastImport(info.getId());
+
+			if (importLast != null) {
+				List<HashMap> results = checkOne(identify,
+						importLast.getId());
+				String key = info.getName() + "(" + importLast.getImportDate()
+						+ ")";
+
+				if (results.isEmpty()) {
+					add(new IdCheck(id, key, "无", info.getId(), ""));
+				} else {
+					List<IdCheck> checkResult = getList(results, id, key,
+							info.getId());
+
+					checks.addAll(checkResult);
+					addAll(checkResult);
+				}
+			}
+		}
+	}
+
+	@SuppressWarnings("rawtypes")
+	public static List<HashMap> checkOne(String identify,
+			String importId) {
+		Import imp = Import.get(importId);
+		String type = imp.getType();
+
+		ImportInfo info = ImportInfo.get(type);
+		String tableName = info.getTableName() + imp.getImportDate();
+
+		return checkTable_identify(identify, tableName);
+	}
+
+	@SuppressWarnings("rawtypes")
+	public static List<HashMap> checkTable_identify(String identify,
+			String tableName) {
+
+		if ((identify == null || "".equals(identify.trim()))) {
+			return new ArrayList<HashMap>();
+		}
+
+		try {
+			if (tableName.indexOf("marry") >= 0) {
+				return SimpleDaoTemplate
+						.query("SELECT * FROM `" + tableName + "` WHERE 1 = 1",
+								new DymaticCondition()
+										.addCondition(
+												" AND (wIdentify like '%{?}%' OR mIdentify like '%?%')",
+												identify), mappingMap,
+								HashMap.class);
+			} else {
+				return SimpleDaoTemplate.query(
+						"SELECT * FROM `" + tableName + "` WHERE 1 = 1",
+						new DymaticCondition().addCondition(
+								" AND identify like '%?%'", identify),
+						mappingMap, HashMap.class);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return new ArrayList<HashMap>();
+	}
+	
 	public static Import getLastImport(String type) {
 		List<Import> imports = SimpleDaoTemplate.query(
 				"select * from sldb_import where type = '" + type

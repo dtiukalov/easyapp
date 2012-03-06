@@ -165,6 +165,23 @@
 					window.location.href='<%=request.getContextPath()%>/app/auth/user/registerUser.jsp?id='+rows[0].id;
 					return false;
 				}
+			},{
+				id : 'btnedit',
+				text : '修改密码',
+				iconCls : 'icon-edit',
+				handler : function() {
+					var rows = $('#queryTable').datagrid('getSelections');
+					if (rows.length == 0) {
+						$.messager.alert('提示','请选择修改项','info');
+						return;
+					} else if (rows.length > 1) {
+						$.messager.alert('提示','只能选择一项','info');
+						return;
+					}
+					editPasswordVO(rows[0].id);
+					//window.location.href='<%=request.getContextPath()%>/app/auth/user/queryUser.action?id='+rows[0].id;
+					return false;
+				}
 			}]
 		});
 	});
@@ -180,6 +197,11 @@
 	
 	function editVO(id){
 		window.location.href='<%=request.getContextPath()%>/app/auth/user/queryUser.action?id='+ id;
+		return false;
+	}
+	
+	function editPasswordVO(id){
+		window.location.href='<%=request.getContextPath()%>/app/auth/user/editPassword.jsp?id='+ id;
 		return false;
 	}
 	

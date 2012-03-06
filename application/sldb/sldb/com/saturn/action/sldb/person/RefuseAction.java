@@ -8,7 +8,6 @@ import com.saturn.app.web.IView;
 import com.saturn.app.web.view.JspErrorView;
 import com.saturn.app.web.view.JspView;
 import com.saturn.auth.User;
-import com.saturn.auth.Organization;
 import com.saturn.sldb.Person;
 
 public class RefuseAction implements IAction {
@@ -23,15 +22,13 @@ public class RefuseAction implements IAction {
 		
 		String[] ids = idStr.split("__");
 		User user = (User)request.getSession().getAttribute("authUser");
-		String userId = user.getId();
-		Organization organization = Organization.getOneOrganizationByUser(userId);
-		String department = organization.getName();
+		
 		
 		if (ids != null && ids.length > 0) {
 			String id = ids[0];
 			Person person = Person.get(id);
 			String state = person.getState();
-			if (Person.refuse(ids, user.getId(), note, department) == 1) {
+			if (Person.refuse(ids, user.getId(), note) == 1) {
 				return new JspView("/app/sldb/person/" + ConfirmAction.urlMap.get(state));
 			} else {
 				return new JspErrorView("驳回低保信息失败");

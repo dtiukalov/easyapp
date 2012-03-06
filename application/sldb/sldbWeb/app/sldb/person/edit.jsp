@@ -293,8 +293,7 @@
 						<div style="padding: 10px;">
 							<a href="#" class="easyui-linkbutton" iconCls="icon-edit"
 								onclick="edit()">确定</a> <a href="javascript:history.back(-1)"
-								class="easyui-linkbutton" iconCls="icon-cancel">取消</a> <a href="#" class="easyui-linkbutton" iconCls="icon-ok"
-								onclick="confirm()">申报</a>
+								class="easyui-linkbutton" iconCls="icon-cancel">取消</a> 
 						</div>
 					</td>
 				</tr>

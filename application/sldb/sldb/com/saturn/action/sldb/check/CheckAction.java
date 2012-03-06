@@ -15,8 +15,18 @@ public class CheckAction implements IAction {
 
 		String pid = request.getParameter("pid");
 
+		String way = request.getParameter("id");
 		try {
-			return new JsonView(IdCheck.check(pid));
+			if ("all".equals(way)) {
+				return new JsonView(IdCheck.check(pid));
+			} 
+			if ("name".equals(way)) {
+				return new JsonView(IdCheck.checkByName(pid));
+			} 
+			if ("identify".equals(way)) {
+				return new JsonView(IdCheck.checkByIdentify(pid));
+			}
+			return new JsonView("false");
 		} catch (Exception e) {
 			return new JsonView("false");
 		}

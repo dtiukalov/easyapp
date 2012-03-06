@@ -90,11 +90,11 @@
 			<form id="loginForm" name="loginForm" method="post"
 				action="<%=request.getContextPath()%>/app/auth/user/loginTemplate.do">
 				<br /> <br />
-				请输入指纹1<br /> <br /> 
+				<h3>请输入指纹</h3><br /> <br /> 
 				<br /> <br /> 
 				<!--  <input name="Submit" type="button" class="login_ok" onclick="submitRegister()"
 					value="验证指纹" />-->
-				
+				<div style="text-align:right;margin-right:30px;"><a href="<%=request.getContextPath()%>/app/login.jsp" style="text-decoration: none;color: black;">管理员登录</a></div>
 				<input id="id" name="id" type="hidden" value=""></input>
 			</form>
 		</div>

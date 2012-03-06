@@ -76,33 +76,35 @@ public class Mail {
 		List<Mail> mails = new ArrayList<Mail>();
 
 		for (WorkspaceObject wos : workspaceObjects) {
-			Envelope envelope = (Envelope) wos;
-
-			Mail mail = new Mail(user, session, envelope);
-
-			Mail dbmail = Mail.getMailFromDB(mail.getMailuid());
-
-			if (dbmail != null) {
-				mail.downloadNum = dbmail.getDownloadNum();
-				mail.hasDownload = dbmail.getHasDownload();
-			} else {
-				Mail.addMailtoDB(mail);
-			}
-
-			String fromUser = condition.fromUser;
-			String title = condition.title;
-			String hasDownload = condition.hasDownload;
-			String datetime = condition.datetime;
-			String content = condition.content;
-			
-			if (like(mail.fromUser, fromUser)
-					&& like(mail.title, title)
-					&& like(mail.hasDownload, hasDownload)
-					&& like(mail.content, content)
-					&& like(mail.datetime, datetime)) {
-
-				mails.add(mail);
-				// reviseProperties(envelope,session);
+			if (wos instanceof Envelope) {
+				Envelope envelope = (Envelope) wos;
+	
+				Mail mail = new Mail(user, session, envelope);
+	
+				Mail dbmail = Mail.getMailFromDB(mail.getMailuid());
+	
+				if (dbmail != null) {
+					mail.downloadNum = dbmail.getDownloadNum();
+					mail.hasDownload = dbmail.getHasDownload();
+				} else {
+					Mail.addMailtoDB(mail);
+				}
+	
+				String fromUser = condition.fromUser;
+				String title = condition.title;
+				String hasDownload = condition.hasDownload;
+				String datetime = condition.datetime;
+				String content = condition.content;
+				
+				if (like(mail.fromUser, fromUser)
+						&& like(mail.title, title)
+						&& like(mail.hasDownload, hasDownload)
+						&& like(mail.content, content)
+						&& like(mail.datetime, datetime)) {
+	
+					mails.add(mail);
+					// reviseProperties(envelope,session);
+				}
 			}
 		}
 		

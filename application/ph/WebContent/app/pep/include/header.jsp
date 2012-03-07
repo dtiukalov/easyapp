@@ -56,6 +56,7 @@
 		if (!"".equals(table)) {
 			return "{y:" + num + ", table:'" + table + "'}";
 		} 
+		System.out.println("String = " + "{y:" + num + ", table:'" + table + "'}");
 		return "{y:" + num + ", table:'&nbsp;'}";
 	}
 %>

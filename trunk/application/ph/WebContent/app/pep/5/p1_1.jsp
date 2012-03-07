@@ -149,7 +149,7 @@
 						<%
 							if (fv9LackStCom_GM != null && !"".equals(fv9LackStCom_GM)) {
 						%>
-							<%=fv9LackStCom_GM %>
+							<%=fv9LackStCom_GM %>i
 						<%
 							} else {
 						%>

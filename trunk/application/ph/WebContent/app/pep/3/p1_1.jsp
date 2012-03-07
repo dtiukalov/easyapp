@@ -33,7 +33,7 @@
     	<div id="german">
 			<input type="button" class="china" onclick="changeChinese()" />
 		</div>
-		<div id="datatable1" style="width: 800px;font-size:12px;margin:0 50px">
+		<div id="datatable1" style="width: 800px; font-size:12px; margin:0 50px">
 			    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 				  <tr>
 				    <td width="239" class="pg">&nbsp;</td>
@@ -43,19 +43,23 @@
 				 <%
 				 if (fv9PrMSBCubStyle != null && fv9PrMSBCubStyle.size() > 0) {
 				  for(int i=0; i<fv9PrMSBCubStyle.size(); i++){
+					String PrMSBCubStyle = Web.replaceSpecial((String)fv9PrMSBCubStyle.get(i));
+					String PrMSBCubStatus = Web.replaceSpecial((String)fv9PrMSBCubStatus.get(i));
+					String PrMSBCubStCom_GM = Web.replaceSpecial((String)fv9PrMSBCubStCom_GM.get(i));
+					String PrMSBCubMabnh_GM = Web.replaceSpecial((String)fv9PrMSBCubMabnh_GM.get(i));
 					  %>  
 				<tr>
 					    <td valign="top" class="pgpg" style="width:239px;">
 						    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
 							  <tr>
-					   			 <td width="70%" valign="top"><h2><%=fv9PrMSBCubStyle.get(i) %> </h2></td>
+					   			 <td width="70%" valign="top"><h2><%=PrMSBCubStyle %> </h2></td>
 							   	 <td>
-									<% if(("绿").equals(fv9PrMSBCubStatus.get(i))){%>
-									    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" style="height:70px;width:25px;" />
-									<%} else if(("黄").equals(fv9PrMSBCubStatus.get(i))){%>
-									    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" style="height:70px;width:25px;" />	
-									<%} else if(("红").equals(fv9PrMSBCubStatus.get(i))){%>
-										   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" style="height:70px;width:25px;" /> 
+									<% if(("绿").equals(PrMSBCubStatus)){%>
+									    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" style="height:59px;width:25px;" />
+									<%} else if(("黄").equals(PrMSBCubStatus)){%>
+									    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" style="height:59px;width:25px;" />	
+									<%} else if(("红").equals(PrMSBCubStatus)){%>
+										   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" style="height:59px;width:25px;" /> 
 									<%}%>
 								</td>
 							  </tr>
@@ -64,9 +68,9 @@
 			    		<td width="60%" valign="top" class="pgpg">
 				    		<div class="tbnrr">
 				    			<%
-			    				if (fv9PrMSBCubStCom_GM.get(i) != null && !"".equals(fv9PrMSBCubStCom_GM.get(i))) {
+			    				if (PrMSBCubStCom_GM != null && !"".equals(PrMSBCubStCom_GM)) {
 				    			%>
-				    				<%=fv9PrMSBCubStCom_GM.get(i) %>
+				    				<%=PrMSBCubStCom_GM %>
 				    			<%
 				    				} else {
 			   					%>
@@ -80,9 +84,9 @@
 			   			<td width="40%" valign="top" class="pgpg">
 			   				<div class="tbnrr">
 			   				<%
-			    				if (fv9PrMSBCubMabnh_GM.get(i) != null && !"".equals(fv9PrMSBCubMabnh_GM.get(i))) {
+			    				if (PrMSBCubMabnh_GM != null && !"".equals(PrMSBCubMabnh_GM)) {
 			    			%>
-			    				<%=fv9PrMSBCubMabnh_GM.get(i) %>
+			    				<%=PrMSBCubMabnh_GM %>
 			    			<%
 			    				} else {
 		   					%>
@@ -102,7 +106,7 @@
 		<div id="china" style="display: none;">
 			<input type="button" class="german" onclick="changeGerman()"/>
 		</div>
-		<div id="datatable2" style="width: 800px; display: none;margin:0 50px">
+		<div id="datatable2" style="width: 800px; font-size:12px; margin:0 50px; display: none;">
 			    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 				  <tr>
 				    <td width="239" class="pg">&nbsp;</td>
@@ -112,19 +116,23 @@
 				 <%
 				 if (fv9PrMSBCubStyle != null && fv9PrMSBCubStyle.size() > 0) {
 				  for(int i=0; i<fv9PrMSBCubStyle.size(); i++){
+					String PrMSBCubStyle = Web.replaceSpecial((String)fv9PrMSBCubStyle.get(i));
+					String PrMSBCubStatus = Web.replaceSpecial((String)fv9PrMSBCubStatus.get(i));
+					String PrMSBCubStCom_CN = Web.replaceSpecial((String)fv9PrMSBCubStCom_CN.get(i));
+					String PrMSBCubMabnh_CN = Web.replaceSpecial((String)fv9PrMSBCubMabnh_CN.get(i));
 					  %>  
 				<tr>
 					    <td valign="top" class="pgpg" style="width:239px;">
 						    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
 							  <tr>
-					   			 <td width="70%" valign="top"><h2><%=fv9PrMSBCubStyle.get(i) %> </h2></td>
+					   			 <td width="70%" valign="top"><h2><%=PrMSBCubStyle %> </h2></td>
 							   	 <td>
-									<% if(("绿").equals(fv9PrMSBCubStatus.get(i))){%>
-									    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" style="height:70px;width:25px;"/>
-									<%} else if(("黄").equals(fv9PrMSBCubStatus.get(i))){%>
-									    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" style="height:70px;width:25px;" />	
-									<%} else if(("红").equals(fv9PrMSBCubStatus.get(i))){%>
-										   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" style="height:70px;width:25px;" /> 
+									<% if(("绿").equals(PrMSBCubStatus)){%>
+									    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" style="height:59px;width:25px;"/>
+									<%} else if(("黄").equals(PrMSBCubStatus)){%>
+									    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" style="height:59px;width:25px;" />	
+									<%} else if(("红").equals(PrMSBCubStatus)){%>
+										   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" style="height:59px;width:25px;" /> 
 									<%}%>
 								</td>
 							  </tr>
@@ -133,9 +141,9 @@
 			    		<td width="60%" valign="top" class="pgpg">
 				    		<div class="tbnrr">
 				    			<%
-			    				if (fv9PrMSBCubStCom_CN.get(i) != null && !"".equals(fv9PrMSBCubStCom_CN.get(i))) {
+			    				if (PrMSBCubStCom_CN != null && !"".equals(PrMSBCubStCom_CN)) {
 				    			%>
-				    				<%=fv9PrMSBCubStCom_CN.get(i) %>
+				    				<%=PrMSBCubStCom_CN%>
 				    			<%
 				    				} else {
 			   					%>
@@ -149,9 +157,9 @@
 			   			<td width="40%" valign="top" class="pgpg">
 			   				<div class="tbnrr">
 			   				<%
-			    				if (fv9PrMSBCubMabnh_CN.get(i) != null && !"".equals(fv9PrMSBCubMabnh_CN.get(i))) {
+			    				if (PrMSBCubMabnh_CN != null && !"".equals(PrMSBCubMabnh_CN)) {
 			    			%>
-			    				<%=fv9PrMSBCubMabnh_CN.get(i) %>
+			    				<%=PrMSBCubMabnh_CN%>
 			    			<%
 			    				} else {
 		   					%>

@@ -21,22 +21,26 @@
 			List<String> iO = (List<String>)form.get("fv9FunctionIO");
 			
 			int gesamt = 0;
-			for(int i=0; i<aK.size(); i++) {
-				gesamt += Integer.parseInt(aK.get(i));
-				gesamt += Integer.parseInt(bK.get(i));
-				gesamt += Integer.parseInt(iO.get(i));
+			if (aK != null && aK.size() > 0) {
+				for(int i=0; i<aK.size(); i++) {
+					gesamt += Integer.parseInt(aK.get(i));
+					gesamt += Integer.parseInt(bK.get(i));
+					gesamt += Integer.parseInt(iO.get(i));
+				}
 			}
 			
 			List<String> functionStylelist = new ArrayList<String>();
 			List<String> sum = Web.SumList(aK,bK,iO);
 			
-			for(int i=0; i<stylePoint.size(); i++){
-				StringBuffer value = new StringBuffer();
-				value.append(functionStyle.get(i)).append("(");
-				value.append(sum.get(i));
-				value.append("/");
-				value.append(stylePoint.get(i)).append(")");
-				functionStylelist.add(value.toString());
+			if (stylePoint != null && stylePoint.size() > 0) {
+				for(int i=0; i<stylePoint.size(); i++){
+					StringBuffer value = new StringBuffer();
+					value.append(functionStyle.get(i)).append("(");
+					value.append(sum.get(i));
+					value.append("/");
+					value.append(stylePoint.get(i)).append(")");
+					functionStylelist.add(value.toString());
+				}
 			}
 				
 			String fv9FunctionStyle = Web.getStrListStr(functionStylelist);//"['Aufbau (122/2)', 'Unterbau (98/5)', 'Seitenteil li. (24/5)', 'Seitenteil re. (24/5)', 'Tür vo. li. (21/5)', 'Tür vo. re. (21/3)', 'Tür hi. li. (21/5)', 'Tür hi. re. (21/2)', 'Frontklappe (14/1)', 'Rückwandklappe (21/3)', 'SAD Dach (13/2)', 'ZP5 Karo. (14/1)']"; //	零件名称

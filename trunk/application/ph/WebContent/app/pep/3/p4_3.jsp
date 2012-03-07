@@ -135,7 +135,7 @@
 					borderWidth: 0,
 					shadow:false,
 					 formatter: function() {
-						return '<table style="border-collapse:collapse;border:solid 1px #000;" width="200" height="100" cellpadding="0" cellspacing="0"><tr><td> &nbsp;'+ 'x:'+ this.x +'</td></tr><tr><td>&nbsp;'+ 'y:' + this.y +'</td></tr><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td></tr></table>';
+						return '<table style="border-collapse:collapse;border:solid 1px #000;" width="200" cellpadding="0" cellspacing="0"><tr><td><br>' + this.point.desc +'<br></td></tr></table>';
 					}
 				},
 				plotOptions: {
@@ -173,27 +173,27 @@
 						}, {
 						 	y: <%=y2%>, 
 						 	low: <%=low2%>,
-						 	desc: "<%=fv9FuncSmall05Com%>",
+						 	desc: "<%=Web.replaceSpecial(fv9FuncSmall05Com)%>",
 							color: '#E63110'
 						}, {
 							y: <%=y3%>,
 							low: <%=low3%>,
-							desc: "<%=fv9FuncSmall10Com%>",
+							desc: "<%=Web.replaceSpecial(fv9FuncSmall10Com)%>",
 							color: '#E63110'
 						}, {
 							y: <%=y4%>,
 							low: <%=low4%>,
-							desc: "<%=fv9FuncSmall15Com%>",
+							desc: "<%=Web.replaceSpecial(fv9FuncSmall15Com)%>",
 							color: '#E63110'
 						}, { 
 							y: <%=y5%>, 
 							low:<%=low5%>,
-							desc: "<%=fv9FuncSmall20Com%>",
+							desc: "<%=Web.replaceSpecial(fv9FuncSmall20Com)%>",
 							color: '#E63110'
 						}, {
 						 	y: <%=y6%>, 
 						 	low: <%=low6%>,
-						 	desc: "<%=fv9FuncBig20Com%>",
+						 	desc: "<%=Web.replaceSpecial(fv9FuncBig20Com)%>",
 							color: '#E63110'
 						}]
 				},{

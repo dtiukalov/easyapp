@@ -120,7 +120,6 @@
 					},
 					yAxis: {
 						min: 0,
-						max: 120,
 						tickWidth:1,
 						gridLineColor:'black',
 						tickColor:'black',

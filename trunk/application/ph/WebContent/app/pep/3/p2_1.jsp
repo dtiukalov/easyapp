@@ -42,20 +42,25 @@
 			    <td width="433" class="pg"><h2>Maßnahmen</h2></td>
 			  </tr>
 			   <%
+			   if (Web.getYesOrNo(fv9FugRadName)) {
 		  		for(int i=0; i<fv9FugRadName.size(); i++){
+		  			String FugRadName = Web.replaceSpecial(fv9FugRadName.get(i)); //名称 
+		  			String FugRadStatus = Web.replaceSpecial(fv9FugRadStatus.get(i)); // 状态
+		  			String FugRadCom_GM = Web.replaceSpecial(fv9FugRadCom_GM.get(i));  //状态描述_德文
+		  			String FugRadMabnh_GM = Web.replaceSpecial(fv9FugRadMabnh_GM.get(i));  //措施_德文 
 			  %>  
 			  <tr>
 			    <td valign="top" class="pgpg" style="width:239px;">
 			    	<table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
 				  		<tr>
-				    		<td valign="top"><h2><%=fv9FugRadName.get(i) %> </h2></td>
+				    		<td valign="top"><h2><%=FugRadName %> </h2></td>
 				    		<td>
-				    			<% if(("绿").equals(fv9FugRadStatus.get(i))){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" />
-							<%} else if(("黄").equals(fv9FugRadStatus.get(i))){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" width="30" height="70" />	
-							<%} else if(("红").equals(fv9FugRadStatus.get(i))){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="30" height="70" /> 
+				    			<% if(("绿").equals(FugRadStatus)){%>
+							    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="30" height="70" />
+							<%} else if(("黄").equals(FugRadStatus)){%>
+							    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="30" height="70" />	
+							<%} else if(("红").equals(FugRadStatus)){%>
+								   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
 							<%}%>
 				    		</td>
 				  		</tr>
@@ -63,9 +68,9 @@
 				</td>
 			    <td width="60%" valign="top" class="pgpg"><div class="tbnrr">
 			    <%
-   				if (fv9FugRadCom_GM.get(i) != null && !"".equals(fv9FugRadCom_GM.get(i))) {
+   				if (FugRadCom_GM != null && !"".equals(FugRadCom_GM)) {
     			%>
-    				<%=fv9FugRadCom_GM.get(i) %>
+    				<%=FugRadCom_GM %>
     			<%
     				} else {
   					%>
@@ -76,9 +81,9 @@
 			    </div></td>
 			    <td width="40%" valign="top" class="pgpg"><div class="tbnrr">
 			    	<%
-	    				if (fv9FugRadMabnh_GM.get(i) != null && !"".equals(fv9FugRadMabnh_GM.get(i))) {
+	    				if (FugRadMabnh_GM != null && !"".equals(FugRadMabnh_GM)) {
 	    			%>
-	    				<%=fv9FugRadMabnh_GM.get(i) %>
+	    				<%=FugRadMabnh_GM %>
 	    			<%
 	    				} else {
    					%>
@@ -90,6 +95,7 @@
 			  </tr>
 				<% 
 		  			}
+			   }
 				%>  
 			</table>
 		</div>
@@ -104,20 +110,25 @@
 			    <td width="433" class="pg"><h2>Maßnahmen</h2></td>
 			  </tr>
 			   <%
+			   if (Web.getYesOrNo(fv9FugRadName)) {
 		  		for(int i=0; i<fv9FugRadName.size(); i++){
+		  			String FugRadName = Web.replaceSpecial(fv9FugRadName.get(i)); //名称 
+		  			String FugRadStatus = Web.replaceSpecial(fv9FugRadStatus.get(i)); // 状态
+		  			String FugRadCom_CN = Web.replaceSpecial(fv9FugRadCom_CN.get(i));  //状态描述_中文
+		  			String FugRadMabnh_CN = Web.replaceSpecial(fv9FugRadMabnh_CN.get(i));  //措施_中文
 			  %>  
 			  <tr>
 			    <td valign="top" class="pgpg" style="width:239px;">
 			    	<table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
 				  		<tr>
-				    		<td valign="top"><h2><%=fv9FugRadName.get(i) %> </h2></td>
+				    		<td valign="top"><h2><%=FugRadName %> </h2></td>
 				    		<td>
-				    			<% if(("绿").equals(fv9FugRadStatus.get(i))){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" />
-							<%} else if(("黄").equals(fv9FugRadStatus.get(i))){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" width="30" height="70" />	
-							<%} else if(("红").equals(fv9FugRadStatus.get(i))){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="30" height="70" /> 
+				    			<% if(("绿").equals(FugRadStatus)){%>
+							    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="30" height="70" />
+							<%} else if(("黄").equals(FugRadStatus)){%>
+							    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="30" height="70" />	
+							<%} else if(("红").equals(FugRadStatus)){%>
+								   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
 							<%}%>
 				    		</td>
 				  		</tr>
@@ -125,9 +136,9 @@
 				</td>
 			    <td width="60%" valign="top" class="pgpg"><div class="tbnrr">
 			    <%
-   				if (fv9FugRadCom_CN.get(i) != null && !"".equals(fv9FugRadCom_CN.get(i))) {
+   				if (FugRadCom_CN != null && !"".equals(FugRadCom_CN)) {
     			%>
-    				<%=fv9FugRadCom_CN.get(i) %>
+    				<%=FugRadCom_CN %>
     			<%
     				} else {
   					%>
@@ -138,9 +149,9 @@
 			    </div></td>
 			    <td width="40%" valign="top" class="pgpg"><div class="tbnrr">
 			    	<%
-	    				if (fv9FugRadMabnh_CN.get(i) != null && !"".equals(fv9FugRadMabnh_CN.get(i))) {
+	    				if (FugRadMabnh_CN != null && !"".equals(FugRadMabnh_CN)) {
 	    			%>
-	    				<%=fv9FugRadMabnh_CN.get(i) %>
+	    				<%=FugRadMabnh_CN %>
 	    			<%
 	    				} else {
    					%>
@@ -152,6 +163,7 @@
 			  </tr>
 				<% 
 		  			}
+			   }
 				%>  
 			</table>
 		</div>

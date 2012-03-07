@@ -415,10 +415,17 @@
 }
 .box img {
 	vertical-align:middle;
+	height: 500px;
+	width: 890px;
+	overflow: hidden;
+	
+	/*
 	max-height:850px;
 	max-width:850px;
 	width:expression(this.width>150 && this.height<= this.width?850:true);
 	height:expression(this.height>150 && this.width<= this.height?850:true);
+	*/
+	
 }
 
 .P {

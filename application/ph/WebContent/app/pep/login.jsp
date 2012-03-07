@@ -61,7 +61,7 @@
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/app/pep/include/base.css">
 </head>
 
-<body onbeforeunload="doWatchCursor();" onunload="doWatchCursor();" onLoad="document.WebClientLoginForm.j_username.focus();">
+<body >
 	
 	<div class="bj">
 		<form id="form1" name="WebClientLoginForm" method="post" action= "<%=request.getContextPath() %>/app/pep/login.do" onSubmit="return checkSubmitLoginForm(this)" ID="Form1">

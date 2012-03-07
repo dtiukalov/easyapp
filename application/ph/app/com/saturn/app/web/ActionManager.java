@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import com.saturn.action.ph.PreviewAction;
 import com.saturn.action.ph.view.LoadAction;
 import com.saturn.action.ph.view.LoginAction;
+import com.saturn.action.ph.view.TCLogoutAction;
 import com.saturn.action.ph.view.ViewAction;
 import com.saturn.app.utils.LogManager;
 
@@ -81,6 +82,7 @@ public class ActionManager {
 		add(new LoadAction());
 		add(new LoginAction());
 		add(new ViewAction());
+		add(new TCLogoutAction());
 	}
 
 }

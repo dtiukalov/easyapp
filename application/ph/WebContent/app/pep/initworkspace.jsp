@@ -11,6 +11,8 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<%@ include file="/app/pep/include/header.jsp"%>
 		<%
+			request.getSession().setAttribute("FV9_11ProjectTermin", null);
+			request.getSession().setAttribute("FV9_11VorserienTer", null);
 			Map<String,Item>  phItemMap = (Map<String,Item> )request.getSession().getAttribute("CURR_USER_PHITEM_LIST");
 		%>
 		<script type="text/javascript">

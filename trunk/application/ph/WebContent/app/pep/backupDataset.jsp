@@ -23,9 +23,13 @@
 				<h1><%=title %></h1>
 			</div>
 		<div id="content">
-				<div class="box">
-						<img src = "<%=src%>" />
-				</div>
+			<img src = "<%=src%>" width="890" height="500"/>
+		<!-- 
+		<div class="box">
+					<img src = "<%=src%>" />
+			</div>
+		 -->
+			
 		</div>
 		<%@ include file="/app/pep/include/foot.jsp"%>
 	</div>	

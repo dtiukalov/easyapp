@@ -255,18 +255,31 @@
 					<div id="left">
 						<div id="chart"></div>
 						<%
-							int tbt_vff_kwno = DateUtils.getWeekNumBetweenStartAndEnd(
-									(String)session.getAttribute("fv9VFFTBTZP7"),
-									(String)session.getAttribute("DATE_VFF")); 
-							double KWTBT = Double.parseDouble(tbt_vff_kwno + "");
-							double KWVFF = Double.parseDouble((Integer)session.getAttribute("KWNo_VFF") + "");
-							double KWPVS = Double.parseDouble((Integer)session.getAttribute("KWNo_PVS") + "");
-							double KW0S = Double.parseDouble((Integer)session.getAttribute("KWNo_0S") + "");
-							double KWSOP = Double.parseDouble((Integer)session.getAttribute("KWNo_SOP") + "");
+							int tbt_vff_kwno = 0; 
+							double KWTBT = 0.0;
+							double KWVFF = 0.0;
+							double KWPVS = 0.0;
+							double KW0S = 0.0;
+							double KWSOP = 0.0;
+							double sum = 0.0;
 							
-							double sum = KWVFF + KWPVS + KW0S + KWSOP;
-						%>
-						<div id="time" style="margin:0 30px">
+							if (session.getAttribute("fv9VFFTBTZP7") != null &&
+									!"".equals((String)session.getAttribute("fv9VFFTBTZP7")) &&
+									session.getAttribute("DATE_VFF") != null &&
+									!"".equals((String)session.getAttribute("DATE_VFF")))  {
+								tbt_vff_kwno = DateUtils.getWeekNumBetweenStartAndEnd(
+										(String)session.getAttribute("fv9VFFTBTZP7"),
+										(String)session.getAttribute("DATE_VFF")); 
+								KWTBT = Double.parseDouble(tbt_vff_kwno + "");
+								KWVFF = Double.parseDouble((Integer)session.getAttribute("KWNo_VFF") + "");
+								KWPVS = Double.parseDouble((Integer)session.getAttribute("KWNo_PVS") + "");
+								KW0S = Double.parseDouble((Integer)session.getAttribute("KWNo_0S") + "");
+								KWSOP = Double.parseDouble((Integer)session.getAttribute("KWNo_SOP") + "");
+								
+								sum = KWVFF + KWPVS + KW0S + KWSOP;
+								
+							%>
+							<div id="time" style="margin:0 30px">
 							<table style="font-size: 10px;">
 								<tr>
 									<td style="width: 12px; ">KW</td>
@@ -309,6 +322,10 @@
 								</tr>
 							</table>
 						</div>
+							<%
+							}
+						%>
+						
 					</div>
 					<div id="right">
 						<div style="margin:3px 10px;font-weight: bold;">Top</div>
@@ -324,17 +341,53 @@
 									for(int i=0; i<fv9TopKrisUmf.size(); i++){
 								%>
 								<tr>
-									<td style="text-indent: 15px;text-align: left;"><%=fv9TopKrisUmf.get(i)%></td>
-									<td><%=fv9TopEinNum.get(i)%></td>
-									<td><%=fv9TopVSIN3.get(i)%></td>
-									<td><%=fv9TopVSISWZ.get(i)%></td>
+									<td style="text-indent: 15px;text-align: left;">
+										<%if (!"".equals(fv9TopKrisUmf.get(i))) {%>
+											<%=fv9TopKrisUmf.get(i) %>
+										<%} else {%>
+											&nbsp;
+										<%}%>
+									</td>
+									<td>
+										<%if (!"".equals(fv9TopEinNum.get(i))) {%>
+											<%=fv9TopEinNum.get(i) %>
+										<%} else {%>
+											&nbsp;
+										<%}%>
+									</td>
+									<td>
+										<%if (!"".equals(fv9TopVSIN3.get(i))) {%>
+											<%=fv9TopVSIN3.get(i) %>
+										<%} else {%>
+											&nbsp;
+										<%}%>
+									</td>
+									<td>
+										<%if (!"".equals(fv9TopVSISWZ.get(i))) {%>
+											<%=fv9TopVSISWZ.get(i) %>
+										<%} else {%>
+											&nbsp;
+										<%}%>
+									</td>
 								</tr>
 								<%
 									}
+									if (fv9TopKrisUmf.size() < 10) {
+										for (int k=0; k<10-fv9TopKrisUmf.size(); k++) {
+								%>
+									<tr>
+										<td style="text-indent: 15px;text-align: left;">&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+									</tr>
+								<%		
+										}		
+									}
 								}
 									
-								if (fv9TopKrisUmf == null || fv9TopKrisUmf.size() < 10) {
-									for (int k=0; k<10-fv9TopKrisUmf.size(); k++) {
+								if (fv9TopKrisUmf == null) {
+									for (int k=0; k<10; k++) {
 								%>
 								<tr>
 									<td style="text-indent: 15px;text-align: left;">&nbsp;</td>

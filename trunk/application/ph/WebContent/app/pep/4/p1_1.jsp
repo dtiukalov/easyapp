@@ -16,12 +16,21 @@
 		<title><%=title %> </title>
 		<%
 			//左侧图表数据
-			int fv9Nominiert = Integer.parseInt((String)form.get("fv9Nominiert")); //已定厂 
-			int fv9Nichtnominiert = Integer.parseInt((String)form.get("fv9Nichtnominiert")); //未定厂
+			int fv9Nominiert = 0; //已定厂 
+			if (!"".equals((String)form.get("fv9Nominiert"))) {
+				fv9Nominiert = Integer.parseInt((String)form.get("fv9Nominiert"));
+			}
+			int fv9Nichtnominiert = 0; //未定厂
+			if (!"".equals((String)form.get("fv9Nichtnominiert"))) {
+				fv9Nichtnominiert = Integer.parseInt((String)form.get("fv9Nichtnominiert")); 
+			}
 			int Gesamt = fv9Nominiert + fv9Nichtnominiert;	
 			
 			//右侧图表数据
-			int fv9KritischeNomini = Integer.parseInt((String)form.get("fv9KritischeNomini")); //风险件
+			int fv9KritischeNomini = 0; //风险件
+			if (!"".equals((String)form.get("fv9KritischeNomini"))) {
+				fv9KritischeNomini = Integer.parseInt((String)form.get("fv9KritischeNomini"));
+			}
 			List<String> fv9KWNo = (List<String>)form.get("fv9KWNo");	//周数
 			List<String> fv9KWNum = (List<String>)form.get("fv9KWNumber");	//数量
 			List<String> fv9KWCom = (List<String>)form.get("fv9KWCom");	//备注
@@ -39,12 +48,21 @@
 			
 			//设置每周状态
 			int max = fv9KritischeNomini;
-			for (int k=0; k<fv9KWNo.size(); k++){
-				KW.add("KW" + fv9KWNo.get(k));
-				value.add(Integer.parseInt((String)fv9KWNum.get(k)));
-				low.add(max - Integer.parseInt((String)fv9KWNum.get(k)));
-				desc.add(fv9KWCom.get(k));
-				max = max - Integer.parseInt((String)fv9KWNum.get(k));
+			if (fv9KWNo != null && fv9KWNo.size() > 0) {
+				for (int k=0; k<fv9KWNo.size(); k++){
+					KW.add("KW" + fv9KWNo.get(k));
+					value.add(Integer.parseInt((String)fv9KWNum.get(k)));
+					low.add(max - Integer.parseInt((String)fv9KWNum.get(k)));
+					
+					if (!"".equals(fv9KWCom.get(k))) {
+						
+						desc.add(fv9KWCom.get(k).replaceAll("\n", "<br>").replaceAll("\"", "").replaceAll("\'", ""));
+					} else {
+						desc.add("");
+					}
+					
+					max = max - Integer.parseInt((String)fv9KWNum.get(k));
+				}
 			}
 			
 			//设置später
@@ -228,7 +246,7 @@
 					borderRadius: 0,
 					borderWidth: 1,
 					 formatter: function() {
-						return '<table width="200" height="100"><tr><td>'+ this.point.desc +'</td></tr><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td></tr></table>';
+						return '<table width="200" height="100"><tr><td>'+ this.point.desc +'</td></tr><tr><td></td></tr><tr><td></td></tr></table>';
 					}
 				},
 				plotOptions: {

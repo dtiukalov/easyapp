@@ -32,7 +32,7 @@ public class DatasetUtils {
 		String src = request.getContextPath()+ File.separator + datasetpath + downloadDatasetFromTc(dataset ,path);
 		
 		if(!src.contains(".jpg")){
-			src = "/ph/app/pep/7/FV9_72Beschluss.jpg";
+			src = "/ph/app/pep/images/default.jpg";
 		}
 		
 		return src ;

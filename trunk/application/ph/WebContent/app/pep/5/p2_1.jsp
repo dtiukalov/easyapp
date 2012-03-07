@@ -68,11 +68,11 @@
 						   			 <td valign="top" width="60%"><h2> <%=fv9LogistikStyle.get(i) %></h2></td>
 								   	 <td>
 								   		<% if(("绿").equals(fv9LogistikStatus.get(i))){%>
-										    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" />
+										    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="30" height="70" />
 										<%} else if(("黄").equals(fv9LogistikStatus.get(i))){%>
-										    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" width="30" height="70" />	
+										    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="30" height="70" />	
 										<%} else if(("红").equals(fv9LogistikStatus.get(i))){%>
-											   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="30" height="70" /> 
+											   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
 										<%}%>
 								   	 </td>
 								  </tr>
@@ -120,11 +120,11 @@
 						   			 <td valign="top" width="60%"><h2> <%=fv9LogistikStyle.get(i) %></h2></td>
 								   	 <td>
 								   		<% if(("绿").equals(fv9LogistikStatus.get(i))){%>
-										    	<img src="<%=request.getContextPath()%>/app/pep/images/tud.jpg" width="30" height="70" />
+										    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="30" height="70" />
 										<%} else if(("黄").equals(fv9LogistikStatus.get(i))){%>
-										    	<img src="<%=request.getContextPath()%>/app/pep/images/tu2.png" width="30" height="70" />	
+										    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="30" height="70" />	
 										<%} else if(("红").equals(fv9LogistikStatus.get(i))){%>
-											   <img src="<%=request.getContextPath()%>/app/pep/images/r3.png" width="30" height="70" /> 
+											   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
 										<%}%>
 								   	 </td>
 								  </tr>

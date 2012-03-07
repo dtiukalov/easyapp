@@ -126,7 +126,7 @@ public class Web {
 			return "[]";
 		}
 
-		if (list instanceof List) {
+		if ((list instanceof List) && ((List)list).size() > 0) {
 			StringBuffer buffer = new StringBuffer("[");
 
 			for (Object value : (List) list) {
@@ -273,5 +273,12 @@ public class Web {
 		}
 		
 		return max;
+	}
+	
+	public static Boolean getYesOrNo(List<String> list) {
+		if (list != null && list.size() > 0) {
+			return true;
+		} 
+		return false;
 	}
 }

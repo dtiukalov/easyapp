@@ -30,23 +30,14 @@
 	
 	function checkSubmitLoginForm(loginFormObj) {
 		var userNameRequiredStr = "用户名是必需的！您必须输入用户名！";
-		if (isFieldEmpty(loginFormObj.j_username) == false)
+		if (isFieldEmpty(form1.ua) == false)
 		{
-		   loginFormObj.Submit.disabled=true;
+			form1.Submit.disabled=true;
 		   return true;
 		}
 		else alert(userNameRequiredStr);		
 	}
-	
-	/* 
-	   Turn on the watch cursor when this page is busy.
-	   There is no point to return cursor back, the 
-	   browser considers the page new. 
-	 */
-	function doWatchCursor() {
-	  document.body.style.cursor = 'wait';
-	}
-	
+
 	</script>
 	<style type="text/css">
 	<!--

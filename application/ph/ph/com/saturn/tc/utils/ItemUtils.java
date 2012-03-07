@@ -31,6 +31,7 @@ public class ItemUtils {
 				PH.getDataService().getProperties(objects, "fv9PreRelesed");
 				
 				for (ModelObject modelObject : objects) {
+					PH.getDataService().refreshObjects(modelObject);
 					String uid = modelObject.getUid();
 					String type = modelObject.getType().getName();
 					String isPublic = modelObject.getPropertyDisplayableValue("fv9PreRelesed");

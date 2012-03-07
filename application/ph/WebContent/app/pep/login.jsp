@@ -5,7 +5,7 @@
 <html>
 <head>
 	<title>Teamcenter Login</title>
-	<%@ include file="/app/pep/include/header.jsp"%>
+	
 	<%
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -58,7 +58,7 @@
 	}
 	-->
 	</style>
-	
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/app/pep/include/base.css">
 </head>
 
 <body onbeforeunload="doWatchCursor();" onunload="doWatchCursor();" onLoad="document.WebClientLoginForm.j_username.focus();">

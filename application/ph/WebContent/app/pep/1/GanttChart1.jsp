@@ -52,7 +52,7 @@
 			var _maxLevel = 0;
 			var _dTemp = new Date();
 			var _firstRowStr = 
-"<table border=1 style='border-collapse:collapse;border:#000000 2px solid'><tr style='background-color:feffbe;text-align:center;'><td rowspan='2' width='50' style='width:50px;font-size:12px'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Porjekt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
+"<table border=1 style='border-collapse:collapse;border:#000000 2px solid'><tr style='background-color:feffbe;text-align:center;'><td rowspan='2' width='50' style='width:50px;font-size:12px'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Porjekt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
 			var _secondRow = "";
 			var _thirdRow = ""; 
 			var _gStr = "";		
@@ -117,6 +117,9 @@
 						_colSpan = 0;
 						_dTemp.setFullYear(_dTemp.getFullYear() + 1, 0, 1);
 					} else {
+						if (_dTemp.getFullYear() == _maxDate.getFullYear() && _dTemp.getMonth() == _maxDate.getMonth()) {
+							_firstRowStr += "<td class='GMonth' colspan='" + (_colSpan) + "'>" + _dTemp.getFullYear() + "</td>";
+						}
 						_dTemp.setFullYear(_dTemp.getFullYear(), _dTemp.getMonth() + 1, 1);
 						//if (_dTemp.getFullYear() == _maxDate.getFullYear() && _dTemp.getMonth() == _maxDate.getMonth() ) {
 						//	_firstRowStr += "<td class='GMonth' colspan='" + (_colSpan+1) + "'>" + _dTemp.getFullYear() + "</td>";
@@ -136,7 +139,7 @@
 			//	_gStr = _firstRowStr + _thirdRow + "</table>";	
 					
 				var offWidth = width + 3;
-				var preWidth = 103;
+				var preWidth = 83;
 				
 				for(i = 0; i < _taskList.length; i++)
 				{	
@@ -150,7 +153,7 @@
 					_dateDiff = (task.getTo().getFullYear() - task.getFrom().getFullYear()) * 12 + (task.getTo().getMonth() - task.getFrom().getMonth()) + 1;
 					
 					if (task.getFrom().getFullYear() == task.getTo().getFullYear() && task.getFrom().getMonth() == task.getTo().getMonth()) {
-						_gStr += "<div style='position:absolute; top:" + (20 * (_level + 2)) + "; left:" + (_offSet * offWidth + 14 + preWidth) + "; width:" + (offWidth * _dateDiff - 1 + 100) + "'><div title='" + task.getTask() + "' style='float:left; width:" + (offWidth * _dateDiff - 1) + "px;'>" + task.getResource() + "</div></div>";
+						_gStr += "<div style='position:absolute; top:" + (20 * (_level + 2)) + "; left:" + (_offSet * offWidth + 9 + preWidth) + "; width:" + (offWidth * _dateDiff - 1 + 100) + "'><div title='" + task.getTask() + "' style='float:left; width:" + (offWidth * _dateDiff - 1) + "px;'>" + task.getResource() + "</div></div>";
 						_gStr += "<div style='position:absolute; top:" + (26 * (_level + 2) + 1) + "; left:5px'>" + task.getTask() + "</div>";						
 					} else {
 						_gStr += "<div style='position:absolute; top:" + (20 * (_level + 2)) + "; left:" + (_offSet * offWidth + preWidth) + "; width:" + (offWidth * _dateDiff - 1 + 100) + "'><div title='" + task.getTask() + "' style='float:left; width:" + (offWidth * _dateDiff - 1) + "px;" + "background-color:" + task.getColor()+ ";border:#000000 1px solid;text-align:center;'>" + task.getResource() + "</div></div>";
@@ -221,7 +224,10 @@
 	
 	.GToday
 	{
-		background-color: #f785f4;	
+		border-left: 4px #f785f4 solid;
+		font-family:tahoma, arial, verdana;
+		font-size:11px;
+		text-align:center;
 	}
 	
 	.GWeekend
@@ -439,6 +445,6 @@
 		<%	
 	}%>
 	
-	g.Draw(49, 19);	
+	g.Draw(49, 15);	
 </script>
 </html>

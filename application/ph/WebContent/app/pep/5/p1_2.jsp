@@ -11,12 +11,32 @@
 		<%@ include file="/app/pep/include/header.jsp"%>
 		<title><%=title %></title>
 		<%
-			List<String> fv9KarosserStyle = (List<String>)form.get("fv9KarosserStyle");
-			List<String> fv9KarosserStatus = (List<String>)form.get("fv9KarosserStatus");
-			List<String> fv9KarossStCom_GM = (List<String>)form.get("fv9KarossStCom_GM");
-			List<String> fv9KarossMab_GM = (List<String>)form.get("fv9KarossMab_GM");
-			List<String> fv9KarossStCom_CN = (List<String>)form.get("fv9KarossStCom_CN");
-			List<String> fv9KarossMab_CN = (List<String>)form.get("fv9KarossMab_CN");
+			List<String> fv9KarosserStyle = new ArrayList<String>();
+			List<String> fv9KarosserStatus = new ArrayList<String>();
+			List<String> fv9KarossStCom_GM = new ArrayList<String>();
+			List<String> fv9KarossMab_GM = new ArrayList<String>();
+			List<String> fv9KarossStCom_CN = new ArrayList<String>();
+			List<String> fv9KarossMab_CN = new ArrayList<String>();
+			
+			if(form.get("fv9KarosserStyle") != null){
+				fv9KarosserStyle = (List<String>)form.get("fv9KarosserStyle");
+			}
+			if(form.get("fv9KarosserStatus") != null){	
+				fv9KarosserStatus = (List<String>)form.get("fv9KarosserStatus");
+			}
+			if(form.get("fv9KarossStCom_GM") != null){
+				fv9KarossStCom_GM = (List<String>)form.get("fv9KarossStCom_GM");
+			}
+			if(form.get("fv9KarossMab_GM") != null){					
+				fv9KarossMab_GM = (List<String>)form.get("fv9KarossMab_GM");
+			}
+			if(form.get("fv9KarossStCom_CN") != null){					
+				fv9KarossStCom_CN = (List<String>)form.get("fv9KarossStCom_CN");
+			}
+			if(form.get("fv9KarossMab_CN") != null){					
+				fv9KarossMab_CN = (List<String>)form.get("fv9KarossMab_CN");
+			}
+			
 		%>
 	</head>
 

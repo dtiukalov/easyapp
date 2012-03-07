@@ -74,7 +74,14 @@ function Task(from, to, task, resource, progress, level, color) {
 				//---- Fix _maxDate value for better displaying-----
 				// Add at least 5 days
 				var _maxArr = getYearWeeks(_maxDate);
-				_maxDate = _maxArr[0] + "/" + getWeeksInYear(_maxDate);
+				var yearWeek = getWeeksInYear(_maxDate);
+				var currentWeek = parseInt(_maxDate.split('/')[1]);
+				if(currentWeek + 3 > yearWeek) {
+					_maxDate = _maxArr[0] + "/" + yearWeek;
+				} else {
+					_maxDate = _maxArr[0] + "/" + (currentWeek + 3);
+				}
+				//_maxDate = _maxArr[0] + "/" + getWeeksInYear(_maxDate);
 				_maxArr = getYearWeeks(_maxDate);
 				
 				var _minArr = getYearWeeks(_minDate);
@@ -88,7 +95,7 @@ function Task(from, to, task, resource, progress, level, color) {
 				_thirdRow = "<tr>";
 				_dTemp = _minDate;
 				var dArr = getYearWeeks(_minDate);
-				while (dArr[0] <= _maxArr[0] && parseInt(dArr[1], 10) <= parseInt(_maxArr[1], 10)) {	
+				while (dArr[0] < _maxArr[0] || (parseInt(dArr[1], 10) <= parseInt(_maxArr[1], 10))) {	
 				
 					
 					_gStr += "<td class='GDay'><div style='width:" + width + "px;'>" + dArr[1] + "</div></td>";
@@ -102,6 +109,9 @@ function Task(from, to, task, resource, progress, level, color) {
 						_colSpan = 0;
 						_dTemp = (parseInt(dArr[0], 10)+1) + "/1";
 					} else {
+						if (_dTemp == _maxArr[0] + '/' + _maxArr[1]) {
+							_firstRowStr += "<td class='GMonth' colspan='" + (_colSpan) + "'>" + dArr[0] + "</td>";
+						}
 						_dTemp= dArr[0] + "/" + (parseInt(dArr[1], 10) + 1);
 					}
 					
@@ -140,9 +150,9 @@ function Task(from, to, task, resource, progress, level, color) {
 					
 				//	_dateDiff = (task.getTo().getFullYear() - task.getFrom().getFullYear()) * 12 + (task.getTo().getMonth() - task.getFrom().getMonth()) + 1;
 					if (task.getFrom() == task.getTo()) {
-						_gStr += "<div style='position:absolute; top:" + (20 * (_level + 2)) + "; left:" + (_offSet * offWidth + 204) + "; width:" + (offWidth * _dateDiff - 1 + 100) + "'><div title='" + task.getTask() + "' class='GTaska' style='float:left; width:" + (offWidth * _dateDiff - 1) + "px;'>" + task.getResource() + "</div></div>";
+						_gStr += "<div style='position:absolute; top:" + (20 * (_level + 2)) + "; left:" + (_offSet * offWidth + 4) + "; width:" + (offWidth * _dateDiff - 1 + 100) + "'><div title='" + task.getTask() + "' class='GTaska' style='height:30px;float:left; width:" + (offWidth * _dateDiff +6) + "px;" + task.getColor() + "'>" + task.getResource() + "</div></div>";
 					} else {
-						_gStr += "<div style='position:absolute; top:" + (20 * (_level + 2)) + "; left:" + (_offSet * offWidth + 204) + "; width:" + (offWidth * _dateDiff - 1 + 100) + "'><div title='" + task.getTask() + "' class='GTask' style='float:left; width:" + (offWidth * _dateDiff - 1) + "px;" + task.getColor() + "'>" + task.getResource() + "</div></div>";
+						_gStr += "<div style='position:absolute; top:" + (20 * (_level + 2)) + "; left:" + (_offSet * offWidth + 4) + "; width:" + (offWidth * _dateDiff - 1 + 100) + "'><div title='" + task.getTask() + "' class='GTask' style='float:left; width:" + (offWidth * _dateDiff - 1) + "px;" + task.getColor() + "'>" + task.getResource() + "</div></div>";
 					}
 				}
 				_GanttDiv.innerHTML = _gStr;
@@ -186,10 +196,8 @@ function Task(from, to, task, resource, progress, level, color) {
 		
 		while (true) {
 			time += week;
-			
-			if (time < t) {
-				k++;
-			} else {
+			k++;
+			if (time > t) {
 				break;
 			}
 		}
@@ -216,6 +224,9 @@ function Task(from, to, task, resource, progress, level, color) {
 		
 		var time = firstDate.getTime();
 		var t = last.getTime();
+		if (last.getDay < 3) {
+			k--;
+		}
 		
 		while (true) {
 			time += week;
@@ -296,7 +307,6 @@ function Task(from, to, task, resource, progress, level, color) {
 	{
 		height:19px;
 		background-color:yellow;
-		background:url(../images/bg.gif) no-repeat 0 0;
 		font-size:9px;
 		text-align:center;
 		font-weight:bold;
@@ -357,27 +367,27 @@ function Task(from, to, task, resource, progress, level, color) {
 	var g = new Gantt(document.all.GanttChart);
 	
 <%if(!"".equals(fv9VFFTBTZP5) && fv9VFFTBTZP5 != null){%>
-	g.AddTaskDetail(new Task('<%=fv9VFFTBTZP5%>', '<%=fv9VFFTBTZP5%>', '<b>ZP5</b>', 'ZP5', 50, 1));
+	g.AddTaskDetail(new Task('<%=fv9VFFTBTZP5%>', '<%=fv9VFFTBTZP5%>', '<b>ZP5</b>', 'ZP5', 50, 1, 'background:url(../images/bg.gif) no-repeat 0 0;'));
 <%	}%>
 <%if(!"".equals(fv9VFFTBTZP7) && fv9VFFTBTZP7 != null){%>	
-	g.AddTaskDetail(new Task('<%=fv9VFFTBTZP7%>', '<%=fv9VFFTBTZP7%>', '<b>ZP7</b>', 'ZP7', 50, 1));
+	g.AddTaskDetail(new Task('<%=fv9VFFTBTZP7%>', '<%=fv9VFFTBTZP7%>', '<b>ZP7</b>', 'ZP7', 50, 1, 'background:url(../images/bg2.gif) no-repeat 0 0;'));
 <%	}%>
 <%if(!"".equals(fv9VFFVorStart) && fv9VFFVorStart != null
 	&& !"".equals(fv9VFFVorEnd) && fv9VFFVorEnd != null	){%>
 	g.AddTaskDetail(new Task('<%=fv9VFFVorStart%>', '<%=fv9VFFVorEnd%>', '<b><%=fv9VFFVorBatches%> Batches(<%=fv9VFFVorFzg%> Fzg.)*</b>', 'VFF&nbsp&nbsp<b><%=fv9VFFVorBatches%> Batches(<%=fv9VFFVorFzg%> Fzg.)*</b>',  50, 1, 'background-color:#000000;color:#FFF;font-weight:bold;'));
 <%	}%>
 <%if(!"".equals(fv9VFFAbsStart) && fv9VFFAbsStart != null
-		&& !"".equals(fv9VFFAbsEnd) && fv9VFFAbsEnd != null){%>
+		&& !"".equals(fv9VFFAbsEnd) && fv9VFFAbsEnd != null && !fv9VFFAbsStart.startsWith("1900") && !fv9VFFAbsEnd.startsWith("1900")){%>
 	g.AddTaskDetail(new Task('<%=fv9VFFAbsStart%>', '<%=fv9VFFAbsEnd%>', '<b>Sample task 1 1</b>', 'Absicherungslauf VFF <%=fv9VFFAbsMeter%> km', 50, 2));
 <%	}%>	
 	
 	
 	
 <%if(!"".equals(fv9PVSTBTZP5) && fv9PVSTBTZP5 != null){%>	
-	g.AddTaskDetail(new Task('<%=fv9PVSTBTZP5%>', '<%=fv9PVSTBTZP5%>', '<b>Sample task 1 1</b>', 'ZP5', 50, 3));
+	g.AddTaskDetail(new Task('<%=fv9PVSTBTZP5%>', '<%=fv9PVSTBTZP5%>', '<b>Sample task 1 1</b>', 'ZP5', 50, 3, 'background:url(../images/bg.gif) no-repeat 0 0;'));
 <%	}%>
 <%if(!"".equals(fv9PVSTBTZP7) && fv9PVSTBTZP7 != null){%>
-	g.AddTaskDetail(new Task('<%=fv9PVSTBTZP7%>', '<%=fv9PVSTBTZP7%>', '<b>Sample task 1 1</b>', 'ZP7', 50, 3));
+	g.AddTaskDetail(new Task('<%=fv9PVSTBTZP7%>', '<%=fv9PVSTBTZP7%>', '<b>Sample task 1 1</b>', 'ZP7', 50, 3, 'background:url(../images/bg.gif) no-repeat 0 0;'));
 <%	}%>
 <%if(!"".equals(fv9PVSVorStart) && fv9PVSVorStart != null
 		&& !"".equals(fv9PVSVorEnd) && fv9PVSVorEnd != null){%>
@@ -391,10 +401,10 @@ function Task(from, to, task, resource, progress, level, color) {
 
 
 <%if(!"".equals(fv90STBTZP5) && fv90STBTZP5 != null){%>
-	g.AddTaskDetail(new Task('<%=fv90STBTZP5%>', '<%=fv90STBTZP5%>', '<b>Sample task 1 1</b>', 'ZP5', 50, 5));
+	g.AddTaskDetail(new Task('<%=fv90STBTZP5%>', '<%=fv90STBTZP5%>', '<b>Sample task 1 1</b>', 'ZP5', 50, 5, 'background:url(../images/bg.gif) no-repeat 0 0;'));
 <%	}%>
 <%if(!"".equals(fv90STBTZP7) && fv90STBTZP7 != null){%>
-	g.AddTaskDetail(new Task('<%=fv90STBTZP7%>', '<%=fv90STBTZP7%>', '<b>Sample task 1 1</b>', 'ZP7', 50, 5));
+	g.AddTaskDetail(new Task('<%=fv90STBTZP7%>', '<%=fv90STBTZP7%>', '<b>Sample task 1 1</b>', 'ZP7', 50, 5, 'background:url(../images/bg.gif) no-repeat 0 0;'));
 <%	}%>
 <%if(!"".equals(fv90SVorStart) && fv90SVorStart != null
 		&& !"".equals(fv90SVorEnd) && fv90SVorEnd != null){%>
@@ -406,10 +416,10 @@ function Task(from, to, task, resource, progress, level, color) {
 <%	}%>
 
 <%if(!"".equals(fv9TPPA_ME) && fv9TPPA_ME != null){%>
-	g.AddTaskDetail(new Task('<%=fv9TPPA_ME%>', '<%=fv9TPPA_ME%>', '<b>Freigabe Markteinführungs- Volumen</b>', '29', 50, 7, 'background-color:#000000;color:#FFF;font-weight:bold;'));
+	g.AddTaskDetail(new Task('<%=fv9TPPA_ME%>', '<%=fv9TPPA_ME%>', '<b>Freigabe Markteinführungs- Volumen</b>', '29', 50, 7, 'background:url(../images/bg.gif) no-repeat 0 0;'));
 <%	}%>
 <%if(!"".equals(fv9QFTPPA_Kunde) && fv9QFTPPA_Kunde != null){%>
-	g.AddTaskDetail(new Task('<%=fv9QFTPPA_Kunde%>', '<%=fv9QFTPPA_Kunde%>', '<b>Q-Freigabe Freigabe Kundenfahrzeuge</b>', '37', 50, 7, 'background-color:#000000;color:#FFF;font-weight:bold;'));
+	g.AddTaskDetail(new Task('<%=fv9QFTPPA_Kunde%>', '<%=fv9QFTPPA_Kunde%>', '<b>Q-Freigabe Freigabe Kundenfahrzeuge</b>', '37', 50, 7, 'background:url(../images/bg.gif) no-repeat 0 0;'));
 <%	}%>	
 
 	g.Draw(49, 14);	

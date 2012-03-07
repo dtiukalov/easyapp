@@ -8,7 +8,7 @@
 	Map __form = (Map)request.getAttribute("form");
 	out.print(Web.getFormState(__form));	
 
-	List indexes = (List)session.getAttribute("indexes"); 
+	List indexes = (List)request.getSession().getAttribute("indexes"); 
 	String current = (String)request.getAttribute("current");
 	
 	if (current == null) {

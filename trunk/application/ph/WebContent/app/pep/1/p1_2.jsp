@@ -26,7 +26,7 @@
 				<h1><%=title %></h1>
 			</div>
 			<div id="content">
-				<iframe id="ff" name= "ff" frameborder="0" 
+				<iframe id="ff" name= "ff" frameborder="0" scrolling="no"
 					    src="<%=request.getContextPath() %>/app/pep/1/GanttChart1.jsp?uid=<%=uid %>" 
 					    style="width:850px;height:280px;margin:50px 10px">
 				</iframe> 

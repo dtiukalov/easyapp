@@ -42,11 +42,12 @@ public abstract class Form {
 							case PropertyDescription.CLIENT_PROP_TYPE_string: {
 								String[] ps = model.getProperty(attr)
 										.getStringArrayValue();
-								List<String> values = new ArrayList<String>(
-										ps.length);
-		
 								if (ps != null && ps.length > 0) {
+									List<String> values = new ArrayList<String>(ps.length);
 									for (String p : ps) {
+										if(p == null){
+											p = "";
+										}
 										values.add(p + "");
 									}
 									value.put(attr, values);
@@ -56,13 +57,14 @@ public abstract class Form {
 							case PropertyDescription.CLIENT_PROP_TYPE_int: {
 								int[] ps = model.getProperty(attr)
 										.getIntArrayValue();
-								List<String> values = new ArrayList<String>(
-										ps.length);
 	
 								if (ps != null && ps.length > 0) {
+									List<String> values = new ArrayList<String>(ps.length);
+									
 									for (int p : ps) {
 										values.add(p + "");
 									}
+									
 									value.put(attr, values);
 								}
 								break;
@@ -70,10 +72,9 @@ public abstract class Form {
 							case PropertyDescription.CLIENT_PROP_TYPE_double: {
 								double[] ps = model.getProperty(attr)
 										.getDoubleArrayValue();
-								List<String> values = new ArrayList<String>(
-										ps.length);
-	
+								
 								if (ps != null && ps.length > 0) {
+									List<String> values = new ArrayList<String>(ps.length);
 									for (double p : ps) {
 										values.add(p + "");
 									}
@@ -85,8 +86,10 @@ public abstract class Form {
 								SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 								Calendar[] date = model.getProperty(attr)
 									.getDateArrayValue();
-								List<String> values = new ArrayList<String>(date.length);
+								
 								if (date != null && date.length > 0) {
+									List<String> values = new ArrayList<String>(date.length);
+									
 									for (Calendar cal : date){
 										if (cal != null) {
 											values.add(df.format(cal.getTime()));

@@ -51,7 +51,7 @@
 			var _minDate = new Date();	
 			var _maxLevel = 0;
 			var _dTemp = new Date();
-			var _firstRowStr = "<table border=1 style='border-collapse:collapse;border:#000000 2px solid'><tr style='background-color:feffbe;text-align:center;'><td rowspan='3' width='150px' style='width:150px;font-size:12px'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stuff&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
+			var _firstRowStr = "<table border=1 style='border-collapse:collapse;border:#000000 2px solid'><tr style='background-color:feffbe;text-align:center;'><td rowspan='2' width='150px' style='width:150px;font-size:12px'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stuff&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
 			var _secondRow = "";
 			var _thirdRow = ""; 
 			var _gStr = "";		
@@ -65,6 +65,7 @@
 				_maxDate.setFullYear(task.getTo().getFullYear(), task.getTo().getMonth(), task.getTo().getDate());
 				_minDate.setFullYear(task.getFrom().getFullYear(), task.getFrom().getMonth(), task.getFrom().getDate());
 				_maxLevel = task.getLevel();
+				
 				for (i = 0; i < _taskList.length; i++) {
 					task = _taskList[i];
 					if (Date.parse(task.getFrom()) < Date.parse(_minDate)) {
@@ -86,7 +87,7 @@
 				if (_maxDate.getDate() > 21) { //December 12&#26376;				
 					_maxDate.setFullYear(_maxDate.getFullYear(), _maxDate.getMonth() + 1, 1);
 				}
-				_maxDate.setFullYear(_maxDate.getFullYear(), _maxDate.getMonth(), _maxDate.getDate() + (5-_maxDate.getDay()));
+				_maxDate.setFullYear(_maxDate.getFullYear(), _maxDate.getMonth(), _maxDate.getDate() + (7-_maxDate.getDay()));
 				
 				if (_minDate.getMonth() == 11) {
 					_minDate.setFullYear(_minDate.getFullYear(), _minDate.getMonth()-1, 1);	
@@ -97,7 +98,7 @@
 				_gStr = "";
 				_gStr += "<tr style='background-color:feffbe;text-align:center;'>";
 				_secondRow = "<tr style='background-color:feffbe;text-align:center;'>";
-				_thirdRow = "<tr><td>&nbsp;</td>";
+				_thirdRow = "<tr><td style='border-top: 1px black solid;border-right: 1px black solid;'>&nbsp;</td>";
 				_dTemp.setFullYear(_minDate.getFullYear(), _minDate.getMonth(), _minDate.getDate());
 				
 				var _monthColSpan = 0;
@@ -107,7 +108,7 @@
 					if (_dTemp.getFullYear() == _currentDate.getFullYear() && _dTemp.getMonth() == _currentDate.getMonth() && _dTemp.getDate() == _currentDate.getDate())	{					
 						_thirdRow += "<td id='GC_" + (counter++) + "' class='GToDay' style='height:" + ((_maxLevel+1) * 21 + _taskList.length / 3 * 20) + "'>&nbsp;</td>";
 					} else {
-						_thirdRow += "<td id='GC_" + (counter++) + "' class='GDay'style='height:" + ((_maxLevel+1) * 21 + _taskList.length / 3 * 20) + "'>&nbsp;</td>";
+						_thirdRow += "<td id='GC_" + (counter++) + "' class='GDay' style='height:" + ((_maxLevel+1) * 21 + _taskList.length / 3 * 20) + "'>&nbsp;</td>";
 					}
 
 					if(_dTemp.getDay() != 0) {
@@ -132,12 +133,12 @@
 					
 					if(_dTemp.getDate() < getDaysInMonth(_dTemp.getMonth() + 1, _dTemp.getFullYear())) {
 						if(Date.parse(_dTemp) == Date.parse(_maxDate)) {							
-							_firstRowStr += "<td class='GMonth' colspan='" + (_monthColSpan + 1) + "'>M" + (_dTemp.getMonth() + 1) + "/" + _dTemp.getFullYear() + "</td>";							
+							//_firstRowStr += "<td class='GMonth' colspan='" + (_monthColSpan + 1) + "'>M" + (_dTemp.getMonth() + 1) + "/" + _dTemp.getFullYear() + "</td>";							
 						}
 						_dTemp.setDate(_dTemp.getDate() + 1);
 						_monthColSpan++;
 					} else {
-						_firstRowStr += "<td class='GMonth' colspan='" + (_monthColSpan + 1) + "'>M" + (_dTemp.getMonth() + 1) + "/" + _dTemp.getFullYear() + "</td>";
+						//_firstRowStr += "<td class='GMonth' colspan='" + (_monthColSpan + 1) + "'>M" + (_dTemp.getMonth() + 1) + "/" + _dTemp.getFullYear() + "</td>";
 						_monthColSpan = 0;
 						if(_dTemp.getMonth() == 11) {//December 
 							_dTemp.setFullYear(_dTemp.getFullYear() + 1, 0, 1);
@@ -152,9 +153,9 @@
 				_firstRowStr += "</tr>";	
 				_gStr += "</tr>";
 				_secondRow += "</tr>"
-				_gStr = _firstRowStr + _gStr + _secondRow + _thirdRow + "</table>";
+				_gStr = _firstRowStr + _gStr + _thirdRow + "</table>";
 
-				var offWidth = width + 3;
+				var offWidth = width;
 				
 				var some = 0;
 				var top = 0;
@@ -173,9 +174,9 @@
 						some ++;
 					}
 					
-					top = (16 * _level + 40 + some*20);
-					_gStr += "<div style='position:absolute; top:" + top + "; left:5px;width:150px;font-size:12px'>" + task.getTask() + "</div>";
-					_gStr += "<div style='position:absolute; top:" + top + "; left:" + (_offSet * offWidth + 154) + "px; width:" + (offWidth * _dateDiff - 1 + 100) + "'><div title='" + task.getTask() + "' class='GTask' style='float:left; width:" + (offWidth * _dateDiff - 1) + "px;" + "background-color:" + task.getColor()+ ";border:#000000 1px solid;text-align:center;'>" + task.getResource() + "</div></div>";
+					top = (16 * _level + 10 + some*20);
+					_gStr += "<div style='position:absolute; top:" + top + "; left:25px;width:150px;font-size:12px'>" + task.getTask() + "</div>";
+					_gStr += "<div style='position:absolute; top:" + top + "; left:" + (_offSet * offWidth + 156) + "px; width:" + (offWidth * _dateDiff + 101) + "px'><div title='" + task.getTask() + "' class='GTask' style='float:left; width:" + (offWidth * _dateDiff - 10) + "px;" + "background-color:" + task.getColor()+ ";border:#000000 1px solid;text-align:center;'>" + task.getResource() + "</div></div>";
 				}
 				_GanttDiv.innerHTML = _gStr;
 			}
@@ -266,11 +267,20 @@
 		font-family:tahoma, arial, verdana;
 		font-size:11px;
 		font-weight:bold;	
+		height: 30px;
 	}
 	
 	.GToday
 	{
-		background-color: #f785f4;	
+		border:0px;
+		border-left: 2px #f785f4 solid;
+		border-top: 1px black solid;
+		font-family:tahoma, arial, verdana;
+		font-size:11px;
+		text-align:center;
+		
+		/*
+		background-color: #f785f4;	*/
 	}
 	
 	.GWeekend
@@ -286,6 +296,8 @@
 		font-family:tahoma, arial, verdana;
 		font-size:11px;
 		text-align:center;
+		border:0px;
+		border-top: 1px black solid;
 	}
 	
 	.GTask
@@ -393,6 +405,6 @@
 	}
 	%>
 	
-	g.Draw(49, 19);	
+	g.Draw(49, 10);	
 </script>
 </html>

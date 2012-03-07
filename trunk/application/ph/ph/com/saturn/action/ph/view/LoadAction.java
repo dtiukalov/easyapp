@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.saturn.app.web.IAction;
 import com.saturn.app.web.IView;
+import com.saturn.app.web.WebHelper;
 import com.saturn.app.web.view.JspErrorView;
 import com.saturn.app.web.view.JspView;
 import com.saturn.ph.PH;
@@ -41,15 +42,25 @@ public class LoadAction implements IAction {
 			HttpServletResponse response) {
 
 		String name = (String)request.getParameter("name");
-//		String platformType = (String)request.getParameter("platformType");
+		String uid = (String)request.getParameter("uid");
 		
-		Item item = PH.getQueryService().queryItemByName(name);
+//		String platformType = (String)request.getParameter("platformType");		
+		Item item = null;
+		ModelObject object = PH.getDataService().loadModelObjectRefresh(uid);
+		
+		if(object != null ){
+			if(object instanceof Item){
+				item = (Item)object;
+			} else {
+				item = PH.getQueryService().queryItemByName(name);
+			}
+		}
+
 		PH.getDataService().getProperties(item, "object_name",
 			"displayable_revisions");
 		
 		String project = "";
 		String roadmap = "";
-		
 		Map<String, Object> formIds = new HashMap<String, Object>();
 		List<String> indexes = new ArrayList<String>();
 		
@@ -68,7 +79,7 @@ public class LoadAction implements IAction {
 							"project_ids", "fv9MLName");
 					
 					PH.getDataService().getProperties(itemRev, relations);
-					
+					PH.getDataService().refreshObjects(itemRev);
 					String projects = itemRev.getPropertyDisplayableValue("project_ids");
 					if (!"".equals(projects)) {
 						project = projects.split(",")[0];
@@ -87,7 +98,7 @@ public class LoadAction implements IAction {
 					request.setAttribute("current", "1");
 				}
 			} catch (NotLoadedException e1) {
-				// TODO Auto-generated catch block
+				request.setAttribute(WebHelper.ERROR_MESSAGE, e1.getMessage());
 				e1.printStackTrace();
 			}
 		} else {

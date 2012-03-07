@@ -11,12 +11,32 @@
 	<%@ include file="/app/pep/include/header.jsp"%>
 	<title><%=title %></title>
 	<%
-		List<String> fv9LogistikStyle = (List<String>)form.get("fv9LogistikStyle");
-		List<String> fv9LogistikStatus = (List<String>)form.get("fv9LogistikStatus");
-		List<String> fv9LogistikStCom_GM = (List<String>)form.get("fv9LogistikStCom_GM");
-		List<String> fv9LogistikStCom_CN = (List<String>)form.get("fv9LogistikStCom_CN");
-		List<String> fv9LogistikMab_GM = (List<String>)form.get("fv9LogistikMab_GM");
-		List<String> fv9LogistikMab_CN = (List<String>)form.get("fv9LogistikMab_CN");
+		List<String> fv9LogistikStyle = new ArrayList<String>();
+		List<String> fv9LogistikStatus = new ArrayList<String>(); 
+		List<String> fv9LogistikStCom_GM = new ArrayList<String>(); 
+		List<String> fv9LogistikStCom_CN = new ArrayList<String>();
+		List<String> fv9LogistikMab_GM = new ArrayList<String>(); 
+		List<String> fv9LogistikMab_CN = new ArrayList<String>();
+		
+		if(form.get("fv9LogistikStyle") != null){
+			fv9LogistikStyle = (List<String>)form.get("fv9LogistikStyle");
+		}
+		if(form.get("fv9LogistikStatus") != null){
+			fv9LogistikStatus = (List<String>)form.get("fv9LogistikStatus");
+		}
+		if(form.get("fv9LogistikStCom_GM") != null){
+			fv9LogistikStCom_GM = (List<String>)form.get("fv9LogistikStCom_GM");
+		}
+		if(form.get("fv9LogistikStCom_CN") != null){
+			fv9LogistikStCom_CN = (List<String>)form.get("fv9LogistikStCom_CN");
+		}
+		if(form.get("fv9LogistikMab_GM") != null){
+			fv9LogistikMab_GM = (List<String>)form.get("fv9LogistikMab_GM");
+		}
+		if(form.get("fv9LogistikMab_CN") != null){
+			fv9LogistikMab_CN = (List<String>)form.get("fv9LogistikMab_CN");
+		}
+		
 	%>
 </head>
 <body>

@@ -144,7 +144,7 @@ public class Web {
 	public static int[] getIntArrByStringlist(List<String> list) {
 		int[] result = null;
 
-		if (list == null) {
+		if (list == null || list.size() == 0) {
 			return null;
 		}
 

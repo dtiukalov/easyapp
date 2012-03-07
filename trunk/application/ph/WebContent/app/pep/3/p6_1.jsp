@@ -36,50 +36,58 @@
 		%>
 			<%
 			int total = 125;
-			int[] arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9KWNo"));
-			int size = arr.length;//一共有多少个柱子 
-			double pillar = 0.0;
 			int vffNum =  0;//柱子个数
 			int pvsNum = 0;//柱子个数
 			int osNum =  0;//柱子个数
 			int sopNum =  0;//柱子个数
+			int[] arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9KWNo"));
 			
-			if(size > 0){
-				int maxKw = arr[size-1];
-				int minKw = arr[0];
+			if (arr != null && arr.length > 0) {
+				int size = arr.length;//一共有多少个柱子 
+				double pillar = 0.0;
+				
+				if(size > 0){
+					int maxKw = arr[size-1];
+					int minKw = arr[0];
+				
+					String vff_start = "";
+					String pvs_start = "";
+					String os_start = "";
+					String sop_start = "";
+					String me_start = "";
+					
+					if(request.getSession().getAttribute("DATE_VFF") != null){
+						vff_start = request.getSession().getAttribute("DATE_VFF").toString();
+					}
+					if(request.getSession().getAttribute("DATE_PVS") != null){
+						pvs_start = request.getSession().getAttribute("DATE_PVS").toString();
+					}
+					if(request.getSession().getAttribute("DATE_0S") != null){
+						os_start = request.getSession().getAttribute("DATE_0S").toString();
+					}
+					if(request.getSession().getAttribute("DATE_SOP") != null){
+						sop_start = request.getSession().getAttribute("DATE_SOP").toString();
+					}
+					if(request.getSession().getAttribute("DATE_ME") != null){
+						me_start = request.getSession().getAttribute("DATE_ME").toString();
+					}
+					
+					int[] vffArr = Web.getMilepostArr(vff_start,pvs_start);
+					int[] pvsArr = Web.getMilepostArr(pvs_start,os_start);
+					int[] osArr = Web.getMilepostArr(os_start,sop_start);
+					int[] sopArr = Web.getMilepostArr(sop_start,me_start);
+					
+					 vffNum =  Web.getNum(vffArr,arr);//柱子个数
+					 pvsNum = Web.getNum(pvsArr,arr);;//柱子个数
+					 osNum =  Web.getNum(osArr,arr);;//柱子个数
+					 sopNum =  Web.getNum(sopArr,arr);;//柱子个数
+				}
+				
+			%>
 			
-				String vff_start = "";
-				String pvs_start = "";
-				String os_start = "";
-				String sop_start = "";
-				String me_start = "";
-				
-				if(request.getSession().getAttribute("DATE_VFF") != null){
-					vff_start = request.getSession().getAttribute("DATE_VFF").toString();
-				}
-				if(request.getSession().getAttribute("DATE_PVS") != null){
-					pvs_start = request.getSession().getAttribute("DATE_PVS").toString();
-				}
-				if(request.getSession().getAttribute("DATE_0S") != null){
-					os_start = request.getSession().getAttribute("DATE_0S").toString();
-				}
-				if(request.getSession().getAttribute("DATE_SOP") != null){
-					sop_start = request.getSession().getAttribute("DATE_SOP").toString();
-				}
-				if(request.getSession().getAttribute("DATE_ME") != null){
-					me_start = request.getSession().getAttribute("DATE_ME").toString();
-				}
-				
-				int[] vffArr = Web.getMilepostArr(vff_start,pvs_start);
-				int[] pvsArr = Web.getMilepostArr(pvs_start,os_start);
-				int[] osArr = Web.getMilepostArr(os_start,sop_start);
-				int[] sopArr = Web.getMilepostArr(sop_start,me_start);
-				
-				 vffNum =  Web.getNum(vffArr,arr);//柱子个数
-				 pvsNum = Web.getNum(pvsArr,arr);;//柱子个数
-				 osNum =  Web.getNum(osArr,arr);;//柱子个数
-				 sopNum =  Web.getNum(sopArr,arr);;//柱子个数
+			<%
 			}
+			
 			%>
 		<script type="text/javascript">
 		var chart;
@@ -313,90 +321,108 @@
 					<tr>
 						<td style="text-align: left;width: 400px;">&nbsp;</td>
 						<%
-						for (int j=0; j<KWNo.size(); j++) {
+						if (KWNo != null && KWNo.size() > 0) {
+							for (int j=0; j<KWNo.size(); j++) {
 						%>
 							<td style="width: <%=642/KWNo.size()%>px"><%=KWNo.get(j) %></td>
 						<%
+							}
 						}
 						%>
 					</tr>
 					<tr>
 						<td style="text-align: left;width:400px;"><img src="<%=request.getContextPath() %>/app/pep/images/ls.jpg">in Planung</td>
 						<%
-						for (int j=0; j<InPlanung.size(); j++) {
+						if (InPlanung != null && InPlanung.size() > 0) {
+							for (int j=0; j<InPlanung.size(); j++) {
 						%>
 							<td><%if (InPlanung.get(j) != null){out.print(InPlanung.get(j));} else {out.print("&nbsp;");}%></td>
 						<%
+							}
 						}
 						%>
 					</tr>
 					<tr>
 						<td style="text-align: left;width: 400px;"><img src="<%=request.getContextPath() %>/app/pep/images/hs.jpg">Maßnahme nicht erarbeitet</td>
 						<%
-						for (int j=0; j<MabnaNichtErarb.size(); j++) {
+						if (MabnaNichtErarb != null && MabnaNichtErarb.size() > 0) {
+							for (int j=0; j<MabnaNichtErarb.size(); j++) {
 						%>
 							<td><%if (MabnaNichtErarb.get(j) != null){out.print(MabnaNichtErarb.get(j));} else {out.print("&nbsp;");}%></td>
 						<%
+							}
 						}
 						%>
 					</tr>
 					<tr>
 						<td style="text-align: left;width: 550px;"><img src="<%=request.getContextPath() %>/app/pep/images/huangs.jpg">Maßnahmen werden definiert</td>
 						<%
-						for (int j=0; j<MabnaWerdenDef.size(); j++) {
+						if (MabnaWerdenDef != null && MabnaWerdenDef.size() > 0) {
+							for (int j=0; j<MabnaWerdenDef.size(); j++) {
 						%>
 							<td><%if (MabnaWerdenDef.get(j) != null){out.print(MabnaWerdenDef.get(j));} else {out.print("&nbsp;");}%></td>
 						<%
+							}
 						}
 						%>
 					</tr>
 					<tr>
 						<td style="text-align: left;width: 300px;"><img src="<%=request.getContextPath() %>/app/pep/images/lvs.jpg">Maßnahme definiert</td>
 						<%
-						for (int j=0; j<MabnaDef.size(); j++) {
+						if (MabnaDef != null && MabnaDef.size() > 0) {
+							for (int j=0; j<MabnaDef.size(); j++) {
 						%>
 							<td><%if (MabnaDef.get(j) != null){out.print(MabnaDef.get(j));} else {out.print("&nbsp;");}%></td>
 						<%
+							}
 						}
 						%>
 					</tr>
 					<tr>
 						<td style="text-align: left;width: 300px;"><img src="<%=request.getContextPath() %>/app/pep/images/slv.jpg">i.O.</td>
 						<%
-						for (int j=0; j<IO.size(); j++) {
+						if (IO != null && IO.size() > 0) {
+							for (int j=0; j<IO.size(); j++) {
 						%>
 							<td><%if (IO.get(j) != null){out.print(IO.get(j));} else {out.print("&nbsp;");}%></td>
 						<%
+							}
 						}
 						%>
 					</tr>
 					<tr>
 						<td style="text-align: left;width: 300px;"><img src="<%=request.getContextPath() %>/app/pep/images/lx.jpg">Prognose in Planung</td>
 						<%
-						for (int j=0; j<PrognosePlan.size(); j++) {
+						if (PrognosePlan != null && PrognosePlan.size() > 0) {
+							for (int j=0; j<PrognosePlan.size(); j++) {
 						%>
 							<td><%if (PrognosePlan.get(j) != null){out.print(PrognosePlan.get(j));} else {out.print("&nbsp;");}%></td>
 						<%
+							}
 						}
 						%>
 					</tr>
 					<tr>
 						<td style="text-align: left;width: 300px;"><img src="<%=request.getContextPath() %>/app/pep/images/hsx.jpg">Ziel</td>
 						<%
-						for (int j=0; j<Zeil.size(); j++) {
+						if (Zeil != null && Zeil.size() > 0) {
+							for (int j=0; j<Zeil.size(); j++) {
 						%>
 							<td><%if (Zeil.get(j) != null){out.print(Zeil.get(j));} else {out.print("&nbsp;");}%></td>
 						<%
+							}
 						}
 						%>
 					</tr>
 					<tr>
 						<td style="text-align: left;width: 300px;"><img src="<%=request.getContextPath() %>/app/pep/images/lsx.jpg">Prognose i.O.</td>
 						<%
-						for (int j=0; j<PrognoseIO.size(); j++) {
+						if (PrognoseIO != null && PrognoseIO.size() > 0) {
+							for (int j=0; j<PrognoseIO.size(); j++) {
 						%>
 							<td><%if (PrognoseIO.get(j) != null){out.print(PrognoseIO.get(j));} else {out.print("&nbsp;");}%></td>
 						<%
+							}
 						}
 						%>
 					</tr>

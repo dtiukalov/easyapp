@@ -77,7 +77,9 @@
 			}
 			
 		}
-		kwbuffer.substring(0, kwbuffer.lastIndexOf(","));
+		if (kwbuffer.toString().contains(",")) {
+			kwbuffer.substring(0, kwbuffer.lastIndexOf(","));
+		}
 		kwbuffer.append("]");
 		String KW = kwbuffer.toString();
 		

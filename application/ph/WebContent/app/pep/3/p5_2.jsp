@@ -71,20 +71,24 @@
 		
 		%>
 		<%
+		int vffPillarNum =  0;//柱子个数
+		int pvsPillarNum = 0;//柱子个数
+		int osPillarNum =  0;//柱子个数
+		int sopPillarNum =  0;//柱子个数
+		
+		double pillar = 0.0;
+		double value1 = 0 ; 
+		double value2 = 0;
+		double value3 = 0;
+		double value4 = 0;
+		
+		double sum = 0.0;
+		
+		if (Web.getYesOrNo((List<String>)form.get("fv9KWNo"))) {
 			int[] arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9KWNo"));
 			
 			int size = arr.length;//一共有多少个柱子 
-			double pillar = 0.0;
 			
-			int vffPillarNum =  0;//柱子个数
-			int pvsPillarNum = 0;//柱子个数
-			int osPillarNum =  0;//柱子个数
-			int sopPillarNum =  0;//柱子个数
-			
-			double value1 = 0 ; 
-			double value2 = 0;
-			double value3 = 0;
-			double value4 = 0;
 			if(size > 0){
 				int maxKw = arr[size-1];
 				int minKw = arr[0];
@@ -145,7 +149,8 @@
 				}
 			}
 			
-			double sum = value1 + value2 + value3 + value4;
+			sum = value1 + value2 + value3 + value4;
+		}
 		%>
 		<script type="text/javascript">
 			var chart1, chart2, chart3, chart4, chart5;
@@ -883,7 +888,6 @@
 					}],
 					yAxis: {
 						min:0,
-						max:250,
 						gridLineWidth:0,
 						lineWidth:1,
 						tickWidth:1,

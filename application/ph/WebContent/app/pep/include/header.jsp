@@ -9,28 +9,6 @@
 <%@page import="com.saturn.web.Web"%>
 <script type="text/javascript" src="<%=request.getContextPath()%>/app/js/jquery-1.4.4.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/app/js/highcharts.src.js"></script>
-<script type="text/javascript">
-	<%
-		Object __tcsession = request.getSession().getAttribute("TC_SESSION");
-		Object __tcLoginError =request.getAttribute("msg");
-	
-		if(__tcLoginError != null){
-	%>		$(function() {
-				alert(<%=__tcLoginError%>);
-				top.location.href = '<%=request.getContextPath()%>/app/pep/login.jsp%>';
-			});
-	<%		
-		}
-		if (__tcsession == null) {
-	%>
-		$(function() {
-				alert("用户过期,请重新登录");
-				top.location.href = '<%=request.getContextPath()%>/app/pep/login.jsp';
-		});
-	<%
-		}
-	%>
-</script>
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/app/pep/include/base.css">
 <%

@@ -51,7 +51,7 @@
 				<div id="german">
 					<input type="button" class="china" onclick="changeChinese()" />
 				</div>
-				<div id="datatable1" style="margin:10px auto">
+				<div id="datatable1" style="margin:10px auto; font-size: 12px;">
 					<table width="96%" border="0" cellspacing="5" cellpadding="0" class="ed">
 				        <tr>
 				        	<td width="19%">&nbsp;</td>
@@ -67,31 +67,31 @@
 				        <%
 							if (fv9ErprobStyle != null && fv9ErprobStyle.size() >0) {
 								for (int i=0; i<fv9ErprobStyle.size(); i++){
-									String Style = (String)fv9ErprobStyle.get(i);
-									String status = (String)fv9ErprobStatus.get(i);
-									String stcom_gm = (String)fv9ErprobStCom_GM.get(i);
-									String nachsch_gm = (String)fv9ErprobNachSch_GM.get(i);
+									String Style = Web.replaceSpecial((String)fv9ErprobStyle.get(i));
+									String status = Web.replaceSpecial((String)fv9ErprobStatus.get(i));
+									String stcom_gm = Web.replaceSpecial((String)fv9ErprobStCom_GM.get(i));
+									String nachsch_gm = Web.replaceSpecial((String)fv9ErprobNachSch_GM.get(i));
 						%>
 						 <tr>
 				          <td width="19%">
 					          <div class="kbg">
 					          	<div class="he">
 						          	<div class="wz"><h3><%=Style %></h3></div>
-						          	<div class="tupian">
+						          	<div class="tupian" style="padding-top: 10px; vertical-align: middle;text-align: center;">
 						          	<%
 						          	if ("红".equals(status)) {
 						          	%>
-						          		<img src="../images/redStatus.png" style="height:75px;width:25px;" />
+						          		<img src="../images/redStatus.png" style="height:59px;width:25px;" />
 						          	<%
 						          	}
 						          	if ("黄".equals(status)) {
 						          	%>
-						          		<img src="../images/yellowStatus.png" style="height:75px;width:25px;" />
+						          		<img src="../images/yellowStatus.png" style="height:59px;width:25px;" />
 						          	<%
 							        }
 						          	if ("绿".equals(status)) {
 						          	%>
-						          		<img src="../images/greenStatus.png" style="height:75px;width:25px;" />
+						          		<img src="../images/greenStatus.png" style="height:59px;width:25px;" />
 						          	<%
 						          	}
 						          	%>
@@ -125,7 +125,7 @@
 			      <div id="china" style="display: none;">
 				  	<input type="button" class="german" onclick="changeGerman()"/>
 				  </div>
-			      <div id="datatable2" style=" display: none;margin:10px auto">
+			      <div id="datatable2" style=" display: none; margin:10px auto; font-size: 12px;">
 					<table width="96%" border="0" cellspacing="5" cellpadding="0" class="ed">
 				        <tr>
 				        	<td width="19%">&nbsp;</td>

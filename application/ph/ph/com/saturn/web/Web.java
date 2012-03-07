@@ -281,4 +281,10 @@ public class Web {
 		} 
 		return false;
 	}
+	
+	public static String replaceSpecial(String str) {
+		str = str.replaceAll("\n", "<br>").replaceAll("\"", "\\\"").replaceAll("\'", "\\\'");
+		
+		return str;
+	}
 }

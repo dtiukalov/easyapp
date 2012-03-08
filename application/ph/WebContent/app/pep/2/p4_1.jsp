@@ -16,58 +16,70 @@
 			String fv9AekoSmall2Woch =  "[]";
 			String fv9AekoBig2Woch =  "[]"; 
 			String deviationa =  "[]";
-			
-			 if(form.get("fv9KWNo") != null && ((List<String>)form.get("fv9KWNo")).size() > 0){
-				fv9KWNo = Web.getNumberListStrSubFirst((List<String>)form.get("fv9KWNo"));
-			 }	
-			 if(form.get("fv9AekoAbgesch") != null && ((List<String>)form.get("fv9AekoAbgesch")).size() > 0){
-				fv9AekoAbgesch =  Web.getNumberListStrSubFirst((List<String>)form.get("fv9AekoAbgesch"));
-			 }
-			 if(form.get("fv9AekoSmall2Woch") != null && ((List<String>)form.get("fv9AekoSmall2Woch")).size() > 0){
-				fv9AekoSmall2Woch = Web.getNumberListStrSubFirst((List<String>)form.get("fv9AekoSmall2Woch"));
-			 }
-			 if(form.get("fv9AekoBig2Woch") != null && ((List<String>)form.get("fv9AekoBig2Woch")).size() > 0){
-				fv9AekoBig2Woch = Web.getNumberListStrSubFirst((List<String>)form.get("fv9AekoBig2Woch"));
-			 }
-			 if(form.get("fv9AekoAbgesch") != null && 
-					 form.get("fv9AekoSmall2Woch") != null &&
-					 form.get("fv9AekoBig2Woch") != null ){
-					 if(((List<String>)form.get("fv9AekoAbgesch")).size() > 0 &&
-							 ((List<String>)form.get("fv9AekoSmall2Woch")).size() > 0&&
-							 ((List<String>)form.get("fv9AekoBig2Woch")).size() > 0 ){
-						 
-						 List<String> sumList = Web.SumList((List<String>)form.get("fv9AekoAbgesch"), 
-									(List<String>)form.get("fv9AekoSmall2Woch"),
-									(List<String>)form.get("fv9AekoBig2Woch"));
-						 deviationa = Web.compareByKW(sumList);
-					 }
-			 }
-			
 			int fv9PronoseAbgesch = 0;
 			int fv9PronoseSmall2Woch = 0;
 			int fv9PronoseBig2Woch = 0;
-		
-			if(form.get("fv9PronoseAbgesch")!= null){
-				fv9PronoseAbgesch = Integer.parseInt((String)form.get("fv9PronoseAbgesch"));
-			}
+
+			 if(Web.getYesOrNo((List<String>)form.get("fv9KWNo"))){
+				fv9KWNo = Web.getNumberListStrSubFirst((List<String>)form.get("fv9KWNo"));
+				fv9KWNo = fv9KWNo.substring(0, fv9KWNo.length()-1);
+				fv9KWNo += ",'', '', 'IST']";
+			 }	
+			 
+			 if(Web.getYesOrNo((List<String>)form.get("fv9AekoAbgesch"))){
+				fv9AekoAbgesch = Web.getNumberListStrSubFirst((List<String>)form.get("fv9AekoAbgesch"));
+				fv9AekoAbgesch = fv9AekoAbgesch.substring(0, fv9AekoAbgesch.length()-1);
+				fv9AekoAbgesch += ", 0, 0,";
+				if(Web.getYesOrNo(form.get("fv9PronoseAbgesch"))){
+					fv9PronoseAbgesch = Integer.parseInt((String)form.get("fv9PronoseAbgesch"));
+				}
+				fv9AekoAbgesch += fv9PronoseAbgesch + "]";
+			 }
+			 
+			 if(Web.getYesOrNo((List<String>)form.get("fv9AekoSmall2Woch"))){
+				fv9AekoSmall2Woch = Web.getNumberListStrSubFirst((List<String>)form.get("fv9AekoSmall2Woch"));
+				fv9AekoSmall2Woch = fv9AekoSmall2Woch.substring(0, fv9AekoSmall2Woch.length()-1);
+				fv9AekoSmall2Woch += ", 0, 0,";
+				if(Web.getYesOrNo(form.get("fv9PronoseSmall2Woch"))){
+					fv9PronoseSmall2Woch = Integer.parseInt((String)form.get("fv9PronoseSmall2Woch"));
+				}
+				fv9AekoSmall2Woch += fv9PronoseSmall2Woch + "]";
+			 }
+			 
+			 if(Web.getYesOrNo((List<String>)form.get("fv9AekoBig2Woch"))){
+				fv9AekoBig2Woch = Web.getNumberListStrSubFirst((List<String>)form.get("fv9AekoBig2Woch"));
+				fv9AekoBig2Woch = fv9AekoBig2Woch.substring(0, fv9AekoBig2Woch.length()-1);
+				fv9AekoBig2Woch += ", 0, 0,";
+				if(Web.getYesOrNo(form.get("fv9PronoseBig2Woch"))){
+					fv9PronoseBig2Woch = Integer.parseInt((String)form.get("fv9PronoseBig2Woch"));
+				}
+				fv9AekoBig2Woch += fv9PronoseBig2Woch + "]";
+			 }
+			 
+			 if(Web.getYesOrNo((List<String>)form.get("fv9AekoAbgesch")) && 
+					 Web.getYesOrNo((List<String>)form.get("fv9AekoSmall2Woch")) &&
+					 Web.getYesOrNo((List<String>)form.get("fv9AekoBig2Woch"))){
+						 
+					 List<String> sumList = Web.SumList((List<String>)form.get("fv9AekoAbgesch"), 
+								(List<String>)form.get("fv9AekoSmall2Woch"),
+								(List<String>)form.get("fv9AekoBig2Woch"));
+					 deviationa = Web.compareByKW(sumList);
+					 deviationa = deviationa.substring(0, deviationa.length()-1);
+					 deviationa += ", '', '', '']";
+			 }
+			String categories = "";
+			categories += "[";
 			
-			if(form.get("fv9PronoseSmall2Woch")!= null ){
-				fv9PronoseSmall2Woch = Integer.parseInt((String)form.get("fv9PronoseSmall2Woch"));
-			}
-
-			if(form.get("fv9PronoseBig2Woch")!= null ){
-				fv9PronoseBig2Woch = Integer.parseInt((String)form.get("fv9PronoseBig2Woch"));
-			}
-
+			categories += "]";
+			                
 		%>
 
 		<script type="text/javascript">
-		var chart1;
-		var chart2;
+		var chart;
 		$(document).ready(function() {
 			chart1 = new Highcharts.Chart({
 				chart: {
-					renderTo: 'chart1',
+					renderTo: 'chart',
 					defaultSeriesType: 'column',
 					marginLeft:30
 				},
@@ -85,34 +97,43 @@
 					categories: <%=fv9KWNo%>,
 					labels:{
 						enabled:true,
-						y:20,
+						y:12,
 						style:{
 							color:'black',
 							fontSize:'12px'
 						}
 					}
-				},{ // mirror axis on right side
-					//opposite: false,
-					//reversed: false,
-					categories: <%=deviationa%>,
-					linkedTo: 0,
+				}, {
+					categories: '[]',
 					lineColor:'black',
+					linkedTo: 0,
 					lineWidth:2,
-					tickWidth:0,
-					labels:{
-						y:20,
-						style:{
-							color:'black',
-							fontSize:'12px'
-						}
-					},
 					title: {
 						text: '2011 Anzahl neuer ÄKOs',
 						style:{
 							color:'black'
 						}
+					},
+					labels: {
+						enabled:false
 					}
-				}],
+				}, {
+					categories:  <%=deviationa%>,
+					lineColor:'black',
+					lineWidth:2,
+					linkedTo: 1,
+					title: {
+						style:{
+							color:'black'
+						}
+					},
+					labels: {
+						enabled:true
+					}
+				}
+
+				
+				],
 				yAxis: {
 					gridLineWidth: 0,
 					title: {
@@ -134,12 +155,12 @@
 					}
 				},
 				legend: {
-					enabled: false,
-					layout: 'vertical',
-					align: 'right',
+					enabled: true,
+					layout: 'horizontal',
+					align: 'center',
 					verticalAlign: 'top',
-					x: -10,
-					y: 220,
+					x: 10,
+					y: 20,
 					borderWidth: 0,
 					shadow: false
 				},
@@ -190,127 +211,7 @@
 				},{
 					name: 'ÄKO,AeA abgeschlossen',
 					data: <%=fv9AekoAbgesch%>,
-					color: '#009C0E'
-				}]
-			});
-			
-			chart2 = new Highcharts.Chart({
-				chart: {
-					renderTo: 'chart2',
-					defaultSeriesType: 'column'
-				},
-				title: {
-					text: '',
-					style:{
-						color:'black',
-						fontSize:'20px'
-					}
-				},
-				xAxis: [{
-					lineColor:'black',
-					tickWidth:0,
-					lineWidth:2,
-					categories: ' ',
-					labels:{
-						enabled:true,
-						y:20,
-						style:{
-							color:'black',
-							fontSize:'12px'
-						}
-					}
-				},{ // mirror axis on right side
-					opposite: false,
-					reversed: false,
-					categories: ' ',
-					linkedTo: 0,
-					lineColor:'black',
-					lineWidth:2,
-					tickWidth:0,
-					labels:{
-						y:20,
-						style:{
-							color:'black',
-							fontSize:'12px'
-						}
-					},
-					title: {
-						text: '2011 Anzahl neuer ÄKOs',
-						style:{
-							color:'black'
-						}
-					}
-				}],
-				yAxis: {
-					gridLineWidth: 0,
-					title: {
-						text: ''
-					},
-					labels:{
-						enabled:false,
-						style:{
-							color:'black'
-						}
-					},
-					stackLabels: {
-						enabled: true,
-						y:-15,
-						style: {
-							color: 'black',
-							fontSize:'12px'
-						}
-					}
-				},
-				legend: {
-					layout: 'horizontal',
-					align: 'right',
-					verticalAlign: 'bottom',
-					x: -30,
-					y: -50,
-					borderWidth: 0,
-					shadow: false,
-		            width:220, 
-		            symbolWidth: 10,
-					itemStyle: {
-			            color: '#000000',
-			            paddingBottom: '5px'
-
-			        } 
-				},
-				
-				tooltip: {
-					formatter: function() {
-						return '<b>'+ this.x +'</b><br/>'+
-							 this.series.name +': '+ this.y +'<br/>'+
-							 'Total: '+ this.point.stackTotal;
-					}
-				},
-				plotOptions: {
-					column: {
-						stacking: 'normal',
-						borderColor: 'black',
-						shadow:false,
-						pointWidth:20,
-						dataLabels: {
-							enabled: true,
-							style : {
-								fontSize:'12px'
-							},
-							color: 'black',
-							formatter: function() {
-								if (this.y == 0) {
-									return '';
-								}
-								return this.y + '';
-							}
-						}
-					}
-				},
-			    series: [
-			     {
-					name: 'ÄKO,AeA  im Durchlauf (> 2 Wochen)',
-					data: <%=fv9PronoseBig2Woch%>,
-					color: '#E63110',
+					color: '#009C0E',
 					dataLabels: {
 						enabled: true,
 						style : {
@@ -318,16 +219,9 @@
 						},
 						color: 'white'
 					}
-				}, {
-					name: 'ÄKO,AeA im Durchlauf (< 2 Wochen)',
-					data: <%=fv9PronoseSmall2Woch%>,
-					color: '#F9A700'
-				},{
-					name: 'ÄKO,AeA abgeschlossen',
-					data: <%=fv9PronoseAbgesch%>,
-					color: '#009C0E'
 				}]
 			});
+			
 		});
 		</script>
 </head>
@@ -340,8 +234,7 @@
 				<h1><%=title %></h1>
 			</div>
 			<div id="content">
-				<div id="chart1" style="width: 580px; height: 400px; margin: 50px 30px; float: left;"></div>
-				<div id="chart2" style="width: 320px; height: 400px; margin: 36px -50px; float: left;"></div>
+				<div id="chart" style="width: 900px; height: 400px; margin: 50px 30px; float: left;"></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

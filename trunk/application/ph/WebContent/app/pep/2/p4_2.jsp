@@ -30,6 +30,7 @@
 		}
 		
 		int total = 25;// TODO:计算total的值   
+		int max = 0;
 			
 		if(fv9StyleName.size()>0 && fv9StyleNum.size()> 0 &&fv9StyleName.size() == fv9StyleNum.size()){
 		
@@ -78,6 +79,7 @@
 			}
 			data += "{ y:" + values[keys.length-1] + ", low:" + lows[keys.length-1] + ", color:" + colors[keys.length-1] + "}";
 			total = values[0] + 20;
+			
 		}
 		%>
 		<script type="text/javascript">
@@ -111,7 +113,6 @@
 				},
 				yAxis: {
 					min: 0,
-					max: 25,
 					gridLineWidth:0,
 					tickWidth:1,
 					tickPosition:'inside',

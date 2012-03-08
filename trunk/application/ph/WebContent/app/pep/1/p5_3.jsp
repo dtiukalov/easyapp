@@ -95,8 +95,7 @@
 				},
 				tooltip: {
 					formatter: function() {
-						var s = ''+
-								this.x  +'KW : '+ this.y;
+						var s = 'KW ' + this.x + ' : '+ this.y;
 						return s;
 					}
 				},

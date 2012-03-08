@@ -73,6 +73,9 @@
   	<td width="102" class="<%="car.audi.a4l".equals(model)||model==null||"".equals(model)?"biaoge":"biaogeh" %>" onclick="getCarByModule('car.audi.a4l');">A4L</td>
    <td width="102" class="<%="car.audi.a6l".equals(model)?"biaoge":"biaogeh" %>" onclick="getCarByModule('car.audi.a6l');">A6L</td>
    <td width="102" class="<%="car.audi.q5".equals(model)?"biaoge":"biaogeh" %>" onclick="getCarByModule('car.audi.q5');">Q5</td>
+   <td width="102">&nbsp;</td>
+   <td width="102">&nbsp;</td>
+   <td width="102">&nbsp;</td>
   </tr>
 </table>
 

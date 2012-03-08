@@ -63,20 +63,19 @@
         	String model = request.getParameter("model");
         	//System.out.println(model);
         	if(model==null||"".equals(model))
-        		model="car.infiniti.gconvertible";
+        		model="car.dongfenghonda.spirior";
         	List cars = NewCar.getListByModel(WebUtils.getRootCid(request),model);
         	%>
        	  <table width="726" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td><table width="640" border="0" align="center" cellpadding="0" cellspacing="10" class="xcbt">
   <tr>
-  	<td width="102" class="<%="car.infiniti.gconvertible".equals(model)||model==null||"".equals(model)?"biaoge":"biaogeh" %>" onclick="getCarByModule('car.infiniti.gconvertible');">GConvertible</td>
-   <td width="102" class="<%="car.infiniti.gcoupe".equals(model)?"biaoge":"biaogeh" %>" onclick="getCarByModule('car.infiniti.gcoupe');">G Coupe</td>
-   <td width="102" class="<%="car.infiniti.gsedan".equals(model)?"biaoge":"biaogeh" %>" onclick="getCarByModule('car.infiniti.gsedan');">G Sedan</td>
-   <td width="102" class="<%="car.infiniti.m".equals(model)?"biaoge":"biaogeh" %>" onclick="getCarByModule('car.infiniti.m');">M</td>
-   <td width="102" class="<%="car.infiniti.ex".equals(model)?"biaoge":"biaogeh" %>" onclick="getCarByModule('car.infiniti.ex');">EX</td>
-   <td width="102" class="<%="car.infiniti.fx".equals(model)?"biaoge":"biaogeh" %>" onclick="getCarByModule('car.infiniti.fx');">FX</td>
-   <td width="102" class="<%="car.infiniti.qx".equals(model)?"biaoge":"biaogeh" %>" onclick="getCarByModule('car.infiniti.qx');">QX</td>
+  	<td width="102" class="<%="car.dongfenghonda.spirior".equals(model)||model==null||"".equals(model)?"biaoge":"biaogeh" %>" onclick="getCarByModule('car.dongfenghonda.spirior');">思铂睿</td>
+   <td width="102" class="<%="car.dongfenghonda.crv".equals(model)?"biaoge":"biaogeh" %>" onclick="getCarByModule('car.dongfenghonda.crv');">CRV</td>
+   <td width="102" class="<%="car.dongfenghonda.civic".equals(model)?"biaoge":"biaogeh" %>" onclick="getCarByModule('car.dongfenghonda.civic');">思域</td>
+   <td width="102">&nbsp;</td>
+   <td width="102">&nbsp;</td>
+   <td width="102">&nbsp;</td>
   </tr>
 </table>
 

@@ -6,7 +6,7 @@
 <div id="header">
 	<div class="top">
     	<div class="logo"><img src="images/logo.gif" /></div>
-		<div class="xs">雪弗兰4S店</div>
+		<div class="xs">融展雪弗兰专营店</div>
 		<div class="rzlogo"><a href="../rongzhan/index.jsp"><img src="images/lox.jpg" /></a></div>
     </div><!--上部分-->
     <div class="nav">

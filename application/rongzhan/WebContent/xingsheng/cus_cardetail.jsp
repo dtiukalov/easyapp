@@ -29,35 +29,35 @@
 String model = request.getParameter("model");
 if("car.buick.kaiyue".equals(model)){
 %>
-<jsp:include flush="true" page="../include/kaiyue.jsp"/>
+<jsp:include flush="true" page="../car/tybk/ky.jsp"/>
 <%
 }else if("car.buick.junwei".equals(model)){
 %>
-<jsp:include flush="true" page="../include/junwei.jsp"/>
+<jsp:include flush="true" page="../car/tybk/jw.jsp"/>
 <%
 }else if("car.buick.yinglanggt".equals(model)){
 %>
-<jsp:include flush="true" page="../include/gt.jsp"/>
+<jsp:include flush="true" page="../car/tybk/ylGT.jsp"/>
 <%
 }else if("car.buick.junyue".equals(model)){
 %>
-<jsp:include flush="true" page="../include/junyue.jsp"/>
+<jsp:include flush="true" page="../car/tybk/jy.jsp"/>
 <%
 }else if("car.buick.yinglangxt".equals(model)){
 %>
-<jsp:include flush="true" page="../include/xt.jsp"/>
+<jsp:include flush="true" page="../car/tybk/ylXT.jsp"/>
 <%
 }else if("car.buick.gl8".equals(model)){
 %>
-<jsp:include flush="true" page="../include/gl8.jsp"/>
+<jsp:include flush="true" page="../car/tybk/bkGL8.jsp"/>
 <%
 }else if("car.buick.linyindadao".equals(model)){
 %>
-<jsp:include flush="true" page="../include/linyindadao.jsp"/>
+<jsp:include flush="true" page="../car/tybk/lydd.jsp"/>
 <%
 }else if("car.buick.angkelei".equals(model)){
 %>
-<jsp:include flush="true" page="../include/angkelei.jsp"/>
+<jsp:include flush="true" page="../car/tybk/akl.jsp"/>
 <%
 }else{
 %>

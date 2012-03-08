@@ -282,6 +282,13 @@ public class Web {
 		}
 		return false;
 	}
+	
+	public static boolean getYesOrNo(Object obj) {
+		if (obj != null && !"".equals((String)obj)) {
+			return true;
+		}
+		return false;
+	}
 
 	public static Boolean getDateStrNotNull(String date) {
 		if (date != null) {

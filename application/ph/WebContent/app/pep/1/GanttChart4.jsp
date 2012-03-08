@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="java.util.Map"%>
+<%@page import="com.saturn.web.Web"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.HashMap"%>	
@@ -333,60 +334,21 @@
 	String uid = request.getParameter("uid");
 	Map form = FormManager.getFormValue(uid,true);
 
-	List<String> fv9Stufe = new ArrayList<String>();
-	List<String> fv9FahrSoll = new ArrayList<String>();
-	List<String> fv9Fahrlst = new ArrayList<String>();
-	List<String> fv9KarossSoll = new ArrayList<String>();
-	List<String> fv9Karosslst = new ArrayList<String>();
+	List<String> fv9Stufe = (List<String>)form.get("fv9Stufe");
+	List<String> fv9FahrSoll = (List<String>)form.get("fv9FahrSoll");
+	List<String> fv9Fahrlst = (List<String>)form.get("fv9Fahrlst");
+	List<String> fv9KarossSoll = (List<String>)form.get("fv9KarossSoll");
+	List<String> fv9Karosslst = (List<String>)form.get("fv9Karosslst");
 	
-	List<String> fv9KarossStart = new ArrayList<String>();
-	List<String> fv9KarossEnd = new ArrayList<String>();
-	List<String> fv9LackStart = new ArrayList<String>();
-	List<String> fv9LackEnd = new ArrayList<String>();
-	List<String> fv9MontageStart = new ArrayList<String>();
-	List<String> fv9MontageEnd =  new ArrayList<String>();
-	List<String> fv9ObergabeStart =  new ArrayList<String>();
-	List<String> fv9ObergabeEnd =  new ArrayList<String>();
-	
-	if(form.get("fv9Stufe") != null){
-		fv9Stufe = (List<String>)form.get("fv9Stufe");
-	}
-	if(form.get("fv9FahrSoll") != null){
-		fv9FahrSoll = (List<String>)form.get("fv9FahrSoll");
-	}
-	if(form.get("fv9Fahrlst") != null){
-		fv9Fahrlst = (List<String>)form.get("fv9Fahrlst");
-	}
-	if(form.get("fv9KarossSoll") != null){
-		fv9KarossSoll = (List<String>)form.get("fv9KarossSoll");
-	}
-	if(form.get("fv9Karosslst") != null){
-		fv9Karosslst = (List<String>)form.get("fv9Karosslst");
-	}
-	if(form.get("fv9KarossStart") != null){		
-		fv9KarossStart = (List<String>)form.get("fv9KarossStart");
-	}
-	if(form.get("fv9KarossEnd") != null){		
-		fv9KarossEnd = (List<String>)form.get("fv9KarossEnd");
-	}
-	if(form.get("fv9LackStart") != null){		
-		fv9LackStart = (List<String>)form.get("fv9LackStart");
-	}
-	if(form.get("fv9LackEnd") != null){		
-		fv9LackEnd = (List<String>)form.get("fv9LackEnd");
-	}
-	if(form.get("fv9MontageStart") != null){		
-		fv9MontageStart = (List<String>)form.get("fv9MontageStart");
-	}
-	if(form.get("fv9MontageEnd") != null){		
-		fv9MontageEnd = (List<String>)form.get("fv9MontageEnd");
-	}
-	if(form.get("fv9ObergabeStart") != null){		
-		fv9ObergabeStart = (List<String>)form.get("fv9ObergabeStart");
-	}
-	if(form.get("fv9ObergabeEnd") != null){		
-		fv9ObergabeEnd = (List<String>)form.get("fv9ObergabeEnd");
-	}
+	List<String> fv9KarossStart = (List<String>)form.get("fv9KarossStart");
+	List<String> fv9KarossEnd = (List<String>)form.get("fv9KarossEnd");
+	List<String> fv9LackStart = (List<String>)form.get("fv9LackStart");
+	List<String> fv9LackEnd = (List<String>)form.get("fv9LackEnd");
+	List<String> fv9MontageStart = (List<String>)form.get("fv9MontageStart");
+	List<String> fv9MontageEnd =  (List<String>)form.get("fv9MontageEnd");
+	List<String> fv9ObergabeStart =  (List<String>)form.get("fv9ObergabeStart");
+	List<String> fv9ObergabeEnd =  (List<String>)form.get("fv9ObergabeEnd");
+
 %>
 <body>	
 	<div style="position:relative" class="Gantt" id="GanttChart"></div>
@@ -394,7 +356,19 @@
 <script>
 	var g = new Gantt(document.all.GanttChart);
 <%
-	if(fv9Stufe != null && fv9Stufe.size() > 0){
+	if(Web.getYesOrNo(fv9Stufe) && 
+			Web.getDateLisNotNull(fv9KarossStart) &&
+			Web.getDateLisNotNull(fv9KarossEnd) && 
+			Web.getDateLisNotNull(fv9LackStart) &&
+			Web.getDateLisNotNull(fv9LackEnd) &&
+			Web.getDateLisNotNull(fv9MontageStart) &&
+			Web.getDateLisNotNull(fv9MontageEnd) &&
+			Web.getDateLisNotNull(fv9ObergabeStart) &&
+			Web.getDateLisNotNull(fv9ObergabeEnd) &&
+			Web.getYesOrNo(fv9FahrSoll) && 
+			Web.getYesOrNo(fv9Fahrlst) && 
+			Web.getYesOrNo(fv9KarossSoll)&&
+			Web.getYesOrNo(fv9Karosslst)){
 		for(int i=0; i<fv9Stufe.size(); i++){
 			int level = 3*i + 1;%>
 			g.AddTaskDetail(new Task('<%=fv9KarossStart.get(i)%>', '<%=fv9KarossEnd.get(i)%>', '<b><%=fv9Stufe.get(i)%>Fahrzeuge<br \>Soll: <%=fv9FahrSoll.get(i)%>  Ist: <%=fv9Fahrlst.get(i)%> <br \>Karosserien <br \>Soll: <%=fv9KarossSoll.get(i)%>  Ist: <%=fv9Karosslst.get(i)%> </b>', 'A', 50, <%=level%>, '#AED4F8'));

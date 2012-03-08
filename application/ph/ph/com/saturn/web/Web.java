@@ -1,15 +1,16 @@
 package com.saturn.web;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import com.saturn.tc.utils.DateUtils;
 
 public class Web {
-	public static void main(String[] args) {
 
-	}
 
 	public static String compareByKW(List<String> list) {
 		if (list == null) {
@@ -126,7 +127,7 @@ public class Web {
 			return "[]";
 		}
 
-		if ((list instanceof List) && ((List)list).size() > 0) {
+		if ((list instanceof List) && ((List) list).size() > 0) {
 			StringBuffer buffer = new StringBuffer("[");
 
 			for (Object value : (List) list) {
@@ -226,11 +227,11 @@ public class Web {
 
 	public static int getNum(int[] milepostArr, int[] wkArr) {
 		int result = 0;
-		
-		if(milepostArr == null || wkArr == null){
+
+		if (milepostArr == null || wkArr == null) {
 			return result;
 		}
-		
+
 		int size1 = milepostArr.length;
 		int size2 = wkArr.length;
 		if (milepostArr != null && wkArr != null && size1 > 0 && size2 > 0) {
@@ -257,13 +258,13 @@ public class Web {
 		return result;
 	}
 
-	public static int getMax(List<String> p ) {
+	public static int getMax(List<String> p) {
 		int max = 0;
-		
-		if( p != null && p.size() > 0){
+
+		if (p != null && p.size() > 0) {
 			for (int i = 0; i < p.size(); i++) {
 				int value = 0;
-				if(p.get(i) != null){
+				if (p.get(i) != null) {
 					value = Integer.parseInt(p.get(i));
 					if (value >= max) {
 						max = value;
@@ -271,20 +272,94 @@ public class Web {
 				}
 			}
 		}
-		
+
 		return max;
 	}
-	
+
 	public static Boolean getYesOrNo(List<String> list) {
 		if (list != null && list.size() > 0) {
 			return true;
-		} 
+		}
+		return false;
+	}
+
+	public static Boolean getDateStrNotNull(String date) {
+		if (date != null) {
+			if (!"".equals(date)) {
+				if (!date.toString().startsWith("1900")) {
+					return true;
+				}
+			}
+		}
 		return false;
 	}
 	
-	public static String replaceSpecial(String str) {
-		str = str.replaceAll("\n", "<br>").replaceAll("\"", "\\\"").replaceAll("\'", "\\\'");
+	
+	public static Boolean getDateLisNotNull(List<String> date) {
+		if (date != null) {
+			for(String d : date){
+				if (!d.toString().startsWith("1900")) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	public static List<Map<String,String>> getHeBingLichengbeiList(List<Map<String,String>> list){
+		List<Map<String,String>> result = null;
 		
+		if(list!= null && list.size() > 0 ){
+			result = new ArrayList<Map<String,String>>();
+			Map<String,List<Map<String,String>>> dateKeytemp = new HashMap<String, List<Map<String,String>>>();
+			
+			for(Map<String,String> map : list){
+				String key = map.get("date").substring(0, 7).toString();
+				if(getDateStrNotNull(key)){
+					List<Map<String,String>> templist = new ArrayList<Map<String,String>>();
+					if(dateKeytemp.containsKey(key)){
+						dateKeytemp.get(key).add(map);
+					} else {
+						templist.add(map);
+						dateKeytemp.put(key, templist);
+					}
+				}
+			}
+			
+			Iterator<String> iterator = dateKeytemp.keySet().iterator();
+			
+			while(iterator.hasNext()){
+				String key = iterator.next();
+				List<Map<String,String>> value = dateKeytemp.get(key);
+				String tempLCB = "";
+				
+				Map<String,String> tt = new HashMap<String, String>(); 
+				
+				for(int i=0 ; i< value.size(); i++){
+					if(value.size() > 1){
+						tempLCB = tempLCB + "<br>" + value.get(i).get("lichengbei");
+						if(i == value.size()-1){
+							tempLCB = tempLCB.replaceFirst("<br>","");
+						}
+					} else {
+						tempLCB = tempLCB + value.get(i).get("lichengbei");
+					}
+					
+					tt.put("lichengbei", tempLCB); 
+					tt.put("date", value.get(i).get("date"));
+					tt.put("org",  value.get(i).get("org"));
+				}
+			
+				result.add(tt);
+			}
+		}
+		return result;
+	}
+
+	public static String replaceSpecial(String str) {
+		str = str.replaceAll("\n", "<br>").replaceAll("\"", "\\\"")
+				.replaceAll("\'", "\\\'");
+
 		return str;
 	}
 }

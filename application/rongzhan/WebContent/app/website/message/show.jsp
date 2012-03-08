@@ -119,7 +119,7 @@
 				} ] ],
 				pagination : true,
 				rownumbers : true,
-				toolbar : [ {
+				toolbar : [ /*{
 					id : 'btnadd',
 					text : '添加',
 					iconCls : 'icon-add',
@@ -127,7 +127,7 @@
 						window.location.href='<%=request.getContextPath()%>/app/website/message/add.jsp';
 						return false;//解决IE6的不跳转的bug
 					}
-				}, {
+				}, */{
 					id : 'btnedit',
 					text : '编辑',
 					iconCls : 'icon-edit',

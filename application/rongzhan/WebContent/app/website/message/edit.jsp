@@ -28,12 +28,6 @@
 		    }
 		});
 		
-
-		$('#type').combobox({
-			width : 250,
-			value : "${message.type}"
-		});
-		
 		$('#hasShow').combobox({
 			width : 256,
 			value : "${message.hasShow}",
@@ -77,9 +71,8 @@
 				</tr>
 				<tr>
 					<td style="text-align:right"><span style="color: red">*</span>类型:</td>
-					<td><select id="type" class="easyui-combobox"
-						name="type" url="<%=request.getContextPath()%>/app/system/dict/listDictByType.action?type=website.message.type" valueField="id"
-						textField="text" editable="false"></select></input></td>
+					<td><input id="type" name="type" type="text" value="${message.type}"></input>
+					</td>
 					<td><div id="typeTip"></div></td>
 				</tr>
 				<tr>

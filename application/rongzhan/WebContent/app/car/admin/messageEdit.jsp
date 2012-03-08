@@ -28,12 +28,6 @@
 		    }
 		});
 		
-
-		$('#type').combobox({
-			width : 250,
-			value : "${message.type}"
-		});
-		
 		$('#hasShow').combobox({
 			width : 256,
 			value : "${message.hasShow}",
@@ -41,25 +35,6 @@
 				$('#hasShowName').val(record.text);
 		    }
 		});
-		
-		$('#cid').combogrid({
-			width : 256,
-			panelWidth : 600,
-			idField : 'id',
-			textField : 'name',
-			pagination : true,
-			rownumbers : true,
-			sortName : 'id',
-			sortOrder : 'asc',
-			remoteSort : true,
-			url : '<%=request.getContextPath()%>/app/website/content/listRoot.action',
-			columns : [[
-				{field : 'id',title : '标识',width : 150, sortable : true},
-				{field : 'name',title : '名称',width : 100, sortable : true},
-				{field : 'hasShowName',title : '显示', width : 120, sortable : true}
-			]]
-		});
-		$('#cid').combogrid("setValue", '${message.cid}');
 	});
 </script>
 </head>
@@ -72,34 +47,33 @@
 			<table class="table-form">
 				<tr>
 					<td style="text-align:right"><span style="color: red">*</span>目录标识:</td>
-					<td><select id="cid" name="cid"></select></td>
+					<td><input id="cid" type="text" name="cid" type="text" value="${message.cid}" readonly="readonly"></input></td>
 					<td><div id="cidTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right"><span style="color: red">*</span>类型:</td>
-					<td><select id="type" class="easyui-combobox"
-						name="type" url="<%=request.getContextPath()%>/app/system/dict/listDictByType.action?type=website.message.type" valueField="id"
-						textField="text" editable="false"></select></input></td>
+					<td><input id="type" type="text" name="type" type="text" value="${message.type}" readonly="readonly"></input>
+					</td>
 					<td><div id="typeTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right"><span style="color: red">*</span>留言内容:</td>
-					<td><textarea id="sendText" name="sendText" cols="50" rows="5">${message.sendText}</textarea></td>
+					<td><textarea id="sendText" name="sendText" cols="50" rows="5" readonly="readonly">${message.sendText}</textarea></td>
 					<td><div id="sendTextTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right">留言电话:</td>
-					<td><input id="sendPhone" name="sendPhone" type="text" value="${message.sendPhone}"></input></td>
+					<td><input id="sendPhone" name="sendPhone" type="text" value="${message.sendPhone}" readonly="readonly"></input></td>
 					<td><div id="sendPhoneTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right">留言邮箱:</td>
-					<td><input id="sendEmail" name="sendEmail" type="text" value="${message.sendEmail}"></input></td>
+					<td><input id="sendEmail" name="sendEmail" type="text" value="${message.sendEmail}" readonly="readonly"></input></td>
 					<td><div id="sendEmailTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right">留言人:</td>
-					<td><input id="sendName" name="sendName" type="text" value="${message.sendName}"></input></td>
+					<td><input id="sendName" name="sendName" type="text" value="${message.sendName}" readonly="readonly"></input></td>
 					<td><div id="sendNameTip"></div></td>
 				</tr>
 				<tr>

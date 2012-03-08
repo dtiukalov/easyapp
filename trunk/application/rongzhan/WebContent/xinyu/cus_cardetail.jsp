@@ -29,31 +29,33 @@
 String model = request.getParameter("model");
 if("car.yiqivw.suteng".equals(model)){
 %>
-<jsp:include flush="true" page="../include/suteng.jsp"/>
+<jsp:include flush="true" page="../car/yqdz/st.jsp"/>
 <%
 }else if("car.yiqivw.jieda".equals(model)){
 %>
-<jsp:include flush="true" page="../include/jieda.jsp"/>
+<jsp:include flush="true" page="../car/yqdz/jd.jsp"/>
 <%
 }else if("car.yiqivw.maiteng".equals(model)){
 %>
-<jsp:include flush="true" page="../include/maiteng.jsp"/>
+迈腾
+<!--<jsp:include flush="true" page="../include/maiteng.jsp"/>-->
 <%
 }else if("car.yiqivw.baolai".equals(model)){
 %>
-<jsp:include flush="true" page="../include/baolai.jsp"/>
+<jsp:include flush="true" page="../car/yqdz/bl.jsp"/>
 <%
 }else if("car.yiqivw.gaoerfu".equals(model)){
 %>
-<jsp:include flush="true" page="../include/gaoerfu.jsp"/>
+<jsp:include flush="true" page="../car/yqdz/gef.jsp"/>
 <%
 }else if("car.yiqivw.gti".equals(model)){
 %>
-<jsp:include flush="true" page="../include/gti.jsp"/>
+GTI
+<!--<jsp:include flush="true" page="../include/gti.jsp"/>-->
 <%
 }else if("car.yiqivw.cc".equals(model)){
 %>
-<jsp:include flush="true" page="../include/cc.jsp"/>
+<jsp:include flush="true" page="../car/yqdz/cc.jsp"/>
 <%
 }else{
 %>

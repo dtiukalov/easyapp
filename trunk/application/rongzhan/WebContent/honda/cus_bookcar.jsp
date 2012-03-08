@@ -36,7 +36,7 @@ var saturnServerPath = '<%=request.getContextPath()%>';
 		code = __getTestCode();
 		$('#testCodeImage').attr("src", "<%=request.getContextPath()%>/app/system/testcode/test.do?code=" + code);
 		//$('#testCode').val(code);
-		$('#model').selectDict({type:'car.infiniti',id:'model'});
+		$('#model').selectDict({type:'car.dongfenghonda',id:'model'});
 	});
 	
 	function seriesDict(){
@@ -92,10 +92,10 @@ var saturnServerPath = '<%=request.getContextPath()%>';
 				type : _type,  
 				typeName : _typeName,     
 				cid : '<%=WebUtils.getRootCid(request)%>',     
-				brand : 'car.infiniti',  
+				brand : 'car.dongfenghonda',  
 				model : $('#model option:selected').val(),  
 				series : $('#series option:selected').val(), 
-				brandName : '英菲尼迪',  
+				brandName : '东风本田',  
 				modelName : $('#model option:selected').text(),  
 				seriesName : $('#series option:selected').text(),
 				state : 'bookcar.state.false',

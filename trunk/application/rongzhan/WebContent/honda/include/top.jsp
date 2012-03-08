@@ -6,7 +6,7 @@
 <div id="header">
 	<div class="top">
     	<div class="logo"><img src="images/logo.gif" /></div>
-		<div class="xs">东风本田专营店</div>
+		<div class="xs">融展东风本田专营店</div>
 		<div class="rzlogo"><a href="../rongzhan/index.jsp"><img src="../rongzhan/images/fhrz.gif" /></a></div>
     </div><!--上部分-->
     <div class="nav">

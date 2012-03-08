@@ -12,7 +12,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="../include/include.jsp" %>
-<title>英菲尼迪长春融展兴盛专营店</title>
+<title>融展东风本田专营店</title>
 <link href="css/base.css" rel="stylesheet" type="text/css" />
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/app/js/jquery-1.4.4.min.js"></script>
@@ -27,7 +27,7 @@
 	<div class="con1">
     	<div class="gyyfnd">
     		<div class="yfnd">
-        		<h1>关于英菲尼迪</h1>
+        		<h1>关于东风本田</h1>
                 <span><a href="<%="content.jsp?cid="+rootcid+".about&aid="+rootcid+".about.introduce" %>">更多</a></span>
        		</div>
         	<div class="yfndbg">
@@ -68,7 +68,7 @@
     	<div class="cxzs">
         	<div class="cxzst">
             	<h1>车型展示</h1>
-                <span><a href="cus_cars.jsp?cid=infiniti.sall&aid=infiniti.sall.new">更多</a></span>
+                <span><a href="cus_cars.jsp?cid=honda.sall&aid=honda.sall.new">更多</a></span>
             </div>
             <div class="cxzsbg">
             <%
@@ -153,9 +153,9 @@
         		<div class="yfndx"><img src="images/yfnd_x.gif" /></div>
     		</div><!--促销活动-->
             <div class="tupian">
-       			<a href="cus_bookcar.jsp?cid=infiniti.book&aid=infiniti.book.drive"><img src="images/yysj.jpg" /></a>
-        		<a href="cus_bookcar.jsp?cid=infiniti.book&aid=infiniti.book.maintain"><img src="images/byyy.jpg" /></a>
-        		<a href="cus_bookcar.jsp?cid=infiniti.book&aid=infiniti.book.repair"><img src="images/wxyy.jpg" /></a>
+       			<a href="cus_bookcar.jsp?cid=honda.book&aid=honda.book.drive"><img src="images/yysj.jpg" /></a>
+        		<a href="cus_bookcar.jsp?cid=honda.book&aid=honda.book.maintain"><img src="images/byyy.jpg" /></a>
+        		<a href="cus_bookcar.jsp?cid=honda.book&aid=honda.book.repair"><img src="images/wxyy.jpg" /></a>
             </div>
         </div><!--右侧促销活动等-->
     </div><!--第二行-->

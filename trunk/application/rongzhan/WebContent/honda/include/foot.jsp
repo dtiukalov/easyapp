@@ -39,7 +39,7 @@
 	%>
   	</ul>
     <div class="bq">
-<p>版权所有东风本田专营店</p>
+<p>版权所有融展东风本田专营店</p>
 <p>地址:</p>
 <p>电话:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%@ include file="../../include/flux.jsp" %></p>
     </div>

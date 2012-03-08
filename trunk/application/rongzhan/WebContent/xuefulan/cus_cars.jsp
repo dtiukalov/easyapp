@@ -63,20 +63,21 @@
         	String model = request.getParameter("model");
         	//System.out.println(model);
         	if(model==null||"".equals(model))
-        		model="car.xuefulan.gconvertible";
+        		model="car.xuefulan.saiou3";
         	List cars = NewCar.getListByModel(WebUtils.getRootCid(request),model);
         	%>
        	  <table width="726" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td><table width="640" border="0" align="center" cellpadding="0" cellspacing="10" class="xcbt">
   <tr>
-  	<td width="102" class="<%="car.xuefulan.gconvertible".equals(model)||model==null||"".equals(model)?"biaoge":"biaogeh" %>" onclick="getCarByModule('car.xuefulan.gconvertible');">GConvertible</td>
-   <td width="102" class="<%="car.xuefulan.gcoupe".equals(model)?"biaoge":"biaogeh" %>" onclick="getCarByModule('car.xuefulan.gcoupe');">G Coupe</td>
-   <td width="102" class="<%="car.xuefulan.gsedan".equals(model)?"biaoge":"biaogeh" %>" onclick="getCarByModule('car.xuefulan.gsedan');">G Sedan</td>
-   <td width="102" class="<%="car.xuefulan.m".equals(model)?"biaoge":"biaogeh" %>" onclick="getCarByModule('car.xuefulan.m');">M</td>
-   <td width="102" class="<%="car.xuefulan.ex".equals(model)?"biaoge":"biaogeh" %>" onclick="getCarByModule('car.xuefulan.ex');">EX</td>
-   <td width="102" class="<%="car.xuefulan.fx".equals(model)?"biaoge":"biaogeh" %>" onclick="getCarByModule('car.xuefulan.fx');">FX</td>
-   <td width="102" class="<%="car.xuefulan.qx".equals(model)?"biaoge":"biaogeh" %>" onclick="getCarByModule('car.xuefulan.qx');">QX</td>
+  	<td width="102" class="<%="car.xuefulan.saiou3".equals(model)||model==null||"".equals(model)?"biaoge":"biaogeh" %>" onclick="getCarByModule('car.xuefulan.saiou3');">赛欧三厢</td>
+   <td width="102" class="<%="car.xuefulan.saiou2".equals(model)?"biaoge":"biaogeh" %>" onclick="getCarByModule('car.xuefulan.saiou2');">赛欧两厢</td>
+   <td width="102" class="<%="car.xuefulan.keluzi".equals(model)?"biaoge":"biaogeh" %>" onclick="getCarByModule('car.xuefulan.keluzi');">科鲁兹</td>
+   <td width="102" class="<%="car.xuefulan.aiweiou3".equals(model)?"biaoge":"biaogeh" %>" onclick="getCarByModule('car.xuefulan.aiweiou3');">爱唯欧三厢</td>
+   <td width="102" class="<%="car.xuefulan.aiweiou2".equals(model)?"biaoge":"biaogeh" %>" onclick="getCarByModule('car.xuefulan.aiweiou2');">爱唯欧两厢</td>
+   <td width="102" class="<%="car.xuefulan.mairuibao".equals(model)?"biaoge":"biaogeh" %>" onclick="getCarByModule('car.xuefulan.mairuibao');">迈锐宝</td>
+   <td width="102" class="<%="car.xuefulan.kepaqi".equals(model)?"biaoge":"biaogeh" %>" onclick="getCarByModule('car.xuefulan.kepaqi');">科帕奇</td>
+   <td width="102" class="<%="car.xuefulan.jingcheng".equals(model)?"biaoge":"biaogeh" %>" onclick="getCarByModule('car.xuefulan.jingcheng');">景程</td>
   </tr>
 </table>
 

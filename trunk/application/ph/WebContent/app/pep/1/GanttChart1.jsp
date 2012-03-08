@@ -2,9 +2,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="java.util.Map"%>
+<%@page import="com.saturn.web.Web"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="java.util.HashMap"%>	
+<%@page import="java.util.HashMap"%>
 <html>
 
 <head>
@@ -197,83 +198,72 @@
 	/*----- END OF MY CODE FOR Gantt CHART GENERATOR -----*/
 </script>
 <style>
-	/*----- SICON GANTT CHART STYLE CLASSES --------------------------
+/*----- SICON GANTT CHART STYLE CLASSES --------------------------
 	 * DESCRIPTION	: Theses class is required for SIcon Gantt Chart
 	 * NOTE			: Should change the color, the text style only
 	 *----------------------------------------------------------------*/
-	.Gantt
-	{
-		font-family:tahoma, arial, verdana;
-		font-size:11px;
-	}
-	
-	.GTaskTitle
-	{
-		font-family:tahoma, arial, verdana;
-		font-size:11px;
-		font-weight:bold;
-	}
-	
-	.GMonth
-	{
-		padding-left:5px;
-		font-family:tahoma, arial, verdana;
-		font-size:11px;
-		font-weight:bold;	
-	}
-	
-	.GToday
-	{
-		border-left: 4px #f785f4 solid;
-		font-family:tahoma, arial, verdana;
-		font-size:11px;
-		text-align:center;
-	}
-	
-	.GWeekend
-	{
-		font-family:tahoma, arial, verdana;
-		font-size:11px;
-		background-color:#F5F5F5;
-		text-align:center;
-	}
-	
-	.GDay
-	{
-		font-family:tahoma, arial, verdana;
-		font-size:11px;
-		text-align:center;
-	}
-	
-	.GTask
-	{
-		border-top:1px solid #CACACA;
-		border-bottom:1px solid #CACACA;
-		height:14px;
-		background-color:yellow;
-	}
-	
-	.GTaska
-	{
-		height:19px;
-		background-color:yellow;
-		background:url(../images/bg.gif) no-repeat 0 0;
-		font-size:9px;
-		text-align:center;
-		font-weight:bold;
-		line-height:19px;
-		color:#FFF;
-	}
+.Gantt {
+	font-family: tahoma, arial, verdana;
+	font-size: 11px;
+}
 
-	.GProgress
-	{
-		background-color:black;
-		height:2px;
-		overflow: hidden;
-		margin-top:5px;
-	}
-	
-	
+.GTaskTitle {
+	font-family: tahoma, arial, verdana;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.GMonth {
+	padding-left: 5px;
+	font-family: tahoma, arial, verdana;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.GToday {
+	border-right: 4px #f785f4 solid;
+	font-family: tahoma, arial, verdana;
+	font-size: 11px;
+	text-align: center;
+}
+
+.GWeekend {
+	font-family: tahoma, arial, verdana;
+	font-size: 11px;
+	background-color: #F5F5F5;
+	text-align: center;
+}
+
+.GDay {
+	font-family: tahoma, arial, verdana;
+	font-size: 11px;
+	text-align: center;
+}
+
+.GTask {
+	border-top: 1px solid #CACACA;
+	border-bottom: 1px solid #CACACA;
+	height: 14px;
+	background-color: yellow;
+}
+
+.GTaska {
+	height: 19px;
+	background-color: yellow;
+	background: url(../images/bg.gif) no-repeat 0 0;
+	font-size: 9px;
+	text-align: center;
+	font-weight: bold;
+	line-height: 19px;
+	color: #FFF;
+}
+
+.GProgress {
+	background-color: black;
+	height: 2px;
+	overflow: hidden;
+	margin-top: 5px;
+}
 </style>
 <%
 	String uid = request.getParameter("uid");
@@ -282,139 +272,109 @@
 	List<Map<String,String>> list = new ArrayList<Map<String,String>>();
 	String lichengbeistr = "PM,PP,PD,PF,KE,DE,DF,BF,LF,VFF,PVS,OS,SOP,ME";
 	
-	String fv9PMML_Date = (String)form.get("fv9PMMLDate");//	里程碑日期_PM
-	String fv9PMML_Org = (String)form.get("fv9PMMLOrg");//	验收机构_PM
 	Map<String,String> mapPM = new HashMap<String,String>();
 	mapPM.put("lichengbei","PM");
-	mapPM.put("date",fv9PMML_Date);
-	mapPM.put("org",fv9PMML_Org);
+	mapPM.put("date", (String)form.get("fv9PMMLDate"));//	里程碑日期_PM
+	mapPM.put("org", (String)form.get("fv9PMMLOrg"));//	验收机构_PM
 	list.add(mapPM);
 	
-	String fv9PPML_Date = (String)form.get("fv9PPMLDate");//	里程碑日期_PP
-	String fv9PPML_Org = (String)form.get("fv9PPMLOrg");//	验收机构_PP
 	Map<String,String> mapPP = new HashMap<String,String>();
 	mapPP.put("lichengbei","PP");
-	mapPP.put("date",fv9PPML_Date);
-	mapPP.put("org",fv9PPML_Org);
+	mapPP.put("date",(String)form.get("fv9PPMLDate"));//	里程碑日期_PP
+	mapPP.put("org",(String)form.get("fv9PPMLOrg"));//	验收机构_PP
 	list.add(mapPP);
 	
-	String fv9PDML_Date = (String)form.get("fv9PDMLDate");;//	里程碑日期_PD
-	String fv9PDML_Org = (String)form.get("fv9PDMLOrg");//	验收机构_PD
 	Map<String,String> mapPD = new HashMap<String,String>();
 	mapPD.put("lichengbei","PD");
-	mapPD.put("date",fv9PDML_Date);
-	mapPD.put("org",fv9PDML_Org);
+	mapPD.put("date",(String)form.get("fv9PDMLDate"));//	里程碑日期_PD
+	mapPD.put("org",(String)form.get("fv9PDMLOrg"));//	验收机构_PD
 	list.add(mapPD);
 	
-	String fv9PFML_Date = (String)form.get("fv9PFMLDate");//	里程碑日期_PF
-	String fv9PFML_Org = (String)form.get("fv9PFMLOrg");;//	验收机构_PF
 	Map<String,String> mapPF = new HashMap<String,String>();
 	mapPF.put("lichengbei","PF");
-	mapPF.put("date",fv9PFML_Date);
-	mapPF.put("org",fv9PFML_Org);
+	mapPF.put("date",(String)form.get("fv9PFMLDate"));//	里程碑日期_PF
+	mapPF.put("org",(String)form.get("fv9PFMLOrg"));//	验收机构_PF
 	list.add(mapPF);
 	
-	String fv9KEML_Date = (String)form.get("fv9KEMLDate");//	里程碑日期_KE
-	String fv9KEML_Org = (String)form.get("fv9KEMLOrg");//	验收机构_KE
 	Map<String,String> mapKE = new HashMap<String,String>();
 	mapKE.put("lichengbei","KE");
-	mapKE.put("date",fv9KEML_Date);
-	mapKE.put("org",fv9KEML_Org);
+	mapKE.put("date",(String)form.get("fv9KEMLDate"));//	里程碑日期_KE
+	mapKE.put("org",(String)form.get("fv9KEMLOrg"));//	验收机构_KE
 	list.add(mapKE);
 	
-	String fv9DEML_Date = (String)form.get("fv9DEMLDate");//	里程碑日期_DE
-	String fv9DEML_Org = (String)form.get("fv9DEMLOrg");//	验收机构_DE
 	Map<String,String> mapDE = new HashMap<String,String>();
 	mapDE.put("lichengbei","DE");
-	mapDE.put("date",fv9DEML_Date);
-	mapDE.put("org",fv9DEML_Org);
+	mapDE.put("date",(String)form.get("fv9DEMLDate"));//	里程碑日期_DE
+	mapDE.put("org",(String)form.get("fv9DEMLOrg"));//	验收机构_DE
 	list.add(mapDE);
 	
-	String fv9DFML_Date = (String)form.get("fv9DFExtMLDate");//	里程碑日期_DF
-	String fv9DFML_Org = (String)form.get("fv9DFExtMLOrg");//	验收机构_DF
 	Map<String,String> mapDF = new HashMap<String,String>();
 	mapDF.put("lichengbei","DF");
-	mapDF.put("date",fv9DFML_Date);
-	mapDF.put("org",fv9DFML_Org);
+	mapDF.put("date",(String)form.get("fv9DFExtMLDate"));//	里程碑日期_DF
+	mapDF.put("org",(String)form.get("fv9DFExtMLOrg"));//	验收机构_DF
 	list.add(mapDF);
 	
-	String fv9BFML_Date = (String)form.get("fv9BFMLDate");//	里程碑日期_BF
-	String fv9BFML_Org = (String)form.get("fv9BFMLOrg");//	验收机构_BF
 	Map<String,String> mapBF = new HashMap<String,String>();
 	mapBF.put("lichengbei","BF");
-	mapBF.put("date",fv9BFML_Date);
-	mapBF.put("org",fv9BFML_Org);
+	mapBF.put("date", (String)form.get("fv9BFMLDate"));//	里程碑日期_BF
+	mapBF.put("org",(String)form.get("fv9BFMLOrg"));//	验收机构_BF
 	list.add(mapBF);
 	
-	String fv9LFML_Date = (String)form.get("fv9LFMLDate");//	里程碑日期_LF
-	String fv9LFML_Org = (String)form.get("fv9LFMLOrg");//	验收机构_LF
 	Map<String,String> mapLF = new HashMap<String,String>();
 	mapLF.put("lichengbei","LF");
-	mapLF.put("date",fv9LFML_Date);
-	mapLF.put("org",fv9LFML_Org);
+	mapLF.put("date",(String)form.get("fv9LFMLDate"));//	里程碑日期_LF
+	mapLF.put("org",(String)form.get("fv9LFMLOrg"));//	验收机构_LF
 	list.add(mapLF);
 	
-	String fv9VFFML_Date = (String)form.get("fv9VFFMLDate");//	里程碑日期_VFF
-	String fv9VFFML_Org = (String)form.get("fv9VFFMLOrg");//	验收机构_VFF
 	Map<String,String> mapVFF = new HashMap<String,String>();
 	mapVFF.put("lichengbei","VFF");
-	mapVFF.put("date",fv9VFFML_Date);
-	mapVFF.put("org",fv9VFFML_Org);
+	mapVFF.put("date",(String)form.get("fv9VFFMLDate"));//	里程碑日期_VFF
+	mapVFF.put("org",(String)form.get("fv9VFFMLOrg"));//	验收机构_VFF
 	list.add(mapVFF);
 	
-	String fv9PVSML_Date = (String)form.get("fv9PVSMLDate");//	里程碑日期_PVS
-	String fv9PVSML_Org = (String)form.get("fv9PVSMLOrg");//	验收机构_PVS
 	Map<String,String> mapPVS = new HashMap<String,String>();
 	mapPVS.put("lichengbei","PVS");
-	mapPVS.put("date",fv9PVSML_Date);
-	mapPVS.put("org",fv9PVSML_Org);
+	mapPVS.put("date",(String)form.get("fv9PVSMLDate"));//	里程碑日期_PVS
+	mapPVS.put("org",(String)form.get("fv9PVSMLOrg"));//	验收机构_PVS
 	list.add(mapPVS);
 	
-	String fv90SML_Date = (String)form.get("fv90SMLDate");//	里程碑日期_0S
-	String fv90SML_Org = (String)form.get("fv90SMLOrg");//	验收机构_0S
 	Map<String,String> map0S = new HashMap<String,String>();
 	map0S.put("lichengbei","0S");
-	map0S.put("date",fv90SML_Date);
-	map0S.put("org",fv90SML_Org);
+	map0S.put("date",(String)form.get("fv90SMLDate"));//	里程碑日期_0S
+	map0S.put("org",(String)form.get("fv90SMLOrg"));//	验收机构_0S
 	list.add(map0S);
 	
-	String fv9SOPML_Date = (String)form.get("fv9SOPMLDate");//	里程碑日期_SOP
-	String fv9SOPML_Org = (String)form.get("fv9SOPMLOrg");//	验收机构_SOP
 	Map<String,String> mapSOP = new HashMap<String,String>();
 	mapSOP.put("lichengbei","SOP");
-	mapSOP.put("date",fv9SOPML_Date);
-	mapSOP.put("org",fv9SOPML_Org);
+	mapSOP.put("date", (String)form.get("fv9SOPMLDate"));//	里程碑日期_SOP
+	mapSOP.put("org", (String)form.get("fv9SOPMLOrg"));//	验收机构_SOP
 	list.add(mapSOP);
 	
-	String fv9MEML_Date = (String)form.get("fv9MEMLDate");//	里程碑日期_ME
-	String MEfv9MEML_Org = (String)form.get("fv9MEMLOrg");//	验收机构_ME
 	Map<String,String> mapME = new HashMap<String,String>();
 	mapME.put("lichengbei","ME");
-	mapME.put("date",fv9MEML_Date);
-	mapME.put("org",MEfv9MEML_Org);
+	mapME.put("date",(String)form.get("fv9MEMLDate"));//	里程碑日期_ME
+	mapME.put("org",(String)form.get("fv9MEMLOrg"));//	验收机构_ME
 	list.add(mapME);
 
-	String Producktidefinition_S = fv9PFML_Date; 
-	String Producktidefinition_E = fv9LFML_Date; 
-	String Konzept_S = fv9LFML_Date;
-	String Konzept_E = fv9SOPML_Date;
-	String Serienvorboreitung_S = fv9SOPML_Date;
-	String Serienvorboreitung_E = fv9MEML_Date;
-	
+	String Producktidefinition_S = (String)form.get("fv9PFMLDate"); 
+	String Producktidefinition_E = (String)form.get("fv9LFMLDate"); 
+	String Konzept_S = (String)form.get("fv9LFMLDate");
+	String Konzept_E = (String)form.get("fv9SOPMLDate");
+	String Serienvorboreitung_S = (String)form.get("fv9SOPMLDate");
+	String Serienvorboreitung_E = (String)form.get("fv9MEMLDate");
+	list = Web.getHeBingLichengbeiList(list);
 	String project = (String)request.getSession().getAttribute("project");
 %>
-<body>	
-	<div style="position:relative" class="Gantt" id="GanttChart"></div>
+<body>
+	<div style="position: relative" class="Gantt" id="GanttChart"></div>
 </body>
-<script><!--
-	var g = new Gantt(document.all.GanttChart);
+<script>	var g = new Gantt(document.all.GanttChart);
 	
 	<%
 	if(list != null){
 		for(int j=0; j< list.size(); j++){
-			
 			Map<String,String> map = list.get(j);
-			if(map.get("date") != null && !"".equals(map.get("date"))){
+			if(Web.getDateStrNotNull(map.get("date"))){
 				%>
 				g.AddTaskDetail(new Task('<%=map.get("date")%>', '<%=map.get("date")%>', '<b><%=project%></b>', '<%=map.get("lichengbei")%><br /><h6 style="color: white" class="GTaska" ><%=map.get("org")%></h6>', 50, 1));
 				<%
@@ -423,28 +383,15 @@
 	} 
 	%>
 
-	<%if(Producktidefinition_S != null && !"".equals(Producktidefinition_S) && 
-				Producktidefinition_E != null && !"".equals(Producktidefinition_E)){
-	%>	
+	<%if(Web.getDateStrNotNull(Producktidefinition_S) && Web.getDateStrNotNull(Producktidefinition_E)){%>	
 	g.AddTaskDetail(new Task('<%=Producktidefinition_S%>', '<%=Producktidefinition_E%>', '<b></b>', '9 MO', 50, 5, '#f3f3f3'));
-
 	<%}%>
-	
-	<%if(Konzept_S != null && !"".equals(Konzept_S) && 
-			Konzept_E != null && !"".equals(Konzept_E)){
-		%>
+	<%if(Web.getDateStrNotNull(Konzept_S) && Web.getDateStrNotNull(Konzept_E)){%>
 	g.AddTaskDetail(new Task('<%=Konzept_S%>', '<%=Konzept_E%>', '<b></b>', '27 MO', 50, 5, '#b0b0b0'));
-
-		<%	
-	}%>
-	
-	<%if(Serienvorboreitung_S != null && !"".equals(Serienvorboreitung_S) && 
-			Serienvorboreitung_E != null && !"".equals(Serienvorboreitung_E)){
-		%>	
+	<%}%>
+	<%if(Web.getDateStrNotNull(Serienvorboreitung_S) && Web.getDateStrNotNull(Serienvorboreitung_E)){%>	
 	g.AddTaskDetail(new Task('<%=Serienvorboreitung_S%>', '<%=Serienvorboreitung_E%>', '<b></b>', '15 MO', 50, 5, '#414141'));
-		<%	
-	}%>
-	
-	g.Draw(49, 15);	
+<%}%>
+	g.Draw(49, 15);
 </script>
 </html>

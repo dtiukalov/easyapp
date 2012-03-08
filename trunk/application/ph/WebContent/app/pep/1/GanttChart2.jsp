@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="java.util.Map"%>
+<%@page import="com.saturn.web.Web"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.HashMap"%>
@@ -302,41 +303,13 @@
 	String uid = request.getParameter("uid");
 	Map form = FormManager.getFormValue(uid,true);
 	
-	List<String> fv9ProjectDerivat = new ArrayList<String>(); 
-	List<String> fv9ProjectStufe = new ArrayList<String>(); 
-	List<String> fv9ProjectPVS = new ArrayList<String>(); 
-	List<String> fv9ProjectVFF = new ArrayList<String>(); 
-	List<String> fv9Project0S = new ArrayList<String>(); 
-	List<String> fv9ProjectSOP = new ArrayList<String>(); 
-	List<String> fv9ProjectMix = new ArrayList<String>(); 	
-	
-	if (form.get("fv9ProjectDerivat") != null ){
-		fv9ProjectDerivat = (List<String>)form.get("fv9ProjectDerivat");
-	}
-	
-	if (form.get("fv9ProjectStufe") != null ){
-		fv9ProjectStufe =	(List<String>)form.get("fv9ProjectStufe");
-	}
-	
-	if (form.get("fv9ProjectPVS") != null ){
-		fv9ProjectPVS =(List<String>)form.get("fv9ProjectPVS");
-	}
-	
-	if (form.get("fv9ProjectVFF") != null ){
-		fv9ProjectVFF =(List<String>)form.get("fv9ProjectVFF");
-	}
-	
-	if (form.get("fv9Project0S") != null ){
-		fv9Project0S =(List<String>)form.get("fv9Project0S");
-	}
-	
-	if (form.get("fv9ProjectSOP") != null ){
-		fv9ProjectSOP =(List<String>)form.get("fv9ProjectSOP");
-	}
-	
-	if (form.get("fv9ProjectMix") != null ){
-		fv9ProjectMix =(List<String>)form.get("fv9ProjectMix");	
-	}	
+	List<String> fv9ProjectDerivat = (List<String>)form.get("fv9ProjectDerivat"); 
+	List<String> fv9ProjectStufe =  (List<String>) form.get("fv9ProjectStufe");
+	List<String> fv9ProjectPVS =  (List<String>)form.get("fv9ProjectPVS");
+	List<String> fv9ProjectVFF =  (List<String>)form.get("fv9ProjectVFF");
+	List<String> fv9Project0S =  (List<String>)form.get("fv9Project0S");
+	List<String> fv9ProjectSOP = (List<String>)form.get("fv9ProjectSOP");
+	List<String> fv9ProjectMix = (List<String>)form.get("fv9ProjectMix");
 %>
 <body>	
 	<div style="position:relative;width:1100px" class="Gantt" id="GanttChart2"></div>
@@ -345,47 +318,28 @@
 	var g2 = new Gantt(document.all.GanttChart2);
 	
 	<%
-	for(int i=0; i<fv9ProjectDerivat.size(); i++){
-		String projectDerivat = fv9ProjectDerivat.get(i);
-		
-		if(fv9ProjectPVS.get(i) != null && !"".equals(fv9ProjectPVS.get(i))){%>
-			g2.AddTaskDetail(new Task('<%=fv9ProjectPVS.get(i)%>', '<%=fv9ProjectPVS.get(i)%>', '<b><%=projectDerivat%></b>', 'PVS', 50, <%=i%>, 'VW007', 'PVS', '<%=fv9ProjectMix.get(i)%>'));
-			<%	}
-		
-		if(fv9ProjectVFF.get(i) != null && !"".equals(fv9ProjectVFF.get(i))){%>
-			g2.AddTaskDetail(new Task('<%=fv9ProjectVFF.get(i)%>', '<%=fv9ProjectVFF.get(i)%>', '<b><%=projectDerivat%></b>', 'VFF', 50, <%=i%>, 'VW007', 'VFF', '<%=fv9ProjectMix.get(i)%>'));
-			<%	}
-		
-		if(fv9Project0S.get(i) != null && !"".equals(fv9Project0S.get(i))){%>
-			g2.AddTaskDetail(new Task('<%=fv9Project0S.get(i)%>', '<%=fv9Project0S.get(i)%>', '<b><%=projectDerivat%></b>', '0S', 50, <%=i%>, 'VW007', '0S', '<%=fv9ProjectMix.get(i)%>'));
-			<%	}
-		
-		if(fv9ProjectSOP.get(i) != null && !"".equals(fv9ProjectSOP.get(i))){%>
-			g2.AddTaskDetail(new Task('<%=fv9ProjectSOP.get(i)%>', '<%=fv9ProjectSOP.get(i)%>', '<b><%=projectDerivat%></b>', 'SOP', 50, <%=i%>, 'VW007', 'SOP', '<%=fv9ProjectMix.get(i)%>'));
-			<%	}
-	}	
+	if(Web.getYesOrNo(fv9ProjectDerivat)){
+		for(int i=0; i<fv9ProjectDerivat.size(); i++){
+			String projectDerivat = fv9ProjectDerivat.get(i);
+			
+			if(Web.getDateStrNotNull(fv9ProjectPVS.get(i))){%>
+				g2.AddTaskDetail(new Task('<%=fv9ProjectPVS.get(i)%>', '<%=fv9ProjectPVS.get(i)%>', '<b><%=projectDerivat%></b>', 'PVS', 50, <%=i%>, 'VW007', 'PVS', '<%=fv9ProjectMix.get(i)%>'));
+				<%	}
+			
+			if(Web.getDateStrNotNull(fv9ProjectVFF.get(i))){%>
+				g2.AddTaskDetail(new Task('<%=fv9ProjectVFF.get(i)%>', '<%=fv9ProjectVFF.get(i)%>', '<b><%=projectDerivat%></b>', 'VFF', 50, <%=i%>, 'VW007', 'VFF', '<%=fv9ProjectMix.get(i)%>'));
+				<%	}
+			
+			if(Web.getDateStrNotNull(fv9Project0S.get(i))){%>
+				g2.AddTaskDetail(new Task('<%=fv9Project0S.get(i)%>', '<%=fv9Project0S.get(i)%>', '<b><%=projectDerivat%></b>', '0S', 50, <%=i%>, 'VW007', '0S', '<%=fv9ProjectMix.get(i)%>'));
+				<%	}
+			
+			if(Web.getDateStrNotNull(fv9ProjectSOP.get(i))){%>
+				g2.AddTaskDetail(new Task('<%=fv9ProjectSOP.get(i)%>', '<%=fv9ProjectSOP.get(i)%>', '<b><%=projectDerivat%></b>', 'SOP', 50, <%=i%>, 'VW007', 'SOP', '<%=fv9ProjectMix.get(i)%>'));
+				<%	}
+		}
+	}
 	%>
-/* 	g2.AddTaskDetail(new Task('01/01/2011', '01/01/2011', '<b>2/4-TÃ¼ren</b>', 'VFF', 50, 1, 'VW007', 'VFF'));
-	g2.AddTaskDetail(new Task('03/01/2011', '03/01/2011', '<b>2/4-TÃ¼ren</b>', 'PVS', 50, 1, 'VW007', 'PVS'));
-	g2.AddTaskDetail(new Task('06/01/2011', '06/01/2011', '<b>2/4-TÃ¼ren</b>', 'OS', 50, 1, 'VW007', 'OS'));
-	g2.AddTaskDetail(new Task('08/01/2011', '08/01/2011', '<b>2/4-TÃ¼ren</b>', 'SOP', 50, 1, 'VW007', 'SOP'));
-	
-	g2.AddTaskDetail(new Task('05/01/2011', '05/01/2011', '<b>RL/4 Motion</b>', 'PVS', 50, 2, 'VW007', 'PVS'));
-	g2.AddTaskDetail(new Task('08/01/2011', '08/01/2011', '<b>RL/4 Motion</b>', 'OS', 50, 2, 'VW007', 'OS'));
-	g2.AddTaskDetail(new Task('11/01/2011', '11/01/2011', '<b>RL/4 Motion</b>', 'SOP', 50, 2, 'VW007', 'SOP'));
-	
-	g2.AddTaskDetail(new Task('06/01/2011', '06/01/2011', '<b>APR</b>', 'PVS', 50, 3, 'VW007', 'PVS'));
-	g2.AddTaskDetail(new Task('10/01/2011', '10/01/2011', '<b>APR</b>', 'OS', 50, 3, 'VW007', 'OS'));
-	g2.AddTaskDetail(new Task('01/01/2012', '01/01/2012', '<b>APR</b>', 'SOP', 50, 3, 'VW007', 'SOP'));
-	
-	g2.AddTaskDetail(new Task('10/01/2011', '10/01/2011', '<b>GTI/GTD</b>', 'PVS', 50, 4, 'VW007', 'PVS'));
-	g2.AddTaskDetail(new Task('02/01/2012', '02/01/2012', '<b>GTI/GTD1</b>', 'OS', 50, 4, 'VW007', 'OS'));
-	g2.AddTaskDetail(new Task('04/01/2012', '04/01/2012', '<b>GTI/GTD</b>', 'SOP', 50, 4, 'VW007', 'SOP'));
-	
-	g2.AddTaskDetail(new Task('01/01/2012', '01/01/2012', '<b>NAR</b>', 'PVS', 50, 5, 'VW007', 'PVS'));
-	g2.AddTaskDetail(new Task('04/01/2012', '04/01/2012', '<b>NAR</b>', 'OS', 50, 5, 'VW007', 'OS'));
-	g2.AddTaskDetail(new Task('06/01/2012', '06/01/2012', '<b>NAR</b>', 'SOP', 50, 5, 'VW007', 'SOP')); */
-	
 	g2.Draw(44, 24);
 </script>
 </html>

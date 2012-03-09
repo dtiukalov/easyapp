@@ -71,86 +71,29 @@
 		
 		%>
 		<%
-		int vffPillarNum =  0;//柱子个数
-		int pvsPillarNum = 0;//柱子个数
-		int osPillarNum =  0;//柱子个数
-		int sopPillarNum =  0;//柱子个数
 		
-		double pillar = 0.0;
-		double value1 = 0 ; 
-		double value2 = 0;
-		double value3 = 0;
-		double value4 = 0;
 		
 		double sum = 0.0;
-		
+		int[] arr = null;
 		if (Web.getListYesOrNo((List<String>)form.get("fv9KWNo"))) {
-			int[] arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9KWNo"));
-			
-			int size = arr.length;//一共有多少个柱子 
-			
-			if(size > 0){
-				int maxKw = arr[size-1];
-				int minKw = arr[0];
-				//假定总长度是595.0px 先算出一共有多少个柱子，每个柱子的宽度 px
-				double totalWidth = 540.0;//总长度是 750px 
-				pillar = totalWidth/size;  //每个柱子的宽度 px
-			
-				String vff_start = "";
-				String pvs_start = "";
-				String os_start = "";
-				String sop_start = "";
-				String me_start = "";
-				
-				if(request.getSession().getAttribute("DATE_VFF") != null){
-					vff_start = request.getSession().getAttribute("DATE_VFF").toString();
-				}
-				if(request.getSession().getAttribute("DATE_PVS") != null){
-					pvs_start = request.getSession().getAttribute("DATE_PVS").toString();
-				}
-				if(request.getSession().getAttribute("DATE_0S") != null){
-					os_start = request.getSession().getAttribute("DATE_0S").toString();
-				}
-				if(request.getSession().getAttribute("DATE_SOP") != null){
-					sop_start = request.getSession().getAttribute("DATE_SOP").toString();
-				}
-				if(request.getSession().getAttribute("DATE_ME") != null){
-					me_start = request.getSession().getAttribute("DATE_ME").toString();
-				}
-				
-				int[] vffArr = Web.getMilepostArr(vff_start,pvs_start);
-				int[] pvsArr = Web.getMilepostArr(pvs_start,os_start);
-				int[] osArr = Web.getMilepostArr(os_start,sop_start);
-				int[] sopArr = Web.getMilepostArr(sop_start,me_start);
-				
-				vffPillarNum =  Web.getNum(vffArr,arr);//柱子个数
-				pvsPillarNum = Web.getNum(pvsArr,arr);;//柱子个数
-				osPillarNum =  Web.getNum(osArr,arr);;//柱子个数
-				sopPillarNum =  Web.getNum(sopArr,arr);;//柱子个数
-				
-				value1 = vffPillarNum * pillar ; 
-				
-				if(vffPillarNum > 0 && pvsPillarNum != 0){
-					value2 = (pvsPillarNum - 1)* pillar ;
-				} else {
-					value2 = pvsPillarNum * pillar ;
-				}
-				
-				if(pvsPillarNum > 0 && osPillarNum != 0){
-					value3 = (osPillarNum - 1 )* pillar ;	
-				} else {
-					value3 = osPillarNum * pillar ;
-				}
-				
-				if(osPillarNum > 0 && sopPillarNum != 0){
-					value4 = (sopPillarNum - 1)* pillar ;			
-				} else {
-					value4 = sopPillarNum* pillar ;
-				}
-			}
-			
-			sum = value1 + value2 + value3 + value4;
-		}
+			 arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9KWNo"));
+		}	
+		
+		Map<String,Integer> lichenbeiNum = Web.getLCBNum(request, arr);
+		int vffPillarNum =  lichenbeiNum.get("vffNum");//柱子个数
+		int pvsPillarNum = lichenbeiNum.get("pvsNum");//柱子个数
+		int osPillarNum = lichenbeiNum.get("osNum");//柱子个数
+		int sopPillarNum =  lichenbeiNum.get("sopNum");//柱子个数
+		
+		double totalWidth = 560.0;
+		Map<String,Double> lichenbeiPillarNum = Web.getLCBPillar(Web.getLCBNum(request, arr), arr, totalWidth);
+		double value1 = lichenbeiPillarNum.get("vffPillar"); 
+		double value2 = lichenbeiPillarNum.get("pvsPillar");
+		double value3 = lichenbeiPillarNum.get("osPillar");
+		double value4 = lichenbeiPillarNum.get("sopPillar");
+		
+		sum = value1 + value2 + value3 + value4;
+		
 		%>
 		<script type="text/javascript">
 			var chart1, chart2, chart3, chart4, chart5;
@@ -259,7 +202,7 @@
 						dataLabels: {
 							enabled: true,
 							formatter: function() {
-								return "<B>VFF</B>";
+								return "<B></B>";
 							}
 						}
 					}
@@ -278,7 +221,7 @@
 						dataLabels: {
 							enabled: true,
 							formatter: function() {
-								return "<B>PVS</B>";
+								return "<B></B>";
 							}
 						}
 					}
@@ -297,7 +240,7 @@
 						dataLabels: {
 							enabled: true,
 							formatter: function() {
-								return "<B>0-S</B>";
+								return "<B></B>";
 							}
 						}
 					}
@@ -316,7 +259,7 @@
 						dataLabels: {
 							enabled: true,
 							formatter: function() {
-								return "<B>SOP</B>";
+								return "<B></B>";
 							}
 						}
 					}
@@ -440,7 +383,7 @@
 						dataLabels: {
 							enabled: true,
 							formatter: function() {
-								return "<B>VFF</B>";
+								return "<B></B>";
 							}
 						}
 					}
@@ -459,7 +402,7 @@
 						dataLabels: {
 							enabled: true,
 							formatter: function() {
-								return "<B>PVS</B>";
+								return "<B></B>";
 							}
 						}
 					}
@@ -478,7 +421,7 @@
 						dataLabels: {
 							enabled: true,
 							formatter: function() {
-								return "<B>0-S</B>";
+								return "<B></B>";
 							}
 						}
 					}
@@ -497,7 +440,7 @@
 						dataLabels: {
 							enabled: true,
 							formatter: function() {
-								return "<B>SOP</B>";
+								return "<B></B>";
 							}
 						}
 					}
@@ -622,7 +565,7 @@
 						dataLabels: {
 							enabled: true,
 							formatter: function() {
-								return "<B>VFF</B>";
+								return "<B></B>";
 							}
 						}
 					}
@@ -641,7 +584,7 @@
 						dataLabels: {
 							enabled: true,
 							formatter: function() {
-								return "<B>PVS</B>";
+								return "<B></B>";
 							}
 						}
 					}
@@ -660,7 +603,7 @@
 						dataLabels: {
 							enabled: true,
 							formatter: function() {
-								return "<B>0-S</B>";
+								return "<B></B>";
 							}
 						}
 					}
@@ -679,7 +622,7 @@
 						dataLabels: {
 							enabled: true,
 							formatter: function() {
-								return "<B>SOP</B>";
+								return "<B></B>";
 							}
 						}
 					}
@@ -804,7 +747,7 @@
 						dataLabels: {
 							enabled: true,
 							formatter: function() {
-								return "<B>VFF</B>";
+								return "<B></B>";
 							}
 						}
 					}
@@ -823,7 +766,7 @@
 						dataLabels: {
 							enabled: true,
 							formatter: function() {
-								return "<B>PVS</B>";
+								return "<B></B>";
 							}
 						}
 					}
@@ -842,7 +785,7 @@
 						dataLabels: {
 							enabled: true,
 							formatter: function() {
-								return "<B>0-S</B>";
+								return "<B></B>";
 							}
 						}
 					}
@@ -861,7 +804,7 @@
 						dataLabels: {
 							enabled: true,
 							formatter: function() {
-								return "<B>SOP</B>";
+								return "<B></B>";
 							}
 						}
 					}
@@ -985,7 +928,7 @@
 						dataLabels: {
 							enabled: true,
 							formatter: function() {
-								return "<B>VFF</B>";
+								return "<B></B>";
 							}
 						}
 					}
@@ -1004,7 +947,7 @@
 						dataLabels: {
 							enabled: true,
 							formatter: function() {
-								return "<B>PVS</B>";
+								return "<B></B>";
 							}
 						}
 					}
@@ -1023,7 +966,7 @@
 						dataLabels: {
 							enabled: true,
 							formatter: function() {
-								return "<B>0-S</B>";
+								return "<B></B>";
 							}
 						}
 					}
@@ -1042,7 +985,7 @@
 						dataLabels: {
 							enabled: true,
 							formatter: function() {
-								return "<B>SOP</B>";
+								return "<B></B>";
 							}
 						}
 					}

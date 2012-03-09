@@ -86,6 +86,10 @@ function Task(from, to, task, resource, progress, level, color) {
 				_maxArr = getYearWeeks(_maxDate);
 				
 				var _minArr = getYearWeeks(_minDate);
+				if (_minArr[1] > 50) {
+					_minArr[1] = 51;
+				} 
+				_minDate = _minArr[0] + "/" + _minArr[1];
 			//	_minDate = _minArr[0] + "/" + 1;
 			//	_minArr = getYearWeeks(_minDate);
 				//--------------------------------------------------
@@ -359,7 +363,8 @@ function Task(from, to, task, resource, progress, level, color) {
 	
 	String fv9TPPA_ME = (String)form.get("fv9TPPA_ME");//		TPPA_ME日期
 	String fv9QFTPPA_Kunde = (String)form.get("fv9QFTPPA_Kunde");//		QFTPPA_Kunde日期
-
+	Object sop_start = request.getSession().getAttribute("DATE_SOP");
+	
 %>
 <body>	
 	<div style="position:relative" class="Gantt" id="GanttChart"></div>
@@ -388,7 +393,7 @@ function Task(from, to, task, resource, progress, level, color) {
 	g.AddTaskDetail(new Task('<%=fv9PVSTBTZP5%>', '<%=fv9PVSTBTZP5%>', '<b></b>', 'ZP5', 50, 3, 'background:url(../images/bg.gif) no-repeat 0 0;'));
 <%	}%>
 <%if(Web.getDateStrNotNull(fv9PVSTBTZP7)){%>
-	g.AddTaskDetail(new Task('<%=fv9PVSTBTZP7%>', '<%=fv9PVSTBTZP7%>', '<b></b>', 'ZP7', 50, 3, 'background:url(../images/bg.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv9PVSTBTZP7%>', '<%=fv9PVSTBTZP7%>', '<b></b>', 'ZP7', 50, 3, 'background:url(../images/bg2.gif) no-repeat 0 0;'));
 <%	}%>
 <%if(Web.getDateStrNotNull(fv9PVSVorStart)
 		&& Web.getDateStrNotNull(fv9PVSVorEnd)){%>
@@ -405,7 +410,7 @@ function Task(from, to, task, resource, progress, level, color) {
 	g.AddTaskDetail(new Task('<%=fv90STBTZP5%>', '<%=fv90STBTZP5%>', '<b></b>', 'ZP5', 50, 5, 'background:url(../images/bg.gif) no-repeat 0 0;'));
 <%	}%>
 <%if(Web.getDateStrNotNull(fv90STBTZP7)){%>
-	g.AddTaskDetail(new Task('<%=fv90STBTZP7%>', '<%=fv90STBTZP7%>', '<b></b>', 'ZP7', 50, 5, 'background:url(../images/bg.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv90STBTZP7%>', '<%=fv90STBTZP7%>', '<b></b>', 'ZP7', 50, 5, 'background:url(../images/bg2.gif) no-repeat 0 0;'));
 <%	}%>
 <%if(Web.getDateStrNotNull(fv90SVorStart)
 		&& Web.getDateStrNotNull(fv90SVorEnd)){%>
@@ -416,14 +421,19 @@ function Task(from, to, task, resource, progress, level, color) {
 	g.AddTaskDetail(new Task('<%=fv90SAbsStart%>', '<%=fv90SAbsEnd%>', '<b></b>', 'Absicherungslauf PVS <%=fv90SAbsMeter%> km', 50, 6));
 <%	}%>
 
-<%if(Web.getDateStrNotNull(fv9TPPA_ME)){%>
-	g.AddTaskDetail(new Task('<%=fv9TPPA_ME%>', '<%=fv9TPPA_ME%>', '<b>Freigabe Markteinführungs- Volumen</b>', '29', 50, 7, 'background:url(../images/bg.gif) no-repeat 0 0;'));
+<%if(Web.getDateStrNotNull(fv9TPPA_ME)){  String descStart = "";  String descEnd = ""; %>
+	g.AddTaskDetail(new Task('<%=fv9TPPA_ME%>', '<%=fv9TPPA_ME%>', '<b></b>', '', 50, 7, 'background:url(../images/bg2.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv90SVorStart%>', '<%=fv90SVorEnd%>', '<b></b>', 'FreigabeMarkteinführungs-Volumen', 50, 8, 'background-color:#FFF;color:#000000;font-weight:bold;'));
 <%	}%>
-<%if(Web.getDateStrNotNull(fv9QFTPPA_Kunde)){%>
-	g.AddTaskDetail(new Task('<%=fv9QFTPPA_Kunde%>', '<%=fv9QFTPPA_Kunde%>', '<b>Q-Freigabe Freigabe Kundenfahrzeuge</b>', '37', 50, 7, 'background:url(../images/bg.gif) no-repeat 0 0;'));
+<%if(Web.getDateStrNotNull(fv9QFTPPA_Kunde)){ String descStart = "";  String descEnd = ""; %>
+	g.AddTaskDetail(new Task('<%=fv9QFTPPA_Kunde%>', '<%=fv9QFTPPA_Kunde%>', '<b></b>', '', 50, 7, 'background:url(../images/bg2.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv90SVorEnd%>', '<%=sop_start%>', '<b></b>', 'Q-Freigabe Freigabe Kundenfahrzeuge', 50, 8, 'background-color:#FFF;color:#000000;font-weight:bold;'));
 <%	}%>	
-
+<%if(Web.getDateStrNotNull(fv9QFTPPA_Kunde)){%>
+	g.AddTaskDetail(new Task('<%=sop_start%>', '<%=sop_start%>', '<b></b>', 'SOP', 50, 10, 'background:url(../images/bg.gif) no-repeat 0 0;'));
+<%	}%>	
 	g.Draw(49, 14);	
+
 	
 </script>
 </html>

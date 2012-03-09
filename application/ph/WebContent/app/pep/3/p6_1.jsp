@@ -36,59 +36,18 @@
 		%>
 			<%
 			int total = 125;
-			int vffNum =  0;//柱子个数
-			int pvsNum = 0;//柱子个数
-			int osNum =  0;//柱子个数
-			int sopNum =  0;//柱子个数
-			int[] arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9KWNo"));
-			
-			if (arr != null && arr.length > 0) {
-				int size = arr.length;//一共有多少个柱子 
-				double pillar = 0.0;
-				
-				if(size > 0){
-					int maxKw = arr[size-1];
-					int minKw = arr[0];
-				
-					String vff_start = "";
-					String pvs_start = "";
-					String os_start = "";
-					String sop_start = "";
-					String me_start = "";
-					
-					if(request.getSession().getAttribute("DATE_VFF") != null){
-						vff_start = request.getSession().getAttribute("DATE_VFF").toString();
-					}
-					if(request.getSession().getAttribute("DATE_PVS") != null){
-						pvs_start = request.getSession().getAttribute("DATE_PVS").toString();
-					}
-					if(request.getSession().getAttribute("DATE_0S") != null){
-						os_start = request.getSession().getAttribute("DATE_0S").toString();
-					}
-					if(request.getSession().getAttribute("DATE_SOP") != null){
-						sop_start = request.getSession().getAttribute("DATE_SOP").toString();
-					}
-					if(request.getSession().getAttribute("DATE_ME") != null){
-						me_start = request.getSession().getAttribute("DATE_ME").toString();
-					}
-					
-					int[] vffArr = Web.getMilepostArr(vff_start,pvs_start);
-					int[] pvsArr = Web.getMilepostArr(pvs_start,os_start);
-					int[] osArr = Web.getMilepostArr(os_start,sop_start);
-					int[] sopArr = Web.getMilepostArr(sop_start,me_start);
-					
-					 vffNum =  Web.getNum(vffArr,arr);//柱子个数
-					 pvsNum = Web.getNum(pvsArr,arr);;//柱子个数
-					 osNum =  Web.getNum(osArr,arr);;//柱子个数
-					 sopNum =  Web.getNum(sopArr,arr);;//柱子个数
-				}
-				
-			%>
-			
-			<%
+			int[] arr = null;
+			if(Web.getObjectYesOrNo(form.get("fv9KWNo"))){
+			 	arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9KWNo"));
 			}
 			
-			%>
+			Map<String,Integer> lichengbeiNum = Web.getLCBNum(request, arr);
+			
+			int vffNum =  lichengbeiNum.get("vffNum");//柱子个数
+			int pvsNum = lichengbeiNum.get("pvsNum");//柱子个数
+			int osNum =  lichengbeiNum.get("osNum");//柱子个数
+			int sopNum =  lichengbeiNum.get("sopNum");//柱子个数
+		%>
 		<script type="text/javascript">
 		var chart;
 			$(document).ready(function() {

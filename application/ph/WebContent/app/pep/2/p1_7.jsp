@@ -17,12 +17,18 @@
 			List<String> fv9BMGType = (List<String>)form.get("fv9BMGType");
 			List<String> fv9BMGNum = (List)form.get("fv9BMGNum");
 			List<String> Gesamt = new ArrayList<String>();
+			List<String> categories = new ArrayList<String>();
 			int sum = 0;
-			for (int i=0; i<fv9BMGNum.size(); i++){
-				sum += Integer.parseInt(fv9BMGNum.get(i));
+			if (Web.getListYesOrNo(fv9BMGNum)) {
+				categories.add("Gesamt");
+				for (int i=0; i<fv9BMGNum.size(); i++){
+					sum += Integer.parseInt(fv9BMGNum.get(i));
+					categories.add(fv9BMGType.get(i));
+				}
+				Gesamt.add(sum+"");
 			}
-			System.out.println("sum = " + sum);
-			Gesamt.add(sum+"");
+			
+			String cat = Web.getStrListStr(categories);
 			String categories1 = Web.getStrListStr(Gesamt);
 		
 			String categories3 = Web.getStrListStr(form.get("fv9BMGKWNo"));
@@ -47,9 +53,9 @@
 					lineColor:'black',
 					tickPosition:'inside',
 					tickColor:'black',
-					categories: <%=categories1%>,
+					categories: <%=cat%>,
 					labels:{
-						enabled:false,
+						enabled:true,
 						y:20,
 						style:{
 							color:'black'
@@ -58,7 +64,6 @@
 				},
 				yAxis: {
 					min: 0,
-					max: 120,
 					gridLineWidth: 0,
 					lineWidth:1,
 					lineColor:'black',
@@ -94,8 +99,6 @@
 								fontSize:'12px'
 							},
 							color: 'white',
-							rotation: -90,
-							x:5,
 							formatter: function() {
 								if (this.y == 0) {
 									return '';
@@ -117,67 +120,74 @@
 					<%	
 					int temp = 0;
 					String color = "\"#0200FE\"";
-					for(int j=0; j<fv9BMGNum.size(); j++){
-						temp = temp + Integer.parseInt(fv9BMGNum.get(j));
-						if(j == fv9BMGNum.size() - 1){
-							color = "\"#FF00FE\"";
+					if (Web.getListYesOrNo(fv9BMGNum)) {
+						for(int j=0; j<fv9BMGNum.size(); j++){
+							temp = temp + Integer.parseInt(fv9BMGNum.get(j));
+							if(j == fv9BMGNum.size() - 1){
+								color = "\"#FF00FE\"";
+							}
+						%>
+						,{
+						 	y: <%=fv9BMGNum.get(j)%>, 
+						 	low:<%=sum - temp%>,
+						 	color: <%=color%>
 						}
-					%>
-					,{
-					 	y: <%=fv9BMGNum.get(j)%>, 
-					 	low:<%=sum - temp%>,
-					 	color: <%=color%>
+						<%
+						}
 					}
-					<%}%>
+					%>
 					]
 				}]
 			});
 				<%
 				int total = sum;
-				int[] arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9BMGKWNo"));
-				int size = arr.length;//一共有多少个柱子 
 				double pillar = 0.0;
 				int vffNum =  0;//柱子个数
 				int pvsNum = 0;//柱子个数
 				int osNum =  0;//柱子个数
 				int sopNum =  0;//柱子个数
-				
-				if(size > 0){
-					int maxKw = arr[size-1];
-					int minKw = arr[0];
-				
-					String vff_start = "";
-					String pvs_start = "";
-					String os_start = "";
-					String sop_start = "";
-					String me_start = "";
+				if (Web.getListYesOrNo((List<String>)form.get("fv9BMGKWNo"))) {
+					int[] arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9BMGKWNo"));
+					int size = arr.length;//一共有多少个柱子 
 					
-					if(request.getSession().getAttribute("DATE_VFF") != null){
-						vff_start = request.getSession().getAttribute("DATE_VFF").toString();
-					}
-					if(request.getSession().getAttribute("DATE_PVS") != null){
-						pvs_start = request.getSession().getAttribute("DATE_PVS").toString();
-					}
-					if(request.getSession().getAttribute("DATE_0S") != null){
-						os_start = request.getSession().getAttribute("DATE_0S").toString();
-					}
-					if(request.getSession().getAttribute("DATE_SOP") != null){
-						sop_start = request.getSession().getAttribute("DATE_SOP").toString();
-					}
-					if(request.getSession().getAttribute("DATE_ME") != null){
-						me_start = request.getSession().getAttribute("DATE_ME").toString();
-					}
+					if(size > 0){
+						int maxKw = arr[size-1];
+						int minKw = arr[0];
 					
-					int[] vffArr = Web.getMilepostArr(vff_start,pvs_start);
-					int[] pvsArr = Web.getMilepostArr(pvs_start,os_start);
-					int[] osArr = Web.getMilepostArr(os_start,sop_start);
-					int[] sopArr = Web.getMilepostArr(sop_start,me_start);
-					
-					 vffNum =  Web.getNum(vffArr,arr);//柱子个数
-					 pvsNum = Web.getNum(pvsArr,arr);;//柱子个数
-					 osNum =  Web.getNum(osArr,arr);;//柱子个数
-					 sopNum =  Web.getNum(sopArr,arr);;//柱子个数
+						String vff_start = "";
+						String pvs_start = "";
+						String os_start = "";
+						String sop_start = "";
+						String me_start = "";
+						
+						if(request.getSession().getAttribute("DATE_VFF") != null){
+							vff_start = request.getSession().getAttribute("DATE_VFF").toString();
+						}
+						if(request.getSession().getAttribute("DATE_PVS") != null){
+							pvs_start = request.getSession().getAttribute("DATE_PVS").toString();
+						}
+						if(request.getSession().getAttribute("DATE_0S") != null){
+							os_start = request.getSession().getAttribute("DATE_0S").toString();
+						}
+						if(request.getSession().getAttribute("DATE_SOP") != null){
+							sop_start = request.getSession().getAttribute("DATE_SOP").toString();
+						}
+						if(request.getSession().getAttribute("DATE_ME") != null){
+							me_start = request.getSession().getAttribute("DATE_ME").toString();
+						}
+						
+						int[] vffArr = Web.getMilepostArr(vff_start,pvs_start);
+						int[] pvsArr = Web.getMilepostArr(pvs_start,os_start);
+						int[] osArr = Web.getMilepostArr(os_start,sop_start);
+						int[] sopArr = Web.getMilepostArr(sop_start,me_start);
+						
+						 vffNum =  Web.getNum(vffArr,arr);//柱子个数
+						 pvsNum = Web.getNum(pvsArr,arr);;//柱子个数
+						 osNum =  Web.getNum(osArr,arr);;//柱子个数
+						 sopNum =  Web.getNum(sopArr,arr);;//柱子个数
+					}
 				}
+				
 				%>
 			
 			
@@ -220,11 +230,11 @@
 						}
 					},
 					legend: {
-						layout: 'vertical',
+						layout: 'horizontal',
 						verticalAlign: 'top',
-						align:'right',
-						x:0,
-						y:20,
+						align:'center',
+				//		x:0,
+				//		y:20,
 						shadow: false,
 						borderColor:'black',
 						borderWidth:0,

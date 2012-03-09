@@ -14,7 +14,7 @@ public class FV9_23SoftwarefehlerentwicklungDataset extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/2/p3_1.jsp";
+		return "/app/pep/imageDataset.jsp";
 	}
 
 	@Override

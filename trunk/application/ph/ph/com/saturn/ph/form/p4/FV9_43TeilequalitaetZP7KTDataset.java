@@ -14,12 +14,12 @@ public class FV9_43TeilequalitaetZP7KTDataset extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/4/p3_1.jsp";
+		return "/app/pep/imageDataset.jsp";
 	}
 
 	@Override
 	public String getType() {
-		return "4.3 Teilequalitaet ZP7 KT";
+		return "4.3 Teilequalitaet ZP7 (KT)";
 	}
 
 	@Override

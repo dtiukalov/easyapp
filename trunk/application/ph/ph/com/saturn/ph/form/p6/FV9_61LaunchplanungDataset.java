@@ -14,7 +14,7 @@ public class FV9_61LaunchplanungDataset extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/6/p1_1.jsp";
+		return "/app/pep/imageDataset.jsp";
 	}
 
 	@Override

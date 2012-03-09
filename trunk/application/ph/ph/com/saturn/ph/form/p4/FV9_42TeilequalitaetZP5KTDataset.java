@@ -14,7 +14,7 @@ public class FV9_42TeilequalitaetZP5KTDataset extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/4/p2_1.jsp";
+		return "/app/pep/imageDataset.jsp";
 	}
 
 	@Override

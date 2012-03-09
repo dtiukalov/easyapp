@@ -14,12 +14,12 @@ public class FV9_42TerminubersichtZP5KTDataset extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/4/p2_1.jsp";
+		return "/app/pep/imageDataset.jsp";
 	}
 
 	@Override
 	public String getType() {
-		return "4.2 Terminubersicht ZP5(KT)";
+		return "4.2 Terminubersicht ZP5 (KT)";
 	}
 
 	@Override

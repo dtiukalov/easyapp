@@ -14,7 +14,7 @@ public class FV9_33ProblemblattDataset extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/3/p3_3.jsp";
+		return "/app/pep/imageDataset.jsp";
 	}
 
 	@Override

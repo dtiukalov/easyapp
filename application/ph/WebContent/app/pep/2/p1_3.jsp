@@ -146,52 +146,18 @@
 			});
 			<%
 			int total = sum;
-			double pillar = 0.0;
-			int vffNum =  0;//柱子个数
-			int pvsNum = 0;//柱子个数
-			int osNum =  0;//柱子个数
-			int sopNum =  0;//柱子个数
+			int[] arr = null;
+			
 			if (Web.getListYesOrNo((List<String>)form.get("fv9PFKWNo"))) {
-				int[] arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9PFKWNo"));
-				int size = arr.length;//一共有多少个柱子 
+				arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9PFKWNo"));
+			}	
+			
+			Map<String,Integer> lichenbeiNum = Web.getLCBNum(request, arr);
 				
-				if(size > 0){
-					int maxKw = arr[size-1];
-					int minKw = arr[0];
-				
-					String vff_start = "";
-					String pvs_start = "";
-					String os_start = "";
-					String sop_start = "";
-					String me_start = "";
-					
-					if(request.getSession().getAttribute("DATE_VFF") != null){
-						vff_start = request.getSession().getAttribute("DATE_VFF").toString();
-					}
-					if(request.getSession().getAttribute("DATE_PVS") != null){
-						pvs_start = request.getSession().getAttribute("DATE_PVS").toString();
-					}
-					if(request.getSession().getAttribute("DATE_0S") != null){
-						os_start = request.getSession().getAttribute("DATE_0S").toString();
-					}
-					if(request.getSession().getAttribute("DATE_SOP") != null){
-						sop_start = request.getSession().getAttribute("DATE_SOP").toString();
-					}
-					if(request.getSession().getAttribute("DATE_ME") != null){
-						me_start = request.getSession().getAttribute("DATE_ME").toString();
-					}
-					
-					int[] vffArr = Web.getMilepostArr(vff_start,pvs_start);
-					int[] pvsArr = Web.getMilepostArr(pvs_start,os_start);
-					int[] osArr = Web.getMilepostArr(os_start,sop_start);
-					int[] sopArr = Web.getMilepostArr(sop_start,me_start);
-					
-					 vffNum =  Web.getNum(vffArr,arr);//柱子个数
-					 pvsNum = Web.getNum(pvsArr,arr);;//柱子个数
-					 osNum =  Web.getNum(osArr,arr);;//柱子个数
-					 sopNum =  Web.getNum(sopArr,arr);;//柱子个数
-				}
-			}
+			int vffNum =  lichenbeiNum.get("vffNum");//柱子个数
+			int pvsNum = lichenbeiNum.get("pvsNum");//柱子个数
+			int osNum = lichenbeiNum.get("osNum");//柱子个数
+			int sopNum = lichenbeiNum.get("sopNum");//柱子个数
 			
 			%>
 			chart2 = new Highcharts.Chart({

@@ -190,77 +190,17 @@
 			<div id="content">
 				<div id="chart" style="width: 850px; height: 400px;margin:0 -30px"></div>
 					<%
-					int[] arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9KWNo"));
-					
-					if (arr != null && arr.length > 0) {
-						int size = arr.length;//一共有多少个柱子 
-						double pillar = 0.0;
-						
-						double value1 = 0 ; 
-						double value2 = 0;
-						double value3 = 0;
-						double value4 = 0;
-						if(size > 0){
-							int maxKw = arr[size-1];
-							int minKw = arr[0];
-							//假定总长度是595.0px 先算出一共有多少个柱子，每个柱子的宽度 px
-							double totalWidth = 492.0;//总长度是 750px 
-							pillar = totalWidth/size;  //每个柱子的宽度 px
-						
-							String vff_start = "";
-							String pvs_start = "";
-							String os_start = "";
-							String sop_start = "";
-							String me_start = "";
+					if (Web.getListYesOrNo((List<String>)form.get("fv9KWNo"))) {
+						int[] arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9KWNo"));
+							double totalWidth = 490.0;
 							
-							if(request.getSession().getAttribute("DATE_VFF") != null){
-								vff_start = request.getSession().getAttribute("DATE_VFF").toString();
-							}
-							if(request.getSession().getAttribute("DATE_PVS") != null){
-								pvs_start = request.getSession().getAttribute("DATE_PVS").toString();
-							}
-							if(request.getSession().getAttribute("DATE_0S") != null){
-								os_start = request.getSession().getAttribute("DATE_0S").toString();
-							}
-							if(request.getSession().getAttribute("DATE_SOP") != null){
-								sop_start = request.getSession().getAttribute("DATE_SOP").toString();
-							}
-							if(request.getSession().getAttribute("DATE_ME") != null){
-								me_start = request.getSession().getAttribute("DATE_ME").toString();
-							}
-						
-							int[] vffArr = Web.getMilepostArr(vff_start,pvs_start);
-							int[] pvsArr = Web.getMilepostArr(pvs_start,os_start);
-							int[] osArr = Web.getMilepostArr(os_start,sop_start);
-							int[] sopArr = Web.getMilepostArr(sop_start,me_start);
+							Map<String,Double> lichenbeiPillarNum = Web.getLCBPillar(Web.getLCBNum(request, arr), arr, totalWidth);
 							
-							int vffPillarNum =  Web.getNum(vffArr,arr);//柱子个数
-							int pvsPillarNum = Web.getNum(pvsArr,arr);;//柱子个数
-							int osPillarNum =  Web.getNum(osArr,arr);;//柱子个数
-							int sopPillarNum = Web.getNum(sopArr,arr);;//柱子个数
-							
-							value1 = vffPillarNum * pillar ; 
-							
-							if(vffPillarNum > 0 && pvsPillarNum != 0){
-								value2 = (pvsPillarNum - 1)* pillar ;
-							} else {
-								value2 = pvsPillarNum * pillar ;
-							}
-							
-							if(pvsPillarNum > 0 && osPillarNum != 0){
-								value3 = (osPillarNum - 1 )* pillar ;	
-							} else {
-								value3 = osPillarNum * pillar ;
-							}
-							
-							if(osPillarNum > 0 && sopPillarNum != 0){
-								value4 = (sopPillarNum - 1)* pillar ;			
-							} else {
-								value4 = sopPillarNum* pillar ;
-							}
-						}
-						
-						double sum = value1 + value2 + value3 + value4;
+							double value1 = lichenbeiPillarNum.get("vffPillar"); 
+							double value2 = lichenbeiPillarNum.get("pvsPillar");
+							double value3 = lichenbeiPillarNum.get("osPillar");
+							double value4 = lichenbeiPillarNum.get("sopPillar");
+							double sum = value1 + value2 + value3 + value4;
 					%>
 				<div id="meilsteinouter" style="width: 800px;">
 					<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 180px; text-align: center; overflow: hidden; ">
@@ -270,12 +210,9 @@
 						<div style=" width: <%=value4 %>px; height: 30px; float: left; background-color: #333333; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">SOP</span></div>
 					</div>
 				</div>
-					<%
-						
-					}
-					
-					%>
-				
+				<%
+				}
+					%>	
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

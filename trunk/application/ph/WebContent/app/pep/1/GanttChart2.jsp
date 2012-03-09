@@ -22,7 +22,7 @@
 	var pvs=60;
 	var os=60;
 	var sop=60;
-	function Task(from, to, task, resource, progress, level, project, type, mix) {
+	function Task(from, to, task, resource, progress, level, project, type, mix, stufe) {
 		var _from = new Date();	
 		var _to = new Date();
 		var _task = task;
@@ -34,6 +34,7 @@
 		var _fromStr = from;
 		var _toStr = to;
 		var _mix = mix;
+		var _stufe = stufe;
 		
 		var dvArr = from.split('-');
 		_from.setFullYear(parseInt(dvArr[0], 10), parseInt(dvArr[1], 10) - 1, parseInt(dvArr[2], 10));
@@ -51,6 +52,8 @@
 		this.getProject = function(){ return _project};
 		this.getMix = function(){ return _mix};
 		this.getType = function(){return _type};
+		this.getStufe = function(){return _stufe};
+		
 		this.getTypeLeft = function(){
 			var left = 13 + pw + dw + sw;
 			if ('VFF' == _type) {
@@ -81,7 +84,15 @@
 			var _minDate = new Date();	
 			var _maxLevel = 0;
 			var _dTemp = new Date();
-			var _firstRowStr = "<table border=1 style='border-collapse:collapse;border:#000000 2px solid'><tr style='background-color:feffbe;text-align:center;'><td rowspan='2' width='" + pw + "px' style='width:" + pw + "px;font-size:9px'>Porjekt</td><td rowspan='2' width='" + dw + "px' style='width:" + dw + "px;font-size:9px'>DERIVAT</td><td rowspan='2' width='" + sw + "px' style='width:" + sw + "px;font-size:9px'>Stufe</td><td rowspan='2' width='" + vff + "px' style='width:" + vff + "px;font-size:9px'>VFF</td><td rowspan='2' width='" + pvs + "px' style='width:" + pvs + "px;font-size:9px'>PVS</td><td rowspan='2' width='" + os + "px' style='width:" + os + "px;font-size:9px'>OS</td><td rowspan='2' width='" + sop + "px' style='width:" + sop + "px;font-size:9px'>SOP</td><td rowspan='2' width='" + mw + "px' style='width:" + mw + "px;font-size:9px'>MIX</td>";
+			var _firstRowStr = "<table border=1 style='border-collapse:collapse;border:#000000 2px solid'><tr style='background-color:feffbe;text-align:center;'><td rowspan='2' width='" 
+				+ pw + "px' style='width:" + pw + "px;font-size:9px'>Porjekt</td><td rowspan='2' width='" 
+				+ dw + "px' style='width:" + dw + "px;font-size:9px'>DERIVAT</td><td rowspan='2' width='" 
+				+ sw + "px' style='width:" + sw + "px;font-size:9px'>Stufe</td><td rowspan='2' width='" 
+				+ vff + "px' style='width:" + vff + "px;font-size:9px'>VFF</td><td rowspan='2' width='" 
+				+ pvs + "px' style='width:" + pvs + "px;font-size:9px'>PVS</td><td rowspan='2' width='" 
+				+ os + "px' style='width:" + os + "px;font-size:9px'>OS</td><td rowspan='2' width='" 
+				+ sop + "px' style='width:" + sop + "px;font-size:9px'>SOP</td><td rowspan='2' width='"
+				+ mw + "px' style='width:" + mw + "px;font-size:9px'>MIX</td>";
 			var _secondRow = "";
 			var _thirdRow = ""; 
 			var _gStr = "";		
@@ -124,7 +135,14 @@
 				_gStr = "";
 				_gStr += "<tr style='background-color:feffbe;text-align:center;'>";
 				_secondRow = "<tr style='background-color:feffbe;text-align:center;'>";
-				_thirdRow = "<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>";
+				_thirdRow = "<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>"
+				+"<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>"
+				+"<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>"
+				+"<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp</td>"
+				+"<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp</td>"
+				+"<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp</td>"
+				+"<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp</td>"
+				+"<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
 				_dTemp.setFullYear(_minDate.getFullYear(), _minDate.getMonth(), _minDate.getDate());
 				
 				while (Date.parse(_dTemp) <= Date.parse(_maxDate)) {	
@@ -175,7 +193,7 @@
 					}
 					_gStr += "<div style='position:absolute; top:" + (26 * (_level + 2) + 1) + "; left:5px'>" + task.getProject() + "</div>";
 					_gStr += "<div style='position:absolute; top:" + (26 * (_level + 2) + 1) + "; left:" + (10 + pw) + "px'>" + task.getTask() + "</div>";
-					_gStr += "<div style='position:absolute; top:" + (26 * (_level + 2) + 1) + "; left:" + (20 + pw + dw)+ "px'>" + task.getLevel() + "</div>";
+					_gStr += "<div style='position:absolute; top:" + (26 * (_level + 2) + 1) + "; left:" + (20 + pw + dw)+ "px'>" + task.getStufe() + "</div>";
 					_gStr += "<div style='position:absolute; top:" + (26 * (_level + 2) + 1) + "; left:" + (60 + pw + dw + vff + pvs + os + sop)+ "px'>" + task.getMix() + "%</div>";
 					if (task.getType() == 'PVS' || task.getType() == '0S' || task.getType() == 'SOP' || task.getType() == 'VFF' ) {
 						_gStr += "<div style='position:absolute; top:" + (26 * (_level + 2) + 1) + "; left:" + task.getTypeLeft() + "px'>" + task.getFromStr() + "</div>";
@@ -323,19 +341,19 @@
 			String projectDerivat = fv9ProjectDerivat.get(i);
 			
 			if(Web.getDateStrNotNull(fv9ProjectPVS.get(i))){%>
-				g2.AddTaskDetail(new Task('<%=fv9ProjectPVS.get(i)%>', '<%=fv9ProjectPVS.get(i)%>', '<b><%=projectDerivat%></b>', 'PVS', 50, <%=i%>, 'VW007', 'PVS', '<%=fv9ProjectMix.get(i)%>'));
+				g2.AddTaskDetail(new Task('<%=fv9ProjectPVS.get(i)%>', '<%=fv9ProjectPVS.get(i)%>', '<b><%=projectDerivat%></b>', 'PVS', 50, <%=i%>, 'VW007', 'PVS', '<%=fv9ProjectMix.get(i)%>', '<%=fv9ProjectStufe.get(i)%>'));
 				<%	}
 			
 			if(Web.getDateStrNotNull(fv9ProjectVFF.get(i))){%>
-				g2.AddTaskDetail(new Task('<%=fv9ProjectVFF.get(i)%>', '<%=fv9ProjectVFF.get(i)%>', '<b><%=projectDerivat%></b>', 'VFF', 50, <%=i%>, 'VW007', 'VFF', '<%=fv9ProjectMix.get(i)%>'));
+				g2.AddTaskDetail(new Task('<%=fv9ProjectVFF.get(i)%>', '<%=fv9ProjectVFF.get(i)%>', '<b><%=projectDerivat%></b>', 'VFF', 50, <%=i%>, 'VW007', 'VFF', '<%=fv9ProjectMix.get(i)%>', '<%=fv9ProjectStufe.get(i)%>'));
 				<%	}
 			
 			if(Web.getDateStrNotNull(fv9Project0S.get(i))){%>
-				g2.AddTaskDetail(new Task('<%=fv9Project0S.get(i)%>', '<%=fv9Project0S.get(i)%>', '<b><%=projectDerivat%></b>', '0S', 50, <%=i%>, 'VW007', '0S', '<%=fv9ProjectMix.get(i)%>'));
+				g2.AddTaskDetail(new Task('<%=fv9Project0S.get(i)%>', '<%=fv9Project0S.get(i)%>', '<b><%=projectDerivat%></b>', '0S', 50, <%=i%>, 'VW007', '0S', '<%=fv9ProjectMix.get(i)%>', '<%=fv9ProjectStufe.get(i)%>'));
 				<%	}
 			
 			if(Web.getDateStrNotNull(fv9ProjectSOP.get(i))){%>
-				g2.AddTaskDetail(new Task('<%=fv9ProjectSOP.get(i)%>', '<%=fv9ProjectSOP.get(i)%>', '<b><%=projectDerivat%></b>', 'SOP', 50, <%=i%>, 'VW007', 'SOP', '<%=fv9ProjectMix.get(i)%>'));
+				g2.AddTaskDetail(new Task('<%=fv9ProjectSOP.get(i)%>', '<%=fv9ProjectSOP.get(i)%>', '<b><%=projectDerivat%></b>', 'SOP', 50, <%=i%>, 'VW007', 'SOP', '<%=fv9ProjectMix.get(i)%>', '<%=fv9ProjectStufe.get(i)%>'));
 				<%	}
 		}
 	}

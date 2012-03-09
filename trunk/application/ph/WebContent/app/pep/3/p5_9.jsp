@@ -174,26 +174,14 @@
 					<%
 					if (Web.getListYesOrNo((List<String>)form.get("fv9KWNo"))) {
 						int[] arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9KWNo"));
-						int size = arr.length;//一共有多少个柱子 
-						double pillar = 0.0;
-						int vffPillarNum = 2;//柱子个数
-						int pvsPillarNum = 2;//柱子个数
-						int osPillarNum = 2;//柱子个数
-						int sopPillarNum = 1;//柱子个数
-
-						if(size > 0){
-							int maxKw = arr[size-1];
-							int minKw = arr[0];
-							//假定总长度是595.0px 先算出一共有多少个柱子，每个柱子的宽度 px
-							double totalWidth = 540.0;//总长度是 
-							pillar = totalWidth/size;  //每个柱子的宽度 px
+						double totalWidth = 560.0;
 						
-						}
+						Map<String,Double> lichenbeiPillarNum = Web.getLCBPillar(Web.getLCBNum(request, arr), arr, totalWidth);
 						
-						double value1 = vffPillarNum * pillar ; 
-						double value2 = pvsPillarNum * pillar ;
-						double value3 = osPillarNum * pillar ;
-						double value4 = sopPillarNum * pillar ;
+						double value1 = lichenbeiPillarNum.get("vffPillar"); 
+						double value2 = lichenbeiPillarNum.get("pvsPillar");
+						double value3 = lichenbeiPillarNum.get("osPillar");
+						double value4 = lichenbeiPillarNum.get("sopPillar");
 						double sum = value1 + value2 + value3 + value4;
 					
 					%>
@@ -206,8 +194,6 @@
 					<%
 					}
 					%>
-				
-
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

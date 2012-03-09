@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.saturn.tc.utils.DateUtils;
 
 public class Web {
@@ -285,8 +287,16 @@ public class Web {
 	}
 	
 	public static boolean getObjectYesOrNo(Object obj) {
-		if (obj != null && !"".equals((String)obj)) {
-			return true;
+		if (obj != null) {
+			if(obj instanceof List){
+				if(((List)obj).size() > 0){
+					return true;
+				}
+			} else if (obj instanceof String){
+				if( !"".equals((String)obj)){
+					return true;
+				}
+			}
 		}
 		return false;
 	}
@@ -361,6 +371,121 @@ public class Web {
 				result.add(tt);
 			}
 		}
+		return result;
+	}
+	
+	public static Map<String,Integer> getLCBNum(HttpServletRequest request, int[] arr){
+		Map<String,Integer>  result = new HashMap<String,Integer>();
+		int vffNum = 0;//柱子个数
+		int pvsNum = 0;//柱子个数
+		int osNum = 0;//柱子个数
+		int sopNum = 0;//柱子个数
+		
+		if(arr != null && arr.length > 0){
+		int size = arr.length;//一共有多少个柱子 
+		if(size > 0){
+		//	int maxKw = arr[size-1];
+		//	int minKw = arr[0];
+			Object vff_start = request.getSession().getAttribute("DATE_VFF");
+			Object pvs_start = request.getSession().getAttribute("DATE_PVS");
+			Object os_start = request.getSession().getAttribute("DATE_0S");
+			Object sop_start = request.getSession().getAttribute("DATE_SOP");
+			Object me_start = request.getSession().getAttribute("DATE_ME");
+			
+			if(getObjectYesOrNo(vff_start)){
+				vff_start = vff_start.toString();
+			} else {
+				vff_start = "";
+			}
+			if(getObjectYesOrNo(pvs_start)){
+				pvs_start = pvs_start.toString();
+			} else {
+				pvs_start = ""; 
+			}
+			if(getObjectYesOrNo(os_start)){
+				os_start = os_start.toString();
+			} else {
+				os_start = ""; 
+			}
+			if(getObjectYesOrNo(sop_start)){
+				sop_start = sop_start.toString();
+			} else {
+				sop_start = ""; 
+			}
+			if(getObjectYesOrNo(me_start)){
+				me_start = me_start.toString();
+			} else {
+				me_start = ""; 
+			}
+			
+			int[] vffArr = Web.getMilepostArr(vff_start.toString(), pvs_start.toString()); //获取vff周 列表
+			int[] pvsArr = Web.getMilepostArr(pvs_start.toString(), os_start.toString());
+			int[] osArr = Web.getMilepostArr(os_start.toString(), sop_start.toString());
+			int[] sopArr = Web.getMilepostArr(sop_start.toString(), me_start.toString());
+			
+			vffNum =  Web.getNum(vffArr,arr);//柱子个数
+			pvsNum = Web.getNum(pvsArr,arr);;//柱子个数
+			osNum =  Web.getNum(osArr,arr);;//柱子个数
+			sopNum =  Web.getNum(sopArr,arr);;//柱子个数
+		}
+		}
+		
+		result.put("vffNum", vffNum);
+		result.put("pvsNum", pvsNum);
+		result.put("osNum", osNum);
+		result.put("sopNum", sopNum);
+		
+		return result;
+	}
+	
+	public static Map<String,Double> getLCBPillar (Map<String,Integer> lichengbeiNum, int[] arr, double totalW){
+		Map<String,Double>  result = new HashMap<String,Double>();
+		
+		int size = arr.length;//一共有多少个柱子 
+		double pillar = 0.0;
+	
+		int vffPillarNum = lichengbeiNum.get("vffNum");//柱子个数
+		int pvsPillarNum = lichengbeiNum.get("pvsNum");//柱子个数
+		int osPillarNum = lichengbeiNum.get("osNum");//柱子个数
+		int sopPillarNum = lichengbeiNum.get("sopNum");//柱子个数
+
+		if(size > 0){
+			//int maxKw = arr[size-1];
+			//int minKw = arr[0];
+			double totalWidth = totalW;
+			pillar = totalWidth/size; 
+		}
+		
+		double value1 = 0 ; 
+		double value2 = 0;
+		double value3 = 0;
+		double value4 = 0;
+		
+		value1 = vffPillarNum * pillar ; 
+		
+		if(vffPillarNum > 0 && pvsPillarNum != 0){
+			value2 = (pvsPillarNum - 1)* pillar ;
+		} else {
+			value2 = pvsPillarNum * pillar ;
+		}
+		
+		if(pvsPillarNum > 0 && osPillarNum != 0){
+			value3 = (osPillarNum - 1 )* pillar ;	
+		} else {
+			value3 = osPillarNum * pillar ;
+		}
+		
+		if(osPillarNum > 0 && sopPillarNum != 0){
+			value4 = (sopPillarNum - 1)* pillar ;			
+		} else {
+			value4 = sopPillarNum* pillar ;
+		}
+
+		result.put("vffPillar", value1);
+		result.put("pvsPillar", value2);
+		result.put("osPillar", value3);
+		result.put("sopPillar", value4);
+		
 		return result;
 	}
 	

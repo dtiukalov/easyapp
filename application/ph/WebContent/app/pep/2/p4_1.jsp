@@ -20,45 +20,45 @@
 			int fv9PronoseSmall2Woch = 0;
 			int fv9PronoseBig2Woch = 0;
 
-			 if(Web.getYesOrNo((List<String>)form.get("fv9KWNo"))){
+			 if(Web.getListYesOrNo((List<String>)form.get("fv9KWNo"))){
 				fv9KWNo = Web.getNumberListStrSubFirst((List<String>)form.get("fv9KWNo"));
 				fv9KWNo = fv9KWNo.substring(0, fv9KWNo.length()-1);
 				fv9KWNo += ",'', '', 'IST']";
 			 }	
 			 
-			 if(Web.getYesOrNo((List<String>)form.get("fv9AekoAbgesch"))){
+			 if(Web.getListYesOrNo((List<String>)form.get("fv9AekoAbgesch"))){
 				fv9AekoAbgesch = Web.getNumberListStrSubFirst((List<String>)form.get("fv9AekoAbgesch"));
 				fv9AekoAbgesch = fv9AekoAbgesch.substring(0, fv9AekoAbgesch.length()-1);
 				fv9AekoAbgesch += ", 0, 0,";
-				if(Web.getYesOrNo(form.get("fv9PronoseAbgesch"))){
+				if(Web.getObjectYesOrNo(form.get("fv9PronoseAbgesch"))){
 					fv9PronoseAbgesch = Integer.parseInt((String)form.get("fv9PronoseAbgesch"));
 				}
 				fv9AekoAbgesch += fv9PronoseAbgesch + "]";
 			 }
 			 
-			 if(Web.getYesOrNo((List<String>)form.get("fv9AekoSmall2Woch"))){
+			 if(Web.getListYesOrNo((List<String>)form.get("fv9AekoSmall2Woch"))){
 				fv9AekoSmall2Woch = Web.getNumberListStrSubFirst((List<String>)form.get("fv9AekoSmall2Woch"));
 				fv9AekoSmall2Woch = fv9AekoSmall2Woch.substring(0, fv9AekoSmall2Woch.length()-1);
 				fv9AekoSmall2Woch += ", 0, 0,";
-				if(Web.getYesOrNo(form.get("fv9PronoseSmall2Woch"))){
+				if(Web.getObjectYesOrNo(form.get("fv9PronoseSmall2Woch"))){
 					fv9PronoseSmall2Woch = Integer.parseInt((String)form.get("fv9PronoseSmall2Woch"));
 				}
 				fv9AekoSmall2Woch += fv9PronoseSmall2Woch + "]";
 			 }
 			 
-			 if(Web.getYesOrNo((List<String>)form.get("fv9AekoBig2Woch"))){
+			 if(Web.getListYesOrNo((List<String>)form.get("fv9AekoBig2Woch"))){
 				fv9AekoBig2Woch = Web.getNumberListStrSubFirst((List<String>)form.get("fv9AekoBig2Woch"));
 				fv9AekoBig2Woch = fv9AekoBig2Woch.substring(0, fv9AekoBig2Woch.length()-1);
 				fv9AekoBig2Woch += ", 0, 0,";
-				if(Web.getYesOrNo(form.get("fv9PronoseBig2Woch"))){
+				if(Web.getObjectYesOrNo(form.get("fv9PronoseBig2Woch"))){
 					fv9PronoseBig2Woch = Integer.parseInt((String)form.get("fv9PronoseBig2Woch"));
 				}
 				fv9AekoBig2Woch += fv9PronoseBig2Woch + "]";
 			 }
 			 
-			 if(Web.getYesOrNo((List<String>)form.get("fv9AekoAbgesch")) && 
-					 Web.getYesOrNo((List<String>)form.get("fv9AekoSmall2Woch")) &&
-					 Web.getYesOrNo((List<String>)form.get("fv9AekoBig2Woch"))){
+			 if(Web.getListYesOrNo((List<String>)form.get("fv9AekoAbgesch")) && 
+					 Web.getListYesOrNo((List<String>)form.get("fv9AekoSmall2Woch")) &&
+					 Web.getListYesOrNo((List<String>)form.get("fv9AekoBig2Woch"))){
 						 
 					 List<String> sumList = Web.SumList((List<String>)form.get("fv9AekoAbgesch"), 
 								(List<String>)form.get("fv9AekoSmall2Woch"),

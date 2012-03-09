@@ -14,44 +14,58 @@
 		<%@ include file="/app/pep/include/header.jsp"%>
 		<title><%=title %></title>
 		<%
+		double tdwidth = 0.0;
+		
 		//专业组
 		List<String> fv9BMGMajor = (List<String>) form.get("fv9BMGMajor");
-		fv9BMGMajor.add("Gesamt"); 
-		String BMG_Major  = Web.getStrListStr(fv9BMGMajor) ;
+		if (Web.getListYesOrNo(fv9BMGMajor)) {
+			fv9BMGMajor.add("Gesamt"); 
+			tdwidth = 694.0/(fv9BMGMajor.size());
+		}
+		String BMG_Major = Web.getStrListStr(fv9BMGMajor);
+		BMG_Major = Web.replaceSpecial(BMG_Major);
 		
 		//Gesamt
 		List<String> fv9BMGGesamtNum = (List<String>) form.get("fv9BMGGesamtNum");
 		int bfGesamt = 0;
-		for (int i=0; i<fv9BMGGesamtNum.size(); i++) {
-			bfGesamt += Integer.parseInt(fv9BMGGesamtNum.get(i));
+		if (Web.getListYesOrNo(fv9BMGGesamtNum)) {
+			for (int i=0; i<fv9BMGGesamtNum.size(); i++) {
+				bfGesamt += Integer.parseInt(fv9BMGGesamtNum.get(i));
+			}
+			fv9BMGGesamtNum.add(bfGesamt+"");
 		}
-		fv9BMGGesamtNum.add(bfGesamt+"");
 		String BMG_GesamtNum = Web.getNumberListStr(fv9BMGGesamtNum);
 		
 		//Soll
 		List<String> fv9BMGSollNum = (List<String>) form.get("fv9BMGSollNum");
 		int sum_soll = 0;
-		for (int i=0; i<fv9BMGSollNum.size(); i++) {
-			sum_soll += Integer.parseInt(fv9BMGSollNum.get(i));
+		if (Web.getListYesOrNo(fv9BMGSollNum)) {
+			for (int i=0; i<fv9BMGSollNum.size(); i++) {
+				sum_soll += Integer.parseInt(fv9BMGSollNum.get(i));
+			}
+			fv9BMGSollNum.add(sum_soll+"");
 		}
-		fv9BMGSollNum.add(sum_soll+"");
 		String BMG_SollNum = Web.getNumberListStr(fv9BMGSollNum);
 	
 		//Ist
 		List<String> fv9BMGlstNum = (List<String>) form.get("fv9BMGlstNum");
 		int sum_ist = 0;
-		for (int i=0; i<fv9BMGlstNum.size(); i++) {
-			sum_ist += Integer.parseInt(fv9BMGlstNum.get(i));
+		if (Web.getListYesOrNo(fv9BMGlstNum)) {
+			for (int i=0; i<fv9BMGlstNum.size(); i++) {
+				sum_ist += Integer.parseInt(fv9BMGlstNum.get(i));
+			}
+			fv9BMGlstNum.add(sum_ist+"");
 		}
-		fv9BMGlstNum.add(sum_ist+"");
 		String BMG_lstNum = Web.getNumberListStr(fv9BMGlstNum);
 		
 		//offen
-		List<Integer> fv9BFOffenNum = new ArrayList<Integer>();
-		for(int i=0; i<fv9BMGMajor.size(); i++){
-			int soll = Integer.parseInt(fv9BMGSollNum.get(i));
-			int ist = Integer.parseInt(fv9BMGlstNum.get(i));
-			fv9BFOffenNum.add(soll - ist);
+		List<String> fv9BFOffenNum = new ArrayList<String>();
+		if (Web.getListYesOrNo(fv9BMGMajor)) {
+			for(int i=0; i<fv9BMGMajor.size(); i++){
+				int soll = Integer.parseInt(fv9BMGSollNum.get(i));
+				int ist = Integer.parseInt(fv9BMGlstNum.get(i));
+				fv9BFOffenNum.add((soll - ist) + "");
+			}
 		}
 		String BMG_OffenNum = Web.getNumberListStr(fv9BFOffenNum);
 		%>
@@ -171,53 +185,51 @@
 				<div id="chart" style="width: 850px; height: 400px; margin: 0 auto"></div>
 				<div id="table" style="width: 800px; height: 400px; margin: 0 8px">
 					<table class="table2" style="border-color: #000;border-collapse:collapse;" cellpadding="0" cellspacing="0" border="1"">
-						<%-- <tr>
-							<td>&nbsp;</td>
-							<%
-							for (int i=0; i<fv9BMGMajor.size(); i++){
-							%>
-							<td><%= fv9BMGMajor.get(i)%></td>
-							<%
-							}
-							%>
-						</tr> --%>
 						<tr>
-							<td style="text-align: left;">&nbsp;Pos.Gesamt</td>
+							<td style="text-align: left; width: 80px;">&nbsp;Pos.Gesamt</td>
 							<%
-							for (int i=0; i<fv9BMGGesamtNum.size(); i++){
-							%>
-							<td><%= fv9BMGGesamtNum.get(i)%></td>
-							<%
+							if (Web.getListYesOrNo(fv9BMGGesamtNum)) {
+								for (int i=0; i<fv9BMGGesamtNum.size(); i++){
+								%>
+								<td style="width: <%=tdwidth%>px;"><%= fv9BMGGesamtNum.get(i)%></td>
+								<%
+								}
 							}
 							%>
 						</tr>
 						<tr>
-							<td style="text-align: left;">&nbsp;BMG - Soll</td>
+							<td style="text-align: left; width: 80px;">&nbsp;BMG - Soll</td>
 							<%
-							for (int i=0; i<fv9BMGSollNum.size(); i++){
-							%>
-							<td><%= fv9BMGSollNum.get(i)%></td>
-							<%
+							if (Web.getListYesOrNo(fv9BMGSollNum)) {
+								for (int i=0; i<fv9BMGSollNum.size(); i++){
+								%>
+								<td style="width: <%=tdwidth%>px;"><%= fv9BMGSollNum.get(i)%></td>
+								<%
+								}
 							}
 							%>
 						</tr>
 						<tr>
-							<td style="text-align: left;">&nbsp;BMG - Ist</td>
+							<td style="text-align: left; width: 80px;">&nbsp;BMG - Ist</td>
 							<%
-							for (int i=0; i<fv9BMGlstNum.size(); i++){
-							%>
-							<td><%= fv9BMGlstNum.get(i)%></td>
-							<%
+							if (Web.getListYesOrNo(fv9BMGlstNum)) {
+								for (int i=0; i<fv9BMGlstNum.size(); i++){
+								%>
+								<td style="width: <%=tdwidth%>px;"><%= fv9BMGlstNum.get(i)%></td>
+								<%
+								}
 							}
 							%>
 						</tr>
 						<tr>
-							<td style="text-align: left;">&nbsp;BMG - Offen</td>
+							<td style="text-align: left; width: 80px;">&nbsp;BMG - Offen</td>
 							<%
-							for (int i=0; i<fv9BFOffenNum.size(); i++){
-							%>
-							<td><%= fv9BFOffenNum.get(i)%></td>
-							<%
+							if (Web.getListYesOrNo(fv9BFOffenNum)) {
+								for (int i=0; i<fv9BFOffenNum.size(); i++){
+								%>
+								<td style="width: <%=tdwidth%>px;"><%= fv9BFOffenNum.get(i)%></td>
+								<%
+								}
 							}
 							%>
 						</tr>

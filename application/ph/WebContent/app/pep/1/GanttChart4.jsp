@@ -356,7 +356,7 @@
 <script>
 	var g = new Gantt(document.all.GanttChart);
 <%
-	if(Web.getYesOrNo(fv9Stufe) && 
+	if(Web.getListYesOrNo(fv9Stufe) && 
 			Web.getDateLisNotNull(fv9KarossStart) &&
 			Web.getDateLisNotNull(fv9KarossEnd) && 
 			Web.getDateLisNotNull(fv9LackStart) &&
@@ -365,10 +365,10 @@
 			Web.getDateLisNotNull(fv9MontageEnd) &&
 			Web.getDateLisNotNull(fv9ObergabeStart) &&
 			Web.getDateLisNotNull(fv9ObergabeEnd) &&
-			Web.getYesOrNo(fv9FahrSoll) && 
-			Web.getYesOrNo(fv9Fahrlst) && 
-			Web.getYesOrNo(fv9KarossSoll)&&
-			Web.getYesOrNo(fv9Karosslst)){
+			Web.getListYesOrNo(fv9FahrSoll) && 
+			Web.getListYesOrNo(fv9Fahrlst) && 
+			Web.getListYesOrNo(fv9KarossSoll)&&
+			Web.getListYesOrNo(fv9Karosslst)){
 		for(int i=0; i<fv9Stufe.size(); i++){
 			int level = 3*i + 1;%>
 			g.AddTaskDetail(new Task('<%=fv9KarossStart.get(i)%>', '<%=fv9KarossEnd.get(i)%>', '<b><%=fv9Stufe.get(i)%>Fahrzeuge<br \>Soll: <%=fv9FahrSoll.get(i)%>  Ist: <%=fv9Fahrlst.get(i)%> <br \>Karosserien <br \>Soll: <%=fv9KarossSoll.get(i)%>  Ist: <%=fv9Karosslst.get(i)%> </b>', 'A', 50, <%=level%>, '#AED4F8'));

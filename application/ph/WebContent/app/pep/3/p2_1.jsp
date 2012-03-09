@@ -42,7 +42,7 @@
 			    <td width="433" class="pg"><h2>Maßnahmen</h2></td>
 			  </tr>
 			   <%
-			   if (Web.getYesOrNo(fv9FugRadName)) {
+			   if (Web.getListYesOrNo(fv9FugRadName)) {
 		  		for(int i=0; i<fv9FugRadName.size(); i++){
 		  			String FugRadName = Web.replaceSpecial(fv9FugRadName.get(i)); //名称 
 		  			String FugRadStatus = Web.replaceSpecial(fv9FugRadStatus.get(i)); // 状态
@@ -110,7 +110,7 @@
 			    <td width="433" class="pg"><h2>Maßnahmen</h2></td>
 			  </tr>
 			   <%
-			   if (Web.getYesOrNo(fv9FugRadName)) {
+			   if (Web.getListYesOrNo(fv9FugRadName)) {
 		  		for(int i=0; i<fv9FugRadName.size(); i++){
 		  			String FugRadName = Web.replaceSpecial(fv9FugRadName.get(i)); //名称 
 		  			String FugRadStatus = Web.replaceSpecial(fv9FugRadStatus.get(i)); // 状态

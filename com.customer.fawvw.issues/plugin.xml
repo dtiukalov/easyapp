@@ -118,7 +118,7 @@
          <menu
                label="FAW-VW"
                mnemonic="M"
-               id="com.customer.fawvw.issues.menus.sampleMenu">
+               id="com.customer.rac.helloworld.menus.sampleMenu">
 	            <command
 	                  commandId="com.customer.fawvw.issue.TCPprojectCommand"
 	                  icon="platform:/plugin/com.customer.fawvw.issues/coins/issueMenu.png"

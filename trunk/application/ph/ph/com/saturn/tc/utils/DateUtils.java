@@ -203,6 +203,12 @@ public class DateUtils {
 		return new Date(year, month, date);
 	}
 	
+	public static String getSysTime() {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
+		return format.format(new Date());
+	}
+	
+	
 	public static String getSysDate() {
 		Date now = new Date(); 
 		DateFormat df = DateFormat.getDateInstance();

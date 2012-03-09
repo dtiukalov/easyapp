@@ -517,7 +517,7 @@ public class PHManager {
 		"FV9_42TeileStatVFFHT",
 		"FV9_42TeileStatPVSHT",
 		"FV9_42TeileStat0SHT",
-		"4.2 Terminubersicht ZP5(HT)",
+		"4.2 Terminuebersicht ZP5 (HT)",
 		"4.2 Problemblatt ZP5 HT",
 		
 		"4.2 Teilequalitaet ZP5 (KT)",

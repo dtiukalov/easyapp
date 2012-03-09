@@ -55,7 +55,11 @@ var saturnServerPath = '<%=request.getContextPath()%>';
 			$('#testCode').focus();
 			return;
 		}
-		
+		if ($('#userName').val() == '') {
+			alert('请填写预约人姓名');
+			$('#userName').focus();
+			return;
+		}
 		if ($('#phone').val() == '') {
 			alert('请填写电话');
 			$('#phone').focus();
@@ -87,6 +91,7 @@ var saturnServerPath = '<%=request.getContextPath()%>';
 			type : 'post',         
 			dataType : 'json',     
 			data : {
+				userName : $("#userName").val(),
 				phone : $("#phone").val(),         
 				text : $("#text").val(),         
 				type : _type,  
@@ -108,6 +113,7 @@ var saturnServerPath = '<%=request.getContextPath()%>';
 				if (data) {
 					$("#createTime").val('');
 					$("#text").val('');
+					$('#userName').val('');
 					$('#phone').val('');
 					
 					$('#cid').val('');
@@ -167,6 +173,10 @@ var saturnServerPath = '<%=request.getContextPath()%>';
             </tr>
             <tr>
               <td><table cellpadding="0" cellspacing="0">
+              <tr align="left">
+                  <td height="25px" align="right"><span style="color: red">*</span>预约人姓名：</td>
+                  <td><input type="text" name="userName" id="userName" maxlength="30" />&nbsp;&nbsp;(先生/女士)</td>
+                </tr>
                 <tr align="left">
                   <td height="25px" align="right"><span style="color: red">*</span>联系电话：</td>
                   <td><input type="text" name="phone" id="phone" maxlength="30" /></td>

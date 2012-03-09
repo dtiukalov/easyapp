@@ -102,6 +102,11 @@
 					width : 90,
 					sortable : true
 				}, {
+					field : 'userName',
+					title : '预约人',
+					width : 90,
+					sortable : true
+				}, {
 					field : 'phone',
 					title : '电话',
 					width : 90,
@@ -284,10 +289,10 @@
 						textField="text" mode="remote"></select></td>
 					<td>车牌:</td>
 					<td><input id="license" name="license" type="text"></input></td>
+					<td>预约人:</td>
+					<td><input id="userName" name="userName" type="text"></input></td>
 					<td>电话:</td>
 					<td><input id="phone" name="phone" type="text"></input></td>
-					<td>内容:</td>
-					<td><input id="text" name="text" type="text"></input></td>
 				</tr>
 				<tr align="right">
 					<td>预约时间:</td>
@@ -298,6 +303,8 @@
 					<td align="left"><select id="state" class="easyui-combobox"
 						name="state" url="<%=request.getContextPath()%>/app/system/dict/listDictByType.action?type=bookcar.state" valueField="id"
 						textField="text" mode="remote"></select></td>
+					<td>内容:</td>
+					<td><input id="text" name="text" type="text"></input></td>
 				</tr>
 			</table>
 			<div style="padding: 10px;" >

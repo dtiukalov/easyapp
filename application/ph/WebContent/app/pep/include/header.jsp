@@ -12,6 +12,7 @@
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/app/pep/include/base.css">
 <%
+	
 	String type = (String)request.getAttribute("type");
 	Map form = (Map)request.getAttribute("form");
 	
@@ -24,6 +25,12 @@
 		oraganization = (String)form.get("fv9Oraganization");
 		platformType = (String)form.get("fv9PlatformType");
 	}
+	
+	String status_left = "VW471 CN-Pilothalle VFF,20.10.2012";
+//	String status_left = "&nbsp;";
+	String status_right = "STATUS 19.10.2012";
+//	String status_right = "&nbsp;";
+	
 	
 	double vff = 0.0;
 	double pvs = 0.0;

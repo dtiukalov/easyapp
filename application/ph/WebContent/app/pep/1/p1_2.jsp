@@ -20,9 +20,9 @@
 <body>	
 	<div id="container" style="">
 	<div id="nr" style="margin:0 35px;width:850px">
-			<div id="top" style="border-bottom:#000099 2px solid;height:80px;width:930px;">
-				<div class="fl"> VW471 CN-Pilothalle VFF,20.10.2010</div>
-				<div class="fr"> STATUS 19.10.2010</div>
+			<div id="top">
+				<div class="fl"><%=status_left %></div>
+				<div class="fr"><%=status_right %></div>
 				<h1><%=title %></h1>
 			</div>
 			<div id="content">

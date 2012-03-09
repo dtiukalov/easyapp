@@ -26,11 +26,10 @@
 		platformType = (String)form.get("fv9PlatformType");
 	}
 	
-	String status_left = "VW471 CN-Pilothalle VFF,20.10.2012";
-//	String status_left = "&nbsp;";
-	String status_right = "STATUS 19.10.2012";
-//	String status_right = "&nbsp;";
-	
+//	String status_left = "VW471 CN-Pilothalle VFF,20.10.2012";
+	String status_left = "&nbsp;";
+//	String status_right = "STATUS 19.10.2012";
+	String status_right = "&nbsp;";
 	
 	double vff = 0.0;
 	double pvs = 0.0;

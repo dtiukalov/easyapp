@@ -10,7 +10,7 @@ public class BookCarTest {
 
 	@Test
 	public void testAdd() {
-		BookCar car = new BookCar(null, "test.rongzhan", "car.dongfenghongda", "car.dongfenghongda.crv", "car.dongfenghongda.crv.1", "东风本田", "CRV", "系列一", "吉ADX813", "18943630044", "bookcar.shijia", "试驾", "想预约试驾", DateUtils.getSystemTime(), DateUtils.getSystemTime(), "bookcar.state.false", "未确认");
+		BookCar car = new BookCar(null, "test.rongzhan", "car.dongfenghongda", "car.dongfenghongda.crv", "car.dongfenghongda.crv.1", "东风本田", "CRV", "系列一", "吉ADX813", "18943630044", "bookcar.shijia", "试驾", "想预约试驾", DateUtils.getSystemTime(), DateUtils.getSystemTime(), "bookcar.state.false", "未确认", "谷先生");
 		assertEquals(1, BookCar.add(car));
 		
 		car = BookCar.getAll(car, "0", "5", null, null).getList().get(0);

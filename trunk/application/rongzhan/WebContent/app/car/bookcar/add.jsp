@@ -166,6 +166,11 @@
 					<td><div id="licenseTip"></div></td>
 				</tr>
 				<tr>
+					<td style="text-align:right"><span style="color: red">*</span>预约人:</td>
+					<td><input id="userName" name="userName" type="text"></input></td>
+					<td><div id="userNameTip"></div></td>
+				</tr>
+				<tr>
 					<td style="text-align:right"><span style="color: red">*</span>电话:</td>
 					<td><input id="phone" name="phone" type="text"></input></td>
 					<td><div id="phoneTip"></div></td>

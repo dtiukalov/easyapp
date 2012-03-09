@@ -21,6 +21,7 @@ public class BookCar {
 	
 	private String license;
 	private String phone;
+	private String userName;
 	
 	private String type;
 	private String typeName;
@@ -40,34 +41,7 @@ public class BookCar {
 		//根据列的顺序获取值对象的属性值。例子：vo.getId(), vo.getName(), vo.getGender()
 		return SimpleDaoTemplate.update(
 				"INSERT INTO car_bookcar(cid, brand, brandName, model, modelName, series, seriesName, " +
-				"license, phone, type, typeName, text, bookTime, createTime, state, stateName) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", 
-				vo.getCid(),
-				vo.getBrand(),
-				vo.getBrandName(),
-				vo.getModel(),
-				vo.getModelName(),
-				vo.getSeries(),
-				vo.getSeriesName(),
-				vo.getLicense(),
-				vo.getPhone(),
-				vo.getType(),
-				vo.getTypeName(),
-				vo.getText(),
-				vo.getBookTime(),
-				vo.getCreateTime(),
-				vo.getState(),
-				vo.getStateName()
-		);
-	}
-	
-	public static int edit(BookCar vo) {
-		//指定值对象类型(VOClass)。例子：User
-		//指定插入表名称(tableName)。例子：如user表3个列，tableName=user
-		//指定修改列信息(modify)。例子：name=?, value=?
-		//根据修改列的顺序获取值对象的属性值。例子：vo.getName(), vo.getValue(), vo.getId()
-		return SimpleDaoTemplate.update(
-				"UPDATE car_bookcar SET cid = ?, brand = ?, brandName = ?, model = ?, modelName = ?, series = ?, seriesName = ?, " +
-				"license = ?, phone = ?, type = ?, typeName = ?, text = ?, bookTime = ?, createTime = ? , state = ?, stateName = ?WHERE id = ?", 
+				"license, phone, type, typeName, text, bookTime, createTime, state, stateName, userName) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", 
 				vo.getCid(),
 				vo.getBrand(),
 				vo.getBrandName(),
@@ -84,6 +58,35 @@ public class BookCar {
 				vo.getCreateTime(),
 				vo.getState(),
 				vo.getStateName(),
+				vo.getUserName()
+		);
+	}
+	
+	public static int edit(BookCar vo) {
+		//指定值对象类型(VOClass)。例子：User
+		//指定插入表名称(tableName)。例子：如user表3个列，tableName=user
+		//指定修改列信息(modify)。例子：name=?, value=?
+		//根据修改列的顺序获取值对象的属性值。例子：vo.getName(), vo.getValue(), vo.getId()
+		return SimpleDaoTemplate.update(
+				"UPDATE car_bookcar SET cid = ?, brand = ?, brandName = ?, model = ?, modelName = ?, series = ?, seriesName = ?, " +
+				"license = ?, phone = ?, type = ?, typeName = ?, text = ?, bookTime = ?, createTime = ? , state = ?, stateName = ?, userName = ? WHERE id = ?", 
+				vo.getCid(),
+				vo.getBrand(),
+				vo.getBrandName(),
+				vo.getModel(),
+				vo.getModelName(),
+				vo.getSeries(),
+				vo.getSeriesName(),
+				vo.getLicense(),
+				vo.getPhone(),
+				vo.getType(),
+				vo.getTypeName(),
+				vo.getText(),
+				vo.getBookTime(),
+				vo.getCreateTime(),
+				vo.getState(),
+				vo.getStateName(),
+				vo.getUserName(),
 				vo.getId()
 		);
 	}
@@ -105,7 +108,7 @@ public class BookCar {
 		//指定插入表名称(tableName)。例子：如user表，tableName=user
 		//指定O-R映射规则对象。默认mapping
 		return SimpleDaoTemplate.query("SELECT * FROM car_bookcar WHERE 1 = 1",
-				new DymaticCondition().addSimpleCondition(vo, "cid", "brand", "model", "series", "type", "license", "phone", "text", "bookTime", "createTime", "state")
+				new DymaticCondition().addSimpleCondition(vo, "cid", "brand", "model", "series", "type", "license", "phone", "text", "bookTime", "createTime", "state", "userName")
 						.addCondition("ORDER BY {0} {1}", orderBy, order),
 				mapping, BookCar.class, start, offset);
 	}
@@ -147,7 +150,7 @@ public class BookCar {
 			String series, String brandName, String modelName,
 			String seriesName, String license, String phone, String type,
 			String typeName, String text, String bookTime, String createTime,
-			String state, String stateName) {
+			String state, String stateName, String userName) {
 		super();
 		this.id = id;
 		this.cid = cid;
@@ -166,6 +169,7 @@ public class BookCar {
 		this.createTime = createTime;
 		this.state = state;
 		this.stateName = stateName;
+		this.userName = userName;
 	}
 
 	public String getId() {
@@ -302,6 +306,14 @@ public class BookCar {
 
 	public void setStateName(String stateName) {
 		this.stateName = stateName;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	@Override

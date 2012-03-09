@@ -100,6 +100,11 @@
 					width : 90,
 					sortable : true
 				}, {
+					field : 'userName',
+					title : '预约人',
+					width : 90,
+					sortable : true
+				}, {
 					field : 'phone',
 					title : '电话',
 					width : 90,
@@ -266,6 +271,8 @@
 				<tr align="right">
 					<td>车牌:</td>
 					<td><input id="license" name="license" type="text"></input></td>
+					<td>预约人:</td>
+					<td><input id="userName" name="userName" type="text"></input></td>
 					<td>电话:</td>
 					<td><input id="phone" name="phone" type="text"></input></td>
 					<td>内容:</td>

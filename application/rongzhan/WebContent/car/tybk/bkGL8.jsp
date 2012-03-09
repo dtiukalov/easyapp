@@ -4,25 +4,6 @@
 <html>
 <HEAD><TITLE></TITLE>
 <%@ include file="/car/includes/header.jsp"%>
-<BODY><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
-<!-- saved from url=(0040)#/123/config.htm -->
-<HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>【别克GL8】别克GL8 汽车配置_参数 上海通用别克_爱卡汽车网</TITLE>
-<META content="text/html; charset=utf-8" http-equiv=Content-Type>
-<META name=keywords 
-content="别克GL8汽车配置,上海通用别克别克GL8车型资料,别克GL8发动机参数,别克GL8车身参数, 别克GL8车灯配置, 别克GL8座椅配置,别克GL8安全配置">
-<META name=description 
-content=爱卡汽车网为您提供最新别克GL8汽车配置参数,包括基本参数,车身参数,发动机参数,变速箱参数,底盘转向参数,安全配置参数,操控配置参数,内/外部配置,车灯配置,座椅配置.最新最全的别克GL8汽车配置信息尽在爱卡汽车网><LINK 
-rel=stylesheet type=text/css 
-href="【别克GL8】别克GL8%20汽车配置_参数%20上海通用别克_爱卡汽车网_files/min.css">
-<SCRIPT src="【别克GL8】别克GL8%20汽车配置_参数%20上海通用别克_爱卡汽车网_files/min"></SCRIPT>
-
-<SCRIPT language=javascript 
-src="【别克GL8】别克GL8%20汽车配置_参数%20上海通用别克_爱卡汽车网_files/car_arr_newcar_2009_ps.js"></SCRIPT>
-
-<SCRIPT language=JavaScript 
-src="【别克GL8】别克GL8%20汽车配置_参数%20上海通用别克_爱卡汽车网_files/car_search_2009_ps.js"></SCRIPT>
-
-<META name=GENERATOR content="MSHTML 8.00.7600.16930"></HEAD>
 <BODY>
 <DIV class=content_nt>
 <DIV style="WIDTH: 955px" class=sernt_lb><SPAN 

@@ -28,7 +28,7 @@
 String model = request.getParameter("model");
 if("car.dongfengnissan.gtr".equals(model)){
 %>
-GT-R	
+<jsp:include flush="true" page="../car/dfrc/gt-r.jsp"/>
 <%
 }else if("car.dongfengnissan.tianlai".equals(model)){
 %>

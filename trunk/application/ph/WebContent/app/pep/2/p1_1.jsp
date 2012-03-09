@@ -71,7 +71,7 @@
 					<%
 					if (fv9FreigabeStyle != null && fv9FreigabeStyle.size() > 0) {
 						for(int i=0; i<fv9FreigabeStyle.size(); i++) {
-							String imagePath = "../images/";	
+							String imagePath = request.getContextPath() + "/app/pep/images/";	
 							if ("红".equals(fv9FreigabeStatus.get(i))) {
 								imagePath += "light_red.jpg";
 							}
@@ -96,7 +96,7 @@
 							</table>
 						</td>
 						<td  width="48%" >
-							<%= fv9FreigCom_GM.get(i)%>
+							<%= Web.replaceSpecial(fv9FreigCom_GM.get(i))%>
 						</td>
 					</tr>
 					<%		
@@ -144,7 +144,7 @@
 							</table>
 						</td>
 						<td  width="48%" >
-							<%= fv9FreigCom_CN.get(i)%>
+							<%= Web.replaceSpecial(fv9FreigCom_CN.get(i))%>
 						</td>
 					</tr>
 					<%		

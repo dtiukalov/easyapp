@@ -87,7 +87,8 @@ public class Web {
 		String str = "[";
 		if (list.length > 0) {
 			for (int i = 0; i < list.length - 1; i++) {
-				str += "\"" + list[i] + "\", ";
+				String nrestr = replaceSpecial(list[i]);
+				str += "\"" + nrestr + "\", ";
 			}
 			str += "\"" + list[list.length - 1] + "\"";
 		}
@@ -101,7 +102,7 @@ public class Web {
 		}
 
 		if (list instanceof List) {
-			return ((List) list).toString();
+			return replaceSpecial((((List) list).toString()));
 		}
 
 		return list + "";
@@ -131,7 +132,7 @@ public class Web {
 			StringBuffer buffer = new StringBuffer("[");
 
 			for (Object value : (List) list) {
-				buffer.append("\"" + value + "\",");
+				buffer.append("\"" + replaceSpecial((String)value) + "\",");
 			}
 
 			buffer.deleteCharAt(buffer.length() - 1);
@@ -276,14 +277,14 @@ public class Web {
 		return max;
 	}
 
-	public static Boolean getYesOrNo(List<String> list) {
+	public static Boolean getListYesOrNo(List<String> list) {
 		if (list != null && list.size() > 0) {
 			return true;
 		}
 		return false;
 	}
 	
-	public static boolean getYesOrNo(Object obj) {
+	public static boolean getObjectYesOrNo(Object obj) {
 		if (obj != null && !"".equals((String)obj)) {
 			return true;
 		}
@@ -362,11 +363,9 @@ public class Web {
 		}
 		return result;
 	}
-
+	
 	public static String replaceSpecial(String str) {
-		str = str.replaceAll("\n", "<br>").replaceAll("\"", "\\\"")
-				.replaceAll("\'", "\\\'");
-
-		return str;
+		return str.replaceAll("\n", "<br>").replaceAll("\"", "\\\"")
+			.replaceAll("”", "\\\"").replaceAll("\'", "\\\'");
 	}
 }

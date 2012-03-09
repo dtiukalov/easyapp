@@ -318,7 +318,7 @@
 	var g2 = new Gantt(document.all.GanttChart2);
 	
 	<%
-	if(Web.getYesOrNo(fv9ProjectDerivat)){
+	if(Web.getListYesOrNo(fv9ProjectDerivat)){
 		for(int i=0; i<fv9ProjectDerivat.size(); i++){
 			String projectDerivat = fv9ProjectDerivat.get(i);
 			

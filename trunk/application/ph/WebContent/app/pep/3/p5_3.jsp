@@ -226,7 +226,7 @@
 			<div id="content">
 				<div id="chart" style="width: 850px; height: 400px; margin: 50px auto"></div>
 				<%
-				if (Web.getYesOrNo((List<String>)form.get("fv9KWNo"))) {
+				if (Web.getListYesOrNo((List<String>)form.get("fv9KWNo"))) {
 					int[] arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9KWNo"));
 					
 					int size = arr.length;//一共有多少个柱子 

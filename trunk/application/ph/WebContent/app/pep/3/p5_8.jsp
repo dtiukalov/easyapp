@@ -28,10 +28,10 @@
 		List<String> fv9Option = (List)form.get("fv9Option");
 
 		List<String> newKarosseriebau = new ArrayList();
-		if (Web.getYesOrNo(KarosseriebauNum)) {
+		if (Web.getObjectYesOrNo(KarosseriebauNum)) {
 			for(int i=0; i<KarosseriebauNum.size(); i++){
 				String table = "<table style=\"border-collapse:collapse;border:solid 1px #000;\" width=\"350\" cellpadding=\"0\" cellspacing=\"0\">";
-				if (Web.getYesOrNo(fv9KW)) {
+				if (Web.getListYesOrNo(fv9KW)) {
 					for(int k=0; k<fv9KW.size(); k++) {
 						if ((!"".equals(fv9KW.get(k))) && (fv9KW.get(k).equals(KWNo.get(i)))) {
 							table += "<tr>";
@@ -172,7 +172,7 @@
 			<div id="content">
 				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto"></div>
 					<%
-					if (Web.getYesOrNo((List<String>)form.get("fv9KWNo"))) {
+					if (Web.getListYesOrNo((List<String>)form.get("fv9KWNo"))) {
 						int[] arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9KWNo"));
 						int size = arr.length;//一共有多少个柱子 
 						double pillar = 0.0;

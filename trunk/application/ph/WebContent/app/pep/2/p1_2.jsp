@@ -14,61 +14,58 @@
 		<%@ include file="/app/pep/include/header.jsp"%>
 		<title><%=title %></title>
 	<%
-		
+		double tdwidth = 0.0;
+	
 		//专业组
-		List<String> fv9PFMajor =  new ArrayList<String>();
-	
-		if(form.get("fv9PFMajor") != null){
-			 fv9PFMajor = (List<String>) form.get("fv9PFMajor");
+		List<String> fv9PFMajor = (List<String>) form.get("fv9PFMajor");
+		if(Web.getListYesOrNo(fv9PFMajor)){
+			 fv9PFMajor.add("Gesamt"); 
+			 tdwidth = 694.0/(fv9PFMajor.size());
 		}
-	
-		fv9PFMajor.add("Gesamt"); 
-		String PFMajor = Web.getStrListStr(fv9PFMajor) ;
+		String PFMajor = Web.getStrListStr(fv9PFMajor);
+		PFMajor = Web.replaceSpecial(PFMajor);
 		
 		//Gesamt
-		List<String> fv9PFGesamtNum = new ArrayList<String>();
-		
-		if(form.get("fv9PFGesamtNum") != null){
-			fv9PFGesamtNum = (List<String>) form.get("fv9PFGesamtNum");
-		}
-		
+		List<String> fv9PFGesamtNum = (List<String>) form.get("fv9PFGesamtNum");
 		int pfGesamt = 0;
-		for (int i=0; i<fv9PFGesamtNum.size(); i++) {
-			pfGesamt += Integer.parseInt(fv9PFGesamtNum.get(i));
+		if(Web.getListYesOrNo(fv9PFGesamtNum)){
+			for (int i=0; i<fv9PFGesamtNum.size(); i++) {
+				pfGesamt += Integer.parseInt(fv9PFGesamtNum.get(i));
+			}
+			fv9PFGesamtNum.add(pfGesamt + "");
 		}
-		fv9PFGesamtNum.add(pfGesamt + "");
 		String PFGesamtNum = Web.getNumberListStr(fv9PFGesamtNum);
 		
 		//Soll
-		List<String> fv9PFSollNum = new ArrayList<String>();
-		if(form.get("fv9PFSollNum") != null){
-			fv9PFSollNum = (List<String>) form.get("fv9PFSollNum");
-		}
+		List<String> fv9PFSollNum = (List<String>) form.get("fv9PFSollNum");
 		int pfSoll = 0;
-		for (int i=0; i<fv9PFSollNum.size(); i++) {
-			pfSoll += Integer.parseInt(fv9PFSollNum.get(i));
+		if(Web.getListYesOrNo(fv9PFSollNum)){
+			for (int i=0; i<fv9PFSollNum.size(); i++) {
+				pfSoll += Integer.parseInt(fv9PFSollNum.get(i));
+			}
+			fv9PFSollNum.add(pfSoll + "");
 		}
-		fv9PFSollNum.add(pfSoll + "");
 		String PFSollNum = Web.getNumberListStr(fv9PFSollNum);
 	
 		//Ist
-		List<String> fv9PFlstNum = new ArrayList<String>();
-		if(form.get("fv9PFlstNum") != null){
-			fv9PFlstNum = (List<String>) form.get("fv9PFlstNum");
-		}
+		List<String> fv9PFlstNum = (List<String>) form.get("fv9PFlstNum");
 		int pflst = 0;
-		for (int i=0; i<fv9PFlstNum.size(); i++) {
-			pflst += Integer.parseInt(fv9PFlstNum.get(i));
+		if(form.get("fv9PFlstNum") != null){
+			for (int i=0; i<fv9PFlstNum.size(); i++) {
+				pflst += Integer.parseInt(fv9PFlstNum.get(i));
+			}
+			fv9PFlstNum.add(pflst + "");
 		}
-		fv9PFlstNum.add(pflst + "");
 		String PFlstNum = Web.getNumberListStr(fv9PFlstNum);
 		
 		//offen
-		List<Integer> fv9PFoffenNum = new ArrayList<Integer>();
-		for(int i=0; i<fv9PFSollNum.size(); i++){
-			int soll = Integer.parseInt(fv9PFSollNum.get(i));
-			int ist = Integer.parseInt(fv9PFlstNum.get(i));
-			fv9PFoffenNum.add(soll - ist);
+		List<String> fv9PFoffenNum = new ArrayList<String>();
+		if (Web.getListYesOrNo(fv9PFMajor)) {
+			for(int i=0; i<fv9PFMajor.size(); i++){
+				int soll = Integer.parseInt(fv9PFSollNum.get(i));
+				int ist = Integer.parseInt(fv9PFlstNum.get(i));
+				fv9PFoffenNum.add((soll - ist) + "");
+			}
 		}
 		String PFoffenNum = Web.getNumberListStr(fv9PFoffenNum);
 		
@@ -190,53 +187,51 @@
 				<div id="chart" style="width: 850px; height: 400px; margin: 0 auto"></div>
 				<div id="table" style="width: 850px; height: 400px; margin: 0 8px">
 					<table class="table2" style="border-color: #000;border-collapse:collapse;" cellpadding="0" cellspacing="0" border="1"">
-						<%-- <tr>
-							<td>&nbsp;</td>
-							<%
-							for (int i=0; i<fv9PFMajor.size(); i++){
-							%>
-							<td><%= fv9PFMajor.get(i)%></td>
-							<%
-							}
-							%>
-						</tr> --%>
 						<tr>
-							<td style="text-align: left;">&nbsp;Pos.Gesamt</td>
+							<td style="text-align: left; width: 80px;"">&nbsp;Pos.Gesamt</td>
 							<%
-							for (int i=0; i < fv9PFGesamtNum.size(); i++){
-							%>
-							<td><%= fv9PFGesamtNum.get(i)%></td>
-							<%
+							if (Web.getListYesOrNo(fv9PFGesamtNum)) {
+								for (int i=0; i < fv9PFGesamtNum.size(); i++){
+								%>
+								<td style="width: <%=tdwidth%>px;"><%= fv9PFGesamtNum.get(i)%></td>
+								<%
+								}
 							}
 							%>
 						</tr>
 						<tr>
-							<td style="text-align: left;">&nbsp;P - Soll</td>
+							<td style="text-align: left; width: 80px;"">&nbsp;P - Soll</td>
 							<%
-							for (int i=0; i < fv9PFSollNum.size(); i++){
-							%>
-							<td><%= fv9PFSollNum.get(i)%></td>
-							<%
+							if (Web.getListYesOrNo(fv9PFSollNum)) {
+								for (int i=0; i < fv9PFSollNum.size(); i++){
+								%>
+								<td style="width: <%=tdwidth%>px;"><%= fv9PFSollNum.get(i)%></td>
+								<%
+								}
 							}
 							%>
 						</tr>
 						<tr>
-							<td style="text-align: left;">&nbsp;P - Ist</td>
+							<td style="text-align: left; width: 80px;"">&nbsp;P - Ist</td>
 							<%
-							for (int i=0; i<fv9PFlstNum.size(); i++){
-							%>
-							<td><%= fv9PFlstNum.get(i)%></td>
-							<%
+							if (Web.getListYesOrNo(fv9PFlstNum)) {
+								for (int i=0; i<fv9PFlstNum.size(); i++){
+								%>
+								<td style="width: <%=tdwidth%>px;"><%= fv9PFlstNum.get(i)%></td>
+								<%
+								}
 							}
 							%>
 						</tr>
 						<tr>
-							<td style="text-align: left;">&nbsp;P - Offen</td>
+							<td style="text-align: left; width: 80px;"">&nbsp;P - Offen</td>
 							<%
-							for (int i=0; i<fv9PFoffenNum.size(); i++){
-							%>
-							<td><%= fv9PFoffenNum.get(i)%></td>
-							<%
+							if (Web.getListYesOrNo(fv9PFoffenNum)) {
+								for (int i=0; i<fv9PFoffenNum.size(); i++){
+								%>
+								<td style="width: <%=tdwidth%>px;"><%= fv9PFoffenNum.get(i)%></td>
+								<%
+								}
 							}
 							%>
 						</tr>

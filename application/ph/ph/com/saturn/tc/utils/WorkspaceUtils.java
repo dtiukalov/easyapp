@@ -21,7 +21,7 @@ public class WorkspaceUtils {
 	
 	public static String HOST = "http://localhost:7001/tc";
 	
-	public static String DatasetType = "FV9PHPPt";
+	public static String DatasetType = "FV9PHImage";
 	public static String OtherUid = "fv9otherUid";
 	public static String DatasetPageName = "fv9PageName";
 	

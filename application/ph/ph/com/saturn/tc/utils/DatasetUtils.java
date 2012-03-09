@@ -17,7 +17,7 @@ public class DatasetUtils {
 	
 	public static String getDatasetByUid(String uid, HttpServletRequest request){
 		Dataset dataset = (Dataset)PH.getDataService().loadModelObject(uid);
-		String date =  DateUtils.getSysDate();
+		String date =  DateUtils.getSysTime();
 		String datasetpath = "attachment" + File.separator + date +File.separator;
 		String path = request.getRealPath("/") ;
 		

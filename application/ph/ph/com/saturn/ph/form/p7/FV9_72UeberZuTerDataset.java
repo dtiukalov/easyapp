@@ -14,12 +14,12 @@ public class FV9_72UeberZuTerDataset extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/7/p2_2.jsp";
+		return "/app/pep/imageDataset.jsp";
 	}
 
 	@Override
 	public String getType() {
-		return "7.2 Ubersicht zukunftige Termine";
+		return "7.2 Uebersicht zukunftige Termine";
 	}
 
 	@Override

@@ -14,7 +14,7 @@ public class FV9_14AnlaufkurveDataset extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/1/p4_1.jsp";
+		return "/app/pep/imageDataset.jsp";
 	}
 
 	@Override

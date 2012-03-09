@@ -14,12 +14,12 @@ public class FV9_13AnlauforganisationDataset extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/1/p3_1.jsp";
+		return "/app/pep/imageDataset.jsp";
 	}
 
 	@Override
 	public String getType() {
-		return "1.3 Anlauforganisation";
+		return "1.3 Anlauforganisation - Fahrzeugbau";
 	}
 
 	@Override

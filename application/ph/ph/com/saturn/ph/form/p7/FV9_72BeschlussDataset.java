@@ -14,7 +14,7 @@ public class FV9_72BeschlussDataset extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/7/p2_1.jsp";
+		return "/app/pep/imageDataset.jsp";
 	}
 
 	@Override

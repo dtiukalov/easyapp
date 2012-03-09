@@ -14,12 +14,12 @@ public class FV9_44AggregateverfuegbarkeitDataset extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/4/p4_1.jsp";
+		return "/app/pep/imageDataset.jsp";
 	}
 
 	@Override
 	public String getType() {
-		return "4.4 Aggregateverfugbarkeit ZP3/ZP4";
+		return "4.4 Aggregateverfuegbarkeit ZP3/ZP4";
 	}
 
 	@Override

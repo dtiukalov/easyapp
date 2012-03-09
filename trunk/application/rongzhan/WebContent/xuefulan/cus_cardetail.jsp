@@ -29,11 +29,11 @@
 String model = request.getParameter("model");
 if("car.xuefulan.saiou3".equals(model)){
 %>
-<jsp:include flush="true" page="../car/xfl/so.jsp"/>
+<jsp:include flush="true" page="../car/xfl/so3.jsp"/>
 <%
 }else if("car.xuefulan.saiou2".equals(model)){
 %>
-赛欧两厢
+<jsp:include flush="true" page="../car/xfl/so2.jsp"/>
 <%
 }else if("car.xuefulan.keluzi".equals(model)){
 %>
@@ -41,11 +41,11 @@ if("car.xuefulan.saiou3".equals(model)){
 <%
 }else if("car.xuefulan.aiweiou3".equals(model)){
 %>
-爱唯欧三厢
+<jsp:include flush="true" page="../car/xfl/awo3.jsp"/>
 <%
 }else if("car.xuefulan.aiweiou2".equals(model)){
 %>
-爱唯欧两厢
+<jsp:include flush="true" page="../car/xfl/awo2.jsp"/>
 <%
 }else if("car.xuefulan.mairuibao".equals(model)){
 %>
@@ -53,7 +53,7 @@ if("car.xuefulan.saiou3".equals(model)){
 <%
 }else if("car.xuefulan.kepaqi".equals(model)){
 %>
-科帕奇
+<jsp:include flush="true" page="../car/xfl/kpq.jsp"/>
 <%
 }else if("car.xuefulan.jingcheng".equals(model)){
 %>

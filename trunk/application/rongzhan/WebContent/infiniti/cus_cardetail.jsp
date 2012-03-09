@@ -29,23 +29,23 @@
 String model = request.getParameter("model");
 if("car.infiniti.gconvertible".equals(model)){
 %>
-GConvertible
+<jsp:include flush="true" page="../car/yfnd/g.jsp"/>
 <%
 }else if("car.infiniti.gcoupe".equals(model)){
 %>
-G Coupe
+<jsp:include flush="true" page="../car/yfnd/g.jsp"/>
 <%
 }else if("car.infiniti.gsedan".equals(model)){
 %>
-G Sedan
+<jsp:include flush="true" page="../car/yfnd/g.jsp"/>
 <%
 }else if("car.infiniti.m".equals(model)){
 %>
-M
+<jsp:include flush="true" page="../car/yfnd/m.jsp"/>
 <%
 }else if("car.infiniti.ex".equals(model)){
 %>
-EX
+<jsp:include flush="true" page="../car/yfnd/ex.jsp"/>
 <%
 }else if("car.infiniti.fx".equals(model)){
 %>

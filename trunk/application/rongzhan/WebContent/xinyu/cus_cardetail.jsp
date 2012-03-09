@@ -37,8 +37,7 @@ if("car.yiqivw.suteng".equals(model)){
 <%
 }else if("car.yiqivw.maiteng".equals(model)){
 %>
-迈腾
-<!--<jsp:include flush="true" page="../include/maiteng.jsp"/>-->
+<jsp:include flush="true" page="../car/yqdz/mt.jsp"/>
 <%
 }else if("car.yiqivw.baolai".equals(model)){
 %>

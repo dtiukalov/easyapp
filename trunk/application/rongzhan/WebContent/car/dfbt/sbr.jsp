@@ -41,10 +41,7 @@ type=checkbox name="">高亮显示不同项 </SPAN>
         <TBODY>
         <TR>
           <TH 
-          style="PADDING-BOTTOM: 0px; BACKGROUND-COLOR: #fff; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; HEIGHT: 6px; BORDER-RIGHT: 0px; PADDING-TOP: 0px"><IMG 
-            style="WIDTH: 156px !important" 
-            src="【思铂睿】思铂睿%20汽车配置_参数%20东风本田_爱卡汽车网_files/t1125arr_e.gif" 
-          height=1></TH></TR>
+          style="PADDING-BOTTOM: 0px; BACKGROUND-COLOR: #fff; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; HEIGHT: 6px; BORDER-RIGHT: 0px; PADDING-TOP: 0px"></TH></TR>
         <TR id=info_1>
           <TH 
           style="PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; HEIGHT: 105px; PADDING-TOP: 0px" 

@@ -25,10 +25,10 @@
 	MARGIN: 0px auto; WIDTH: 950px
 }
 #container #top {
-	BORDER-BOTTOM: #000099 2px solid; height:80px; OVERFLOW: hidden
+	BORDER-BOTTOM: #000099 2px solid; height:100px; OVERFLOW: hidden
 }
 #top H1 {
-	FONT-FAMILY: Arial, Helvetica, sans-serif; FONT-SIZE: 32px; margin-top:12px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif; FONT-SIZE: 32px; margin-top:25px;
 }
 #footer {
 	WIDTH: 950px; HEIGHT: 30px;

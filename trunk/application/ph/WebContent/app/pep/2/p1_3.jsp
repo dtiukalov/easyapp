@@ -145,7 +145,7 @@
 				}]
 			});
 			<%
-			int total = sum;
+			int total = sum + 10;
 			int[] arr = null;
 			
 			if (Web.getListYesOrNo((List<String>)form.get("fv9PFKWNo"))) {

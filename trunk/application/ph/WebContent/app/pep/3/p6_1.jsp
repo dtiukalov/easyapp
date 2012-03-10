@@ -35,7 +35,10 @@
 		
 		%>
 			<%
-			int total = 125;
+			int total = 0;
+			if(Web.getObjectYesOrNo(Zeil)){
+				total = Integer.parseInt(Zeil.get(0).toString()) + 5;
+			}
 			int[] arr = null;
 			if(Web.getObjectYesOrNo(form.get("fv9KWNo"))){
 			 	arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9KWNo"));

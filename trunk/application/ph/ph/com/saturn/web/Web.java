@@ -441,46 +441,43 @@ public class Web {
 	public static Map<String,Double> getLCBPillar (Map<String,Integer> lichengbeiNum, int[] arr, double totalW){
 		Map<String,Double>  result = new HashMap<String,Double>();
 		
-		int size = arr.length;//一共有多少个柱子 
-		double pillar = 0.0;
-	
 		int vffPillarNum = lichengbeiNum.get("vffNum");//柱子个数
 		int pvsPillarNum = lichengbeiNum.get("pvsNum");//柱子个数
 		int osPillarNum = lichengbeiNum.get("osNum");//柱子个数
 		int sopPillarNum = lichengbeiNum.get("sopNum");//柱子个数
-
-		if(size > 0){
-			//int maxKw = arr[size-1];
-			//int minKw = arr[0];
-			double totalWidth = totalW;
-			pillar = totalWidth/size; 
-		}
 		
 		double value1 = 0 ; 
 		double value2 = 0;
 		double value3 = 0;
 		double value4 = 0;
 		
-		value1 = vffPillarNum * pillar ; 
-		
-		if(vffPillarNum > 0 && pvsPillarNum != 0){
-			value2 = (pvsPillarNum - 1)* pillar ;
-		} else {
-			value2 = pvsPillarNum * pillar ;
+		if(arr != null && arr.length > 0){
+			int size = arr.length;//一共有多少个柱子 
+			double pillar = 0.0;
+			if(size > 0){
+				//int maxKw = arr[size-1];
+				//int minKw = arr[0];
+				double totalWidth = totalW;
+				pillar = totalWidth/size; 
+			}
+			value1 = vffPillarNum * pillar ; 
+			
+			if(vffPillarNum > 0 && pvsPillarNum != 0){
+				value2 = (pvsPillarNum - 1)* pillar ;
+			} else {
+				value2 = pvsPillarNum * pillar ;
+			}
+			if(pvsPillarNum > 0 && osPillarNum != 0){
+				value3 = (osPillarNum - 1 )* pillar ;	
+			} else {
+				value3 = osPillarNum * pillar ;
+			}
+			if(osPillarNum > 0 && sopPillarNum != 0){
+				value4 = (sopPillarNum - 1)* pillar ;			
+			} else {
+				value4 = sopPillarNum* pillar ;
+			}
 		}
-		
-		if(pvsPillarNum > 0 && osPillarNum != 0){
-			value3 = (osPillarNum - 1 )* pillar ;	
-		} else {
-			value3 = osPillarNum * pillar ;
-		}
-		
-		if(osPillarNum > 0 && sopPillarNum != 0){
-			value4 = (sopPillarNum - 1)* pillar ;			
-		} else {
-			value4 = sopPillarNum* pillar ;
-		}
-
 		result.put("vffPillar", value1);
 		result.put("pvsPillar", value2);
 		result.put("osPillar", value3);

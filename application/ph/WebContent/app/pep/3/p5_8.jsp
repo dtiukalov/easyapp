@@ -123,7 +123,7 @@
 					plotOptions: {
 						column: {
 							stacking: 'normal',
-							groupPadding:0.35,
+				//			groupPadding:0.35,
 							shadow: false,
 							borderColor:'black',
 							borderWidth:1,

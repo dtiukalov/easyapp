@@ -148,7 +148,7 @@
 						type: 'spline',
 						name: 'Prognose',
 						data: <%=fv9PrognoseNum%>,
-						color: '#99FF99'
+						color: '#99CC00'
 					}, {
 						type: 'spline',
 						name: 'Konzernziel',

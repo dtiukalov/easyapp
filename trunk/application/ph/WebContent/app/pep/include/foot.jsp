@@ -61,12 +61,12 @@ $(document).ready(function(){
 	    </div>
 	    <div class="ylogo">
 	    <%
-	    if ("FAWVW".equals(platformType)) {
+	    if ("fawvw".equalsIgnoreCase(platformType)) {
     	%>
  	    <img src="<%=request.getContextPath() %>/app/pep/images/FAWVW-logo.jpg" width="120px" height="41px"/>
  	    <%		
 	    }
-	    if ("Audi".equals(platformType)) {
+	    if ("audi".equalsIgnoreCase(platformType)) {
 	    %>
 	    <img src="<%=request.getContextPath() %>/app/pep/images/Audi-logo.jpg" width="120px" height="41px"/>
 	    <%	

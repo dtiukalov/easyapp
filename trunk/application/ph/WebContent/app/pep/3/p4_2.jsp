@@ -160,10 +160,10 @@
 		<div id="container">
 			<div id="nr">
 				<div id="top">
-				<div class="fl"> VW471 CN-Pilothalle VFF,20.10.2010</div>
-				<div class="fr"> STATUS 19.10.2010</div>
-				<h1><%=title %></h1>
-			</div>
+					<div class="fl"><%=status_left %></div>
+					<div class="fr"><%=status_right %></div>
+					<h1><%=title %></h1>
+				</div>
 				<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Zusammenbauteile (Anzahl FM/Anzahl Messungen)</h2>
 				<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gesamt: <%=gesamt %> Funktionsmaße</h5>
 				<div id="content" style="height:495px;">

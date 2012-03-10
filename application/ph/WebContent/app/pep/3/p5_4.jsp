@@ -271,10 +271,10 @@
 		<div id="container" style="height:650px">
 			<div id="nr">
 				<div id="top">
-				<div class="fl"> VW471 CN-Pilothalle VFF,20.10.2010</div>
-				<div class="fr"> STATUS 19.10.2010</div>
-				<h1><%=title %></h1>
-			</div>
+					<div class="fl"><%=status_left %></div>
+					<div class="fr"><%=status_right %></div>
+					<h1><%=title %></h1>
+				</div>
 				<div id="content" >
 					<div id="left" style="width: 400px; height: auto; margin: 0 30px; float: left;">
 						<div id="chart" style="width: 400px; height: 400px; margin: 0px auto; float: left;"></div>

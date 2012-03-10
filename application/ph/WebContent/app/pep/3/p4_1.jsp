@@ -11,6 +11,7 @@
 		<%@ include file="/app/pep/include/header.jsp"%>
 		<title><%=title %></title>
 		<%
+			double sum1 = 0;
 			List<String> kwno = null;
 			if(Web.getObjectYesOrNo(form.get("fv9KWNo"))){
 				kwno = (List<String>)form.get("fv9KWNo");
@@ -27,6 +28,7 @@
 					fv9PrognoseAK = (String)form.get("fv9PrognoseAK");
 				}
 				funktionSmall75.add(fv9PrognoseAK);
+				sum1 = sum1 + Double.parseDouble(fv9PrognoseAK);
 			}	
 			String fv9FunktionSmall75 = Web.getNumberListStr(funktionSmall75);  //AK
 			
@@ -39,6 +41,7 @@
 					fv9PrognoseBK = (String)form.get("fv9PrognoseBK");
 				}
 				funktionSmall100.add(fv9PrognoseBK);
+				sum1 = sum1 + Double.parseDouble(fv9PrognoseBK);
 			}
 			String fv9FunktionSmall100 = Web.getNumberListStr(funktionSmall100);	//BK
 			
@@ -51,6 +54,7 @@
 					fv9PrognoseIO = (String)form.get("fv9PrognoseIO");
 				}
 				funktionBig100.add(fv9PrognoseIO);
+				sum1 = sum1 + Double.parseDouble(fv9PrognoseIO);
 			}
 			String fv9FunktionBig100 = Web.getNumberListStr(funktionBig100);	//i.O
 		
@@ -59,7 +63,7 @@
 			
 		%>
 		<%
-		int total = 100 + 10;
+		double total = sum1 + 10;
 	
 		int vffNum =  0;
 		int pvsNum = 0;
@@ -81,25 +85,22 @@
 			sopNum = lichenbeiNum.get("sopNum");//柱子个数
 		}
 		
-		int temp0 = vffNum;
+		double temp0 = 0;
 		int temp1 = 0;
 		int temp2 = 0;
 		int temp3 = 0;
 		
-		if(vffNum > 0 && pvsNum != 0){
-			temp1 = pvsNum - 1 ;
-		} else {
-			temp1 = pvsNum;
+		if(vffNum > 0){
+			temp0 = 0.5;
 		}
-		if(pvsNum > 0 && osNum != 0){
-			temp2 = osNum - 1 ;	
-		} else {
-			temp2 = osNum ;
+		if(pvsNum > 0){
+			temp1 = vffNum;
 		}
-		if(osNum > 0 && sopNum != 0){
-			temp3 = sopNum - 1 ;			
-		} else {
-			temp3 = sopNum;
+		if(osNum > 0){
+			temp2 = vffNum + pvsNum ;
+		}
+		if(sopNum > 0){
+			temp3 = vffNum + pvsNum + osNum ;
 		}
 		
 		%>
@@ -237,7 +238,7 @@
 				}
 <%if(vffNum > 0){%>
 				,{
-					data: [[<%=temp0-1%> + 0.5, 0], [<%=temp0-1%> + 0.5001, <%=total%>]],
+					data: [[<%=temp0-1%> + 0.5, 0], [<%=temp0-1%> + 0.50001, <%=total%>]],
 		//			color: 'black',
 					dashStyle: 'dash',
 					lineWidth: 2,
@@ -256,7 +257,7 @@
 				}
 <%}%><%if(pvsNum > 0){%>
 				,{
-					data: [[<%=temp0 + temp1-1%> + 0.5, 0], [<%=temp0 + temp1-1%> + 0.5001, <%=total%>]],
+					data: [[<%=temp1-1%> + 0.5, 0], [<%=temp1-1%> + 0.5001, <%=total%>]],
 		//			color: 'black',
 					dashStyle: 'dash',
 					lineWidth: 2,
@@ -275,7 +276,7 @@
 				}
 <%}%><%if(osNum > 0){%>
 				, {
-					data: [[<%=temp0 + temp1 + temp2-1%> + 0.5, 0], [<%=temp0 + temp1 + temp2 - 1%> + 0.5001, <%=total%>]],
+					data: [[<%=temp2-1%> + 0.5, 0], [<%=temp2 - 1%> + 0.5001, <%=total%>]],
 		//			color: 'black',
 					dashStyle: 'dash',
 					lineWidth: 2,
@@ -296,7 +297,7 @@
 				
 %>
 				, {
-					data: [[<%=temp0 + temp1 + temp2 + temp3-1%> + 0.5, 0], [<%=temp0 + temp1 + temp2 + temp3-1%> + 0.5001, <%=total%>]],
+					data: [[<%=temp3-1%> + 0.5, 0], [<%=temp3-1%> + 0.5001, <%=total%>]],
 		//			color: 'black',
 					dashStyle: 'dash',
 					lineWidth: 2,
@@ -337,17 +338,15 @@
 				Map<String,Integer> tt = lichenbeiNum;
 				Map<String,Double> lichenbeiPillarNum = Web.getLCBPillar(tt, arr, totalWidth);
 				
-				double value0 = lichenbeiPillarNum.get("vffqianPillar"); 
 				double value1 = lichenbeiPillarNum.get("vffPillar"); 
 				double value2 = lichenbeiPillarNum.get("pvsPillar");
 				double value3 = lichenbeiPillarNum.get("osPillar");
 				double value4 = lichenbeiPillarNum.get("sopPillar");
-				double sum = value0 + value1 + value2 + value3 + value4;
+				double sum = value1 + value2 + value3 + value4;
 				
 				%>
 				<div id="meilsteinouter" style="width: 800px;">
 					<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 90px; text-align: center; overflow: hidden; ">
-						<div style=" width: <%=value0 %>px; height: 30px; float: left; background-color: #99FF99; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">T</span></div>
 						<div style=" width: <%=value1 %>px; height: 30px; float: left; background-color: #99FF99; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">VFF</span></div>
 						<div style=" width: <%=value2 %>px; height: 30px; float: left; background-color: #33CC33; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">PVS</span></div>
 						<div style=" width: <%=value3 %>px; height: 30px; float: left; background-color: #006600; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">0S</span></div>

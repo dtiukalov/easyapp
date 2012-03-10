@@ -465,35 +465,14 @@ public class Web {
 			}
 			
 			vffNum =  Web.getNum(vffArr,arr);//柱子个数
-			pvsNum = Web.getNum(pvsArr,arr);;//柱子个数
-			osNum =  Web.getNum(osArr,arr);;//柱子个数
-			sopNum =  Web.getNum(sopArr,arr);;//柱子个数
-			
-			/*int temp1 = 0;
-			int temp2 = 0;
-			int temp3 = 0;
-			
-			if(vffNum > 0 && pvsNum != 0){
-				temp1 = pvsNum - 1 ;
-			} else {
-				temp1 = pvsNum;
-			}
-			if(pvsNum > 0 && osNum != 0){
-				temp2 = osNum - 1 ;	
-			} else {
-				temp2 = osNum ;
-			}
-			if(osNum > 0 && sopNum != 0){
-				temp3 = sopNum - 1 ;			
-			} else {
-				temp3 = sopNum;
-			}*/
-			
-			vffqianNum =  size - vffNum - pvsNum - osNum - sopNum;//柱子个数
+			pvsNum = Web.getNum(pvsArr,arr);//柱子个数
+			osNum =  Web.getNum(osArr,arr);//柱子个数
+			sopNum =  Web.getNum(sopArr,arr);//柱子个数
+		//	vffqianNum =  size - vffNum - pvsNum - osNum - sopNum;//柱子个数
 			
 		}
 		}
-		result.put("vffqianNum", vffqianNum);
+	//	result.put("vffqianNum", vffqianNum);
 		result.put("vffNum", vffNum);
 		result.put("pvsNum", pvsNum);
 		result.put("osNum", osNum);
@@ -519,13 +498,13 @@ public class Web {
 	public static Map<String,Double> getLCBPillar (Map<String,Integer> lichengbeiNum, int[] arr, double totalW){
 		Map<String,Double>  result = new HashMap<String,Double>();
 		
-		int vffqianPillarNum = lichengbeiNum.get("vffqianNum");//柱子个数
+		//int vffqianPillarNum = lichengbeiNum.get("vffqianNum");//柱子个数
 		int vffPillarNum = lichengbeiNum.get("vffNum");//柱子个数
 		int pvsPillarNum = lichengbeiNum.get("pvsNum");//柱子个数
 		int osPillarNum = lichengbeiNum.get("osNum");//柱子个数
 		int sopPillarNum = lichengbeiNum.get("sopNum");//柱子个数
 		
-		double value0 = 0 ; 
+	//	double value0 = 0 ; 
 		double value1 = 0 ; 
 		double value2 = 0;
 		double value3 = 0;
@@ -540,7 +519,7 @@ public class Web {
 				double totalWidth = totalW;
 				pillar = totalWidth/size; 
 			}
-			value0 = vffqianPillarNum * pillar ; 
+		//	value0 = vffqianPillarNum * pillar ; 
 			value1 = vffPillarNum * pillar ; 
 			
 			if(vffPillarNum > 0 && pvsPillarNum != 0){
@@ -559,7 +538,7 @@ public class Web {
 				value4 = sopPillarNum* pillar ;
 			}
 		}
-		result.put("vffqianPillar", value0);
+	//	result.put("vffqianPillar", value0);
 		result.put("vffPillar", value1);
 		result.put("pvsPillar", value2);
 		result.put("osPillar", value3);

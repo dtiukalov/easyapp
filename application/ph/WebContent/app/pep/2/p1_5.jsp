@@ -152,11 +152,23 @@
 				int osNum = lichenbeiNum.get("osNum");//柱子个数
 				int sopNum = lichenbeiNum.get("sopNum");//柱子个数
 				
-				int temp0 = vffNum;
-				int temp1 = vffNum + pvsNum;
-				int temp2 = vffNum + pvsNum + osNum;
-				int temp3 = vffNum + pvsNum + osNum + sopNum;
-
+				double temp0 = 0;
+				int temp1 = 0;
+				int temp2 = 0;
+				int temp3 = 0;
+				
+				if(vffNum > 0){
+					temp0 = 0.5;
+				}
+				if(pvsNum > 0){
+					temp1 = vffNum;
+				}
+				if(osNum > 0){
+					temp2 = vffNum + pvsNum ;
+				}
+				if(sopNum > 0){
+					temp3 = vffNum + pvsNum + osNum ;
+				}
 				%>
 			chart2 = new Highcharts.Chart({
 					chart: {

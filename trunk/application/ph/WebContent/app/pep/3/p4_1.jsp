@@ -11,28 +11,100 @@
 		<%@ include file="/app/pep/include/header.jsp"%>
 		<title><%=title %></title>
 		<%
-			String fv9KWNo = Web.getNumberListStr(form.get("fv9KWNo"));
-			String fv9FunktionSmall75 = Web.getNumberListStr(form.get("fv9FunktionSmall75"));  //AK
-			String fv9FunktionSmall100 = Web.getNumberListStr(form.get("fv9FunktionSmall100"));	//BK
-			String fv9FunktionBig100 = Web.getNumberListStr(form.get("fv9FunktionBig100"));	//i.O
+			List<String> kwno = null;
+			if(Web.getObjectYesOrNo(form.get("fv9KWNo"))){
+				kwno = (List<String>)form.get("fv9KWNo");
+				kwno.add("wwww");
+			}
+			String fv9KWNo = Web.getStrListStr(kwno);
+			
+			
+			List<String> funktionSmall75 = null;
+			if(Web.getObjectYesOrNo(form.get("fv9FunktionSmall75"))){
+				String fv9PrognoseAK = "0";
+				funktionSmall75 = (List<String>)form.get("fv9FunktionSmall75");
+				if(form.get("fv9PrognoseAK")!= null && !"".equals(form.get("fv9PrognoseAK")) ){
+					fv9PrognoseAK = (String)form.get("fv9PrognoseAK");
+				}
+				funktionSmall75.add(fv9PrognoseAK);
+			}	
+			String fv9FunktionSmall75 = Web.getNumberListStr(funktionSmall75);  //AK
+			
+			
+			List<String> funktionSmall100 = null;
+			if(Web.getObjectYesOrNo(form.get("fv9FunktionSmall100"))){
+				String fv9PrognoseBK = "0";
+				funktionSmall100 = (List<String>)form.get("fv9FunktionSmall100");
+				if(form.get("fv9PrognoseBK")!= null && !"".equals(form.get("fv9PrognoseBK")) ){
+					fv9PrognoseBK = (String)form.get("fv9PrognoseBK");
+				}
+				funktionSmall100.add(fv9PrognoseBK);
+			}
+			String fv9FunktionSmall100 = Web.getNumberListStr(funktionSmall100);	//BK
+			
+			
+			List<String> funktionBig100 = null;
+			if(Web.getObjectYesOrNo(form.get("fv9FunktionBig100"))){
+				String fv9PrognoseIO = "0";
+				funktionBig100 = (List<String>)form.get("fv9FunktionBig100");
+				if(form.get("fv9PrognoseIO")!= null && !"".equals(form.get("fv9PrognoseIO")) ){
+					fv9PrognoseIO = (String)form.get("fv9PrognoseIO");
+				}
+				funktionBig100.add(fv9PrognoseIO);
+			}
+			String fv9FunktionBig100 = Web.getNumberListStr(funktionBig100);	//i.O
+		
+			
 			String fv9Zielwert = Web.getNumberListStr(form.get("fv9Zielwert")); //目标
-			double fv9PrognoseAK = 0;
-			double fv9PrognoseBK = 0;
-			double fv9PrognoseIO = 0;
-			if(form.get("fv9PrognoseAK")!= null && !"".equals(form.get("fv9PrognoseAK")) ){
-				fv9PrognoseAK = Double.parseDouble((String)form.get("fv9PrognoseAK"));
-			}
-			if(form.get("fv9PrognoseBK")!= null && !"".equals(form.get("fv9PrognoseBK")) ){
-				fv9PrognoseBK = Double.parseDouble((String)form.get("fv9PrognoseBK"));
-			}
-			if(form.get("fv9PrognoseIO")!= null && !"".equals(form.get("fv9PrognoseIO")) ){
-				fv9PrognoseIO = Double.parseDouble((String)form.get("fv9PrognoseIO"));
-			}
-			double max = fv9PrognoseAK + fv9PrognoseBK + fv9PrognoseIO;
+			
+		%>
+		<%
+		int total = 100 + 10;
+	
+		int vffNum =  0;
+		int pvsNum = 0;
+		int osNum = 0;
+		int sopNum = 0;	
+		
+		Map<String,Integer> lichenbeiNum = null;	
+		int[] arr = null;
+		
+		if (Web.getListYesOrNo(kwno)) {
+			kwno.remove(kwno.size()-1);
+			arr = Web.getIntArrByStringlist(kwno);
+			
+			lichenbeiNum = Web.getLCBNum(request, arr);
+			
+			vffNum =  lichenbeiNum.get("vffNum");//柱子个数
+			pvsNum = lichenbeiNum.get("pvsNum");//柱子个数
+			osNum = lichenbeiNum.get("osNum");//柱子个数
+			sopNum = lichenbeiNum.get("sopNum");//柱子个数
+		}
+		
+		int temp0 = vffNum;
+		int temp1 = 0;
+		int temp2 = 0;
+		int temp3 = 0;
+		
+		if(vffNum > 0 && pvsNum != 0){
+			temp1 = pvsNum - 1 ;
+		} else {
+			temp1 = pvsNum;
+		}
+		if(pvsNum > 0 && osNum != 0){
+			temp2 = osNum - 1 ;	
+		} else {
+			temp2 = osNum ;
+		}
+		if(osNum > 0 && sopNum != 0){
+			temp3 = sopNum - 1 ;			
+		} else {
+			temp3 = sopNum;
+		}
+		
 		%>
 		<script type="text/javascript">
 		var chart1;
-		var chart2;
 		$(document).ready(function() {
 			chart1 = new Highcharts.Chart({
 				chart: {
@@ -72,7 +144,6 @@
 				},
 				yAxis: {
 					min: 0,
-					max: <%=max%>,
 					lineWidth:1,
 					lineColor:'black',
 					showLastLabel: true,
@@ -163,109 +234,89 @@
 							}
 						}
 					}
-				}]
-			});
-			
-			chart2 = new Highcharts.Chart({
-				chart: {
-					renderTo: 'chart2',
-					defaultSeriesType: 'column'
-				},
-				title: {
-					text: ' ',
-					style:{
-						color:'black',
-						fontSize:'18px'
-					},
-					align:'left'
-				},
-				subtitle: {
-					text: ' '
-				}, 
-				xAxis: {
-					lineWidth:1,
-					tickLength: 0,
-					lineColor:'black',
-					title: {
-						text: ' '
-					},
-					labels: {
-						y:20,
-						style: {
-							 fontSize: '14px',
-							 color:'black'
-						}
-					},
-					categories: 'ww'
-				},
-				yAxis: {
-					gridLineWidth: 0,
-					labels:{
-						enabled:false
-					},
-					title: {
-						text: '',
-						y:20,
-						style: {
-							 padding:'5px',
-							 font: 'normal 14px Arial, sans-serif',
-							 fontWeight: 'bold'
-						}
-					}
-				},
-				legend:{
-					enabled: false
-				},
-				tooltip: {
-					formatter: function() {
-						return '<b>'+ this.x +'</b><br/>'+
-							 this.series.name +': '+ this.y +'<br/>'+
-							 'Total: '+ this.point.stackTotal;
-					}
-				},
-				plotOptions: {
-					column: {
-						pointWidth:25,
-						stacking: 'normal',
-						borderColor: 'black',
-						borderWidth: 1,
-						dataLabels: {
-							enabled: true,
-							style : {
-								fontSize:'12px'
-							},
-							color: 'black',
-							formatter: function() {
-								if (this.y == 0) {
-									return '';
-								}
-								return this.y + '';
-							}
-						}
-					}
-				},
-			    series: [{
-					name: 'AK: Abweichung Toleranz > 100 %',
-					color: '#E63110',
-					data:  <%=fv9PrognoseAK%>
-				}, {
-					name: 'BK: 75% < Abweichung Toleranz < 100 %',
-					color: '#F9A700',
-					data:  <%=fv9PrognoseBK%>
-				}, {
-					name: 'i.O.: Abweichung Toleranz < 75 %',
-					color: '#009C0E',
+				}
+<%if(vffNum > 0){%>
+				,{
+					data: [[<%=temp0-1%> + 0.5, 0], [<%=temp0-1%> + 0.5001, <%=total%>]],
+		//			color: 'black',
+					dashStyle: 'dash',
+					lineWidth: 2,
+					marker: {enabled: false},
+					shadow: false,
+					showInLegend: false,
+					enableMouseTracking: false,
+					type: 'line',
+					name :"VFF",
 					dataLabels: {
 						enabled: true,
-						style : {
-							fontSize:'14px'
-						},
-						color: 'white'
-					},
-					data:  <%=fv9PrognoseIO%>
-				}]
-			});	
-		});
+						formatter: function() {
+							return "<B>VFF</B>";
+						}
+					}
+				}
+<%}%><%if(pvsNum > 0){%>
+				,{
+					data: [[<%=temp0 + temp1-1%> + 0.5, 0], [<%=temp0 + temp1-1%> + 0.5001, <%=total%>]],
+		//			color: 'black',
+					dashStyle: 'dash',
+					lineWidth: 2,
+					marker: {enabled: false},
+					shadow: false,
+					showInLegend: false,
+					enableMouseTracking: false,
+					type: 'line',
+					name :"PVS",
+					dataLabels: {
+						enabled: true,
+						formatter: function() {
+							return "<B>PVS</B>";
+						}
+					}
+				}
+<%}%><%if(osNum > 0){%>
+				, {
+					data: [[<%=temp0 + temp1 + temp2-1%> + 0.5, 0], [<%=temp0 + temp1 + temp2 - 1%> + 0.5001, <%=total%>]],
+		//			color: 'black',
+					dashStyle: 'dash',
+					lineWidth: 2,
+					marker: {enabled: false},
+					shadow: false,
+					showInLegend: false,
+					enableMouseTracking: false,
+					type: 'line',
+					name :"0-S",
+					dataLabels: {
+						enabled: true,
+						formatter: function() {
+							return "<B>0-S</B>";
+						}
+					}
+				}
+<%}%><%if(sopNum > 0){
+				
+%>
+				, {
+					data: [[<%=temp0 + temp1 + temp2 + temp3-1%> + 0.5, 0], [<%=temp0 + temp1 + temp2 + temp3-1%> + 0.5001, <%=total%>]],
+		//			color: 'black',
+					dashStyle: 'dash',
+					lineWidth: 2,
+					marker: {enabled: false},
+					shadow: false,
+					showInLegend: false,
+					enableMouseTracking: false,
+					type: 'line',
+					name :"SOP",
+					dataLabels: {
+						enabled: true,
+						formatter: function() {
+							return "<B>SOP</B>";
+						}
+					}
+				}
+<%}%>
+				]
+			});
+		})
 		</script>
 		
 	</head>
@@ -280,32 +331,32 @@
 			
 			<div id="content">
 				<div id="chart1" style="width: 700px; height: 450px; margin: 0 50px; float: left;"></div>
-				<div id="chart2" style="width: 100px; height: 450px; margin: 0 -75px; float: left;margin-top:-10px; "></div>
 			<%
-			if (Web.getListYesOrNo((List<String>)form.get("fv9KWNo"))) {
-				int[] arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9KWNo"));
-				double totalWidth = 640.0;
+			if (lichenbeiNum != null && arr != null) {
+				double totalWidth = 604.0;
+				Map<String,Integer> tt = lichenbeiNum;
+				Map<String,Double> lichenbeiPillarNum = Web.getLCBPillar(tt, arr, totalWidth);
 				
-				Map<String,Double> lichenbeiPillarNum = Web.getLCBPillar(Web.getLCBNum(request, arr), arr, totalWidth);
-				
+				double value0 = lichenbeiPillarNum.get("vffqianPillar"); 
 				double value1 = lichenbeiPillarNum.get("vffPillar"); 
 				double value2 = lichenbeiPillarNum.get("pvsPillar");
 				double value3 = lichenbeiPillarNum.get("osPillar");
 				double value4 = lichenbeiPillarNum.get("sopPillar");
-				double sum = value1 + value2 + value3 + value4;
+				double sum = value0 + value1 + value2 + value3 + value4;
 				
 				%>
 				<div id="meilsteinouter" style="width: 800px;">
-					<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 92px; text-align: center; overflow: hidden; ">
+					<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 90px; text-align: center; overflow: hidden; ">
+						<div style=" width: <%=value0 %>px; height: 30px; float: left; background-color: #99FF99; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">T</span></div>
 						<div style=" width: <%=value1 %>px; height: 30px; float: left; background-color: #99FF99; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">VFF</span></div>
 						<div style=" width: <%=value2 %>px; height: 30px; float: left; background-color: #33CC33; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">PVS</span></div>
 						<div style=" width: <%=value3 %>px; height: 30px; float: left; background-color: #006600; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">0S</span></div>
 						<div style=" width: <%=value4 %>px; height: 30px; float: left; background-color: #333333; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">SOP</span></div>
 					</div>
 				</div>
-<%
+				<%
 				}
-					%>	
+				%>	
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

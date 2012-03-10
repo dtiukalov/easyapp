@@ -80,10 +80,15 @@
 		}	
 		
 		Map<String,Integer> lichenbeiNum = Web.getLCBNum(request, arr);
-		int vffPillarNum =  lichenbeiNum.get("vffNum");//柱子个数
-		int pvsPillarNum = lichenbeiNum.get("pvsNum");//柱子个数
-		int osPillarNum = lichenbeiNum.get("osNum");//柱子个数
-		int sopPillarNum =  lichenbeiNum.get("sopNum");//柱子个数
+		int vffNum =  lichenbeiNum.get("vffNum");//柱子个数
+		int pvsNum = lichenbeiNum.get("pvsNum");//柱子个数
+		int osNum = lichenbeiNum.get("osNum");//柱子个数
+		int sopNum =  lichenbeiNum.get("sopNum");//柱子个数
+		
+		int temp0 = vffNum;
+		int temp1 = vffNum + pvsNum;
+		int temp2 = vffNum + pvsNum + osNum;
+		int temp3 = vffNum + pvsNum + osNum + sopNum;
 		
 		double totalWidth = 560.0;
 		Map<String,Double> lichenbeiPillarNum = Web.getLCBPillar(Web.getLCBNum(request, arr), arr, totalWidth);
@@ -187,9 +192,9 @@
 							}
 						}
 					}
-<%if(vffPillarNum > 0){%>
+<%if(vffNum > 0){%>
 					,{
-						data: [[<%=vffPillarNum-1%> + 0.5, 0], [<%=vffPillarNum-1%> + 0.5001, <%=totalPress%>]],
+						data: [[<%=temp0-1%> + 0.5, 0], [<%=temp0-1%> + 0.5001, <%=totalPress%>]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,
@@ -206,9 +211,9 @@
 							}
 						}
 					}
-	<%}%><%if(pvsPillarNum > 0){%>
+<%}%><%if(pvsNum > 0){%>
 					,{
-						data: [[<%=vffPillarNum + pvsPillarNum-1%> + 0.5, 0], [<%=vffPillarNum + pvsPillarNum-1%> + 0.5001, <%=totalPress%>]],
+						data: [[<%=temp1-1%> + 0.5, 0], [<%=temp1-1%> + 0.5001, <%=totalPress%>]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,
@@ -225,9 +230,9 @@
 							}
 						}
 					}
-	<%}%><%if(osPillarNum > 0){%>
+	<%}%><%if(osNum > 0){%>
 					, {
-						data: [[<%=vffPillarNum + pvsPillarNum + osPillarNum-1%> + 0.5, 0], [<%=vffPillarNum + pvsPillarNum + osPillarNum - 1%> + 0.5001, <%=totalPress%>]],
+						data: [[<%=temp2-1%> + 0.5, 0], [<%=temp2 - 1%> + 0.5001, <%=totalPress%>]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,
@@ -244,9 +249,9 @@
 							}
 						}
 					}
-	<%}%><%if(sopPillarNum > 0){%>
+	<%}%><%if(sopNum > 0){%>
 					, {
-						data: [[<%=vffPillarNum + pvsPillarNum + osPillarNum + sopPillarNum-1%> + 0.5, 0], [<%=vffPillarNum + pvsPillarNum + osPillarNum + sopPillarNum-1%> + 0.5001, <%=totalPress%>]],
+						data: [[<%=temp3-1%> + 0.5, 0], [<%=temp3-1%> + 0.5001, <%=totalPress%>]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,
@@ -368,9 +373,9 @@
 							}
 						}
 					}
-<%if(vffPillarNum > 0){%>
+<%if(vffNum > 0){%>
 					,{
-						data: [[<%=vffPillarNum-1%> + 0.5, 0], [<%=vffPillarNum-1%> + 0.5001, <%=totalKaross%>]],
+						data: [[<%=temp0-1%> + 0.5, 0], [<%=temp0-1%> + 0.5001, <%=totalKaross%>]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,
@@ -387,9 +392,9 @@
 							}
 						}
 					}
-	<%}%><%if(pvsPillarNum > 0){%>
+	<%}%><%if(pvsNum > 0){%>
 					,{
-						data: [[<%=vffPillarNum + pvsPillarNum-1%> + 0.5, 0], [<%=vffPillarNum + pvsPillarNum-1%> + 0.5001, <%=totalKaross%>]],
+						data: [[<%=temp1-1%> + 0.5, 0], [<%=temp1-1%> + 0.5001, <%=totalKaross%>]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,
@@ -406,9 +411,9 @@
 							}
 						}
 					}
-	<%}%><%if(osPillarNum > 0){%>
+	<%}%><%if(osNum > 0){%>
 					, {
-						data: [[<%=vffPillarNum + pvsPillarNum + osPillarNum-1%> + 0.5, 0], [<%=vffPillarNum + pvsPillarNum + osPillarNum - 1%> + 0.5001, <%=totalKaross%>]],
+						data: [[<%=temp2-1%> + 0.5, 0], [<%=temp2 - 1%> + 0.5001, <%=totalKaross%>]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,
@@ -425,9 +430,9 @@
 							}
 						}
 					}
-	<%}%><%if(sopPillarNum > 0){%>
+	<%}%><%if(sopNum > 0){%>
 					, {
-						data: [[<%=vffPillarNum + pvsPillarNum + osPillarNum + sopPillarNum-1%> + 0.5, 0], [<%=vffPillarNum + pvsPillarNum + osPillarNum + sopPillarNum-1%> + 0.5001, <%=totalKaross%>]],
+						data: [[<%=temp3-1%> + 0.5, 0], [<%=temp3-1%> + 0.5001, <%=totalKaross%>]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,
@@ -550,9 +555,9 @@
 							}
 						}
 					}
-<%if(vffPillarNum > 0){%>
+<%if(vffNum > 0){%>
 					,{
-						data: [[<%=vffPillarNum-1%> + 0.5, 0], [<%=vffPillarNum-1%> + 0.5001, <%=totalLack%>]],
+						data: [[<%=temp0-1%> + 0.5, 0], [<%=temp0-1%> + 0.5001, <%=totalLack%>]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,
@@ -569,9 +574,9 @@
 							}
 						}
 					}
-	<%}%><%if(pvsPillarNum > 0){%>
+	<%}%><%if(pvsNum > 0){%>
 					,{
-						data: [[<%=vffPillarNum + pvsPillarNum-1%> + 0.5, 0], [<%=vffPillarNum + pvsPillarNum-1%> + 0.5001, <%=totalLack%>]],
+						data: [[<%=temp1-1%> + 0.5, 0], [<%=temp1-1%> + 0.5001, <%=totalLack%>]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,
@@ -588,9 +593,9 @@
 							}
 						}
 					}
-	<%}%><%if(osPillarNum > 0){%>
+	<%}%><%if(osNum > 0){%>
 					, {
-						data: [[<%=vffPillarNum + pvsPillarNum + osPillarNum-1%> + 0.5, 0], [<%=vffPillarNum + pvsPillarNum + osPillarNum - 1%> + 0.5001, <%=totalLack%>]],
+						data: [[<%=temp2-1%> + 0.5, 0], [<%=temp2 - 1%> + 0.5001, <%=totalLack%>]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,
@@ -607,9 +612,9 @@
 							}
 						}
 					}
-	<%}%><%if(sopPillarNum > 0){%>
+	<%}%><%if(sopNum > 0){%>
 					, {
-						data: [[<%=vffPillarNum + pvsPillarNum + osPillarNum + sopPillarNum-1%> + 0.5, 0], [<%=vffPillarNum + pvsPillarNum + osPillarNum + sopPillarNum-1%> + 0.5001, <%=totalLack%>]],
+						data: [[<%= temp3-1%> + 0.5, 0], [<%= temp3-1%> + 0.5001, <%=totalLack%>]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,
@@ -732,9 +737,9 @@
 							}
 						}
 					}
-					<%if(vffPillarNum > 0){%>
+	<%if(vffNum > 0){%>
 					,{
-						data: [[<%=vffPillarNum-1%> + 0.5, 0], [<%=vffPillarNum-1%> + 0.5001, <%=totalMontage%>]],
+						data: [[<%=temp0-1%> + 0.5, 0], [<%=temp0-1%> + 0.5001, <%=totalMontage%>]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,
@@ -751,9 +756,9 @@
 							}
 						}
 					}
-	<%}%><%if(pvsPillarNum > 0){%>
+	<%}%><%if(pvsNum > 0){%>
 					,{
-						data: [[<%=vffPillarNum + pvsPillarNum-1%> + 0.5, 0], [<%=vffPillarNum + pvsPillarNum-1%> + 0.5001, <%=totalMontage%>]],
+						data: [[<%=temp1-1%> + 0.5, 0], [<%=temp1-1%> + 0.5001, <%=totalMontage%>]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,
@@ -770,9 +775,9 @@
 							}
 						}
 					}
-	<%}%><%if(osPillarNum > 0){%>
+	<%}%><%if(osNum > 0){%>
 					, {
-						data: [[<%=vffPillarNum + pvsPillarNum + osPillarNum-1%> + 0.5, 0], [<%=vffPillarNum + pvsPillarNum + osPillarNum - 1%> + 0.5001, <%=totalMontage%>]],
+						data: [[<%=temp2-1%> + 0.5, 0], [<%=temp2- 1%> + 0.5001, <%=totalMontage%>]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,
@@ -789,9 +794,9 @@
 							}
 						}
 					}
-	<%}%><%if(sopPillarNum > 0){%>
+	<%}%><%if(sopNum > 0){%>
 					, {
-						data: [[<%=vffPillarNum + pvsPillarNum + osPillarNum + sopPillarNum-1%> + 0.5, 0], [<%=vffPillarNum + pvsPillarNum + osPillarNum + sopPillarNum-1%> + 0.5001, <%=totalMontage%>]],
+						data: [[<%=temp3-1%> + 0.5, 0], [<%=temp3-1%> + 0.5001, <%=totalMontage%>]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,
@@ -913,9 +918,9 @@
 							}
 						}
 					}
-<%if(vffPillarNum > 0){%>
+<%if(vffNum > 0){%>
 					,{
-						data: [[<%=vffPillarNum-1%> + 0.5, 0], [<%=vffPillarNum-1%> + 0.5001, <%=totalPress%>]],
+						data: [[<%=temp0-1%> + 0.5, 0], [<%=temp0-1%> + 0.5001, <%=totalPress%>]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,
@@ -932,9 +937,9 @@
 							}
 						}
 					}
-	<%}%><%if(pvsPillarNum > 0){%>
+	<%}%><%if(pvsNum > 0){%>
 					,{
-						data: [[<%=vffPillarNum + pvsPillarNum-1%> + 0.5, 0], [<%=vffPillarNum + pvsPillarNum-1%> + 0.5001, <%=totalPress%>]],
+						data: [[<%=temp1-1%> + 0.5, 0], [<%=temp1-1%> + 0.5001, <%=totalPress%>]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,
@@ -951,9 +956,9 @@
 							}
 						}
 					}
-	<%}%><%if(osPillarNum > 0){%>
+	<%}%><%if(osNum > 0){%>
 					, {
-						data: [[<%=vffPillarNum + pvsPillarNum + osPillarNum-1%> + 0.5, 0], [<%=vffPillarNum + pvsPillarNum + osPillarNum - 1%> + 0.5001, <%=totalPress%>]],
+						data: [[<%=temp2-1%> + 0.5, 0], [<%=temp2 - 1%> + 0.5001, <%=totalPress%>]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,
@@ -970,9 +975,9 @@
 							}
 						}
 					}
-	<%}%><%if(sopPillarNum > 0){%>
+	<%}%><%if(sopNum > 0){%>
 					, {
-						data: [[<%=vffPillarNum + pvsPillarNum + osPillarNum + sopPillarNum-1%> + 0.5, 0], [<%=vffPillarNum + pvsPillarNum + osPillarNum + sopPillarNum-1%> + 0.5001, <%=totalPress%>]],
+						data: [[<%=temp3-1%> + 0.5, 0], [<%=temp3-1%> + 0.5001, <%=totalPress%>]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,

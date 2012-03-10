@@ -222,13 +222,13 @@
 					plotOptions: {
 						column: {
 							stacking: 'normal',
-							pointWidth:33,
+					//		pointWidth:33,
 							borderColor: 'black',
 							shadow:false,
 							dataLabels: {
 								enabled: true,
 								style : {
-									fontSize:'12px'
+									fontSize:'10px'
 								},
 								color: 'black',
 								formatter: function() {

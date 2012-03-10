@@ -1,5 +1,6 @@
 package com.saturn.ph;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -75,8 +76,10 @@ public abstract class Form {
 								
 								if (ps != null && ps.length > 0) {
 									List<String> values = new ArrayList<String>(ps.length);
+									//精确到小数点后一位
+									DecimalFormat df = new DecimalFormat("0.0");
 									for (double p : ps) {
-										values.add(p + "");
+										values.add(df.format(p) + "");
 									}
 									value.put(attr, values);
 								}

@@ -373,64 +373,62 @@ function Task(from, to, task, resource, progress, level, color) {
 	var g = new Gantt(document.all.GanttChart);
 	
 <%if(Web.getDateStrNotNull(fv9VFFTBTZP5)){%>
-	g.AddTaskDetail(new Task('<%=fv9VFFTBTZP5%>', '<%=fv9VFFTBTZP5%>', '<b></b>', 'ZP5', 50, 1, 'background:url(../images/bg.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv9VFFTBTZP5%>', '<%=fv9VFFTBTZP5%>', '', 'ZP5', 50, 1, 'background:url(../images/bg.gif) no-repeat 0 0;'));
 <%	}%>
 <%if(Web.getDateStrNotNull(fv9VFFTBTZP7)){%>	
-	g.AddTaskDetail(new Task('<%=fv9VFFTBTZP7%>', '<%=fv9VFFTBTZP7%>', '<b></b>', 'ZP7', 50, 1, 'background:url(../images/bg2.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv9VFFTBTZP7%>', '<%=fv9VFFTBTZP7%>', '', 'ZP7', 50, 1, 'background:url(../images/bg2.gif) no-repeat 0 0;'));
 <%	}%>
 <%if(Web.getDateStrNotNull(fv9VFFVorStart)
 	&& Web.getDateStrNotNull(fv9VFFVorEnd)){%>
-	g.AddTaskDetail(new Task('<%=fv9VFFVorStart%>', '<%=fv9VFFVorEnd%>', '<b><%=fv9VFFVorBatches%> Batches(<%=fv9VFFVorFzg%> Fzg.)*</b>', 'VFF&nbsp&nbsp<b><%=fv9VFFVorBatches%> Batches(<%=fv9VFFVorFzg%> Fzg.)*</b>',  50, 1, 'background-color:#000000;color:#FFF;font-weight:bold;'));
+	g.AddTaskDetail(new Task('<%=fv9VFFVorStart%>', '<%=fv9VFFVorEnd%>', '<%=fv9VFFVorBatches%> Batches(<%=fv9VFFVorFzg%> Fzg.)*', 'VFF&nbsp&nbsp<b><%=fv9VFFVorBatches%> Batches(<%=fv9VFFVorFzg%> Fzg.)*</b>',  50, 1, 'background-color:#000000;color:#FFF;font-weight:bold;'));
 <%	}%>
 <%if(Web.getDateStrNotNull(fv9VFFAbsStart)
 		&& Web.getDateStrNotNull(fv9VFFAbsEnd)){%>
-	g.AddTaskDetail(new Task('<%=fv9VFFAbsStart%>', '<%=fv9VFFAbsEnd%>', '<b></b>', 'Absicherungslauf VFF <%=fv9VFFAbsMeter%> km', 50, 2));
+	g.AddTaskDetail(new Task('<%=fv9VFFAbsStart%>', '<%=fv9VFFAbsEnd%>', '', 'Absicherungslauf VFF <%=fv9VFFAbsMeter%> km', 50, 2));
 <%	}%>	
 	
 	
 	
 <%if(Web.getDateStrNotNull(fv9PVSTBTZP5)){%>	
-	g.AddTaskDetail(new Task('<%=fv9PVSTBTZP5%>', '<%=fv9PVSTBTZP5%>', '<b></b>', 'ZP5', 50, 3, 'background:url(../images/bg.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv9PVSTBTZP5%>', '<%=fv9PVSTBTZP5%>', '', 'ZP5', 50, 3, 'background:url(../images/bg.gif) no-repeat 0 0;'));
 <%	}%>
 <%if(Web.getDateStrNotNull(fv9PVSTBTZP7)){%>
-	g.AddTaskDetail(new Task('<%=fv9PVSTBTZP7%>', '<%=fv9PVSTBTZP7%>', '<b></b>', 'ZP7', 50, 3, 'background:url(../images/bg2.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv9PVSTBTZP7%>', '<%=fv9PVSTBTZP7%>', '', 'ZP7', 50, 3, 'background:url(../images/bg2.gif) no-repeat 0 0;'));
 <%	}%>
 <%if(Web.getDateStrNotNull(fv9PVSVorStart)
 		&& Web.getDateStrNotNull(fv9PVSVorEnd)){%>
-	g.AddTaskDetail(new Task('<%=fv9PVSVorStart%>', '<%=fv9PVSVorEnd%>', '<b><%=fv9PVSVorBatches%> Batches(<%=fv9PVSVorFzg%> Fzg.)*</b>', 'PVS&nbsp&nbsp<b><%=fv9PVSVorBatches%> Batches(<%=fv9PVSVorFzg%> Fzg.)*</b>', 50, 3, 'background-color:#000000;color:#FFF;font-weight:bold;'));
+	g.AddTaskDetail(new Task('<%=fv9PVSVorStart%>', '<%=fv9PVSVorEnd%>', '<%=fv9PVSVorBatches%> Batches(<%=fv9PVSVorFzg%> Fzg.)*', 'PVS&nbsp&nbsp<b><%=fv9PVSVorBatches%> Batches(<%=fv9PVSVorFzg%> Fzg.)*</b>', 50, 3, 'background-color:#000000;color:#FFF;font-weight:bold;'));
 <%	}%>
 <%if(Web.getDateStrNotNull(fv9PVSAbsStart)
 		&& Web.getDateStrNotNull(fv9PVSAbsEnd)){%>
-	g.AddTaskDetail(new Task('<%=fv9PVSAbsStart%>', '<%=fv9PVSAbsEnd%>', '<b></b>', 'Absicherungslauf PVS <%=fv9PVSAbsMeter%> km', 50, 4));
+	g.AddTaskDetail(new Task('<%=fv9PVSAbsStart%>', '<%=fv9PVSAbsEnd%>', '', 'Absicherungslauf PVS <%=fv9PVSAbsMeter%> km', 50, 4));
 <%	}%>	
 
 
 
 <%if(Web.getDateStrNotNull(fv90STBTZP5)){%>
-	g.AddTaskDetail(new Task('<%=fv90STBTZP5%>', '<%=fv90STBTZP5%>', '<b></b>', 'ZP5', 50, 5, 'background:url(../images/bg.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv90STBTZP5%>', '<%=fv90STBTZP5%>', '', 'ZP5', 50, 5, 'background:url(../images/bg.gif) no-repeat 0 0;'));
 <%	}%>
 <%if(Web.getDateStrNotNull(fv90STBTZP7)){%>
-	g.AddTaskDetail(new Task('<%=fv90STBTZP7%>', '<%=fv90STBTZP7%>', '<b></b>', 'ZP7', 50, 5, 'background:url(../images/bg2.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv90STBTZP7%>', '<%=fv90STBTZP7%>', '', 'ZP7', 50, 5, 'background:url(../images/bg2.gif) no-repeat 0 0;'));
 <%	}%>
 <%if(Web.getDateStrNotNull(fv90SVorStart)
 		&& Web.getDateStrNotNull(fv90SVorEnd)){%>
-	g.AddTaskDetail(new Task('<%=fv90SVorStart%>', '<%=fv90SVorEnd%>', '<b><%=fv90SVorBatches%> Batches(<%=fv90SVorFzg%> Fzg.)*</b>', 'OS&nbsp&nbsp<b><%=fv90SVorBatches%> Batches(<%=fv90SVorFzg%> Fzg.)*</b>', 50, 5, 'background-color:#000000;color:#FFF;font-weight:bold;'));
+	g.AddTaskDetail(new Task('<%=fv90SVorStart%>', '<%=fv90SVorEnd%>', '<%=fv90SVorBatches%> Batches(<%=fv90SVorFzg%> Fzg.)*', 'OS&nbsp&nbsp<b><%=fv90SVorBatches%> Batches(<%=fv90SVorFzg%> Fzg.)*</b>', 50, 5, 'background-color:#000000;color:#FFF;font-weight:bold;'));
 <%	}%>
 <%if(Web.getDateStrNotNull(fv90SAbsStart)
 		&& Web.getDateStrNotNull(fv90SAbsEnd)){%>
-	g.AddTaskDetail(new Task('<%=fv90SAbsStart%>', '<%=fv90SAbsEnd%>', '<b></b>', 'Absicherungslauf PVS <%=fv90SAbsMeter%> km', 50, 6));
+	g.AddTaskDetail(new Task('<%=fv90SAbsStart%>', '<%=fv90SAbsEnd%>', '', 'Absicherungslauf PVS <%=fv90SAbsMeter%> km', 50, 6));
 <%	}%>
 
 <%if(Web.getDateStrNotNull(fv9TPPA_ME)){  String descStart = "";  String descEnd = ""; %>
-	g.AddTaskDetail(new Task('<%=fv9TPPA_ME%>', '<%=fv9TPPA_ME%>', '<b></b>', '', 50, 7, 'background:url(../images/bg2.gif) no-repeat 0 0;'));
-	g.AddTaskDetail(new Task('<%=fv90SVorStart%>', '<%=fv90SVorEnd%>', '<b></b>', 'FreigabeMarkteinführungs-Volumen', 50, 8, 'background-color:#FFF;color:#000000;font-weight:bold;'));
+	g.AddTaskDetail(new Task('<%=fv9TPPA_ME%>', '<%=fv9TPPA_ME%>', 'FreigabeMarkteinführungs-Volumen', '', 50, 7, 'background:url(../images/bg2.gif) no-repeat 0 0;'));
 <%	}%>
 <%if(Web.getDateStrNotNull(fv9QFTPPA_Kunde)){ String descStart = "";  String descEnd = ""; %>
-	g.AddTaskDetail(new Task('<%=fv9QFTPPA_Kunde%>', '<%=fv9QFTPPA_Kunde%>', '<b></b>', '', 50, 7, 'background:url(../images/bg2.gif) no-repeat 0 0;'));
-	g.AddTaskDetail(new Task('<%=fv90SVorEnd%>', '<%=sop_start%>', '<b></b>', 'Q-Freigabe Freigabe Kundenfahrzeuge', 50, 8, 'background-color:#FFF;color:#000000;font-weight:bold;'));
+	g.AddTaskDetail(new Task('<%=fv9QFTPPA_Kunde%>', '<%=fv9QFTPPA_Kunde%>', 'Q-Freigabe Freigabe Kundenfahrzeuge', '', 50, 7, 'background:url(../images/bg2.gif) no-repeat 0 0;'));
 <%	}%>	
 <%if(Web.getDateStrNotNull(fv9QFTPPA_Kunde)){%>
-	g.AddTaskDetail(new Task('<%=sop_start%>', '<%=sop_start%>', '<b></b>', 'SOP', 50, 10, 'background:url(../images/bg.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=sop_start%>', '<%=sop_start%>', '', 'SOP', 50, 10, 'background:url(../images/bg.gif) no-repeat 0 0;'));
 <%	}%>	
 	g.Draw(49, 14);	
 

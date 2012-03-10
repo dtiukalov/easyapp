@@ -341,19 +341,19 @@
 			String projectDerivat = fv9ProjectDerivat.get(i);
 			
 			if(Web.getDateStrNotNull(fv9ProjectPVS.get(i))){%>
-				g2.AddTaskDetail(new Task('<%=fv9ProjectPVS.get(i)%>', '<%=fv9ProjectPVS.get(i)%>', '<b><%=projectDerivat%></b>', 'PVS', 50, <%=i%>, 'VW007', 'PVS', '<%=fv9ProjectMix.get(i)%>', '<%=fv9ProjectStufe.get(i)%>'));
+				g2.AddTaskDetail(new Task('<%=fv9ProjectPVS.get(i)%>', '<%=fv9ProjectPVS.get(i)%>', '<%=projectDerivat%>', 'PVS', 50, <%=i%>, 'VW007', 'PVS', '<%=fv9ProjectMix.get(i)%>', '<%=fv9ProjectStufe.get(i)%>'));
 				<%	}
 			
 			if(Web.getDateStrNotNull(fv9ProjectVFF.get(i))){%>
-				g2.AddTaskDetail(new Task('<%=fv9ProjectVFF.get(i)%>', '<%=fv9ProjectVFF.get(i)%>', '<b><%=projectDerivat%></b>', 'VFF', 50, <%=i%>, 'VW007', 'VFF', '<%=fv9ProjectMix.get(i)%>', '<%=fv9ProjectStufe.get(i)%>'));
+				g2.AddTaskDetail(new Task('<%=fv9ProjectVFF.get(i)%>', '<%=fv9ProjectVFF.get(i)%>', '<%=projectDerivat%>', 'VFF', 50, <%=i%>, 'VW007', 'VFF', '<%=fv9ProjectMix.get(i)%>', '<%=fv9ProjectStufe.get(i)%>'));
 				<%	}
 			
 			if(Web.getDateStrNotNull(fv9Project0S.get(i))){%>
-				g2.AddTaskDetail(new Task('<%=fv9Project0S.get(i)%>', '<%=fv9Project0S.get(i)%>', '<b><%=projectDerivat%></b>', '0S', 50, <%=i%>, 'VW007', '0S', '<%=fv9ProjectMix.get(i)%>', '<%=fv9ProjectStufe.get(i)%>'));
+				g2.AddTaskDetail(new Task('<%=fv9Project0S.get(i)%>', '<%=fv9Project0S.get(i)%>', '<%=projectDerivat%>', '0S', 50, <%=i%>, 'VW007', '0S', '<%=fv9ProjectMix.get(i)%>', '<%=fv9ProjectStufe.get(i)%>'));
 				<%	}
 			
 			if(Web.getDateStrNotNull(fv9ProjectSOP.get(i))){%>
-				g2.AddTaskDetail(new Task('<%=fv9ProjectSOP.get(i)%>', '<%=fv9ProjectSOP.get(i)%>', '<b><%=projectDerivat%></b>', 'SOP', 50, <%=i%>, 'VW007', 'SOP', '<%=fv9ProjectMix.get(i)%>', '<%=fv9ProjectStufe.get(i)%>'));
+				g2.AddTaskDetail(new Task('<%=fv9ProjectSOP.get(i)%>', '<%=fv9ProjectSOP.get(i)%>', '<%=projectDerivat%>', 'SOP', 50, <%=i%>, 'VW007', 'SOP', '<%=fv9ProjectMix.get(i)%>', '<%=fv9ProjectStufe.get(i)%>'));
 				<%	}
 		}
 	}

@@ -199,10 +199,10 @@
 							color:'black'
 						}
 					}
-					
+				
 				},
 				yAxis: {
-					min:1,
+					min:0,
 					gridLineWidth: 0,
 					title: {
 						text: ' '
@@ -217,6 +217,8 @@
 							color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
 						}
 					}
+					
+					
 				},
 				legend: {
 					layout: 'horizontal',
@@ -371,7 +373,7 @@
 			<div id="top1" style="margin-top:20px"><h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LC BMG-Teile von ES Teileliste (KW48/11)</h2></div>
 			<div id="content" style="margin:30px 60px;height:491px;width:850px;">
 				<div style="margin:50px auto">
-					<div id="chart1" style="width: 260px; height: 285px; float: left;margin-top:23px"></div>
+					<div id="chart1" style="width: 260px; height: 320px; float: left;"></div>
 					<div id="chart2" style="width: 560px; height: 320px; float: left;"></div>
 				</div>
 			</div>

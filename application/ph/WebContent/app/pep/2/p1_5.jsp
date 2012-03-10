@@ -151,6 +151,11 @@
 				int pvsNum = lichenbeiNum.get("pvsNum");//柱子个数
 				int osNum = lichenbeiNum.get("osNum");//柱子个数
 				int sopNum = lichenbeiNum.get("sopNum");//柱子个数
+				
+				int temp0 = vffNum;
+				int temp1 = vffNum + pvsNum;
+				int temp2 = vffNum + pvsNum + osNum;
+				int temp3 = vffNum + pvsNum + osNum + sopNum;
 
 				%>
 			chart2 = new Highcharts.Chart({
@@ -255,7 +260,7 @@
 
 	<%if(vffNum > 0){%>
 					,{
-						data: [[<%=vffNum-1%> + 0.5, 0], [<%=vffNum-1%> + 0.5001, <%=total%>]],
+						data: [[<%=temp0-1%> + 0.5, 0], [<%=temp0-1%> + 0.5001, <%=total%>]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,
@@ -274,7 +279,7 @@
 					}
 	<%}%><%if(pvsNum > 0){%>
 					,{
-						data: [[<%=vffNum + pvsNum-1%> + 0.5, 0], [<%=vffNum + pvsNum-1%> + 0.5001, <%=total%>]],
+						data: [[<%=temp1-1%> + 0.5, 0], [<%=temp1-1%> + 0.5001, <%=total%>]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,
@@ -293,7 +298,7 @@
 					}
 	<%}%><%if(osNum > 0){%>
 					, {
-						data: [[<%= vffNum + pvsNum + osNum-1%> + 0.5, 0], [<%=vffNum + pvsNum + osNum - 1%> + 0.5001, <%=total%>]],
+						data: [[<%=temp2-1%> + 0.5, 0], [<%=temp2 - 1%> + 0.5001, <%=total%>]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,
@@ -312,7 +317,7 @@
 					}
 	<%}%><%if(sopNum > 0){%>
 					, {
-						data: [[<%=vffNum + pvsNum + osNum + sopNum-1%> + 0.5, 0], [<%=vffNum + pvsNum + osNum + sopNum-1%> + 0.5001, <%=total%>]],
+						data: [[<%=temp3-1%> + 0.5, 0], [<%=temp3-1%> + 0.5001, <%=total%>]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,

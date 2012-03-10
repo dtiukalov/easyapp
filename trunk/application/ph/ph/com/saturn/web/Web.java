@@ -109,6 +109,19 @@ public class Web {
 
 		return list + "";
 	}
+	
+/*	public static String getDoubleListStr(Object list) {
+		if (list == null) {
+			return "[]";
+		}
+
+		if (list instanceof List) {
+			Double.parseDouble(arg0)
+			return replaceSpecial((((List) list).toString()));
+		}
+
+		return list + "";
+	}*/
 
 	public static String getNumberListStrSubFirst(Object list) {
 		if (list == null) {
@@ -292,6 +305,10 @@ public class Web {
 				if(((List)obj).size() > 0){
 					return true;
 				}
+			} else if(obj instanceof int[]){
+				if(((int[])obj).length > 0){
+					return true;
+				}
 			} else if (obj instanceof String){
 				if( !"".equals((String)obj)){
 					return true;
@@ -376,6 +393,7 @@ public class Web {
 	
 	public static Map<String,Integer> getLCBNum(HttpServletRequest request, int[] arr){
 		Map<String,Integer>  result = new HashMap<String,Integer>();
+		int vffqianNum = 0;
 		int vffNum = 0;//柱子个数
 		int pvsNum = 0;//柱子个数
 		int osNum = 0;//柱子个数
@@ -418,18 +436,64 @@ public class Web {
 				me_start = ""; 
 			}
 			
+			int[] vffqianArr = null;
 			int[] vffArr = Web.getMilepostArr(vff_start.toString(), pvs_start.toString()); //获取vff周 列表
 			int[] pvsArr = Web.getMilepostArr(pvs_start.toString(), os_start.toString());
 			int[] osArr = Web.getMilepostArr(os_start.toString(), sop_start.toString());
 			int[] sopArr = Web.getMilepostArr(sop_start.toString(), me_start.toString());
 			
+			
+			if(vffArr != null && vffArr.length > 1 && pvsArr != null && pvsArr.length > 1){
+				int vffArrSize = vffArr.length;
+				if(vffArr[vffArrSize-1]  == pvsArr[0]){
+					vffArr = deleteLastValue(vffArr);
+				}
+			}
+			
+			if(pvsArr != null && pvsArr.length > 1 && osArr != null && osArr.length > 1){
+				int pvsArrSize = pvsArr.length;
+				if(pvsArr[pvsArrSize-1]  == osArr[0]){
+					pvsArr = deleteLastValue(pvsArr);
+				}
+			}
+			
+			if(osArr != null && osArr.length > 1 && sopArr != null && sopArr.length > 1){
+				int osArrSize = osArr.length;
+				if(osArr[osArrSize-1]  == sopArr[0]){
+					osArr = deleteLastValue(osArr);
+				}
+			}
+			
 			vffNum =  Web.getNum(vffArr,arr);//柱子个数
 			pvsNum = Web.getNum(pvsArr,arr);;//柱子个数
 			osNum =  Web.getNum(osArr,arr);;//柱子个数
 			sopNum =  Web.getNum(sopArr,arr);;//柱子个数
+			
+			/*int temp1 = 0;
+			int temp2 = 0;
+			int temp3 = 0;
+			
+			if(vffNum > 0 && pvsNum != 0){
+				temp1 = pvsNum - 1 ;
+			} else {
+				temp1 = pvsNum;
+			}
+			if(pvsNum > 0 && osNum != 0){
+				temp2 = osNum - 1 ;	
+			} else {
+				temp2 = osNum ;
+			}
+			if(osNum > 0 && sopNum != 0){
+				temp3 = sopNum - 1 ;			
+			} else {
+				temp3 = sopNum;
+			}*/
+			
+			vffqianNum =  size - vffNum - pvsNum - osNum - sopNum;//柱子个数
+			
 		}
 		}
-		
+		result.put("vffqianNum", vffqianNum);
 		result.put("vffNum", vffNum);
 		result.put("pvsNum", pvsNum);
 		result.put("osNum", osNum);
@@ -438,14 +502,30 @@ public class Web {
 		return result;
 	}
 	
+	public static int[] deleteLastValue(int[] arr){
+		int[] result = null; 
+		if(getObjectYesOrNo(arr)){
+			result = new int[arr.length - 1];
+			
+			for(int i=0; i < arr.length - 1;  i++ ){
+				result[i] = arr[i];
+			}
+		} else if(result == null){
+			result = arr;
+		}
+		return result;
+	}
+	
 	public static Map<String,Double> getLCBPillar (Map<String,Integer> lichengbeiNum, int[] arr, double totalW){
 		Map<String,Double>  result = new HashMap<String,Double>();
 		
+		int vffqianPillarNum = lichengbeiNum.get("vffqianNum");//柱子个数
 		int vffPillarNum = lichengbeiNum.get("vffNum");//柱子个数
 		int pvsPillarNum = lichengbeiNum.get("pvsNum");//柱子个数
 		int osPillarNum = lichengbeiNum.get("osNum");//柱子个数
 		int sopPillarNum = lichengbeiNum.get("sopNum");//柱子个数
 		
+		double value0 = 0 ; 
 		double value1 = 0 ; 
 		double value2 = 0;
 		double value3 = 0;
@@ -460,6 +540,7 @@ public class Web {
 				double totalWidth = totalW;
 				pillar = totalWidth/size; 
 			}
+			value0 = vffqianPillarNum * pillar ; 
 			value1 = vffPillarNum * pillar ; 
 			
 			if(vffPillarNum > 0 && pvsPillarNum != 0){
@@ -478,6 +559,7 @@ public class Web {
 				value4 = sopPillarNum* pillar ;
 			}
 		}
+		result.put("vffqianPillar", value0);
 		result.put("vffPillar", value1);
 		result.put("pvsPillar", value2);
 		result.put("osPillar", value3);

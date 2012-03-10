@@ -376,7 +376,7 @@
 			Map<String,String> map = list.get(j);
 			if(Web.getDateStrNotNull(map.get("date"))){
 				%>
-				g.AddTaskDetail(new Task('<%=map.get("date")%>', '<%=map.get("date")%>', '<b><%=project%></b>', '<%=map.get("lichengbei")%><br /><h6 style="color: white" class="GTaska" ><%=map.get("org")%></h6>', 50, 1));
+				g.AddTaskDetail(new Task('<%=map.get("date")%>', '<%=map.get("date")%>', '<%=project%>', '<%=map.get("lichengbei")%><br /><h6 style="color: white" class="GTaska" ><%=map.get("org")%></h6>', 50, 1));
 				<%
 			}
 		}
@@ -384,13 +384,13 @@
 	%>
 
 	<%if(Web.getDateStrNotNull(Producktidefinition_S) && Web.getDateStrNotNull(Producktidefinition_E)){%>	
-	g.AddTaskDetail(new Task('<%=Producktidefinition_S%>', '<%=Producktidefinition_E%>', '<b></b>', '9 MO', 50, 5, '#f3f3f3'));
+	g.AddTaskDetail(new Task('<%=Producktidefinition_S%>', '<%=Producktidefinition_E%>', '', '9 MO', 50, 5, '#f3f3f3'));
 	<%}%>
 	<%if(Web.getDateStrNotNull(Konzept_S) && Web.getDateStrNotNull(Konzept_E)){%>
-	g.AddTaskDetail(new Task('<%=Konzept_S%>', '<%=Konzept_E%>', '<b></b>', '27 MO', 50, 5, '#b0b0b0'));
+	g.AddTaskDetail(new Task('<%=Konzept_S%>', '<%=Konzept_E%>', '', '27 MO', 50, 5, '#b0b0b0'));
 	<%}%>
 	<%if(Web.getDateStrNotNull(Serienvorboreitung_S) && Web.getDateStrNotNull(Serienvorboreitung_E)){%>	
-	g.AddTaskDetail(new Task('<%=Serienvorboreitung_S%>', '<%=Serienvorboreitung_E%>', '<b></b>', '15 MO', 50, 5, '#414141'));
+	g.AddTaskDetail(new Task('<%=Serienvorboreitung_S%>', '<%=Serienvorboreitung_E%>', '', '15 MO', 50, 5, '#414141'));
 <%}%>
 	g.Draw(49, 15);
 </script>

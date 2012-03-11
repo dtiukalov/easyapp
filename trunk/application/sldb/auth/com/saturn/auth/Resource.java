@@ -156,7 +156,7 @@ public class Resource {
 
 		String sql = "SELECT * FROM app_resources WHERE id IN("
 				+ "SELECT oRe.resourceId FROM auth_re_organization_resource AS oRe, auth_re_organization_user AS oUS WHERE "
-				+ "oRe.organizationId = oUS.organizationId AND oUs.userId ='"
+				+ "oRe.organizationId = oUS.organizationId AND oUS.userId ='"
 				+ userId
 				+ "' UNION SELECT rRe.resourceId FROM auth_re_role_resource AS rRe, auth_re_user_role AS URo WHERE rRe.roleId = "
 				+ "URo.roleId AND URo.userId ='"

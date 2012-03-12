@@ -7,15 +7,17 @@ import com.saturn.app.web.IAction;
 import com.saturn.app.web.IView;
 import com.saturn.app.web.view.JsonView;
 import com.saturn.sldb.IdCheck;
+import com.saturn.sldb.Person;
 
 public class CheckAction implements IAction {
+
 
 	public IView execute(HttpServletRequest request,
 			HttpServletResponse response) {
 
 		String pid = request.getParameter("pid");
-
 		String way = request.getParameter("id");
+		
 		try {
 			if ("all".equals(way)) {
 				return new JsonView(IdCheck.check(pid));

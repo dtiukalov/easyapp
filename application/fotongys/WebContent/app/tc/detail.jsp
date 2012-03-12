@@ -28,23 +28,23 @@
 				}, {
 					field : 'title',
 					title : '<%=International.get(request, "mail.title") %>',
-					width : 200,
+					width : 180,
 					sortable : true
 				}] ],
 				columns : [ [{
 					field : 'fromUser',
 					title : '<%=International.get(request, "mail.from.user") %>',
-					width : 150,
+					width : 100,
 					sortable : true
 				},{
 					field : 'userName',
 					title : '<%=International.get(request, "mail.receive.user") %>',
-					width : 150,
+					width : 100,
 					sortable : true
 				}, {
 					field : 'content',
 					title : '<%=International.get(request, "mail.content") %>',
-					width : 300,
+					width : 240,
 					sortable : true
 				}, {
 					field : 'datetime',
@@ -54,7 +54,7 @@
 				}, {
 					field : 'hasDownload',
 					title : '<%=International.get(request, "has.download") %>',
-					width : 80,
+					width : 50,
 					rowspan : 2,
 					formatter : function(value, rec) {
 						if (value == '1') {
@@ -67,10 +67,10 @@
 				}, {
 					field : 'opt',
 					title : '<%=International.get(request, "operation") %>',
-					width : 100,
+					width : 150,
 					rowspan : 2,
 					formatter : function(value, rec) {
-						return '<span><a href="#" onclick="editVO(\'' + rec.mailuid + '\');"><%=International.get(request, "view") %></a>&nbsp|&nbsp<a href="#" onclick="deleteVO(\'' + rec.mailuid + '\');"><%=International.get(request, "delete") %></a></span>';
+						return '<span><a href="#" onclick="editVO(\'' + rec.mailuid + '\');"><%=International.get(request, "view") %></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#" onclick="deleteVO(\'' + rec.mailuid + '\');"><%=International.get(request, "delete") %></a></span>';
 					}
 				} ] ],
 				pagination : true,

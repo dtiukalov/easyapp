@@ -37,7 +37,7 @@ public class ActionLoaderListener implements ServletContextListener {
 		
 		String fromEmail = context.getInitParameter(EMAIL_FROM_ADDRESS);
 		if (fromEmail == null) {
-			EmailUtils.fromEmail = fromEmail;
+			EmailUtils.fromEmail =fromEmail;
 		}
 		
 		String fromPass = context.getInitParameter(EMAIL_PASSWORD);

@@ -2,7 +2,9 @@ package com.saturn.tc.foton.gys;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.json.JSONObject;
 
@@ -52,7 +54,7 @@ public class Mail {
 			TCSession session) {
 		EasyDataManagementService service = new EasyDataManagementService(
 				session);
-
+		
 		WorkspaceObject[] workspaceObjects = null;
 		try {
 			Folder mailbox = WorkspaceUtils.getMailBox(session, user.getUid());
@@ -237,7 +239,7 @@ public class Mail {
 		Envelope envelope = (Envelope) service.loadModelObject(uid);
 		service.getProperties(envelope, "uid", "object_name", "object_type",
 				"object_desc", "object_type", "envelopeReadFlag",
-				"last_mod_user", "contents");
+				"last_mod_user", "contents","sent_date","senders_tag");
 
 		Mail mail = new Mail(user, session, envelope);
 
@@ -259,13 +261,15 @@ public class Mail {
 			this.downloadNum = "0";
 			SimpleDateFormat format = new SimpleDateFormat(
 					DateUtils.getTimeFormat());
-			this.datetime = format.format(envelope.get_last_mod_date()
-					.getTime());
+			service.getProperties(envelope, "sent_date");
+			service.getProperties(envelope, "senders_tag");
+			this.datetime = format.format(envelope.get_sent_date()
+					.getTime());//邮戳时间
 
 			this.hasDownload = "0";
 			this.hasRead = envelope.get_envelopeReadFlag() + "";
 
-			User user = (User) envelope.get_last_mod_user();
+			User user = (User) envelope.get_senders_tag();//get_last_mod_user();//发件人
 			Person fromPerson = (Person) user.get_person();
 			service.getProperties(fromPerson, "PA9");
 			this.fromUser = user.get_user_name();
@@ -275,6 +279,15 @@ public class Mail {
 			e.printStackTrace();
 		}
 
+	}
+	
+	public static String replaceSpecial(String str) {
+		if(str != null){
+			if(str.startsWith("\"")){
+				str.replaceFirst("\"", "");
+			}
+		}
+		return str;
 	}
 
 	public static void remove(TCSession session, final String id) {

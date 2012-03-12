@@ -1,5 +1,7 @@
 package com.saturn.tc.utils;
 
+import java.util.List;
+
 import com.saturn.tc.clientx.TCSession;
 import com.saturn.tc.utils.server.EasyDataManagementService;
 import com.teamcenter.soa.client.model.ModelObject;
@@ -47,6 +49,26 @@ public class WorkspaceUtils {
 	/*	if (file != null) {
 			service.getProperties(file, "file_name", "original_file_name");
 		}*/
+
+		return file;
+	}
+	
+	public static ImanFile getFirstFileFromDataset(TCSession session, String uid) {
+		EasyDataManagementService service = new EasyDataManagementService(session);
+		
+		Object object = service.loadModelObject(uid);
+		
+		Dataset dataset = null;
+		ImanFile file = null;
+		if(object instanceof Dataset){
+			dataset = (Dataset) object;
+			List<ImanFile> files = DatasetUtils.getdownloadDatasetFromTc(session, dataset);
+			if(files != null && files.size() > 0){
+				file = files.get(0);
+			}
+		} else if(object instanceof ImanFile){
+			file = (ImanFile) object;
+		}
 
 		return file;
 	}

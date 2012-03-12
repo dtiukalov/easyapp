@@ -143,7 +143,6 @@ public class Attachment {
 
 			} else if (workspaceObject instanceof Dataset) {
 				
-				
 				Dataset dataset = (Dataset) attachment.wo;
 				/*String dir = ATTACHMENT_ROOT + File.separator
 						+ DateUtils.getSystemDate() + File.separator + userUid
@@ -151,10 +150,12 @@ public class Attachment {
 
 				List<ImanFile> files = DatasetUtils.getdownloadDatasetFromTc(
 						session, dataset);
+				
 				if (files != null) {
 					for (ImanFile file : files) {
 						Attachment childdataset = new Attachment(mailId, file,
-								attachment.getUid());
+								attachment.getParentId());
+						attachments.remove(attachment);
 						attachments.add(childdataset);
 						try {
 							childdataset.setName(file.get_original_file_name());

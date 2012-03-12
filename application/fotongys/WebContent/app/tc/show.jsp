@@ -110,23 +110,23 @@
 			method="post">
 			<table class="table-form">
 				<tr>
-					<td style="text-align:right"><%=International.get(request, "mail.title") %>:</td>
-					<td><input id="title" name="title" type="text" value="${mail.title}" readonly="readonly"></input></td>
+					<td style="text-align:right;width: 8%;"><%=International.get(request, "mail.title") %>:</td>
+					<td>${mail.title}</td>
 					<td><div id="titleTip"></div></td>
 				</tr>
 				<tr>
-					<td style="text-align:right"><%=International.get(request, "mail.from.user") %>:</td>
-					<td><input id="fromUser" name="fromUser" type="text" value="${mail.fromUser}" readonly="readonly"></input></td>
+					<td style="text-align:right;width: 8%;"><%=International.get(request, "mail.from.user") %>:</td>
+					<td>${mail.fromUser}</td>
 					<td><div id="fromUserTip"></div></td>
 				</tr>
 				<tr>
-					<td style="text-align:right"><%=International.get(request, "mail.send.time") %>:</td>
-					<td><input id="datetime" name="datetime" type="text" value="${mail.datetime}" readonly="readonly"></input></td>
+					<td style="text-align:right;width: 8%;"><%=International.get(request, "mail.send.time") %>:</td>
+					<td>${mail.datetime}</td>
 					<td><div id="datetimeTip"></div></td>
 				</tr>
 				<tr>
-					<td style="text-align:right"><%=International.get(request, "mail.content") %>:</td>
-					<td><textarea id="content" cols="50" rows="5">${mail.content}</textarea></td>
+					<td style="text-align:right;width: 8%;"><%=International.get(request, "mail.content") %>:</td>
+					<td>${mail.content}</td>
 					<td><div id="contentTip"></div></td>
 				</tr>
 			</table>

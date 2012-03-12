@@ -19,9 +19,9 @@ import javax.naming.InitialContext;
 
 public class EmailUtils {
 
-	public static String host = "smtp.163.com";
-	public static String fromEmail = "foton_suppliers@163.com";
-	public static String fromPass = "foton888";
+	public static String host;
+	public static String fromEmail;
+	public static String fromPass;
 	
 	public static void sendMailToPerson(String toEmail, String subject, String content) {
 //		String host = "smtp.163.com";
@@ -39,13 +39,13 @@ public class EmailUtils {
 //		props.setProperty("mail.smtp.socketFactory.port", "465");
 		
 		Session session = null;
-
+		
 		try {
 			InitialContext ic = new InitialContext();
 			try {
 				session = (Session) ic.lookup("myMailSession");
 			} catch (Exception e) {
-				e.printStackTrace();
+			//	e.printStackTrace();
 			}
 			
 			if (session == null) {
@@ -100,7 +100,5 @@ public class EmailUtils {
 			e.printStackTrace();
 			// TODO: handle exception
 		}
-	
-		
 	}
 }

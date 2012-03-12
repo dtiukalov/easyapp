@@ -127,7 +127,6 @@
 		}
 		
 		function check() {
-			alert($('#way').val());
 			$.ajax({
 				url : '<%=request.getContextPath()%>/app/sldb/check/check.action?pid=<%=pid%>&id='+$('#way').combobox('getValue'),
 				type : 'post',         

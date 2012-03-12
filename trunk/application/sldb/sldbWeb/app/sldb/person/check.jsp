@@ -123,8 +123,8 @@
 						window.location.href='<%=request.getContextPath()%>/app/sldb/check/show.jsp?pid='+rows[0].id;
 						return false;
 					}
-				}
-				/* {
+				},
+				{
 					id : 'btnItem',
 					text : '通过',
 					iconCls : 'icon-ok',
@@ -142,7 +142,8 @@
 
 						confirmVO(ids.join('__'));
 					}
-				}, {
+				}
+				/*, {
 					id : 'btnrefuse',
 					text : '驳回',
 					iconCls : 'icon-back',

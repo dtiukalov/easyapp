@@ -81,7 +81,8 @@
 					rowspan : 2,	
 					formatter : function(value, rec) {
 						if (rec.state == '驳回' && rec.type == 0) {
-							return '<span><a href="#" onclick="replayVO(\'' + rec.pid + '\');">重申</a>'  +
+							return '<span><a href="#" onclick="replayVO(\'' + rec.pid + '\');">重申</a>'  + 
+							'&nbsp&nbsp<a href="#" onclick="resultVO(\'' + rec.id + '\');">查看结果</a>'+
 							'</span>';
 						} else if (rec.type == 2) {
 							return '<span>已重申</span>'
@@ -130,6 +131,11 @@
 				}
 			});
 			return false;
+		}
+		
+		function resultVO(id) {
+			window.location.href='<%=request.getContextPath()%>/app/sldb/person/result.jsp?pid='+ id;
+			return false;	
 		}
 	</script>
 </head>

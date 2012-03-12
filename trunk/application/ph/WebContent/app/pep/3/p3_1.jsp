@@ -63,7 +63,13 @@
 							stacking: 'normal',
 							dataLabels: {
 								enabled: true,
-								color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+								color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+								formatter: function() {
+									if (this.y == 0 || this.y == 0.0) {
+										return '';
+									}
+									return this.y + '';
+								}
 							}
 						}
 					},

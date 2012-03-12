@@ -44,9 +44,9 @@
 								table += "	<td width=\"25%\" style=\"border-bottom:solid 1px #000;text-align:center\">×</td>";
 							}
 							if ("".equals(fv9Option.get(k))) {
-								table += "	<td width=\"25%\" style=\"border-bottom:solid 1px #000;text-align:center\">&nbsp;</td>";
+								table += "	<td width=\"25%\" style=\"border-bottom:solid 1px #000;text-align:center\"></td>";
 							}
-							table += "</tr><br>";
+							table += "</tr>";
 						}
 					}
 				}
@@ -167,7 +167,7 @@
 			<div id="top">
 				<div class="fl"><%=status_left %></div>
 				<div class="fr"><%=status_right %></div>
-				<h1><%=title %></h1>
+				<h1><%=title %>wdwed</h1>
 			</div>
 			<div id="content">
 				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto"></div>

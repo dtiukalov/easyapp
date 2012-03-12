@@ -30,23 +30,23 @@
 		List<String> newKarosseriebau = new ArrayList();
 		if (Web.getObjectYesOrNo(KarosseriebauNum)) {
 			for(int i=0; i<KarosseriebauNum.size(); i++){
-				String table = "<table style=\"border-collapse:collapse;border:solid 1px #000;\" width=\"350\" cellpadding=\"0\" cellspacing=\"0\">";
+				String table = "<table style=\"border-collapse:collapse;border:solid 1px black;\" width=\"350\" cellpadding=\"0\" cellspacing=\"0\">";
 				if (Web.getListYesOrNo(fv9KW)) {
 					for(int k=0; k<fv9KW.size(); k++) {
 						if ((!"".equals(fv9KW.get(k))) && (fv9KW.get(k).equals(KWNo.get(i)))) {
 							table += "<tr>";
-							table += "	<td width=\"50%\" style=\"border-bottom:solid 1px #000;border-right:solid 1px #000;text-align:left;\">" + fv9Name.get(k) + "</td>";
-							table += "	<td width=\"30%\" style=\"border-bottom:solid 1px #000;border-right:solid 1px #000\">" + fv9Score.get(k) + " Pkt.</td>";
+							table += "	<td width=\"50%\" style=\"border-bottom:solid 1px black;border-right:solid 1px black;text-align:left;\">" + fv9Name.get(k) + "</td>";
+							table += "	<td width=\"30%\" style=\"border-bottom:solid 1px black;border-right:solid 1px black\">" + fv9Score.get(k) + " Pkt.</td>";
 							if ("Yes".equals(fv9Option.get(k))) {
-								table += "	<td width=\"25%\" style=\"border-bottom:solid 1px #000;text-align:center\">√</td>";
+								table += "	<td width=\"25%\" style=\"border-bottom:solid 1px black;text-align:center\">√</td>";
 							}
 							if ("No".equals(fv9Option.get(k))) {
-								table += "	<td width=\"25%\" style=\"border-bottom:solid 1px #000;text-align:center\">×</td>";
+								table += "	<td width=\"25%\" style=\"border-bottom:solid 1px black;text-align:center\">×</td>";
 							}
 							if ("".equals(fv9Option.get(k))) {
-								table += "	<td width=\"25%\" style=\"border-bottom:solid 1px #000;text-align:center\">&nbsp;</td>";
+								table += "	<td width=\"25%\" style=\"border-bottom:solid 1px black;text-align:center\"></td>";
 							}
-							table += "</tr><br>";
+							table += "</tr>";
 						}
 					}
 				}
@@ -116,6 +116,8 @@
 						shadow: false
 					},
 					tooltip: {
+						shared: true,
+						crosshairs: true,
 						formatter: function() {
 							return this.point.table;
 						}
@@ -143,7 +145,28 @@
 						type: 'column',
 						name: 'Karosseriebau',
 						data: <%=Karosseriebau%>,
-						color: '#00235A'
+						color: '#00235A',
+						cursor: 'pointer',
+						point: {
+							events: {
+								click: function() {
+									hs.htmlExpand(null, {
+										pageOrigin: {
+									//		x: this.pageX,
+											x: 400,
+									//		y: this.pageY
+											y: 200
+										},
+										headingText: '',
+										maincontentText: this.table,
+										width: 400
+									});
+								}
+							}
+						}, 
+						marker: {
+							lineWidth: 1
+						}
 					}, {
 						type: 'spline',
 						name: 'Prognose',
@@ -160,13 +183,14 @@
 			
 			
 		</script>
+
 	</head>
-	<body>
+	<body onload="setCurrent(chart)">
 		<div id="container">
 			<div id="nr">
 			<div id="top">
-				<div class="fl"> VW471 CN-Pilothalle VFF,20.10.2010</div>
-				<div class="fr"> STATUS 19.10.2010</div>
+				<div class="fl"><%=status_left %></div>
+				<div class="fr"><%=status_right %></div>
 				<h1><%=title %></h1>
 			</div>
 			<div id="content">

@@ -30,7 +30,7 @@
 				}, {
 					field : 'id',
 					title : '标识',
-					width : 40,
+					width : 30,
 					sortable : true
 				} ] ],
 				columns : [ [ {
@@ -51,7 +51,7 @@
 				}, {
 					field : 'gender',
 					title : '性别',
-					width : 50,
+					width : 30,
 					sortable : true
 				}, {
 					field : 'race',
@@ -66,12 +66,12 @@
 				}, {
 					field : 'homeSum',
 					title : '家庭人数',
-					width : 70,
+					width : 80,
 					sortable : true
 				}, {
 					field : 'ill',
 					title : '患病种类',
-					width : 70,
+					width : 100,
 					sortable : true
 				}, {
 					field : 'deformity',
@@ -81,21 +81,21 @@
 				}, {
 					field : 'createTime',
 					title : '创建时间',
-					width : 150,
+					width : 110,
 					sortable : true
 				}, {
 					field : 'createrName',
 					title : '申报人',
-					width : 70,
+					width : 50,
 					sortable : true
 				}, {
 					field : 'opt',
 					title : '操作',
-					width : 100,
+					width : 120,
 					align : 'center',
 					rowspan : 2,	
 					formatter : function(value, rec) {
-						return '<span><a href="#" onclick="confirmVO(\'' + rec.id + '\');"><img src="<%=request.getContextPath()%>/app/themes/icons/ok.png" width="16" height="16" border="0" /></a>'+
+						return '<span>&nbsp&nbsp<a href="#" onclick="confirmVO(\'' + rec.id + '\');"><img src="<%=request.getContextPath()%>/app/themes/icons/ok.png" width="14" height="14" border="0" /></a>'+
 						'&nbsp&nbsp<a href="#" onclick="showVO(\'' + rec.id + '\');"><img src="<%=request.getContextPath()%>/app/themes/icons/author.png" width="16" height="16" border="0" /></a>'+
 						'&nbsp&nbsp<a href="#" onclick="deleteVO(\'' + rec.id + '\');"><img src="<%=request.getContextPath()%>/app/themes/icons/back.png" width="14" height="14" border="0" /></a></span>';
 					}
@@ -118,7 +118,8 @@
 						window.location.href='<%=request.getContextPath()%>/app/sldb/person/sub/queryPersonTab.action?id='+rows[0].id;
 						return false;
 					}
-				}, '-', {
+				}, 
+				/* '-', {
 					id : 'btnItem',
 					text : '通过',
 					iconCls : 'icon-ok',
@@ -136,7 +137,8 @@
 
 						confirmVO(ids.join('__'));
 					}
-				}, {
+				},  */
+				{
 					id : 'btnrefuse',
 					text : '驳回',
 					iconCls : 'icon-back',
@@ -154,6 +156,24 @@
 
 						deleteVO(ids.join('__'));
 					}
+				}, {
+					id : 'btnItem',
+					text : '核对',
+					iconCls : 'icon-ok',
+					handler : function() {
+						var rows = $('#queryTable').datagrid('getSelections');
+						if (rows.length == 0) {
+							$.messager.alert('提示','请选择操作项','info');
+							return;
+						} 
+						
+						var ids = [];
+						for(var i=0;i<rows.length;i++){
+							ids.push(rows[i].id);
+						}
+
+						confirmVO(ids.join('__'));
+					}
 				}]
 			});
 			
@@ -170,7 +190,8 @@
 					state : '申报',
 					identify : $('#identify').val(),
 					gender : $('#gender').combobox('getValue'),
-					name : $('#name').val()
+					name : $('#name').val(),
+					type : $('#type').combobox('getValue')
 			}});
 			
 			$('#queryTable').datagrid("load");
@@ -189,9 +210,26 @@
 			window.location.href='<%=request.getContextPath()%>/app/sldb/person/sub/queryPersonTab.action?id='+ id;
 			return false;	
 		}
+		function showResultVO(id) {
+			window.location.href='<%=request.getContextPath()%>/app/sldb/person/showResult.jsp?pid='+ id;
+			return false;	
+		}
+		
+		function endVO(id){
+			$.messager.confirm('确认通过', '确认通过该选项', function(result){
+				if (result){
+					window.location.href='<%=request.getContextPath()%>/app/sldb/person/checkPass.jsp?ids=' + id;
+				}
+			});
+			return false;
+		}
 		
 		function confirmVO(id){
-			window.location.href='<%=request.getContextPath()%>/app/sldb/person/pass.jsp?ids=' + id;
+			$.messager.confirm('确认核对', '确认核对该选项', function(result){
+				if (result){
+					window.location.href='<%=request.getContextPath()%>/app/sldb/person/pass.jsp?ids=' + id;
+				}
+			});
 			return false;
 		}
 		
@@ -208,6 +246,12 @@
 		<form id="queryForm" method="post">
 			<table>
 				<tr align="right">
+					<td>类型</td>
+					<td>
+						<select id="type" class="easyui-combobox"
+									name="type" url="<%=request.getContextPath()%>/app/system/dict/listDictByType.action?type=sldb.person.type" valueField="id"
+									textField="text" editable="false"></select>
+					</td>
 					<td>姓名:</td>
 					<td><input id="name" name="name" type="text"></input></td>
 					<td>身份证:</td>

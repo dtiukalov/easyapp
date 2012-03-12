@@ -58,6 +58,7 @@
 						enabled:true,
 						y:20,
 						style:{
+							fontSize:'8px',
 							color:'black'
 						}
 					}
@@ -100,7 +101,7 @@
 							},
 							color: 'white',
 							formatter: function() {
-								if (this.y == 0) {
+								if (this.y == 0 || this.y == 0.0) {
 									return '';
 								}
 								return this.y + '';
@@ -249,7 +250,7 @@
 								},
 								color: 'black',
 								formatter: function() {
-									if (this.y == 0) {
+									if (this.y == 0 || this.y == 0.0) {
 										return '';
 									}
 									return this.y + '';

@@ -135,7 +135,29 @@
 								},
 								color: 'white',
 								rotation: -90,
-								x:5
+								x:5,
+								formatter: function() {
+									if (this.y == 0 || this.y == 0.0) {
+										return '';
+									}
+									return this.y + '';
+								}
+							}
+						},
+						spline: {
+				//			stacking: 'normal',
+				//			groupPadding:0.35,
+							shadow: false,
+							borderColor:'black',
+							borderWidth:1,
+							dataLabels: {
+								enabled: true,
+								formatter: function() {
+									if (this.y == 0 || this.y == 0.0 || this.y == null) {
+										return '';
+									}
+									return this.y + '';
+								}
 							}
 						}
 					},

@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.saturn.tc.utils.EmailUtils;
 import com.saturn.tc.utils.WorkspaceUtils;
 
 public class SaturnDispatcherServlet extends HttpServlet {
@@ -31,8 +32,14 @@ public class SaturnDispatcherServlet extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		String host = config.getServletContext().getInitParameter("host");
+		String emailhost = config.getServletContext().getInitParameter("emailHost");
+		String fromEmail = config.getServletContext().getInitParameter("fromEmail");
+		String fromPass = config.getServletContext().getInitParameter("fromPass");
 		if (host != null && !"".equals(host)) {
 			WorkspaceUtils.HOST = host;
+			EmailUtils.host = emailhost;
+			EmailUtils.fromEmail = fromEmail;
+			EmailUtils.fromPass = fromPass;
 		}
 		super.init(config);
 	}

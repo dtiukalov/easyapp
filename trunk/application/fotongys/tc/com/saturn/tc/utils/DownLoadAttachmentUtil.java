@@ -22,11 +22,14 @@ public class DownLoadAttachmentUtil {
 	 * @throws Exception
 	 */
 	public static Boolean doZip(String zipName, String zipFolderPath, String zipPath,
-			List<String> pictures) throws Exception {
-		createFolder(zipFolderPath);
-		copyAttachments(pictures, zipFolderPath);
-		dozip(zipFolderPath,zipPath);
-		return true;
+			List<String> pictures){
+		if(createFolder(zipFolderPath)){
+			copyAttachments(pictures, zipFolderPath);
+			if(dozip(zipFolderPath,zipPath)){
+				return true;
+			}
+		}
+		return false;
 	}
 
 	
@@ -41,18 +44,28 @@ public class DownLoadAttachmentUtil {
 		}
 	}
 	
-	public static void copyAttachments(List<String> attachmentspath, String toPath) {
-		for(String attachmentpath: attachmentspath) {
-			String[] test = attachmentpath.replace(File.separator, ",").split(",");
-			String attachmentName = test[test.length-1];
-			copyAttachment(attachmentpath,toPath + File.separator + attachmentName);
+	public static Boolean copyAttachments(List<String> attachmentspath, String toPath) {
+		if(attachmentspath != null && attachmentspath.size() > 0){
+			for(String attachmentpath: attachmentspath) {
+				String[] test = attachmentpath.replace(File.separator, ",").split(",");
+				String attachmentName = test[test.length-1];
+				copyAttachment(attachmentpath,toPath + File.separator + attachmentName);
+			}
+			return true;
 		}
+		return false;
 	}
 
 	public static Boolean copyAttachment(String file1, String file2) {
+		
+		if(file1 == null || file2 == null || "".equals(file1) || "".equals(file2)){
+			return false;
+		}
+		
+		java.io.File fileIn = new java.io.File(file1); // 用路径名生成源文件
+		java.io.File fileOut = new java.io.File(file2); // 用路径名生成目标文件
+		
 		try {
-			java.io.File fileIn = new java.io.File(file1); // 用路径名生成源文件
-			java.io.File fileOut = new java.io.File(file2); // 用路径名生成目标文件
 			FileInputStream fin = new FileInputStream(fileIn); // 得到文件输入流
 			FileOutputStream fout = new FileOutputStream(fileOut); // 得到文件输出流
 			byte[] bytes = new byte[1024]; // 初始化字节数组,用于缓冲
@@ -65,8 +78,10 @@ public class DownLoadAttachmentUtil {
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println("copy [" + fileIn.getName() + "] Failed!" );
 			return false;
 		}
+		
 	}
 
 	public static boolean deleteFile(String delpath)
@@ -139,14 +154,14 @@ public class DownLoadAttachmentUtil {
 		}
 	}*/
 	
-	public static void dozip(String srcPath, String desPath) {
+	public static Boolean dozip(String srcPath, String desPath) {
 		if (srcPath.length() == 0) {
 			System.out.println("请设置要压缩的文件或目录路径！");
-			return;
+			return false;
 		}
 		if (desPath.length() == 0) {
 			System.out.println("请设置压缩文件保存路径！");
-			return;
+			return false;
 		}
 		try {
 			System.out.println("压缩的文件或目录：" + srcPath);
@@ -160,8 +175,10 @@ public class DownLoadAttachmentUtil {
 			dozip(out, inputFile, "");
 			out.close();
 			System.out.println("压缩完毕！");
+			return true;
 		} catch (Exception e) {
 			System.out.println(e);
+			return false;
 		}
 	}
 

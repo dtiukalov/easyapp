@@ -15,40 +15,41 @@ import com.teamcenter.soa.exceptions.NotLoadedException;
 
 public class DatasetUtils {
 
-	/*
-	 * public static void downloadDatasetFromTc(TCSession session, Dataset
-	 * dataset, String directory) { EasyDataManagementService dms = new
-	 * EasyDataManagementService(session); EasyFileManagementService fms = new
-	 * EasyFileManagementService(session); FileManagementUtility fileUtility =
-	 * fms.newUtility();
-	 * 
-	 * List<String> fileNames = new ArrayList<String>();
-	 * 
-	 * try { dms.getProperties(dataset, "ref_list"); ModelObject refs[] =
-	 * dataset.get_ref_list();
-	 * 
-	 * if (refs.length > 0) { dms.getProperties(refs, "file_name",
-	 * "original_file_name"); List<ImanFile> files = new ArrayList<ImanFile>();
-	 * 
-	 * for (int i = 0; i < refs.length; ++i) { if (refs[i] instanceof ImanFile) {
-	 * files.add((ImanFile) refs[i]); } }
-	 * 
-	 * if (files.size() > 0) {
-	 * 
-	 * for (ImanFile file : files) {
-	 * 
-	 * String fileName = file.get_file_name(); int index =
-	 * fileName.lastIndexOf("_"); if (index >= 0 && index < fileName.length() -
-	 * 1) { fileName = fileName.substring(index + 1); } String location =
-	 * directory + File.separator + fileName;
-	 * fileUtility.getFileToLocation(file, location, null, null);
-	 * 
-	 * String realname = directory + File.separator +
-	 * file.get_original_file_name(); File f = new File(location);
-	 * f.renameTo(new File(realname));
-	 * fileNames.add(file.get_original_file_name()); } } } } catch
-	 * (NotLoadedException e) { e.printStackTrace(); } }
-	 */
+	
+/*	  public static void downloadDatasetFromTc(TCSession session, Dataset
+	      dataset, String directory) { 
+		  EasyDataManagementService dms = new EasyDataManagementService(session); 
+		  EasyFileManagementService fms = new EasyFileManagementService(session); 
+		  FileManagementUtility fileUtility = fms.newUtility();
+	  
+		  List<String> fileNames = new ArrayList<String>();
+	  
+	  try { dms.getProperties(dataset, "ref_list"); ModelObject refs[] =
+	  dataset.get_ref_list();
+	  
+	  if (refs.length > 0) { dms.getProperties(refs, "file_name",
+	  "original_file_name"); List<ImanFile> files = new ArrayList<ImanFile>();
+	  
+	  for (int i = 0; i < refs.length; ++i) { if (refs[i] instanceof ImanFile) {
+	  files.add((ImanFile) refs[i]); } }
+	  
+	  if (files.size() > 0) {
+	  
+	  for (ImanFile file : files) {
+	  
+	  String fileName = file.get_file_name(); int index =
+	  fileName.lastIndexOf("_"); if (index >= 0 && index < fileName.length() -
+	  1) { fileName = fileName.substring(index + 1); } String location =
+	  directory + File.separator + fileName;
+	  fileUtility.getFileToLocation(file, location, null, null);
+	  
+	  String realname = directory + File.separator +
+	  file.get_original_file_name(); File f = new File(location);
+	  f.renameTo(new File(realname));
+	  fileNames.add(file.get_original_file_name()); } } } } catch
+	  (NotLoadedException e) { e.printStackTrace(); } 
+	  }*/
+	 
 
 	public static String downloadDatasetFromTc(TCSession session,
 			ImanFile file, String directory) {

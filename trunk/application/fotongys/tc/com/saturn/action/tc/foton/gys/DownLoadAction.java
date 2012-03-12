@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.saturn.app.utils.DateUtils;
 import com.saturn.app.web.IAction;
 import com.saturn.app.web.IView;
+import com.saturn.app.web.WebHelper;
 import com.saturn.app.web.view.JspView;
 import com.saturn.tc.clientx.TCSession;
 import com.saturn.tc.foton.gys.Mail;
@@ -61,7 +62,8 @@ public class DownLoadAction implements IAction {
 				 * .getAttribute("TC_DATASET_FILEMAP")).get(key);
 				 */
 				// if (path != null || file != null) {
-				ImanFile file = WorkspaceUtils.getFile(session, key);
+				//ImanFile file = WorkspaceUtils.getFile(session, key);
+				ImanFile file = WorkspaceUtils.getFirstFileFromDataset(session, key);
 				if (file != null) {
 					String picpath = DatasetUtils.downloadDatasetFromTc(session, file,
 							downloadpath);
@@ -72,33 +74,38 @@ public class DownLoadAction implements IAction {
 				// }
 			}
 		}
+		
+		if(mailuid == null && "".equals(mailuid)){
+			request.setAttribute(WebHelper.ERROR_MESSAGE, "MailUid is Null!");
+			return new JspView(WebHelper.ERROR_JSP);
+			
+		}
+		
 		Mail vo = Mail.getByUid(user, session, mailuid);
-	//	if (attachments.size() > 1) {
-			this.tempPath = request.getRealPath("/") + ATTACHMENT_ROOT + File.separator + userUid
-					+ File.separator;
-			String zipName = "";
-			String zipPath = null;
-			Boolean zipdone = false;
-			// 设置浏览器显示的内容类型为Zip
-			// BufferedInputStream bin = null;
-			try {
-				// out = response.getOutputStream();
-				zipName = vo.getMailuid() + System.currentTimeMillis();
-				String zipFolderPath = this.tempPath + zipName;
-				zipPath = this.tempPath + zipName + ".zip";
-				zipdone = DownLoadAttachmentUtil.doZip(zipName, zipFolderPath,
-						zipPath, attachments);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
+		this.tempPath = request.getRealPath("/") + ATTACHMENT_ROOT + File.separator + userUid
+				+ File.separator;// 该路径到tcattachment
+		String zipName = "";
+		String zipPath = null;
+		Boolean zipdone = false;
+		// 设置浏览器显示的内容类型为Zip
+		// BufferedInputStream bin = null;
+			// out = response.getOutputStream();
+		zipName = vo.getDatetime().replaceAll(":", "") + "_From_" +  vo.getFromUser();//下载完压缩包的名字
+		String zipFolderPath = this.tempPath + zipName;//下载完压缩包的路径
+		zipPath = this.tempPath + zipName + ".zip";//下载完压缩包的路径 + 压缩包的名字 + zip
+		zipdone = DownLoadAttachmentUtil.doZip(zipName, zipFolderPath,
+				zipPath, attachments);
+		if(zipdone){			
 			updateMail(request, session, mailuid, attachments);
 			request.setAttribute("zipPath", File.separator + ATTACHMENT_ROOT
 					+ File.separator + userUid + File.separator + zipName
 					+ ".zip");
 			request.setAttribute("zipdone", zipdone);
 			return new JspView("/app/tc/downsuccess.jsp");
-
+		} else {
+			request.setAttribute(WebHelper.ERROR_MESSAGE, "download failed");
+			return new JspView(WebHelper.ERROR_JSP);
+		}
 	}
 
 	private void updateMail(HttpServletRequest request, TCSession session,

@@ -30,7 +30,8 @@
 <script type="text/javascript">
 	<%
 		Object __user = request.getSession().getAttribute("authUser");
-		if (__user == null && request.getRequestURI().indexOf("/app/") >= 0) {
+		if (__user == null) {
+		//	if (__user == null && request.getRequestURI().indexOf("/app/") >= 0) {
 	%>
 	
 	$(function() {

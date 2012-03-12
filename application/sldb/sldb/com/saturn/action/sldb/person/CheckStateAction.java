@@ -13,7 +13,7 @@ import com.saturn.app.web.view.JsonView;
 import com.saturn.auth.User;
 import com.saturn.sldb.Person;
 
-public class ListApplyAction implements IAction {
+public class CheckStateAction implements IAction {
 
 	public IView execute(HttpServletRequest request,
 			HttpServletResponse response) {
@@ -23,24 +23,18 @@ public class ListApplyAction implements IAction {
 		Person vo = BeanUtils.getBean(request, Person.class);
 
 		User user = (User)request.getSession().getAttribute("authUser");
-			if ("admin".equals(user.getId())) {
-				ListData<Person> data = Person.getAllWithOutCreater(vo, dataGridInfo.getStartPage(),
-						dataGridInfo.getRows(), dataGridInfo.getSortId(),
-						dataGridInfo.getOreder());
-				return new JsonView(JSONUtils.getDataGridJSON(data.getTotal(),
-						data.getList()));
-			} else {
-				vo.setCreater(user.getId());
-				ListData<Person> data = Person.getAll(vo, dataGridInfo.getStartPage(),
-						dataGridInfo.getRows(), dataGridInfo.getSortId(),
-						dataGridInfo.getOreder());
-				return new JsonView(JSONUtils.getDataGridJSON(data.getTotal(),
-						data.getList()));
-			}
+		vo.setCreater(user.getId());
+		
+		ListData<Person> data = Person.getAll(vo, dataGridInfo.getStartPage(),
+				dataGridInfo.getRows(), dataGridInfo.getSortId(),
+				dataGridInfo.getOreder());
+
+		return new JsonView(JSONUtils.getDataGridJSON(data.getTotal(),
+				data.getList()));
 	}
 	
 	public String requestMapping() {
-		return "/app/sldb/person/listApply.action";
+		return "/app/sldb/person/list.action";
 	}
 	
 }

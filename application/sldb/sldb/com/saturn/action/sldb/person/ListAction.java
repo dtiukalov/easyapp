@@ -10,6 +10,7 @@ import com.saturn.app.web.IAction;
 import com.saturn.app.web.IView;
 import com.saturn.app.web.easyui.DataGridInfo;
 import com.saturn.app.web.view.JsonView;
+import com.saturn.auth.User;
 import com.saturn.sldb.Person;
 
 public class ListAction implements IAction {

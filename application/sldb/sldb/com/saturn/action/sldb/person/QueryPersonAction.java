@@ -23,15 +23,24 @@ public class QueryPersonAction implements IAction{
 		Person vo = BeanUtils.getBean(request, Person.class);
 		
 		User user = (User)request.getSession().getAttribute("authUser");
-		String userId = user.getId();
-		vo.setUserId(userId);
 		
-		ListData<Person> data = Person.getAllOld(vo,dataGridInfo.getStartPage(),
-				dataGridInfo.getRows(), dataGridInfo.getSortId(),
-				dataGridInfo.getOreder());
-		
-		return new JsonView(JSONUtils.getDataGridJSON(data.getTotal(),
-				data.getList()));
+		if ("admin".equals(user.getId())) {
+			ListData<Person> data = Person.getAllOldWithOutUserId(vo, dataGridInfo.getStartPage(),
+					dataGridInfo.getRows(), dataGridInfo.getSortId(),
+					dataGridInfo.getOreder());
+			return new JsonView(JSONUtils.getDataGridJSON(data.getTotal(),
+					data.getList()));
+		}
+		else {
+			vo.setUserId(user.getId());
+			
+			ListData<Person> data = Person.getAllOld(vo,dataGridInfo.getStartPage(),
+					dataGridInfo.getRows(), dataGridInfo.getSortId(),
+					dataGridInfo.getOreder());
+			
+			return new JsonView(JSONUtils.getDataGridJSON(data.getTotal(),
+					data.getList()));
+		}
 	}
 
 	@Override

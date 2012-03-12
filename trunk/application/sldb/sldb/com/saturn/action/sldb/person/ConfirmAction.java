@@ -21,7 +21,8 @@ public class ConfirmAction implements IAction {
 		urlMap.put("创建", "apply.jsp");
 		urlMap.put("申报", "first.jsp");
 		urlMap.put("初审", "check.jsp");
-		urlMap.put("核对", "end.jsp");
+		urlMap.put("已核对", "checkOk.jsp");
+		urlMap.put("评议", "end.jsp");
 	}
 
 	public IView execute(HttpServletRequest request,

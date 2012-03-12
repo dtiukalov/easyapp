@@ -63,8 +63,9 @@ public class Person {
 	static {
 		stateMap.put("创建", "申报");
 		stateMap.put("申报", "初审");
-		stateMap.put("初审", "核对");
-		stateMap.put("核对", "通过");
+		stateMap.put("初审", "已核对");
+		stateMap.put("已核对", "评议");
+		stateMap.put("评议", "通过");
 	}
 
 	public static int add(Person vo) {
@@ -130,12 +131,26 @@ public class Person {
 		return SimpleDaoTemplate.query(
 				"SELECT * FROM sldb_person WHERE 1 = 1",
 				new DymaticCondition().addSimpleCondition(vo, "state",
-						"identify", "name", "gender", "createrName",
+						"identify", "name", "gender", "type", "createrName",
 						"createTime","creater")
 						.addCondition("ORDER BY {0} {1}", orderBy,
 						order), mapping, Person.class, start, offset);
 	}
 
+	public static ListData<Person> getAllWithOutCreater(Person vo, String start,
+			String offset, String orderBy, String order) {
+		// 指定值对象类型(VOClass)。例子VOClass=User
+		// 指定插入表名称(tableName)。例子：如user表，tableName=user
+		// 指定O-R映射规则对象。默认mapping
+		return SimpleDaoTemplate.query(
+				"SELECT * FROM sldb_person WHERE 1 = 1",
+				new DymaticCondition().addSimpleCondition(vo, "state",
+						"identify", "name", "gender", "createrName",
+						"createTime")
+						.addCondition("ORDER BY {0} {1}", orderBy,
+						order), mapping, Person.class, start, offset);
+	}
+	
 	public static ListData<Person> getAllWithoutCreater(Person vo, String start,
 			String offset, String orderBy, String order) {
 		// 指定值对象类型(VOClass)。例子VOClass=User
@@ -154,12 +169,12 @@ public class Person {
 			final String note, final String department) {
 		return SimpleDaoTemplate.update(new ITransaction() {
 			public int execute(Connection connection) {
-
+				
 				User user = User.get(userId);
 				Person person = Person.get(id);
 
 				String nextState = stateMap.get(person.getState());
-
+				
 				PersonState personState = new PersonState(null, id, userId,
 						user.getName(), DateUtils.getSystemTime(), person
 								.getName(), person.getIdentify(), nextState,
@@ -172,7 +187,7 @@ public class Person {
 			}
 		});
 	}
-
+	
 	public static int confirm(final String[] ids, final String userId,
 			final String note, final String department) {
 		for (String id : ids) {
@@ -228,6 +243,11 @@ public class Person {
 				"UPDATE sldb_person SET state = ? WHERE id = ?", state, id);
 	}
 
+	public static  int UpdateState(String id, String state) {
+		return SimpleDaoTemplate.update(
+				"UPDATE sldb_person SET state = ? WHERE id = ?", state, id);
+	}
+	
 	public static int remove(final String id) {
 		// 指定插入表名称(tableName)。例子：如user表，tableName=user
 		return SimpleDaoTemplate.update("DELETE FROM sldb_person WHERE id = ?",
@@ -254,6 +274,16 @@ public class Person {
 						Person.class, start, offset);
 	}
 
+	public static ListData<Person> getAllOldWithOutUserId(Person vo, String start,
+			String offset, String orderBy, String order) {
+		// 指定值对象类型(VOClass)。例子VOClass=User
+		// 指定插入表名称(tableName)。例子：如user表，tableName=user
+		// 指定O-R映射规则对象。默认mapping
+		return SimpleDaoTemplate
+				.query("select distinct (s.pid), p.* from  sldb_person p ,sldb_person_state s where 1 = 1 and p.id = s.pid",
+						new DymaticCondition(), mapping,
+						Person.class, start, offset);
+	}
 	public Person(String id, String identify, String type, String createTime,
 			String creater, String createrName, String createrDepartment,
 			String state, String name, String gender, String race,

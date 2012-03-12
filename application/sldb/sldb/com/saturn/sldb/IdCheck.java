@@ -370,16 +370,14 @@ public class IdCheck {
 		Person person = Person.get(pid);
 		List<PersonSub> subs = PersonSub.getByPid(pid);
 
-		checkOnePerson_name(pid, person.getIdentify(), person.getName());
+		checkOnePersonName(pid, person.getIdentify(), person.getName());
 
 		for (PersonSub sub : subs) {
-			checkOnePerson(sub.getId(), sub.getIdentify(), sub.getName());
+			checkOnePersonWithName(sub.getId(), sub.getIdentify(), sub.getName());
 		}
 		return "true";
 	}
-	
-	@SuppressWarnings("rawtypes")
-	public static void checkOnePerson_name(String pid, String identify, String name) {
+	public static void checkOnePersonWithName(String pid, String identify, String name) {
 		List<IdCheck> checks = new ArrayList<IdCheck>();
 		List<ImportInfo> infos = ImportInfo.getAllList();
 
@@ -393,7 +391,40 @@ public class IdCheck {
 			Import importLast = getLastImport(info.getId());
 
 			if (importLast != null) {
-				List<HashMap> results = checkOne_name(name,
+				List<HashMap> results = checkOneName(name,
+						importLast.getId());
+				String key = info.getName() + "(" + importLast.getImportDate()
+						+ ")";
+
+				if (results.isEmpty()) {
+					add(new IdCheck(id, key, "无", info.getId(), ""));
+				} else {
+					List<IdCheck> checkResult = getList(results, id, key,
+							info.getId());
+
+					checks.addAll(checkResult);
+					addAll(checkResult);
+				}
+			}
+		}
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public static void checkOnePersonName(String pid, String identify, String name) {
+		List<IdCheck> checks = new ArrayList<IdCheck>();
+		List<ImportInfo> infos = ImportInfo.getAllList();
+
+		String id = pid + "_" + identify;
+
+		if (getAll(id, null, null, null, null).getTotal() > 0) {
+			remove(id);
+		}//删除重复核对过的数据
+
+		for (ImportInfo info : infos) {
+			Import importLast = getLastImport(info.getId());
+
+			if (importLast != null) {
+				List<HashMap> results = checkOneName(name,
 						importLast.getId());
 				String key = info.getName() + "(" + importLast.getImportDate()
 						+ ")";
@@ -411,7 +442,7 @@ public class IdCheck {
 		}
 	}
 	@SuppressWarnings("rawtypes")
-	public static List<HashMap> checkOne_name(String name,
+	public static List<HashMap> checkOneName(String name,
 			String importId) {
 		Import imp = Import.get(importId);
 		String type = imp.getType();
@@ -419,11 +450,11 @@ public class IdCheck {
 		ImportInfo info = ImportInfo.get(type);
 		String tableName = info.getTableName() + imp.getImportDate();
 
-		return checkTable_name(name, tableName);
+		return checkTableName(name, tableName);
 	}
 
 	@SuppressWarnings("rawtypes")
-	public static List<HashMap> checkTable_name(String name,
+	public static List<HashMap> checkTableName(String name,
 			String tableName) {
 
 		if ((name == null || "".equals(name.trim()))) {
@@ -457,17 +488,18 @@ public class IdCheck {
 		Person person = Person.get(pid);
 		List<PersonSub> subs = PersonSub.getByPid(pid);
 
-		checkOnePerson(pid, person.getIdentify(), person.getName());
+		checkOnePersonIdentify(pid, person.getIdentify());
 
 		for (PersonSub sub : subs) {
-			checkOnePerson(sub.getId(), sub.getIdentify(), sub.getName());
+			checkOnePersonWithIdentify(sub.getId(), sub.getIdentify());
 		}
 
 		return "true";
 	}
+	
 	//根据身份证号核对数据
 	@SuppressWarnings("rawtypes")
-	public static void checkOnePerson_identify(String pid, String identify) {
+	public static void checkOnePersonIdentify(String pid, String identify) {
 		List<IdCheck> checks = new ArrayList<IdCheck>();
 		List<ImportInfo> infos = ImportInfo.getAllList();
 
@@ -481,7 +513,7 @@ public class IdCheck {
 			Import importLast = getLastImport(info.getId());
 
 			if (importLast != null) {
-				List<HashMap> results = checkOne(identify,
+				List<HashMap> results = checkOneIdentify(identify,
 						importLast.getId());
 				String key = info.getName() + "(" + importLast.getImportDate()
 						+ ")";
@@ -499,8 +531,39 @@ public class IdCheck {
 		}
 	}
 
+	public static void checkOnePersonWithIdentify(String pid, String identify) {
+		List<IdCheck> checks = new ArrayList<IdCheck>();
+		List<ImportInfo> infos = ImportInfo.getAllList();
+
+		String id = pid + "_" + identify;
+
+		if (getAll(id, null, null, null, null).getTotal() > 0) {
+			remove(id);
+		}//删除重复核对过的数据
+
+		for (ImportInfo info : infos) {
+			Import importLast = getLastImport(info.getId());
+
+			if (importLast != null) {
+				List<HashMap> results = checkOneIdentify(identify,
+						importLast.getId());
+				String key = info.getName() + "(" + importLast.getImportDate()
+						+ ")";
+
+				if (results.isEmpty()) {
+					add(new IdCheck(id, key, "无", info.getId(), ""));
+				} else {
+					List<IdCheck> checkResult = getList(results, id, key,
+							info.getId());
+
+					checks.addAll(checkResult);
+					addAll(checkResult);
+				}
+			}
+		}
+	}
 	@SuppressWarnings("rawtypes")
-	public static List<HashMap> checkOne(String identify,
+	public static List<HashMap> checkOneIdentify(String identify,
 			String importId) {
 		Import imp = Import.get(importId);
 		String type = imp.getType();
@@ -508,11 +571,11 @@ public class IdCheck {
 		ImportInfo info = ImportInfo.get(type);
 		String tableName = info.getTableName() + imp.getImportDate();
 
-		return checkTable_identify(identify, tableName);
+		return checkTableIdentify(identify, tableName);
 	}
 
 	@SuppressWarnings("rawtypes")
-	public static List<HashMap> checkTable_identify(String identify,
+	public static List<HashMap> checkTableIdentify(String identify,
 			String tableName) {
 
 		if ((identify == null || "".equals(identify.trim()))) {

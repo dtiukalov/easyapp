@@ -83,7 +83,7 @@
 								 font: 'normal 12px Verdana, sans-serif',
 								 color: 'black'
 							}
-					},
+						},
 						categories: <%=fv9KWNo%>
 					},
 					yAxis: {

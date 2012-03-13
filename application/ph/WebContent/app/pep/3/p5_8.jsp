@@ -114,14 +114,11 @@
 						verticalAlign: 'top',
 						x: -10,
 						y: 100,
-						floating: true,
 						borderWidth: 1,
 						borderRadius: 0,
 						shadow: false
 					},
 					tooltip: {
-						shared: true,
-						crosshairs: true,
 						formatter: function() {
 							return this.point.table;
 						}
@@ -145,7 +142,7 @@
 							}
 						}
 					},
-				    series: [{
+					series: [{
 						type: 'column',
 						name: 'Karosseriebau',
 						data: <%=Karosseriebau%>,
@@ -191,7 +188,7 @@
 		</script>
 
 	</head>
-	<body onload="setCurrent(chart)">
+	<body>
 		<div id="container">
 			<div id="nr">
 			<div id="top">

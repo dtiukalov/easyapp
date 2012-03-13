@@ -150,7 +150,7 @@
 					_gStr += "<td class='GDay'><div style='width:" + width + "px;'>" + (_dTemp.getMonth()+1) + "</div></td>";
 					_secondRow += "<td class='GDay'><div style='width: + width + px;'>" + (start--) + "</div></td>";
 					if (_dTemp.getFullYear() == _currentDate.getFullYear() && _dTemp.getMonth() == _currentDate.getMonth())	{					
-						_thirdRow += "<td id='GC_" + (counter++) + "' class='GToDay' style='height:" + ((_maxLevel+2) * 26) + "'>&nbsp;</td>";
+						_thirdRow += "<td id='GC_" + (counter++) + "' class='GDay' style='height:" + ((_maxLevel+2) * 26) + "'><label class=\"line\"></label></td>";
 					} else {
 						_thirdRow += "<td id='GC_" + (counter++) + "' class='GDay'style='height:" + ((_maxLevel+2) * 26) + "'>&nbsp;</td>";
 					}
@@ -275,6 +275,12 @@
 		text-align:center;
 	}
 	
+	.line{   
+	    width:2px;   
+	    background:#f785f4;   
+	    height:240 px;
+	}
+	
 	.GWeekend
 	{
 		font-family:tahoma, arial, verdana;
@@ -328,6 +334,8 @@
 	List<String> fv9Project0S =  (List<String>)form.get("fv9Project0S");
 	List<String> fv9ProjectSOP = (List<String>)form.get("fv9ProjectSOP");
 	List<String> fv9ProjectMix = (List<String>)form.get("fv9ProjectMix");
+	
+	String project = (String)request.getSession().getAttribute("project");
 %>
 <body>	
 	<div style="position:relative;width:1100px" class="Gantt" id="GanttChart2"></div>
@@ -341,19 +349,19 @@
 			String projectDerivat = fv9ProjectDerivat.get(i);
 			
 			if(Web.getDateStrNotNull(fv9ProjectPVS.get(i))){%>
-				g2.AddTaskDetail(new Task('<%=fv9ProjectPVS.get(i)%>', '<%=fv9ProjectPVS.get(i)%>', '<%=projectDerivat%>', 'PVS', 50, <%=i%>, 'VW007', 'PVS', '<%=fv9ProjectMix.get(i)%>', '<%=fv9ProjectStufe.get(i)%>'));
+				g2.AddTaskDetail(new Task('<%=fv9ProjectPVS.get(i)%>', '<%=fv9ProjectPVS.get(i)%>', '<%=projectDerivat%>', 'PVS', 50, <%=i%>, '<%=project%>', 'PVS', '<%=fv9ProjectMix.get(i)%>', '<%=fv9ProjectStufe.get(i)%>'));
 				<%	}
 			
 			if(Web.getDateStrNotNull(fv9ProjectVFF.get(i))){%>
-				g2.AddTaskDetail(new Task('<%=fv9ProjectVFF.get(i)%>', '<%=fv9ProjectVFF.get(i)%>', '<%=projectDerivat%>', 'VFF', 50, <%=i%>, 'VW007', 'VFF', '<%=fv9ProjectMix.get(i)%>', '<%=fv9ProjectStufe.get(i)%>'));
+				g2.AddTaskDetail(new Task('<%=fv9ProjectVFF.get(i)%>', '<%=fv9ProjectVFF.get(i)%>', '<%=projectDerivat%>', 'VFF', 50, <%=i%>, '<%=project%>', 'VFF', '<%=fv9ProjectMix.get(i)%>', '<%=fv9ProjectStufe.get(i)%>'));
 				<%	}
 			
 			if(Web.getDateStrNotNull(fv9Project0S.get(i))){%>
-				g2.AddTaskDetail(new Task('<%=fv9Project0S.get(i)%>', '<%=fv9Project0S.get(i)%>', '<%=projectDerivat%>', '0S', 50, <%=i%>, 'VW007', '0S', '<%=fv9ProjectMix.get(i)%>', '<%=fv9ProjectStufe.get(i)%>'));
+				g2.AddTaskDetail(new Task('<%=fv9Project0S.get(i)%>', '<%=fv9Project0S.get(i)%>', '<%=projectDerivat%>', '0S', 50, <%=i%>, '<%=project%>', '0S', '<%=fv9ProjectMix.get(i)%>', '<%=fv9ProjectStufe.get(i)%>'));
 				<%	}
 			
 			if(Web.getDateStrNotNull(fv9ProjectSOP.get(i))){%>
-				g2.AddTaskDetail(new Task('<%=fv9ProjectSOP.get(i)%>', '<%=fv9ProjectSOP.get(i)%>', '<%=projectDerivat%>', 'SOP', 50, <%=i%>, 'VW007', 'SOP', '<%=fv9ProjectMix.get(i)%>', '<%=fv9ProjectStufe.get(i)%>'));
+				g2.AddTaskDetail(new Task('<%=fv9ProjectSOP.get(i)%>', '<%=fv9ProjectSOP.get(i)%>', '<%=projectDerivat%>', 'SOP', 50, <%=i%>, '<%=project%>', 'SOP', '<%=fv9ProjectMix.get(i)%>', '<%=fv9ProjectStufe.get(i)%>'));
 				<%	}
 		}
 	}

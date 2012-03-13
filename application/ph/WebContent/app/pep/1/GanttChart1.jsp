@@ -83,22 +83,24 @@
 				
 				//---- Fix _maxDate value for better displaying-----
 				// Add at least 5 days
-				
+				//控制最大时间和最小时间前后显示的月份
 				if (_maxDate.getMonth() != 11) { //December 12&#26376;				
 					_maxDate.setFullYear(_maxDate.getFullYear(), 11, 1); //The fifth day of next month will be used
 				} else {
-					_maxDate.setFullYear(_maxDate.getFullYear() + 1, 5, 1); //The fifth day of next month will be used
+					_maxDate.setFullYear(_maxDate.getFullYear() + 1, 9, 1); //The fifth day of next month will be used
 				}
 				
-				if (_minDate.getMonth() == 11) {
+				if (_minDate.getMonth() == 0) {
+					_minDate.setFullYear(_minDate.getFullYear() - 1 , 10, 1);
+				} else {
 					_minDate.setFullYear(_minDate.getFullYear(), _minDate.getMonth()-1, 1);
-				}
+				} 
 				//--------------------------------------------------
 				
 				_gStr = "";
 				_gStr += "<tr style='background-color:feffbe;text-align:center;'>";
 				//_secondRow = "<tr style='background-color:feffbe;text-align:center;'>";
-				_thirdRow = "<tr><td>&nbsp;</td>";
+				_thirdRow = "<tr style='height:180px;'><td>&nbsp;</td>";
 				_dTemp.setFullYear(_minDate.getFullYear(), _minDate.getMonth(), _minDate.getDate());
 				
 				while (Date.parse(_dTemp) <= Date.parse(_maxDate)) {	
@@ -106,7 +108,7 @@
 					_gStr += "<td class='GDay'><div style='width:" + width + "px;'>" + (_dTemp.getMonth()+1) + "</div></td>";
 					//_secondRow += "<td class='GDay'><div style='width: + width + px;'>" + (start--) + "</div></td>";
 					if (_dTemp.getFullYear() == _currentDate.getFullYear() && _dTemp.getMonth() == _currentDate.getMonth())	{					
-						_thirdRow += "<td id='GC_" + (counter++) + "' class='GToDay' style='height:" + ((_maxLevel+1) * 21) + "'>&nbsp;</td>";
+						_thirdRow += "<td id='GC_" + (counter++) + "' class='GDay'style='height:" + ((_maxLevel+1) * 21) + "'>&nbsp;<label class=\"line\"></label></td>";
 					} else {
 						_thirdRow += "<td id='GC_" + (counter++) + "' class='GDay'style='height:" + ((_maxLevel+1) * 21) + "'>&nbsp;</td>";
 					}
@@ -154,10 +156,10 @@
 					_dateDiff = (task.getTo().getFullYear() - task.getFrom().getFullYear()) * 12 + (task.getTo().getMonth() - task.getFrom().getMonth()) + 1;
 					
 					if (task.getFrom().getFullYear() == task.getTo().getFullYear() && task.getFrom().getMonth() == task.getTo().getMonth()) {
-						_gStr += "<div style='position:absolute; top:" + (20 * (_level + 2)) + "; left:" + (_offSet * offWidth + 9 + preWidth) + "; width:" + (offWidth * _dateDiff - 1 + 100) + "'><div title='" + task.getTask() + "' style='float:left; width:" + (offWidth * _dateDiff - 1) + "px;'>" + task.getResource() + "</div></div>";
+						_gStr += "<div style='position:absolute; top:" + (20 * (_level + 2)) + "; left:" + (_offSet * offWidth - 9 + preWidth) + "; width:" + (offWidth * _dateDiff - 1 + 100) + "'><div title='" + task.getTask() + "' style='float:left; width:" + (offWidth * _dateDiff - 1) + "px;'>" + task.getResource() + "</div></div>";
 						_gStr += "<div style='position:absolute; top:" + (26 * (_level + 2) + 1) + "; left:5px'>" + task.getTask() + "</div>";						
 					} else {
-						_gStr += "<div style='position:absolute; top:" + (20 * (_level + 2)) + "; left:" + (_offSet * offWidth + preWidth) + "; width:" + (offWidth * _dateDiff - 1 + 100) + "'><div title='" + task.getTask() + "' style='float:left; width:" + (offWidth * _dateDiff - 1) + "px;" + "background-color:" + task.getColor()+ ";border:#000000 1px solid;text-align:center;'>" + task.getResource() + "</div></div>";
+						_gStr += "<div style='position:absolute; top:" + (20 * (_level + 2)) + "; left:" + (_offSet * offWidth + preWidth) + "; width:" + (offWidth * _dateDiff - 1 + 100) + "'><div title='" + task.getTask() + "' style='float:left; width:" + (offWidth * _dateDiff - 1) + "px;" + "background-color:" + task.getColor()+ ";border:#000000 1px solid;text-align:center; '>" + task.getResource() + "</div></div>";
 					}
 				}
 				_GanttDiv.innerHTML = _gStr;
@@ -221,10 +223,15 @@
 }
 
 .GToday {
-	border-right: 4px #f785f4 solid;
 	font-family: tahoma, arial, verdana;
 	font-size: 11px;
 	text-align: center;
+}
+
+.line{   
+    width:2px;   
+    background:#f785f4;   
+    height:180 px;
 }
 
 .GWeekend {
@@ -264,6 +271,7 @@
 	overflow: hidden;
 	margin-top: 5px;
 }
+
 </style>
 <%
 	String uid = request.getParameter("uid");
@@ -390,7 +398,7 @@
 	g.AddTaskDetail(new Task('<%=Konzept_S%>', '<%=Konzept_E%>', '', '27 MO', 50, 5, '#b0b0b0'));
 	<%}%>
 	<%if(Web.getDateStrNotNull(Serienvorboreitung_S) && Web.getDateStrNotNull(Serienvorboreitung_E)){%>	
-	g.AddTaskDetail(new Task('<%=Serienvorboreitung_S%>', '<%=Serienvorboreitung_E%>', '', '15 MO', 50, 5, '#414141'));
+	g.AddTaskDetail(new Task('<%=Serienvorboreitung_S%>', '<%=Serienvorboreitung_E%>', '', '<font color="white">15 MO</font>', 50, 5, '#414141'));
 <%}%>
 	g.Draw(49, 15);
 </script>

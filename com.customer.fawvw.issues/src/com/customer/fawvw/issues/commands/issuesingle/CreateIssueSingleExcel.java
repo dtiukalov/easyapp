@@ -264,16 +264,16 @@ public class CreateIssueSingleExcel {
 				}
 				String cpSolDate = "";
 				if (!"".equals((String)values.get("fv9SlDLDateBS"))) { 
-					cpSolDate = DateUtil.getWeekOfYear((String)values.get("fv9SlDLDateBS")) + "/" + 
-						((String)values.get("fv9SlDLDateBS")).substring(0, 4);
+					cpSolDate += DateUtil.getWeekOfYear((String)values.get("fv9SlDLDateBS")) + "/" + 
+						((String)values.get("fv9SlDLDateBS")).substring(0, 4) + "\r\n";
 				} 
-				if (!"".equals((String)values.get("fv9SlDLDateBS"))) { 
-					cpSolDate = DateUtil.getWeekOfYear((String)values.get("fv9SlDLDateCA")) + "/" + 
-						((String)values.get("fv9SlDLDateCA")).substring(0, 4);
+				if (!"".equals((String)values.get("fv9SlDLDateCA"))) { 
+					cpSolDate += DateUtil.getWeekOfYear((String)values.get("fv9SlDLDateCA")) + "/" + 
+						((String)values.get("fv9SlDLDateCA")).substring(0, 4) + "\r\n";;
 				} 
 				if (!"".equals((String)values.get("fv9SlDLDatePA"))) { 
-					cpSolDate = DateUtil.getWeekOfYear((String)values.get("fv9SlDLDatePA")) + "/" + 
-						((String)values.get("fv9SlDLDatePA")).substring(0, 4);
+					cpSolDate += DateUtil.getWeekOfYear((String)values.get("fv9SlDLDatePA")) + "/" + 
+						((String)values.get("fv9SlDLDatePA")).substring(0, 4) + "\r\n";;
 				} 
 				solTerminCell1.setCellValue(cpSolDate); 
 				

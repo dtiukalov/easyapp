@@ -163,7 +163,7 @@ public class ReportIssueSingleLoader {
 						.getProperty("fv9SlDLDateVSC")); 
 
 				values.put("fv9SolutionTE", fv9IssueRevision 
-						.getProperty("SolutionTE")); 
+						.getProperty("fv9SolutionTE")); 
 				System.out.println("TE´ëÊ©£º" + fv9IssueRevision  
 						.getProperty("fv9SolutionTE")); 
 				
@@ -174,7 +174,6 @@ public class ReportIssueSingleLoader {
 
 				values.put("fv9RGStatus", fv9IssueRevision 
 						.getProperty("fv9RGStatus")); 
-			
 				System.out.println("ºìÂÌµÆ×´Ì¬£º" + fv9IssueRevision  
 						.getProperty("fv9RGStatus")); 
 				

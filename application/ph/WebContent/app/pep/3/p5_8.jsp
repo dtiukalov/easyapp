@@ -10,6 +10,9 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<%@ include file="/app/pep/include/header.jsp"%>
+		<%@ include file="/app/pep/include/highslide-fullmin.jsp"%>
+		<%@ include file="/app/pep/include/highslideconfig.jsp"%>
+		<%@ include file="/app/pep/include/highslidecss.jsp"%>
 		<title><%=title %></title>
 		<%
 		List<String> KWNo = (List)form.get("fv9KWNo");
@@ -80,7 +83,7 @@
 								 font: 'normal 12px Verdana, sans-serif',
 								 color: 'black'
 							}
-					},
+						},
 						categories: <%=fv9KWNo%>
 					},
 					yAxis: {
@@ -111,6 +114,7 @@
 						verticalAlign: 'top',
 						x: -10,
 						y: 100,
+						floating: true,
 						borderWidth: 1,
 						borderRadius: 0,
 						shadow: false
@@ -157,9 +161,9 @@
 									//		y: this.pageY
 											y: 200
 										},
-										headingText: '',
-										maincontentText: this.table,
-										width: 400
+										headingText: this.series.name,
+										maincontentText: this.table
+								//		width: 400
 									});
 								}
 							}
@@ -179,6 +183,8 @@
 						color: '#E63110'
 					}]
 				});
+				
+				
 			});
 			
 			

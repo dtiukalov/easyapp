@@ -10,6 +10,9 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<%@ include file="/app/pep/include/header.jsp"%>
+		<%@ include file="/app/pep/include/highslide-fullmin.jsp"%>
+		<%@ include file="/app/pep/include/highslideconfig.jsp"%>
+		<%@ include file="/app/pep/include/highslidecss.jsp"%>
 		<title><%=title %></title>
 		<%
 		List<String> KWNo = (List)form.get("fv9KWNo");
@@ -165,7 +168,28 @@
 						type: 'column',
 						name: 'Presswerk',
 						data: <%=Presswerk%>,
-						color: '#00235A'
+						color: '#00235A',
+						cursor: 'pointer',
+						point: {
+							events: {
+								click: function() {
+									hs.htmlExpand(null, {
+										pageOrigin: {
+									//		x: this.pageX,
+											x: 400,
+									//		y: this.pageY
+											y: 200
+										},
+										headingText: this.series.name,
+										maincontentText: this.table
+								//		width: 400
+									});
+								}
+							}
+						}, 
+						marker: {
+							lineWidth: 1
+						}
 					}, {
 						type: 'spline',
 						name: 'Prognose',

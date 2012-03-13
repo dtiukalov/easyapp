@@ -13,29 +13,69 @@
 		<title><%=title %></title>
 		<%
 			String status = "08.12.2011";
+			List<String> fv9BMGType = (List<String>)form.get("fv9BMGType"); //零件类型
+			List<String> fv9BMGTypeNum = (List)form.get("fv9BMGNum");  //认可数量
+			List<String> fv9BMGKWNo = (List)form.get("fv9BMGKWNo");  //周数
+			List<String> fv9BMGSoll = (List)form.get("fv9BMGSoll");  //fv9BMGSoll
+			List<String> fv9BMGInArbeirt = (List)form.get("fv9BMGInArbeirt");  //fv9BMGInArbeirt
+			List<String> fv9BMGAWE = (List)form.get("fv9BMGAWE");  //fv9BMGAWE
 			
-			List<String> fv9BMGType = (List<String>)form.get("fv9BMGType");
-			List<String> fv9BMGNum = (List)form.get("fv9BMGNum");
 			List<String> Gesamt = new ArrayList<String>();
 			List<String> categories = new ArrayList<String>();
+			StringBuffer BFreiSoll = new StringBuffer();
+			StringBuffer BFInArbeirt = new StringBuffer();
+			StringBuffer BFAWE = new StringBuffer();
+			BFreiSoll.append("[");
+			BFInArbeirt.append("[");
+			BFAWE.append("[");
 			int sum = 0;
-			if (Web.getListYesOrNo(fv9BMGNum)) {
-				categories.add("Gesamt");
-				for (int i=0; i<fv9BMGNum.size(); i++){
-					sum += Integer.parseInt(fv9BMGNum.get(i));
-					categories.add(fv9BMGType.get(i));
+			if (Web.getListYesOrNo(fv9BMGTypeNum)) {
+				for (int i=0; i<fv9BMGTypeNum.size(); i++){
+					sum += Integer.parseInt(fv9BMGTypeNum.get(i));
 				}
-				Gesamt.add(sum+"");
-			}
 			
+				categories.add("Gesamt");
+				BFreiSoll.append("{y:" + sum + ", low:0, color:'#0200FE'},");
+				BFInArbeirt.append("{y:0, low:0, color:'#FFCC00'},");
+				BFAWE.append("{y:0, low:0, color:'#FFFFCC'},");
+				
+				int temp = 0;
+				for (int i=0; i<fv9BMGTypeNum.size(); i++){
+					int y = Integer.parseInt(fv9BMGTypeNum.get(i));
+					temp = temp + y;
+					int low = sum - temp;
+					categories.add(fv9BMGType.get(i));
+					String color = "#0200FE";
+					if (i == fv9BMGTypeNum.size()-1) {
+						color = "#FF00FE";
+					}
+					BFreiSoll.append("{y:" + y + ", low:" + low + ", color:'" + color + "'},");
+					BFInArbeirt.append("{y:0, low:0, color:'#FFCC00'},");
+					BFAWE.append("{y:0, low:0, color:'#FFFFCC'},");
+				}
+				
+			}
+			if (Web.getObjectYesOrNo(fv9BMGKWNo)) {
+				for(int m=0; m<fv9BMGKWNo.size(); m++) {
+					categories.add(fv9BMGKWNo.get(m));
+					int BFAWENUM = Integer.parseInt(fv9BMGAWE.get(m));
+					int BFInArbeirtNUM = Integer.parseInt(fv9BMGInArbeirt.get(m));
+					int BFreiSollNUM = Integer.parseInt(fv9BMGSoll.get(m));
+					
+					BFAWE.append("{y:" + BFAWENUM + ", low:0, color:'#FFFFCC'},");
+					BFInArbeirt.append("{y:" + BFInArbeirtNUM + ", low:" + BFAWENUM + ", color:'#FFCC00'},");
+					BFreiSoll.append("{y:" + BFreiSollNUM + ", low:" + (BFInArbeirtNUM+BFAWENUM) + ", color:'#00FF00'},");
+					
+				}
+			}
 			String cat = Web.getStrListStr(categories);
-			String categories1 = Web.getStrListStr(Gesamt);
-		
-			String categories3 = Web.getStrListStr(form.get("fv9BMGKWNo"));
-			String BMGfreiSoll = Web.getNumberListStr(form.get("fv9BMGSoll"));
-			String inarbeit = Web.getNumberListStr(form.get("fv9BMGInArbeirt"));
-			String awe = Web.getNumberListStr(form.get("fv9BMGAWE"));	
+			BFreiSoll.append("]");
+			BFInArbeirt.append("]");
+			BFAWE.append("]");
+			
 		%>	
+		
+
 		<script type="text/javascript">
 		var chart1;
 		var chart2;
@@ -43,8 +83,7 @@
 				chart1 = new Highcharts.Chart({
 				chart: {
 					renderTo: 'chart1',
-					defaultSeriesType: 'column',
-					marginRight:0.5
+					defaultSeriesType: 'column'
 				},
 				title: {
 					text: ''
@@ -91,7 +130,7 @@
 					column: {
 						stacking: 'normal',
 						borderColor: 'black',
-						pointWidth:33,
+				//		pointWidth:33,
 						shadow:false,
 						dataLabels: {
 							enabled: true,
@@ -106,270 +145,91 @@
 								}
 								return this.y + '';
 							}
+					//		rotation: -90,
+					//		x:5
 						}
 					}
 				},
+				legend: {
+					layout: 'vertical',
+					align: 'right',
+					verticalAlign: 'middle',
+					borderWidth: 1,
+					shadow:false,
+					enabled:true
+				},
 			    series: [{
-					name: '',
-					showInLegend: false,
-					data: [{ 
-							y: <%=sum%>, 
-							low:0,
-							color: '#0200FE'
-						}
-					
-					<%	
-					int temp = 0;
-					String color = "\"#0200FE\"";
-					if (Web.getListYesOrNo(fv9BMGNum)) {
-						for(int j=0; j<fv9BMGNum.size(); j++){
-							temp = temp + Integer.parseInt(fv9BMGNum.get(j));
-							if(j == fv9BMGNum.size() - 1){
-								color = "\"#FF00FE\"";
-							}
-						%>
-						,{
-						 	y: <%=fv9BMGNum.get(j)%>, 
-						 	low:<%=sum - temp%>,
-						 	color: <%=color%>
-						}
-						<%
-						}
+					name: 'BMG frei Soll',
+					data: <%=BFreiSoll%>,
+					color: '#00FF00',
+					type: 'column',
+					dashStyle: 'dash',
+					marker: {enabled: false},
+					lineWidth: 1,
+					shadow: false,
+					enableMouseTracking: false,
+					dataLabels: {
+						enabled: true,
+						style : {
+							fontSize:'10px'
+						},
+						color: 'white'
 					}
-					%>
-					]
+				},{
+					name: 'in arbeit',
+					data: <%=BFInArbeirt%>,
+					color: '#FFCC00',
+					type: 'column',
+					dashStyle: 'dash',
+					marker: {enabled: false},
+					lineWidth: 1,
+					shadow: false,
+					enableMouseTracking: false,
+					dataLabels: {
+						enabled: true,
+						style : {
+							fontSize:'10px'
+						},
+						color: 'black'
+					}
+				}, {
+					name: 'AWE',
+					data: <%=BFAWE%>,
+					color: '#FFFFCC',
+					type: 'column',
+					dashStyle: 'dash',
+					marker: {enabled: false},
+					lineWidth: 1,
+					shadow: false,
+					enableMouseTracking: false,
+					dataLabels: {
+						enabled: true,
+						style : {
+							fontSize:'10px'
+						},
+						color: 'black'
+					}
 				}]
 			});
-				<%
-				
-				int total = sum + 10;
-				int[] arr = null;
-				
-				if (Web.getListYesOrNo((List<String>)form.get("fv9BMGKWNo"))) {
-					arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9BMGKWNo"));
-				}	
-				
-				Map<String,Integer> lichenbeiNum = Web.getLCBNum(request, arr);
-					
-				int vffNum =  lichenbeiNum.get("vffNum");//柱子个数
-				int pvsNum = lichenbeiNum.get("pvsNum");//柱子个数
-				int osNum = lichenbeiNum.get("osNum");//柱子个数
-				int sopNum = lichenbeiNum.get("sopNum");//柱子个数
-				
-				double temp0 = 0;
-				int temp1 = 0;
-				int temp2 = 0;
-				int temp3 = 0;
-				
-				if(vffNum > 0){
-					temp0 = 0.5;
-				}
-				if(pvsNum > 0){
-					temp1 = vffNum;
-				}
-				if(osNum > 0){
-					temp2 = vffNum + pvsNum ;
-				}
-				if(sopNum > 0){
-					temp3 = vffNum + pvsNum + osNum ;
-				}
-				%>
-			
-			
-			chart2 = new Highcharts.Chart({
-					chart: {
-						renderTo: 'chart2',
-						defaultSeriesType: 'column',
-						marginLeft:1
-					},
-					title: {
-						text: ' '
-					},
-					xAxis: {
-						categories: <%=categories3%>,
-						lineColor:'black',
-						lineWidth:1,
-						tickWidth:0,
-						labels:{
-							y:20,
-							style:{
-								color:'black'
-							}
-						}
-						
-					},
-					yAxis: {
-						gridLineWidth: 0,
-						title: {
-							text: ' '
-						},
-						labels: {
-							enabled:false
-						},
-						stackLabels: {
-							enabled: false,
-							style: {
-								fontWeight: 'bold',
-								color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
-							}
-						}
-					},
-					legend: {
-						layout: 'horizontal',
-						verticalAlign: 'top',
-						align:'center',
-				//		x:0,
-				//		y:20,
-						shadow: false,
-						borderColor:'black',
-						borderWidth:0,
-						symbolWidth: 10,
-						itemStyle: {
-				            color: '#000000',
-				            paddingBottom: '5px'
 
-				        } 
-					},
-					tooltip: {
-						formatter: function() {
-							return '<b>'+ this.x +'</b><br/>'+
-								 this.series.name +': '+ this.y +'<br/>'+
-								 'Total: '+ this.point.stackTotal;
-						}
-					},
-					plotOptions: {
-						column: {
-							stacking: 'normal',
-					//		pointWidth:33,
-							borderColor: 'black',
-							shadow:false,
-							dataLabels: {
-								enabled: true,
-								style : {
-									fontSize:'10px'
-								},
-								color: 'black',
-								formatter: function() {
-									if (this.y == 0 || this.y == 0.0) {
-										return '';
-									}
-									return this.y + '';
-								}
-							}
-						}
-					},
-				    series: [
-				     {
-						name: 'BMG frei Soll',
-						data: <%=BMGfreiSoll%>,
-						color: '#00FF00'
-					}, {
-						name: 'in arbeit',
-						data: <%=inarbeit%>,
-						color: '#FECC00'
-					},{
-						name: 'AWE',
-						data: <%=awe%>,
-						color: '#FEFECC'
-					}
-<%if(vffNum > 0){%>
-				,{
-					data: [[<%=temp0-1%> + 0.5, 0], [<%=temp0-1%> + 0.5001, <%=total%>]],
-		//			color: 'black',
-					dashStyle: 'dash',
-					lineWidth: 2,
-					marker: {enabled: false},
-					shadow: false,
-					showInLegend: false,
-					enableMouseTracking: false,
-					type: 'line',
-					name :"VFF",
-					dataLabels: {
-						enabled: true,
-						formatter: function() {
-							return "<B>VFF</B>";
-						}
-					}
-				}
-<%}%><%if(pvsNum > 0){%>
-				,{
-					data: [[<%=temp1-1%> + 0.5, 0], [<%=temp1-1%> + 0.5001, <%=total%>]],
-		//			color: 'black',
-					dashStyle: 'dash',
-					lineWidth: 2,
-					marker: {enabled: false},
-					shadow: false,
-					showInLegend: false,
-					enableMouseTracking: false,
-					type: 'line',
-					name :"PVS",
-					dataLabels: {
-						enabled: true,
-						formatter: function() {
-							return "<B>PVS</B>";
-						}
-					}
-				}
-<%}%><%if(osNum > 0){%>
-				, {
-					data: [[<%= temp2-1%> + 0.5, 0], [<%=temp2 - 1%> + 0.5001, <%=total%>]],
-		//			color: 'black',
-					dashStyle: 'dash',
-					lineWidth: 2,
-					marker: {enabled: false},
-					shadow: false,
-					showInLegend: false,
-					enableMouseTracking: false,
-					type: 'line',
-					name :"0-S",
-					dataLabels: {
-						enabled: true,
-						formatter: function() {
-							return "<B>0-S</B>";
-						}
-					}
-				}
-<%}%><%if(sopNum > 0){%>
-				, {
-					data: [[<%=temp3-1%> + 0.5, 0], [<%=temp3-1%> + 0.5001, <%=total%>]],
-		//			color: 'black',
-					dashStyle: 'dash',
-					lineWidth: 2,
-					marker: {enabled: false},
-					shadow: false,
-					showInLegend: false,
-					enableMouseTracking: false,
-					type: 'line',
-					name :"SOP",
-					dataLabels: {
-						enabled: true,
-						formatter: function() {
-							return "<B>SOP</B>";
-						}
-					}
-				}
-<%}%>	
-					]
-				});
 		});
 		</script>
 </head>
 <body>		
-		<div id="container">
-			<div id="nr">
-			<div id="top">
-				<div class="fl"><%=status_left %></div>
-				<div class="fr"><%=status_right %></div>
-				<h1><%=title %></h1>
-			</div>
-			<div id="top1" style="margin-top:20px"><h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LC BMG-Teile von ES Teileliste (KW48/11)</h2></div>
-			<div id="content" style="margin:30px 60px;height:491px;">
-				<div style="margin:50px auto">
-					<div id="chart1" style="width: 260px; height: 320px; float: left;"></div>
-					<div id="chart2" style="width: 560px; height: 320px; float: left;"></div>
-				</div>
-			</div>
-			<%@ include file="/app/pep/include/foot.jsp"%>
-		</div>	
+	<div id="container">
+		<div id="nr">
+		<div id="top">
+			<div class="fl"><%=status_left %></div>
+			<div class="fr"><%=status_right %></div>
+			<h1><%=title %></h1>
+		</div>
+	
+		<div id="content">
+			<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LC P-Freigaben-Teile von ES Teileliste</h5>
+			
+			<div id="chart1" style="width: 820px; height: 320px; float: left; margin: 0px; margin-top: 50px; margin-left: 30px;"></div>
+		</div>
+		<%@ include file="/app/pep/include/foot.jsp"%>
+	</div>	
 </body>
 </html>

@@ -6,49 +6,84 @@
 <%@page import="java.util.HashMap"%>	
 <%@page import="com.saturn.web.Web"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
 		<%@ include file="/app/pep/include/header.jsp"%>
 		<title><%=title %></title>
-	
-	<%
-	
-		String status = "08.12.2011";
-		
-		//左侧-瀑布图
-		List<String> fv9PFreigType = (List<String>)form.get("fv9PFreigType");
-		List<String> fv9PFreigTypeNum = (List<String>)form.get("fv9PFreigTypeNum");
-		
-		List<String> Gesamt = new ArrayList<String>();
-		int sum = 0;
-		List<String> categories = new ArrayList<String>();
-		if (Web.getListYesOrNo(fv9PFreigTypeNum)) {
-			categories.add("Gesamt");
-			for (int i=0; i<fv9PFreigTypeNum.size(); i++){
-				sum += Integer.parseInt(fv9PFreigTypeNum.get(i));
-				categories.add(fv9PFreigType.get(i));
+		<%
+			String status = "08.12.2011";
+			List<String> fv9PFreigType = (List<String>)form.get("fv9PFreigType"); //零件类型
+			List<String> fv9PFreigTypeNum = (List)form.get("fv9PFreigTypeNum");  //认可数量
+			List<String> fv9PFKWNo = (List)form.get("fv9PFKWNo");  //周数
+			List<String> fv9PFreiSoll = (List)form.get("fv9PFreiSoll");  //fv9PFreiSoll
+			List<String> fv9PFInArbeirt = (List)form.get("fv9PFInArbeirt");  //fv9PFInArbeirt
+			List<String> fv9PFAWE = (List)form.get("fv9PFAWE");  //fv9PFAWE
+			
+			List<String> Gesamt = new ArrayList<String>();
+			List<String> categories = new ArrayList<String>();
+			StringBuffer BFreiSoll = new StringBuffer();
+			StringBuffer BFInArbeirt = new StringBuffer();
+			StringBuffer BFAWE = new StringBuffer();
+			BFreiSoll.append("[");
+			BFInArbeirt.append("[");
+			BFAWE.append("[");
+			int sum = 0;
+			if (Web.getListYesOrNo(fv9PFreigTypeNum)) {
+				for (int i=0; i<fv9PFreigTypeNum.size(); i++){
+					sum += Integer.parseInt(fv9PFreigTypeNum.get(i));
+				}
+			
+				categories.add("Gesamt");
+				BFreiSoll.append("{y:" + sum + ", low:0, color:'#0200FE'},");
+				BFInArbeirt.append("{y:0, low:0, color:'#FFCC00'},");
+				BFAWE.append("{y:0, low:0, color:'#FFFFCC'},");
+				
+				int temp = 0;
+				for (int i=0; i<fv9PFreigTypeNum.size(); i++){
+					int y = Integer.parseInt(fv9PFreigTypeNum.get(i));
+					temp = temp + y;
+					int low = sum - temp;
+					categories.add(fv9PFreigType.get(i));
+					String color = "#0200FE";
+					if (i == fv9PFreigTypeNum.size()-1) {
+						color = "#FF00FE";
+					}
+					BFreiSoll.append("{y:" + y + ", low:" + low + ", color:'" + color + "'},");
+					BFInArbeirt.append("{y:0, low:0, color:'#FFCC00'},");
+					BFAWE.append("{y:0, low:0, color:'#FFFFCC'},");
+				}
+				
 			}
-			Gesamt.add(sum+"");
-		}
-		String cat = Web.getStrListStr(categories);
-		String categories1 = Web.getStrListStr(Gesamt);
-		//右侧-普通柱状图
-		String categories2 = Web.getStrListStr(form.get("fv9PFKWNo"));
-		String BMGfreiSoll = Web.getNumberListStr(form.get("fv9PFreiSoll"));
-		String inarbeit = Web.getNumberListStr(form.get("fv9PFInArbeirt"));
-		String awe = Web.getNumberListStr(form.get("fv9PFAWE"));	
-	%>	
+			if (Web.getObjectYesOrNo(fv9PFKWNo)) {
+				for(int m=0; m<fv9PFKWNo.size(); m++) {
+					categories.add(fv9PFKWNo.get(m));
+					int BFAWENUM = Integer.parseInt(fv9PFAWE.get(m));
+					int BFInArbeirtNUM = Integer.parseInt(fv9PFInArbeirt.get(m));
+					int BFreiSollNUM = Integer.parseInt(fv9PFreiSoll.get(m));
+					
+					BFAWE.append("{y:" + BFAWENUM + ", low:0, color:'#FFFFCC'},");
+					BFInArbeirt.append("{y:" + BFInArbeirtNUM + ", low:" + BFAWENUM + ", color:'#FFCC00'},");
+					BFreiSoll.append("{y:" + BFreiSollNUM + ", low:" + (BFInArbeirtNUM+BFAWENUM) + ", color:'#00FF00'},");
+					
+				}
+			}
+			String cat = Web.getStrListStr(categories);
+			BFreiSoll.append("]");
+			BFInArbeirt.append("]");
+			BFAWE.append("]");
+			
+		%>	
+		
+
 		<script type="text/javascript">
 		var chart1;
 		var chart2;
 		$(document).ready(function() {
-			chart1 = new Highcharts.Chart({
+				chart1 = new Highcharts.Chart({
 				chart: {
 					renderTo: 'chart1',
-					defaultSeriesType: 'column',
-					marginRight:0.5
+					defaultSeriesType: 'column'
 				},
 				title: {
 					text: ''
@@ -95,7 +130,7 @@
 					column: {
 						stacking: 'normal',
 						borderColor: 'black',
-						pointWidth:33,
+				//		pointWidth:33,
 						shadow:false,
 						dataLabels: {
 							enabled: true,
@@ -104,281 +139,97 @@
 								fontSize:'12px'
 							},
 							color: 'white',
-						
 							formatter: function() {
 								if (this.y == 0 || this.y == 0.0) {
 									return '';
 								}
 								return this.y + '';
 							}
+					//		rotation: -90,
+					//		x:5
 						}
 					}
-				},
-			    series: [{
-					name: '',
-					showInLegend: false,
-					data: [{ 
-							y: <%=sum%>, 
-							low:0,
-							color: '#0200FE'
-						}
-					
-					<%	
-					int temp = 0;
-					String color = "\"#0200FE\"";
-					if (Web.getListYesOrNo(fv9PFreigTypeNum)) {
-						for(int j=0; j<fv9PFreigTypeNum.size(); j++){
-							temp = temp + Integer.parseInt(fv9PFreigTypeNum.get(j));
-							if(j == fv9PFreigTypeNum.size() - 1){
-								color = "\"#FF00FE\"";
-							}
-						%>
-						,{
-						 	y: <%=fv9PFreigTypeNum.get(j)%>, 
-						 	low:<%=sum - temp%>,
-						 	color: <%=color%>
-						}
-						<%
-						}
-					}
-					%>
-					]
-				}]
-			});
-			<%
-			int total = sum + 10;
-			int[] arr = null;
-			
-			if (Web.getListYesOrNo((List<String>)form.get("fv9PFKWNo"))) {
-				arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9PFKWNo"));
-			}	
-			
-			Map<String,Integer> lichenbeiNum = Web.getLCBNum(request, arr);
-				
-			int vffNum =  lichenbeiNum.get("vffNum");//柱子个数
-			int pvsNum = lichenbeiNum.get("pvsNum");//柱子个数
-			int osNum = lichenbeiNum.get("osNum");//柱子个数
-			int sopNum = lichenbeiNum.get("sopNum");//柱子个数
-			
-			
-			double temp0 = 0;
-			int temp1 = 0;
-			int temp2 = 0;
-			int temp3 = 0;
-			
-			if(vffNum > 0){
-				temp0 = 0.5;
-			}
-			if(pvsNum > 0){
-				temp1 = vffNum;
-			}
-			if(osNum > 0){
-				temp2 = vffNum + pvsNum ;
-			}
-			if(sopNum > 0){
-				temp3 = vffNum + pvsNum + osNum ;
-			}
-			
-			%>
-			chart2 = new Highcharts.Chart({
-				chart: {
-					renderTo: 'chart2',
-					defaultSeriesType: 'column',
-					marginLeft:1
-				},
-				title: {
-					text: ' '
-				},
-				xAxis: {
-					categories: <%=categories2%>,
-					lineColor:'black',
-					lineWidth:1,
-					tickWidth:0,
-					labels:{
-						y:20,
-						style:{
-							color:'black'
-						}
-					}
-				
-				},
-				yAxis: {
-					min:0,
-					gridLineWidth: 0,
-					title: {
-						text: ' '
-					},
-					labels: {
-						enabled:false
-					},
-					stackLabels: {
-						enabled: false,
-						style: {
-							fontWeight: 'bold',
-							color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
-						}
-					}
-					
-					
 				},
 				legend: {
-					layout: 'horizontal',
-					verticalAlign: 'top',
-					align:'center',
-		//			x:0,
-		//			y:20,
-					shadow: false,
-					borderColor:'black',
-					borderWidth:0,
-					symbolWidth: 10,
-					itemStyle: {
-			            color: '#000000',
-			            paddingBottom: '5px'
-
-			        } 
+					layout: 'vertical',
+					align: 'right',
+					verticalAlign: 'middle',
+					borderWidth: 1,
+					shadow:false,
+					enabled:true
 				},
-				tooltip: {
-					formatter: function() {
-						return '<b>'+ this.x +'</b><br/>'+
-							 this.series.name +': '+ this.y +'<br/>'+
-							 'Total: '+ this.point.stackTotal;
-					}
-				},
-				plotOptions: {
-					column: {
-						stacking: 'normal',
-				//		pointWidth:33,
-						borderColor: 'black',
-						shadow:false
-						},
-						series: {
-				            dataLabels: {
-				                enabled: true,
-				                style: {
-				                    fontSize:'10px'
-				                	},
-				                	color:'black',
-									formatter: function() {
-										if (this.y == 0 || this.y == 0.0) {
-											return '';
-										}
-										return this.y + '';
-									}
-				           		 }
-				       		 }
-				},
-			    series: [
-			    {
+			    series: [{
 					name: 'BMG frei Soll',
-					data: <%=BMGfreiSoll%>,
-					color: '#00FF00'
-				}, {
+					data: <%=BFreiSoll%>,
+					color: '#00FF00',
+					type: 'column',
+					dashStyle: 'dash',
+					marker: {enabled: false},
+					lineWidth: 1,
+					shadow: false,
+					enableMouseTracking: false,
+					dataLabels: {
+						enabled: true,
+						style : {
+							fontSize:'10px'
+						},
+						color: 'white'
+					}
+				},{
 					name: 'in arbeit',
-					data: <%=inarbeit%>,
-					color: '#FFCC00'
+					data: <%=BFInArbeirt%>,
+					color: '#FFCC00',
+					type: 'column',
+					dashStyle: 'dash',
+					marker: {enabled: false},
+					lineWidth: 1,
+					shadow: false,
+					enableMouseTracking: false,
+					dataLabels: {
+						enabled: true,
+						style : {
+							fontSize:'10px'
+						},
+						color: 'black'
+					}
 				}, {
 					name: 'AWE',
-					data: <%=awe%>,
-					color: '#FFFFCC'
-				}
-<%if(vffNum > 0){%>
-				,{
-					data: [[<%=temp0-1%> + 0.5, 0], [<%=temp0-1%> + 0.5001, <%=total%>]],
-		//			color: 'black',
+					data: <%=BFAWE%>,
+					color: '#FFFFCC',
+					type: 'column',
 					dashStyle: 'dash',
-					lineWidth: 2,
 					marker: {enabled: false},
+					lineWidth: 1,
 					shadow: false,
-					showInLegend: false,
 					enableMouseTracking: false,
-					type: 'line',
-					name :"VFF",
 					dataLabels: {
 						enabled: true,
-						formatter: function() {
-							return "<B>VFF</B>";
-						}
+						style : {
+							fontSize:'10px'
+						},
+						color: 'black'
 					}
-				}
-<%}%><%if(pvsNum > 0){%>
-				,{
-					data: [[<%=temp1-1%> + 0.5, 0], [<%=temp1-1%> + 0.5001, <%=total%>]],
-		//			color: 'black',
-					dashStyle: 'dash',
-					lineWidth: 2,
-					marker: {enabled: false},
-					shadow: false,
-					showInLegend: false,
-					enableMouseTracking: false,
-					type: 'line',
-					name :"PVS",
-					dataLabels: {
-						enabled: true,
-						formatter: function() {
-							return "<B>PVS</B>";
-						}
-					}
-				}
-<%}%><%if(osNum > 0){%>
-				, {
-					data: [[<%=temp2-1%> + 0.5, 0], [<%=temp2 - 1%> + 0.5001, <%=total%>]],
-		//			color: 'black',
-					dashStyle: 'dash',
-					lineWidth: 2,
-					marker: {enabled: false},
-					shadow: false,
-					showInLegend: false,
-					enableMouseTracking: false,
-					type: 'line',
-					name :"0-S",
-					dataLabels: {
-						enabled: true,
-						formatter: function() {
-							return "<B>0-S</B>";
-						}
-					}
-				}
-<%}%><%if(sopNum > 0){%>
-				, {
-					data: [[<%=temp3-1%> + 0.5, 0], [<%=temp3-1%> + 0.5001, <%=total%>]],
-		//			color: 'black',
-					dashStyle: 'dash',
-					lineWidth: 2,
-					marker: {enabled: false},
-					shadow: false,
-					showInLegend: false,
-					enableMouseTracking: false,
-					type: 'line',
-					name :"SOP",
-					dataLabels: {
-						enabled: true,
-						formatter: function() {
-							return "<B>SOP</B>";
-						}
-					}
-				}
-<%}%>				
-				]
+				}]
 			});
+
 		});
-			</script>
+		</script>
 </head>
 <body>		
-		<div id="container">
-			<div id="nr">
-			<div id="top">
-				<div class="fl"><%=status_left %></div>
-				<div class="fr"><%=status_right %></div>
-				<h1><%=title %></h1>
-			</div>
-			<div id="top1" style="margin-top:20px"><h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LC BMG-Teile von ES Teileliste (KW48/11)</h2></div>
-			<div id="content" style="margin:30px 60px;height:491px;width:850px;">
-				<div style="margin:50px auto">
-					<div id="chart1" style="width: 260px; height: 320px; float: left;"></div>
-					<div id="chart2" style="width: 560px; height: 320px; float: left;"></div>
-				</div>
-			</div>
-			<%@ include file="/app/pep/include/foot.jsp"%>
-		</div>	
+	<div id="container">
+		<div id="nr">
+		<div id="top">
+			<div class="fl"><%=status_left %></div>
+			<div class="fr"><%=status_right %></div>
+			<h1><%=title %></h1>
+		</div>
+	
+		<div id="content">
+			<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LC P-Freigaben-Teile von ES Teileliste</h5>
+			
+			<div id="chart1" style="width: 820px; height: 320px; float: left; margin: 0px; margin-top: 50px; margin-left: 30px;"></div>
+		</div>
+		<%@ include file="/app/pep/include/foot.jsp"%>
+	</div>	
 </body>
 </html>

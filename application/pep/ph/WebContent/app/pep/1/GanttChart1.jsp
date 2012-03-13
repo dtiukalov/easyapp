@@ -108,7 +108,7 @@
 					_gStr += "<td class='GDay'><div style='width:" + width + "px;'>" + (_dTemp.getMonth()+1) + "</div></td>";
 					//_secondRow += "<td class='GDay'><div style='width: + width + px;'>" + (start--) + "</div></td>";
 					if (_dTemp.getFullYear() == _currentDate.getFullYear() && _dTemp.getMonth() == _currentDate.getMonth())	{					
-						_thirdRow += "<td id='GC_" + (counter++) + "' class='GDay'style='height:" + ((_maxLevel+1) * 21) + "'>&nbsp;<label class=\"line\"></label></td>";
+						_thirdRow += "<td id='GC_" + (counter++) + "' class='GDay'style='height:" + ((_maxLevel+1) * 21) + "'><label class=\"line\"></label></td>";
 					} else {
 						_thirdRow += "<td id='GC_" + (counter++) + "' class='GDay'style='height:" + ((_maxLevel+1) * 21) + "'>&nbsp;</td>";
 					}
@@ -392,13 +392,13 @@
 	%>
 
 	<%if(Web.getDateStrNotNull(Producktidefinition_S) && Web.getDateStrNotNull(Producktidefinition_E)){%>	
-	g.AddTaskDetail(new Task('<%=Producktidefinition_S%>', '<%=Producktidefinition_E%>', '', '9 MO', 50, 5, '#f3f3f3'));
+	g.AddTaskDetail(new Task('<%=Producktidefinition_S%>', '<%=Producktidefinition_E%>', '', '18 MO', 50, 5, '#f3f3f3'));
 	<%}%>
 	<%if(Web.getDateStrNotNull(Konzept_S) && Web.getDateStrNotNull(Konzept_E)){%>
-	g.AddTaskDetail(new Task('<%=Konzept_S%>', '<%=Konzept_E%>', '', '27 MO', 50, 5, '#b0b0b0'));
+	g.AddTaskDetail(new Task('<%=Konzept_S%>', '<%=Konzept_E%>', '', '11 MO', 50, 5, '#b0b0b0'));
 	<%}%>
 	<%if(Web.getDateStrNotNull(Serienvorboreitung_S) && Web.getDateStrNotNull(Serienvorboreitung_E)){%>	
-	g.AddTaskDetail(new Task('<%=Serienvorboreitung_S%>', '<%=Serienvorboreitung_E%>', '', '<font color="white">15 MO</font>', 50, 5, '#414141'));
+	g.AddTaskDetail(new Task('<%=Serienvorboreitung_S%>', '<%=Serienvorboreitung_E%>', '', '<font color="white">3 MO</font>', 50, 5, '#414141'));
 <%}%>
 	g.Draw(49, 15);
 </script>

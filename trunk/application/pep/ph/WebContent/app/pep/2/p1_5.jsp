@@ -81,6 +81,45 @@
 			BFAWE.append("]");
 			
 		%>	
+<%
+
+			int preNum = 0;
+			
+			if(Web.getObjectYesOrNo(fv9BFreigType)){
+				preNum = fv9BFreigType.size() + 1;
+			}
+			int total = sum;
+			
+			int[] arr = null;
+			if(Web.getObjectYesOrNo(form.get("fv9BFKWNo"))){
+			 	arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9BFKWNo"));
+			}
+			
+			Map<String,Integer> lichengbeiNum = Web.getLCBNum(request, arr);
+			
+			int vffNum =  lichengbeiNum.get("vffNum");//柱子个数
+			int pvsNum = lichengbeiNum.get("pvsNum");//柱子个数
+			int osNum =  lichengbeiNum.get("osNum");//柱子个数
+			int sopNum =  lichengbeiNum.get("sopNum");//柱子个数
+			
+			double temp0 = 0;
+			int temp1 = 0;
+			int temp2 = 0;
+			int temp3 = 0;
+			
+			if(vffNum > 0){
+				temp0 = preNum;
+			}
+			if(pvsNum > 0){
+				temp1 = preNum + vffNum;
+			}
+			if(osNum > 0){
+				temp2 = preNum + vffNum + pvsNum ;
+			}
+			if(sopNum > 0){
+				temp3 = preNum + vffNum + pvsNum + osNum ;
+			}
+%>
 		
 
 		<script type="text/javascript">
@@ -216,7 +255,85 @@
 						},
 						color: 'black'
 					}
-				}]
+				}
+<%if(vffNum > 0){%>
+				,{
+					data: [[<%=temp0-1%> + 0.5, 0], [<%=temp0-1%> + 0.5001, <%=total%>]],
+		//			color: 'black',
+					dashStyle: 'dash',
+					lineWidth: 2,
+					marker: {enabled: false},
+					shadow: false,
+					showInLegend: false,
+					enableMouseTracking: false,
+					type: 'line',
+					name :"VFF",
+					dataLabels: {
+						enabled: true,
+						formatter: function() {
+							return "<B>VFF</B>";
+						}
+					}
+				}
+<%}%><%if(pvsNum > 0){%>
+				,{
+					data: [[<%=temp1 - 1%> + 0.5, 0], [<%=temp1 - 1%> + 0.5001, <%=total%>]],
+		//			color: 'black',
+					dashStyle: 'dash',
+					lineWidth: 2,
+					marker: {enabled: false},
+					shadow: false,
+					showInLegend: false,
+					enableMouseTracking: false,
+					type: 'line',
+					name :"PVS",
+					dataLabels: {
+						enabled: true,
+						formatter: function() {
+							return "<B>PVS</B>";
+						}
+					}
+				}
+<%}%><%if(osNum > 0){%>
+				, {
+					data: [[<%=temp2 - 1%> + 0.5, 0], [<%=temp2 - 1%> + 0.5001, <%=total%>]],
+		//			color: 'black',
+					dashStyle: 'dash',
+					lineWidth: 2,
+					marker: {enabled: false},
+					shadow: false,
+					showInLegend: false,
+					enableMouseTracking: false,
+					type: 'line',
+					name :"0-S",
+					dataLabels: {
+						enabled: true,
+						formatter: function() {
+							return "<B>0-S</B>";
+						}
+					}
+				}
+<%}%><%if(sopNum > 0){%>
+				, {
+					data: [[<%=temp3-1%> + 0.5, 0], [<%=temp3-1%> + 0.5001, <%=total%>]],
+		//			color: 'black',
+					dashStyle: 'dash',
+					lineWidth: 2,
+					marker: {enabled: false},
+					shadow: false,
+					showInLegend: false,
+					enableMouseTracking: false,
+					type: 'line',
+					name :"SOP",
+					dataLabels: {
+						enabled: true,
+						formatter: function() {
+							return "<B>SOP</B>";
+						}
+					}
+				}
+<%}%>
+				]
 			});
 
 		});

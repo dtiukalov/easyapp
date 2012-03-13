@@ -26,6 +26,7 @@ public class PHManager {
 
 		"FV9_32FugenRad",
 		"3.3 Baubarkeit Gesamtfahrzeug",
+		"3.3 Baubarkeit Gesamtfahrzeug ",
 		"3.3 Problemblatt",
 		"backup3",
 		
@@ -70,6 +71,7 @@ public class PHManager {
 
 		"FV9_31PrufMBCub",
 		"3.3 Baubarkeit Gesamtfahrzeug",
+		"3.3 Baubarkeit Gesamtfahrzeug ",
 		"3.3 Problemblatt",
 		"backup3",
 		
@@ -142,6 +144,7 @@ public class PHManager {
 
 		"FV9_31PrufMBCub",
 		"3.3 Baubarkeit Gesamtfahrzeug",
+		"3.3 Baubarkeit Gesamtfahrzeug ",
 		"3.3 Problemblatt",
 		"FV9_34Funtionsmasse",
 		"FV9_34FuntNachBaut",
@@ -230,6 +233,7 @@ public class PHManager {
 
 		"FV9_31PrufMBCub",
 		"3.3 Baubarkeit Gesamtfahrzeug",
+		"3.3 Baubarkeit Gesamtfahrzeug ",
 		"3.3 Problemblatt",
 		"FV9_34Funtionsmasse",
 		"FV9_34FuntNachBaut",
@@ -317,6 +321,7 @@ public class PHManager {
 
 		"FV9_31PrufMBCub",
 		"3.3 Baubarkeit Gesamtfahrzeug",
+		"3.3 Baubarkeit Gesamtfahrzeug ",
 		"3.3 Problemblatt",
 		"FV9_34Funtionsmasse",
 		"FV9_34FuntNachBaut",
@@ -402,6 +407,7 @@ public class PHManager {
 		"backup2",
 
 		"3.3 Baubarkeit Gesamtfahrzeug",
+		"3.3 Baubarkeit Gesamtfahrzeug ",
 		"3.3 Problemblatt",
 		"FV9_34Funtionsmasse",
 		"FV9_34FuntNachBaut",
@@ -485,6 +491,7 @@ public class PHManager {
 		"FV9_31PrufMBCub",
 		"FV9_32FugenRad",
 		"3.3 Baubarkeit Gesamtfahrzeug",
+		"3.3 Baubarkeit Gesamtfahrzeug ",
 		"3.3 Problemblatt",
 		"FV9_34Funtionsmasse",
 		"FV9_34FuntNachBaut",

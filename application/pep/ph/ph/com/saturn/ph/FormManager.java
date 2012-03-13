@@ -29,7 +29,8 @@ import com.saturn.ph.form.p2.FV9_24AEKOUmsetzForm;
 import com.saturn.ph.form.p2.FV9_24StatusAEKOForm;
 import com.saturn.ph.form.p3.FV9_31PrufMBCubForm;
 import com.saturn.ph.form.p3.FV9_32FugenRadForm;
-import com.saturn.ph.form.p3.FV9_33BaubarkeitGesamtfahrzeugDataset;
+import com.saturn.ph.form.p3.FV9_33BaubarkeitGesamtfahrzeug1Dataset;
+import com.saturn.ph.form.p3.FV9_33BaubarkeitGesamtfahrzeug2Dataset;
 import com.saturn.ph.form.p3.FV9_33ProblemblattDataset;
 import com.saturn.ph.form.p3.FV9_34FuntAussTolForm;
 import com.saturn.ph.form.p3.FV9_34FuntNachBautForm;
@@ -176,7 +177,8 @@ public class FormManager {
 
 		add(new FV9_31PrufMBCubForm());
 		add(new FV9_32FugenRadForm());
-		add(new FV9_33BaubarkeitGesamtfahrzeugDataset());
+		add(new FV9_33BaubarkeitGesamtfahrzeug1Dataset());
+		add(new FV9_33BaubarkeitGesamtfahrzeug2Dataset());
 		add(new FV9_33ProblemblattDataset());
 		add(new FV9_34FuntionsmasseForm());
 		add(new FV9_34FuntNachBautForm());

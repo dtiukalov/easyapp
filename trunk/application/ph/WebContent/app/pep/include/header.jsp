@@ -9,9 +9,6 @@
 <%@page import="com.saturn.web.Web"%>
 <script type="text/javascript" src="<%=request.getContextPath()%>/app/js/jquery-1.4.4.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/app/js/highcharts.src.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/app/js/highslide-full.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/app/js/highslide.config.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/app/js/highslide.css"></script>
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/app/pep/include/base.css">
 <%

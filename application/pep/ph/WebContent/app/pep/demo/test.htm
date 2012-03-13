@@ -1,0 +1,561 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "xhtml11.dtd">
+
+<html debug="true">
+<head>
+<title>Highcharts Demo Gallery</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--  meta http-equiv="X-UA-Compatible" content="chrome=1" -->
+
+<link rel="shortcut icon" href="/favicon.ico"/>
+
+
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+jQuery.noConflict();
+</script>
+
+
+<!-- Highslide code -->
+<script type="text/javascript" src="/highslide/highslide-full.min.js"></script>
+<script type="text/javascript" src="/highslide/highslide.config.js" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="/highslide/highslide.css" />
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="/highslide/highslide-ie6.css" />
+<![endif]-->
+<!-- End Highslide code -->
+
+<script type="text/javascript">
+var example = 'line-ajax',
+	theme = 'default';
+</script>
+
+<script type="text/javascript" src="/demo/scripts.js"></script>
+
+
+<link rel="stylesheet" href="/templates/yoo_symphony/css/template.css" type="text/css" />
+<link rel="stylesheet" href="/templates/yoo_symphony/css/variations/brown.css" type="text/css" />
+<link href="/demo/demo.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+
+(function($){ // encapsulate jQuery
+
+var chart;
+$(document).ready(function() {
+
+	// define the options
+	var options = {
+
+		chart: {
+			renderTo: 'container'
+		},
+
+		title: {
+			text: 'Daily visits at www.highcharts.com'
+		},
+
+		subtitle: {
+			text: 'Source: Google Analytics'
+		},
+
+		xAxis: {
+			type: 'datetime',
+			tickInterval: 7 * 24 * 3600 * 1000, // one week
+			tickWidth: 0,
+			gridLineWidth: 1,
+			labels: {
+				align: 'left',
+				x: 3,
+				y: -3
+			}
+		},
+
+		yAxis: [{ // left y axis
+			title: {
+				text: null
+			},
+			labels: {
+				align: 'left',
+				x: 3,
+				y: 16,
+				formatter: function() {
+					return Highcharts.numberFormat(this.value, 0);
+				}
+			},
+			showFirstLabel: false
+		}, { // right y axis
+			linkedTo: 0,
+			gridLineWidth: 0,
+			opposite: true,
+			title: {
+				text: null
+			},
+			labels: {
+				align: 'right',
+				x: -3,
+				y: 16,
+				formatter: function() {
+					return Highcharts.numberFormat(this.value, 0);
+				}
+			},
+			showFirstLabel: false
+		}],
+
+		legend: {
+			align: 'left',
+			verticalAlign: 'top',
+			y: 20,
+			floating: true,
+			borderWidth: 0
+		},
+
+		tooltip: {
+			shared: true,
+			crosshairs: true
+		},
+
+		plotOptions: {
+			series: {
+				cursor: 'pointer',
+				point: {
+					events: {
+						click: function() {
+							hs.htmlExpand(null, {
+								pageOrigin: {
+									x: this.pageX,
+									y: this.pageY
+								},
+								headingText: this.series.name,
+								maincontentText: Highcharts.dateFormat('%A, %b %e, %Y', this.x) +':<br/> '+
+									this.y +' visits',
+								width: 200
+							});
+						}
+					}
+				},
+				marker: {
+					lineWidth: 1
+				}
+			}
+		},
+
+		series: [{
+			name: 'All visits',
+			lineWidth: 4,
+			marker: {
+				radius: 4
+			}
+		}, {
+			name: 'New visitors'
+		}]
+	};
+
+
+	// Load data asynchronously using jQuery. On success, add the data
+	// to the options and initiate the chart.
+	// This data is obtained by exporting a GA custom report to TSV.
+	// http://api.jquery.com/jQuery.get/
+	jQuery.get('analytics.tsv', null, function(tsv, state, xhr) {
+		var lines = [],
+			listen = false,
+			date,
+
+			// set up the two data series
+			allVisits = [],
+			newVisitors = [];
+
+		// inconsistency
+		if (typeof tsv !== 'string') {
+			tsv = xhr.responseText;
+		}
+
+		// split the data return into lines and parse them
+		tsv = tsv.split(/\n/g);
+		jQuery.each(tsv, function(i, line) {
+
+			// listen for data lines between the Graph and Table headers
+			if (tsv[i - 3] == '# Graph') {
+				listen = true;
+			} else if (line == '' || line.charAt(0) == '#') {
+				listen = false;
+			}
+
+			// all data lines start with a double quote
+			if (listen) {
+				line = line.split(/\t/);
+				date = Date.parse(line[0] +' UTC');
+
+				allVisits.push([
+					date,
+					parseInt(line[1].replace(',', ''), 10)
+				]);
+				newVisitors.push([
+					date,
+					parseInt(line[2].replace(',', ''), 10)
+				]);
+			}
+		});
+
+		options.series[0].data = allVisits;
+		options.series[1].data = newVisitors;
+
+		chart = new Highcharts.Chart(options);
+	});
+});
+
+})(jQuery);
+</script>
+
+</head>
+<body>
+
+
+
+<div id="demo-header">
+	<h1>Highcharts Demo Gallery</h1>
+	<a href="/">&laquo; Go to the Highcharts home page</a>
+	<p>Pick an example on the left and combine it with a preset theme in the top menu. Click 
+	"View options" to inspect the code.</p>
+</div>
+
+
+<div id="demo-menu">
+		<h4>Line and scatter charts</h4>
+	<ul>
+				<li><a href="/demo/line-basic">
+			Basic line</a></li>
+				<li><a href="/demo/line-ajax">
+			Ajax loaded data, clickable points</a></li>
+				<li><a href="/demo/line-labels">
+			With data labels</a></li>
+				<li><a href="/demo/line-time-series">
+			Time series, zoomable</a></li>
+				<li><a href="/demo/spline-inverted">
+			Spline with inverted axes</a></li>
+				<li><a href="/demo/spline-symbols">
+			Spline with symbols</a></li>
+				<li><a href="/demo/spline-plot-bands">
+			Spline with plot bands</a></li>
+				<li><a href="/demo/spline-irregular-time">
+			Time data with irregular intervals</a></li>
+				<li><a href="/demo/line-log-axis">
+			Logarithmic axis</a></li>
+				<li><a href="/demo/scatter">
+			Scatter plot</a></li>
+			</ul>
+		<h4>Area charts</h4>
+	<ul>
+				<li><a href="/demo/area-basic">
+			Basic area</a></li>
+				<li><a href="/demo/area-negative">
+			Area with negative values</a></li>
+				<li><a href="/demo/area-stacked">
+			Stacked area</a></li>
+				<li><a href="/demo/area-stacked-percent">
+			Percentage area</a></li>
+				<li><a href="/demo/area-missing">
+			Area with missing points</a></li>
+				<li><a href="/demo/area-inverted">
+			Inverted axes</a></li>
+				<li><a href="/demo/areaspline">
+			Area-spline</a></li>
+			</ul>
+		<h4>Column and bar charts</h4>
+	<ul>
+				<li><a href="/demo/bar-basic">
+			Basic bar</a></li>
+				<li><a href="/demo/bar-stacked">
+			Stacked bar</a></li>
+				<li><a href="/demo/bar-negative-stack">
+			Bar with negative stack</a></li>
+				<li><a href="/demo/column-basic">
+			Basic column</a></li>
+				<li><a href="/demo/column-negative">
+			Column with negative values</a></li>
+				<li><a href="/demo/column-stacked">
+			Stacked column</a></li>
+				<li><a href="/demo/column-stacked-and-grouped">
+			Stacked and grouped column</a></li>
+				<li><a href="/demo/column-stacked-percent">
+			Stacked percentage column</a></li>
+				<li><a href="/demo/column-rotated-labels">
+			Column with rotated labels</a></li>
+				<li><a href="/demo/column-drilldown">
+			Column with drilldown</a></li>
+				<li><a href="/demo/column-parsed">
+			Data defined in a HTML table</a></li>
+			</ul>
+		<h4>Pie charts</h4>
+	<ul>
+				<li><a href="/demo/pie-basic">
+			Pie chart</a></li>
+				<li><a href="/demo/pie-donut">
+			Donut chart</a></li>
+				<li><a href="/demo/pie-legend">
+			Pie with legend</a></li>
+			</ul>
+		<h4>Dynamic charts</h4>
+	<ul>
+				<li><a href="/demo/dynamic-update">
+			Spline updating each second</a></li>
+				<li><a href="/demo/dynamic-click-to-add">
+			Click to add a point</a></li>
+				<li><a href="/demo/dynamic-master-detail">
+			Master-detail chart</a></li>
+			</ul>
+		<h4>Combinations</h4>
+	<ul>
+				<li><a href="/demo/combo">
+			Column, line and pie</a></li>
+				<li><a href="/demo/combo-dual-axes">
+			Dual axes, line and column</a></li>
+				<li><a href="/demo/combo-multi-axes">
+			Multiple axes</a></li>
+				<li><a href="/demo/combo-regression">
+			Scatter with regression line</a></li>
+			</ul>
+	</div>
+ 
+
+
+<div id="demo-content">
+	
+	<div id="styleswitcher">
+		<ul>
+			<li><a href="/demo/line-ajax">Default</a></li>
+			<li><a href="/demo/line-ajax/grid">Grid</a></li>
+			<li><a href="/demo/line-ajax/skies">Skies</a></li>
+			<li><a href="/demo/line-ajax/gray">Gray</a></li>
+			<li><a href="/demo/line-ajax/dark-blue">Dark blue</a></li>
+			<li><a href="/demo/line-ajax/dark-green">Dark green</a></li>
+		</ul>
+	</div>
+	<br/>
+	<br/>
+	<br/>
+
+	<div style="margin: 0 1em">
+	<script src="http://code.highcharts.com/highcharts.js"></script><script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+<!-- Additional files for the Highslide popup effect -->
+<script type="text/javascript" src="http://www.highcharts.com/highslide/highslide-full.min.js"></script>
+<script type="text/javascript" src="http://www.highcharts.com/highslide/highslide.config.js" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="http://www.highcharts.com/highslide/highslide.css" />
+
+<div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+	</div>
+	<div style="margin: 1em">
+	
+		
+		<div class="buttons">
+			<a href="javascript:" 
+				onclick="hs.htmlExpand(this, { width: 800,
+					headingText: 'Highcharts Configuration Preview', 
+					wrapperClassName: 'draggable-header' })">
+				View options</a>
+			<div class="highslide-maincontent">
+				<pre>var chart;
+$(document).ready(function() {
+
+	// define the options
+	var options = {
+
+		chart: {
+			renderTo: 'container'
+		},
+
+		title: {
+			text: 'Daily visits at www.highcharts.com'
+		},
+
+		subtitle: {
+			text: 'Source: Google Analytics'
+		},
+
+		xAxis: {
+			type: 'datetime',
+			tickInterval: 7 * 24 * 3600 * 1000, // one week
+			tickWidth: 0,
+			gridLineWidth: 1,
+			labels: {
+				align: 'left',
+				x: 3,
+				y: -3
+			}
+		},
+
+		yAxis: [{ // left y axis
+			title: {
+				text: null
+			},
+			labels: {
+				align: 'left',
+				x: 3,
+				y: 16,
+				formatter: function() {
+					return Highcharts.numberFormat(this.value, 0);
+				}
+			},
+			showFirstLabel: false
+		}, { // right y axis
+			linkedTo: 0,
+			gridLineWidth: 0,
+			opposite: true,
+			title: {
+				text: null
+			},
+			labels: {
+				align: 'right',
+				x: -3,
+				y: 16,
+				formatter: function() {
+					return Highcharts.numberFormat(this.value, 0);
+				}
+			},
+			showFirstLabel: false
+		}],
+
+		legend: {
+			align: 'left',
+			verticalAlign: 'top',
+			y: 20,
+			floating: true,
+			borderWidth: 0
+		},
+
+		tooltip: {
+			shared: true,
+			crosshairs: true
+		},
+
+		plotOptions: {
+			series: {
+				cursor: 'pointer',
+				point: {
+					events: {
+						click: function() {
+							hs.htmlExpand(null, {
+								pageOrigin: {
+									x: this.pageX,
+									y: this.pageY
+								},
+								headingText: this.series.name,
+								maincontentText: Highcharts.dateFormat('%A, %b %e, %Y', this.x) +':&lt;br/&gt; '+
+									this.y +' visits',
+								width: 200
+							});
+						}
+					}
+				},
+				marker: {
+					lineWidth: 1
+				}
+			}
+		},
+
+		series: [{
+			name: 'All visits',
+			lineWidth: 4,
+			marker: {
+				radius: 4
+			}
+		}, {
+			name: 'New visitors'
+		}]
+	};
+
+
+	// Load data asynchronously using jQuery. On success, add the data
+	// to the options and initiate the chart.
+	// This data is obtained by exporting a GA custom report to TSV.
+	// http://api.jquery.com/jQuery.get/
+	jQuery.get('analytics.tsv', null, function(tsv, state, xhr) {
+		var lines = [],
+			listen = false,
+			date,
+
+			// set up the two data series
+			allVisits = [],
+			newVisitors = [];
+
+		// inconsistency
+		if (typeof tsv !== 'string') {
+			tsv = xhr.responseText;
+		}
+
+		// split the data return into lines and parse them
+		tsv = tsv.split(/\n/g);
+		jQuery.each(tsv, function(i, line) {
+
+			// listen for data lines between the Graph and Table headers
+			if (tsv[i - 3] == '# Graph') {
+				listen = true;
+			} else if (line == '' || line.charAt(0) == '#') {
+				listen = false;
+			}
+
+			// all data lines start with a double quote
+			if (listen) {
+				line = line.split(/\t/);
+				date = Date.parse(line[0] +' UTC');
+
+				allVisits.push([
+					date,
+					parseInt(line[1].replace(',', ''), 10)
+				]);
+				newVisitors.push([
+					date,
+					parseInt(line[2].replace(',', ''), 10)
+				]);
+			}
+		});
+
+		options.series[0].data = allVisits;
+		options.series[1].data = newVisitors;
+
+		chart = new Highcharts.Chart(options);
+	});
+});
+</pre>
+			</div>
+			
+			
+						
+			
+			<a href="http://jsfiddle.net/gh/get/jquery/edge/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/line-ajax/">
+				Edit in jsFiddle</a>
+			
+						<a id="previous-example" title="Previous (arrow left)" 
+				href="/demo/line-basic">&laquo; Previous</a>
+						
+						<a id="next-example"  title="Next (arrow right)"
+				href="/demo/line-labels">Next &raquo;</a>
+					</div>
+		
+		
+	</div>
+	
+
+</div>
+
+
+<script type="text/javascript">
+	Highcharts.theme = { colors: ['#4572A7'] };// prevent errors in default theme
+	var highchartsOptions = Highcharts.getOptions(); 
+</script>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-2995052-3");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+
+</html>
+

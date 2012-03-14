@@ -1,6 +1,7 @@
 package com.saturn.ph.form.pbackup;
 
 import com.saturn.ph.Form;
+import com.saturn.tc.utils.WorkspaceUtils;
 
 public class FV9BackUpDataset extends Form {
 	
@@ -19,7 +20,7 @@ public class FV9BackUpDataset extends Form {
 
 	@Override
 	public String getType() {
-		return "backup";
+		return WorkspaceUtils.BackUpType;
 	}
 
 	@Override

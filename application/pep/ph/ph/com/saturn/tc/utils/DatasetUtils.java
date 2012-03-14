@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import com.saturn.ph.PH;
 import com.saturn.tc.utils.server.EasyDataManagementService;
 import com.saturn.tc.utils.server.EasyFileManagementService;
+import com.saturn.web.Web;
 import com.teamcenter.soa.client.FileManagementUtility;
 import com.teamcenter.soa.client.model.ModelObject;
 import com.teamcenter.soa.client.model.strong.Dataset;
@@ -16,12 +17,24 @@ import com.teamcenter.soa.exceptions.NotLoadedException;
 public class DatasetUtils {
 	
 	public static String getDatasetByUid(String uid, HttpServletRequest request){
-		Dataset dataset = (Dataset)PH.getDataService().loadModelObject(uid);
-		String date =  DateUtils.getSysTime();
-		String datasetpath = "attachment" + File.separator + date +File.separator;
-		String path = request.getRealPath("/") ;
 		
-		if( path != null   && !"".equals(path)){
+		String src = "/ph/app/pep/images/default.jpg";
+		Object userUid = request.getSession().getAttribute("TC_USER_UID");
+		
+		if(!Web.getObjectYesOrNo(userUid)){
+			return src;
+		}
+		
+		if(!Web.getObjectYesOrNo(uid)){
+			return src;
+		}
+		
+		Dataset dataset = (Dataset)PH.getDataService().loadModelObject(uid);
+		String datasetpath = "attachment" + File.separator +  DateUtils.getSysTime() + File.separator + userUid.toString() + File.separator;
+		
+		String path = request.getRealPath("/") ;
+		//判断realPath后有没有 “/”没有就加上
+		if(Web.getObjectYesOrNo(path)){
 			if(path.split("ph")[1]!= File.separator){
 				path = path + File.separator;
 				System.out.println("path: " + path);
@@ -29,10 +42,10 @@ public class DatasetUtils {
 		}
 		path = path + datasetpath;
 		
-		String src = request.getContextPath()+ File.separator + datasetpath + downloadDatasetFromTc(dataset ,path);
+		String datasetSrc = request.getContextPath()+ File.separator + datasetpath + downloadDatasetFromTc(dataset ,path);
 		
-		if(!src.contains(".jpg")){
-			src = "/ph/app/pep/images/default.jpg";
+		if(Web.getObjectYesOrNo(datasetSrc)){
+			src = datasetSrc;
 		}
 		
 		return src ;
@@ -70,6 +83,7 @@ public class DatasetUtils {
 			}
 		} catch (NotLoadedException e) {
 			e.printStackTrace();
+			return "";
 		}
 		
 		return "";

@@ -1,5 +1,10 @@
 package com.saturn.action.ph.view;
 
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -7,6 +12,8 @@ import com.saturn.app.web.IAction;
 import com.saturn.app.web.IView;
 import com.saturn.app.web.view.JspView;
 import com.saturn.tc.clientx.TCSession;
+import com.saturn.tc.utils.DateUtils;
+import com.saturn.web.Web;
 
 public class TCLogoutAction implements IAction {
 
@@ -16,9 +23,11 @@ public class TCLogoutAction implements IAction {
 
 	public IView execute(HttpServletRequest request,
 			HttpServletResponse response) {
-
+		
 		TCSession session = (TCSession) request.getSession().getAttribute(
 				"TC_session");
+		
+		clearCache(request,session);
 		
 		request.getSession().removeAttribute("TC_SESSION");
 		request.getSession().removeAttribute("TC_USER");
@@ -71,7 +80,62 @@ public class TCLogoutAction implements IAction {
 		
 		return new JspView("/app/tc/index.jsp");
 	}
+	@SuppressWarnings("deprecation")
+	private void clearCache(HttpServletRequest request, TCSession session) {
+		Object userUid = request.getSession().getAttribute("TC_USER_UID");
+		
+		if(!Web.getObjectYesOrNo(userUid)){
+			return ;
+		}
+		
+		String datasetpath = "attachment" + File.separator + DateUtils.getSysTime() + File.separator + userUid + File.separator;
+		
+		String path = request.getRealPath("/") ;
+		//判断realPath后有没有 “/”没有就加上
+		if(Web.getObjectYesOrNo(path)){
+			if(path.split("ph")[1]!= File.separator){
+				path = path + File.separator;
+				System.out.println("path: " + path);
+			}
+		}
+		path = path + datasetpath;
+		
+		if (session != null) {
+			session.logout();
+		}
 
+		try {
+			deleteFile(path);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
+	
+	public static boolean deleteFile(String delpath) throws FileNotFoundException, IOException {
+		try {
+			File file = new File(delpath);
+			if (!file.isDirectory()) {
+				file.delete();
+			} else if (file.isDirectory()) {
+				String[] filelist = file.list();
+				for (int i = 0; i < filelist.length; i++) {
+					File delfile = new File(delpath + File.separator + filelist[i]);
+					if (!delfile.isDirectory()) {
+						delfile.delete();
+					} else if (delfile.isDirectory()) {
+						deleteFile(delpath + File.separator + filelist[i]);
+					}
+				}
+				file.delete();
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			throw e;
+		}
+		return true;
+	}
 }
 

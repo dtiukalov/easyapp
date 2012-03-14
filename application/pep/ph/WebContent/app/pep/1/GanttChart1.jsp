@@ -398,7 +398,7 @@
 	g.AddTaskDetail(new Task('<%=Konzept_S%>', '<%=Konzept_E%>', '', '11 MO', 50, 5, '#b0b0b0'));
 	<%}%>
 	<%if(Web.getDateStrNotNull(Serienvorboreitung_S) && Web.getDateStrNotNull(Serienvorboreitung_E)){%>	
-	g.AddTaskDetail(new Task('<%=Serienvorboreitung_S%>', '<%=Serienvorboreitung_E%>', '', '<font color="white">3 MO</font>', 50, 5, '#414141'));
+	g.AddTaskDetail(new Task('<%=Serienvorboreitung_S%>', '<%=Serienvorboreitung_E%>', '', '<font color="white">2 MO</font>', 50, 5, '#414141'));
 <%}%>
 	g.Draw(49, 15);
 </script>

@@ -18,14 +18,14 @@
 	
 </head>
 <body>	
-	<div id="container" style="">
+	<div id="container" >
 	<div id="nr" style="margin:0 35px;width:850px">
 			<div id="top">
 				<div class="fl"><%=status_left %></div>
 				<div class="fr"><%=status_right %></div>
 				<h1><%=title %></h1>
 			</div>
-			<div id="content">
+			<div id="content" style="margin:60px 30px;height:480px;">
 				<iframe id="ff" name= "ff" frameborder="0" scrolling="no"
 					    src="<%=request.getContextPath() %>/app/pep/1/GanttChart1.jsp?uid=<%=uid %>" 
 					    style="width:850px;height:280px;margin:50px 10px">

@@ -1,3 +1,5 @@
+<%@page import="com.sun.accessibility.internal.resources.accessibility"%>
+<%@page import="org.omg.CORBA.PUBLIC_MEMBER"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
@@ -19,6 +21,7 @@
 			List<String> fv9BMGSoll = (List)form.get("fv9BMGSoll");  //fv9BMGSoll
 			List<String> fv9BMGInArbeirt = (List)form.get("fv9BMGInArbeirt");  //fv9BMGInArbeirt
 			List<String> fv9BMGAWE = (List)form.get("fv9BMGAWE");  //fv9BMGAWE
+			String fv9DisDate = (String)form.get("fv9DisDate"); //讨论日期
 			
 			List<String> Gesamt = new ArrayList<String>();
 			List<String> categories = new ArrayList<String>();
@@ -341,9 +344,112 @@
 		</div>
 	
 		<div id="content">
-			<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LC P-Freigaben-Teile von ES Teileliste</h5>
+			<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LC P-Freigaben-Teile von ES Teileliste(<%=fv9DisDate%>)</h5>
+		 
+		<style>
+			.top-table {
+				width: 820px; height: 200px; float: left; margin: 0px; overflow: hidden;
+			}
+			.top-table table {
+				width: 520px; height: 200px; float: left; margin-left: 150px;overflow: hidden;
+				font-size: 9px;
+			}
+			.top-table table tr td {
+				border: 1px solid #000000;
+			}
 			
-			<div id="chart1" style="width: 820px; height: 320px; float: left; margin: 0px; margin-top: 50px; margin-left: 30px;"></div>
+		</style>
+		<%
+		List<String> fv9KWNo = (List<String>)form.get("fv9KWNo"); //周数 
+		List<String> fv9ZSB = (List<String>)form.get("fv9ZSB"); //零件范围
+		List<String> fv9Teil = (List<String>)form.get("fv9Teil"); //零件名称
+		List<String> fv9TeilNum = (List<String>)form.get("fv9TeilNum"); //零件数量
+		if (Web.getListYesOrNo(fv9KWNo)) {
+			int n = fv9KWNo.size() + 3;
+			double tdHeight = (200*1.0)/(n*1.0);
+			int teilSumNum = 0; //总零件数
+			String tempKWNo = ""; //临时周数
+			String tempZBS = "";  //临时零件范围
+
+			int flag = 0;
+			List<HashMap> teilList = new ArrayList<HashMap>();
+			List<Integer> indexArr = new ArrayList();
+			for (int i=0; i<fv9KWNo.size(); i++) {
+				String kw = (String)fv9KWNo.get(i);
+				String zsb = (String)fv9ZSB.get(i);
+				String teil = (String)fv9Teil.get(i);
+				int teilNum = Integer.parseInt((String)fv9TeilNum.get(i));
+				teilSumNum = teilSumNum + teilNum;
+				
+				if (!kw.equalsIgnoreCase(tempKWNo) ||
+						!zsb.equalsIgnoreCase(tempZBS)){
+					tempKWNo = kw;
+					tempZBS = zsb;
+
+					indexArr.add(i);
+				} 
+			}
+
+		%>
+			<div class="top-table">
+				<table cellspacing="0">
+					<tr>
+						<td colspan="3" style="text-align: center;" height="<%=tdHeight%>px"><%=teilSumNum %> Teile Nach OS frei</td>
+					</tr>
+					<tr>
+						<td width="15%" height="<%=tdHeight%>px" style="text-align: center;">Zeil</td>
+						<td width="25%" height="<%=tdHeight%>px" style="text-align: center;">ZSB</td>
+						<td width="60%" height="<%=tdHeight%>px" style="text-align: center;">Teile</td>
+					</tr>
+		<%
+			if (indexArr != null && indexArr.size() > 0) {
+				
+			
+			for (int m = 0; m < indexArr.size()-1; m++) {
+				for (int t=m; t<indexArr.get(m+1); t++) {
+					int rowscol = indexArr.get(m+1) - indexArr.get(m);
+		%>
+					<tr>
+		<%
+					if (t == m) {
+		%>
+						<td rowspan="<%=rowscol%>" style="text-align: center;"><%=fv9KWNo.get(t) %></td>
+						<td rowspan="<%=rowscol%>" style="text-align: center;"><%=fv9ZSB.get(t) %></td>
+		<%	
+					}
+		%>
+						<td height="<%=tdHeight%>px" style="padding-left: 2px;"><%=fv9Teil.get(t) %> X<%=fv9TeilNum.get(t) %></td>
+					</tr>
+		<%			
+				}
+			}
+			for (int p = indexArr.get(indexArr.size()-1); p<fv9KWNo.size(); p++) {
+					int rowscol = fv9KWNo.size() - indexArr.get(indexArr.size()-1);
+		%>
+					<tr>
+		<%
+					if (p == indexArr.get(indexArr.size()-1)) {
+		%>
+						<td rowspan="<%=rowscol%>" style="text-align: center;"><%=fv9KWNo.get(p) %></td>
+						<td rowspan="<%=rowscol%>" style="text-align: center;"><%=fv9ZSB.get(p) %></td>
+		<%	
+					}
+		%>
+						<td height="<%=tdHeight%>px" style="padding-left: 2px;"><%=fv9Teil.get(p) %> X<%=fv9TeilNum.get(p) %></td>
+					</tr>
+		<%			
+			}
+			}
+		%>
+				</table>
+			</div>
+		
+		<%
+		}
+		
+		%>
+
+			<div id="chart1" style="width: 820px; height: 320px; float: left; margin: 0px;  margin-left: 30px;"></div>
 		</div>
 		<%@ include file="/app/pep/include/foot.jsp"%>
 	</div>	

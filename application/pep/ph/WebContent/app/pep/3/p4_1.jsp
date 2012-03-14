@@ -15,10 +15,14 @@
 			List<String> kwno = null;
 			if(Web.getObjectYesOrNo(form.get("fv9KWNo"))){
 				kwno = (List<String>)form.get("fv9KWNo");
-				kwno.add("wwww");
+				
+				if (Web.getObjectYesOrNo(form.get("fv9PrognoseKW"))) {
+					kwno.add("Prognose zu Meilenstein SOP KW " + form.get("fv9PrognoseKW"));
+				} else {
+					kwno.add("Prognose zu Meilenstein SOP KW XXX");
+				}
 			}
 			String fv9KWNo = Web.getStrListStr(kwno);
-			
 			
 			List<String> funktionSmall75 = null;
 			if(Web.getObjectYesOrNo(form.get("fv9FunktionSmall75"))){
@@ -57,7 +61,6 @@
 				sum1 = sum1 + Double.parseDouble(fv9PrognoseIO);
 			}
 			String fv9FunktionBig100 = Web.getNumberListStr(funktionBig100);	//i.O
-		
 			
 			String fv9Zielwert = Web.getNumberListStr(form.get("fv9Zielwert")); //目标
 			
@@ -137,7 +140,7 @@
 						y:20,
 						style: {
 							 padding:'5px',
-							 fontSize: '14px',
+							 fontSize: '10px',
 							 color:'black'
 						}
 					},

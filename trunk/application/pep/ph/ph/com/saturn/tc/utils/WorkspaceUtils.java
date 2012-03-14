@@ -24,6 +24,8 @@ public class WorkspaceUtils {
 	public static String DatasetType = "FV9PHImage";
 	public static String OtherUid = "fv9otherUid";
 	public static String DatasetPageName = "fv9PageName";
+	public static String BackUpType = "FV9PHBackup";
+	
 	
 	public static Folder getHome(TCSession session, String userId) {
 		EasyDataManagementService service = new EasyDataManagementService(session);

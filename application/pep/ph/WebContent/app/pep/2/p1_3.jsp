@@ -134,7 +134,7 @@
 						enabled:true,
 						y:20,
 						style:{
-							fontSize:'8px',
+							fontSize:'12px',
 							color:'black'
 						}
 					}

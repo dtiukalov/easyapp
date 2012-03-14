@@ -27,7 +27,7 @@ public class FV9_11ProjectTerminForm extends Form {
 		
 		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
 		"fv9PlatformType"
-		,"fv9otherUid"
+		,"fv9otherUid", "fv9IsBackup"
 	};
 		
 	public String[] getAttributes() {

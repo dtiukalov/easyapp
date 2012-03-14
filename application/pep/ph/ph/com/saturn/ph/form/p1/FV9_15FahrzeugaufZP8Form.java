@@ -7,7 +7,7 @@ public class FV9_15FahrzeugaufZP8Form extends Form {
 	private static final String[] attr = {
 		"fv9KWNo", "fv9ZP8NumSoll", "fv9ZP8Numlst",
 		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
-		"fv9PlatformType","fv9otherUid"
+		"fv9PlatformType","fv9otherUid", "fv9IsBackup"
 	};
 
 	public String[] getAttributes() {

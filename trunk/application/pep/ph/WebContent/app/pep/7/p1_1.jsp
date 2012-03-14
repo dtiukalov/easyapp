@@ -9,139 +9,179 @@
 <head>
 	<%@ include file="/app/pep/include/header.jsp"%>
 	<title><%=title %></title>
-	<%
-		String milepost = "";
+	<%!
+	private static String getSmallImage(String imagePath, Object status) {
+		String fv9Status = "";
+		fv9Status = (String) status;
+		if (!"".equals(fv9Status)) {
+			if ("绿".equals(fv9Status)) {
+				imagePath = imagePath + "/app/pep/images/greenSmall.jpg";
+			}
+			if ("黄".equals(fv9Status)) {
+				imagePath = imagePath + "/app/pep/images/yellowSmall.jpg";
+			}
+			if ("红".equals(fv9Status)) {
+				imagePath = imagePath + "/app/pep/images/redSmall.jpg";
+			}
+		} else {
+			imagePath = imagePath + "/app/pep/images/defaultStatus.jpg";
+		}
+		return imagePath;
+	}
 	
-		if(request.getSession().getAttribute("milepost") != null){
-			milepost = (String)request.getSession().getAttribute("milepost");
-		}
-		
-		String fv9ProjectStatus = "";
-		if(form.get("fv9FunktionStatus") != null){
-			fv9ProjectStatus = (String) form.get("fv9FunktionStatus");
-		}
-		String fv9ProductstandStatus = "";
-		if(form.get("fv9ProductstandStatus") != null){
-			 fv9ProductstandStatus = (String) form.get("fv9ProductstandStatus");
-		}
-		String fv9ProdStatusCom = "";
-		if(form.get("fv9ProdStatusCom") != null){
-		 	 fv9ProdStatusCom = (String) form.get("fv9ProdStatusCom");
-		}
-		String fv9ProdStatusComC = "";
-		if(form.get("fv9ProdStatusComC") != null){		
-			 fv9ProdStatusComC = (String) form.get("fv9ProdStatusComC");
-		}
-		String fv9FunktionStatus ="";
-		if(form.get("fv9FunktionStatus") != null){		
-			 fv9FunktionStatus =(String) form.get("fv9FunktionStatus");
-		}
-		String fv9FunktionCom = "";
-		if(form.get("fv9FunktionCom") != null){		
-			 fv9FunktionCom = (String) form.get("fv9FunktionCom");
-		}
-		String fv9FunktionComC = "";
-		if(form.get("fv9FunktionComC") != null){	
-			 fv9FunktionComC = (String) form.get("fv9FunktionComC");
-		}
-		String fv9ProduktionStatus ="";
-		if(form.get("fv9ProduktionStatus") != null){	
-			 fv9ProduktionStatus = (String) form.get("fv9ProduktionStatus");
-		}
-		String fv9ProduktionCom = "";
-		if(form.get("fv9ProduktionCom") != null){	
-			 fv9ProduktionCom =  (String) form.get("fv9ProduktionCom");
-		}
-		String fv9ProduktionComC = "";
-		if(form.get("fv9ProduktionComC") != null){	
-			 fv9ProduktionComC =  (String) form.get("fv9ProduktionComC");
-		}
-		String fv9BeschaffStatus ="";
-		if(form.get("fv9BeschaffStatus") != null){	
-			 fv9BeschaffStatus = (String) form.get("fv9BeschaffStatus");
-		}
-		String fv9BeschaffCom ="";
-		if(form.get("fv9BeschaffCom") != null){	
-			 fv9BeschaffCom =  (String) form.get("fv9BeschaffCom");
-		}
-		String fv9BeschaffComC ="";
-		if(form.get("fv9BeschaffComC") != null){	
-			 fv9BeschaffComC =  (String) form.get("fv9BeschaffComC");
-		}
-		String fv9QualitStatus = "";
-		if(form.get("fv9QualitStatus") != null){	
-			 fv9QualitStatus = (String) form.get("fv9QualitStatus");
-		}
-		String fv9QualitCom = "";
-		if(form.get("fv9QualitCom") != null){	
-			 fv9QualitCom =  (String) form.get("fv9QualitCom");
-		}
-		String fv9QualitComC ="";
-		if(form.get("fv9QualitComC") != null){	
-			 fv9QualitComC =  (String) form.get("fv9QualitComC");
-		}
-		String fv9VertriebStatus ="";
-		if(form.get("fv9VertriebStatus") != null){	
-			 fv9VertriebStatus = (String) form.get("fv9VertriebStatus");
-		}
-		String fv9VertriebCom = "";
-		if(form.get("fv9VertriebCom") != null){	
-			 fv9VertriebCom =  (String) form.get("fv9VertriebCom");
-		}
-		String fv9VertriebComC ="";
-		if(form.get("fv9VertriebComC") != null){	
-			 fv9VertriebComC =  (String) form.get("fv9VertriebComC");
-		}
-		String fv9FinanzenStatus = "";
-		if(form.get("fv9FinanzenStatus") != null){	
-			 fv9FinanzenStatus = (String) form.get("fv9FinanzenStatus");
-		}
-		String fv9FinanzenCom ="";
-		if(form.get("fv9FinanzenCom") != null){	
-			 fv9FinanzenCom =  (String) form.get("fv9FinanzenCom");
-		}
-		String fv9FinanzenComC ="";
-		if(form.get("fv9FinanzenComC") != null){	
-			 fv9FinanzenComC =  (String) form.get("fv9FinanzenComC");
-		}
-		String fv9GewichtStatus = "";
-		if(form.get("fv9GewichtStatus") != null){	
-			 fv9GewichtStatus =  (String) form.get("fv9GewichtStatus");
-		}
-		String fv9GewichtCom ="";
-		if(form.get("fv9GewichtCom") != null){	
-			 fv9GewichtCom =  (String) form.get("fv9GewichtCom");
-		}
-		String fv9GewichtComC ="";
-		if(form.get("fv9GewichtComC") != null){	
-			 fv9GewichtComC =  (String) form.get("fv9GewichtComC");
-		}
-		String fv9DokuStatus ="";
-		if(form.get("fv9DokuStatus") != null){	
-			 fv9DokuStatus = (String) form.get("fv9DokuStatus");
-		}
-		String fv9DokuCom = "";
-		if(form.get("fv9DokuCom") != null){	
-			 fv9DokuCom = (String) form.get("fv9DokuCom");
-		}
-		String fv9DokuComC = "";
-		if(form.get("fv9DokuComC") != null){	
-			 fv9DokuComC = (String) form.get("fv9DokuComC");
-		}
-		String fv9TermineStatus ="";
-		if(form.get("fv9TermineStatus") != null){	
-			 fv9TermineStatus = (String) form.get("fv9TermineStatus");
-		}
-		String fv9TermineCom = "";
-		if(form.get("fv9TermineCom") != null){	
-			 fv9TermineCom =  (String) form.get("fv9TermineCom");
-		}
-		String fv9TermineComC = "";
-		if(form.get("fv9TermineComC") != null){	
-			 fv9TermineComC = (String) form.get("fv9TermineComC");
-		}
-		
+	private static String getContent(Object content) {
+		String fv9Content = "";
+		if (!"".equals((String) content)) {
+			fv9Content = (String) content;
+		} 
+		return fv9Content;
+	}
 	%>
+	<%
+		//整个项目状态
+		String fv9ProjectStatus = "";
+		String projectStatusImage = request.getContextPath() + "/app/pep/images/defaultStatus.jpg";
+		if(Web.getObjectYesOrNo(form.get("fv9ProjectStatus"))){
+			fv9ProjectStatus = (String) form.get("fv9ProjectStatus");
+			if (!"".equals(fv9ProjectStatus)) {
+				if ("绿".equals(fv9ProjectStatus)) {
+					projectStatusImage = request.getContextPath() + "/app/pep/images/greenBig.jpg";
+				}
+				if ("黄".equals(fv9ProjectStatus)) {
+					projectStatusImage = request.getContextPath() + "/app/pep/images/yellowBig.jpg";
+				}
+				if ("红".equals(fv9ProjectStatus)) {
+					projectStatusImage = request.getContextPath() + "/app/pep/images/redBig.jpg";
+				}
+			}
+		}
+		
+		//会议类型
+		String fv9PHMeetStyle_GM = "";
+		String fv9PHMeetStyle_CN = "";
+		if (Web.getObjectYesOrNo(form.get("fv9PHMeetStyle_GM"))) {
+			fv9PHMeetStyle_GM = Web.replaceSpecial((String)form.get("fv9PHMeetStyle_GM"));
+		}
+		if (Web.getObjectYesOrNo(form.get("fv9PHMeetStyle_CN"))) {
+			fv9PHMeetStyle_CN = Web.replaceSpecial((String)form.get("fv9PHMeetStyle_CN"));
+		}
+		
+		//产品
+		String fv9ProdStatusImage = getSmallImage(request.getContextPath(), 
+				form.get("fv9ProductstandStatus"));
+		String fv9ProdStatusCom = getContent(form.get("fv9ProdStatusCom"));
+		String fv9ProdStatusComC = getContent(form.get("fv9ProdStatusComC"));
+		String fv9ProdMass_GM = getContent(form.get("fv9ProdMass_GM"));
+		String fv9ProdMass_CN = getContent(form.get("fv9ProdMass_CN"));
+		
+		//功能
+		String fv9FunktionImage = getSmallImage(request.getContextPath(), 
+				form.get("fv9FunktionStatus"));
+		String fv9FunktionCom = getContent(form.get("fv9FunktionCom"));
+		String fv9FunktionComC = getContent(form.get("fv9FunktionComC"));
+		String fv9FunktionMass_GM = getContent(form.get("fv9FunktionMass_GM"));
+		String fv9FunktionMass_CN = getContent(form.get("fv9FunktionMass_CN"));
+			
+		//生产
+		String fv9ProduktionImage = getSmallImage(request.getContextPath(), 
+				form.get("fv9ProduktionStatus"));
+		String fv9ProduktionCom = getContent(form.get("fv9ProduktionCom"));
+		String fv9ProduktionComC = getContent(form.get("fv9ProduktionComC"));
+		String fv9ProduktionMass_GM = getContent(form.get("fv9ProduktionMass_GM"));
+		String fv9ProduktionMass_CN = getContent(form.get("fv9ProduktionMass_CN"));
+		
+		//采购
+		String fv9BeschaffImage = getSmallImage(request.getContextPath(), 
+				form.get("fv9BeschaffStatus"));
+		String fv9BeschaffCom = getContent(form.get("fv9BeschaffCom"));
+		String fv9BeschaffComC = getContent(form.get("fv9BeschaffComC"));
+		String fv9BeschaffMass_GM = getContent(form.get("fv9BeschaffMass_GM"));
+		String fv9BeschaffMass_CN = getContent(form.get("fv9BeschaffMass_CN"));
+			
+		//质保
+		String fv9QualitImage = getSmallImage(request.getContextPath(), 
+				form.get("fv9QualitStatus"));
+		String fv9QualitCom = getContent(form.get("fv9QualitCom"));
+		String fv9QualitComC = getContent(form.get("fv9QualitComC"));
+		String fv9QualitMass_GM = getContent(form.get("fv9QualitMass_GM"));
+		String fv9QualitMass_CN = getContent(form.get("fv9QualitMass_CN"));
+		
+		//销售
+		String fv9VertriebImage = getSmallImage(request.getContextPath(), 
+				form.get("fv9VertriebStatus"));
+		String fv9VertriebCom = getContent(form.get("fv9VertriebCom"));
+		String fv9VertriebComC = getContent(form.get("fv9VertriebComC"));
+		String fv9VertrieMass_GM = getContent(form.get("fv9VertrieMass_GM"));
+		String fv9VertrieMass_CN = getContent(form.get("fv9VertrieMass_CN"));
+		
+		//财务
+		String fv9FinanzenImage = getSmallImage(request.getContextPath(), 
+				form.get("fv9FinanzenStatus"));
+		String fv9FinanzenCom = getContent(form.get("fv9FinanzenCom"));
+		String fv9FinanzenComC = getContent(form.get("fv9FinanzenComC"));
+		String fv9FinanzenMass_GM = getContent(form.get("fv9FinanzenMass_GM"));
+		String fv9FinanzenMass_CN = getContent(form.get("fv9FinanzenMass_CN"));
+		
+		//CO2 
+		String fv9GewichtImage = getSmallImage(request.getContextPath(), 
+				form.get("fv9GewichtStatus"));
+		String fv9GewichtCom = getContent(form.get("fv9GewichtCom"));
+		String fv9GewichtComC = getContent(form.get("fv9GewichtComC"));
+		String fv9GewichtMass_GM = getContent(form.get("fv9GewichtMass_GM"));
+		String fv9GewichtMass_CN = getContent(form.get("fv9GewichtMass_CN"));
+		
+		//文件/认可
+		String fv9DokuImage = getSmallImage(request.getContextPath(), 
+				form.get("fv9DokuStatus"));
+		String fv9DokuCom = getContent(form.get("fv9DokuCom"));
+		String fv9DokuComC = getContent(form.get("fv9DokuComC"));
+		String fv9DokuMass_GM = getContent(form.get("fv9DokuMass_GM"));
+		String fv9DokuMass_CN = getContent(form.get("fv9DokuMass_CN"));
+		
+		//进度
+		String fv9TermineImage = getSmallImage(request.getContextPath(), 
+				form.get("fv9TermineStatus"));
+		String fv9TermineCom = getContent(form.get("fv9TermineCom"));
+		String fv9TermineComC = getContent(form.get("fv9TermineComC"));
+		String fv9TerminMass_GM = getContent(form.get("fv9TerminMass_GM"));
+		String fv9TerminMass_CN = getContent(form.get("fv9TerminMass_CN"));
+	%>
+	<style type="text/css">
+		.Reifegrads {
+			height: 520px;
+			width: 940px;
+			overflow: hidden;
+		}
+		.Reifegrads tr td{
+			overflow: hidden;
+		}
+		.mileStone{
+			text-align: center;
+			vertical-align: middle;
+			padding-top: 20px;
+		}
+		.titleStyleTD {
+			font-weight: bolder;
+			font-size: 13px;
+			text-align: left;
+			white-space: normal;
+			height: 45px;
+			overflow: hidden;
+			border: 1px solid #000000;
+		}
+		.statusTD {
+			height: 45px;
+			overflow: hidden;
+			text-align: center;
+		}
+		.massTD {
+			height: 45px;
+			overflow: hidden;
+			text-align: left;
+			font-size: 9px;
+			border: 1px solid #000000;
+		}
+	</style>
 </head>
 <body>
 <div id="container" style="font-size:12px;">
@@ -150,544 +190,208 @@
 		<div class="fl"><%=status_left %></div>
 		<div class="fr"><%=status_right %></div>
 		<h1><%=title %></h1>
-		<div style="width: 20%;float: right;margin: -45px auto; text-align: left;">
-   			<% if(fv9ProjectStatus.equals("绿")){%>
-		    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="16" height="40" />
-		    <%} else if(fv9ProjectStatus.equals("黄")){%>
-		    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="16" height="40" />	
-		   	<%} else if(fv9ProjectStatus.equals("红")){%>
-			   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="16" height="40" /> 
-		   	<%}%>
-		   	<%=milepost %>
-   		</div>
 	</div>
-    <div id="content" style="height:590px;margin:6px auto;">
+    <div id="content" style="height:590px; margin:0px 0px;">
    		<div id="german">
 			<input type="button" class="china" onclick="changeChinese()" />
 		</div>
-     	 <div id="datatable1" style="margin:0 60px;">
-			    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
-				  <tr>
-				    <td width="350" class="pg">&nbsp;</td>
-				    <td width="633" class="pg"></td>
-				  </tr>
-				  
-				  <tr>
-				    <td valign="top" class="pgpg" style="width:30%;">
-				    
-				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0;">
-						  <tr>
-						    <td valign="top"><h2>Produktstand</h2></td>
-							    <td>
-							    <% if(fv9ProductstandStatus.equals("绿")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="16" height="40" />
-							    <%} else if(fv9FunktionStatus.equals("黄")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="16" height="40"  />	
-							   	<%} else if(fv9FunktionStatus.equals("红")){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="16" height="40"  /> 
-							   	<%}%>
-							   	</td>
-						  </tr>
-					</table>
-					</td>
-				    <td valign="top" class="pgpg" style="width:70%;">
-				    	<div class="tbnrr">
-				    		<%=fv9ProdStatusCom%>
-						</div>
-					</td>
-				  </tr>
-				  
-				  <tr>
-				    <td valign="top" class="pgpg" style="width:30%;">
-				    
-					    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0;">
-							  <tr>
-							    <td valign="top"><h2>Funktionserfüllung</h2></td>
-							    <td>
-							    <% if(fv9FunktionStatus.equals("绿")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="16" height="40"  />
-							    <%} else if(fv9FunktionStatus.equals("黄")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="16" height="40"  />	
-							   	<%} else if(fv9FunktionStatus.equals("红")){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="16" height="40"  /> 
-							   	<%}%>
-							    </td>
-							  </tr>
-						</table>
-					</td>
-				    <td valign="top" class="pgpg" style="width:70%;">
-				    	<div class="tbnrr">
-				    		<%=fv9FunktionCom %>
-						</div>
-					</td>
-				  </tr>
-				  
-				  	  <tr>
-				    <td valign="top" class="pgpg" style="width:30%;height: 45px;">
-				    
-				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0;">
-						  <tr>
-						    <td valign="top"><h2>Produktion/ <br />Standardisierung</h2></td>
-						    <td>
-						    	<% if(fv9ProduktionStatus.equals("绿")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="16" height="40"  />
-							    <%} else if(fv9ProduktionStatus.equals("黄")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="16" height="40"  />	
-							   	<%} else if(fv9ProduktionStatus.equals("红")){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="16" height="40"  /> 
-							   	<%}%>
-						    </td>
-						  </tr>
-					</table>
-					</td>
-				    <td valign="top" class="pgpg" style="width:70%;">
-				    	<div class="tbnrr">
-				    	<%=fv9ProduktionCom%>
-						</div>
-					</td>
-				  </tr>
-				  
-				  	  <tr>
-				    <td valign="top" class="pgpg" style="width:30%">
-				    
-				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0;">
-						  <tr>
-						    <td valign="top"><h2>Beschaffung</h2></td>
-						    <td>
-						    	<% if(fv9BeschaffStatus.equals("绿")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="16" height="40"  />
-							    <%} else if(fv9BeschaffStatus.equals("黄")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="16" height="40"  />	
-							   	<%} else if(fv9BeschaffStatus.equals("红")){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="16" height="40"  /> 
-							   	<%}%>
-						    </td>
-						  </tr>
-					</table>
-					</td>
-				    <td valign="top" class="pgpg" style="width:70%;">
-				    	<div class="tbnrr">
-				    	<%=fv9BeschaffCom %>
-						</div>
-					</td>
-				  </tr>
-				  
-				  	  <tr>
-				    <td valign="top" class="pgpg" style="width:30%">
-				    
-				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0;">
-						  <tr>
-						    <td valign="top"><h2>Qualität</h2></td>
-						    <td>
-						    	<% if(fv9QualitStatus.equals("绿")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="16" height="40"  />
-							    <%} else if(fv9QualitStatus.equals("黄")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="16" height="40"  />	
-							   	<%} else if(fv9QualitStatus.equals("红")){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="16" height="40"  /> 
-							   	<%}%>
-						    </td>
-						  </tr>
-					</table>
-					</td>
-				    <td valign="top" class="pgpg" style="width:70%;">
-				    	<div class="tbnrr">
-							<%=fv9QualitCom%>
-						</div>
-					</td>
-				  </tr>
-				  
-				  	  <tr>
-				    <td valign="top" class="pgpg" style="width:30%">
-				    
-				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0;">
-						  <tr>
-						    <td valign="top"><h2>Vertrieb/Markt</h2></td>
-						    <td>
-						    <% if(fv9VertriebStatus.equals("绿")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="16" height="40"  />
-							    <%} else if(fv9VertriebStatus.equals("黄")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="16" height="40"  />	
-							   	<%} else if(fv9VertriebStatus.equals("红")){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="16" height="40"  /> 
-							   	<%}%>
-						    </td>
-						  </tr>
-					</table>
-					</td>
-				    <td valign="top" class="pgpg" style="width:70%;">
-				    	<div class="tbnrr">
-							<%=fv9VertriebCom %>
-						</div>
-					</td>
-				  </tr>
-				  
-				  	  <tr>
-				    <td valign="top" class="pgpg" style="width:30%">
-				    
-				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0;">
-						  <tr>
-						    <td valign="top"><h2>Finanzen</h2></td>
-						    <td>
-						    <% if(fv9FinanzenStatus.equals("绿")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="16" height="40"  />
-							    <%} else if(fv9FinanzenStatus.equals("黄")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="16" height="40"  />	
-							   	<%} else if(fv9FinanzenStatus.equals("红")){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="16" height="40"  /> 
-							   	<%}%>
-						    </td>
-						  </tr>
-					</table>
-					</td>
-				    <td valign="top" class="pgpg" style="width:70%;">
-				    	<div class="tbnrr">
-				    		<%=fv9FinanzenCom%>
-						</div>
-					</td>
-				  </tr>
-				  
-				  	  <tr>
-				    <td valign="top" class="pgpg" style="width:30%">
-				    
-				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0;">
-						  <tr>
-						    <td valign="top"><h2>Gewicht/CO2</h2></td>
-						    <td>
-						    <% if(fv9GewichtStatus.equals("绿")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="16" height="40"  />
-							    <%} else if(fv9GewichtStatus.equals("黄")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="16" height="40"  />	
-							   	<%} else if(fv9GewichtStatus.equals("红")){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="16" height="40"  /> 
-							   	<%}%>
-						    </td>
-						  </tr>
-					</table>
-					</td>
-				    <td valign="top" class="pgpg" style="width:70%;">
-				    	<div class="tbnrr">
-							<%=fv9GewichtCom %>	
-						</div>
-					</td>
-				  </tr>
-				  
-				  	  <tr>
-				    <td valign="top" class="pgpg" style="width:30%">
-				    
-				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0;">
-						  <tr>
-						    <td valign="top"><h2>Doku/Freigaben</h2></td>
-						    <td>
-						    <% if(fv9DokuStatus.equals("绿")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="16" height="40"  />
-							    <%} else if(fv9DokuStatus.equals("黄")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="16" height="40"  />	
-							   	<%} else if(fv9DokuStatus.equals("红")){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="16" height="40"  /> 
-							   	<%}%>
-						    </td>
-						  </tr>
-					</table>
-					</td>
-				    <td valign="top" class="pgpg" style="width:70%;">
-				    	<div class="tbnrr">
-							<%=fv9DokuCom %>
-						</div>
-					</td>
-				  </tr>
-				  
-				  <tr>
-				    <td valign="top" class="pgpg" style="width:30%">
-				    
-				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0;">
-						  <tr>
-						    <td valign="top"><h2>Termine/Orga</h2></td>
-						    <td>
-						    <% if(fv9TermineStatus.equals("绿")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="16" height="40"  />
-							    <%} else if(fv9TermineStatus.equals("黄")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="16" height="40"  />	
-							   	<%} else if(fv9TermineStatus.equals("红")){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="16" height="40"  /> 
-							   	<%}%>
-						    </td>
-						  </tr>	
-					</table>
-					</td>
-				    <td valign="top" class="pgpg" style="width:70%;">
-				    	<div class="tbnrr">
-							<%=fv9TermineCom %>
-						</div>
-					</td>
-				  </tr>
-				 
-			</table>
-			</div>
-			
-			<div id="china" style="display: none;">
-				<input type="button" class="german" onclick="changeGerman()"/>
-			</div>
-			<div id="datatable2" style="margin:0 60px; display: none;">
-			    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
-				  <tr>
-				    <td width="350" class="pg">&nbsp;</td>
-				    <td width="633" class="pg"></td>
-				  </tr>
-				  
-				  <tr>
-				    <td valign="top" class="pgpg" style="width:30%">
-				    
-				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0;">
-						  <tr>
-						    <td valign="top"><h2>Produktstand</h2></td>
-							    <td>
-							    <% if(fv9ProductstandStatus.equals("绿")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="16" height="40"  />
-							    <%} else if(fv9FunktionStatus.equals("黄")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="16" height="40"  />	
-							   	<%} else if(fv9FunktionStatus.equals("红")){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="16" height="40"  /> 
-							   	<%}%>
-							   	</td>
-						  </tr>
-					</table>
-					</td>
-				    <td valign="top" class="pgpg" style="width:70%;">
-				    	<div class="tbnrr">
-				    		<%=fv9ProdStatusComC%>
-						</div>
-					</td>
-				  </tr>
-				  
-				  <tr>
-				    <td valign="top" class="pgpg" style="width:30%">
-				    
-					    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0;">
-							  <tr>
-							    <td valign="top"><h2>Funktionserfüllung</h2></td>
-							    <td>
-							    <% if(fv9FunktionStatus.equals("绿")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="16" height="40"  />
-							    <%} else if(fv9FunktionStatus.equals("黄")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="16" height="40"  />	
-							   	<%} else if(fv9FunktionStatus.equals("红")){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="16" height="40"  /> 
-							   	<%}%>
-							    </td>
-							  </tr>
-						</table>
-					</td>
-				    <td valign="top" class="pgpg" style="width:70%;">
-				    	<div class="tbnrr">
-				    		<%=fv9FunktionComC %>
-						</div>
-					</td>
-				  </tr>
-				  
-				  	  <tr>
-				    <td valign="top" class="pgpg" style="width:30%">
-				    
-				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0;">
-						  <tr>
-						    <td valign="top"><h2>Produktion/ <br />Standardisierung</h2></td>
-						    <td>
-						    	<% if(fv9ProduktionStatus.equals("绿")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="16" height="40"  />
-							    <%} else if(fv9ProduktionStatus.equals("黄")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="16" height="40"  />	
-							   	<%} else if(fv9ProduktionStatus.equals("红")){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="16" height="40"  /> 
-							   	<%}%>
-						    </td>
-						  </tr>
-					</table>
-					</td>
-				    <td valign="top" class="pgpg" style="width:70%;">
-				    	<div class="tbnrr">
-				    	<%=fv9ProduktionComC%>
-						</div>
-					</td>
-				  </tr>
-				  
-				  	  <tr>
-				    <td valign="top" class="pgpg" style="width:30%">
-				    
-				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0;">
-						  <tr>
-						    <td valign="top"><h2>Beschaffung</h2></td>
-						    <td>
-						    	<% if(fv9BeschaffStatus.equals("绿")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="16" height="40"  />
-							    <%} else if(fv9BeschaffStatus.equals("黄")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="16" height="40"  />	
-							   	<%} else if(fv9BeschaffStatus.equals("红")){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="16" height="40"  /> 
-							   	<%}%>
-						    </td>
-						  </tr>
-					</table>
-					</td>
-				    <td valign="top" class="pgpg" style="width:70%;">
-				    	<div class="tbnrr">
-				    	<%=fv9BeschaffComC %>
-						</div>
-					</td>
-				  </tr>
-				  
-				  	  <tr>
-				    <td valign="top" class="pgpg" style="width:30%">
-				    
-				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0;">
-						  <tr>
-						    <td valign="top"><h2>Qualität</h2></td>
-						    <td>
-						    	<% if(fv9QualitStatus.equals("绿")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="16" height="40"  />
-							    <%} else if(fv9QualitStatus.equals("黄")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="16" height="40"  />	
-							   	<%} else if(fv9QualitStatus.equals("红")){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="16" height="40"  /> 
-							   	<%}%>
-						    </td>
-						  </tr>
-					</table>
-					</td>
-				    <td valign="top" class="pgpg" style="width:70%;">
-				    	<div class="tbnrr">
-							<%=fv9QualitComC%>
-						</div>
-					</td>
-				  </tr>
-				  
-				  	  <tr>
-				    <td valign="top" class="pgpg" style="width:30%">
-				    
-				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0;">
-						  <tr>
-						    <td valign="top"><h2>Vertrieb/Markt</h2></td>
-						    <td>
-						    <% if(fv9VertriebStatus.equals("绿")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="16" height="40"  />
-							    <%} else if(fv9VertriebStatus.equals("黄")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="16" height="40"  />	
-							   	<%} else if(fv9VertriebStatus.equals("红")){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="16" height="40"  /> 
-							   	<%}%>
-						    </td>
-						  </tr>
-					</table>
-					</td>
-				    <td valign="top" class="pgpg" style="width:70%;">
-				    	<div class="tbnrr">
-							<%=fv9VertriebComC %>
-						</div>
-					</td>
-				  </tr>
-				  
-				  	  <tr>
-				    <td valign="top" class="pgpg" style="width:30%">
-				    
-				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0;">
-						  <tr>
-						    <td valign="top"><h2>Finanzen</h2></td>
-						    <td>
-						    <% if(fv9FinanzenStatus.equals("绿")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="16" height="40"  />
-							    <%} else if(fv9FinanzenStatus.equals("黄")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="16" height="40"  />	
-							   	<%} else if(fv9FinanzenStatus.equals("红")){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="16" height="40"  /> 
-							   	<%}%>
-						    </td>
-						  </tr>
-					</table>
-					</td>
-				    <td valign="top" class="pgpg" style="width:70%;">
-				    	<div class="tbnrr">
-				    		<%=fv9FinanzenComC%>
-						</div>
-					</td>
-				  </tr>
-				  
-				  	  <tr>
-				    <td valign="top" class="pgpg" style="width:30%">
-				    
-				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0;">
-						  <tr>
-						    <td valign="top"><h2>Gewicht/CO2</h2></td>
-						    <td>
-						    <% if(fv9GewichtStatus.equals("绿")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="16" height="40"  />
-							    <%} else if(fv9GewichtStatus.equals("黄")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="16" height="40"  />	
-							   	<%} else if(fv9GewichtStatus.equals("红")){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="16" height="40"  /> 
-							   	<%}%>
-						    </td>
-						  </tr>
-					</table>
-					</td>
-				    <td valign="top" class="pgpg" style="width:70%;">
-				    	<div class="tbnrr">
-							<%=fv9GewichtComC %>	
-						</div>
-					</td>
-				  </tr>
-				  
-				  	  <tr>
-				    <td valign="top" class="pgpg" style="width:30%">
-				    
-				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0;">
-						  <tr>
-						    <td valign="top"><h2>Doku/Freigaben</h2></td>
-						    <td>
-						    <% if(fv9DokuStatus.equals("绿")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="16" height="40" />
-							    <%} else if(fv9DokuStatus.equals("黄")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="16" height="40" />	
-							   	<%} else if(fv9DokuStatus.equals("红")){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="16" height="40" /> 
-							   	<%}%>
-						    </td>
-						  </tr>
-					</table>
-					</td>
-				    <td valign="top" class="pgpg" style="width:70%;">
-				    	<div class="tbnrr">
-							<%=fv9DokuComC %>
-						</div>
-					</td>
-				  </tr>
-				  
-				  <tr>
-				    <td valign="top" class="pgpg" style="width:30%">
-				    
-				    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0;">
-						  <tr>
-						    <td valign="top"><h2>Termine/Orga</h2></td>
-						    <td>
-						    <% if(fv9TermineStatus.equals("绿")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="16" height="40" />
-							    <%} else if(fv9TermineStatus.equals("黄")){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="16" height="40" />	
-							   	<%} else if(fv9TermineStatus.equals("红")){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="16" height="40" /> 
-							   	<%}%>
-						    </td>
-						  </tr>	
-					</table>
-					</td>
-				    <td valign="top" class="pgpg" style="width:70%;">
-				    	<div class="tbnrr">
-							<%=fv9TermineComC %>
-						</div>
-					</td>
-				  </tr>
-				 
-			</table>
-			</div>
- 		</div>
+		<div id="datatable1"  cellspacing="2" style="margin:0px;">
+		<table class="Reifegrads" cellspacing="2">
+			<tr>
+				<td width="10%" height="12">&nbsp;</td>
+				<td width="18%" height="12">&nbsp;</td>
+			  	<td width="3.5%" height="12">&nbsp;</td>
+			    <td width="34%" height="12">&nbsp;Kritische Berichtspunkte:</td>
+			    <td width="34%" height="12">&nbsp;Maßnahmen: </td>
+			</tr>
+			<tr>
+			  <td width="10%" rowspan="11" class="mileStone">
+				  	<img src="<%=projectStatusImage %>" alt="里程碑状态" width="50" height="118"/>
+				 	<br>
+				 	<span><%=fv9PHMeetStyle_GM %></span>
+			  </td>
+			  <td width="18%" class="titleStyleTD">Produktstand</td>
+			  <td width="3.5%" class="statusTD">
+			  	<img src="<%=fv9ProdStatusImage %>" width="23" height="50"/>
+			  </td>
+			  <td width="34%" class="massTD"><%=fv9ProdStatusCom %></td>
+			   <td width="34%" class="massTD"><%=fv9ProdMass_GM %></td>
+			</tr>
+			<tr>
+			  <td width="18%" class="titleStyleTD">Funktionserfuellung</td>
+			  <td width="3.5%" class="statusTD">
+			  	<img src="<%=fv9FunktionImage %>" width="23" height="50"/>
+			  </td>
+			   <td width="34%" class="massTD"><%=fv9FunktionCom %></td>
+			   <td width="34%" class="massTD"><%=fv9FunktionMass_GM %></td>
+			</tr>
+			<tr>
+			  <td width="18%" class="titleStyleTD">Produktion/<br>Standardisierung</td>
+			  <td width="3.5%" class="statusTD">
+			  	<img src="<%=fv9ProduktionImage %>" width="23" height="50"/>
+			  </td>
+			   <td width="34%" class="massTD"><%=fv9ProduktionCom %></td>
+			   <td width="34%" class="massTD"><%=fv9ProduktionMass_GM %></td>
+			</tr>
+			<tr>
+			  <td width="18%" class="titleStyleTD">Beschaffung</td>
+			  <td width="3.5%" class="statusTD">
+			  	<img src="<%=fv9BeschaffImage %>" width="23" height="50"/>
+			  </td>
+			   <td width="34%" class="massTD"><%=fv9BeschaffCom %></td>
+			   <td width="34%" class="massTD"><%=fv9BeschaffMass_GM %></td>
+			</tr>
+			<tr>
+			  <td width="18%" class="titleStyleTD">Qualitaet</td>
+			  <td width="3.5%" class="statusTD">
+			  	<img src="<%=fv9QualitImage %>" width="23" height="50"/>
+			  </td>
+			   <td width="34%" class="massTD"><%=fv9QualitCom %></td>
+			   <td width="34%" class="massTD"><%=fv9QualitMass_GM %></td>
+			</tr>
+			<tr>
+			  <td width="18%" class="titleStyleTD">Vertrieb / Markt</td>
+			  <td width="3.5%" class="statusTD">
+			  	<img src="<%=fv9VertriebImage %>" width="23" height="50"/>
+			  </td>
+			   <td width="34%" class="massTD"><%=fv9VertriebCom %></td>
+			   <td width="34%" class="massTD"><%=fv9VertrieMass_GM %></td>
+			</tr>
+			<tr>
+			  <td width="18%" class="titleStyleTD">Finanzen</td>
+			  <td width="3.5%" class="statusTD">
+			  	<img src="<%=fv9FinanzenImage %>" width="23" height="50"/>
+			  </td>
+			   <td width="34%" class="massTD"><%=fv9FinanzenCom %></td>
+			   <td width="34%" class="massTD"><%=fv9FinanzenMass_GM %></td>
+			</tr>
+			<tr>
+			  <td width="18%" class="titleStyleTD">Gewicht / CO2</td>
+			  <td width="3.5%" class="statusTD">
+			  	<img src="<%=fv9GewichtImage %>" width="23" height="50"/>
+			  </td>
+			   <td width="34%" class="massTD"><%=fv9GewichtCom %></td>
+			   <td width="34%" class="massTD"><%=fv9GewichtMass_GM %></td>
+			</tr>
+			<tr>
+			  <td width="18%" class="titleStyleTD">Doku / Freigaben</td>
+			  <td width="3.5%" class="statusTD">
+			  	<img src="<%=fv9DokuImage%>" width="23" height="50"/>
+			  </td>
+			   <td width="34%" class="massTD"><%=fv9DokuCom %></td>
+			   <td width="34%" class="massTD"><%=fv9DokuMass_GM %></td>
+			</tr>
+			<tr>
+			  <td width="18%" class="titleStyleTD">Termine / Orga</td>
+			  <td width="3.5%" class="statusTD">
+			  	<img src="<%=fv9TermineImage%>" width="23" height="50"/>
+			  </td>
+			   <td width="34%" class="massTD"><%=fv9TermineCom %></td>
+			   <td width="34%" class="massTD"><%=fv9TerminMass_GM %></td>
+			</tr>
+		</table>
+		</div>
+
+		<div id="china" style="display: none;">
+			<input type="button" class="german" onclick="changeGerman()"/>
+		</div>
+		<div id="datatable2" style="display: none;">
+		   <table class="Reifegrads" cellspacing="2">
+			<tr>
+				<td width="10%" height="12">&nbsp;</td>
+				<td width="18%" height="12">&nbsp;</td>
+			  	<td width="3.5%" height="12">&nbsp;</td>
+			    <td width="34%" height="12">&nbsp;重要汇报点:</td>
+			    <td width="34%" height="12">&nbsp;措施: </td>
+			</tr>
+			<tr>
+			  <td width="10%" rowspan="11" class="mileStone">
+				  	<img src="<%=projectStatusImage %>" alt="里程碑状态" width="50" height="118"/>
+				 	<br>
+				 	<span><%=fv9PHMeetStyle_CN %></span>
+			  </td>
+			  <td width="18%" class="titleStyleTD">Produktstand</td>
+			  <td width="3.5%" class="statusTD">
+			  	<img src="<%=fv9ProdStatusImage %>" width="23" height="50"/>
+			  </td>
+			  <td width="34%" class="massTD"><%=fv9ProdStatusComC %></td>
+			   <td width="34%" class="massTD"><%=fv9ProdMass_CN %></td>
+			</tr>
+			<tr>
+			  <td width="18%" class="titleStyleTD">Funktionserfuellung</td>
+			  <td width="3.5%" class="statusTD">
+			  	<img src="<%=fv9FunktionImage %>" width="23" height="50"/>
+			  </td>
+			   <td width="34%" class="massTD"><%=fv9FunktionComC %></td>
+			   <td width="34%" class="massTD"><%=fv9FunktionMass_CN %></td>
+			</tr>
+			<tr>
+			  <td width="18%" class="titleStyleTD">Produktion/<br>Standardisierung</td>
+			  <td width="3.5%" class="statusTD">
+			  	<img src="<%=fv9ProduktionImage %>" width="23" height="50"/>
+			  </td>
+			   <td width="34%" class="massTD"><%=fv9ProduktionComC %></td>
+			   <td width="34%" class="massTD"><%=fv9ProduktionMass_CN %></td>
+			</tr>
+			<tr>
+			  <td width="18%" class="titleStyleTD">Beschaffung</td>
+			  <td width="3.5%" class="statusTD">
+			  	<img src="<%=fv9BeschaffImage %>" width="23" height="50"/>
+			  </td>
+			   <td width="34%" class="massTD"><%=fv9BeschaffComC %></td>
+			   <td width="34%" class="massTD"><%=fv9BeschaffMass_CN %></td>
+			</tr>
+			<tr>
+			  <td width="18%" class="titleStyleTD">Qualitaet</td>
+			  <td width="3.5%" class="statusTD">
+			  	<img src="<%=fv9QualitImage %>" width="23" height="50"/>
+			  </td>
+			   <td width="34%" class="massTD"><%=fv9QualitComC %></td>
+			   <td width="34%" class="massTD"><%=fv9QualitMass_CN %></td>
+			</tr>
+			<tr>
+			  <td width="18%" class="titleStyleTD">Vertrieb / Markt</td>
+			  <td width="3.5%" class="statusTD">
+			  	<img src="<%=fv9VertriebImage %>" width="23" height="50"/>
+			  </td>
+			   <td width="34%" class="massTD"><%=fv9VertriebComC %></td>
+			   <td width="34%" class="massTD"><%=fv9VertrieMass_CN %></td>
+			</tr>
+			<tr>
+			  <td width="18%" class="titleStyleTD">Finanzen</td>
+			  <td width="3.5%" class="statusTD">
+			  	<img src="<%=fv9FinanzenImage %>" width="23" height="50"/>
+			  </td>
+			   <td width="34%" class="massTD"><%=fv9FinanzenComC %></td>
+			   <td width="34%" class="massTD"><%=fv9FinanzenMass_CN %></td>
+			</tr>
+			<tr>
+			  <td width="18%" class="titleStyleTD">Gewicht / CO2</td>
+			  <td width="3.5%" class="statusTD">
+			  	<img src="<%=fv9GewichtImage %>" width="23" height="50"/>
+			  </td>
+			   <td width="34%" class="massTD"><%=fv9GewichtComC %></td>
+			   <td width="34%" class="massTD"><%=fv9GewichtMass_CN %></td>
+			</tr>
+			<tr>
+			  <td width="18%" class="titleStyleTD">Doku / Freigaben</td>
+			  <td width="3.5%" class="statusTD">
+			  	<img src="<%=fv9DokuImage%>" width="23" height="50"/>
+			  </td>
+			   <td width="34%" class="massTD"><%=fv9DokuComC %></td>
+			   <td width="34%" class="massTD"><%=fv9DokuMass_CN %></td>
+			</tr>
+			<tr>
+			  <td width="18%" class="titleStyleTD">Termine / Orga</td>
+			  <td width="3.5%" class="statusTD">
+			  	<img src="<%=fv9TermineImage%>" width="23" height="50"/>
+			  </td>
+			   <td width="34%" class="massTD"><%=fv9TermineComC %></td>
+			   <td width="34%" class="massTD"><%=fv9TerminMass_CN %></td>
+			</tr>
+		</table>
+		</div>
+ 	</div>
     <%@ include file="/app/pep/include/foot.jsp"%>
 </div>
 </body>

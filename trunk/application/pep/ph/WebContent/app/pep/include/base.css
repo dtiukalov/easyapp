@@ -1,11 +1,11 @@
 * {
 	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; 
-	MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial,宋体, Helvetica, sans-serif; COLOR: #000; LIST-STYLE-IMAGE: none; PADDING-TOP: 0px
+	MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial,宋体; COLOR: #000; LIST-STYLE-IMAGE: none; PADDING-TOP: 0px
 }
 
 
 #content {
-	margin: 30px 23px; width:890px; HEIGHT: 540px; OVERFLOW: hidden;
+	margin: 30px 23px; WIDTH: 950px; HEIGHT: 540px; OVERFLOW: hidden;
 }
 
 #no-state {

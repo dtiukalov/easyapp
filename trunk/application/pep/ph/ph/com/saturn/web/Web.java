@@ -180,6 +180,8 @@ public class Web {
 		if (form != null) {
 			String isPublic = (String) form.get("fv9PreRelesed");
 			List releaseList = (List) form.get("release_status_list");
+			String isBackup = (String)form.get("fv9IsBackup");
+			
 			String isRelease = "";
 			if (releaseList != null && releaseList.size() > 0) {
 				isRelease = (String) releaseList.get(0);
@@ -197,6 +199,11 @@ public class Web {
 			// 预发布之后
 			if ("yes".equalsIgnoreCase(isPublic)) {
 				return "<div id='no-state'>资料已发布</div>";
+			}
+			
+			//BackUp
+			if("yes".equalsIgnoreCase(isBackup)){
+				return "<div>BackUp</div>";
 			}
 
 		}

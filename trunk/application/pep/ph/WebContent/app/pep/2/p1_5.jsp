@@ -355,41 +355,6 @@
 		</div>
 		<%@ include file="/app/pep/include/foot.jsp"%>
 	</div>	
-	<!-- 
-		<style>
-			.top-table {
-				width: 820px; height: 200px; float: left; margin: 0px;
-			}
-			.top-table table {
-				width: 520px;
-			}
-		</style>
-	<div class="top-table">
-				<table cellspacing="0">
-					<tr>
-						<td colspan="3">9 Teile Nach OS frei</td>
-					</tr>
-					<tr>
-						<td>Zeil</td>
-						<td>ZSB</td>
-						<td>Teile</td>
-					</tr>
-					<tr>
-						<td rowspan="4">KW37/12</td>
-						<td rowspan="4">I-TAFEL</td>
-						<td>ZENTRALROHR/中央柱管 X1</td>
-					</tr>
-					<tr>
-						<td>INSTRUMENTENTAFEL/泡沫仪表板总成 X2 </td>
-					</tr>
-					<tr>
-						<td>LUFTKANAL/风道 X1 </td>
-					</tr>
-					<tr>
-						<td>HANDSCHUHKASTEN/手套箱总成 X1</td>
-					</tr>
-				</table>
-			</div>
-	 -->
+	
 </body>
 </html>

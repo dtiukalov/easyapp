@@ -6,6 +6,7 @@
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.HashMap"%>
+<%@page import="com.saturn.tc.utils.DateUtils"%>
 <html>
 
 <head>
@@ -85,9 +86,9 @@
 				// Add at least 5 days
 				//控制最大时间和最小时间前后显示的月份
 				if (_maxDate.getMonth() != 11) { //December 12&#26376;				
-					_maxDate.setFullYear(_maxDate.getFullYear(), 11, 1); //The fifth day of next month will be used
+					_maxDate.setFullYear(_maxDate.getFullYear(), _maxDate.getMonth() + 2, 1); //The fifth day of next month will be used
 				} else {
-					_maxDate.setFullYear(_maxDate.getFullYear() + 1, 9, 1); //The fifth day of next month will be used
+					_maxDate.setFullYear(_maxDate.getFullYear() + 1, 2, 1); //The fifth day of next month will be used
 				}
 				
 				if (_minDate.getMonth() == 0) {
@@ -156,8 +157,8 @@
 					_dateDiff = (task.getTo().getFullYear() - task.getFrom().getFullYear()) * 12 + (task.getTo().getMonth() - task.getFrom().getMonth()) + 1;
 					
 					if (task.getFrom().getFullYear() == task.getTo().getFullYear() && task.getFrom().getMonth() == task.getTo().getMonth()) {
-						_gStr += "<div style='position:absolute; top:" + (20 * (_level + 2)) + "; left:" + (_offSet * offWidth - 9 + preWidth) + "; width:" + (offWidth * _dateDiff - 1 + 100) + "'><div title='" + task.getTask() + "' style='float:left; width:" + (offWidth * _dateDiff - 1) + "px;'>" + task.getResource() + "</div></div>";
-						_gStr += "<div style='position:absolute; top:" + (26 * (_level + 2) + 1) + "; left:5px'>" + task.getTask() + "</div>";						
+						_gStr += "<div style='position:absolute; top:" + (20 * (_level + 2)) + "; left:" + (_offSet * offWidth - 9 + preWidth) + "; width:" + (offWidth * _dateDiff - 1 + 100) + "'><div title='" + task.getTask() + "' style='float:left; width:" + (offWidth * _dateDiff - 1 + 3 ) + "px;'>" + task.getResource() + "</div></div>";
+						_gStr += "<div style='position:absolute; top:" + (26 * (_level + 2) + 1) + "; left:5px;font-family: Arial,宋体,verdana;font-size: 14px;'>" + task.getTask() + "</div>";						
 					} else {
 						_gStr += "<div style='position:absolute; top:" + (20 * (_level + 2)) + "; left:" + (_offSet * offWidth + preWidth) + "; width:" + (offWidth * _dateDiff - 1 + 100) + "'><div title='" + task.getTask() + "' style='float:left; width:" + (offWidth * _dateDiff - 1) + "px;" + "background-color:" + task.getColor()+ ";border:#000000 1px solid;text-align:center; '>" + task.getResource() + "</div></div>";
 					}
@@ -205,25 +206,25 @@
 	 * NOTE			: Should change the color, the text style only
 	 *----------------------------------------------------------------*/
 .Gantt {
-	font-family: tahoma, arial, verdana;
+	font-family: Arial,宋体;
 	font-size: 11px;
 }
 
 .GTaskTitle {
-	font-family: tahoma, arial, verdana;
+	font-family: Arial,宋体;
 	font-size: 11px;
 	font-weight: bold;
 }
 
 .GMonth {
 	padding-left: 5px;
-	font-family: tahoma, arial, verdana;
+	font-family: Arial,宋体;
 	font-size: 11px;
 	font-weight: bold;
 }
 
 .GToday {
-	font-family: tahoma, arial, verdana;
+	font-family: Arial,宋体;
 	font-size: 11px;
 	text-align: center;
 }
@@ -235,14 +236,14 @@
 }
 
 .GWeekend {
-	font-family: tahoma, arial, verdana;
+	font-family: Arial,宋体;
 	font-size: 11px;
 	background-color: #F5F5F5;
 	text-align: center;
 }
 
 .GDay {
-	font-family: tahoma, arial, verdana;
+	font-family: Arial,宋体;
 	font-size: 11px;
 	text-align: center;
 }
@@ -278,7 +279,6 @@
 	Map form = FormManager.getFormValue(uid,true);
 	
 	List<Map<String,String>> list = new ArrayList<Map<String,String>>();
-	String lichengbeistr = "PM,PP,PD,PF,KE,DE,DF,BF,LF,VFF,PVS,OS,SOP,ME";
 	
 	Map<String,String> mapPM = new HashMap<String,String>();
 	mapPM.put("lichengbei","PM");
@@ -316,11 +316,17 @@
 	mapDE.put("org",(String)form.get("fv9DEMLOrg"));//	验收机构_DE
 	list.add(mapDE);
 	
-	Map<String,String> mapDF = new HashMap<String,String>();
-	mapDF.put("lichengbei","DF");
-	mapDF.put("date",(String)form.get("fv9DFExtMLDate"));//	里程碑日期_DF
-	mapDF.put("org",(String)form.get("fv9DFExtMLOrg"));//	验收机构_DF
-	list.add(mapDF);
+	Map<String,String> mapDFExt = new HashMap<String,String>();
+	mapDFExt.put("lichengbei","<span>DF</span><span style=\"font-size:9px;\">Exte</span>");
+	mapDFExt.put("date",(String)form.get("fv9DFExtMLDate"));//	里程碑日期_DF
+	mapDFExt.put("org",(String)form.get("fv9DFExtMLOrg"));//	验收机构_DF
+	list.add(mapDFExt);
+
+	Map<String,String> mapDFInt = new HashMap<String,String>();
+	mapDFInt.put("lichengbei","<span>DF</span><span style=\"font-size:9px;\">Int</span>");
+	mapDFInt.put("date",(String)form.get("fv9DFIntMLDate"));//	里程碑日期_DF
+	mapDFInt.put("org",(String)form.get("fv9DFIntMLOrg"));//	验收机构_DF
+	list.add(mapDFInt);
 	
 	Map<String,String> mapBF = new HashMap<String,String>();
 	mapBF.put("lichengbei","BF");
@@ -371,7 +377,20 @@
 	String Serienvorboreitung_S = (String)form.get("fv9SOPMLDate");
 	String Serienvorboreitung_E = (String)form.get("fv9MEMLDate");
 	list = Web.getHeBingLichengbeiList(list);
+	
 	String project = (String)request.getSession().getAttribute("project");
+	if(project == null){
+		project = "";
+	}
+	int ret1[] = null;
+	if(Web.getDateStrNotNull(Producktidefinition_S) && Web.getDateStrNotNull(Producktidefinition_E)){
+		ret1 = DateUtils.getDateLength(Producktidefinition_S.replaceAll("-",""), Producktidefinition_E.replaceAll("-",""));
+	}
+	int ret2[] = null;
+	if(Web.getDateStrNotNull(Konzept_S) && Web.getDateStrNotNull(Konzept_E)){
+		ret2 = DateUtils.getDateLength(Konzept_S.replaceAll("-",""), Konzept_E.replaceAll("-",""));
+	}
+	
 %>
 <body>
 	<div style="position: relative" class="Gantt" id="GanttChart"></div>
@@ -384,22 +403,23 @@
 			Map<String,String> map = list.get(j);
 			if(Web.getDateStrNotNull(map.get("date"))){
 				%>
-				g.AddTaskDetail(new Task('<%=map.get("date")%>', '<%=map.get("date")%>', '<%=project%>', '<%=map.get("lichengbei")%><br /><h6 style="color: white" class="GTaska" ><%=map.get("org")%></h6>', 50, 1));
+				g.AddTaskDetail(new Task('<%=map.get("date")%>', '<%=map.get("date")%>', '<%=project%>', '<div style="height:30px;float:left;"><%=map.get("lichengbei")%></div><br /><h6 style="color: white" class="GTaska" ><%=map.get("org")%></h6>', 50, 1));
 				<%
 			}
 		}
 	} 
 	%>
 
-	<%if(Web.getDateStrNotNull(Producktidefinition_S) && Web.getDateStrNotNull(Producktidefinition_E)){%>	
-	g.AddTaskDetail(new Task('<%=Producktidefinition_S%>', '<%=Producktidefinition_E%>', '', '18 MO', 50, 5, '#f3f3f3'));
+	<%if(Web.getDateStrNotNull(Producktidefinition_S) && Web.getDateStrNotNull(Producktidefinition_E) && ret1 != null){%>	
+	g.AddTaskDetail(new Task('<%=Producktidefinition_S%>', '<%=Producktidefinition_E%>', '', '<%=ret1[1]%> Mo\.', 50, 5, '#f3f3f3'));
 	<%}%>
-	<%if(Web.getDateStrNotNull(Konzept_S) && Web.getDateStrNotNull(Konzept_E)){%>
-	g.AddTaskDetail(new Task('<%=Konzept_S%>', '<%=Konzept_E%>', '', '11 MO', 50, 5, '#b0b0b0'));
+	<%if(Web.getDateStrNotNull(Konzept_S) && Web.getDateStrNotNull(Konzept_E) && ret2 != null){%>
+	g.AddTaskDetail(new Task('<%=Konzept_S%>', '<%=Konzept_E%>', '', '<%=ret2[1]%> Mo\.', 50, 5, '#b0b0b0'));
 	<%}%>
-	<%if(Web.getDateStrNotNull(Serienvorboreitung_S) && Web.getDateStrNotNull(Serienvorboreitung_E)){%>	
+	
+<%-- 	<%if(Web.getDateStrNotNull(Serienvorboreitung_S) && Web.getDateStrNotNull(Serienvorboreitung_E)){%>	
 	g.AddTaskDetail(new Task('<%=Serienvorboreitung_S%>', '<%=Serienvorboreitung_E%>', '', '<font color="white">2 MO</font>', 50, 5, '#414141'));
-<%}%>
+<%}%> --%>
 	g.Draw(49, 15);
 </script>
 </html>

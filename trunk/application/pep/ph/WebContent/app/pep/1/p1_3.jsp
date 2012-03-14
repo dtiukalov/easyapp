@@ -59,6 +59,7 @@
 	</style>
 	<%
 		String uid = (String)request.getAttribute("uid");
+		String project = (String)request.getSession().getAttribute("project");
 	%>
 </head>
 <body>	
@@ -77,7 +78,7 @@
 					    	<table height="60" border="0" cellpadding="0" cellspacing="0" class="taba">
 						      <tr>
 						        <td class="lg"><div style="margin-left:10px"><img src="../images/logo.jpg"/></div></td>
-						        <td class="bt"><h3>VWxxx Anlaufübersicht</h3>
+						        <td class="bt"><h3><%=project%> Anlaufübersicht</h3>
 						       	</td>
 						        <td class="bz">
 						        	<h3><i><div style="float:right;margin-right:80px;font-size:14px;">Version:6.0</div></i></h3><br>

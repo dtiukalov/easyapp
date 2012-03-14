@@ -31,7 +31,7 @@
 	    <div id="content">
 			<iframe id="ff" name= "ff" frameborder="0"  scrolling="no"
 				    src="<%=request.getContextPath() %>/app/pep/1/GanttChart4.jsp?uid=<%=uid %>" 
-				    style="width:800px;height:400px;margin:50px 50px">
+				    style="width:850px;height:400px;margin:50px 10px">
 			</iframe>
 	   
 	    </div>

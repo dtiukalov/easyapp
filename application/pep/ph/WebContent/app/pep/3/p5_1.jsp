@@ -184,7 +184,7 @@
 			<%
 			if (Web.getListYesOrNo((List<String>)form.get("fv9KWNo"))) {
 				int[] arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9KWNo"));
-				double totalWidth = 800.0;
+				double totalWidth = 820.0;
 				
 				Map<String,Double> lichenbeiPillarNum = Web.getLCBPillar(Web.getLCBNum(request, arr), arr, totalWidth);
 				
@@ -195,7 +195,7 @@
 				double sum = value1 + value2 + value3 + value4;
 				%>
 				<div id="meilsteinouter" style="width: 800px;">
-					<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 43px; text-align: center; overflow: hidden; ">
+					<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 73px; text-align: center; overflow: hidden; ">
 						<div style=" width: <%=value1 %>px; height: 30px; float: left; background-color: #99FF99; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">VFF</span></div>
 						<div style=" width: <%=value2 %>px; height: 30px; float: left; background-color: #33CC33; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">PVS</span></div>
 						<div style=" width: <%=value3 %>px; height: 30px; float: left; background-color: #006600; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">0S</span></div>

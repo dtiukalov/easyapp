@@ -78,7 +78,7 @@
 				data += "{ y:" + values[i] + ", low:" + lows[i] + ", color:" + colors[i] + "}, ";
 			}
 			data += "{ y:" + values[keys.length-1] + ", low:" + lows[keys.length-1] + ", color:" + colors[keys.length-1] + "}";
-			total = values[0] + 20;
+			total = values[0] + 5;
 			
 		}
 		%>

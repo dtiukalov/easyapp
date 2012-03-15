@@ -9,9 +9,14 @@
 }
 
 #no-state {
-	position:absolute;top:10px;right:150px;height:14px;bottom:0px; 
-	padding:1px;color:green;
-	font-weight:bold;font-size:30px;font-family:隶书;
+	position:absolute; top:10px; height:14px;bottom:0px; right:30px;
+	padding:1px;color:green; direction:rtl;
+	font-weight:bold;font-size:30px;font-family:Arial, 宋体;
+}
+#backup {
+	position:absolute; top:10px; bottom:0px; width: 190px; height:80px; right:30px;
+	padding:1px; color:green; 
+	font-weight:bold; font-size:30px; font-family:Arial, 宋体;
 }
 .containerLeft{
 	margin: 0px; width: 37px; height:60px; overflow: hidden; float: left; text-align: center; margin-top: 330px;
@@ -26,7 +31,7 @@
 	MARGIN: 0px auto; WIDTH: 950px
 }
 #container #top {
-	BORDER-BOTTOM: #000099 2px solid; height:100px; OVERFLOW: hidden
+	BORDER-BOTTOM: #000099 2px solid; height:100px; OVERFLOW: hidden; 
 }
 #top H1 {
 	FONT-FAMILY: Arial, Helvetica, sans-serif; FONT-SIZE: 32px; margin-top:25px;

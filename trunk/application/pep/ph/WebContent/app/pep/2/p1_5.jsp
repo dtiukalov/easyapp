@@ -143,7 +143,7 @@
 						enabled:true,
 						y:20,
 						style:{
-							fontSize:'12px',
+							fontSize:'10px',
 							color:'black'
 						}
 					}

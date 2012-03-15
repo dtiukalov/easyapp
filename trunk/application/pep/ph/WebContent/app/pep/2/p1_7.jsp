@@ -138,7 +138,7 @@
 						enabled:true,
 						y:20,
 						style:{
-							fontSize:'12px',
+							fontSize:'10px',
 							color:'black'
 						}
 					}
@@ -172,6 +172,8 @@
 						stacking: 'normal',
 						borderColor: 'black',
 				//		pointWidth:33,
+						groupPadding:0.01,
+						pointPadding:0.01,
 						shadow:false,
 						dataLabels: {
 							enabled: true,
@@ -362,7 +364,7 @@
 		<%
 		List<String> fv9KWNo = (List<String>)form.get("fv9KWNo"); //周数 
 		List<String> fv9ZSB = (List<String>)form.get("fv9ZSB"); //零件范围
-		List<String> fv9Teil = (List<String>)form.get("fv9Teil"); //零件名称
+		List<String> fv9Teil = (List<String>)form.get("fv9Tei"); //零件名称
 		List<String> fv9TeilNum = (List<String>)form.get("fv9TeilNum"); //零件数量
 		if (Web.getListYesOrNo(fv9KWNo)) {
 			int n = fv9KWNo.size() + 3;

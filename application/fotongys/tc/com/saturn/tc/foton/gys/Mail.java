@@ -30,8 +30,9 @@ public class Mail {
 	private String type;
 
 	private String from;
-	private String fromUser;
+	private String fromUser;//发件人
 	private String fromUserId;
+	private String fromUserDept;//发件人事业部属性
 	private String userid;// 收件人 ：当前登录供应商
 	private String userName;// 收件人 ：当前登录供应商
 	private String to;
@@ -46,8 +47,27 @@ public class Mail {
 
 	private static ORMapping<Mail> mapping = new ResultORMapping<Mail>();
 
+	public static Map<String,String> dept = new HashMap<String, String>();
+	     
 	public Mail() {
 		super();
+		dept.put("JTGS", "集团公司");
+		dept.put("R&D", "工程研究院");
+		dept.put("Huairou", "怀柔汽研所");
+		dept.put("FJGC", "蒙派克工厂");
+		dept.put("AMGC", " 欧曼工厂");
+		
+		dept.put("NFGC", "南方工厂");
+		dept.put("BFGC", "北方工厂");
+		dept.put("ALGC", "奥铃工厂");
+		dept.put("NHGC", "萨普工厂");
+		dept.put("OVGC", "欧V客车");
+		
+		dept.put("LWDL", "雷沃动力");
+		dept.put("FTZJ", "雷沃重机");
+		dept.put("ALFDJ", "奥铃发动机");
+		dept.put("SDGC", "时代工厂");
+		dept.put("XJFT", " 新疆福田");
 	}
 
 	public static WorkspaceObject[] getAllTcMailObject(User user,
@@ -271,10 +291,17 @@ public class Mail {
 
 			User user = (User) envelope.get_senders_tag();//get_last_mod_user();//发件人
 			Person fromPerson = (Person) user.get_person();
+			service.refreshObjects(fromPerson);
 			service.getProperties(fromPerson, "PA9");
+			service.getProperties(fromPerson, "PA3");
 			this.fromUser = user.get_user_name();
 			this.fromUserId = user.getUid();
 			this.from = fromPerson.get_PA9();
+			this.fromUserDept = "";
+			
+			if(fromPerson.get_PA3()!= null ){
+				this.fromUserDept = dept.get(fromPerson.get_PA3().trim());
+			}
 		} catch (NotLoadedException e) {
 			e.printStackTrace();
 		}
@@ -439,6 +466,14 @@ public class Mail {
 
 	public void setFromUserId(String fromUserId) {
 		this.fromUserId = fromUserId;
+	}
+	
+	public String getFromUserDept() {
+		return fromUserDept;
+	}
+
+	public void setFromUserDept(String fromUserDept) {
+		this.fromUserDept = fromUserDept;
 	}
 
 }

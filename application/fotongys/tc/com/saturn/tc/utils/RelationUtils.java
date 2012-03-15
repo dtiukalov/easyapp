@@ -9,6 +9,7 @@ import com.saturn.tc.utils.server.EasyDataManagementService;
 import com.teamcenter.services.strong.core.DataManagementService;
 import com.teamcenter.soa.client.model.ModelObject;
 import com.teamcenter.soa.client.model.strong.ItemRevision;
+import com.teamcenter.soa.client.model.strong.ReleaseStatus;
 import com.teamcenter.soa.client.model.strong.WorkspaceObject;
 import com.teamcenter.soa.exceptions.NotLoadedException;
 
@@ -35,7 +36,7 @@ public class RelationUtils {
 					for (int i = 0; i < models1.length; i++) {
 						ModelObject modelObject = models1[i];
 						Attachment child  = new Attachment(mailId, 
-								(WorkspaceObject)modelObject, attachment.getUid());
+								(WorkspaceObject)modelObject, attachment.getUid(), service);
 						attachments.add(child);
 						stack.add(child);
 					}

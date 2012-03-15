@@ -40,6 +40,7 @@ public class International {
 		en.put("mail.list", "Mail List");
 		en.put("mail.title", "Title");
 		en.put("mail.from.user", "From User");
+		en.put("mail.from.userdept", "Business Division");
 		en.put("mail.receive.user", "User");
 		en.put("mail.content", "Conent");
 		en.put("mail.detail", "Mail Detail");
@@ -79,6 +80,7 @@ public class International {
 		cn.put("mail.list", "邮件列表");
 		cn.put("mail.title", "主题");
 		cn.put("mail.from.user", "发件人");
+		cn.put("mail.from.userdept", "事业部");
 		cn.put("mail.receive.user", "收件人");
 		cn.put("mail.content", "内容");
 		cn.put("mail.detail", "邮件详情");

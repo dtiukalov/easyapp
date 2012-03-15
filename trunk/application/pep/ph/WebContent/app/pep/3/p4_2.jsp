@@ -131,7 +131,14 @@
 					}, series: [{
 						name: 'AK: Abweichung Toleranz > 100 %',
 						color: '#E63110',
-						data: <%=fv9FunctionAK%>
+						data: <%=fv9FunctionAK%>,
+						dataLabels: {
+							enabled: true,
+							style : {
+								fontSize:'12px'
+							},
+							color: 'white'
+						}
 					}, {
 						name: 'BK: 75% < Abweichung Toleranz < 100 ',
 						color: '#F9A700',

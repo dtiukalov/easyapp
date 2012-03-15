@@ -252,7 +252,7 @@
 				<div id="top">
 					<div class="fl"><%=status_left %></div>
 					<div class="fr"><%=status_right %></div>
-					<h1><%=title %>1111111111</h1>
+					<h1><%=title %></h1>
 				</div>
 				<div id="content" style="margin:0 50px;height:600px;">
 					<div id="subtitle">

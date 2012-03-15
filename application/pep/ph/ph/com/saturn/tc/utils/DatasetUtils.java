@@ -44,7 +44,7 @@ public class DatasetUtils {
 		
 		String datasetSrc = request.getContextPath()+ File.separator + datasetpath + downloadDatasetFromTc(dataset ,path);
 		
-		if(Web.getObjectYesOrNo(datasetSrc)){
+		if(datasetSrc.contains(".jpg")){
 			src = datasetSrc;
 		}
 		

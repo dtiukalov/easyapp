@@ -459,9 +459,10 @@ public class PHManager {
 		"backup"
 	};
 	
-	private static final String[] TEST = {
+	private static final String[] ALL = {
 		"FV9_11ProjectTermin",
-		"FV9_11Anlaufueber",
+		"1.1 Anlaufuebersicht",
+	//	"FV9_11Anlaufueber",
 		"FV9_11VorserienTer",
 		"FV9_12Aktionspunkte",
 		"1.3 Anlauforganisation - Fahrzeugbau",
@@ -472,7 +473,6 @@ public class PHManager {
 		"FV9_15FahrzeugaufZP5",
 		"FV9_15FahrzeugaufZP8",
 		"FV9_15Programmpunk",
-		"backup1",
 
 		"FV9_21PBFreigBMG",
 		"FV9_21PFreigabe",
@@ -486,7 +486,6 @@ public class PHManager {
 		"2.3 Fehlerabbaustatus",
 		"FV9_24StatusAEKO",
 		"FV9_24AEKOUmsetz",
-		"backup2",
 		
 		"FV9_31PrufMBCub",
 		"FV9_32FugenRad",
@@ -508,7 +507,6 @@ public class PHManager {
 		"FV9_35AuditZP8Kauf",
 		"FV9_35NachAbbaus",
 		"FV9_36Vorch2Tag",
-		"backup3",
 		
 		"FV9_41NominLiefer",
 		"4.2 Teilequalitaet ZP5 (HT)",
@@ -533,22 +531,17 @@ public class PHManager {
 		"4.3 Problemblatt",
 		
 		"4.4 Aggregateverfuegbarkeit ZP3/ZP4",
-		"backup4",
 		
 		"FV9_51PrKarLacMon",
 		"FV9_51KarosserStat",
 		"FV9_52Logiskonzept",
-		"backup5",
 		
 		"6.1 Launchplanung",
-		"backup6",
 		
 		"FV9_71Reifegrads",
 		"7.2 Beschluss",
 		"7.2 Uebersicht zukunftige Termine",
-		"backup7",
 	
-		"backup",
 		"FV9PHBackup"
 	};
 	
@@ -559,21 +552,21 @@ public class PHManager {
 	}
 	
 	private static void inital() {
-		roadmaps.put("BF", BF);
+	/*	roadmaps.put("BF", BF);
 		roadmaps.put("LF", LF);
 		roadmaps.put("VFF", VFF);
 		roadmaps.put("PVS", PVS);
 		roadmaps.put("0-S", OS);
-		roadmaps.put("SOP", SOP);
-		roadmaps.put("TEST", TEST);
+		roadmaps.put("SOP", SOP);*/
+		roadmaps.put("ALL", ALL);
 	}
 	
 	@SuppressWarnings("unchecked")
 	public static List<String> getIndexes(String roadmap, Map<String, Object> forms) {
 		List<String> indexes = new ArrayList<String>(); 
 		
-		if (roadmaps.containsKey(roadmap)) {
-			String[] types = roadmaps.get(roadmap);
+		//if (roadmaps.containsKey(roadmap)) {
+			String[] types = roadmaps.get("ALL");
 			
 			for (String type : types) {
 				String path = "/app/pep/do/preview.do";//FormManager.getJspPath(type);
@@ -589,11 +582,9 @@ public class PHManager {
 							indexes.add(path + "?uid=" + id);
 						}
 					}
-				} /*else {
-					indexes.add(path);
-				}*/
+				}
 			}
-		}
+	//	}
 		
 		return indexes;
 	}

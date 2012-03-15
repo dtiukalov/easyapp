@@ -48,6 +48,16 @@
 		}
 	}
 	%>
+	<%!
+	
+	public static String getAnzahl(String anzahl) {
+		if (!"0".equals(anzahl) && !"".equals(anzahl)) {
+			return "<tr><td>Anzahl</td><td>&nbsp;=&nbsp;</td><td>" + anzahl + "</td></tr>";
+		} else {
+			return "<tr><td>&nbsp;</td><td>&nbsp;&nbsp;&nbsp;</td><td>&nbsp;</td></tr>";
+		}
+	}
+	%>
 </head>
 <body>
 	<div id="container">
@@ -89,7 +99,7 @@
 						</td>
 						<td width="22%">
 							<table style="padding:5px">
-								<tr><td>Anzahl</td><td>&nbsp;=&nbsp;</td><td><%=fv9AnzahlNum.get(i) %></td></tr>
+								<%=getAnzahl(fv9AnzahlNum.get(i)) %>
 								<tr><td>Soll</td><td>&nbsp;=&nbsp;</td><td><%=fv9FreigSollNum.get(i) %></td></tr>
 								<tr><td>Ist</td><td>&nbsp;=&nbsp;</td><td><%=fv9FreiglstNum.get(i) %></td></tr>
 								<tr><td>offen</td><td>&nbsp;=&nbsp;</td><td><%=fv9OffenNum.get(i)%></td></tr>
@@ -137,7 +147,7 @@
 						</td>
 						<td width="22%">
 							<table style="margin:11px;">
-								<tr><td>Anzahl</td><td>&nbsp;=&nbsp;</td><td><%=fv9AnzahlNum.get(i) %></td></tr>
+								<%=getAnzahl(fv9AnzahlNum.get(i)) %>
 								<tr><td>Soll</td><td>&nbsp;=&nbsp;</td><td><%=fv9FreigSollNum.get(i) %></td></tr>
 								<tr><td>Ist</td><td>&nbsp;=&nbsp;</td><td><%=fv9FreiglstNum.get(i) %></td></tr>
 								<tr><td>offen</td><td>&nbsp;=&nbsp;</td><td><%=fv9OffenNum.get(i)%></td></tr>
@@ -151,6 +161,7 @@
 						}
 					}
 					%>
+					<tr></tr>
 				</table>
 			</div>
 		</div>

@@ -181,12 +181,16 @@ public class Web {
 			String isPublic = (String) form.get("fv9PreRelesed");
 			List releaseList = (List) form.get("release_status_list");
 			String isBackup = (String)form.get("fv9IsBackup");
-			
+			System.out.println("isBackup = " + isBackup);
 			String isRelease = "";
 			if (releaseList != null && releaseList.size() > 0) {
 				isRelease = (String) releaseList.get(0);
 				// 正式发布之后——数据冻结
 				if ("TCM Released".equalsIgnoreCase(isRelease)) {
+					//BackUp
+					if("yes".equalsIgnoreCase(isBackup)){
+						return "<div id='backup'><br><br><img width='190' height='80' src='/ph/app/pep/images/backup.png'></div>";
+					}
 					return "<div id='no-state'>&nbsp;</div>";
 				}
 			}
@@ -198,13 +202,14 @@ public class Web {
 
 			// 预发布之后
 			if ("yes".equalsIgnoreCase(isPublic)) {
+				//BackUp
+				if("yes".equalsIgnoreCase(isBackup)){
+					return "<div id='backup'>资料已发布<br><br><img width='190' height='80' src='/ph/app/pep/images/backup.png'></div>";
+				}
 				return "<div id='no-state'>资料已发布</div>";
 			}
 			
-			//BackUp
-			if("yes".equalsIgnoreCase(isBackup)){
-				return "<div>BackUp</div>";
-			}
+			
 
 		}
 

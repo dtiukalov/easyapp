@@ -19,7 +19,7 @@ public class FV9_42ProblemblattZP5HTDataset extends Form {
 
 	@Override
 	public String getType() {
-		return "4.2 Problemblatt ZP5 HT";
+		return "4.2 Problemblatt";
 	}
 
 	@Override

@@ -151,21 +151,21 @@
 					          <div class="kbg">
 					          	<div class="he">
 						          	<div class="wz"><h3><%=Style %></h3></div>
-						          	<div class="tupian">
+						          	<div class="tupian" style="padding-top: 10px; vertical-align: middle;text-align: center;">
 						          	<%
 						          	if ("红".equals(status)) {
 						          	%>
-						          		<img src="../images/redStatus.png" style="height:75px;width:25px;"/>
+						          		<img src="../images/redStatus.png" style="height:59px;width:25px;"/>
 						          	<%
 						          	}
 						          	if ("黄".equals(status)) {
 						          	%>
-						          		<img src="../images/yellowStatus.png" style="height:75px;width:25px;"/>
+						          		<img src="../images/yellowStatus.png" style="height:59px;width:25px;"/>
 						          	<%
 							        }
 						          	if ("绿".equals(status)) {
 						          	%>
-						          		<img src="../images/greenStatus.png" style="height:75px;width:25px;"/>
+						          		<img src="../images/greenStatus.png" style="height:59px;width:25px;"/>
 						          	<%
 						          	}
 						          	%>

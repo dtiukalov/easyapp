@@ -37,6 +37,11 @@
 					width : 100,
 					sortable : true
 				},{
+					field : 'fromUserDept',
+					title : '<%=International.get(request, "mail.from.userdept") %>',
+					width : 100,
+					sortable : true
+				},{
 					field : 'userName',
 					title : '<%=International.get(request, "mail.receive.user") %>',
 					width : 100,

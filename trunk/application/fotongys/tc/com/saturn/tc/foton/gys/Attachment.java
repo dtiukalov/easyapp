@@ -20,6 +20,7 @@ import com.teamcenter.soa.client.model.strong.Folder;
 import com.teamcenter.soa.client.model.strong.ImanFile;
 import com.teamcenter.soa.client.model.strong.Item;
 import com.teamcenter.soa.client.model.strong.ItemRevision;
+import com.teamcenter.soa.client.model.strong.ReleaseStatus;
 import com.teamcenter.soa.client.model.strong.WorkspaceObject;
 import com.teamcenter.soa.exceptions.NotLoadedException;
 
@@ -30,6 +31,8 @@ public class Attachment {
 	private String uid;
 
 	private String name;
+	private String status; //状态
+	private String version; //版本
 	private String type;
 	private String size;
 	private String path;
@@ -61,7 +64,7 @@ public class Attachment {
 		LinkedList<Attachment> stack = new LinkedList<Attachment>();
 
 		for (WorkspaceObject wo : workspaceObjects) {
-			Attachment attachment = new Attachment(mailId, wo, null);
+			Attachment attachment = new Attachment(mailId, wo, null, service);
 			attachments.add(attachment);
 			stack.add(attachment);
 		}
@@ -91,7 +94,7 @@ public class Attachment {
 																				// -
 																				// 1];
 						Attachment atta = new Attachment(mailId,
-								(WorkspaceObject) itemRev, attachment.getUid());
+								(WorkspaceObject) itemRev, attachment.getUid(), service);
 						attachments.add(atta);
 						stack.add(atta);
 
@@ -109,11 +112,14 @@ public class Attachment {
 				}
 			} else if (workspaceObject instanceof ItemRevision) {
 				ItemRevision envItemRev = (ItemRevision) workspaceObject;
+				service.refreshObjects(envItemRev);
+				
+				
 				service.getProperties(envItemRev, new String[] { "object_name",
 						"item_revision_id", "current_revision_id",
 						"IMAN_specification", "view", "IMAN_requirement",
 						"IMAN_reference", "TC_WorkContext_Relation",
-						"TC_Attaches", "VisItemRevCreatedSnapshot2D" });
+						"TC_Attaches", "VisItemRevCreatedSnapshot2D","release_status_list","item_revision_id"});
 
 				/*
 				 * ItemRevision itemRev = (ItemRevision) envItemRev;
@@ -136,7 +142,7 @@ public class Attachment {
 						"object_type", "contents");
 				for (WorkspaceObject wo : children) {
 					Attachment child = new Attachment(mailId, wo, attachment
-							.getUid());
+							.getUid(), service);
 					attachments.add(child);
 					stack.add(child);
 				}
@@ -178,7 +184,7 @@ public class Attachment {
 		return attachments;
 	}
 
-	public Attachment(String mailId, WorkspaceObject wso, String parentId) {
+	public Attachment(String mailId, WorkspaceObject wso, String parentId, EasyDataManagementService service) {
 		this.mailId = mailId;
 		this.parentId = parentId;
 		this.wo = wso;
@@ -186,11 +192,25 @@ public class Attachment {
 		this.uid = wso.getUid() + System.currentTimeMillis();
 		this.size = "";
 		this.path = "";
-
+		this.version = "";
+		this.status = "";
 		try {
 			this.name = wso.get_object_name();
 			if (wso instanceof ItemRevision) {
 				name += " / " + ((ItemRevision) wso).get_item_revision_id();
+				this.version = ((ItemRevision) wso).get_item_revision_id();
+				ReleaseStatus[] status = (ReleaseStatus[])wso.get_release_status_list();
+				String tempStatus = "";
+				if(status!= null && status.length > 0){
+					service.getProperties(status,"object_name");
+					for(int i=0; i < status.length; i++){
+						String value = status[i].get_object_name();
+						if(!value.equalsIgnoreCase("F6_Released")){
+							tempStatus = tempStatus + "," + value;
+						}
+					}
+					this.status = tempStatus.replaceFirst(",", "");
+				}
 			}
 			this.type = wso.get_object_type();
 			this.iconCls = IconUtils.getIconByType(wso);
@@ -209,7 +229,9 @@ public class Attachment {
 		this.uid = file.getUid() + System.currentTimeMillis();
 		this.size = "";
 		this.path = "";
-
+		this.version = "";
+		this.status = "";
+		
 		try {
 			this.name = file.get_original_file_name();
 			this.type = file.get_original_file_name().substring(
@@ -305,6 +327,22 @@ public class Attachment {
 
 	public void setDownloadpath(String downloadpath) {
 		this.downloadpath = downloadpath;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getVersion() {
+		return version;
+	}
+
+	public void setVersion(String version) {
+		this.version = version;
 	}
 
 }

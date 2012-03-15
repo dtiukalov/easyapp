@@ -87,8 +87,8 @@
 							shadow: false,
 							borderColor:'gray',
 							borderWidth:1,
-							groupPadding:0.1,
-							pointPadding:0.1,
+							groupPadding:0.01,
+							pointPadding:0.01,
 							dataLabels: {
 								enabled: true,
 								style : {

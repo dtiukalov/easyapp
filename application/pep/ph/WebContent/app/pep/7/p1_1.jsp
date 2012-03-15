@@ -310,7 +310,7 @@
 				 	<br>
 				 	<span><%=fv9PHMeetStyle_CN %></span>
 			  </td>
-			  <td width="18%" class="titleStyleTD">Produktstand</td>
+			  <td width="18%" class="titleStyleTD">产品状态</td>
 			  <td width="3.5%" class="statusTD">
 			  	<img src="<%=fv9ProdStatusImage %>" width="23" height="50"/>
 			  </td>
@@ -318,7 +318,7 @@
 			   <td width="34%" class="massTD"><%=fv9ProdMass_CN %></td>
 			</tr>
 			<tr>
-			  <td width="18%" class="titleStyleTD">Funktionserfuellung</td>
+			  <td width="18%" class="titleStyleTD">功能</td>
 			  <td width="3.5%" class="statusTD">
 			  	<img src="<%=fv9FunktionImage %>" width="23" height="50"/>
 			  </td>
@@ -326,7 +326,7 @@
 			   <td width="34%" class="massTD"><%=fv9FunktionMass_CN %></td>
 			</tr>
 			<tr>
-			  <td width="18%" class="titleStyleTD">Produktion/<br>Standardisierung</td>
+			  <td width="18%" class="titleStyleTD">生产</td>
 			  <td width="3.5%" class="statusTD">
 			  	<img src="<%=fv9ProduktionImage %>" width="23" height="50"/>
 			  </td>
@@ -334,7 +334,7 @@
 			   <td width="34%" class="massTD"><%=fv9ProduktionMass_CN %></td>
 			</tr>
 			<tr>
-			  <td width="18%" class="titleStyleTD">Beschaffung</td>
+			  <td width="18%" class="titleStyleTD">采购</td>
 			  <td width="3.5%" class="statusTD">
 			  	<img src="<%=fv9BeschaffImage %>" width="23" height="50"/>
 			  </td>
@@ -342,7 +342,7 @@
 			   <td width="34%" class="massTD"><%=fv9BeschaffMass_CN %></td>
 			</tr>
 			<tr>
-			  <td width="18%" class="titleStyleTD">Qualitaet</td>
+			  <td width="18%" class="titleStyleTD">质量</td>
 			  <td width="3.5%" class="statusTD">
 			  	<img src="<%=fv9QualitImage %>" width="23" height="50"/>
 			  </td>
@@ -350,7 +350,7 @@
 			   <td width="34%" class="massTD"><%=fv9QualitMass_CN %></td>
 			</tr>
 			<tr>
-			  <td width="18%" class="titleStyleTD">Vertrieb / Markt</td>
+			  <td width="18%" class="titleStyleTD">销售/市场</td>
 			  <td width="3.5%" class="statusTD">
 			  	<img src="<%=fv9VertriebImage %>" width="23" height="50"/>
 			  </td>
@@ -358,7 +358,7 @@
 			   <td width="34%" class="massTD"><%=fv9VertrieMass_CN %></td>
 			</tr>
 			<tr>
-			  <td width="18%" class="titleStyleTD">Finanzen</td>
+			  <td width="18%" class="titleStyleTD">财务</td>
 			  <td width="3.5%" class="statusTD">
 			  	<img src="<%=fv9FinanzenImage %>" width="23" height="50"/>
 			  </td>
@@ -366,7 +366,7 @@
 			   <td width="34%" class="massTD"><%=fv9FinanzenMass_CN %></td>
 			</tr>
 			<tr>
-			  <td width="18%" class="titleStyleTD">Gewicht / CO2</td>
+			  <td width="18%" class="titleStyleTD">重量/CO2</td>
 			  <td width="3.5%" class="statusTD">
 			  	<img src="<%=fv9GewichtImage %>" width="23" height="50"/>
 			  </td>
@@ -374,7 +374,7 @@
 			   <td width="34%" class="massTD"><%=fv9GewichtMass_CN %></td>
 			</tr>
 			<tr>
-			  <td width="18%" class="titleStyleTD">Doku / Freigaben</td>
+			  <td width="18%" class="titleStyleTD">文件/认可</td>
 			  <td width="3.5%" class="statusTD">
 			  	<img src="<%=fv9DokuImage%>" width="23" height="50"/>
 			  </td>
@@ -382,7 +382,7 @@
 			   <td width="34%" class="massTD"><%=fv9DokuMass_CN %></td>
 			</tr>
 			<tr>
-			  <td width="18%" class="titleStyleTD">Termine / Orga</td>
+			  <td width="18%" class="titleStyleTD">进度/组织</td>
 			  <td width="3.5%" class="statusTD">
 			  	<img src="<%=fv9TermineImage%>" width="23" height="50"/>
 			  </td>

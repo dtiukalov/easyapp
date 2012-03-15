@@ -103,8 +103,11 @@
 			temp3 = vffNum + pvsNum + osNum ;
 		}
 		
-		double totalWidth = 560.0;
-		Map<String,Double> lichenbeiPillarNum = Web.getLCBPillar(Web.getLCBNum(request, arr), arr, totalWidth);
+		double totalWidth = 640.0;
+		
+		Map<String,Double> lichenbeiPillarNum = Web.getLCBPillar(Web.getLCBNum(request,arr), arr, totalWidth);
+		
+		
 		double value1 = lichenbeiPillarNum.get("vffPillar"); 
 		double value2 = lichenbeiPillarNum.get("pvsPillar");
 		double value3 = lichenbeiPillarNum.get("osPillar");
@@ -205,83 +208,6 @@
 							}
 						}
 					}
-<%if(vffNum > 0){%>
-					,{
-						data: [[<%=temp0-1%> + 0.5, 0], [<%=temp0-1%> + 0.5001, <%=totalPress%>]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						showInLegend: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"VFF",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B></B>";
-							}
-						}
-					}
-<%}%><%if(pvsNum > 0){%>
-					,{
-						data: [[<%=temp1-1%> + 0.5, 0], [<%=temp1-1%> + 0.5001, <%=totalPress%>]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						showInLegend: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"PVS",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B></B>";
-							}
-						}
-					}
-	<%}%><%if(osNum > 0){%>
-					, {
-						data: [[<%=temp2-1%> + 0.5, 0], [<%=temp2 - 1%> + 0.5001, <%=totalPress%>]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						showInLegend: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"0-S",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B></B>";
-							}
-						}
-					}
-	<%}%><%if(sopNum > 0){%>
-					, {
-						data: [[<%=temp3-1%> + 0.5, 0], [<%=temp3-1%> + 0.5001, <%=totalPress%>]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						showInLegend: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"SOP",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B></B>";
-							}
-						}
-					}
-	<%}%>					
 					]
 				});
 				
@@ -386,84 +312,6 @@
 							}
 						}
 					}
-<%if(vffNum > 0){%>
-					,{
-						data: [[<%=temp0-1%> + 0.5, 0], [<%=temp0-1%> + 0.5001, <%=totalKaross%>]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						showInLegend: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"VFF",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B></B>";
-							}
-						}
-					}
-	<%}%><%if(pvsNum > 0){%>
-					,{
-						data: [[<%=temp1-1%> + 0.5, 0], [<%=temp1-1%> + 0.5001, <%=totalKaross%>]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						showInLegend: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"PVS",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B></B>";
-							}
-						}
-					}
-	<%}%><%if(osNum > 0){%>
-					, {
-						data: [[<%=temp2-1%> + 0.5, 0], [<%=temp2 - 1%> + 0.5001, <%=totalKaross%>]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						showInLegend: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"0-S",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B></B>";
-							}
-						}
-					}
-	<%}%><%if(sopNum > 0){%>
-					, {
-						data: [[<%=temp3-1%> + 0.5, 0], [<%=temp3-1%> + 0.5001, <%=totalKaross%>]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						showInLegend: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"SOP",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B></B>";
-							}
-						}
-					}
-	<%}%>					
-					
 					]
 				});
 				
@@ -568,84 +416,6 @@
 							}
 						}
 					}
-<%if(vffNum > 0){%>
-					,{
-						data: [[<%=temp0-1%> + 0.5, 0], [<%=temp0-1%> + 0.5001, <%=totalLack%>]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						showInLegend: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"VFF",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B></B>";
-							}
-						}
-					}
-	<%}%><%if(pvsNum > 0){%>
-					,{
-						data: [[<%=temp1-1%> + 0.5, 0], [<%=temp1-1%> + 0.5001, <%=totalLack%>]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						showInLegend: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"PVS",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B></B>";
-							}
-						}
-					}
-	<%}%><%if(osNum > 0){%>
-					, {
-						data: [[<%=temp2-1%> + 0.5, 0], [<%=temp2 - 1%> + 0.5001, <%=totalLack%>]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						showInLegend: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"0-S",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B></B>";
-							}
-						}
-					}
-	<%}%><%if(sopNum > 0){%>
-					, {
-						data: [[<%= temp3-1%> + 0.5, 0], [<%= temp3-1%> + 0.5001, <%=totalLack%>]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						showInLegend: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"SOP",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B></B>";
-							}
-						}
-					}
-	<%}%>					
-
 					]
 				});
 				
@@ -750,83 +520,7 @@
 							}
 						}
 					}
-	<%if(vffNum > 0){%>
-					,{
-						data: [[<%=temp0-1%> + 0.5, 0], [<%=temp0-1%> + 0.5001, <%=totalMontage%>]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						showInLegend: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"VFF",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B></B>";
-							}
-						}
-					}
-	<%}%><%if(pvsNum > 0){%>
-					,{
-						data: [[<%=temp1-1%> + 0.5, 0], [<%=temp1-1%> + 0.5001, <%=totalMontage%>]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						showInLegend: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"PVS",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B></B>";
-							}
-						}
-					}
-	<%}%><%if(osNum > 0){%>
-					, {
-						data: [[<%=temp2-1%> + 0.5, 0], [<%=temp2- 1%> + 0.5001, <%=totalMontage%>]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						showInLegend: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"0-S",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B></B>";
-							}
-						}
-					}
-	<%}%><%if(sopNum > 0){%>
-					, {
-						data: [[<%=temp3-1%> + 0.5, 0], [<%=temp3-1%> + 0.5001, <%=totalMontage%>]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						showInLegend: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"SOP",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B></B>";
-							}
-						}
-					}
-	<%}%>					
+
 					]
 				});
 				
@@ -931,84 +625,7 @@
 							}
 						}
 					}
-<%if(vffNum > 0){%>
-					,{
-						data: [[<%=temp0-1%> + 0.5, 0], [<%=temp0-1%> + 0.5001, <%=totalPress%>]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						showInLegend: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"VFF",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B></B>";
-							}
-						}
-					}
-	<%}%><%if(pvsNum > 0){%>
-					,{
-						data: [[<%=temp1-1%> + 0.5, 0], [<%=temp1-1%> + 0.5001, <%=totalPress%>]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						showInLegend: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"PVS",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B></B>";
-							}
-						}
-					}
-	<%}%><%if(osNum > 0){%>
-					, {
-						data: [[<%=temp2-1%> + 0.5, 0], [<%=temp2 - 1%> + 0.5001, <%=totalPress%>]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						showInLegend: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"0-S",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B></B>";
-							}
-						}
-					}
-	<%}%><%if(sopNum > 0){%>
-					, {
-						data: [[<%=temp3-1%> + 0.5, 0], [<%=temp3-1%> + 0.5001, <%=totalPress%>]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
-						marker: {enabled: false},
-						shadow: false,
-						showInLegend: false,
-						enableMouseTracking: false,
-						type: 'line',
-						name :"SOP",
-						dataLabels: {
-							enabled: true,
-							formatter: function() {
-								return "<B></B>";
-							}
-						}
-					}
-	<%}%>					
-				
+
 					]
 				});
 			});
@@ -1053,7 +670,7 @@
 				<div id="chart5" class="chart"></div>
 				<div class="clear1">&nbsp;</div>
 				<div id="meilsteinouter" style="width: 800px;">
-				<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 254px; text-align: center; overflow: hidden; ">
+				<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 228px; text-align: center; overflow: hidden; ">
 					<div style=" width: <%=value1 %>px; height: 30px; float: left; background-color: #99FF99; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">VFF</span></div>
 					<div style=" width: <%=value2 %>px; height: 30px; float: left; background-color: #33CC33; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">PVS</span></div>
 					<div style=" width: <%=value3 %>px; height: 30px; float: left; background-color: #006600; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">0S</span></div>

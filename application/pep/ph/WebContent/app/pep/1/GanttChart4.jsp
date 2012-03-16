@@ -165,7 +165,7 @@
 					var task = _taskList[i];
 					var _level = task.getLevel();
 					
-					_offSet = (Date.parse(task.getFrom()) - Date.parse(_minDate)) / (24 * 60 * 60 * 1000);
+					_offSet = (Date.parse(task.getFrom()) - Date.parse(_minDate)) / (24 * 60 * 60 * 1000)+1;
 					_dateDiff = (Date.parse(task.getTo()) - Date.parse(task.getFrom())) / (24 * 60 * 60 * 1000) + 1;
 					
 			//		_offSet = (task.getFrom().getFullYear() - _minDate.getFullYear()) * 12 + (task.getFrom().getMonth() - _minDate.getMonth());
@@ -177,7 +177,7 @@
 					
 					top = (16 * _level + 10 + some*20);
 					_gStr += "<div style='position:absolute; top:" + top + "; left:25px;width:150px;font-size:12px'>" + task.getTask() + "</div>";
-					_gStr += "<div style='position:absolute; top:" + top + "; left:" + (_offSet * offWidth + 156) + "px; width:" + (offWidth * _dateDiff + 101) + "px'><div title='" + task.getTask() + "' class='GTask' style='float:left; width:" + (offWidth * _dateDiff - 10) + "px;" + "background-color:" + task.getColor()+ ";border:#000000 1px solid;text-align:center;'>" + task.getResource() + "</div></div>";
+					_gStr += "<div style='position:absolute; top:" + top + "; left:" + (_offSet * offWidth + 191) + "px; width:" + (offWidth * _dateDiff) + "px'><div title='" + task.getTask() + "' class='GTask' style='float:left; width:" + (offWidth * _dateDiff) + "px;" + "background-color:" + task.getColor()+ ";border:#000000 1px solid;text-align:center;'>" + task.getResource() + "</div></div>";
 				}
 				_GanttDiv.innerHTML = _gStr;
 			}
@@ -266,7 +266,7 @@
 	{
 		padding-left:5px;
 		font-family:tahoma, arial, verdana;
-		font-size:11px;
+		font-size:9px;
 		font-weight:bold;	
 		height: 30px;
 	}
@@ -299,6 +299,7 @@
 		text-align:center;
 		border:0px;
 		border-top: 1px black solid;
+		/*border-left: 1px solid;*/
 	}
 	
 	.GTask

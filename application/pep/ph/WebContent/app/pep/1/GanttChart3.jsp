@@ -14,23 +14,23 @@
 	<title>New Page 1</title>
 	</head>
 <script>
-function Task(from, to, task, resource, progress, level, color) {
-	var _from = getKw(from);	
-	var _to = getKw(to);
-	var _task = task;
-	var _resource = resource;						
-	var _progress = progress;
-	var _level = level;
-	var _color = color;
-	
-	this.getFrom = function(){ return _from};
-	this.getTo = function(){ return _to};
-	this.getTask = function(){ return _task};
-	this.getResource = function(){ return _resource};
-	this.getProgress = function(){ return _progress};
-	this.getLevel = function(){return _level};
-	this.getColor = function(){return _color};
-}
+	function Task(from, to, task, resource, progress, level, color) {
+		var _from = getKw(from);	
+		var _to = getKw(to);
+		var _task = task;
+		var _resource = resource;						
+		var _progress = progress;
+		var _level = level;
+		var _color = color;
+		
+		this.getFrom = function(){ return _from};
+		this.getTo = function(){ return _to};
+		this.getTask = function(){ return _task};
+		this.getResource = function(){ return _resource};
+		this.getProgress = function(){ return _progress};
+		this.getLevel = function(){return _level};
+		this.getColor = function(){return _color};
+	}
 	
 	function Gantt(gDiv) {
 		var _GanttDiv = gDiv;
@@ -124,9 +124,6 @@ function Task(from, to, task, resource, progress, level, color) {
 					
 					var dArr = getYearWeeks(_dTemp);
 				}
-		//		_thirdRow += "</tr>"; 				
-	//			_gStr += "</tr>" + _thirdRow + "</table>";			
-	//			_gStr = _firstRowStr + _gStr;			
 			
 
 				_thirdRow += "</tr>"; 	
@@ -134,7 +131,6 @@ function Task(from, to, task, resource, progress, level, color) {
 				_gStr += "</tr>";
 				_secondRow += "</tr>"
 				_gStr = _firstRowStr + _gStr + _thirdRow + _secondRow + "</table>";
-			//	_gStr = _firstRowStr + _thirdRow + "</table>";	
 					
 				var offWidth = 27;
 				if (width == 14) {
@@ -146,16 +142,11 @@ function Task(from, to, task, resource, progress, level, color) {
 					var task = _taskList[i];
 					var _level = task.getLevel();
 					
-			//		_offSet = (Date.parse(task.getFrom()) - Date.parse(_minDate)) / (24 * 60 * 60 * 1000);
-			//		_dateDiff = (Date.parse(task.getTo()) - Date.parse(task.getFrom())) / (24 * 60 * 60 * 1000) + 1;
-					
-					//TODO:&#27492;&#22788;&#38656;&#35201;&#26356;&#25913;&#65306;&#19981;&#26159;&#27599;&#24180;&#37117;52&#21608;
 					var fromArr = getYearWeeks(task.getFrom());
 					var toArr = getYearWeeks(task.getTo());
 					_offSet = (parseInt(fromArr[0], 10) - parseInt(_minArr[0], 10)) * 52 + (parseInt(fromArr[1], 10) - parseInt(_minArr[1], 10));
 					_dateDiff = (parseInt(toArr[0], 10) - parseInt(fromArr[0], 10)) * 52 + (parseInt(toArr[1], 10) - parseInt(fromArr[1], 10)) + 1;
 					
-				//	_dateDiff = (task.getTo().getFullYear() - task.getFrom().getFullYear()) * 12 + (task.getTo().getMonth() - task.getFrom().getMonth()) + 1;
 					if (task.getFrom() == task.getTo()) {
 						_gStr += "<div style='position:absolute; top:" + (20 * (_level + 2)) + "; left:" + (_offSet * offWidth + 4) + "; width:" + (offWidth * _dateDiff - 1 + 100) + "'><div title='" + task.getTask() + "' class='GTaska' style='height:30px;float:left; width:" + (offWidth * _dateDiff +6) + "px;" + task.getColor() + "'>" + task.getResource() + "</div></div>";
 					} else {
@@ -181,77 +172,94 @@ function Task(from, to, task, resource, progress, level, color) {
 		
 		return getYearAllWeeks(year);
 	}
-	function getKw(from) {
-		var dvArr = from.split('-');
-		var date = new Date();
-		date.setFullYear(parseInt(dvArr[0], 10), parseInt(dvArr[1], 10) - 1, parseInt(dvArr[2], 10));
-
-		var week = (24 * 60 * 60 * 1000) * 7;
-		var firstDate = new Date();	
+	
+	function getWeeks(date) {
+		var dayCount = getDaysInYear(date);
 		var k = 0;
+		var firstDate = new Date();	
 		firstDate.setFullYear(date.getYear(), 0, 1);
 		
 		var days = firstDate.getDay();
-		if (days >= 3) {
+		if (days == 0 || days > 3) {
 			k = 0;
 		} else {
 			k = 1;
 		}
 		
-		var time = firstDate.getTime();
-		var t = date.getTime();
+		if (days == 0) {
+			dayCount -= 1;
+		} else {
+			dayCount = dayCount - (7 - days + 1);
+		}
 		
-		while (true) {
-			time += week;
-			k++;
-			if (time > t) {
-				break;
-			}
+		if (dayCount > 0) {
+			k += Math.ceil(dayCount / 7);
+		}
+		
+		return k;
+	}
+	
+	function getKw(from) {
+		var dvArr = from.split('-');
+		var date = new Date();
+		date.setFullYear(parseInt(dvArr[0], 10), parseInt(dvArr[1], 10) - 1, parseInt(dvArr[2], 10));
+
+		var k = getWeeks(date);
+		
+		if (k < 10) {
+			return date.getYear() + "/0" + k;
 		}
 		
 		return date.getYear() + "/" + k;
 	}
 	
 	function getYearAllWeeks(year) {
-		var firstDate = new Date();
-		firstDate.setFullYear(parseInt(year), 0, 1);
-
 		var last = new Date();
 		last.setFullYear(parseInt(year), 11, 31);
 		
-		var week = (24 * 60 * 60 * 1000) * 7;
-		var k = 0;
-		
-		var days = firstDate.getDay();
-		if (days >= 3) {
-			k = 0;
-		} else {
-			k = 1;
-		}
-		
-		var time = firstDate.getTime();
-		var t = last.getTime();
-		if (last.getDay < 3) {
-			k--;
-		}
-		
-		while (true) {
-			time += week;
-			
-			if (time < t) {
-				k++;
-			} else {
+		return k = getWeeks(last);
+	}
+	
+	function getDaysInMonth(month, year) {
+		var days;		
+		switch(month) {
+			case 1:
+			case 3:
+			case 5:
+			case 7:
+			case 8:
+			case 10:
+			case 12:
+				days = 31;
 				break;
-			}
+			case 4:
+			case 6:
+			case 9:
+			case 11:
+				days = 30;
+				break;
+			case 2:
+				if (((year% 4)==0) && ((year% 100)!=0) || ((year% 400)==0))				
+					days = 29;				
+				else								
+					days = 28;				
+				break;
 		}
 		
-		days = last.getDay();
-		if (days >= 3) {
-			k += 1;
-		} else {
-			k += 0;
+		return (days);
+	}		
+	
+	function getDaysInYear(date) {
+		var year = date.getYear();
+		var month = date.getMonth() + 1;
+		var day = date.getDate();
+		
+		var count = 0;
+		for (var i = 1; i < month; ++i) {
+			count += getDaysInMonth(i, year);
 		}
-		return k;
+		
+		return count + day;
 	}
 
 	/*----- END OF MY CODE FOR Gantt CHART GENERATOR -----*/

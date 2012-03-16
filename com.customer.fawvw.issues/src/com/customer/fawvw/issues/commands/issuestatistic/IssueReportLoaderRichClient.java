@@ -123,7 +123,7 @@ System.out.println("tcComponents.length = " + tcComponents.length);
 						item.put("fv9SlResOwnerVSC", fv9IssueRevision.getProperty("fv9SlResOwnerVSC"));
 						item.put("fv9SlResOwnerTE", fv9IssueRevision.getProperty("fv9SlResOwnerTE"));
 						
-						item.put("fv9CompletedDate", fv9IssueRevision.getDateProperty("fv9CompletedDate")); 
+						item.put("fv9SolDeadlineDate", fv9IssueRevision.getDateProperty("fv9SolDeadlineDate")); 
 						item.put("fv9RGStatus", fv9IssueRevision.getProperty("fv9RGStatus")); 
 						item.put("fv9IssueType", fv9IssueRevision.getProperty("fv9IssueType")); 
 						

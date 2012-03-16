@@ -10,6 +10,9 @@ import org.apache.poi.hssf.usermodel.HSSFPatriarch;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.widgets.Text;
 
 import com.customer.fawvw.issues.utils.ImageCellInfo;
 import com.customer.fawvw.issues.utils.ImageUtil;
@@ -199,10 +202,11 @@ public class AssPlacementWrite {
 						door.get("red") + inner.get("red") +   
 						behind.get("red");
 	
-			HSSFCellStyle textStyle = workbook.createCellStyle();   
-			textStyle.setWrapText(true);   
-			textStyle.setAlignment(HSSFCellStyle.ALIGN_LEFT);
-			textStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_TOP);
+//			HSSFCellStyle textStyle = workbook.createCellStyle();   
+//			textStyle.setWrapText(true);   
+//			textStyle.setAlignment(HSSFCellStyle.ALIGN_LEFT);
+//			textStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_TOP);
+			
 			
 			//写入问题总数Gesamt
 			HSSFRow row0 = sheetPage.getRow(0);
@@ -253,19 +257,19 @@ public class AssPlacementWrite {
 				if (driver.get("red") > 0) {
 					HSSFCell cell_6_8 = row6.createCell(8);
 					cell_6_8.setCellValue(driver.get("red"));
-					cell_6_8.setCellStyle(textStyle);
+//					cell_6_8.setCellStyle(textStyle);
 				} 
 				
 				if (driver.get("yellow") > 0) {
 					HSSFCell cell_7_8 = row7.createCell(8);
 					cell_7_8.setCellValue(driver.get("yellow"));
-					cell_7_8.setCellStyle(textStyle);
+//					cell_7_8.setCellStyle(textStyle);
 				} 
 				
 				if (driver.get("green") > 0) {
 					HSSFCell cell_8_8 = row8.createCell(8);
 					cell_8_8.setCellValue(driver.get("green"));
-					cell_8_8.setCellStyle(textStyle);
+//					cell_8_8.setCellStyle(textStyle);
 				} 
 				
 				//车门
@@ -275,19 +279,19 @@ public class AssPlacementWrite {
 				if (door.get("red") > 0) {
 					HSSFCell cell_6_16 = row6.createCell(16);
 					cell_6_16.setCellValue(door.get("red"));
-					cell_6_16.setCellStyle(textStyle);
+//					cell_6_16.setCellStyle(textStyle);
 				} 
 				
 				if (door.get("yellow") > 0) {
 					HSSFCell cell_7_16 = row7.createCell(16);
 					cell_7_16.setCellValue(door.get("yellow"));
-					cell_7_16.setCellStyle(textStyle);
+//					cell_7_16.setCellStyle(textStyle);
 				} 
 				
 				if (door.get("green") > 0) {
 					HSSFCell cell_8_16 = row8.createCell(16);
 					cell_8_16.setCellValue(door.get("green"));
-					cell_8_16.setCellStyle(textStyle);
+//					cell_8_16.setCellStyle(textStyle);
 				}
 				
 				//内饰
@@ -297,19 +301,19 @@ public class AssPlacementWrite {
 				if (inner.get("red") > 0) {
 					HSSFCell cell_6_22 = row6.createCell(22);
 					cell_6_22.setCellValue(inner.get("red"));
-					cell_6_22.setCellStyle(textStyle);
+//					cell_6_22.setCellStyle(textStyle);
 				} 
 				
 				if (inner.get("yellow") > 0) {
 					HSSFCell cell_7_22 = row7.createCell(22);
 					cell_7_22.setCellValue(inner.get("yellow"));
-					cell_7_22.setCellStyle(textStyle);
+//					cell_7_22.setCellStyle(textStyle);
 				} 
 				
 				if (inner.get("green") > 0) {
 					HSSFCell cell_8_22 = row8.createCell(22);
 					cell_8_22.setCellValue(inner.get("green"));
-					cell_8_22.setCellStyle(textStyle);
+//					cell_8_22.setCellStyle(textStyle);
 				} 
 				
 				//后端
@@ -319,19 +323,19 @@ public class AssPlacementWrite {
 				if (behind.get("red") > 0) {
 					HSSFCell cell_6_29 = row6.createCell(29);
 					cell_6_29.setCellValue(behind.get("red"));
-					cell_6_29.setCellStyle(textStyle);
+//					cell_6_29.setCellStyle(textStyle);
 				} 
 				
 				if (behind.get("yellow") > 0) {
 					HSSFCell cell_7_29 = row7.createCell(29);
 					cell_7_29.setCellValue(behind.get("yellow"));
-					cell_7_29.setCellStyle(textStyle);
+//					cell_7_29.setCellStyle(textStyle);
 				} 
 				
 				if (behind.get("green") > 0) {
 					HSSFCell cell_8_29 = row8.createCell(29);
 					cell_8_29.setCellValue(behind.get("green"));
-					cell_8_29.setCellStyle(textStyle);
+//					cell_8_29.setCellStyle(textStyle);
 				}
 				
 				//前端
@@ -341,19 +345,19 @@ public class AssPlacementWrite {
 				if (front.get("red") > 0) {
 					HSSFCell cell_32_7 = row32.createCell(7);
 					cell_32_7.setCellValue(front.get("red"));
-					cell_32_7.setCellStyle(textStyle);
+//					cell_32_7.setCellStyle(textStyle);
 				} 
 				
 				if (front.get("yellow") > 0) {
 					HSSFCell cell_33_7 = row33.createCell(7);
 					cell_33_7.setCellValue(front.get("yellow"));
-					cell_33_7.setCellStyle(textStyle);
+//					cell_33_7.setCellStyle(textStyle);
 				}
 				
 				if (front.get("green") > 0) {
 					HSSFCell cell_34_7 = row34.createCell(7);
 					cell_34_7.setCellValue(front.get("green"));
-					cell_34_7.setCellStyle(textStyle);
+//					cell_34_7.setCellStyle(textStyle);
 				} 
 				
 				//底盘
@@ -363,19 +367,19 @@ public class AssPlacementWrite {
 				if (chassis.get("red") > 0) {
 					HSSFCell cell_32_18 = row32.createCell(18);
 					cell_32_18.setCellValue(chassis.get("red"));
-					cell_32_18.setCellStyle(textStyle);
+//					cell_32_18.setCellStyle(textStyle);
 				}
 				
 				if (chassis.get("yellow") > 0) {
 					HSSFCell cell_33_18 = row33.createCell(18);
 					cell_33_18.setCellValue(chassis.get("yellow"));
-					cell_33_18.setCellStyle(textStyle);
+//					cell_33_18.setCellStyle(textStyle);
 				}
 				
 				if (chassis.get("green") > 0) {
 					HSSFCell cell_34_18 = row34.createCell(18);
 					cell_34_18.setCellValue(chassis.get("green"));
-					cell_34_18.setCellStyle(textStyle);
+//					cell_34_18.setCellStyle(textStyle);
 				} 
 				
 				//电器
@@ -385,19 +389,19 @@ public class AssPlacementWrite {
 				if (electronik.get("red") > 0) {
 					HSSFCell cell_32_27 = row32.createCell(27);
 					cell_32_27.setCellValue(electronik.get("red"));
-					cell_32_27.setCellStyle(textStyle);
+//					cell_32_27.setCellStyle(textStyle);
 				} 
 				
 				if (electronik.get("yellow") > 0) {
 					HSSFCell cell_33_27 = row33.createCell(27);
 					cell_33_27.setCellValue(electronik.get("yellow"));
-					cell_33_27.setCellStyle(textStyle);
+//					cell_33_27.setCellStyle(textStyle);
 				}
 				
 				if (electronik.get("green") > 0) {
 					HSSFCell cell_34_27 = row34.createCell(27);
 					cell_34_27.setCellValue(electronik.get("green"));
-					cell_34_27.setCellStyle(textStyle);
+//					cell_34_27.setCellStyle(textStyle);
 				}
 				
 			} catch (Exception e) {

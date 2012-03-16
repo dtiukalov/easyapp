@@ -218,12 +218,12 @@ public class ImageUtil {
 
 	public static BufferedImage getRYG() throws Exception {
 		try {
-			File image = new File(LOGO_FILE_PATH);
+			File image = new File(RYG);
 			InputStream ins = new FileInputStream(image);
 			return readBufferedImg(ins);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			throw new FawvmLoaderException("logo.jpg不存在"); //$NON-NLS-1$
+			throw new FawvmLoaderException("r_y_g.jpg不存在"); //$NON-NLS-1$
 		}
 	}
 	

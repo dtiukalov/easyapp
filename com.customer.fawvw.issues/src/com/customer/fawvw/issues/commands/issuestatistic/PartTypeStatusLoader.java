@@ -16,6 +16,8 @@ public class PartTypeStatusLoader {
     private static Map<String, Integer> quality = new HashMap<String, Integer>(); //零件质量
     private static Map<String, Integer> detail = new HashMap<String, Integer>(); //明细表
     private static Map<String, Integer> other = new HashMap<String, Integer>(); //其他
+    private static Map<String, Integer> device = new HashMap<String, Integer>(); //工艺及设备
+    private static Map<String, Integer> change = new HashMap<String, Integer>(); //更改
     
 	
 	public static  Map<String,Object> load(ArrayList<HashMap<String, Object>> values){
@@ -52,6 +54,14 @@ public class PartTypeStatusLoader {
 		other.put("green", 0); 
 		other.put("yellow", 0); 
 		
+		device.put("red", 0); 
+		device.put("green", 0); 
+		device.put("yellow", 0); 
+		
+		change.put("red", 0); 
+		change.put("green", 0); 
+		change.put("yellow", 0); 
+		
 		for (int k=0; k<values.size(); k++) {
 			String parttype = (String)(values.get(k)).get("fv9IssueType");
 			if ("零件状态".equals(parttype)) {   
@@ -78,6 +88,12 @@ public class PartTypeStatusLoader {
 			if ("其它".equals(parttype)) {
 				other = sumLightStatue(other, (String)(values.get(k)).get("fv9RGStatus")); 
 			}
+			if ("工艺及设备".equals(parttype)) {
+				device = sumLightStatue(device, (String)(values.get(k)).get("fv9RGStatus")); 
+			}
+			if ("更改".equals(parttype)) {
+				change = sumLightStatue(change, (String)(values.get(k)).get("fv9RGStatus")); 
+			}
 			
 		}
 		
@@ -89,6 +105,8 @@ public class PartTypeStatusLoader {
 		partType.put("quality", quality); 
 		partType.put("detail", detail); 
 		partType.put("other", other); 
+		partType.put("device", device); 
+		partType.put("change", change); 
 		
 		return partType;
 				

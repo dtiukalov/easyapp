@@ -451,12 +451,12 @@ public class TimeLoader  {
 			}
 			
 			//找出最大的问题实际完成日期
-			if ("".equals(end) && !"0-1-00 00:00".equals((String)(values.get(i)).get("fv9CompletedDate"))) { //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				end = (String)(values.get(i)).get("fv9CompletedDate"); //$NON-NLS-1$
+			if ("".equals(end) && !"0-1-00 00:00".equals((String)(values.get(i)).get("fv9SolDeadlineDate"))) { //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				end = (String)(values.get(i)).get("fv9SolDeadlineDate"); //$NON-NLS-1$
 			}
-			if(!"".equals(end) && !"0-1-00 00:00".equals((String)(values.get(i)).get("fv9CompletedDate")) && //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-					compareTime(end, (String)(values.get(i)).get("fv9CompletedDate"))) { //$NON-NLS-1$
-				end = (String)(values.get(i)).get("fv9CompletedDate"); //$NON-NLS-1$
+			if(!"".equals(end) && !"0-1-00 00:00".equals((String)(values.get(i)).get("fv9SolDeadlineDate")) && //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					compareTime(end, (String)(values.get(i)).get("fv9SolDeadlineDate"))) { //$NON-NLS-1$
+				end = (String)(values.get(i)).get("fv9SolDeadlineDate"); //$NON-NLS-1$
 			}
 			
 //	System.out.println("start = " + start + "\t" + "end = " + end);

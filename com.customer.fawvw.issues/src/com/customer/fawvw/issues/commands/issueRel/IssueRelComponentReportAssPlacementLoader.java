@@ -10,7 +10,7 @@ private static HashMap<String, Object> assPlacement = new HashMap<String, Object
 	
 	private static Map<String, Integer> front; //前端 Vor-derwagen
 	private static Map<String, Integer> behind; //后端 Heck
-	private static Map<String, Integer> door; // 车门 Türen
+	private static Map<String, Integer> door; // 车门 Tueren
 	private static Map<String, Integer> inner; //内饰 Innenraum
 	private static Map<String, Integer> chassis; //底盘 Boden
 	private static Map<String, Integer> driver; //驾驶模块 Cockpit
@@ -64,7 +64,7 @@ private static HashMap<String, Object> assPlacement = new HashMap<String, Object
 				behind = sumLightStatue(behind, (String)(values.get(k)).get("RGStatus")); //$NON-NLS-1$
 			}
 			
-			if ("车门 Türen".equals((String)(values.get(k)).get("assPlacement"))) { //$NON-NLS-2$ //$NON-NLS-1$
+			if ("车门 Tueren".equals((String)(values.get(k)).get("assPlacement"))) { //$NON-NLS-2$ //$NON-NLS-1$
 				door = sumLightStatue(door, (String)(values.get(k)).get("RGStatus")); //$NON-NLS-1$
 			}
 			

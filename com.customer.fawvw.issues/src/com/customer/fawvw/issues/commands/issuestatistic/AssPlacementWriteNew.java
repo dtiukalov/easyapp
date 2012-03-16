@@ -78,7 +78,7 @@ public class AssPlacementWriteNew {
 			cell_14_2.setCellValue(((Map<String, Integer>) AssIssues
 					.get("driver")).get("green")); //$NON-NLS-1$ //$NON-NLS-2$
 			
-			//车门
+			//车门 Tueren
 			HSSFCell row_7_4 = row7.getCell(4);
 			row_7_4.setCellValue(((Map<String, Integer>) AssIssues
 					.get("door")).get("red")); //$NON-NLS-1$ //$NON-NLS-2$

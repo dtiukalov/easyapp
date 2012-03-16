@@ -230,9 +230,9 @@ public class IssuesReportWrite {
 				 if (cell_i11 == null) {
 					 cell_i11 = row.createCell(11);
 				 }
-				 if (Issue.get("fv9CompletedDate") != null) { 
+				 if (Issue.get("fv9SolDeadlineDate") != null) { 
 					 cell_i11.setCellValue(new HSSFRichTextString("KW" + DateUtil.getWeekOfYear2( 
-							 (Date)Issue.get("fv9CompletedDate")))); 
+							 (Date)Issue.get("fv9SolDeadlineDate")))); 
 				 } else {
 					 cell_i11.setCellValue(new HSSFRichTextString("")); 
 				 }

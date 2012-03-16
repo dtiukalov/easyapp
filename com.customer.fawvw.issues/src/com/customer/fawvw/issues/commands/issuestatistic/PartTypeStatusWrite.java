@@ -51,10 +51,18 @@ public class PartTypeStatusWrite {
 			
 			HSSFCell cell_21_9 = row21.createCell(9);
 			cell_21_9.setCellValue(((Map<String, Integer>) partType
-					.get("other")).get("red")); 
+					.get("device")).get("red")); 
 			
 			HSSFCell cell_21_10 = row21.createCell(10);
-			cell_21_10.setCellFormula("SUM(C22:J22)"); 
+			cell_21_10.setCellValue(((Map<String, Integer>) partType
+					.get("change")).get("red")); 
+			
+			HSSFCell cell_21_11 = row21.createCell(11);
+			cell_21_11.setCellValue(((Map<String, Integer>) partType
+					.get("other")).get("red")); 
+			
+			HSSFCell cell_21_12 = row21.createCell(12);
+			cell_21_12.setCellFormula("SUM(C22:L22)"); 
 	
 			HSSFRow row22 = sheetPage.getRow(22);
 	
@@ -89,10 +97,18 @@ public class PartTypeStatusWrite {
 			
 			HSSFCell cell_22_9 = row22.createCell(9);
 			cell_22_9.setCellValue(((Map<String, Integer>) partType
-					.get("other")).get("yellow")); 
+					.get("device")).get("yellow")); 
 			
 			HSSFCell cell_22_10 = row22.createCell(10);
-			cell_22_10.setCellFormula("SUM(C23:J23)"); 
+			cell_22_10.setCellValue(((Map<String, Integer>) partType
+					.get("change")).get("yellow")); 
+			
+			HSSFCell cell_22_11 = row22.createCell(11);
+			cell_22_11.setCellValue(((Map<String, Integer>) partType
+					.get("other")).get("yellow")); 
+			
+			HSSFCell cell_22_12 = row22.createCell(12);
+			cell_22_12.setCellFormula("SUM(C23:L23)"); 
 	
 			HSSFRow row23 = sheetPage.getRow(23);
 	
@@ -126,10 +142,18 @@ public class PartTypeStatusWrite {
 			
 			HSSFCell cell_23_9 = row23.createCell(9);
 			cell_23_9.setCellValue(((Map<String, Integer>) partType
-					.get("other")).get("green")); 
+					.get("device")).get("green")); 
 			
 			HSSFCell cell_23_10 = row23.createCell(10);
-			cell_23_10.setCellFormula("SUM(C24:J24)"); 
+			cell_23_10.setCellValue(((Map<String, Integer>) partType
+					.get("change")).get("green")); 
+			
+			HSSFCell cell_23_11 = row23.createCell(11);
+			cell_23_11.setCellValue(((Map<String, Integer>) partType
+					.get("other")).get("green")); 
+			
+			HSSFCell cell_23_12 = row23.createCell(12);
+			cell_23_12.setCellFormula("SUM(C24:L24)"); 
 			
 		}
 	}

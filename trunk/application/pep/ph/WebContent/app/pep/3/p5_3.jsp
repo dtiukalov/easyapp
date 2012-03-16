@@ -110,7 +110,7 @@
 								},
 								color: 'white',
 								formatter: function() {
-									if (this.y == 0 || this.y == 0.0) {
+									if (this.y == 0 || this.y == 0.0 || this.y == null) {
 										return '';
 									}
 									return this.y + '';
@@ -131,7 +131,7 @@
 							},
 							color: 'black',
 							formatter: function() {
-								if (this.y == 0 || this.y == 0.0) {
+								if (this.y == 0 || this.y == 0.0 || this.y == null) {
 									return '';
 								}
 								return this.y + '';
@@ -145,7 +145,7 @@
 						dataLabels: {
 							enabled:true,
 							formatter: function() {
-								if (this.y == 0 || this.y == 0.0) {
+								if (this.y == 0 || this.y == 0.0 || this.y == null) {
 									return '';
 								}
 								return this.y + '';
@@ -159,7 +159,7 @@
 						dataLabels: {
 							enabled:true,
 							formatter: function() {
-								if (this.y == 0 || this.y == 0.0) {
+								if (this.y == 0 || this.y == 0.0 || this.y == null) {
 									return '';
 								}
 								return this.y + '';
@@ -173,7 +173,7 @@
 						dataLabels: {
 							enabled:true,
 							formatter: function() {
-								if (this.y == 0 || this.y == 0.0) {
+								if (this.y == 0 || this.y == 0.0 || this.y == null) {
 									return '';
 								}
 								return this.y + '';
@@ -187,7 +187,7 @@
 						dataLabels: {
 							enabled:true,
 							formatter: function() {
-								if (this.y == 0 || this.y == 0.0) {
+								if (this.y == 0 || this.y == 0.0 || this.y == null) {
 									return '';
 								}
 								return this.y + '';

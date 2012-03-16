@@ -140,7 +140,7 @@
 								rotation: -90,
 								x:5,
 								formatter: function() {
-									if (this.y == 0 || this.y == 0.0) {
+									if (this.y == 0 || this.y == 0.0 || this.y == null) {
 										return '';
 									}
 									return this.y + '';
@@ -156,7 +156,7 @@
 							dataLabels: {
 								enabled: true,
 								formatter: function() {
-									if (this.y == 0 || this.y == 0.0 || this.y == null) {
+									if (this.y == 0 || this.y == 0.0 || this.y == null || this.y == null) {
 										return '';
 									}
 									return this.y + '';

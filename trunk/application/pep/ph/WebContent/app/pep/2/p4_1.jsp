@@ -23,13 +23,13 @@
 			 if(Web.getListYesOrNo((List<String>)form.get("fv9KWNo"))){
 				fv9KWNo = Web.getNumberListStrSubFirst((List<String>)form.get("fv9KWNo"));
 				fv9KWNo = fv9KWNo.substring(0, fv9KWNo.length()-1);
-				fv9KWNo += ",'', '', 'IST']";
+				fv9KWNo += ",'', '', '']";
 			 }	
 			 
 			 if(Web.getListYesOrNo((List<String>)form.get("fv9AekoAbgesch"))){
 				fv9AekoAbgesch = Web.getNumberListStrSubFirst((List<String>)form.get("fv9AekoAbgesch"));
 				fv9AekoAbgesch = fv9AekoAbgesch.substring(0, fv9AekoAbgesch.length()-1);
-				fv9AekoAbgesch += ", 0, 0,";
+				fv9AekoAbgesch += ", null, null,";
 				if(Web.getObjectYesOrNo(form.get("fv9PronoseAbgesch"))){
 					fv9PronoseAbgesch = Integer.parseInt((String)form.get("fv9PronoseAbgesch"));
 				}
@@ -39,7 +39,7 @@
 			 if(Web.getListYesOrNo((List<String>)form.get("fv9AekoSmall2Woch"))){
 				fv9AekoSmall2Woch = Web.getNumberListStrSubFirst((List<String>)form.get("fv9AekoSmall2Woch"));
 				fv9AekoSmall2Woch = fv9AekoSmall2Woch.substring(0, fv9AekoSmall2Woch.length()-1);
-				fv9AekoSmall2Woch += ", 0, 0,";
+				fv9AekoSmall2Woch += ", null, null,";
 				if(Web.getObjectYesOrNo(form.get("fv9PronoseSmall2Woch"))){
 					fv9PronoseSmall2Woch = Integer.parseInt((String)form.get("fv9PronoseSmall2Woch"));
 				}
@@ -49,7 +49,7 @@
 			 if(Web.getListYesOrNo((List<String>)form.get("fv9AekoBig2Woch"))){
 				fv9AekoBig2Woch = Web.getNumberListStrSubFirst((List<String>)form.get("fv9AekoBig2Woch"));
 				fv9AekoBig2Woch = fv9AekoBig2Woch.substring(0, fv9AekoBig2Woch.length()-1);
-				fv9AekoBig2Woch += ", 0, 0,";
+				fv9AekoBig2Woch += ", null, null,";
 				if(Web.getObjectYesOrNo(form.get("fv9PronoseBig2Woch"))){
 					fv9PronoseBig2Woch = Integer.parseInt((String)form.get("fv9PronoseBig2Woch"));
 				}
@@ -109,7 +109,7 @@
 					linkedTo: 0,
 					lineWidth:2,
 					title: {
-						text: '2011 Anzahl neuer ÄKOs',
+						text: 'Anzahl neuer ÄKOs',
 						style:{
 							color:'black'
 						}
@@ -131,8 +131,6 @@
 						enabled:true
 					}
 				}
-
-				
 				],
 				yAxis: {
 					gridLineWidth: 0,
@@ -184,7 +182,7 @@
 							},
 							color: 'black',
 							formatter: function() {
-								if (this.y == 0 || this.y == 0.0) {
+								if (this.y == 0 || this.y == 0.0 || this.y == null) {
 									return '';
 								}
 								return this.y + '';

@@ -454,4 +454,25 @@ public class DateUtils {
 		
 		return result;
 	}
+	
+	
+	public static String getCurrDateAddOneMonth(String currdate){
+		String result = "";
+		
+		if(currdate!=null && !"".equals(currdate)){
+			String year = currdate.split("-")[0];
+			String month = currdate.split("-")[1];
+			String day = "15";
+			
+			if(month == "12" ){
+				year = String.valueOf((Integer.parseInt(year) + 1));
+				month = "1";
+			}  else {
+				month = String.valueOf((Integer.parseInt(month) + 1));
+			}
+			result = year.concat("-").concat(month).concat("-").concat(day);
+		}
+		
+		return result;
+	}
 }

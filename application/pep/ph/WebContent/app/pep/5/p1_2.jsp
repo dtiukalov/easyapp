@@ -80,7 +80,7 @@
 					<td width="60%" valign="top" class="pgpg" style="padding:5px">
 						<div>
 						<%if (fv9KarossStCom_GM.get(i) != null && !"".equals(fv9KarossStCom_GM.get(i))) {
-						%> <%=fv9KarossStCom_GM.get(i) %><br \><%=fv9KarossStCom_CN.get(i) %>
+						%> <%=fv9KarossStCom_GM.get(i) %>
 						</div>
 						<%} else {%>
 						&nbsp;
@@ -89,7 +89,7 @@
 					<td width="40%" valign="top" class="pgpg">
 						<div>
 						<%if (fv9KarossMab_GM.get(i) != null && !"".equals(fv9KarossMab_GM.get(i))) {
-						%> <%=fv9KarossMab_GM.get(i) %><br \><%=fv9KarossMab_CN.get(i) %></div>
+						%> <%=fv9KarossMab_GM.get(i) %></div>
 						<%} else {%>
 						&nbsp;
 						<%}%>

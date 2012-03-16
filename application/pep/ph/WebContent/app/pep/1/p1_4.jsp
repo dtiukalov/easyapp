@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="com.saturn.tc.utils.DateUtils"%>	
 <html>
 
 <head>
@@ -59,6 +60,21 @@
 	</style>
 	<%
 		String uid = (String)request.getAttribute("uid");
+		String sop_start = (String)request.getSession().getAttribute("DATE_SOP");
+		String year = "";
+		int week = DateUtils.getWeekOfYear(sop_start + " 00:00");
+		
+		if(sop_start != null){
+			year = sop_start.split("-")[0];
+		}
+		
+		String project = (String)request.getSession().getAttribute("project");
+		if(project == null){
+			project = "";
+		}
+		
+		String version = "( V2 )Entwurf";
+		String date = "30.08.11";
 	%>
 </head>
 <body>	
@@ -77,11 +93,11 @@
 			    <td><table  height="60" border="0" cellpadding="0" cellspacing="0" class="taba">
 			      <tr>
 			        <td width="260" class="lg"><img src="../images/logo.jpg"/></td>
-			        <td width="384" class="bt"><h3>aktuelle Vorlage Meilensteinubersicht</h3>
-			        <h3>SOP MM/YYYY</h3></td>
+			        <td width="384" class="bt"><h3><%=project %> Vorserien-Ablauf </h3>
+			        <h3>SOP <%=week%>/<%=year %></h3></td>
 			        <td width="287" class="bz">
-			        	<h3><div style="float:right;margin-right:20px;font-size:12px;">Status: ( V2 )Entwurf</div></h3><br>
-						<h3><div style="float:right;margin-right:20px;font-size:12px;">Ausgabe:30.08.11</div></h3>
+			        	<h3><div style="float:right;margin-right:20px;font-size:12px;">Status:<%=version %></div></h3><br>
+						<h3><div style="float:right;margin-right:20px;font-size:12px;">Ausgabe:<%=date %></div></h3>
 					</td>
 			      </tr>
 			    </table></td>
@@ -89,7 +105,7 @@
 			  <tr>
 			    <td style="hight:400px">
 			    <iframe id="ff" name= "ff" frameborder="0" scrolling="no" 
-			    src="<%=request.getContextPath() %>/app/pep/1/GanttChart3.jsp?uid=<%=uid %>" style="width:850px;height:300px;">
+			    src="<%=request.getContextPath() %>/app/pep/1/GanttChart3.jsp?uid=<%=uid %>" style="width:850px;height:400px;">
 			    </iframe>
 			    </td>
 			  </tr>

@@ -6,6 +6,8 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.HashMap"%>	
 <%@page import="com.saturn.ph.FormManager"%>	
+<%@page import="com.saturn.tc.utils.DateUtils"%>	
+
 <html>
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -316,7 +318,7 @@ function Task(from, to, task, resource, progress, level, color) {
 		text-align:center;
 		font-weight:bold;
 		line-height:19px;
-		color:#FFF;
+		color:#000000;
 	}
 	
 	.GProgress
@@ -363,7 +365,7 @@ function Task(from, to, task, resource, progress, level, color) {
 	
 	String fv9TPPA_ME = (String)form.get("fv9TPPA_ME");//		TPPA_ME日期
 	String fv9QFTPPA_Kunde = (String)form.get("fv9QFTPPA_Kunde");//		QFTPPA_Kunde日期
-	Object sop_start = request.getSession().getAttribute("DATE_SOP");
+	String sop_start = (String)request.getSession().getAttribute("DATE_SOP");
 	
 %>
 <body>	
@@ -373,14 +375,20 @@ function Task(from, to, task, resource, progress, level, color) {
 	var g = new Gantt(document.all.GanttChart);
 	
 <%if(Web.getDateStrNotNull(fv9VFFTBTZP5)){%>
-	g.AddTaskDetail(new Task('<%=fv9VFFTBTZP5%>', '<%=fv9VFFTBTZP5%>', '', 'ZP5', 50, 1, 'background:url(../images/bg.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv9VFFTBTZP5%>', '<%=fv9VFFTBTZP5%>', '', '<%=DateUtils.getWeekOfYear(fv9VFFTBTZP5 + " 00:00")%>', 50, 0, 'background:url(../images/bg3.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv9VFFTBTZP5%>', '<%=fv9VFFTBTZP5%>', '', 'ZP5', 50, 1, 'background:url(../images/bg3.jpg) no-repeat 0 0;'));
 <%	}%>
 <%if(Web.getDateStrNotNull(fv9VFFTBTZP7)){%>	
-	g.AddTaskDetail(new Task('<%=fv9VFFTBTZP7%>', '<%=fv9VFFTBTZP7%>', '', 'ZP7', 50, 1, 'background:url(../images/bg2.gif) no-repeat 0 0;'));
+g.AddTaskDetail(new Task('<%=fv9VFFTBTZP7%>', '<%=fv9VFFTBTZP7%>', '', '<%=DateUtils.getWeekOfYear(fv9VFFTBTZP7 + " 00:00")%>', 50, 0, 'background:url(../images/bg3.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv9VFFTBTZP7%>', '<%=fv9VFFTBTZP7%>', '', 'ZP7', 50, 1, 'background:url(../images/bg3.jpg) no-repeat 0 0;'));
 <%	}%>
 <%if(Web.getDateStrNotNull(fv9VFFVorStart)
 	&& Web.getDateStrNotNull(fv9VFFVorEnd)){%>
-	g.AddTaskDetail(new Task('<%=fv9VFFVorStart%>', '<%=fv9VFFVorEnd%>', '<%=fv9VFFVorBatches%> Batches(<%=fv9VFFVorFzg%> Fzg.)*', 'VFF&nbsp&nbsp<b><%=fv9VFFVorBatches%> Batches(<%=fv9VFFVorFzg%> Fzg.)*</b>',  50, 1, 'background-color:#000000;color:#FFF;font-weight:bold;'));
+	g.AddTaskDetail(new Task('<%=fv9VFFVorStart%>', '<%=fv9VFFVorStart%>', '', '<%=DateUtils.getWeekOfYear(fv9VFFVorStart + " 00:00")%>', 50, 0, 'background:url(../images/bg3.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv9VFFVorEnd%>', '<%=fv9VFFVorEnd%>', '', '<%=DateUtils.getWeekOfYear(fv9VFFVorEnd + " 00:00")%>', 50, 0, 'background:url(../images/bg3.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv9VFFVorStart%>', '<%=fv9VFFVorEnd%>', '', 'VFF&nbsp&nbspFzge. fertig',  50, 1, 'background-color:#000000;color:#FFF;font-weight:bold;'));
+	g.AddTaskDetail(new Task('<%=fv9VFFVorEnd%>', '<%=DateUtils.getCurrDateAddTwoMonth(fv9VFFVorEnd)%>', '', '<b><%=fv9VFFVorBatches%> Batches(<%=fv9VFFVorFzg%> Fzg.)*</b>',  50, 1, 'background-color:#FFF;color:#000000;'));
+
 <%	}%>
 <%if(Web.getDateStrNotNull(fv9VFFAbsStart)
 		&& Web.getDateStrNotNull(fv9VFFAbsEnd)){%>
@@ -389,47 +397,82 @@ function Task(from, to, task, resource, progress, level, color) {
 	
 	
 	
+	
+	
+	
 <%if(Web.getDateStrNotNull(fv9PVSTBTZP5)){%>	
-	g.AddTaskDetail(new Task('<%=fv9PVSTBTZP5%>', '<%=fv9PVSTBTZP5%>', '', 'ZP5', 50, 3, 'background:url(../images/bg.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv9PVSTBTZP5%>', '<%=fv9PVSTBTZP5%>', '', '<%=DateUtils.getWeekOfYear(fv9PVSTBTZP5 + " 00:00")%>', 50, 3, 'background:url(../images/bg3.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv9PVSTBTZP5%>', '<%=fv9PVSTBTZP5%>', '', 'ZP5', 50, 4, 'background:url(../images/bg3.jpg) no-repeat 0 0;'));
 <%	}%>
 <%if(Web.getDateStrNotNull(fv9PVSTBTZP7)){%>
-	g.AddTaskDetail(new Task('<%=fv9PVSTBTZP7%>', '<%=fv9PVSTBTZP7%>', '', 'ZP7', 50, 3, 'background:url(../images/bg2.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv9PVSTBTZP7%>', '<%=fv9PVSTBTZP7%>', '', '<%=DateUtils.getWeekOfYear(fv9PVSTBTZP7 + " 00:00")%>', 50, 3, 'background:url(../images/bg3.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv9PVSTBTZP7%>', '<%=fv9PVSTBTZP7%>', '', 'ZP7', 50, 4, 'background:url(../images/bg3.jpg) no-repeat 0 0;'));
 <%	}%>
 <%if(Web.getDateStrNotNull(fv9PVSVorStart)
 		&& Web.getDateStrNotNull(fv9PVSVorEnd)){%>
-	g.AddTaskDetail(new Task('<%=fv9PVSVorStart%>', '<%=fv9PVSVorEnd%>', '<%=fv9PVSVorBatches%> Batches(<%=fv9PVSVorFzg%> Fzg.)*', 'PVS&nbsp&nbsp<b><%=fv9PVSVorBatches%> Batches(<%=fv9PVSVorFzg%> Fzg.)*</b>', 50, 3, 'background-color:#000000;color:#FFF;font-weight:bold;'));
+		
+	g.AddTaskDetail(new Task('<%=fv9PVSVorStart%>', '<%=fv9PVSVorStart%>', '', '<%=DateUtils.getWeekOfYear(fv9PVSVorStart + " 00:00")%>', 50, 3, 'background:url(../images/bg3.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv9PVSVorEnd%>', '<%=fv9PVSVorEnd%>', '', '<%=DateUtils.getWeekOfYear(fv9PVSVorEnd + " 00:00")%>', 50, 3, 'background:url(../images/bg3.gif) no-repeat 0 0;'));
+
+	g.AddTaskDetail(new Task('<%=fv9PVSVorStart%>', '<%=fv9PVSVorEnd%>', '<%=fv9PVSVorBatches%> Batches(<%=fv9PVSVorFzg%> Fzg.)*', 'PVS&nbsp&nbspFzge. fertig', 50, 4, 'background-color:#000000;color:#FFF;font-weight:bold;'));
+	g.AddTaskDetail(new Task('<%=fv9PVSVorEnd%>', '<%=DateUtils.getCurrDateAddTwoMonth(fv9PVSVorEnd)%>', '', '<b><%=fv9PVSVorBatches%> Batches(<%=fv9PVSVorFzg%> Fzg.)*</b>',  50, 4, 'background-color:#FFF;color:#000000;'));
+
 <%	}%>
 <%if(Web.getDateStrNotNull(fv9PVSAbsStart)
 		&& Web.getDateStrNotNull(fv9PVSAbsEnd)){%>
-	g.AddTaskDetail(new Task('<%=fv9PVSAbsStart%>', '<%=fv9PVSAbsEnd%>', '', 'Absicherungslauf PVS <%=fv9PVSAbsMeter%> km', 50, 4));
+
+	g.AddTaskDetail(new Task('<%=fv9PVSAbsStart%>', '<%=fv9PVSAbsStart%>', '', '<%=DateUtils.getWeekOfYear(fv9PVSAbsStart + " 00:00")%>', 50, 5, 'background:url(../images/bg3.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv9PVSAbsEnd%>', '<%=fv9PVSAbsEnd%>', '', '<%=DateUtils.getWeekOfYear(fv9PVSAbsEnd + " 00:00")%>', 50, 5, 'background:url(../images/bg3.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv9PVSAbsStart%>', '<%=fv9PVSAbsEnd%>', '', 'Absicherungslauf PVS <%=fv9PVSAbsMeter%> km', 50, 6));
 <%	}%>	
+
+
+
 
 
 
 <%if(Web.getDateStrNotNull(fv90STBTZP5)){%>
-	g.AddTaskDetail(new Task('<%=fv90STBTZP5%>', '<%=fv90STBTZP5%>', '', 'ZP5', 50, 5, 'background:url(../images/bg.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv90STBTZP5%>', '<%=fv90STBTZP5%>', '', '<%=DateUtils.getWeekOfYear(fv90STBTZP5 + " 00:00")%>', 50, 7, 'background:url(../images/bg3.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv90STBTZP5%>', '<%=fv90STBTZP5%>', '', 'ZP5', 50, 8, 'background:url(../images/bg3.jpg) no-repeat 0 0;'));
 <%	}%>
 <%if(Web.getDateStrNotNull(fv90STBTZP7)){%>
-	g.AddTaskDetail(new Task('<%=fv90STBTZP7%>', '<%=fv90STBTZP7%>', '', 'ZP7', 50, 5, 'background:url(../images/bg2.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv90STBTZP7%>', '<%=fv90STBTZP7%>', '', '<%=DateUtils.getWeekOfYear(fv90STBTZP7 + " 00:00")%>', 50, 7, 'background:url(../images/bg3.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv90STBTZP7%>', '<%=fv90STBTZP7%>', '', 'ZP7', 50, 8, 'background:url(../images/bg3.jpg) no-repeat 0 0;'));
 <%	}%>
 <%if(Web.getDateStrNotNull(fv90SVorStart)
 		&& Web.getDateStrNotNull(fv90SVorEnd)){%>
-	g.AddTaskDetail(new Task('<%=fv90SVorStart%>', '<%=fv90SVorEnd%>', '<%=fv90SVorBatches%> Batches(<%=fv90SVorFzg%> Fzg.)*', 'OS&nbsp&nbsp<b><%=fv90SVorBatches%> Batches(<%=fv90SVorFzg%> Fzg.)*</b>', 50, 5, 'background-color:#000000;color:#FFF;font-weight:bold;'));
+		
+	g.AddTaskDetail(new Task('<%=fv90SVorStart%>', '<%=fv90SVorStart%>', '', '<%=DateUtils.getWeekOfYear(fv90SVorStart + " 00:00")%>', 50, 7, 'background:url(../images/bg3.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv90SVorEnd%>', '<%=fv90SVorEnd%>', '', '<%=DateUtils.getWeekOfYear(fv9PVSAbsEnd + " 00:00")%>', 50, 7, 'background:url(../images/bg3.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv90SVorStart%>', '<%=fv90SVorEnd%>', '<%=fv90SVorBatches%> Batches(<%=fv90SVorFzg%> Fzg.)*', 'OS&nbsp&nbspFzge. fertig', 50, 8, 'background-color:#000000;color:#FFF;font-weight:bold;'));
+	g.AddTaskDetail(new Task('<%=fv90SVorEnd%>', '<%=DateUtils.getCurrDateAddTwoMonth(fv90SVorEnd)%>', '', '<b><%=fv90SVorBatches%> Batches(<%=fv90SVorFzg%> Fzg.)*</b>',  50, 8, 'background-color:#FFF;color:#000000;'));
+
 <%	}%>
 <%if(Web.getDateStrNotNull(fv90SAbsStart)
 		&& Web.getDateStrNotNull(fv90SAbsEnd)){%>
-	g.AddTaskDetail(new Task('<%=fv90SAbsStart%>', '<%=fv90SAbsEnd%>', '', 'Absicherungslauf PVS <%=fv90SAbsMeter%> km', 50, 6));
+		
+	g.AddTaskDetail(new Task('<%=fv90SAbsStart%>', '<%=fv90SAbsStart%>', '', '<%=DateUtils.getWeekOfYear(fv90SAbsStart + " 00:00")%>', 50, 9, 'background:url(../images/bg3.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv90SAbsEnd%>', '<%=fv90SAbsEnd%>', '', '<%=DateUtils.getWeekOfYear(fv90SAbsEnd + " 00:00")%>', 50, 9, 'background:url(../images/bg3.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv90SAbsStart%>', '<%=fv90SAbsEnd%>', '', 'Absicherungslauf PVS <%=fv90SAbsMeter%> km', 50, 10));
 <%	}%>
 
+
+
+
+
 <%if(Web.getDateStrNotNull(fv9TPPA_ME)){  String descStart = "";  String descEnd = ""; %>
-	g.AddTaskDetail(new Task('<%=fv9TPPA_ME%>', '<%=fv9TPPA_ME%>', 'FreigabeMarkteinführungs-Volumen', '', 50, 8, 'background:url(../images/bg2.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv9TPPA_ME%>', '<%=fv9TPPA_ME%>', 'FreigabeMarkteinführungs-Volumen', '', 50, 12, 'background:url(../images/bg2.gif) no-repeat 0 0;'));
 <%	}%>
 <%if(Web.getDateStrNotNull(fv9QFTPPA_Kunde)){ String descStart = "";  String descEnd = ""; %>
-	g.AddTaskDetail(new Task('<%=fv9QFTPPA_Kunde%>', '<%=fv9QFTPPA_Kunde%>', 'Q-Freigabe Freigabe Kundenfahrzeuge', '', 50, 8, 'background:url(../images/bg2.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv9QFTPPA_Kunde%>', '<%=fv9QFTPPA_Kunde%>', 'Q-Freigabe Freigabe Kundenfahrzeuge', '', 50, 12, 'background:url(../images/bg2.gif) no-repeat 0 0;'));
 <%	}%>	
-<%if(Web.getDateStrNotNull(fv9QFTPPA_Kunde)){%>
-	g.AddTaskDetail(new Task('<%=sop_start%>', '<%=sop_start%>', '', 'SOP', 50, 10, 'background:url(../images/bg.gif) no-repeat 0 0;'));
+<%if(Web.getDateStrNotNull(sop_start)){%>
+	g.AddTaskDetail(new Task('<%=sop_start%>', '<%=sop_start%>', '', 'SOP', 50, 14, 'background:url(../images/bg.gif) no-repeat 0 0;'));
 <%	}%>	
+
+
+
+
 	g.Draw(49, 14);	
 
 	

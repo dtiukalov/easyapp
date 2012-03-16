@@ -11,6 +11,9 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<%@ include file="/app/pep/include/header.jsp"%>
+		<%@ include file="/app/pep/include/highslide-fullmin.jsp"%>
+		<%@ include file="/app/pep/include/highslideconfig.jsp"%>
+		<%@ include file="/app/pep/include/highslidecss.jsp"%>
 		<title><%=title %></title>
 		<%
 		
@@ -135,8 +138,9 @@
 					borderWidth: 0,
 					shadow:false,
 					 formatter: function() {
-						return '<table style="border-collapse:collapse;border:solid 1px #000;" width="200" cellpadding="0" cellspacing="0"><tr><td><br>' + this.point.desc +'<br></td></tr></table>';
-					}
+					//	return '<table style="border-collapse:collapse;border:solid 1px #000;" width="200" cellpadding="0" cellspacing="0"><tr><td><br>' + this.point.desc +'<br></td></tr></table>';
+						return '';
+					 }
 				},
 				plotOptions: {
 					column: {
@@ -153,7 +157,7 @@
 								fontSize:'14px'
 							},
 							formatter: function() {
-								if (this.y == 0 || this.y == 0.0) {
+								if (this.y == 0 || this.y == 0.0 || this.y == null) {
 									return '';
 								}
 								return this.y + '';
@@ -169,7 +173,8 @@
 					data: [{ 
 							y: <%=y1%>, 
 							low: <%=low1%>,
-							color: '#F9A700'
+							color: '#F9A700',
+							desc: ''
 						}, {
 						 	y: <%=y2%>, 
 						 	low: <%=low2%>,
@@ -195,7 +200,28 @@
 						 	low: <%=low6%>,
 						 	desc: "<%=Web.replaceSpecial(fv9FuncBig20Com)%>",
 							color: '#E63110'
-						}]
+						}],
+					cursor: 'pointer',
+					point: {
+						events: {
+							click: function() {
+								hs.htmlExpand(null, {
+									pageOrigin: {
+										x: this.pageX,
+								//		x: 100,
+										y: this.pageY
+									//	y: 400
+									},
+									headingText: '',
+									maincontentText: this.desc
+							//		width: 400
+								});
+							}
+						}
+					}, 
+					marker: {
+						lineWidth: 1
+					}
 				},{
 					name: ' ',
 					data: [{ 

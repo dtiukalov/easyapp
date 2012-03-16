@@ -62,13 +62,18 @@
 		String uid = (String)request.getAttribute("uid");
 		String sop_start = (String)request.getSession().getAttribute("DATE_SOP");
 		String year = "";
-		int week = DateUtils.getWeekOfYear(sop_start + " 00:00");
+		String week = "";
+		
+		if(sop_start != null ){
+			week = String.valueOf(DateUtils.getWeekOfYear(sop_start + " 00:00"));
+		}
 		
 		if(sop_start != null){
 			year = sop_start.split("-")[0];
 		}
 		
 		String project = (String)request.getSession().getAttribute("project");
+		
 		if(project == null){
 			project = "";
 		}

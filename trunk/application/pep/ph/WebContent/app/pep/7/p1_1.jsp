@@ -31,7 +31,7 @@
 	
 	private static String getContent(Object content) {
 		String fv9Content = "";
-		if (!"".equals((String) content)) {
+		if (!"".equals((String) content) && content != null) {
 			fv9Content = (String) content;
 		} 
 		return fv9Content;

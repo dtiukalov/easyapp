@@ -403,7 +403,32 @@ public class Web {
 		return result;
 	}
 	
+	private static int[] getArrNo0(int[] arr){
+		int[] result =null;
+		List<Integer> temp = new ArrayList<Integer>();
+		
+		if(arr != null && arr.length > 0){
+			for(int i=0; i < arr.length; i++){
+				if(arr[i] == 0){
+					continue;
+				} else {
+					temp.add(arr[i]);
+				}
+			}
+			
+			if(temp.size() > 0){
+				result = new int[temp.size()];
+				for(int j=0; j<temp.size(); j++){
+					result[j] = temp.get(j);
+				}
+			}
+		}
+		
+		return result;
+	}
+	
 	public static Map<String,Integer> getLCBNum(HttpServletRequest request, int[] arr){
+		arr = getArrNo0(arr);
 		Map<String,Integer>  result = new HashMap<String,Integer>();
 		int vffqianNum = 0;
 		int vffNum = 0;//柱子个数
@@ -506,6 +531,8 @@ public class Web {
 	}
 	
 	public static Map<String,Double> getLCBPillar (Map<String,Integer> lichengbeiNum, int[] arr, double totalW){
+		int totalzhuziNum = arr.length;
+		arr = getArrNo0(arr);
 		Map<String,Double>  result = new HashMap<String,Double>();
 		
 		int vffqianPillarNum = lichengbeiNum.get("vffqianNum");//柱子个数
@@ -521,7 +548,7 @@ public class Web {
 		double value4 = 0;
 		
 		if(arr != null && arr.length > 0){
-			int size = arr.length;//一共有多少个柱子 
+			int size = totalzhuziNum;//一共有多少个柱子 
 			double pillar = 0.0;
 			if(size > 0){
 				double totalWidth = totalW;

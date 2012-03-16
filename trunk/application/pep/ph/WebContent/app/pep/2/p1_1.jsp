@@ -129,7 +129,7 @@
 					<%
 					if (fv9FreigabeStyle != null && fv9FreigabeStyle.size() > 0) {
 						for(int i=0; i<fv9FreigabeStyle.size(); i++) {
-							String imagePath = "../images/";	
+							String imagePath = request.getContextPath() + "/app/pep/images/";	
 							if ("红".equals(fv9FreigabeStatus.get(i))) {
 								imagePath += "light_red.jpg";
 							}
@@ -140,13 +140,13 @@
 								imagePath += "light_green.jpg";
 							}
 					%>
-					<tr border="2" style="border-collapse: collapse" bordercolor="#333333">
+					<tr border="2" border-collapse: collapse" bordercolor="#333333">
 						<td width="30%" style="font-weight:bold;">
 							<%=fv9FreigabeStyle.get(i) %>
 							<img src="<%=imagePath %>" align="right" border=0 width=50 height=56 style="margin-right:50px"> 
 						</td>
 						<td width="22%">
-							<table style="margin:11px;">
+							<table style="padding:5px">
 								<%=getAnzahl(fv9AnzahlNum.get(i)) %>
 								<tr><td>Soll</td><td>&nbsp;=&nbsp;</td><td><%=fv9FreigSollNum.get(i) %></td></tr>
 								<tr><td>Ist</td><td>&nbsp;=&nbsp;</td><td><%=fv9FreiglstNum.get(i) %></td></tr>

@@ -202,6 +202,7 @@
 						
 						Map<String,Double> lichenbeiPillarNum = Web.getLCBPillar(Web.getLCBNum(request, arr), arr, totalWidth);
 						
+						double value0 = lichenbeiPillarNum.get("vffqianPillar"); 
 						double value1 = lichenbeiPillarNum.get("vffPillar"); 
 						double value2 = lichenbeiPillarNum.get("pvsPillar");
 						double value3 = lichenbeiPillarNum.get("osPillar");
@@ -210,6 +211,8 @@
 					
 					%>
 				<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 156px; text-align: center; overflow: hidden; ">
+					<div style=" width: <%=value0 %>px; height: 30px; float: left; background-color: white; vertical-align: bottom; padding-top: 5px;"><span style="color: white;"></span></div>
+
 					<div style=" width: <%=value1 %>px; height: 30px; float: left; background-color: #99FF99; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">VFF</span></div>
 					<div style=" width: <%=value2 %>px; height: 30px; float: left; background-color: #33CC33; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">PVS</span></div>
 					<div style=" width: <%=value3 %>px; height: 30px; float: left; background-color: #006600; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">0S</span></div>

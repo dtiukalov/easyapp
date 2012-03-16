@@ -414,8 +414,6 @@ public class Web {
 		if(arr != null && arr.length > 0){
 		int size = arr.length;//一共有多少个柱子 
 		if(size > 0){
-		//	int maxKw = arr[size-1];
-		//	int minKw = arr[0];
 			Object vff_start = request.getSession().getAttribute("DATE_VFF");
 			Object pvs_start = request.getSession().getAttribute("DATE_PVS");
 			Object os_start = request.getSession().getAttribute("DATE_0S");
@@ -480,11 +478,11 @@ public class Web {
 			pvsNum = Web.getNum(pvsArr,arr);//柱子个数
 			osNum =  Web.getNum(osArr,arr);//柱子个数
 			sopNum =  Web.getNum(sopArr,arr);//柱子个数
-		//	vffqianNum =  size - vffNum - pvsNum - osNum - sopNum;//柱子个数
+			vffqianNum =  size - vffNum - pvsNum - osNum - sopNum;//柱子个数
 			
 		}
 		}
-	//	result.put("vffqianNum", vffqianNum);
+		result.put("vffqianNum", vffqianNum);
 		result.put("vffNum", vffNum);
 		result.put("pvsNum", pvsNum);
 		result.put("osNum", osNum);
@@ -510,13 +508,13 @@ public class Web {
 	public static Map<String,Double> getLCBPillar (Map<String,Integer> lichengbeiNum, int[] arr, double totalW){
 		Map<String,Double>  result = new HashMap<String,Double>();
 		
-		//int vffqianPillarNum = lichengbeiNum.get("vffqianNum");//柱子个数
+		int vffqianPillarNum = lichengbeiNum.get("vffqianNum");//柱子个数
 		int vffPillarNum = lichengbeiNum.get("vffNum");//柱子个数
 		int pvsPillarNum = lichengbeiNum.get("pvsNum");//柱子个数
 		int osPillarNum = lichengbeiNum.get("osNum");//柱子个数
 		int sopPillarNum = lichengbeiNum.get("sopNum");//柱子个数
 		
-	//	double value0 = 0 ; 
+		double value0 = 0 ; 
 		double value1 = 0 ; 
 		double value2 = 0;
 		double value3 = 0;
@@ -526,15 +524,16 @@ public class Web {
 			int size = arr.length;//一共有多少个柱子 
 			double pillar = 0.0;
 			if(size > 0){
-				//int maxKw = arr[size-1];
-				//int minKw = arr[0];
 				double totalWidth = totalW;
 				pillar = totalWidth/size; 
 			}
-		//	value0 = vffqianPillarNum * pillar ; 
+			value0 = vffqianPillarNum * pillar ; 
 			value1 = vffPillarNum * pillar ; 
+			value2 = pvsPillarNum * pillar ;
+			value3 = osPillarNum * pillar ;
+			value4 = sopPillarNum* pillar ;
 			
-			if(vffPillarNum > 0 && pvsPillarNum != 0){
+		/*	if(vffPillarNum > 0 && pvsPillarNum != 0){
 				value2 = (pvsPillarNum - 1)* pillar ;
 			} else {
 				value2 = pvsPillarNum * pillar ;
@@ -548,9 +547,9 @@ public class Web {
 				value4 = (sopPillarNum - 1)* pillar ;			
 			} else {
 				value4 = sopPillarNum* pillar ;
-			}
+			}*/
 		}
-	//	result.put("vffqianPillar", value0);
+		result.put("vffqianPillar", value0);
 		result.put("vffPillar", value1);
 		result.put("pvsPillar", value2);
 		result.put("osPillar", value3);

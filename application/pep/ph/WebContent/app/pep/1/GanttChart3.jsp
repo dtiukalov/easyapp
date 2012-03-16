@@ -461,13 +461,18 @@ g.AddTaskDetail(new Task('<%=fv9VFFTBTZP7%>', '<%=fv9VFFTBTZP7%>', '', '<%=DateU
 
 
 <%if(Web.getDateStrNotNull(fv9TPPA_ME)){  String descStart = "";  String descEnd = ""; %>
-	g.AddTaskDetail(new Task('<%=fv9TPPA_ME%>', '<%=fv9TPPA_ME%>', 'FreigabeMarkteinführungs-Volumen', '', 50, 12, 'background:url(../images/bg2.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv9TPPA_ME%>', '<%=fv9TPPA_ME%>', '', '', 50, 12, 'background:url(../images/bg2.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv9TPPA_ME%>', '<%=DateUtils.getCurrDateAddOneMonth(fv9TPPA_ME)%>', '', '<b>FreigabeMarkteinführungs-Volumen</b>',  50, 13, 'background-color:#FFF;color:#000000;'));
+	
 <%	}%>
 <%if(Web.getDateStrNotNull(fv9QFTPPA_Kunde)){ String descStart = "";  String descEnd = ""; %>
-	g.AddTaskDetail(new Task('<%=fv9QFTPPA_Kunde%>', '<%=fv9QFTPPA_Kunde%>', 'Q-Freigabe Freigabe Kundenfahrzeuge', '', 50, 12, 'background:url(../images/bg2.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv9QFTPPA_Kunde%>', '<%=fv9QFTPPA_Kunde%>', '', '', 50, 12, 'background:url(../images/bg2.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=fv9QFTPPA_Kunde%>', '<%=DateUtils.getCurrDateAddOneMonth(fv9QFTPPA_Kunde)%>', '', '<b>Q-Freigabe Freigabe Kundenfahrzeuge</b>',  50, 13, 'background-color:#FFF;color:#000000;'));
 <%	}%>	
+
+
 <%if(Web.getDateStrNotNull(sop_start)){%>
-	g.AddTaskDetail(new Task('<%=sop_start%>', '<%=sop_start%>', '', 'SOP', 50, 14, 'background:url(../images/bg.gif) no-repeat 0 0;'));
+	g.AddTaskDetail(new Task('<%=sop_start%>', '<%=sop_start%>', '', 'SOP', 50, 15, 'background:url(../images/bg.gif) no-repeat 0 0;'));
 <%	}%>	
 
 

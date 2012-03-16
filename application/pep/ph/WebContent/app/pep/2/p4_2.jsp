@@ -167,7 +167,7 @@
 								fontSize:'14px'
 							},
 							formatter: function() {
-								if (this.y == 0 || this.y == 0.0) {
+								if (this.y == 0 || this.y == 0.0 || this.y == null) {
 									return '';
 								}
 								return this.y + '';

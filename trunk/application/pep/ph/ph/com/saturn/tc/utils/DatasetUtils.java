@@ -42,10 +42,9 @@ public class DatasetUtils {
 		}
 		path = path + datasetpath;
 		
-		String datasetSrc = request.getContextPath()+ File.separator + datasetpath + downloadDatasetFromTc(dataset ,path);
-		
-		if(datasetSrc.contains(".jpg")){
-			src = datasetSrc;
+		String downloadDatasetName = downloadDatasetFromTc(dataset ,path);
+		if(!downloadDatasetName.equals("")){
+			src =  request.getContextPath()+ File.separator + datasetpath + downloadDatasetName;
 		}
 		
 		return src ;
@@ -55,6 +54,7 @@ public class DatasetUtils {
 		EasyDataManagementService dms = PH.getDataService();
 		EasyFileManagementService fms = PH.getFileService();
 		FileManagementUtility fileUtility = fms.newUtility();
+		String result = "";
 		
 		try {
 			dms.getProperties(dataset, "ref_list");
@@ -77,16 +77,15 @@ public class DatasetUtils {
 					if(!f.exists()){
 						fileUtility.getFileToLocation(file, location, null, null);
 					}
-					
-					return file.get_original_file_name();
+					result = file.get_original_file_name();
 				}
 			}
 		} catch (NotLoadedException e) {
 			e.printStackTrace();
-			return "";
+			return result;
 		}
 		
-		return "";
+		return result;
 	}
 	
 	

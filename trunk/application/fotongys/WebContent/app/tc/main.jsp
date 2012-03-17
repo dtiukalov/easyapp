@@ -22,11 +22,13 @@
 	<div region="north" split="false"
 		style="height: 100px; overflow: hidden;">
 		<div class="top_img">
-	    <div class="user-info"><%=International.get(request, "username") %>:<%=user.get_user_name()%>  [<a href="<%=request.getContextPath()%>/app/tc/logout.do"><%=International.get(request, "logout") %></a>] </div>
+			<div class="menu-logo"></div>
+			<div class="menu-info"><%=International.get(request, "login_title")%></div>
+	    	<div class="user-info"><%=International.get(request, "username") %>:<%=user.get_user_name()%>  [<a href="<%=request.getContextPath()%>/app/tc/logout.do"><%=International.get(request, "logout") %></a>] </div>
 
 	<%--     <div class="user-info"><%=International.get(request, "username") %>:<%=user.get_user_name()%> [<a href="<%=request.getContextPath()%>/app/tc/foton/gys/local.action"><%=localStr%></a>]  [<a href="<%=request.getContextPath()%>/app/tc/logout.do"><%=International.get(request, "logout") %></a>] </div>
  --%>
-		<div class="menu-info"></div>	
+			
 		</div> 
 	</div>
 	<div region="center" style="overflow: hidden;">

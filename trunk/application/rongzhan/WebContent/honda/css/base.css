@@ -144,6 +144,8 @@ a:hover {
 	padding-left:12px;
 }
 #content .con2 {
+	min-height:462px;/*jyb hougai*/
+	height: auto !important;
 	height:462px;
 }
 .con2 .cxzs {
@@ -175,6 +177,8 @@ a:hover {
 }
 .cxzs .cxzsbg {
 	background:url(../images/cxzs_bg.gif) repeat-y 0 0;
+	min-height:424px;/*jyb hougai*/
+	height: auto !important; 
 	height:424px;
 }
 .tableline td {

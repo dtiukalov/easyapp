@@ -72,16 +72,48 @@
             </div>
             <div class="cxzsbg">
             <%
-        	List cars = NewCar.getListByCid(WebUtils.getRootCid(request));
-        	int count =  cars.size()>3?3:cars.size();
+        	//List cars = NewCar.getListByCid(WebUtils.getRootCid(request));
+            String[] modelz={"car.xuefulan.saiou3","car.xuefulan.saiou2","car.xuefulan.keluzi","car.xuefulan.aiweiou3","car.xuefulan.aiweiou2","car.xuefulan.mairuibao","car.xuefulan.kepaqi","car.xuefulan.jingcheng"};
+            List cars = new ArrayList();
+            List carsz = null;
+            for(int i=0;i<modelz.length;i++){
+            	carsz = NewCar.getListByModel(WebUtils.getRootCid(request),modelz[i]);
+            	double p1=0;
+            	double p2=0;
+                for(int j=0;j<carsz.size();j++){
+                	NewCar car = (NewCar) carsz.get(j);
+                	if(p1==0){
+                		p1=Double.parseDouble(car.getPrice().trim());
+                	}else{
+                		double p = Double.parseDouble(car.getPrice().trim());
+                		if(p>p1){
+                			if(p>p2){
+                				p2=p;
+                			}
+                		}else{
+                			if(p1>p2){
+                				p2=p1;
+                			}
+                			p1=p;
+                		}
+                	}
+                	if(j==(carsz.size()-1)){
+                		String m = "";
+                		m=p1>0?m+p1:"";
+                		m=p2>0?m+"——"+p2:m+"——"+p1;
+                		car.setPrice(m);
+                		cars.add(car);
+                	}
+                	
+                }
+            }
+        	int count =  cars.size();
         	%>
-            <table class="tableline" cellpadding="0" cellspacing="1">
+            <table class="tableline" cellpadding="0" cellspacing="1" style="width:100%;">
     <tr align="center" height="30px">
-      <td width="192" height="39" style="border-bottom: dashed thin #ffffff;">图片</td>
-      <td width="135" style="border-bottom: dashed thin #ffffff;">品牌车型</td>
-      <td width="119" style="border-bottom: dashed thin #ffffff;">报价(万元)</td>
-      <td width="29" style="border-bottom: dashed thin #ffffff;">详情</td>
-      <td width="171" style="border-bottom: dashed thin #ffffff;">操作</td>
+      <td height="39" style="border-bottom: dashed thin #ffffff;">图片</td>
+      <td style="border-bottom: dashed thin #ffffff;">品牌车型</td>
+      <td style="border-bottom: dashed thin #ffffff;">报价(万元)</td>
     </tr>
     <%
 		for (int i = 0; i < count; ++i) {
@@ -92,29 +124,37 @@
 			if(i==0){
 				%>
   			<tr align="center" height="98px" bgcolor="<%=bgcolor%>">
-	      <td height="120" style="border-top: dashed thin #ababab;border-width:1px;"><img src="<%=car.getImage()!=null?car.getImage():"images/car.gif" %>" width="130" height="98" /></td>
-	      <td style="border-top: dashed thin #ababab;border-width:1px;"><a href="cus_cardetail.jsp?cid=<%=WebUtils.getRootCid(request) %>.sall&model=<%=car.getModel() %>"><span style="color:#1478c6;"><%=car.getSeriesName() %></span></a></td>
+	      <td style="border-top: dashed thin #ababab;border-width:1px;"><img src="<%=car.getImage()!=null?car.getImage():"images/car.gif" %>" width="130" height="98" /></td>
+	      <td style="border-top: dashed thin #ababab;border-width:1px;"><a href="cus_cardetail.jsp?cid=<%=WebUtils.getRootCid(request) %>.sall&model=<%=car.getModel() %>"><span style="color:#1478c6;"><%=car.getModelName() %></span></a></td>
 	      <td style="border-top: dashed thin #ababab;border-width:1px;"><span style="color:#da251c;">&nbsp;<%=car.getPrice() %></span></td>
-	      <td style="border-top: dashed thin #ababab;border-width:1px;"><a href="cus_cardetail.jsp?cid=<%=WebUtils.getRootCid(request) %>.sall&model=<%=car.getModel() %>">详情</a></td>
+	      <!-- 
+	      <td style="border-top: dashed thin #ababab;border-width:1px;">
+		      <a href="cus_cardetail.jsp?cid=<%=WebUtils.getRootCid(request) %>.sall&model=<%=car.getModel() %>">详情</a>
+	      </td>
 	      <td style="border-top: dashed thin #ababab;border-width:1px;">
 	      <a href="javascript:void(0);" onclick="addBookCar('bookcar.type.change','<%=car.getBrand() %>','<%=car.getModel() %>','<%=car.getSeries() %>','<%=car.getBrandName() %>','<%=car.getModelName() %>','<%=car.getSeriesName() %>')"><img src="images/dingche.gif"/></a> 
 	      <a href="javascript:void(0);" onclick="addBookCar('bookcar.type.drive','<%=car.getBrand() %>','<%=car.getModel() %>','<%=car.getSeries() %>','<%=car.getBrandName() %>','<%=car.getModelName() %>','<%=car.getSeriesName() %>')"><img src="images/shijia.gif"/></a> 
 	      <a href="javascript:void(0);" onclick="addBookCar('bookcar.type.bookcar','<%=car.getBrand() %>','<%=car.getModel() %>','<%=car.getSeries() %>','<%=car.getBrandName() %>','<%=car.getModelName() %>','<%=car.getSeriesName() %>')"><img src="images/zhihuan.gif"/></a>
 	      </td>
+	       -->
 	    </tr>
    					<%
    				}else{
      		%>
        		<tr align="center" height="98px" bgcolor="<%=bgcolor%>">
 		      <td ><span style="border-top: dashed thin #ababab;border-width:1px;"><img src="<%=car.getImage()!=null?car.getImage():"images/car.gif" %>" width="130" height="98" /></span></td>
-		      <td ><a href="cus_cardetail.jsp?cid=<%=WebUtils.getRootCid(request) %>.sall&model=<%=car.getModel() %>"><span style="color:#1478c6;"><%=car.getSeriesName() %></span></a></td>
+		      <td ><a href="cus_cardetail.jsp?cid=<%=WebUtils.getRootCid(request) %>.sall&model=<%=car.getModel() %>"><span style="color:#1478c6;"><%=car.getModelName() %></span></a></td>
 		      <td ><span style="color:#da251c;">&nbsp;<%=car.getPrice() %></span></td>
-		      <td ><a href="cus_cardetail.jsp?cid=<%=WebUtils.getRootCid(request) %>.sall&model=<%=car.getModel() %>">详情</a></td>
+		      <!-- 
+		      <td >
+		      <a href="cus_cardetail.jsp?cid=<%=WebUtils.getRootCid(request) %>.sall&model=<%=car.getModel() %>">详情</a>
+		      </td>
 		      <td >
 		      <a href="javascript:void(0);" onclick="addBookCar('bookcar.type.change','<%=car.getBrand() %>','<%=car.getModel() %>','<%=car.getSeries() %>','<%=car.getBrandName() %>','<%=car.getModelName() %>','<%=car.getSeriesName() %>')"><img src="images/dingche.gif"/></a> 
 		      <a href="javascript:void(0);" onclick="addBookCar('bookcar.type.drive','<%=car.getBrand() %>','<%=car.getModel() %>','<%=car.getSeries() %>','<%=car.getBrandName() %>','<%=car.getModelName() %>','<%=car.getSeriesName() %>')"><img src="images/shijia.gif"/></a> 
 		      <a href="javascript:void(0);" onclick="addBookCar('bookcar.type.bookcar','<%=car.getBrand() %>','<%=car.getModel() %>','<%=car.getSeries() %>','<%=car.getBrandName() %>','<%=car.getModelName() %>','<%=car.getSeriesName() %>')"><img src="images/zhihuan.gif"/></a>
 		      </td>
+		       -->
 		    </tr>
      		<%
      				}

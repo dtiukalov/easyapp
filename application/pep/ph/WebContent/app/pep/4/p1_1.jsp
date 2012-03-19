@@ -65,8 +65,8 @@
 				}
 			}
 			
-			//设置später
-			KW.add("später");
+			//设置spAEter
+			KW.add("spAEter");
 			value.add(max);
 			low.add(0);
 			desc.add("");

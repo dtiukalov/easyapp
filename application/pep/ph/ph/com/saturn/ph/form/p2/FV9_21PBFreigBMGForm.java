@@ -8,7 +8,7 @@ public class FV9_21PBFreigBMGForm extends Form {
 		"fv9FreigabeStyle", "fv9FreigabeStatus", "fv9AnzahlNum", "fv9FreigSollNum",
 		"fv9FreiglstNum", "fv9FreigCom_CN", "fv9FreigCom_GM",
 		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
-		"fv9PlatformType","fv9otherUid", "fv9IsBackup"
+		"fv9PlatformType","fv9otherUid", "fv9IsBackup", "object_type"
 	};
 
 	public String[] getAttributes() {

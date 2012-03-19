@@ -147,17 +147,17 @@
 						color: '#0000FF'
 					}, {
 						type: 'column',
-						name: 'Maßnahmen nicht erarbeitet',
+						name: 'Massnahmen nicht erarbeitet',
 						data: <%=fv9MabnaNichtErarb%>,
 						color: '#FF0000'
 					}, {
 						type: 'column',
-						name: 'Maßnahmen werden definiert',
+						name: 'Massnahmen werden definiert',
 						data: <%=fv9MabnaWerdenDef%>,
 						color: '#FFFF00'
 					}, {
 						type: 'column',
-						name: 'Maßnahmen definiert',
+						name: 'Massnahmen definiert',
 						data: <%=fv9MabnaDef%>,
 						color: '#AAD42A'
 					}, {
@@ -322,7 +322,7 @@
 						%>
 					</tr>
 					<tr>
-						<td style="text-align: left;width: 400px;"><img src="<%=request.getContextPath() %>/app/pep/images/hs.jpg">Maßnahme nicht erarbeitet</td>
+						<td style="text-align: left;width: 400px;"><img src="<%=request.getContextPath() %>/app/pep/images/hs.jpg">Massnahme nicht erarbeitet</td>
 						<%
 						if (MabnaNichtErarb != null && MabnaNichtErarb.size() > 0) {
 							for (int j=0; j<MabnaNichtErarb.size(); j++) {
@@ -334,7 +334,7 @@
 						%>
 					</tr>
 					<tr>
-						<td style="text-align: left;width: 550px;"><img src="<%=request.getContextPath() %>/app/pep/images/huangs.jpg">Maßnahmen werden definiert</td>
+						<td style="text-align: left;width: 550px;"><img src="<%=request.getContextPath() %>/app/pep/images/huangs.jpg">Massnahmen werden definiert</td>
 						<%
 						if (MabnaWerdenDef != null && MabnaWerdenDef.size() > 0) {
 							for (int j=0; j<MabnaWerdenDef.size(); j++) {
@@ -346,7 +346,7 @@
 						%>
 					</tr>
 					<tr>
-						<td style="text-align: left;width: 300px;"><img src="<%=request.getContextPath() %>/app/pep/images/lvs.jpg">Maßnahme definiert</td>
+						<td style="text-align: left;width: 300px;"><img src="<%=request.getContextPath() %>/app/pep/images/lvs.jpg">Massnahme definiert</td>
 						<%
 						if (MabnaDef != null && MabnaDef.size() > 0) {
 							for (int j=0; j<MabnaDef.size(); j++) {

@@ -264,7 +264,7 @@
 	BORDER-BOTTOM: #424242 1px solid; BORDER-LEFT: #424242 1px solid; MARGIN-TOP: 20px; WIDTH: 181px; BACKGROUND: #c0c0c0; HEIGHT: 102px; BORDER-TOP: #424242 1px solid; BORDER-RIGHT: #424242 1px solid
 }
 .wz {
-	WIDTH: 108px; FLOAT: left
+	WIDTH: 108px; FLOAT: left; font-size: 14px; font-weight: bolder; padding-left: 5px; padding-top: 10px;
 }
 .wz H3 {
 	PADDING-LEFT: 10px; PADDING-TOP: 20px

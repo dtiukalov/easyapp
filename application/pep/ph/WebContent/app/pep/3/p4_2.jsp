@@ -43,7 +43,7 @@
 				}
 			}
 				
-			String fv9FunctionStyle = Web.getStrListStr(functionStylelist);//"['Aufbau (122/2)', 'Unterbau (98/5)', 'Seitenteil li. (24/5)', 'Seitenteil re. (24/5)', 'Tür vo. li. (21/5)', 'Tür vo. re. (21/3)', 'Tür hi. li. (21/5)', 'Tür hi. re. (21/2)', 'Frontklappe (14/1)', 'Rückwandklappe (21/3)', 'SAD Dach (13/2)', 'ZP5 Karo. (14/1)']"; //	零件名称
+			String fv9FunctionStyle = Web.getStrListStr(functionStylelist);//"['Aufbau (122/2)', 'Unterbau (98/5)', 'Seitenteil li. (24/5)', 'Seitenteil re. (24/5)', 'Tuer vo. li. (21/5)', 'Tuer vo. re. (21/3)', 'Tuer hi. li. (21/5)', 'Tuer hi. re. (21/2)', 'Frontklappe (14/1)', 'Rueckwandklappe (21/3)', 'SAD Dach (13/2)', 'ZP5 Karo. (14/1)']"; //	零件名称
 			String fv9FunctionAK =  Web.getNumberListStr(aK);//"[2, 2, 5, 4, 2, 6, 2, 4, 3, 4, 4, 5]";    //	AK
 			String fv9FunctionBK =  Web.getNumberListStr(bK);//"[10, 4, 5, 2, 5, 4, 4, 4, 6, 5, 5, 2]";    //	BK
 			String fv9FunctionIO =  Web.getNumberListStr(iO);//"[110, 91, 19, 23, 15, 17, 16, 17, 8, 16, 8, 13]";    //	i.O
@@ -172,7 +172,7 @@
 					<h1><%=title %></h1>
 				</div>
 				<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Zusammenbauteile (Anzahl FM/Anzahl Messungen)</h2>
-				<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gesamt: <%=gesamt %> Funktionsmaße</h5>
+				<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gesamt: <%=gesamt %> Funktionsmasse</h5>
 				<div id="content" style="height:495px;">
 					<div id="chart" style=" height: 480px; margin: 0 auto"></div>
 				</div>

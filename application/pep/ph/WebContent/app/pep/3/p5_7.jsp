@@ -121,7 +121,7 @@
 					
 				    series: [{
 						type: 'column',
-						name: 'aus Straßenfahrt',
+						name: 'aus Strassenfahrt',
 						data: <%=fv9AusStrNum%>,
 						color: '#4A6F8A'
 					}, {

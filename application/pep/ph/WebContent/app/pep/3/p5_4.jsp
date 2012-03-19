@@ -305,7 +305,7 @@
 						<div>
 						  <table width="350" cellspacing="0">
 						    <tr>
-						      <td>Wichtigste Maßnahmen</td>
+						      <td>Wichtigste Massnahmen</td>
 						      <td></td>
 						      <td></td>
 						      <td></td>

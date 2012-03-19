@@ -8,7 +8,7 @@ public class FV9_35AuditNoteZP8Form extends Form {
 		"fv9KWNo", "fv9AuditErstang", "fv9TargetProg", "fv9AuditZweit",
 		"fv9KonzAuditMitNA","fv9AuditMax","fv9AuditMin",
 		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
-		"fv9PlatformType" ,"fv9otherUid", "fv9IsBackup"
+		"fv9PlatformType" ,"fv9otherUid", "fv9IsBackup", "object_type"
 	};
 	
 	public String[] getAttributes() {

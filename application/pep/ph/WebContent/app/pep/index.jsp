@@ -53,7 +53,7 @@
   </tr>
   <tr>
     <td class="tbto">1.1</td>
-    <td class="tbtoo">Termin-, Anlaufübersicht und Vorserienterminplan</td>
+    <td class="tbtoo">Termin-, Anlaufuebersicht und Vorserienterminplan</td>
     <td class="tbtooo">G</td>
     <td class="tbtoooo"><img src="<%=request.getContextPath()%>/app/pep/images/k1.jpg" width="17" height="16" /><img src="<%=request.getContextPath()%>/app/pep/images/k1.jpg" width="17" height="16" /><img src="<%=request.getContextPath()%>/app/pep/images/k1.jpg" width="17" height="16" /><img src="<%=request.getContextPath()%>/app/pep/images/k1.jpg" width="17" height="16" /><img src="<%=request.getContextPath()%>/app/pep/images/k1.jpg" width="17" height="16" /><img src="<%=request.getContextPath()%>/app/pep/<%=request.getContextPath()%>/app/pep/images/k1.jpg" width="17" height="16" /></td>
   </tr>
@@ -89,7 +89,7 @@
     <td class="h"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="tbt">
       <tr>
         <td width="4%" class="tbto">2</td>
-        <td width="54%" class="tbtoo"><strong>Status E ntwicklung</strong></td>
+        <td width="54%" class="tbtoo"><strong>Status Entwicklung</strong></td>
         <td width="21%" class="tbtooo">&nbsp;</td>
         <td width="21%" class="tbtoooo"></td>
       </tr>
@@ -113,7 +113,7 @@
       </tr>
       <tr>
         <td  class="tbto">2.4</td>
-        <td class="tbtoo">Status ÄKO</td>
+        <td class="tbtoo">Status AEKO</td>
         <td class="tbtooo">G</td>
         <td class="tbtoooo"><img src="<%=request.getContextPath()%>/app/pep/images/k2.jpg" width="17" height="16" /><img src="<%=request.getContextPath()%>/app/pep/images/k1.jpg" width="17" height="16" /><img src="<%=request.getContextPath()%>/app/pep/images/k1.jpg" width="17" height="16" /><img src="<%=request.getContextPath()%>/app/pep/images/k1.jpg" width="17" height="16" /><img src="<%=request.getContextPath()%>/app/pep/images/k1.jpg" width="17" height="16" /><img src="<%=request.getContextPath()%>/app/pep/images/k1.jpg" width="17" height="16" /></td>
       </tr>
@@ -123,13 +123,13 @@
     <td class="h"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="tbt">
       <tr>
         <td width="4%" class="tbto">3</td>
-        <td width="54%" class="tbtoo"><strong>Status Qualität</strong></td>
+        <td width="54%" class="tbtoo"><strong>Status QualitAEt</strong></td>
         <td width="21%" class="tbtooo">&nbsp;</td>
         <td width="21%" class="tbtoooo"></td>
       </tr>
       <tr>
         <td class="tbto">3.1</td>
-        <td class="tbtoo">Prüfmittel, Meisterbock/Cubing</td>
+        <td class="tbtoo">Pruefmittel, Meisterbock/Cubing</td>
         <td class="tbtooo">Q</td>
         <td class="tbtoooo"><img src="<%=request.getContextPath()%>/app/pep/images/k2.jpg" width="17" height="16" /><img src="<%=request.getContextPath()%>/app/pep/images/k1.jpg" width="17" height="16" /><img src="<%=request.getContextPath()%>/app/pep/images/k1.jpg" width="17" height="16" /><img src="<%=request.getContextPath()%>/app/pep/images/k1.jpg" width="17" height="16" /><img src="<%=request.getContextPath()%>/app/pep/images/k1.jpg" width="17" height="16" /><img src="<%=request.getContextPath()%>/app/pep/images/k2.jpg" width="17" height="16" /></td>
       </tr>
@@ -147,7 +147,7 @@
       </tr>
       <tr>
         <td  class="tbto">3.4</td>
-        <td class="tbtoo">Funktionsmaße</td>
+        <td class="tbtoo">Funktionsmasse</td>
         <td class="tbtooo">Q/P</td>
         <td class="tbtoooo"><img src="<%=request.getContextPath()%>/app/pep/images/k2.jpg" width="17" height="16" /><img src="<%=request.getContextPath()%>/app/pep/images/k2.jpg" width="17" height="16" /><img src="<%=request.getContextPath()%>/app/pep/images/k1.jpg" width="17" height="16" /><img src="<%=request.getContextPath()%>/app/pep/images/k1.jpg" width="17" height="16" /><img src="<%=request.getContextPath()%>/app/pep/images/k1.jpg" width="17" height="16" /><img src="<%=request.getContextPath()%>/app/pep/images/k1.jpg" width="17" height="16" /></td>
       </tr>
@@ -169,7 +169,7 @@
     <td class="h"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="tbt">
       <tr>
         <td width="4%" class="tbto">4</td>
-        <td width="54%" class="tbtoo"><strong>Status Teileverfügbarkeit</strong></td>
+        <td width="54%" class="tbtoo"><strong>Status Teileverfuegbarkeit</strong></td>
         <td width="21%" class="tbtooo">&nbsp;</td>
         <td width="21%" class="tbtoooo"></td>
       </tr>
@@ -193,7 +193,7 @@
       </tr>
       <tr>
         <td  class="tbto">4.4</td>
-        <td class="tbtoo">Aggragateverfügbarkeit</td>
+        <td class="tbtoo">Aggragateverfuegbarkeit</td>
         <td class="tbtooo">G</td>
         <td class="tbtoooo"><img src="<%=request.getContextPath()%>/app/pep/images/k1.jpg" width="17" height="16" /><img src="<%=request.getContextPath()%>/app/pep/images/k1.jpg" width="17" height="16" /><img src="<%=request.getContextPath()%>/app/pep/images/k1.jpg" width="17" height="16" /><img src="<%=request.getContextPath()%>/app/pep/images/k1.jpg" width="17" height="16" /><img src="<%=request.getContextPath()%>/app/pep/images/k1.jpg" width="17" height="16" /><img src="<%=request.getContextPath()%>/app/pep/images/k1.jpg" width="17" height="16" /></td>
       </tr>

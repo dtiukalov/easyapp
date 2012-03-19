@@ -470,7 +470,7 @@ g.AddTaskDetail(new Task('<%=fv9VFFTBTZP7%>', '<%=fv9VFFTBTZP7%>', '', '<%=DateU
 
 <%if(Web.getDateStrNotNull(fv9TPPA_ME)){  String descStart = "";  String descEnd = ""; %>
 	g.AddTaskDetail(new Task('<%=fv9TPPA_ME%>', '<%=fv9TPPA_ME%>', '', '', 50, 12, 'background:url(../images/bg2.gif) no-repeat 0 0;'));
-	g.AddTaskDetail(new Task('<%=fv9TPPA_ME%>', '<%=DateUtils.getCurrDateAddOneMonth(fv9TPPA_ME)%>', '', '<b>FreigabeMarkteinführungs-Volumen</b>',  50, 13, 'background-color:#FFF;color:#000000;'));
+	g.AddTaskDetail(new Task('<%=fv9TPPA_ME%>', '<%=DateUtils.getCurrDateAddOneMonth(fv9TPPA_ME)%>', '', '<b>FreigabeMarkteinfuehrungs-Volumen</b>',  50, 13, 'background-color:#FFF;color:#000000;'));
 	
 <%	}%>
 <%if(Web.getDateStrNotNull(fv9QFTPPA_Kunde)){ String descStart = "";  String descEnd = ""; %>

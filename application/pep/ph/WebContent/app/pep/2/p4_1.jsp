@@ -1,3 +1,4 @@
+<%@page import="com.saturn.tc.utils.DateUtils"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="com.saturn.web.Web"%>
@@ -71,7 +72,19 @@
 			categories += "[";
 			
 			categories += "]";
-			                
+			 
+			//如果二维表中的周数跨年，则取当前年的前一年
+			//如果二维表中的周数不跨年，则取当前年
+			String show_year = DateUtils.getCurrentYear();
+			if(Web.getListYesOrNo((List<String>)form.get("fv9KWNo"))){
+				List weeks = ((List<String>)form.get("fv9KWNo"));
+				int n = weeks.size();
+				if (n >= 2) {
+					if (Integer.parseInt((String)weeks.get(0)) >= Integer.parseInt((String)weeks.get(n-1))) {
+						show_year = (Integer.parseInt((String)DateUtils.getCurrentYear()) - 1) + "";
+					}
+				}
+			}
 		%>
 
 		<script type="text/javascript">
@@ -84,7 +97,7 @@
 					marginLeft:30
 				},
 				title: {
-					text: 'Anzahl Änderungen',
+					text: 'Anzahl AEnderungen',
 					style:{
 						color:'black',
 						fontSize:'20px'
@@ -109,7 +122,7 @@
 					linkedTo: 0,
 					lineWidth:2,
 					title: {
-						text: 'Anzahl neuer ÄKOs',
+						text: '<%=show_year%> Anzahl neuer AEKOs',
 						style:{
 							color:'black'
 						}
@@ -192,7 +205,7 @@
 				},
 			    series: [
 			     {
-					name: 'ÄKO,AeA  im Durchlauf (> 2 Wochen)',
+					name: 'AEKO,AeA  im Durchlauf (> 2 Wochen)',
 					data: <%=fv9AekoBig2Woch%>,
 					color: '#E63110',
 					dataLabels: {
@@ -203,11 +216,11 @@
 						color: 'white'
 					}
 				}, {
-					name: 'ÄKO,AeA im Durchlauf (< 2 Wochen)',
+					name: 'AEKO,AeA im Durchlauf (< 2 Wochen)',
 					data: <%=fv9AekoSmall2Woch%>,
 					color: '#F9A700'
 				},{
-					name: 'ÄKO,AeA abgeschlossen',
+					name: 'AEKO,AeA abgeschlossen',
 					data: <%=fv9AekoAbgesch%>,
 					color: '#009C0E',
 					dataLabels: {

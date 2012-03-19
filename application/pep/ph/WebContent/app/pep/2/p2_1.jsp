@@ -56,7 +56,7 @@
 				        <tr>
 				        	<td width="19%">&nbsp;</td>
 				        	<td width="81%" style="border-bottom:2px solid #424242;">
-					        	<table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:16px">
+					        	<table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:14px; font-weight: bolder;">
 						            <tr>
 							            <td>Aktueller Status</td>
 							            <td>Nachste Status</td>
@@ -76,7 +76,7 @@
 				          <td width="19%">
 					          <div class="kbg">
 					          	<div class="he">
-						          	<div class="wz"><h3><%=Style %></h3></div>
+						          	<div class="wz"><%=Style %></div>
 						          	<div class="tupian" style="padding-top: 10px; vertical-align: middle;text-align: center;">
 						          	<%
 						          	if ("红".equals(status)) {
@@ -101,7 +101,7 @@
 					          </div>
 				          </td>
 				          <td width="81%"  valign="top" class="xx">
-					          <table width="98%" border="0" cellspacing="2" cellpadding="0">
+					          <table width="98%" border="0" cellspacing="2" cellpadding="0" style="font-size: 11px;">
 						            <tr>
 						              <td>
 						              	<table width="98%" border="0" cellspacing="2" cellpadding="0" > 
@@ -130,7 +130,7 @@
 				        <tr>
 				        	<td width="19%">&nbsp;</td>
 				        	<td width="81%"  style="border-bottom:2px solid #424242;">
-					        	<table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:16px">
+					        	<table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:14px; font-weight: bolder;">
 						            <tr>
 							            <td>Aktueller Status</td>
 							            <td>Nachste Status</td>
@@ -150,7 +150,7 @@
 				          <td width="19%">
 					          <div class="kbg">
 					          	<div class="he">
-						          	<div class="wz"><h3><%=Style %></h3></div>
+						          	<div class="wz"><%=Style %></div>
 						          	<div class="tupian" style="padding-top: 10px; vertical-align: middle;text-align: center;">
 						          	<%
 						          	if ("红".equals(status)) {
@@ -177,7 +177,7 @@
 				          <td width="81%" valign="top" class="xx"><table width="98%" border="0" cellspacing="2" cellpadding="0">
 				            <tr>
 				              <td height="25">
-				              	<table width="98%" border="0" cellspacing="2" cellpadding="0">
+				              	<table width="98%" border="0" cellspacing="2" cellpadding="0" style="font-size: 11px;">
 						            <tr>
 						              <td width="60%" height="25"><%=stcom_cn %></td>
 						              <td width="40%" valign="top"><%=nachsch_cn %></td>

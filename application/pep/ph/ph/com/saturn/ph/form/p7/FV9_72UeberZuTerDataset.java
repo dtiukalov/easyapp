@@ -6,7 +6,7 @@ public class FV9_72UeberZuTerDataset extends Form {
 	
 	private static final String[] attr = {
 		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
-		"fv9PlatformType","fv9otherUid", "fv9IsBackup"
+		"fv9PlatformType","fv9otherUid", "fv9IsBackup", "object_type"
 	};
 
 	public String[] getAttributes() {
@@ -24,6 +24,6 @@ public class FV9_72UeberZuTerDataset extends Form {
 
 	@Override
 	public String getTitle() {
-		return "7.2 Uebersicht zukünftige Termine";
+		return "7.2 Uebersicht zukuenftige Termine";
 	}
 }

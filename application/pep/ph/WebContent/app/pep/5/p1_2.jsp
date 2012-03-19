@@ -57,7 +57,7 @@
 				<tr>
 					<td width="239" class="pg" colspan="2">&nbsp;</td>
 					<td width="311" class="pg"><h2>Status</h2></td>
-					<td width="433" class="pg"><h2>Maßnahmen</h2></td>
+					<td width="433" class="pg"><h2>Massnahmen</h2></td>
 				</tr>
 				  
 				<%
@@ -110,7 +110,7 @@
 				<tr>
 					<td width="239" class="pg" colspan="2">&nbsp;</td>
 					<td width="311" class="pg"><h2>Status</h2></td>
-					<td width="433" class="pg"><h2>Maßnahmen</h2></td>
+					<td width="433" class="pg"><h2>Massnahmen</h2></td>
 				</tr>
 				  
 				<%

@@ -448,7 +448,7 @@
 								  <table cellspacing="0" style="width: 350px; font-size: 9px; overflow: hidden;">
 								    <tr>
 								      <td style="width: 30px; height: 30px;">KW</td>
-								      <td style="width: 220px;">&nbsp;Wichtigste Maßnahmen</td>
+								      <td style="width: 220px;">&nbsp;Wichtigste Massnahmen</td>
 								      <td style="width: 50px;text-align: right;">Reduzierung&nbsp;</td>
 								      <td style="width: 50px;text-align: right;">Fehlerpunkte/Fzg</td>
 								    </tr>

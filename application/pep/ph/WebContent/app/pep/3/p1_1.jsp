@@ -38,7 +38,7 @@
 				  <tr>
 				    <td width="239" class="pg">&nbsp;</td>
 				    <td width="311" class="pg"><h2>Status</h2></td>
-				    <td width="433" class="pg"><h2>Maßnahmen</h2></td>
+				    <td width="433" class="pg"><h2>Massnahmen</h2></td>
 				  </tr>
 				 <%
 				 if (fv9PrMSBCubStyle != null && fv9PrMSBCubStyle.size() > 0) {
@@ -111,7 +111,7 @@
 				  <tr>
 				    <td width="239" class="pg">&nbsp;</td>
 				    <td width="311" class="pg"><h2>Status</h2></td>
-				    <td width="433" class="pg"><h2>Maßnahmen</h2></td>
+				    <td width="433" class="pg"><h2>Massnahmen</h2></td>
 				  </tr>
 				 <%
 				 if (fv9PrMSBCubStyle != null && fv9PrMSBCubStyle.size() > 0) {

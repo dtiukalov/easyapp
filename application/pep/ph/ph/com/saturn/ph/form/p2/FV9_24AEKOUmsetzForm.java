@@ -7,7 +7,7 @@ public class FV9_24AEKOUmsetzForm extends Form {
 	private static final String[] attr = {
 		"fv9StyleName", "fv9StyleNum",
 		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
-		"fv9PlatformType","fv9otherUid", "fv9IsBackup"
+		"fv9PlatformType","fv9otherUid", "fv9IsBackup", "object_type"
 	};
 
 	public String[] getAttributes() {
@@ -25,6 +25,6 @@ public class FV9_24AEKOUmsetzForm extends Form {
 
 	@Override
 	public String getTitle() {
-		return "2.4 ÄKO-Umsetzungsstatus";
+		return "2.4 AEKO-Umsetzungsstatus";
 	}
 }

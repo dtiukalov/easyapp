@@ -9,7 +9,7 @@ public class FV9_22ErprobDauerForm extends Form {
 		"fv9ErprobStCom_CN", "fv9ErprobStCom_GM",
 		"fv9ErprobNachSch_CN", "fv9ErprobNachSch_GM",
 		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
-		"fv9PlatformType","fv9otherUid", "fv9IsBackup"
+		"fv9PlatformType","fv9otherUid", "fv9IsBackup", "object_type"
 	};
 
 	public String[] getAttributes() {

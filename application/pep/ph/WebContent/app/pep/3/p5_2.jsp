@@ -187,7 +187,7 @@
 					},
 				    series: [{
 						type: 'column',
-						name: 'aus Straßenfahrt',
+						name: 'aus Strassenfahrt',
 						data: <%=fv9PresswerkNum%>,
 						color: '#003C65'
 					}, {
@@ -291,7 +291,7 @@
 					},
 				    series: [{
 						type: 'column',
-						name: 'aus Straßenfahrt',
+						name: 'aus Strassenfahrt',
 						data: <%=fv9KarossNum%>,
 						color: '#AED4F8'
 					}, {
@@ -395,7 +395,7 @@
 					},
 				    series: [{
 						type: 'column',
-						name: 'aus Straßenfahrt',
+						name: 'aus Strassenfahrt',
 						data: <%=fv9LackNum%>,
 						color: '#8994A0'
 					}, {
@@ -499,7 +499,7 @@
 					},
 				    series: [{
 						type: 'column',
-						name: 'aus Straßenfahrt',
+						name: 'aus Strassenfahrt',
 						data: <%=fv9MontageNum%>,
 						color: '#CFD7D9'
 					}, {
@@ -604,7 +604,7 @@
 					},
 				    series: [{
 						type: 'column',
-						name: 'aus Straßenfahrt',
+						name: 'aus Strassenfahrt',
 						data: <%=fv9KaufteileNum%>,
 						color: '#3366FF'
 					}, {

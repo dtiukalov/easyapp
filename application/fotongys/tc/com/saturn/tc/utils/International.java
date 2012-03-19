@@ -58,6 +58,8 @@ public class International {
 		en.put("attachment", "Attachment");
 		en.put("attachment.list", "Attachment List");
 		en.put("attachment.name", "Name");
+		cn.put("attachment.status", "Status");
+		cn.put("attachment.version", "Version");
 		en.put("attachment.type", "Type");
 		en.put("attachment.download", "Download");
 		en.put("attachment.detail", "Pelease Save!");
@@ -71,7 +73,7 @@ public class International {
 		en.put("info", "Info");
 		
 		
-		cn.put("login_title", "福田汽车PLM系统");
+		cn.put("login_title", "福田汽车供应商PLM系统");
 		cn.put("username", "用户名");
 		cn.put("password", "密码");
 		cn.put("login", "登录");
@@ -94,14 +96,15 @@ public class International {
 		cn.put("attachment", "附件");
 		cn.put("attachment.list", "附件列表");
 		cn.put("attachment.name", "名称");
+		cn.put("attachment.status", "状态");
+		cn.put("attachment.version", "版本");
 		cn.put("attachment.type", "类型");
-		cn.put("attachment.download", "下载");
 		cn.put("attachment.download", "下载");
 		cn.put("attachment.detail", "请保存!");
 		cn.put("delete", "删除");
 		cn.put("delete.info", "如果邮件没有被下载，不能被删除！");
 		cn.put("delete.noselect", "请选择至少一项");
-		cn.put("download.info", "确认下载吗！");
+		cn.put("download.info", "确认下载吗?");
 		cn.put("download.noselect", "请选择至少一项");
 		cn.put("yes", "是");
 		cn.put("no", "否");

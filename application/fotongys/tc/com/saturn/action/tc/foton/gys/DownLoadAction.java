@@ -130,7 +130,7 @@ public class DownLoadAction implements IAction {
 			if (datasetNames != null && datasetNames.size() > 0) {
 				for (String datasetName : datasetNames) {
 					datasetName = datasetName.substring(datasetName.lastIndexOf(File.separator) + 1);
-					content += "《" + datasetName + "》   ";
+					content += "< " + datasetName + " > <Br> ";
 				}
 
 			}

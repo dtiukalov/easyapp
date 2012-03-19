@@ -15,6 +15,7 @@ import com.saturn.app.web.IView;
 import com.saturn.app.web.view.JspView;
 import com.saturn.tc.clientx.TCSession;
 import com.saturn.tc.utils.DownLoadAttachmentUtil;
+import com.saturn.tc.utils.International;
 import com.teamcenter.soa.client.model.strong.User;
 
 public class TCLogoutAction implements IAction {
@@ -34,6 +35,7 @@ public class TCLogoutAction implements IAction {
 		request.getSession().removeAttribute("authUser");
 		request.getSession().removeAttribute("TC_session");
 		request.getSession().removeAttribute(ListAction.TC_MAIL_LIST);
+		request.getSession().removeAttribute(International.LOCAL);
 
 		return new JspView("/app/tc/index.jsp");
 	}

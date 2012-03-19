@@ -15,19 +15,23 @@
 		String local = (String)session.getAttribute(International.LOCAL);
 		
 		String localStr = "English";
-		if ("en".equals(local)) {
-			localStr = "中文";
+	
+		if(local != null){
+			if ("en".equals(local)) {
+				localStr = "中文";
+			}
 		}
+		
 	%>
 	<div region="north" split="false"
 		style="height: 100px; overflow: hidden;">
 		<div class="top_img">
 			<div class="menu-logo"></div>
-			<div class="menu-info"><%=International.get(request, "login_title")%></div>
-	    	<div class="user-info"><%=International.get(request, "username") %>:<%=user.get_user_name()%>  [<a href="<%=request.getContextPath()%>/app/tc/logout.do"><%=International.get(request, "logout") %></a>] </div>
+			
+	  <%--   	<div class="user-info"><%=International.get(request, "username") %>:<%=user.get_user_name()%>  [<a href="<%=request.getContextPath()%>/app/tc/logout.do"><%=International.get(request, "logout") %></a>] </div> --%>
+ 		<div class="menu-info"><%=International.get(request, "login_title") %></div>
+	    <div class="user-info"><%=International.get(request, "username") %>:<%=user.get_user_name()%> [<a href="<%=request.getContextPath()%>/app/tc/foton/gys/local.action"><%=localStr%></a>]  [<a href="<%=request.getContextPath()%>/app/tc/logout.do"><%=International.get(request, "logout") %></a>] </div>
 
-	<%--     <div class="user-info"><%=International.get(request, "username") %>:<%=user.get_user_name()%> [<a href="<%=request.getContextPath()%>/app/tc/foton/gys/local.action"><%=localStr%></a>]  [<a href="<%=request.getContextPath()%>/app/tc/logout.do"><%=International.get(request, "logout") %></a>] </div>
- --%>
 			
 		</div> 
 	</div>

@@ -35,11 +35,15 @@ public class DownLoadAttachmentUtil {
 	
 	public static Boolean createFolder(String folderName) {
 		File f = new File(folderName);
-
+		
+		if(f.exists()){
+			return true;
+		}
+		
 		if (!f.isDirectory()) {
 			f.mkdirs();
 			return true;
-		}else{
+		} else {
 			return false;
 		}
 	}

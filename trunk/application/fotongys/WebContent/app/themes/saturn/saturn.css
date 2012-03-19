@@ -61,7 +61,7 @@ input:right{ border: 1px dotted #009900; }*/
 	width: auto;
 }
 .menu-logo {
-	background-image: url(../saturn/images/saturn/foton-logo.jpg);
+	background-image: url(../saturn/images/saturn/foton_logo.jpg);
 	background-repeat: no-repeat;
 	height: 73px;
 	width: auto;
@@ -85,15 +85,13 @@ input:right{ border: 1px dotted #009900; }*/
 	font-size: 12px;
 	line-height: 27px;
 	color: #2A5AB3;
-	float: left;
+	float: right;
 	height: 27px;
 	width: 170px;
 	margin: 0px;
-	text-align: left;
-	background-image: url(../icons/user-log.png);
-	background-repeat: no-repeat;
-	padding-left: 25px;
-	margin-left: 50px;
+	text-align: right;
+	padding-right: 25px;
+	margin-right: 60px;
 }
 
 

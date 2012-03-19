@@ -156,14 +156,27 @@ public class Attachment {
 
 				List<ImanFile> files = DatasetUtils.getdownloadDatasetFromTc(
 						session, dataset);
-				
+				service.refreshObjects(dataset);
 				if (files != null) {
 					for (ImanFile file : files) {
 						Attachment childdataset = new Attachment(mailId, file,
 								attachment.getParentId());
 						attachments.remove(attachment);
 						attachments.add(childdataset);
-						try {
+						try {	
+							ReleaseStatus[] status = (ReleaseStatus[])dataset.get_release_status_list();
+							String tempStatus = "";
+							if(status!= null && status.length > 0){
+								service.getProperties(status,"object_name");
+								for(int i=0; i < status.length; i++){
+									String value = status[i].get_object_name();
+									if(!value.equalsIgnoreCase("F6_Released")){
+										tempStatus = tempStatus + "," + value;
+									}
+								}
+								childdataset.setStatus(tempStatus.replaceFirst(",", ""));
+							}
+						
 							childdataset.setName(file.get_original_file_name());
 							childdataset.setPath(file.get_original_file_name());
 							/*childdataset.setPath((dir + file

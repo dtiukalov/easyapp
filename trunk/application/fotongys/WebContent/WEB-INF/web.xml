@@ -25,15 +25,15 @@
   	
 	<context-param>
 	    <param-name>emailHost</param-name>
-	    <param-value>mail.foton.com.cn</param-value>
+	    <param-value>smtp.163.com</param-value>
   	</context-param>
 	<context-param>
 	    <param-name>fromEmail</param-name>
-	    <param-value>niuyongfeng@foton.com.cn</param-value>
+	    <param-value>foton_suppliers@163.com</param-value>
   	</context-param>
 	<context-param>
 	    <param-name>fromPass</param-name>
-	    <param-value>hawa007</param-value>
+	    <param-value>foton888</param-value>
   	</context-param>
   	
 	<filter>

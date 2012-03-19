@@ -11,7 +11,7 @@
 <script type="text/javascript">
 	$(function() {
 		$('#queryTable').treegrid({
-			title : '附件列表',
+			title : '<%=International.get(request, "attachment.list") %>',
 			prerendered: false,
 			iconCls : 'icon-datalist',
 			nowrap : false,
@@ -28,7 +28,7 @@
 			}] ],
 			columns : [ [ {
 				field : 'name',
-				title : '名称',
+				title : '<%=International.get(request, "attachment.name") %>',
 				width : 440,
 				formatter : function(value, rec) {
 					var type = rec.type;
@@ -40,19 +40,19 @@
 				}
 			},{
 				field : 'status',
-				title : '状态',
+				title : '<%=International.get(request, "attachment.status") %>',
 				width : 150
 			},{
 				field : 'version',
-				title : '版本',
+				title : '<%=International.get(request, "attachment.version") %>',
 				width : 150
 			}, {
 				field : 'type',
-				title : '类型',
+				title : '<%=International.get(request, "attachment.type") %>',
 				width : 150
 			}, {
 				field : 'opt',
-				title : '操作',
+				title : '<%=International.get(request, "operation") %>',
 				width : 100,
 				align : 'center',
 				rowspan : 2,	
@@ -61,7 +61,7 @@
 					var type = rec.type;
 					var uid = rec.uid;
 					if ("Folder" != type  && rec.path != "") {     
-						return '<span><a href="javascript:downloadSingle(\'' + uid + '\')">下载</a></span>';
+						return '<span><a href="javascript:downloadSingle(\'' + uid + '\')"><%=International.get(request, "attachment.download") %></a></span>';
 					} else {
 						return '<span></span>';
 					}
@@ -71,12 +71,12 @@
 			rownumbers : true,
 			toolbar : [ {
 				id : 'btndownload',
-				text : '批量下载',
+				text : '<%=International.get(request, "batch.download") %>',
 				iconCls : 'icon-download',
 				handler : function() {
 					var rows = $('#queryTable').treegrid('getSelections');
 					if (rows.length == 0) {
-						$.messager.alert('提示','请选择下载数据集','info');
+						$.messager.alert('<%=International.get(request, "info") %>','<%=International.get(request, "download.noselect") %>','info');
 						return;
 					} 
 					
@@ -85,7 +85,7 @@
 						ids.push(rows[i].uid);
 					}					
 										
-					$.messager.confirm('确认下载项', '确认下载吗?', function(result){
+					$.messager.confirm('<%=International.get(request, "download.info") %>', '<%=International.get(request, "download.info") %>', function(result){
 						if (result){
 							window.open('<%=request.getContextPath()%>/app/tc/foton/gys/download.action?uid=${mail.mailuid}&ids=' + ids);
 						}
@@ -103,13 +103,13 @@
 			window.open('<%=request.getContextPath()%>/app/tc/foton/gys/download.action?uid=${mail.mailuid}&ids=' + ids);
 		//	window.location.href='<%=request.getContextPath()%>/app/tc/foton/gys/download.action?uid=${mail.mailuid}&filename='+filename+'&ids=' + ids;
 		} else {
-			alert('请选择要下载的数据集！');
+			alert('<%=International.get(request, "download.noselect") %>');
 		}
 	} 
 </script>
 </head>
 <body>
-	<div id="panel" class="easyui-panel" title="邮件详情"
+	<div id="panel" class="easyui-panel" title="<%=International.get(request, "mail.detail") %>"
 		icon="icon-edit-form" collapsible="true" style="padding: 10px;">
 
 		<form id="editForm"
@@ -141,7 +141,7 @@
 		<table id="queryTable"></table>
 		<div style="padding: 10px;">
 			 <a href="javascript:history.back(-1)"
-				class="easyui-linkbutton" iconCls="icon-back">返回</a>
+				class="easyui-linkbutton" iconCls="icon-back"><%=International.get(request, "back") %></a>
 		</div>
 	</div>
 </body>

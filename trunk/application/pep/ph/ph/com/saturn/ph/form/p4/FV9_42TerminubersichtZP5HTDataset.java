@@ -6,7 +6,7 @@ public class FV9_42TerminubersichtZP5HTDataset extends Form {
 	
 	private static final String[] attr = {
 		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
-		"fv9PlatformType" ,"fv9otherUid", "fv9IsBackup"
+		"fv9PlatformType" ,"fv9otherUid", "fv9IsBackup", "object_type"
 	};
 	
 	public String[] getAttributes() {
@@ -24,6 +24,6 @@ public class FV9_42TerminubersichtZP5HTDataset extends Form {
 
 	@Override
 	public String getTitle() {
-		return "4.2 Terminübersicht ZP5 HT";
+		return "4.2 Terminuebersicht ZP5 HT";
 	}
 }

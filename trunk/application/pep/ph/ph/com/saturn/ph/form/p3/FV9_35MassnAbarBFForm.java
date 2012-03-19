@@ -11,7 +11,7 @@ public class FV9_35MassnAbarBFForm extends Form {
 		"fv9LackCom_GM", "fv9Karosseriebau", "fv9KarossCom_CN", "fv9KarossCom_GM",
 		"fv9Presswerk", "fv9PresswerkCom_CN", "fv9PresswerkCom_GM",
 		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
-		"fv9PlatformType" ,"fv9otherUid", "fv9IsBackup"
+		"fv9PlatformType" ,"fv9otherUid", "fv9IsBackup", "object_type"
 	};
 
 	public String[] getAttributes() {

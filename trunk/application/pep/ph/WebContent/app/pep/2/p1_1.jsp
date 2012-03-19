@@ -71,9 +71,9 @@
 			<div id="german">
 				<input type="button" class="china" onclick="changeChinese()"/>
 			</div>
-			<div id="datatable1" style="font-size:12px; margin: 30px 50px;">
+			<div id="datatable1" style="font-size:13px; margin: 30px 50px;">
 				<table width="100%" cellspacing="2" rules="rows" >
-					<tr style="border-bottom:2px solid #333333;font-size:16px;font-weight:bold;">
+					<tr style="border-bottom:2px solid #333333;font-weight:bold;">
 						<td>&nbsp;</td>
 						<td>Kennzahlen</td>
 						<td>Bemerkung</td>	
@@ -98,14 +98,14 @@
 							<img src="<%=imagePath %>" align="right" border=0 width=50 height=56 style="margin-right:50px"> 
 						</td>
 						<td width="22%">
-							<table style="padding:5px">
+							<table style="padding:5px; font-size: 11px;" >
 								<%=getAnzahl(fv9AnzahlNum.get(i)) %>
 								<tr><td>Soll</td><td>&nbsp;=&nbsp;</td><td><%=fv9FreigSollNum.get(i) %></td></tr>
 								<tr><td>Ist</td><td>&nbsp;=&nbsp;</td><td><%=fv9FreiglstNum.get(i) %></td></tr>
 								<tr><td>offen</td><td>&nbsp;=&nbsp;</td><td><%=fv9OffenNum.get(i)%></td></tr>
 							</table>
 						</td>
-						<td  width="48%" >
+						<td width="48%" style="font-size: 11px;">
 							<%= Web.replaceSpecial(fv9FreigCom_GM.get(i))%>
 						</td>
 					</tr>
@@ -119,9 +119,9 @@
 			<div id="china" style="display: none;">
 				<input type="button" class="german" onclick="changeGerman()" />
 			</div>
-			<div id="datatable2" style="font-size:12px;margin: 30px 50px;display: none;">
+			<div id="datatable2" style="font-size:13px;margin: 30px 50px;display: none;">
 				<table width="100%" cellspacing="2" rules="rows" >
-					<tr style="border-bottom:2px solid #333333;font-size:16px;font-weight:bold;">
+					<tr style="border-bottom:2px solid #333333;font-weight:bold;">
 						<td>&nbsp;</td>
 						<td>认可数量</td>
 						<td>认可描述</td>	
@@ -146,14 +146,14 @@
 							<img src="<%=imagePath %>" align="right" border=0 width=50 height=56 style="margin-right:50px"> 
 						</td>
 						<td width="22%">
-							<table style="padding:5px">
+							<table style="padding:5px; font-size: 11px;">
 								<%=getAnzahl(fv9AnzahlNum.get(i)) %>
 								<tr><td>Soll</td><td>&nbsp;=&nbsp;</td><td><%=fv9FreigSollNum.get(i) %></td></tr>
 								<tr><td>Ist</td><td>&nbsp;=&nbsp;</td><td><%=fv9FreiglstNum.get(i) %></td></tr>
 								<tr><td>offen</td><td>&nbsp;=&nbsp;</td><td><%=fv9OffenNum.get(i)%></td></tr>
 							</table>
 						</td>
-						<td  width="48%" >
+						<td  width="48%" style="font-size: 11px;">
 							<%= Web.replaceSpecial(fv9FreigCom_CN.get(i))%>
 						</td>
 					</tr>

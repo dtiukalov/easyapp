@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Pilothallengespräche</title>
+<title>PilothallengesprAEche</title>
 <%@ include file="/app/pep/include/mainheader.jsp"%>
 <script type="text/javascript">
 function addTab(pageTab, node) {

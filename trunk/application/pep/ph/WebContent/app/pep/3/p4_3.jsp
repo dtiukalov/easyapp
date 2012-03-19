@@ -104,7 +104,7 @@
 					defaultSeriesType: 'column'
 				},
 				title: {
-					text: 'Gesamt: <%=gesamt%> Funktionsmaße',
+					text: 'Gesamt: <%=gesamt%> Funktionsmasse',
 					style:{
 						color:'black'
 					},
@@ -169,7 +169,7 @@
 						enabled: false
 				},
 			    series: [{
-					name: 'Anzahl Änderungen',
+					name: 'Anzahl AEnderungen',
 					data: [{ 
 							y: <%=y1%>, 
 							low: <%=low1%>,
@@ -207,14 +207,15 @@
 							click: function() {
 								hs.htmlExpand(null, {
 									pageOrigin: {
-										x: this.pageX,
-								//		x: 100,
-										y: this.pageY
-									//	y: 400
+								//		x: this.pageX,
+										x: 120,
+								//		y: this.pageY
+										y: 300
 									},
 									headingText: '',
-									maincontentText: this.desc
-							//		width: 400
+									maincontentText: this.desc,
+									width: 100,
+									height: 300
 								});
 							}
 						}

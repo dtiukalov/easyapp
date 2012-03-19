@@ -12,7 +12,8 @@ public class FV9_34FuntAussTolForm extends Form {
 		"fv9FuncSmall20", "fv9FuncSmall20Com",
 		"fv9FuncBig20", "fv9FuncBig20Com",
 		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
-		"fv9PlatformType","fv9otherUid", "fv9IsBackup"
+		"fv9PlatformType","fv9otherUid", "fv9IsBackup", 
+		"object_type"
 	};
 
 	public String[] getAttributes() {
@@ -30,6 +31,6 @@ public class FV9_34FuntAussTolForm extends Form {
 
 	@Override
 	public String getTitle() {
-		return "3.4 Funktionsmaße außerhalb der Toleranz";
+		return "3.4 Funktionsmasse ausserhalb der Toleranz";
 	}
 }

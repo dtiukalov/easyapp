@@ -91,7 +91,7 @@
 					defaultSeriesType: 'column'
 				},
 				title: {
-					text: 'Anzahl Änderungen',
+					text: 'Anzahl AEnderungen',
 					style:{
 						color:'black',
 						fontSize:'20px'
@@ -100,7 +100,7 @@
 					y:10
 				},
 				xAxis: {
-					lineWidth:0,
+					lineWidth:2,
 					tickWidth:0,
 					labels:{
 						y:30,
@@ -176,11 +176,11 @@
 					}
 				},
 			    series: [{
-					name: 'Anzahl Änderungen',
+					name: 'Anzahl AEnderungen',
 					data: [<%=data%>]
 				},{
-					data: [[4.75, 0], [ 4.7501, <%=total%>]],
-		//			color: 'black',
+					data: [[4.5, 0], [ 4.501, <%=total%>]],
+					color: '#5762A0',
 					dashStyle: 'dash',
 					lineWidth: 1,
 					marker: {enabled: false},

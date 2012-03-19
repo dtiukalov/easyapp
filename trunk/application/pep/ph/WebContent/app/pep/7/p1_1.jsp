@@ -173,12 +173,13 @@
 			height: 45px;
 			overflow: hidden;
 			text-align: center;
+			font-size: 8px;
 		}
 		.massTD {
 			height: 45px;
 			overflow: hidden;
 			text-align: left;
-			font-size: 9px;
+			font-size: 8px;
 			border: 1px solid #000000;
 		}
 	</style>
@@ -201,8 +202,8 @@
 				<td width="10%" height="12">&nbsp;</td>
 				<td width="18%" height="12">&nbsp;</td>
 			  	<td width="3.5%" height="12">&nbsp;</td>
-			    <td width="34%" height="12">&nbsp;Kritische Berichtspunkte:</td>
-			    <td width="34%" height="12">&nbsp;Maßnahmen: </td>
+			    <td width="34%" height="12" style="font-weight: bolder;">&nbsp;Kritische Berichtspunkte:</td>
+			    <td width="34%" height="12" style="font-weight: bolder;">&nbsp;Massnahmen: </td>
 			</tr>
 			<tr>
 			  <td width="10%" rowspan="11" class="mileStone">
@@ -301,8 +302,8 @@
 				<td width="10%" height="12">&nbsp;</td>
 				<td width="18%" height="12">&nbsp;</td>
 			  	<td width="3.5%" height="12">&nbsp;</td>
-			    <td width="34%" height="12">&nbsp;重要汇报点:</td>
-			    <td width="34%" height="12">&nbsp;措施: </td>
+			    <td width="34%" height="12" style="font-weight: bolder;">&nbsp;重要汇报点:</td>
+			    <td width="34%" height="12" style="font-weight: bolder;">&nbsp;措施: </td>
 			</tr>
 			<tr>
 			  <td width="10%" rowspan="11" class="mileStone">

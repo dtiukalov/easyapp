@@ -322,7 +322,7 @@
 						<div style="margin:3px 10px;font-weight: bold;">Top</div>
 						<div class="div"><table width="350" cellspacing="0">
 								<tr style="font-weight: bold;">
-									<td>Kritische Umfänge</td>
+									<td>Kritische UmfAEnge</td>
 									<td>Einzelteile</td>
 									<td>VSI SWZ</td>
 									<td>VSI N3</td>

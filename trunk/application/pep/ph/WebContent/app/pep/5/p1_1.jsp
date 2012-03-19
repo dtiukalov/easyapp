@@ -58,10 +58,10 @@
 				<tr>
 					<td width="239" class="pg" colspan="2">&nbsp;</td>
 					<td width="311" class="pg"><h2>Status</h2></td>
-					<td width="433" class="pg"><h2>Maßnahmen</h2></td>
+					<td width="433" class="pg"><h2>Massnahmen</h2></td>
 				</tr>
 				<tr >
-					<td valign="top" class="pgpg" style="width:100px;padding:10px">
+					<td valign="top" class="pgpg" style="width:100px;padding:10px; font-size: 14px;">
 						<h2>Presswerk</h2>
 					</td>
 					<td valign="top" class="pgpg" style="width:39px;padding:10px">
@@ -73,8 +73,7 @@
 						<img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
 						<%}%>
 					</td>
-					<td width="60%" valign="top" class="pgpg">
-						<div class="tbnrr" >
+					<td width="60%" valign="top" class="pgpg" style="font-size: 10px;">
 						<%
 							if (fv9PressStCom_GM != null && !"".equals(fv9PressStCom_GM)) {
 						%>
@@ -87,12 +86,18 @@
 							}
 						%>
 					</td>
-					<td width="40%" valign="top" class="pgpg"><div class="tbnrr">
-						<%if (fv9PressStMab_GM != null && !"".equals(fv9PressStMab_GM)) {
-						%><%=fv9PressStMab_GM %>
-						<%} else {%>
-						&nbsp;
-						<%}%>
+					<td width="40%" valign="top" class="pgpg" style="font-size: 10px;">
+						<%
+							if (fv9PressStMab_GM != null && !"".equals(fv9PressStMab_GM)) {
+						%>
+							<%=fv9PressStMab_GM %>
+						<%
+							} else {
+						%>
+							&nbsp;
+						<%
+							}
+						%>
 					</td>
 				</tr>
 				<tr>
@@ -108,8 +113,7 @@
 						<img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
 						<%}%>
 					</td>
-					<td width="60%" valign="top" class="pgpg">
-						<div class="tbnrr">
+					<td width="60%" valign="top" class="pgpg" style="font-size: 10px;">
 						<%
 							if (fv9KarossStCom_GM != null && !"".equals(fv9KarossStCom_GM)) {
 						%>
@@ -122,12 +126,18 @@
 							}
 						%>
 					</td>
-					<td width="40%" valign="top" class="pgpg"><div class="tbnrr">
-						<%if (fv9KarossStMab_GM != null && !"".equals(fv9KarossStMab_GM)) {
-						%><%=fv9KarossStMab_GM %>
-						<%} else {%>
-						&nbsp;
-						<%}%>
+					<td width="40%" valign="top" class="pgpg" style="font-size: 10px;">
+						<%
+							if (fv9KarossStMab_GM != null && !"".equals(fv9KarossStMab_GM)) {
+						%>
+							<%=fv9KarossStMab_GM %>
+						<%
+							} else {
+						%>
+							&nbsp;
+						<%
+							}
+						%>
 					</td>
 				</tr>
 				
@@ -144,8 +154,7 @@
 						<img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
 						<%}%>
 					</td>
-					<td width="60%" valign="top" class="pgpg">
-						<div class="tbnrr">
+					<td width="60%" valign="top" class="pgpg" style="font-size: 10px;">
 						<%
 							if (fv9LackStCom_GM != null && !"".equals(fv9LackStCom_GM)) {
 						%>
@@ -158,12 +167,18 @@
 							}
 						%>
 					</td>
-					<td width="40%" valign="top" class="pgpg"><div class="tbnrr">
-						<%if (fv9LackStMab_GM != null && !"".equals(fv9LackStMab_GM)) {
-						%><%=fv9LackStMab_GM %>
-						<%} else {%>
-						&nbsp;
-						<%}%>
+					<td width="40%" valign="top" class="pgpg" style="font-size: 10px;">
+						<%
+							if (fv9LackStMab_GM != null && !"".equals(fv9LackStMab_GM)) {
+						%>
+							<%=fv9LackStMab_GM %>
+						<%
+							} else {
+						%>
+							&nbsp;
+						<%
+							}
+						%>
 					</td>
 				</tr>
 				
@@ -180,7 +195,7 @@
 						<img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
 						<%}%>
 					</td>
-					<td width="60%" valign="top" class="pgpg">
+					<td width="60%" valign="top" class="pgpg" style="font-size: 10px;">
 						<div class="tbnrr">
 						<%
 							if (fv9MontStCom_GM != null && !"".equals(fv9MontStCom_GM)) {
@@ -194,12 +209,18 @@
 							}
 						%>
 					</td>
-					<td width="40%" valign="top" class="pgpg"><div class="tbnrr">
-						<%if (fv9MontStMab_GM != null && !"".equals(fv9MontStMab_GM)) {
-						%><%=fv9MontStMab_GM %>
-						<%} else {%>
-						&nbsp;
-						<%}%>
+					<td width="40%" valign="top" class="pgpg" style="font-size: 10px;">
+						<%
+							if (fv9MontStMab_GM != null && !"".equals(fv9MontStMab_GM)) {
+						%>
+							<%=fv9MontStMab_GM %>
+						<%
+							} else {
+						%>
+							&nbsp;
+						<%
+							}
+						%>
 					</td>
 				</tr>
 				
@@ -216,7 +237,7 @@
 						<img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
 						<%}%>
 					</td>
-					<td width="60%" valign="top" class="pgpg">
+					<td width="60%" valign="top" class="pgpg" style="font-size: 10px;">
 						<div class="tbnrr">
 						<%
 							if (fv9ElectStCom_GM != null && !"".equals(fv9ElectStCom_GM)) {
@@ -230,12 +251,18 @@
 							}
 						%>
 					</td>
-					<td width="40%" valign="top" class="pgpg"><div class="tbnrr">
-						<%if (fv9ElectStMab_GM != null && !"".equals(fv9ElectStMab_GM)) {
-						%><%=fv9ElectStMab_GM %>
-						<%} else {%>
-						&nbsp;
-						<%}%>
+					<td width="40%" valign="top" class="pgpg" style="font-size: 10px;">
+						<%
+							if (fv9ElectStMab_GM != null && !"".equals(fv9ElectStMab_GM)) {
+						%>
+							<%=fv9ElectStMab_GM %>
+						<%
+							} else {
+						%>
+							&nbsp;
+						<%
+							}
+						%>
 					</td>
 				</tr>
 			</table>
@@ -247,8 +274,8 @@
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 				<tr>
 					<td width="239" class="pg" colspan="2">&nbsp;</td>
-					<td width="311" class="pg"><h2>Status</h2></td>
-					<td width="433" class="pg"><h2>Maßnahmen</h2></td>
+					<td width="311" class="pg" style="font-size: 14px;"><h2>Status</h2></td>
+					<td width="433" class="pg" style="font-size: 14px;"><h2>Massnahmen</h2></td>
 				</tr>
 				<tr>
 					<td valign="top" class="pgpg" style="width:200px;padding:10px">
@@ -263,7 +290,7 @@
 						<img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
 						<%}%>
 					</td>
-					<td width="60%" valign="top" class="pgpg">
+					<td width="60%" valign="top" class="pgpg" style="font-size: 10px;">
 						<div class="tbnrr">
 						<%
 							if (fv9PressStCom_CN != null && !"".equals(fv9PressStCom_CN)) {
@@ -277,12 +304,18 @@
 							}
 						%>
 					</td>
-					<td width="40%" valign="top" class="pgpg"><div class="tbnrr">
-						<%if (fv9PressStMab_CN != null && !"".equals(fv9PressStMab_CN)) {
-						%><%=fv9PressStMab_CN %>
-						<%} else {%>
-						&nbsp;
-						<%}%>
+					<td width="40%" valign="top" class="pgpg" style="font-size: 10px;">
+						<%
+							if (fv9PressStMab_CN != null && !"".equals(fv9PressStMab_CN)) {
+						%>
+							<%=fv9PressStMab_CN %>
+						<%
+							} else {
+						%>
+							&nbsp;
+						<%
+							}
+						%>
 					</td>
 				</tr>
 				
@@ -299,7 +332,7 @@
 						<img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
 						<%}%>
 					</td>
-					<td width="60%" valign="top" class="pgpg">
+					<td width="60%" valign="top" class="pgpg" style="font-size: 10px;">
 						<div class="tbnrr">
 						<%
 							if (fv9KarossStCom_CN != null && !"".equals(fv9KarossStCom_CN)) {
@@ -313,12 +346,18 @@
 							}
 						%>
 					</td>
-					<td width="40%" valign="top" class="pgpg"><div class="tbnrr">
-						<%if (fv9KarossStMab_CN != null && !"".equals(fv9KarossStMab_CN)) {
-						%><%=fv9KarossStMab_CN %>
-						<%} else {%>
-						&nbsp;
-						<%}%>
+					<td width="40%" valign="top" class="pgpg" style="font-size: 10px;">
+						<%
+							if (fv9KarossStMab_CN != null && !"".equals(fv9KarossStMab_CN)) {
+						%>
+							<%=fv9KarossStMab_CN %>
+						<%
+							} else {
+						%>
+							&nbsp;
+						<%
+							}
+						%>
 					</td>
 				</tr>
 				
@@ -335,7 +374,7 @@
 						<img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
 						<%}%>
 					</td>
-					<td width="60%" valign="top" class="pgpg">
+					<td width="60%" valign="top" class="pgpg" style="font-size: 10px;">
 						<div class="tbnrr">
 						<%
 							if (fv9LackStCom_CN != null && !"".equals(fv9LackStCom_CN)) {
@@ -349,12 +388,18 @@
 							}
 						%>
 					</td>
-					<td width="40%" valign="top" class="pgpg"><div class="tbnrr">
-						<%if (fv9LackStMab_CN != null && !"".equals(fv9LackStMab_CN)) {
-						%><%=fv9LackStMab_CN %>
-						<%} else {%>
-						&nbsp;
-						<%}%>
+					<td width="40%" valign="top" class="pgpg" style="font-size: 10px;">
+						<%
+							if (fv9LackStMab_CN != null && !"".equals(fv9LackStMab_CN)) {
+						%>
+							<%=fv9LackStMab_CN %>
+						<%
+							} else {
+						%>
+							&nbsp;
+						<%
+							}
+						%>
 					</td>
 				</tr>
 				
@@ -371,7 +416,7 @@
 						<img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
 						<%}%>
 					</td>
-					<td width="60%" valign="top" class="pgpg">
+					<td width="60%" valign="top" class="pgpg" style="font-size: 10px;">
 						<div class="tbnrr">
 						<%
 							if (fv9MontStCom_CN != null && !"".equals(fv9MontStCom_CN)) {
@@ -385,12 +430,18 @@
 							}
 						%>
 					</td>
-					<td width="40%" valign="top" class="pgpg"><div class="tbnrr">
-						<%if (fv9MontStMab_CN != null && !"".equals(fv9MontStMab_CN)) {
-						%><%=fv9MontStMab_CN %>
-						<%} else {%>
-						&nbsp;
-						<%}%>
+					<td width="40%" valign="top" class="pgpg" style="font-size: 10px;">
+						<%
+							if (fv9MontStMab_CN != null && !"".equals(fv9MontStMab_CN)) {
+						%>
+							<%=fv9MontStMab_CN %>
+						<%
+							} else {
+						%>
+							&nbsp;
+						<%
+							}
+						%>
 					</td>
 				</tr>
 				
@@ -407,7 +458,7 @@
 						<img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
 						<%}%>
 					</td>
-					<td width="60%" valign="top" class="pgpg">
+					<td width="60%" valign="top" class="pgpg" style="font-size: 10px;">
 						<div class="tbnrr">
 						<%
 							if (fv9ElectStCom_CN != null && !"".equals(fv9ElectStCom_CN)) {
@@ -421,12 +472,18 @@
 							}
 						%>
 					</td>
-					<td width="40%" valign="top" class="pgpg"><div class="tbnrr">
-						<%if (fv9ElectStMab_CN != null && !"".equals(fv9ElectStMab_CN)) {
-						%><%=fv9ElectStMab_CN %>
-						<%} else {%>
-						&nbsp;
-						<%}%>
+					<td width="40%" valign="top" class="pgpg" style="font-size: 10px;">
+						<%
+							if (fv9ElectStMab_CN != null && !"".equals(fv9ElectStMab_CN)) {
+						%>
+							<%=fv9ElectStMab_CN %>
+						<%
+							} else {
+						%>
+							&nbsp;
+						<%
+							}
+						%>
 					</td>
 				</tr>
 			</table>

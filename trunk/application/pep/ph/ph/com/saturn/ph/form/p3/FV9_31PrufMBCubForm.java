@@ -8,7 +8,7 @@ public class FV9_31PrufMBCubForm extends Form {
 		"fv9PrMSBCubStyle", "fv9PrMSBCubStatus", "fv9PrMSBCubStCom_CN", "fv9PrMSBCubStCom_GM",
 		"fv9PrMSBCubMabnh_CN", "fv9PrMSBCubMabnh_GM",
 		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
-		"fv9PlatformType","fv9otherUid", "fv9IsBackup"
+		"fv9PlatformType","fv9otherUid", "fv9IsBackup", "object_type"
 	};
 
 	public String[] getAttributes() {

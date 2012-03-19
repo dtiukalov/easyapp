@@ -145,6 +145,7 @@ a:hover {
 	padding-left:12px;
 }
 #content .con2 {
+	float:left;
 	min-height:462px;/*jyb hougai*/
 	height: auto !important;
 	height:462px;
@@ -219,6 +220,8 @@ a:hover {
 	overflow:hidden;
 }
 #footer {
+	margin-top:5px;
+	float:left;
 	height:102px;
 	background:url(../images/footer_bg.gif) no-repeat 0 0;
 }

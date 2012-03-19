@@ -123,10 +123,10 @@
 				bgcolor = "#ffffff";
 			if(i==0){
 				%>
-  			<tr align="center" height="98px" bgcolor="<%=bgcolor%>">
-	      <td style="border-top: dashed thin #ababab;border-width:1px;"><img src="<%=car.getImage()!=null?car.getImage():"images/car.gif" %>" width="130" height="98" /></td>
-	      <td style="border-top: dashed thin #ababab;border-width:1px;"><a href="cus_cardetail.jsp?cid=<%=WebUtils.getRootCid(request) %>.sall&model=<%=car.getModel() %>"><span style="color:#1478c6;"><%=car.getModelName() %></span></a></td>
-	      <td style="border-top: dashed thin #ababab;border-width:1px;"><span style="color:#da251c;">&nbsp;<%=car.getPrice() %></span></td>
+  			<tr align="center" height="60px" bgcolor="<%=bgcolor%>">
+	      <td style="border-top: dashed thin #ababab;border-width:1px;"><img src="<%=car.getImage()!=null?car.getImage():"images/car.gif" %>" width="90" height="60" /></td>
+	      <td style="border-top: dashed thin #ababab;border-width:1px;"><a href="cus_cardetail.jsp?cid=<%=WebUtils.getRootCid(request) %>.sall&model=<%=car.getModel() %>"><span style="color:#1478c6;font-size: 18px;"><%=car.getModelName() %></span></a></td>
+	      <td style="border-top: dashed thin #ababab;border-width:1px;"><span style="color:#da251c;font-size: 18px;">&nbsp;<%=car.getPrice() %></span></td>
 	      <!-- 
 	      <td style="border-top: dashed thin #ababab;border-width:1px;">
 		      <a href="cus_cardetail.jsp?cid=<%=WebUtils.getRootCid(request) %>.sall&model=<%=car.getModel() %>">详情</a>
@@ -141,10 +141,10 @@
    					<%
    				}else{
      		%>
-       		<tr align="center" height="98px" bgcolor="<%=bgcolor%>">
-		      <td ><span style="border-top: dashed thin #ababab;border-width:1px;"><img src="<%=car.getImage()!=null?car.getImage():"images/car.gif" %>" width="130" height="98" /></span></td>
-		      <td ><a href="cus_cardetail.jsp?cid=<%=WebUtils.getRootCid(request) %>.sall&model=<%=car.getModel() %>"><span style="color:#1478c6;"><%=car.getModelName() %></span></a></td>
-		      <td ><span style="color:#da251c;">&nbsp;<%=car.getPrice() %></span></td>
+       		<tr align="center" height="60px" bgcolor="<%=bgcolor%>">
+		      <td ><span style="border-top: dashed thin #ababab;border-width:1px;"><img src="<%=car.getImage()!=null?car.getImage():"images/car.gif" %>" width="90" height="60" /></span></td>
+		      <td ><a href="cus_cardetail.jsp?cid=<%=WebUtils.getRootCid(request) %>.sall&model=<%=car.getModel() %>"><span style="color:#1478c6;font-size: 18px;"><%=car.getModelName() %></span></a></td>
+		      <td ><span style="color:#da251c;font-size: 18px;">&nbsp;<%=car.getPrice() %></span></td>
 		      <!-- 
 		      <td >
 		      <a href="cus_cardetail.jsp?cid=<%=WebUtils.getRootCid(request) %>.sall&model=<%=car.getModel() %>">详情</a>

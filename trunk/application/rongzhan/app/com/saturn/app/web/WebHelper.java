@@ -1,5 +1,8 @@
 package com.saturn.app.web;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,6 +13,8 @@ public class WebHelper {
 	public static final String ERROR_JSP = "/error.jsp";
 
 	public static final String ERROR_MESSAGE = "__ERROR_MESSAGE__";
+	
+	public static final String ERROR_MESSAGE_STACK = "__ERROR_MESSAGE_STACK__";
 
 	private HttpServletRequest request;
 
@@ -36,7 +41,11 @@ public class WebHelper {
 			IAction action = ActionManager.get(actionKey);
 			return action.execute(request, response);
 		} catch (Exception e) {
+			StringWriter sw = new StringWriter();
+			e.printStackTrace(new PrintWriter(sw));
+			
 			request.setAttribute(ERROR_MESSAGE, e.getMessage());
+			request.setAttribute(ERROR_MESSAGE_STACK, sw.toString());
 			return new JspView(ERROR_JSP);
 		}
 	}

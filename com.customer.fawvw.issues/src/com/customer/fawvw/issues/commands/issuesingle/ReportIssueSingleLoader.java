@@ -215,7 +215,7 @@ public class ReportIssueSingleLoader {
 					if (owning_user instanceof TCComponentUser) {
 						TCComponentUser user = (TCComponentUser)owning_user;
 						Map groupRoles = user.getGroupRolesTable();
-						System.out.println("groupRoles = " + groupRoles); 
+				System.out.println("用户所在角色、组 = " + groupRoles); 
 						
 						Collection<List<TCComponentRole>> allRoles = groupRoles.values();
 						
@@ -224,7 +224,9 @@ public class ReportIssueSingleLoader {
 						for (; it.hasNext(); ) {
 							List<TCComponentRole> roleList = (List<TCComponentRole>)it.next();
 							for (TCComponentRole role : roleList) {
+				System.out.println("角色 = " + role.getProperty("role_name"));
 								if ("产品经理".equals(role.getProperty("role_name"))) {  //$NON-NLS-2$
+				System.out.println("-------角色为产品经理---------");
 									list.add(itemRev);
 								}
 							}
@@ -233,6 +235,7 @@ public class ReportIssueSingleLoader {
 					}
 				}
 				
+		System.out.println("PH汇报版本数目 = " + list.size());
 				//不存在符合条件的PHReportItemRevs
 				if (list.size() <= 0) {
 					values.put("PH_SOP", null); 
@@ -250,7 +253,7 @@ public class ReportIssueSingleLoader {
 							PHReportRev, "FV9PMPH_Rel", "FV9_11ProjectTermin") != null &&
 						((List<TCComponent>)ComponentUtils.getComponentByRelationAndType(
 							PHReportRev, "FV9PMPH_Rel", "FV9_11ProjectTermin")).size() > 0) {
-						
+		System.out.println("找到FV9_11ProjectTermin");		
 						TCComponent FV9_11ProjectTermin = ((List<TCComponent>)ComponentUtils.getComponentByRelationAndType(
 								PHReportRev, "FV9PMPH_Rel", "FV9_11ProjectTermin")).get(0);
 						
@@ -260,6 +263,10 @@ public class ReportIssueSingleLoader {
 							Date pvs = form.getDateProperty("fv9PVSMLDate");
 							Date os = form.getDateProperty("fv90SMLDate");
 							Date sop = form.getDateProperty("fv9SOPMLDate"); 
+			System.out.println("VFF = " + vff);
+			System.out.println("pvs = " + pvs);
+			System.out.println("os = " + os);
+			System.out.println("sop" + sop);
 							if (vff == null) {
 								values.put("PH_VFF", null);
 							} else {
@@ -290,20 +297,22 @@ public class ReportIssueSingleLoader {
 							PHReportRev, "FV9PMPH_Rel", "FV9_11VorserienTer") != null &&
 						((List<TCComponent>)ComponentUtils.getComponentByRelationAndType(
 							PHReportRev, "FV9PMPH_Rel", "FV9_11VorserienTer")).size() > 0) {
-						
+			System.out.println("找到FV9_11VorserienTer");				
 						TCComponent FV9_11VorserienTer = ((List<TCComponent>)ComponentUtils.getComponentByRelationAndType(
 								PHReportRev, "FV9PMPH_Rel", "FV9_11VorserienTer")).get(0);
 						
 						if (FV9_11VorserienTer instanceof TCComponentForm) {
 							TCComponentForm form = (TCComponentForm)FV9_11VorserienTer;
 							Date TBT_VFF = form.getDateProperty("fv9VFFTBTZP7"); 
+			System.out.println("TBT_VFF = " + TBT_VFF);
 							if (TBT_VFF == null) {
 								values.put("TBT_VFF", null); 
 							} else {
 								values.put("TBT_VFF", TBT_VFF); 
 							}
 							
-							Date TBT_PVS = form.getDateProperty("fv9PVSTBTZP7"); 
+							Date TBT_PVS = form.getDateProperty("fv9PVSTBTZP7");
+			System.out.println("TBT_PVS = " + TBT_PVS);
 							if (TBT_PVS == null) {
 								values.put("TBT_PVS", null); 
 							} else {
@@ -311,6 +320,7 @@ public class ReportIssueSingleLoader {
 							}
 							
 							Date TBT_0S = form.getDateProperty("fv90STBTZP7"); 
+			System.out.println("TBT_0S = " + TBT_0S);
 							if (TBT_0S == null) {
 								values.put("TBT_0S", null); 
 							} else {
@@ -344,7 +354,7 @@ public class ReportIssueSingleLoader {
 	}
 
 	private static TCComponent QueryLastCreateTCComponent(List<TCComponent> list) {
-		
+System.out.println("PH汇报版本数目 = " + list.size());		
 		//如果只有一个PHReportItemRevs，则取此PHReportItemRevs
 		//如果存在一个以上的PHReportItemRevs，则取创建时间最晚的
 		if (list.size() > 0) {

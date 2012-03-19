@@ -412,6 +412,19 @@ public class CreateIssueSingleExcel {
 				ImageUtil.GenerateImage(wb, sheet, patri, Note1, ImageUtil.getNote1());
 				System.out.println("写入图片：Note1.jpg"); 
 				
+				//写入三张红黄绿灯图片
+				ImageCellInfo redCell = new ImageCellInfo(4, 75, 16, 75);
+				ImageUtil.GenerateImage(wb, sheet, patri, redCell, ImageUtil.getRedLight());
+				System.out.println("写入红灯图片：redLight.jpg"); 
+				
+				ImageCellInfo yellowCell = new ImageCellInfo(4, 76, 16, 76);
+				ImageUtil.GenerateImage(wb, sheet, patri, yellowCell, ImageUtil.getYellowLight());
+				System.out.println("写入黄灯图片：yellowLight.jpg"); 
+				
+				ImageCellInfo greenCell = new ImageCellInfo(4, 77, 16, 77);
+				ImageUtil.GenerateImage(wb, sheet, patri, greenCell, ImageUtil.getGreenLight());
+				System.out.println("写入绿灯图片：greenLight.jpg"); 
+				
 				//获取各个里程碑的时间点
 				Date VFF = (Date)values.get("PH_VFF"); 
 				Date PVS = (Date)values.get("PH_PVS"); 
@@ -754,4 +767,6 @@ public class CreateIssueSingleExcel {
 			
 			return map;
 		}
+		
+		
 }

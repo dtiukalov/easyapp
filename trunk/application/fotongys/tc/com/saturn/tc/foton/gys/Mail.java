@@ -78,6 +78,7 @@ public class Mail {
 		WorkspaceObject[] workspaceObjects = null;
 		try {
 			Folder mailbox = WorkspaceUtils.getMailBox(session, user.getUid());
+			service.refreshObjects(mailbox);
 			workspaceObjects = mailbox.get_contents();
 
 			service.getProperties(workspaceObjects, "uid", "pid",
@@ -94,15 +95,17 @@ public class Mail {
 	public static ListData<Mail> getAll(User user, TCSession session,
 			WorkspaceObject[] workspaceObjects, Mail condition, String start,
 			String offset) {
-
+		EasyDataManagementService service = new EasyDataManagementService(
+				session);
+		
 		List<Mail> mails = new ArrayList<Mail>();
 
 		for (WorkspaceObject wos : workspaceObjects) {
 			if (wos instanceof Envelope) {
+				service.refreshObjects(wos);
 				Envelope envelope = (Envelope) wos;
-	
+				
 				Mail mail = new Mail(user, session, envelope);
-	
 				Mail dbmail = Mail.getMailFromDB(mail.getMailuid());
 	
 				if (dbmail != null) {

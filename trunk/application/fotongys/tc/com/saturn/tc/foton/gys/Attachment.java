@@ -1,8 +1,10 @@
 package com.saturn.tc.foton.gys;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import org.json.JSONObject;
 
@@ -43,8 +45,17 @@ public class Attachment {
 	private ImanFile downloadfile; // 为了性能而添加的和下载相关的属性
 	private String downloadpath;
 
+	public static Map<String,String> statusDisPlayValue = new HashMap<String, String>();
+	
 	public Attachment() {
-
+		
+	}
+	
+	static{
+		statusDisPlayValue.put("F6_S", "S");
+		statusDisPlayValue.put("F6_A", "A");
+		statusDisPlayValue.put("F6_P", "P");
+		statusDisPlayValue.put("F6_Released", "发布");
 	}
 
 	@SuppressWarnings("unchecked")
@@ -169,9 +180,13 @@ public class Attachment {
 							String tempStatus = "";
 							if(status!= null && status.length > 0){
 								service.getProperties(status,"object_name");
-								for(int i=0; i < status.length; i++){
-									String value = status[i].get_object_name();
+								for(int t=0; t < status.length; t++){
+									String value = status[t].get_object_name();
+									
 									if(!value.equalsIgnoreCase("F6_Released")){
+										if(statusDisPlayValue.containsKey(value)){
+											value = statusDisPlayValue.get(value);
+										}
 										tempStatus = tempStatus + "," + value;
 									}
 								}
@@ -217,9 +232,12 @@ public class Attachment {
 				String tempStatus = "";
 				if(status!= null && status.length > 0){
 					service.getProperties(status,"object_name");
-					for(int i=0; i < status.length; i++){
-						String value = status[i].get_object_name();
+					for(int p=0; p < status.length; p++){
+						String value = status[p].get_object_name();
 						if(!value.equalsIgnoreCase("F6_Released")){
+							if(statusDisPlayValue.containsKey(value)){
+								value = statusDisPlayValue.get(value);
+							}
 							tempStatus = tempStatus + "," + value;
 						}
 					}

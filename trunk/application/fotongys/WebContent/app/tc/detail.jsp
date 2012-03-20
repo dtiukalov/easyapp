@@ -99,7 +99,7 @@
 						
 						$.messager.confirm('<%=International.get(request, "info") %>', '<%=International.get(request, "delete.info") %>', function(result){
 							if (result){
-								window.parent.location.href='<%=request.getContextPath()%>/app/tc/foton/gys/delete.action?ids='+ids;
+								window.location.href='<%=request.getContextPath()%>/app/tc/foton/gys/delete.action?ids='+ids;
 							}
 						});
 						return false;

@@ -58,8 +58,8 @@ public class International {
 		en.put("attachment", "Attachment");
 		en.put("attachment.list", "Attachment List");
 		en.put("attachment.name", "Name");
-		cn.put("attachment.status", "Status");
-		cn.put("attachment.version", "Version");
+		en.put("attachment.status", "Status");
+		en.put("attachment.version", "Version");
 		en.put("attachment.type", "Type");
 		en.put("attachment.download", "Download");
 		en.put("attachment.detail", "Pelease Save!");

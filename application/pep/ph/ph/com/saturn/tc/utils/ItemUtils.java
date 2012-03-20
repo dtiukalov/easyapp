@@ -5,7 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.saturn.ph.PH;
+import com.teamcenter.services.internal.loose.core._2007_05.Session;
 import com.teamcenter.soa.client.model.ModelObject;
 import com.teamcenter.soa.client.model.strong.Item;
 import com.teamcenter.soa.client.model.strong.ItemRevision;
@@ -20,7 +23,8 @@ public class ItemUtils {
 
 	public static Map<String, Object> getLastRevisionFormIds(
 			ItemRevision itemRev,
-			String[] relations) {
+			String[] relations,
+			HttpServletRequest request) {
 		Map<String, Object> ids = new HashMap<String, Object>();
 		
 		try {
@@ -59,6 +63,12 @@ public class ItemUtils {
 							}
 						} else {
 							ids.put(type, uid);
+						}
+						
+						//将3.4 Funktionsmaße nach Bauteilen的UID放在session中，
+						//供3.4 Funktionsmaße 获取公差尺寸的总数
+						if ("FV9_34FuntNachBaut".equals(type)) {
+							request.getSession().setAttribute("FuntionsmasseUID", uid);
 						}
 					}
 				}

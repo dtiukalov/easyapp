@@ -52,7 +52,7 @@
 				<input type="button" class="china" onclick="changeChinese()" />
 			</div>
 		    <div id="datatable1" style="width: 800px; margin:20px 50px">
-			    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
+			    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table" style="overflow: hidden;">
 					  <tr>
 					    <td width="239" class="pg">&nbsp;</td>
 					    <td width="311" class="pg"><h2>Status</h2></td>
@@ -62,7 +62,7 @@
 					  for(int i=0; i<fv9LogistikStyle.size(); i++){
 						  %>
 						  <tr>
-						    <td valign="top" class="pgpg" style="width:239px;">
+						    <td valign="top" class="pgpg" style="width:239px; height: 125px;">
 							    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
 								  <tr>
 						   			 <td valign="top" width="60%"><h2> <%=fv9LogistikStyle.get(i) %></h2></td>
@@ -78,7 +78,7 @@
 								  </tr>
 								</table>
 							</td>
-				    		<td width="60%" valign="top" class="pgpg">
+				    		<td width="60%" valign="top" class="pgpg" style="height: 125px;">
 				    			<div class="tbnrr">
 				    			<%if (fv9LogistikStCom_GM.get(i) != null && !"".equals(fv9LogistikStCom_GM.get(i))) {%>
 				    				<%=fv9LogistikStCom_GM.get(i) %>
@@ -87,7 +87,7 @@
 			   	    			<%} %>
 				    			</div>
 						    </td>
-				   			<td width="40%" valign="top" class="pgpg">
+				   			<td width="40%" valign="top" class="pgpg" style="height: 125px;">
 				   			 	<div class="tbnrr">
 				   			 	<%if (fv9LogistikMab_GM.get(i) != null && !"".equals(fv9LogistikMab_GM.get(i))) {%>
 				    			<%=fv9LogistikMab_GM.get(i) %>
@@ -114,7 +114,7 @@
 					  for(int i=0; i<fv9LogistikStyle.size(); i++){
 						  %>
 						  <tr>
-						    <td valign="top" class="pgpg" style="width:239px;">
+						    <td valign="top" class="pgpg" style="width:239px; height: 125px;">
 							    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
 								  <tr>
 						   			 <td valign="top" width="60%"><h2> <%=fv9LogistikStyle.get(i) %></h2></td>
@@ -130,7 +130,7 @@
 								  </tr>
 								</table>
 							</td>
-				    		<td width="60%" valign="top" class="pgpg">
+				    		<td width="60%" valign="top" class="pgpg" style="height: 125px;">
 				    			<div class="tbnrr">
 				    			<%if (fv9LogistikStCom_CN.get(i) != null && !"".equals(fv9LogistikStCom_CN.get(i))) {%>
 				    				<%=fv9LogistikStCom_CN.get(i) %>
@@ -139,7 +139,7 @@
 			   	    			<%} %>
 				    			</div>
 						    </td>
-				   			<td width="40%" valign="top" class="pgpg">
+				   			<td width="40%" valign="top" class="pgpg" style="height: 125px;">
 				   			 	<div class="tbnrr">
 				   			 	<%if (fv9LogistikMab_CN.get(i) != null && !"".equals(fv9LogistikMab_CN.get(i))) {%>
 				    			<%=fv9LogistikMab_CN.get(i) %>

@@ -11,6 +11,26 @@
 		<%@ include file="/app/pep/include/header.jsp"%>
 		<title><%=title %></title>
 		<%
+			String FuntionsmasseUID = (String)session.getAttribute("FuntionsmasseUID");
+			System.out.println("FuntionsmasseUID = " + FuntionsmasseUID);
+			int gesamt = 0;
+			if (!"".equals(FuntionsmasseUID)) {
+				Map<String, Object> Funtionsmasse = FormManager.getFormValue("FV9_34FuntNachBaut", FuntionsmasseUID, true);
+				List<String> aK = (List<String>)Funtionsmasse.get("fv9FunctionAK");
+				List<String> bK = (List<String>)Funtionsmasse.get("fv9FunctionBK");
+				List<String> iO = (List<String>)Funtionsmasse.get("fv9FunctionIO");
+				
+				if (aK != null && aK.size() > 0) {
+					for(int i=0; i<aK.size(); i++) {
+						gesamt += Integer.parseInt(aK.get(i));
+						gesamt += Integer.parseInt(bK.get(i));
+						gesamt += Integer.parseInt(iO.get(i));
+					}
+				}
+			
+			}
+			System.out.println("gesamt = " + gesamt);
+			
 			double sum1 = 0;
 			List<String> kwno = null;
 			if(Web.getObjectYesOrNo(form.get("fv9KWNo"))){
@@ -120,12 +140,17 @@
 					text: 'In Prozent',
 					style:{
 						color:'black',
-						fontSize:'18px'
+						fontSize:'16px'
 					},
 					align:'left'
 				},
 				subtitle: {
-					text: ' '
+					text: 'Gesamt: <%=gesamt%> Funktionsmasse',
+					style:{
+						color:'black',
+						fontSize:'10px'
+					},
+					align:'left'
 				}, 
 				xAxis: {
 					lineWidth:1,
@@ -148,6 +173,7 @@
 				},
 				yAxis: {
 					min: 0,
+					max: 100,
 					lineWidth:1,
 					lineColor:'black',
 					showLastLabel: true,

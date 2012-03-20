@@ -260,6 +260,7 @@
 	background-color: yellow;
 	background: url(../images/bg.gif) no-repeat 0 0;
 	font-size: 9px;
+	font-weight: bolder;
 	text-align: center;
 	font-weight: bold;
 	line-height: 19px;
@@ -403,7 +404,7 @@
 			Map<String,String> map = list.get(j);
 			if(Web.getDateStrNotNull(map.get("date"))){
 				%>
-				g.AddTaskDetail(new Task('<%=map.get("date")%>', '<%=map.get("date")%>', '<%=project%>', '<div style="height:30px;float:left;"><%=map.get("lichengbei")%></div><br /><h6 style="color: white" class="GTaska" ><%=map.get("org")%></h6>', 50, 1));
+				g.AddTaskDetail(new Task('<%=map.get("date")%>', '<%=map.get("date")%>', '<%=project%>', '<div style="height:30px;float:left;font-weight: bold;"><%=map.get("lichengbei")%></div><br /><h6 style="color: white" class="GTaska" ><%=map.get("org")%></h6>', 50, 1));
 				<%
 			}
 		}

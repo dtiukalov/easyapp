@@ -73,7 +73,7 @@
 			
 			categories += "]";
 			 
-			//如果二维表中的周数跨年，则取当前年的前一年
+			//如果二维表中的周数跨年，则取当前年的前一年+当前年
 			//如果二维表中的周数不跨年，则取当前年
 			String show_year = DateUtils.getCurrentYear();
 			if(Web.getListYesOrNo((List<String>)form.get("fv9KWNo"))){
@@ -82,6 +82,14 @@
 				if (n >= 2) {
 					if (Integer.parseInt((String)weeks.get(0)) >= Integer.parseInt((String)weeks.get(n-1))) {
 						show_year = (Integer.parseInt((String)DateUtils.getCurrentYear()) - 1) + "";
+						for (int m=1; m<weeks.size(); m++) {
+							//前一年，周数越来越大
+							if (Integer.parseInt((String)weeks.get(m)) > Integer.parseInt((String)weeks.get(m-1))) {
+								show_year += "  ";
+							} 
+						}
+						
+						show_year += "." + DateUtils.getCurrentYear();
 					}
 				}
 			}
@@ -122,7 +130,7 @@
 					linkedTo: 0,
 					lineWidth:2,
 					title: {
-						text: '<%=show_year%> Anzahl neuer AEKOs',
+						text: '<%=show_year%>',
 						style:{
 							color:'black'
 						}
@@ -167,11 +175,11 @@
 				},
 				legend: {
 					enabled: true,
-					layout: 'horizontal',
-					align: 'center',
-					verticalAlign: 'top',
-					x: 10,
-					y: 20,
+					align: 'right',
+					layout: 'vertical',
+					verticalAlign: 'middle',
+					x: 0,
+					y: 100,
 					borderWidth: 0,
 					shadow: false
 				},
@@ -186,7 +194,9 @@
 					column: {
 						stacking: 'normal',
 						borderColor: 'black',
-						pointWidth:20,
+					//	pointWidth:20,
+						groupPadding:0.1,
+						pointPadding:0.1,
 						shadow:false,
 						dataLabels: {
 							enabled: true,
@@ -205,7 +215,7 @@
 				},
 			    series: [
 			     {
-					name: 'AEKO,AeA  im Durchlauf (> 2 Wochen)',
+					name: 'AEKO,AeA  im Durchlauf <br> (> 2 Wochen)',
 					data: <%=fv9AekoBig2Woch%>,
 					color: '#E63110',
 					dataLabels: {
@@ -216,11 +226,11 @@
 						color: 'white'
 					}
 				}, {
-					name: 'AEKO,AeA im Durchlauf (< 2 Wochen)',
+					name: 'AEKO,AeA im Durchlauf <br> (< 2 Wochen)',
 					data: <%=fv9AekoSmall2Woch%>,
 					color: '#F9A700'
 				},{
-					name: 'AEKO,AeA abgeschlossen',
+					name: 'AEKO,AeA <br> abgeschlossen',
 					data: <%=fv9AekoAbgesch%>,
 					color: '#009C0E',
 					dataLabels: {
@@ -245,7 +255,11 @@
 				<h1><%=title %></h1>
 			</div>
 			<div id="content">
-				<div id="chart" style="width: 900px; height: 400px; margin: 50px 30px; float: left;"></div>
+				<div style="width: 60px; height: 60px; margin-left: 30px; text-align: center; vertical-align: bottom; float: left;font-family: Arail; font-size: 11px; padding-top: 440px;">
+					KW<br><br>
+					Anzahl <br> neuer <br> AEKOs
+				</div>
+				<div id="chart" style="width: 840px; height: 500px; float: left; margin: 0px;"></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

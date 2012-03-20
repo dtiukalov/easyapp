@@ -79,7 +79,7 @@
 		}
 		
 		String version = "( V2 )Entwurf";
-		String date = "30.08.11";
+		String date = "30.01.12";
 	%>
 </head>
 <body>	
@@ -97,7 +97,7 @@
 			  <tr>
 			    <td><table  height="60" border="0" cellpadding="0" cellspacing="0" class="taba">
 			      <tr>
-			        <td width="260" class="lg"><img src="../images/logo.jpg"/></td>
+			        <td width="260" class="lg"><img src="../images/FAWVW-logo.jpg"/></td>
 			        <td width="384" class="bt"><h3><%=project %> Vorserien-Ablauf </h3>
 			        <h3>SOP <%=week%>/<%=year %></h3></td>
 			        <td width="287" class="bz">

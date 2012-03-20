@@ -7,6 +7,10 @@
 <%@page import="java.util.Map"%>
 <%@page import="java.util.List"%>
 <%@page import="com.saturn.web.Web"%>
+<%@page import="java.util.Date"%>	
+<%@page import="java.text.SimpleDateFormat"%>	
+<%@page import="java.text.DateFormat"%>	
+<%@page import="com.saturn.tc.utils.DateUtils"%>
 <script type="text/javascript" src="<%=request.getContextPath()%>/app/js/jquery-1.4.4.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/app/js/highcharts.src.js"></script>
 
@@ -66,6 +70,23 @@
 		return "{y:" + num + ", table:'&nbsp;'}";
 	}
 %>
+<%!
+	//1.5 Bauprogramm VFF/PVS/0S 使用
+	public static String getTime(String oldTime){
+		if (!"1900-01-01 00:00:00".equals(oldTime)) {
+			return (oldTime + " 00:00");
+		}
+		return oldTime;
+	} 
+	
+%>
+<%
+	class Bauprogramm {
+		String kw;
+		int num;
+	}
+%>
+
 
 <script>
 	function changeChinese() {

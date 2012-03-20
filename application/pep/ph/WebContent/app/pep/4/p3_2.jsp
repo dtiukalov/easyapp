@@ -85,7 +85,7 @@
 				border-bottom-width: 1px;
 				border-bottom-style: solid;
 				border-bottom-color: #000000;
-				font-family: "宋体";
+				font-family: Arial;
 				font-size: 12px;
 				line-height: 35px;
 				color: #000000;
@@ -134,8 +134,8 @@
 					},
 					legend: {
 						layout: 'vertical',
-						enabled: false,
-						align: 'right',
+						enabled: true,
+						align: 'center',
 						x: 0,
 						verticalAlign: 'top',
 						y: 0,
@@ -327,7 +327,7 @@
 						%>
 						
 					</div>
-					<div id="right">
+					<div id="right" style="font-family: Arial;">
 						<div style="margin:3px 10px;font-weight: bold;">Top</div>
 						<div class="div"><table width="350" cellspacing="0">
 								<tr style="font-weight: bold;">

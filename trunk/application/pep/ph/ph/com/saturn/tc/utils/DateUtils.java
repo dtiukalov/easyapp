@@ -12,12 +12,29 @@ import org.apache.commons.httpclient.util.DateUtil;
 
 public class DateUtils {
 	
-	  public static void main(String[] args) { //
-	  DateUtils.getKWArray("2011-12-10 00:00", "2012-01-01 00:00");
-	  System.out.println(getSysDate());
-	  
-	  }
 	 
+	 /*
+	  * 字符串转化为Date类型
+	  */
+	public static Date transStringToDate(String datestr) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		Date date = new Date();
+		try {
+			date = sdf.parse(datestr);
+		} catch (ParseException e){
+			e.printStackTrace();
+		}
+		
+		return date;
+	}
+	/*
+	 * 将日期转化为KW，格式为：KW03/12
+	 */
+	public static String getKWByDate(String date) {
+		int kw = DateUtils.getWeekOfYear(date);
+		String year = ( date.split("-")[0]).substring(2, 4);
+		return "KW" + kw + "/" + year;
+	}
 
 	public static String getLastTwoNum(int year) {
 		return (String) (year + "").subSequence(2, 4);
@@ -25,7 +42,6 @@ public class DateUtils {
 
 	public static String[] getKWArray(String beginDate, String endDate) {
 		int tdNum = DateUtils.getWeekNumBetweenStartAndEnd(beginDate, endDate);
-		System.out.println();
 		String[] kws = new String[tdNum];
 
 		int begin = DateUtils.getWeekOfYear(beginDate); // 最早时间所在周数
@@ -475,4 +491,30 @@ public class DateUtils {
 		
 		return result;
 	}
+	
+	 /**
+	  * 比较两个日期所差的天数
+	  */
+	 public static int dateDiff(Date startDate, Date endDate) {
+		
+		long nd = 1000*24*60*60; //一天的毫秒数
+		long nh = 1000*60*60; //一小时的毫秒数
+		long nm = 1000*60; //一分钟的毫秒数
+		long ns = 1000;//一秒钟的毫秒数
+
+		long diff = 0l;
+		long day = 0l;
+		if (startDate!= null && endDate != null) {
+			diff = endDate.getTime() - startDate.getTime();
+		}
+		
+		day = diff/nd;//计算差多少天
+		long hour = diff%nd/nh;//计算差多少小时
+		long min = diff%nd%nh/nm;//计算差多少分钟
+		long sec = diff%nd%nh%nm/ns;//计算差多少秒
+		 
+		return new Long(day).intValue();
+	}
+
+	
 }

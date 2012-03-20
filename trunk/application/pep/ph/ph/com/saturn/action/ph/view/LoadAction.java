@@ -90,7 +90,7 @@ public class LoadAction implements IAction {
 					request.getSession().setAttribute("milepost", roadmap);
 					request.getSession().setAttribute("project", project);
 					
-					formIds = ItemUtils.getLastRevisionFormIds(itemRev, relations);
+					formIds = ItemUtils.getLastRevisionFormIds(itemRev, relations ,request);
 					
 					if(formIds.size() > 0){
 						indexes = PHManager.getIndexes(roadmap, formIds);

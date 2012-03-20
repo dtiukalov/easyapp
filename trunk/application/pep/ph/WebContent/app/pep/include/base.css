@@ -34,7 +34,7 @@
 	BORDER-BOTTOM: #000099 2px solid; height:100px; OVERFLOW: hidden; 
 }
 #top H1 {
-	FONT-FAMILY: Arial, Helvetica, sans-serif; FONT-SIZE: 32px; margin-top:25px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif; FONT-SIZE: 28px; margin-top:25px;
 }
 #footer {
 	WIDTH: 950px; HEIGHT: 30px;
@@ -53,13 +53,13 @@
 	text-align:center;
 }
 .lanstk {
-	position:absolute;z-index:100;TEXT-ALIGN: center; WIDTH: 160px; DISPLAY: block;margin:-20px 580px;HEIGHT: 18px; COLOR: #fff; FONT-SIZE: 12px; background:url(../images/bg1.jpg) no-repeat;
+	position:absolute;z-index:100;TEXT-ALIGN: center; WIDTH: 160px; DISPLAY: block;margin:-20px 580px;HEIGHT: 18px; COLOR: #fff; FONT-SIZE: 9px; background:url(../images/bg1.jpg) no-repeat;
 }
 #footer .ylogo {
 	FLOAT: right;margin-right:20px;margin-top:-3px;
 }
 .page P {
-	FONT-FAMILY: Arial, Helvetica, sans-serif; FONT-SIZE: 16px; text-align:center; display:block; height:23px; vertical-align: bottom;
+	FONT-FAMILY: Arial; FONT-SIZE: 10px; text-align:center; display:block; height:23px; vertical-align: bottom;vertical-align: bottom; padding-top: 10px;
 }
 .clear {
 	CLEAR: both

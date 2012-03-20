@@ -93,7 +93,7 @@
 							}
 					%>
 					<tr border="2" border-collapse: collapse" bordercolor="#333333">
-						<td width="30%" style="font-weight:bold;">
+						<td width="30%" style="font-weight:bold; font-size: 13px;">
 							<%=fv9FreigabeStyle.get(i) %>
 							<img src="<%=imagePath %>" align="right" border=0 width=50 height=56 style="margin-right:50px"> 
 						</td>
@@ -141,7 +141,7 @@
 							}
 					%>
 					<tr border="2" border-collapse: collapse" bordercolor="#333333">
-						<td width="30%" style="font-weight:bold;">
+						<td width="30%" style="font-weight:bold; font-size: 13px;">
 							<%=fv9FreigabeStyle.get(i) %>
 							<img src="<%=imagePath %>" align="right" border=0 width=50 height=56 style="margin-right:50px"> 
 						</td>

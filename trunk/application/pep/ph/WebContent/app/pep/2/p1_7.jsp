@@ -135,6 +135,7 @@
 					tickColor:'black',
 					categories: <%=cat%>,
 					labels:{
+						rotation: -45,
 						enabled:true,
 						y:20,
 						style:{

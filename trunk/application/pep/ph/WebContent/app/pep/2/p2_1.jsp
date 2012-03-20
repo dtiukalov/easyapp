@@ -56,10 +56,10 @@
 				        <tr>
 				        	<td width="19%">&nbsp;</td>
 				        	<td width="81%" style="border-bottom:2px solid #424242;">
-					        	<table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:14px; font-weight: bolder;">
+					        	<table width="98%" border="0" cellspacing="0" cellpadding="0" style="font-size:14px; font-weight: bolder;">
 						            <tr>
-							            <td>Aktueller Status</td>
-							            <td>Nachste Status</td>
+							            <td width="60%">Aktueller Status</td>
+							            <td width="40%">Naechste Status</td>
 						            </tr>
 					            </table>
 					        </td>
@@ -130,10 +130,10 @@
 				        <tr>
 				        	<td width="19%">&nbsp;</td>
 				        	<td width="81%"  style="border-bottom:2px solid #424242;">
-					        	<table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:14px; font-weight: bolder;">
+					        	<table width="98%" border="0" cellspacing="0" cellpadding="0" style="font-size:14px; font-weight: bolder;">
 						            <tr>
-							            <td>Aktueller Status</td>
-							            <td>Nachste Status</td>
+							            <td width="60%">Aktueller Status</td>
+							            <td width="40%">Naechste Status</td>
 						            </tr>
 					            </table>
 					        </td>

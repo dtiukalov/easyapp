@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.saturn.action.tc.foton.gys.ListAction;
+import com.saturn.app.utils.DateUtils;
 import com.saturn.app.web.IAction;
 import com.saturn.app.web.IView;
 import com.saturn.app.web.view.JspView;
@@ -44,10 +45,11 @@ public class TCLoginAction implements IAction {
 					tcsession);
 
 			service.getProperties(user, "userid", "user_name", "password");
-
+			String datetime = DateUtils.getSystemTime();
 			request.getSession().setAttribute("TC_USER", user);
 			request.getSession().setAttribute("authUser", user);
 			request.getSession().setAttribute("TC_session", tcsession);
+			request.getSession().setAttribute("logintime", datetime);
 			
 			return new JspView("/app/tc/main.jsp");
 		} catch (InvalidCredentialsException e) {

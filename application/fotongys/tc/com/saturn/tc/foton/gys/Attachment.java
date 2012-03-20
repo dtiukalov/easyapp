@@ -165,6 +165,7 @@ public class Attachment {
 						attachments.add(childdataset);
 						try {	
 							ReleaseStatus[] status = (ReleaseStatus[])dataset.get_release_status_list();
+						
 							String tempStatus = "";
 							if(status!= null && status.length > 0){
 								service.getProperties(status,"object_name");

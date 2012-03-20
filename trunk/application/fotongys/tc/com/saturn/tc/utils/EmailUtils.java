@@ -32,12 +32,12 @@ public class EmailUtils {
 		Properties props = new Properties();
 		props.put("mail.smtp.host", host);
 		props.put("mail.smtp.auth", true);
+		
 //		gmail邮箱需要一下设置:端口号为465，其他邮箱默认为25
 //		props.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 //		props.setProperty("mail.smtp.socketFactory.fallback", "false");
 //		props.setProperty("mail.smtp.port", "465");
 //		props.setProperty("mail.smtp.socketFactory.port", "465");
-		
 		Session session = null;
 		
 		try {

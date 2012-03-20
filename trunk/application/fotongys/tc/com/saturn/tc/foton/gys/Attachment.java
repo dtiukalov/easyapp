@@ -177,7 +177,7 @@ public class Attachment {
 						try {	
 							ReleaseStatus[] status = (ReleaseStatus[])dataset.get_release_status_list();
 						
-							String tempStatus = "";
+							StringBuffer tempStatus = new StringBuffer();
 							if(status!= null && status.length > 0){
 								service.getProperties(status,"object_name");
 								for(int t=0; t < status.length; t++){
@@ -187,10 +187,11 @@ public class Attachment {
 										if(statusDisPlayValue.containsKey(value)){
 											value = statusDisPlayValue.get(value);
 										}
-										tempStatus = tempStatus + "," + value;
+										tempStatus.append(",");
+										tempStatus.append(value);
 									}
 								}
-								childdataset.setStatus(tempStatus.replaceFirst(",", ""));
+								childdataset.setStatus(tempStatus.toString().replaceFirst(",", ""));
 							}
 						
 							childdataset.setName(file.get_original_file_name());
@@ -229,7 +230,7 @@ public class Attachment {
 				name += " / " + ((ItemRevision) wso).get_item_revision_id();
 				this.version = ((ItemRevision) wso).get_item_revision_id();
 				ReleaseStatus[] status = (ReleaseStatus[])wso.get_release_status_list();
-				String tempStatus = "";
+				StringBuffer tempStatus = new StringBuffer();
 				if(status!= null && status.length > 0){
 					service.getProperties(status,"object_name");
 					for(int p=0; p < status.length; p++){
@@ -238,10 +239,11 @@ public class Attachment {
 							if(statusDisPlayValue.containsKey(value)){
 								value = statusDisPlayValue.get(value);
 							}
-							tempStatus = tempStatus + "," + value;
+							tempStatus.append(",");
+							tempStatus.append(value);
 						}
 					}
-					this.status = tempStatus.replaceFirst(",", "");
+					this.status = tempStatus.toString().replaceFirst(",", "");
 				}
 			}
 			this.type = wso.get_object_type();

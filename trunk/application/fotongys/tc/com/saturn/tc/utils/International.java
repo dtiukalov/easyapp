@@ -77,7 +77,7 @@ public class International {
 		cn.put("username", "用户名");
 		cn.put("password", "密码");
 		cn.put("login", "登录");
-		cn.put("logout", "退出");
+		cn.put("logout", "重新登录");
 		cn.put("query.condition", "查询条件");
 		cn.put("mail.list", "邮件列表");
 		cn.put("mail.title", "主题");

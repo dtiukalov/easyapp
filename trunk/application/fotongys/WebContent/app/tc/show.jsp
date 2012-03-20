@@ -127,6 +127,11 @@
 					<td><div id="fromUserTip"></div></td>
 				</tr>
 				<tr>
+					<td style="text-align:right"><%=International.get(request, "mail.from.userdept") %>:</td>
+					<td><input id="userdept" name="userdept" type="text" value="${mail.fromUserDept}" readonly="readonly"></input></td>
+					<td><div id="userdeptTip"></div></td>
+				</tr>
+				<tr>
 					<td style="text-align:right"><%=International.get(request, "mail.send.time") %>:</td>
 					<td><input id="datetime" name="datetime" type="text" value="${mail.datetime}" readonly="readonly"></input></td>
 					<td><div id="datetimeTip"></div></td>

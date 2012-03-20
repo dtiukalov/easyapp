@@ -12,6 +12,8 @@
 <body class="easyui-layout">
 	<%
 		User user = (User) session.getAttribute("TC_USER");
+		String date = (String)request.getSession().getAttribute("logintime");
+	
 		String local = (String)session.getAttribute(International.LOCAL);
 		String localStr = "";
 	
@@ -35,8 +37,10 @@
 	<div region="north" split="false"
 		style="height: 100px; overflow: hidden;">
 		<div class="top_img">
-			<div class="menu-logo"></div>
- 			<div class="menu-info"><%=International.get(request, "login_title") %>[<a href="<%=request.getContextPath()%>/app/tc/foton/gys/local.do?local=<%=local%>"><%=localStr%></a>]</div>
+			<div class="menu-logo">
+				<div class="menu-info"><%=International.get(request, "login_title") %></div>
+			</div>
+			<div class="cnen-info">当前用户登录时间：[<%=date %>][<a href="<%=request.getContextPath()%>/app/tc/foton/gys/local.do?local=<%=local%>"><%=localStr%></a>] </div>
 	    	<div class="user-info"><%=International.get(request, "username") %>:<%=user.get_user_name()%> [<a href="<%=request.getContextPath()%>/app/tc/logout.do"><%=International.get(request, "logout") %></a>] </div>
 		</div> 
 	</div>

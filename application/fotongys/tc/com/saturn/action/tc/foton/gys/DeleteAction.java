@@ -30,7 +30,7 @@ public class DeleteAction implements IAction {
 			request.getSession().setAttribute(ListAction.TC_MAIL_LIST, null);
 		}
 
-		return new JspView("/app/tc/main.jsp");
+		return new JspView("/app/tc/detail.jsp");
 	}
 
 	public String requestMapping() {

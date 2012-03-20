@@ -17,9 +17,12 @@ public class LocalAction implements IAction {
 		HttpSession session = request.getSession();
 		String local = (String) session.getAttribute(
 				International.LOCAL);
-		
-		if (local == null || "cn".equals(local)) {
-			session.setAttribute(International.LOCAL, "en");
+
+		String requestLocal = request.getParameter("local");
+		if(local != null){
+			if (!local.equals(requestLocal)) {
+				session.setAttribute(International.LOCAL, requestLocal);
+			} 
 		} else {
 			session.setAttribute(International.LOCAL, "cn");
 		}
@@ -28,7 +31,7 @@ public class LocalAction implements IAction {
 	}
 
 	public String requestMapping() {
-		return "/app/tc/foton/gys/local.action";
+		return "/app/tc/foton/gys/local.do";
 	}
 
 }

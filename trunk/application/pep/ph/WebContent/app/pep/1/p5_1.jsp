@@ -38,43 +38,32 @@
 			<div class="fr"><%=status_right %></div>
 			<h1><%=title %></h1>
 		</div>
-	    <div id="content">
-	    <!-- 
-	    <iframe id="ff" name= "ff" frameborder="0"  scrolling="no"
-				    src="<%=request.getContextPath() %>/app/pep/1/GanttChart4.jsp?uid=<%=uid %>" 
-				    style="width:850px;height:400px;margin:50px 10px">
-			</iframe>
-	     -->
-	     
-			<%
-			if (Web.getListYesOrNo(fv9Stufe)) {
-				String beginDate = getTime(fv9KarossStart.get(0) + " 00:00");
-				String endDate = getTime(fv9ObergabeEnd.get(fv9Stufe.size()-1) + " 00:00");
-				
-				Date firstDate = DateUtils.transStringToDate(beginDate);
-				Date lastDate = DateUtils.transStringToDate(endDate);
-		//		String[] tdKW = DateUtils.getKWArray(beginDate, endDate);
-				int tdNum = DateUtils.dateDiff(firstDate, lastDate);
-	//			System.out.println("tdNum = " + tdNum);
-				double tdWidth = 905.0/tdNum; 
-	//			System.out.println("tdWidth = " + tdWidth);
-				
-				
-			%>
-			<style>
-		     	.stufeTable {
-					width: 900px; height: auto; font-size: 10px; overflow: hidden; margin: 0px; padding: 0px;
-				}
-				.stufeTable td {
-					height: 30px;  width: <%=tdWidth%>px;
-				}
-		    </style>
+	    <div id="content">	     
+		<%
+		if (Web.getListYesOrNo(fv9Stufe)) {
+			String beginDate = getTime(fv9KarossStart.get(0) + " 00:00");
+			String endDate = getTime(fv9ObergabeEnd.get(fv9Stufe.size()-1) + " 00:00");
+			
+			Date firstDate = DateUtils.transStringToDate(beginDate);
+			Date lastDate = DateUtils.transStringToDate(endDate);
+			int tdNum = DateUtils.dateDiff(firstDate, lastDate);
+			double tdWidth = 905.0/tdNum; 
+		%>
+		<style>
+	     	.stufeTable {
+				width: 900px; height: auto; font-size: 10px; overflow: hidden; margin: 0px; padding: 0px;
+			}
+			.stufeTable td {
+				height: 30px;  width: <%=tdWidth%>px;
+			}
+	    </style>
 			<table class="stufeTable">
 				<tr>
 					<td style="width: 20px; text-align: center;">&nbsp;</td>
 					<td style="width: 100px;">&nbsp;</td>
 
 			<% 
+			//	String currentKW = 
 				String temp = "";
 				List<String> kws = new ArrayList();
 				for (int m=0; m<=tdNum; m++) {
@@ -228,7 +217,20 @@
 			<%
 			}
 			%>
-	   
+	   		<table style="font-family: Arial; font-size: 9px; position: absolute; top: 640px;">
+	   			<tr>
+	   				<td style="width: 20px; height: 20px; background-color: #AED4F8;">&nbsp;</td>
+	   				<td>Karosseriebau</td>
+	   				<td style="width: 20px; height: 20px; background-color: #00235A;">&nbsp;</td>
+	   				<td>Montage</td>
+	   			</tr>
+	   			<tr>
+	   				<td style="width: 20px; height: 20px; background-color: #8994A0;">&nbsp;</td>
+	   				<td>Lack</td>
+	   				<td style="width: 20px; height: 20px; background-color: #91AFFF;">&nbsp;</td>
+	   				<td>UEbergabe</td>
+	   			</tr>
+	   		</table>
 	    </div>
 	    <%@ include file="/app/pep/include/foot.jsp"%>
 	     </div>

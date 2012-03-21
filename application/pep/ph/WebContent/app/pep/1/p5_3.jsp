@@ -17,7 +17,30 @@
 			String soll =  Web.getNumberListStr(form.get("fv9ZP8NumSoll"));
 			String sumSoll =  Web.getSumNumberListStr(form.get("fv9ZP8NumSoll"));
 			String ist = Web.getNumberListStr(form.get("fv9ZP8Numlst"));
-			String sumIst = Web.getSumNumberListStr(form.get("fv9ZP8Numlst"));
+		//	String sumIst = Web.getSumNumberListStr(form.get("fv9ZP8Numlst"));
+			
+			
+			String fv9ReportKW = (String)request.getSession().getAttribute("fv9ReportKW");
+			String sumIst = "[]";
+			if(kws.contains(fv9ReportKW)){
+				List<String> k = (List<String>) form.get("fv9KWNo");
+				List<String> fv9ZP5Numlst = (List<String>) form.get("fv9ZP8Numlst");
+				List<String> temp = new ArrayList<String>();
+				
+				if(Web.getObjectYesOrNo(k) && Web.getObjectYesOrNo(fv9ZP5Numlst) ){
+					for(int t=0; t<k.size(); t++){
+						if(k.get(t).equalsIgnoreCase(fv9ReportKW)){
+							temp.add(fv9ZP5Numlst.get(t));
+							break;
+						} else {
+							temp.add(fv9ZP5Numlst.get(t));
+						}
+					}
+				}
+				sumIst = Web.getSumNumberListStr(temp);
+			} else {
+				sumIst = Web.getSumNumberListStr(form.get("fv9ZP8Numlst"));
+			}
 		%>
 		<script type="text/javascript">
 		

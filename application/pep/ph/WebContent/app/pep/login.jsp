@@ -4,7 +4,7 @@
     
 <html>
 <head>
-	<title>Teamcenter Login</title>
+	<title>Pilothallengesprch Login</title>
 	
 	<%
 	String path = request.getContextPath();
@@ -12,9 +12,6 @@
 	%>
 	
 	<script language="JavaScript1.2">
-	/*  Sivarama Chandra: The cookies stuff is added to address the PR5204641.
-	    Similar verification and warning message is implmented in 
-	    SSOLoginPage.jsp file also */
 	var cookieEnabled = (navigator.cookieEnabled)? true : false
 	if (cookieEnabled==false) {
 	   alert("Cookies are disabled. Please enable cookies. Otherwise most of the functionalities will not work properly.");
@@ -39,16 +36,7 @@
 	}
 
 	</script>
-	<style type="text/css">
-	<!--
-	body {
-		margin-left: 0px;
-		margin-top: 3px;
-		margin-right: 0px;
-		margin-bottom: 0px;
-	}
-	-->
-	</style>
+
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/app/pep/include/base.css">
 </head>
 

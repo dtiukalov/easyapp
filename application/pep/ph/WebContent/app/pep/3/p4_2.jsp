@@ -1,13 +1,11 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@page import="com.saturn.web.Web"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page import="com.saturn.web.Web"%>
-<%@page import="java.util.Arrays"%>
 <%@page import="java.util.Map"%>
-<%@page import="java.util.List"%>
-<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.HashMap"%>
-
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.saturn.tc.utils.DateUtils"%>
+<!DOCTYPE HTML>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -49,6 +47,7 @@
 			String fv9FunctionIO =  Web.getNumberListStr(iO);//"[110, 91, 19, 23, 15, 17, 16, 17, 8, 16, 8, 13]";    //	i.O
 		
 		%>
+		
 		<script type="text/javascript">
 		
 			var chart;
@@ -161,21 +160,18 @@
 			});
 				
 		</script>
-		
 	</head>
 	<body>
 		<div id="container">
 			<div id="nr">
-				<div id="top">
-					<div class="fl"><%=status_left %></div>
-					<div class="fr"><%=status_right %></div>
-					<h1><%=title %></h1>
-				</div>
-				<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Zusammenbauteile (Anzahl FM/Anzahl Messungen)</h2>
-				<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gesamt: <%=gesamt %> Funktionsmasse</h5>
-				<div id="content" style="height:495px;">
-					<div id="chart" style=" height: 480px; margin: 0 auto"></div>
-				</div>
+			<div id="top">
+				<div class="fl"><%=status_left %></div>
+				<div class="fr"><%=status_right %></div>
+				<h1><%=title %></h1>
+			</div>
+			
+			<div id="content">
+				<div id="chart" style="width: 700px; height: 450px; margin: 0 50px; float: left;"></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

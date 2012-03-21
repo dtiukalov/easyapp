@@ -1,12 +1,10 @@
+<%@page import="com.saturn.web.Web"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page import="com.saturn.web.Web"%>
-<%@page import="java.util.Arrays"%>
 <%@page import="java.util.Map"%>
-<%@page import="java.util.List"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.HashMap"%>	
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@page import="java.util.HashMap"%>
+<%@page import="com.saturn.tc.utils.DateUtils"%>
+<!DOCTYPE HTML>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -94,6 +92,7 @@
 		int low6 = low5 + y5;
 		
 		%>
+		
 		<script type="text/javascript">
 		var chart;
 		$(document).ready(function() {
@@ -246,14 +245,14 @@
 	<body>
 		<div id="container">
 			<div id="nr">
-				<div id="top">
-					<div class="fl"><%=status_left %></div>
-					<div class="fr"><%=status_right %></div>
-					<h1><%=title %></h1>
-				</div>
-				<div id="content">
-					<div id="chart" style="width: 850px; height: 450px; margin: 30px auto"></div>
-				</div>
+			<div id="top">
+				<div class="fl"><%=status_left %></div>
+				<div class="fr"><%=status_right %></div>
+				<h1><%=title %></h1>
+			</div>
+			
+			<div id="content">
+				<div id="chart" style="width: 700px; height: 450px; margin: 0 50px; float: left;"></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

@@ -18,6 +18,7 @@
 <%
 	
 	String type = (String)request.getAttribute("type");
+	System.out.println("type = " + type);
 	Map form = (Map)request.getAttribute("form");
 	
 	String title = "";
@@ -79,12 +80,6 @@
 		return oldTime;
 	} 
 	
-%>
-<%
-	class Bauprogramm {
-		String kw;
-		int num;
-	}
 %>
 
 

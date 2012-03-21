@@ -79,7 +79,8 @@ public class PHManager {
 		String[] types = roadmaps.get("ALL");
 
 		for (String type : types) {
-			String path = "/app/pep/do/bufferview.do";// FormManager.getJspPath(type);
+			String path = "/app/pep/do/preview.do";// FormManager.getJspPath(type);
+		//	String path = "/app/pep/do/bufferview.do";// FormManager.getJspPath(type);
 			Object object = forms.get(type);
 
 			if (object != null) {

@@ -84,7 +84,7 @@ public class LoadAction implements IAction {
 							"IMAN_specification", "view", "IMAN_requirement",
 							"IMAN_reference", "TC_WorkContext_Relation",
 							"TC_Attaches", "VisItemRevCreatedSnapshot2D",
-							"project_ids", "fv9MLName");
+							"project_ids", "fv9MLName","fv9ReportKW");
 					
 					PH.getDataService().getProperties(itemRev, relations);
 					PH.getDataService().refreshObjects(itemRev);
@@ -101,9 +101,17 @@ public class LoadAction implements IAction {
 					
 					if(formIds.size() > 0){
 						indexes = PHManager.getIndexes(roadmap, formIds);
-						PHManager.doBuffer(formIds, buffer);
+						//PHManager.doBuffer(formIds, buffer);
 					}
 					request.getSession().setAttribute("indexes", indexes);
+					String fv9ReportKW = (String)itemRev.getPropertyDisplayableValue("fv9ReportKW");
+					
+					if(fv9ReportKW != null && !"".equals(fv9ReportKW)){
+						fv9ReportKW = fv9ReportKW.replaceAll("KW", "");
+					}
+					
+					request.getSession().setAttribute("fv9ReportKW", fv9ReportKW);
+					
 					request.setAttribute("current", "1");
 				}
 			} catch (NotLoadedException e1) {

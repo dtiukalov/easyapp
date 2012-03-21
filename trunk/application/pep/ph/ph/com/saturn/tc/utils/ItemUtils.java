@@ -98,7 +98,8 @@ public class ItemUtils {
 				
 				for(String id: list){
 					try {
-						String name = (String)PH.getDataService().loadModelObject(id).getPropertyDisplayableValue("fv9PageName");
+						PH.getDataService().getProperties(PH.getDataService().loadModelObjectRefresh(id), "fv9PageName");
+						String name = (String)PH.getDataService().loadModelObjectRefresh(id).getPropertyDisplayableValue("fv9PageName");
 							if(backupNameMap.containsKey(name)){
 								Object object2 = backupNameMap.get(name);
 								if (object2 instanceof List) {

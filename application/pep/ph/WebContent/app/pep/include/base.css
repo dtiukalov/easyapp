@@ -1,11 +1,12 @@
 * {
 	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; 
-	MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial,宋体; COLOR: #000; LIST-STYLE-IMAGE: none; PADDING-TOP: 0px
+	MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial,宋体; COLOR: #000; LIST-STYLE-IMAGE: none; PADDING-TOP: 0px;
 }
 
 
 #content {
-	margin: 30px 23px; WIDTH: 950px; HEIGHT: 540px; OVERFLOW: hidden;
+	margin: 30px 23px;
+	WIDTH: 950px; HEIGHT: 540px; OVERFLOW: hidden;
 }
 
 #no-state {
@@ -25,10 +26,10 @@
 	margin: 0px; width: 37px; height:60px; overflow: hidden; float: left; text-align: center; margin-top: 330px;
 }
 #container {
-	MARGIN: 0px auto; WIDTH: 950px; HEIGHT: 720px;font-family:Arial; 
+	MARGIN: 0px auto; WIDTH: 950px; HEIGHT: 720px; font-family:Arial; 
 }
 #container #nr {
-	MARGIN: 0px auto; WIDTH: 950px
+	MARGIN: 0px auto; WIDTH: 950px; height: 720px;
 }
 #container #top {
 	BORDER-BOTTOM: #000099 2px solid; height:100px; OVERFLOW: hidden; 

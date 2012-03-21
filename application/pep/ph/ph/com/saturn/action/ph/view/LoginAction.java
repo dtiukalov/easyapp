@@ -9,6 +9,7 @@ import com.saturn.app.web.IAction;
 import com.saturn.app.web.IView;
 import com.saturn.app.web.view.JspView;
 import com.saturn.ph.PH;
+import com.saturn.ph.PHBuffer;
 import com.saturn.tc.clientx.TCSession;
 import com.saturn.tc.utils.WorkspaceUtils;
 import com.teamcenter.schemas.soa._2006_03.exceptions.InvalidCredentialsException;
@@ -43,6 +44,11 @@ public class LoginAction implements IAction {
 				request.getSession().setAttribute("TC_USER_UID", user.getUid());
 				Map<String,Item>  phItemMap = WorkspaceUtils.initPHItemlist(tcsession, user);
 				request.getSession().setAttribute("CURR_USER_PHITEM_LIST", phItemMap);
+				
+				PHBuffer buffer = (PHBuffer) request.getSession().getAttribute(PHBuffer.PH_BUFFER);
+				if (buffer != null) {
+					request.getSession().removeAttribute(PHBuffer.PH_BUFFER);
+				}
 			}
 			
 			return new JspView("/app/pep/initworkspace.jsp");

@@ -14,6 +14,7 @@ import com.saturn.app.web.WebHelper;
 import com.saturn.app.web.view.JspErrorView;
 import com.saturn.app.web.view.JspView;
 import com.saturn.ph.PH;
+import com.saturn.ph.PHBuffer;
 import com.saturn.ph.PHManager;
 import com.saturn.tc.utils.ItemUtils;
 import com.teamcenter.soa.client.model.ModelObject;
@@ -22,7 +23,7 @@ import com.teamcenter.soa.client.model.strong.ItemRevision;
 import com.teamcenter.soa.exceptions.NotLoadedException;
 
 public class LoadAction implements IAction {
-
+	
 	private static final String[] relations = {
 		"FV9LOPH_Rel",
 		"FV9PLPH_Rel",
@@ -44,6 +45,12 @@ public class LoadAction implements IAction {
 
 		String name = (String)request.getParameter("name");
 		String uid = (String)request.getParameter("uid");
+		
+		PHBuffer buffer = (PHBuffer) request.getSession().getAttribute(PHBuffer.PH_BUFFER);
+		if (buffer == null) {
+			buffer = new PHBuffer();
+			request.getSession().setAttribute(PHBuffer.PH_BUFFER, buffer);
+		}
 		
 //		String platformType = (String)request.getParameter("platformType");		
 		Item item = null;
@@ -94,6 +101,7 @@ public class LoadAction implements IAction {
 					
 					if(formIds.size() > 0){
 						indexes = PHManager.getIndexes(roadmap, formIds);
+						PHManager.doBuffer(formIds, buffer);
 					}
 					request.getSession().setAttribute("indexes", indexes);
 					request.setAttribute("current", "1");

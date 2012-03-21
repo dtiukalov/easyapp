@@ -1,7 +1,6 @@
 package com.saturn.action.ph.view;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,12 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.saturn.app.web.IAction;
 import com.saturn.app.web.IView;
 import com.saturn.app.web.WebHelper;
-import com.saturn.app.web.view.JspErrorView;
 import com.saturn.app.web.view.JspView;
-import com.saturn.ph.PH;
-import com.saturn.ph.PHManager;
-import com.saturn.tc.utils.ItemUtils;
-import com.teamcenter.soa.client.model.strong.Item;
 
 public class ViewAction implements IAction {
 

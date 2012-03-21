@@ -112,6 +112,28 @@ public class FormManager {
 		
 		return new HashMap<String, Object>();
 	}
+	
+	public static String getFormType(String uid, boolean refresh) {
+		ModelObject object = PH.getDataService().loadModelObjectRefresh(uid);
+
+		if (object != null) {
+			String type = object.getType().getName();
+			if (type.equalsIgnoreCase(WorkspaceUtils.DatasetType)) {
+				try {
+					if(object.getProperty(WorkspaceUtils.DatasetPageName) != null){
+						type = object.getProperty(WorkspaceUtils.DatasetPageName)
+						.getDisplayableValue();
+					}
+				} catch (NotLoadedException e) {
+					e.printStackTrace();
+				}
+			}
+			
+			return type;
+		}
+		
+		return null;
+	}
 
 	public static Map<String, Object> getFormValue(String type, String uid,
 			boolean refresh) {

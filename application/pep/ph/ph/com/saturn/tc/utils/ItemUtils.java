@@ -1,7 +1,9 @@
 package com.saturn.tc.utils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -72,6 +74,8 @@ public class ItemUtils {
 						}
 					}
 				}
+				//backup排序
+				backUpSort(ids);
 			}
 		} catch (NotLoadedException e) {
 			// TODO Auto-generated catch block
@@ -79,5 +83,62 @@ public class ItemUtils {
 		}
 
 		return ids;
+	}
+
+	private static void backUpSort(Map<String, Object> ids) {
+		//	backup排序
+		if(ids.get(WorkspaceUtils.BackUpType)!= null){
+			Object object = ids.get(WorkspaceUtils.BackUpType);
+		
+			if(object instanceof List){
+				List<String> list = (List<String>)ids.get(WorkspaceUtils.BackUpType);
+				List<String>  backupids = new ArrayList<String>();
+				List<String> backupNameList = new ArrayList<String>();
+				Map<String,Object>  backupNameMap = new HashMap<String,Object>();
+				
+				for(String id: list){
+					try {
+						String name = (String)PH.getDataService().loadModelObject(id).getPropertyDisplayableValue("fv9PageName");
+							if(backupNameMap.containsKey(name)){
+								Object object2 = backupNameMap.get(name);
+								if (object2 instanceof List) {
+									((List)object2).add(id);
+								} else {
+									List<String> arr = new ArrayList<String>();
+									arr.add((String)object2);
+									arr.add(id);
+									backupNameMap.put(name, arr);
+								}
+								
+							} else {
+								backupNameMap.put(name, id);
+							}
+							//backupNameList.add(name);
+						} catch (NotLoadedException e) {
+							e.printStackTrace();
+						}
+				}
+				Iterator<String> iterator = backupNameMap.keySet().iterator();
+				while(iterator.hasNext()){
+					backupNameList.add(iterator.next());
+				}
+				Collections.sort(backupNameList);
+				
+				for(String backupName : backupNameList){
+					Object object3 = backupNameMap.get(backupName);
+					
+					if(object3 instanceof List){
+						List<String> object4 = (List<String>) object3;
+						for(String ob4 : object4){
+							backupids.add(ob4);
+						}
+					} else {
+						backupids.add((String)object3);
+					}
+				}
+				ids.put(WorkspaceUtils.BackUpType, backupids);
+			}
+		}
+//  backup排序
 	}
 }

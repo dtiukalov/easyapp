@@ -45,54 +45,51 @@
 		List<String> fv9TopVSIN3 = (List<String>)form.get("fv9TopVSIN3");
 		
 	%>
-		<style type="text/css">
-			/* #subtitle {
-				width: 400px; height: 100px; margin: 0 auto; float: left; 
-			} */
-			#subtitle h1{
-				font-family:Arial, Helvetica, sans-serif;
-				font-size:16px; margin:15px auto;
-			}
-			#left {
-				width: 450px; height: 600px; margin: 0 auto; float: left;
-			}
-			#left chart{
-				width: 450px; height: 400px; margin: 0 auto; float: left;
-			}
-			#left time{
-				width: 400px; height: 200px; margin: 0 auto; float: left;
-			}
-			#time table tr td{
-				text-align: center;
-			}
-			#right {
-				width: 350px; margin: 20px 10px; float: left; padding: 10px;
-			}
-			.div {
-				width: 350px;
-				border-top-width: 1px;
-				border-top-style: solid;
-				border-top-color: #000000;
-				margin-bottom: 10px;
-			}
-			.div div {
-				height: 42px;
-				border-bottom-width: 1px;
-				border-bottom-style: solid;
-				border-bottom-color: #000000;
-			}
-			.div table td {
-				border-bottom-width: 1px;
-				border-bottom-style: solid;
-				border-bottom-color: #000000;
-				font-family: Arial;
-				font-size: 12px;
-				line-height: 35px;
-				color: #000000;
-				text-align: center;
-			}
-		</style>
-		<script type="text/javascript">
+	<style type="text/css">
+		#subtitle h1{
+			font-family:Arial, Helvetica, sans-serif;
+			font-size:16px; margin:15px auto;
+		}
+		#left {
+			width: 450px; height:600px; margin: 0px; float: left; overflow: hidden;
+		}
+		#left chart{
+			width: 450px; height: 400px; margin: 0px; float: left;
+		}
+		#left time{
+			width: 400px; height: 200px; margin: 0px; float: left;
+		}
+		#time table tr td{
+			text-align: center;
+		}
+		#right {
+			width: 350px; margin: 20px 10px; float: left; padding: 10px; 
+		}
+		.div {
+			width: 350px;
+			border-top-width: 1px;
+			border-top-style: solid;
+			border-top-color: #000000;
+			margin-bottom: 10px;
+		}
+		.div div {
+			height: 42px;
+			border-bottom-width: 1px;
+			border-bottom-style: solid;
+			border-bottom-color: #000000;
+		}
+		.div table td {
+			border-bottom-width: 1px;
+			border-bottom-style: solid;
+			border-bottom-color: #000000;
+			font-family: Arial;
+			font-size: 12px;
+			line-height: 35px;
+			color: #000000;
+			text-align: center;
+		}
+	</style>	
+	<script type="text/javascript">
 			var chart;
 			$(document).ready(function() {
 				chart = new Highcharts.Chart({
@@ -129,6 +126,12 @@
 							style: {
 								fontWeight: 'bold',
 								color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+							},
+							formatter: function() {
+								if (this.point.stackTotal) {
+									return '';
+								}
+								return this.y + '';
 							}
 						}
 					},
@@ -238,97 +241,114 @@
 				});
 			});
 				
-		</script>
+		</script>	
 	</head>
+	
 	<body>
 		<div id="container">
 			<div id="nr">
-				<div id="top">
-					<div class="fl"><%=status_left %></div>
-					<div class="fr"><%=status_right %></div>
-					<h1><%=title %></h1>
+			<div id="top">
+				<div class="fl"><%=status_left %></div>
+				<div class="fr"><%=status_right %></div>
+				<h1><%=title %></h1>
+			</div>
+			<div id="content">
+				<div id="subtitle">
+					<h1>Anzahl Teile nach TEVON</h1>
 				</div>
-				<div id="content" style="margin:0 50px;height:600px;">
-					<div id="subtitle">
-						<h1>Anzahl Teile nach TEVON</h1>
-					</div>
-					<div id="left">
-						<div id="chart"></div>
-						<%
-							int tbt_vff_kwno = 0; 
-							double KWTBT = 0.0;
-							double KWVFF = 0.0;
-							double KWPVS = 0.0;
-							double KW0S = 0.0;
-							double KWSOP = 0.0;
-							double sum = 0.0;
-							
-							if (session.getAttribute("fv9VFFTBTZP5") != null &&
-									!"".equals((String)session.getAttribute("fv9VFFTBTZP5")) &&
-									session.getAttribute("DATE_VFF") != null &&
-									!"".equals((String)session.getAttribute("DATE_VFF"))) {
-								tbt_vff_kwno = DateUtils.getWeekNumBetweenStartAndEnd(
-										(String)session.getAttribute("fv9VFFTBTZP5"),
-										(String)session.getAttribute("DATE_VFF")); 
-								KWTBT = Double.parseDouble(tbt_vff_kwno + "");
-								KWVFF = Double.parseDouble((Integer)session.getAttribute("KWNo_VFF") + "");
-								KWPVS = Double.parseDouble((Integer)session.getAttribute("KWNo_PVS") + "");
-								KW0S = Double.parseDouble((Integer)session.getAttribute("KWNo_0S") + "");
-								KWSOP = Double.parseDouble((Integer)session.getAttribute("KWNo_SOP") + "");
-								sum = KWVFF + KWPVS + KW0S + KWSOP;
-								
-						%>
-						<div id="time" style="margin:0 30px">
-							<table style="font-size: 10px;">
-								<tr>
-									<td style="width: 12px; ">KW</td>
-									<td width="45">
-										<%=(Integer)session.getAttribute("VFFTBTZP5") %>
-									</td>
-									<td width="<%=(243.0/sum)*KWVFF*0.8%>" style="text-align:left; padding-left: <%=(243.0/sum)*KWVFF*0.2%>px;">
-										<%=(Integer)session.getAttribute("KW_VFF") %>
-									</td>
-									<td width="<%=(243.0/sum)*KWPVS*0.8%>" style="text-align:left; padding-left: <%=(243.0/sum)*KWPVS*0.2%>px;">
-										<%=(Integer)session.getAttribute("KW_PVS") %>
-									</td>
-									<td width="<%=(243.0/sum)*KW0S*0.8%>" style="text-align:left; padding-left: <%=(243.0/sum)*KW0S*0.2%>px;">
-										<%=(Integer)session.getAttribute("KW_0S") %>
-									</td>
-									<td width="<%=(243.0/sum)*KWSOP*0.8%>" style="text-align:left; padding-left: <%=(243.0/sum)*KWSOP*0.2%>px;">
-										<%=(Integer)session.getAttribute("KW_SOP") %>
-									</td>
-								</tr>
-								<tr>
-									<td colspan="6" style="border-bottom: 1px solid; height: 0px; line-height: 0px;">&nbsp;</td>
-								</tr>
-								<tr>
-									<td style="width: 12px;">&nbsp;</td>
-									<td style="text-align: center; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/VFF-TBT.jpg', sizingMethod='scale'); height: 35px;">
-										<span style="font-size: 14px; color: white;font-weight: bolder;">&nbsp;</span>
-									</td>
-									<td style="text-align: center; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/VFF-T.jpg', sizingMethod='scale'); height: 35px;">
-										<span style="font-size: 14px; color: black;font-weight: bolder;">VFF</span>
-									</td>
-									<td style="text-align: center; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/PVS-T.jpg', sizingMethod='scale'); height: 35px;">
-										<span style="font-size: 14px; color: white;font-weight: bolder;">PVS</span>
-									</td>
-									<td style="text-align: center; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/0S-T.jpg', sizingMethod='scale'); height: 35px;">
-										<span style="font-size: 14px; color: white;font-weight: bolder;">0-S</span>
-									</td>
-									<td style="text-align: center; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/SOP-T.jpg', sizingMethod='scale'); height: 35px;">
-										<span style="font-size: 14px; color: white;font-weight: bolder;">SOP</span>
-									</td>
-								</tr>
-							</table>
-						</div>
-						<%
-							}
-						%>
+				<div id="left">
+					<div id="chart"></div>
+					<%
+					int tbt_vff_kwno = 0; 
+					double KWTBT = 0.0;
+					double KWPVS = 0.0;
+					double KW0S = 0.0;
+					double KWSOP = 0.0;
+					double sum = 0.0;
+					
+					int tbtKW = 0;
+					
+					if ((session.getAttribute("fv9PVSTBTZP5") != null &&
+							!"".equals((String)session.getAttribute("fv9PVSTBTZP5")) &&
+							session.getAttribute("DATE_PVS") != null &&
+							!"".equals((String)session.getAttribute("DATE_PVS"))) ||
+						(session.getAttribute("fv9PVSTBTZP7") != null &&
+								!"".equals((String)session.getAttribute("fv9PVSTBTZP7")) &&
+								session.getAttribute("DATE_PVS") != null &&
+								!"".equals((String)session.getAttribute("DATE_PVS")))) {
 						
+						if ("FV9_42TeileStatPVSHT".equals(type) || "FV9_42TeileStatPVSKT".equals(type)) {
+							tbt_vff_kwno = DateUtils.getWeekNumBetweenStartAndEnd(
+									(String)session.getAttribute("fv9PVSTBTZP5"),
+									(String)session.getAttribute("DATE_PVS")); 
+							tbtKW = (Integer)session.getAttribute("PVSTBTZP5");
+						}
+						if ("FV9_43TeileStatPVSKT".equals(type)) {
+							tbt_vff_kwno = DateUtils.getWeekNumBetweenStartAndEnd(
+									(String)session.getAttribute("fv9PVSTBTZP7"),
+									(String)session.getAttribute("DATE_PVS")); 
+							tbtKW = (Integer)session.getAttribute("PVSTBTZP7");
+						}
+						
+						KWTBT = Double.parseDouble(tbt_vff_kwno + "");
+						KWPVS = Double.parseDouble((Integer)session.getAttribute("KWNo_PVS") + "");
+						KW0S = Double.parseDouble((Integer)session.getAttribute("KWNo_0S") + "");
+						KWSOP = Double.parseDouble((Integer)session.getAttribute("KWNo_SOP") + "");
+						
+						sum = KWPVS + KW0S + KWSOP;
+					%>
+					<div id="time" style="margin:0 15px">
+						<table style="font-size: 10px; ">
+							<tr>
+								<td style="width: 12px; ">KW</td>
+								<td style="width: 30px;">
+									<%=tbtKW %>
+								</td>
+								<td style="text-align:left; width: 90px; padding-left: 30px;">
+									<%=(Integer)session.getAttribute("KW_VFF") %>
+								</td>
+								<td style="text-align:left; width: 45px; padding-left: 15px;">
+									<%=(Integer)session.getAttribute("KW_PVS") %>
+								</td>
+								<td style="text-align:left; width: 45px; padding-left: 15px;">
+									<%=(Integer)session.getAttribute("KW_0S") %>
+								</td>
+								<td style="text-align:left; width: 45px; padding-left: 15px;">
+									<%=(Integer)session.getAttribute("KW_SOP") %>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="6" style="border-bottom: 1px solid; height: 0px; line-height: 0px;">&nbsp;</td>
+							</tr>
+							<tr>
+								<td style="width: 12px;">&nbsp;</td>
+								<td style="text-align: center; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/VFF-TBT.jpg', sizingMethod='scale'); height: 35px;">
+									&nbsp;
+								</td>
+								<td style="text-align: center; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/VFF-T.jpg', sizingMethod='scale'); height: 35px;">
+									<span style="font-size: 14px; color: black;font-weight: bolder;">VFF</span>
+								</td>
+								<td style="text-align: center; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/PVS-T.jpg', sizingMethod='scale'); height: 35px;">
+									<span style="font-size: 14px; color: white;font-weight: bolder;">PVS</span>
+								</td>
+								<td style="text-align: center; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/0S-T.jpg', sizingMethod='scale'); height: 35px;">
+									<span style="font-size: 14px; color: white;font-weight: bolder;">0-S</span>
+								</td>
+								<td style="text-align: center; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/SOP-T.jpg', sizingMethod='scale'); height: 35px;">
+									<span style="font-size: 14px; color: white;font-weight: bolder;">SOP</span>
+								</td>
+							</tr>
+						</table>
 					</div>
-					<div id="right" style="font-family: Arial;">
+					<%
+					}
+					%>
+					
+				</div>
+				<div id="right" style="font-family: Arial;">
 						<div style="margin:3px 10px;font-weight: bold;">Top</div>
-						<div class="div"><table width="350" cellspacing="0">
+						<div class="div">
+							<table width="350" cellspacing="0">
 								<tr style="font-weight: bold;">
 									<td>Kritische UmfAEnge</td>
 									<td>Einzelteile</td>
@@ -341,47 +361,48 @@
 								%>
 								<tr>
 									<td style="text-indent: 15px;text-align: left;">
-										<% if (!"".equals(fv9TopKrisUmf.get(i))) { %>
-											<%=fv9TopKrisUmf.get(i) %>
-										<%} else {%>
-											&nbsp;
-										<%}%>
+									<% if (!"".equals(fv9TopKrisUmf.get(i))) {%>
+										<%=fv9TopKrisUmf.get(i) %>
+									<%} else {%>
+										&nbsp;
+									<%}%>
 									</td>
 									<td>
-										<% if (!"".equals(fv9TopEinNum.get(i))) { %>
-											<%=fv9TopEinNum.get(i) %>
-										<%} else {%>
-											&nbsp;
-										<%}%>
+									<% if (!"".equals(fv9TopEinNum.get(i))) { %>
+										<%=fv9TopEinNum.get(i) %>
+									<%} else { %>
+										&nbsp;
+									<%} %>
 									</td>
 									<td>
-										<% if (!"".equals(fv9TopVSIN3.get(i))) { %>
-											<%=fv9TopVSIN3.get(i) %>
-										<%} else {%>
-											&nbsp;
-										<%}%>
+									<% if (!"".equals(fv9TopVSIN3.get(i))) { %>
+										<%=fv9TopVSIN3.get(i) %>
+									<%} else {%>
+										&nbsp;
+									<%}%>
 									</td>
 									<td>
-										<% if (!"".equals(fv9TopVSISWZ.get(i))) { %>
-											<%=fv9TopVSISWZ.get(i) %>
-										<%} else {%>
-											&nbsp;
-										<%}%>
+									<% if (!"".equals(fv9TopVSISWZ.get(i))) { %>
+										<%=fv9TopVSISWZ.get(i) %>
+									<%} else {%>
+										&nbsp;
+									<%} %>
 									</td>
+									
 								</tr>
 								<%
 									}
 									if (fv9TopKrisUmf.size() < 10) {
 										for (int k=0; k<10-fv9TopKrisUmf.size(); k++) {
 								%>
-									<tr>
-										<td style="text-indent: 15px;text-align: left;">&nbsp;</td>
-										<td>&nbsp;</td>
-										<td>&nbsp;</td>
-										<td>&nbsp;</td>
-									</tr>
-							<%		
-										}		
+										<tr>
+											<td style="text-indent: 15px;text-align: left;">&nbsp;</td>
+											<td>&nbsp;</td>
+											<td>&nbsp;</td>
+											<td>&nbsp;</td>
+										</tr>
+								<%		
+										}
 									}
 								}
 									
@@ -398,11 +419,9 @@
 									}
 								}
 								%>
-								</table>
+							</table>
 						</div>
 					</div>
-				</div>
-				
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

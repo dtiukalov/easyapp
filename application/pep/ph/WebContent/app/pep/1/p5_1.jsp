@@ -27,7 +27,13 @@
 	List<String> fv9ObergabeStart = (List)form.get("fv9ObergabeStart"); //交车开始日期
 	List<String> fv9ObergabeEnd = (List)form.get("fv9ObergabeEnd"); //交车结束日期
 	%>
-	
+	<%
+		class Bauprogramm {
+			String kw;
+			int num;
+			Boolean flag = false; //标识是否是当前周
+		}
+	%>
 </head>
 
 <body>
@@ -41,6 +47,9 @@
 	    <div id="content">	     
 		<%
 		if (Web.getListYesOrNo(fv9Stufe)) {
+			//得到汇报周数
+			int fv9ReportKW = Integer.parseInt((String)session.getAttribute("fv9ReportKW"));
+			
 			String beginDate = getTime(fv9KarossStart.get(0) + " 00:00");
 			String endDate = getTime(fv9ObergabeEnd.get(fv9Stufe.size()-1) + " 00:00");
 			
@@ -63,7 +72,6 @@
 					<td style="width: 100px;">&nbsp;</td>
 
 			<% 
-			//	String currentKW = 
 				String temp = "";
 				List<String> kws = new ArrayList();
 				for (int m=0; m<=tdNum; m++) {
@@ -85,6 +93,9 @@
 						Bauprogramm b = new Bauprogramm();
 						b.kw = kws.get(k-1);
 						b.num = count;
+						if (Integer.parseInt((String)(kws.get(k-1).split("/")[0]).replaceAll("KW", "")) == fv9ReportKW) {
+							b.flag = true;
+						}
 						count = 0;
 						list.add(b);
 					}
@@ -98,6 +109,9 @@
 					Bauprogramm b = new Bauprogramm();
 					b.kw = lastKW;
 					b.num = lastKWDays;
+					if (Integer.parseInt((String)(lastKW.split("/")[0]).replaceAll("KW", "")) == fv9ReportKW) {
+						b.flag = true;
+					}
 					list.add(b);
 				}
 				
@@ -108,8 +122,20 @@
 						Bauprogramm bb = list.get(kw);
 		//				System.out.println("bb.kw = " + bb.kw + "  bb.num = " + bb.num);
 			%>
-					<td colspan="<%=bb.num%>" style="text-align: center; vertical-align: bottom; font-weight: bold;"><%=bb.kw %></td>
-			<%			
+	
+						
+					<td colspan="<%=bb.num%>" style="text-align: center; vertical-align: bottom; font-weight: bold;">
+						<%=bb.kw %>
+						<%if(bb.flag==true){%>
+						<div style="width: 2px; background-color: red; 
+							height: <%=fv9Stufe.size()*100%>px; 
+							position: absolute;
+							margin-left:15px;">
+						</div>
+						<%}%>
+					</td>
+			<%
+					
 					}
 				}
 			%>
@@ -159,8 +185,8 @@
 
 			%>
 				<tr>
-					<td style="width: 20px; height:30px; text-align: center; font-weight: bolder;"><%=i + 1%></td>
-					<td style="width: 100px;"><%=Fahrzeuge %></td>
+					<td style="width: 20px; height:30px; text-align: center; font-weight: bolder; font-size: 12px;"><%=i + 1%></td>
+					<td style="width: 100px; font-size: 11px;"><%=Fahrzeuge %></td>
 					<%
 					if (colspan11 > 0) {
 					%>
@@ -174,7 +200,7 @@
 				</tr>
 				<tr>
 					<td style="width: 20px; height:30px;">&nbsp;</td>
-					<td style="width: 100px;"><%=Karosserien %></td>
+					<td style="width: 100px; font-size: 11px;"><%=Karosserien %></td>
 					<%
 					if (colspan21 > 0) {
 					%>

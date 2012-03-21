@@ -19,7 +19,7 @@ public class FV9_43TeileStatPVSKTForm extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/4/p3_3.jsp";
+		return "/app/pep/4/p2_4.jsp";
 	}
 
 	@Override

@@ -43,7 +43,7 @@ public class EmailUtils {
 		try {
 			InitialContext ic = new InitialContext();
 			try {
-				session = (Session) ic.lookup("myMailSession");
+				session = (Session) ic.lookup("fotonMailSession");
 			} catch (Exception e) {
 			//	e.printStackTrace();
 			}

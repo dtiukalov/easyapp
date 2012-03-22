@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences>
+	<category name="General">
+		<category_description></category_description>
+		<preference name="FV9_PH_business_admin" type="String"
+			array="false" disabled="false">
+			<preference_description>业务管理员帐号</preference_description>
+			<context name="Teamcenter">
+				<value>infodba</value>
+			</context>
+		</preference>
+	</category>
+</preferences>

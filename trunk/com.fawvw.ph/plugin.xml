@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+	<extension point="org.eclipse.ui.commands">
+		<command defaultHandler="com.fawvw.handlers.NewPHReportHandler"
+			id="com.fawvw.handlers.NewPHReportHandler" name="PH报告">
+		</command>
+	</extension>
+
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution locationURI="menu:file.new?before=file.newStart">
+			<command commandId="com.fawvw.handlers.NewPHReportHandler" mnemonic="H">
+        <visibleWhen>
+            <and>
+              <or>
+                <reference
+                    definitionId="com.teamcenter.rac.ui.inMainPerspective"/>
+                <reference
+                    definitionId="com.teamcenter.rac.pse.inMainView"/>
+              </or>
+              <with variable="rac_command_suppression">
+                  <not>
+                      <iterate operator="or">
+                          <equals value="com.fawvw.handlers.NewPHReportHandler"/>
+                      </iterate>
+                  </not>
+              </with>
+            </and>
+        </visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+
+</plugin>

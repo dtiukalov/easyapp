@@ -21,7 +21,10 @@ public class StatusWrite {
 		int red_sum = 0; 
 		int yellow_sum = 0; 
 		int green_sum = 0; 
-		int sum = 0;
+		
+		red_sum = (Integer)((HashMap<String, Object>)values.get("status")).get("red");
+		yellow_sum = (Integer)((HashMap<String, Object>)values.get("status")).get("yellow");
+		green_sum = (Integer)((HashMap<String, Object>)values.get("status")).get("green");
 		
 		int n = statusList.size();
 		
@@ -40,11 +43,6 @@ public class StatusWrite {
 		cell_2_2.setCellValue((String)values.get("project_name")); 
 		
 		if (statusList != null && statusList.size() > 0) {
-			red_sum = statusList.get(n-1).red;
-			yellow_sum = statusList.get(n-1).yellow;
-			green_sum = statusList.get(n-1).green;
-			sum = statusList.get(n-1).sum;
-			
 			int col = 2;
 			
 			for (IssueStatus issue : statusList) {

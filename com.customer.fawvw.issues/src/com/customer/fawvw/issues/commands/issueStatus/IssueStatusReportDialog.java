@@ -25,6 +25,7 @@ import com.customer.fawvw.issues.AbstractFawvwPepCommand;
 import com.customer.fawvw.issues.AbstractFawvwPepDialog;
 import com.customer.fawvw.issues.utils.ComponentUtils;
 import com.customer.fawvw.issues.utils.DateUtil;
+import com.teamcenter.rac.aif.AIFShell;
 import com.teamcenter.rac.aif.InterfaceAIFOperationListener;
 import com.teamcenter.rac.common.AbstractTCCommandDialog;
 import com.teamcenter.rac.common.TCConstants;
@@ -223,7 +224,12 @@ public class IssueStatusReportDialog extends AbstractFawvwPepDialog{
 			path2 = "\"" + path2 + "\"";   
 			Runtime.getRuntime().exec("cmd  /c  start excel " + path1); 
 			Runtime.getRuntime().exec("cmd  /c  start excel " + path2); 
-			
+//			AIFShell sh = new AIFShell("application/vnd.ms-excel", path1);
+//			sh.setFileExtension(".xls");
+//			sh.start();
+//			sh = new AIFShell("application/vnd.ms-excel", path2);
+//			sh.setFileExtension(".xls");
+//			sh.start();
 		}
 
 	}

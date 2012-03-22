@@ -65,7 +65,7 @@
 						    <td valign="top" class="pgpg" style="width:239px; height: 125px;">
 							    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
 								  <tr>
-						   			 <td valign="top" width="60%"><h2> <%=fv9LogistikStyle.get(i) %></h2></td>
+						   			 <td valign="top" width="60%"><h2> <%=Web.replaceSpecial(fv9LogistikStyle.get(i)) %></h2></td>
 								   	 <td>
 								   		<% if(("绿").equals(fv9LogistikStatus.get(i))){%>
 										    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="30" height="70" />
@@ -81,7 +81,7 @@
 				    		<td width="60%" valign="top" class="pgpg" style="height: 125px;">
 				    			<div class="tbnrr">
 				    			<%if (fv9LogistikStCom_GM.get(i) != null && !"".equals(fv9LogistikStCom_GM.get(i))) {%>
-				    				<%=fv9LogistikStCom_GM.get(i) %>
+				    				<%=Web.replaceSpecial(fv9LogistikStCom_GM.get(i)) %>
 				    			<%} else {%>
 			   	    				&nbsp;
 			   	    			<%} %>
@@ -90,7 +90,7 @@
 				   			<td width="40%" valign="top" class="pgpg" style="height: 125px;">
 				   			 	<div class="tbnrr">
 				   			 	<%if (fv9LogistikMab_GM.get(i) != null && !"".equals(fv9LogistikMab_GM.get(i))) {%>
-				    			<%=fv9LogistikMab_GM.get(i) %>
+				    			<%=Web.replaceSpecial(fv9LogistikMab_GM.get(i)) %>
 				    			<%} else {%>
 			   	    				&nbsp;
 			   	    			<%}%>
@@ -117,7 +117,7 @@
 						    <td valign="top" class="pgpg" style="width:239px; height: 125px;">
 							    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
 								  <tr>
-						   			 <td valign="top" width="60%"><h2> <%=fv9LogistikStyle.get(i) %></h2></td>
+						   			 <td valign="top" width="60%"><h2> <%=Web.replaceSpecial(fv9LogistikStyle.get(i)) %></h2></td>
 								   	 <td>
 								   		<% if(("绿").equals(fv9LogistikStatus.get(i))){%>
 										    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="30" height="70" />
@@ -133,7 +133,7 @@
 				    		<td width="60%" valign="top" class="pgpg" style="height: 125px;">
 				    			<div class="tbnrr">
 				    			<%if (fv9LogistikStCom_CN.get(i) != null && !"".equals(fv9LogistikStCom_CN.get(i))) {%>
-				    				<%=fv9LogistikStCom_CN.get(i) %>
+				    				<%=Web.replaceSpecial(fv9LogistikStCom_CN.get(i)) %>
 				    			<%} else {%>
 			   	    				&nbsp;
 			   	    			<%} %>
@@ -142,7 +142,7 @@
 				   			<td width="40%" valign="top" class="pgpg" style="height: 125px;">
 				   			 	<div class="tbnrr">
 				   			 	<%if (fv9LogistikMab_CN.get(i) != null && !"".equals(fv9LogistikMab_CN.get(i))) {%>
-				    			<%=fv9LogistikMab_CN.get(i) %>
+				    			<%=Web.replaceSpecial(fv9LogistikMab_CN.get(i)) %>
 				    			<%} else {%>
 			   	    				&nbsp;
 			   	    			<%}%>

@@ -66,7 +66,7 @@
 				%>
 				<tr>
 					<td valign="top" class="pgpg" style="width: 200px;padding:5px">
-						<h2> <%= fv9KarosserStyle.get(i) %></h2>
+						<h2> <%= Web.replaceSpecial(fv9KarosserStyle.get(i)) %></h2>
 					</td>
 					<td valign="top" class="pgpg" style="width: 39px;padding:5px">
 						<% if(fv9KarosserStatus.get(i).equals("绿")){%>
@@ -80,7 +80,7 @@
 					<td width="60%" valign="top" class="pgpg" style="padding:5px">
 						<div>
 						<%if (fv9KarossStCom_GM.get(i) != null && !"".equals(fv9KarossStCom_GM.get(i))) {
-						%> <%=fv9KarossStCom_GM.get(i) %>
+						%> <%=Web.replaceSpecial(fv9KarossStCom_GM.get(i)) %>
 						</div>
 						<%} else {%>
 						&nbsp;
@@ -89,7 +89,7 @@
 					<td width="40%" valign="top" class="pgpg">
 						<div>
 						<%if (fv9KarossMab_GM.get(i) != null && !"".equals(fv9KarossMab_GM.get(i))) {
-						%> <%=fv9KarossMab_GM.get(i) %></div>
+						%> <%=Web.replaceSpecial(fv9KarossMab_GM.get(i)) %></div>
 						<%} else {%>
 						&nbsp;
 						<%}%>
@@ -119,7 +119,7 @@
 				%>
 				<tr>
 					<td valign="top" class="pgpg" style="width: 200px;padding:5px">
-						<h2> <%= fv9KarosserStyle.get(i) %></h2>
+						<h2> <%= Web.replaceSpecial(fv9KarosserStyle.get(i)) %></h2>
 					</td>
 					<td valign="top" class="pgpg" style="width: 39px;padding:5px">
 						<% if(fv9KarosserStatus.get(i).equals("绿")){%>
@@ -135,7 +135,7 @@
 						<%
 						if (fv9KarossStCom_CN.get(i) != null && !"".equals(fv9KarossStCom_CN.get(i))) {
 						%> 
-						<%=fv9KarossStCom_CN.get(i) %>
+						<%=Web.replaceSpecial(fv9KarossStCom_CN.get(i)) %>
 						</div>
 						<%} else {%>
 						&nbsp;
@@ -146,7 +146,7 @@
 						<%
 						if (fv9KarossMab_CN.get(i) != null && !"".equals(fv9KarossMab_CN.get(i))) {
 						%> 
-						<%=fv9KarossMab_CN.get(i) %>
+						<%=Web.replaceSpecial(fv9KarossMab_CN.get(i)) %>
 						</div>
 						<%} else {%>
 						&nbsp;

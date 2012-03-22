@@ -19,6 +19,7 @@ import java.util.Date;
 import com.teamcenter.rac.kernel.TCComponent;
 import com.teamcenter.rac.kernel.TCException;
 import com.teamcenter.rac.kernel.TCProperty;
+import com.teamcenter.rac.kernel.TCTextService;
 import com.teamcenter.rac.util.Registry;
 
 /**
@@ -124,7 +125,21 @@ public class ArrayPropertyTableColumn {
      */
     public String getColumnName() 
     {
-        return property.getDescriptor().getDisplayName();
+    	String pName = property.getPropertyName();
+    	String dName = property.getDescriptor().getDisplayName();
+    	if(dName == null || dName.equals(pName)) {
+    		// not localized properly
+    		TCTextService ts = property.getTCComponent().getSession().getTextService();
+    		try {
+				dName = ts.getTextValue(pName);
+			} catch (TCException e) {
+				e.printStackTrace();
+			}
+    	}
+    	if(dName == null || dName.length() < 1) {
+    		dName = pName;
+    	}
+    	return dName;
     }
 
     /**

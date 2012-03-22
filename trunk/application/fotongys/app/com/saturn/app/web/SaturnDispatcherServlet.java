@@ -35,11 +35,13 @@ public class SaturnDispatcherServlet extends HttpServlet {
 		String emailhost = config.getServletContext().getInitParameter("emailHost");
 		String fromEmail = config.getServletContext().getInitParameter("fromEmail");
 		String fromPass = config.getServletContext().getInitParameter("fromPass");
+		String mailSeesion = config.getServletContext().getInitParameter("mailSeesion");
 		if (host != null && !"".equals(host)) {
 			WorkspaceUtils.HOST = host;
 			EmailUtils.host = emailhost;
 			EmailUtils.fromEmail = fromEmail;
 			EmailUtils.fromPass = fromPass;
+			EmailUtils.mailSession = mailSeesion.trim();
 		}
 		super.init(config);
 	}

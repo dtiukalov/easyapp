@@ -77,7 +77,7 @@
 						<%
 							if (fv9PressStCom_GM != null && !"".equals(fv9PressStCom_GM)) {
 						%>
-							<%=fv9PressStCom_GM %>
+							<%=Web.replaceSpecial(fv9PressStCom_GM) %>
 						<%
 							} else {
 						%>
@@ -90,7 +90,7 @@
 						<%
 							if (fv9PressStMab_GM != null && !"".equals(fv9PressStMab_GM)) {
 						%>
-							<%=fv9PressStMab_GM %>
+							<%=Web.replaceSpecial(fv9PressStMab_GM) %>
 						<%
 							} else {
 						%>
@@ -117,7 +117,7 @@
 						<%
 							if (fv9KarossStCom_GM != null && !"".equals(fv9KarossStCom_GM)) {
 						%>
-							<%=fv9KarossStCom_GM %>
+							<%=Web.replaceSpecial(fv9KarossStCom_GM) %>
 						<%
 							} else {
 						%>
@@ -130,7 +130,7 @@
 						<%
 							if (fv9KarossStMab_GM != null && !"".equals(fv9KarossStMab_GM)) {
 						%>
-							<%=fv9KarossStMab_GM %>
+							<%=Web.replaceSpecial(fv9KarossStMab_GM) %>
 						<%
 							} else {
 						%>
@@ -158,7 +158,7 @@
 						<%
 							if (fv9LackStCom_GM != null && !"".equals(fv9LackStCom_GM)) {
 						%>
-							<%=fv9LackStCom_GM %>i
+							<%=Web.replaceSpecial(fv9LackStCom_GM) %>
 						<%
 							} else {
 						%>
@@ -171,7 +171,7 @@
 						<%
 							if (fv9LackStMab_GM != null && !"".equals(fv9LackStMab_GM)) {
 						%>
-							<%=fv9LackStMab_GM %>
+							<%=Web.replaceSpecial(fv9LackStMab_GM) %>
 						<%
 							} else {
 						%>
@@ -200,7 +200,7 @@
 						<%
 							if (fv9MontStCom_GM != null && !"".equals(fv9MontStCom_GM)) {
 						%>
-							<%=fv9MontStCom_GM %>
+							<%=Web.replaceSpecial(fv9MontStCom_GM) %>
 						<%
 							} else {
 						%>
@@ -213,7 +213,7 @@
 						<%
 							if (fv9MontStMab_GM != null && !"".equals(fv9MontStMab_GM)) {
 						%>
-							<%=fv9MontStMab_GM %>
+							<%=Web.replaceSpecial(fv9MontStMab_GM) %>
 						<%
 							} else {
 						%>
@@ -242,7 +242,7 @@
 						<%
 							if (fv9ElectStCom_GM != null && !"".equals(fv9ElectStCom_GM)) {
 						%>
-							<%=fv9ElectStCom_GM %>
+							<%=Web.replaceSpecial(fv9ElectStCom_GM) %>
 						<%
 							} else {
 						%>
@@ -255,7 +255,7 @@
 						<%
 							if (fv9ElectStMab_GM != null && !"".equals(fv9ElectStMab_GM)) {
 						%>
-							<%=fv9ElectStMab_GM %>
+							<%=Web.replaceSpecial(fv9ElectStMab_GM) %>
 						<%
 							} else {
 						%>
@@ -295,7 +295,7 @@
 						<%
 							if (fv9PressStCom_CN != null && !"".equals(fv9PressStCom_CN)) {
 						%>
-							<%=fv9PressStCom_CN %>
+							<%=Web.replaceSpecial(fv9PressStCom_CN) %>
 						<%
 							} else {
 						%>
@@ -308,7 +308,7 @@
 						<%
 							if (fv9PressStMab_CN != null && !"".equals(fv9PressStMab_CN)) {
 						%>
-							<%=fv9PressStMab_CN %>
+							<%=Web.replaceSpecial(fv9PressStMab_CN) %>
 						<%
 							} else {
 						%>
@@ -337,7 +337,7 @@
 						<%
 							if (fv9KarossStCom_CN != null && !"".equals(fv9KarossStCom_CN)) {
 						%>
-							<%=fv9KarossStCom_CN %>
+							<%=Web.replaceSpecial(fv9KarossStCom_CN) %>
 						<%
 							} else {
 						%>
@@ -350,7 +350,7 @@
 						<%
 							if (fv9KarossStMab_CN != null && !"".equals(fv9KarossStMab_CN)) {
 						%>
-							<%=fv9KarossStMab_CN %>
+							<%=Web.replaceSpecial(fv9KarossStMab_CN) %>
 						<%
 							} else {
 						%>
@@ -379,7 +379,7 @@
 						<%
 							if (fv9LackStCom_CN != null && !"".equals(fv9LackStCom_CN)) {
 						%>
-							<%=fv9LackStCom_CN %>
+							<%=Web.replaceSpecial(fv9LackStCom_CN) %>
 						<%
 							} else {
 						%>
@@ -392,7 +392,7 @@
 						<%
 							if (fv9LackStMab_CN != null && !"".equals(fv9LackStMab_CN)) {
 						%>
-							<%=fv9LackStMab_CN %>
+							<%=Web.replaceSpecial(fv9LackStMab_CN) %>
 						<%
 							} else {
 						%>
@@ -421,7 +421,7 @@
 						<%
 							if (fv9MontStCom_CN != null && !"".equals(fv9MontStCom_CN)) {
 						%>
-							<%=fv9MontStCom_CN %>
+							<%=Web.replaceSpecial(fv9MontStCom_CN) %>
 						<%
 							} else {
 						%>
@@ -434,7 +434,7 @@
 						<%
 							if (fv9MontStMab_CN != null && !"".equals(fv9MontStMab_CN)) {
 						%>
-							<%=fv9MontStMab_CN %>
+							<%=Web.replaceSpecial(fv9MontStMab_CN) %>
 						<%
 							} else {
 						%>
@@ -463,7 +463,7 @@
 						<%
 							if (fv9ElectStCom_CN != null && !"".equals(fv9ElectStCom_CN)) {
 						%>
-							<%=fv9ElectStCom_CN %>
+							<%=Web.replaceSpecial(fv9ElectStCom_CN) %>
 						<%
 							} else {
 						%>
@@ -476,7 +476,7 @@
 						<%
 							if (fv9ElectStMab_CN != null && !"".equals(fv9ElectStMab_CN)) {
 						%>
-							<%=fv9ElectStMab_CN %>
+							<%=Web.replaceSpecial(fv9ElectStMab_CN) %>
 						<%
 							} else {
 						%>

@@ -48,7 +48,11 @@
 		<%
 		if (Web.getListYesOrNo(fv9Stufe)) {
 			//得到汇报周数
-			int fv9ReportKW = Integer.parseInt((String)session.getAttribute("fv9ReportKW"));
+			int fv9ReportKW = 0;
+			if ((String)session.getAttribute("fv9ReportKW") != null && 
+					!"".equals((String)session.getAttribute("fv9ReportKW"))) {
+				fv9ReportKW = Integer.parseInt((String)session.getAttribute("fv9ReportKW"));
+			}
 			
 			String beginDate = getTime(fv9KarossStart.get(0) + " 00:00");
 			String endDate = getTime(fv9ObergabeEnd.get(fv9Stufe.size()-1) + " 00:00");

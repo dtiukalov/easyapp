@@ -22,6 +22,7 @@ public class EmailUtils {
 	public static String host;
 	public static String fromEmail;
 	public static String fromPass;
+	public static String mailSession;
 	
 	public static void sendMailToPerson(String toEmail, String subject, String content) {
 //		String host = "smtp.163.com";
@@ -43,7 +44,8 @@ public class EmailUtils {
 		try {
 			InitialContext ic = new InitialContext();
 			try {
-				session = (Session) ic.lookup("fotonMailSession");
+				session = (Session) ic.lookup(mailSession);
+			//	session = (Session) ic.lookup("fotonMailSession");
 			} catch (Exception e) {
 			//	e.printStackTrace();
 			}

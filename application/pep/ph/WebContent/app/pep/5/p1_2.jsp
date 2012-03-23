@@ -48,11 +48,11 @@
 		<div class="fr"><%=status_right %></div>
 		<h1><%=title %></h1>
 	</div>
-    <div id="content" style="margin-top:20px;font-size:12px;height:550px;">
+    <div id="content">
     	<div id="german">
 			<input type="button" class="china" onclick="changeChinese()" />
 		</div>
-    	<div id="datatable1" style="width: 800px;margin:20px 50px">
+    	<div id="datatable1" style="width: 980px;margin:5px auto; margin-top: 30px;">
 		    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 				<tr>
 					<td width="239" class="pg" colspan="2">&nbsp;</td>
@@ -65,10 +65,10 @@
 				  for(int i=0; i<fv9KarosserStyle.size(); i++){
 				%>
 				<tr>
-					<td valign="top" class="pgpg" style="width: 200px;padding:5px">
+					<td valign="top" class="pgpg" style="width:100px;padding:10px; font-size: 14px;">
 						<h2> <%= Web.replaceSpecial(fv9KarosserStyle.get(i)) %></h2>
 					</td>
-					<td valign="top" class="pgpg" style="width: 39px;padding:5px">
+					<td valign="top" class="pgpg" style="width: 39px;padding:10px">
 						<% if(fv9KarosserStatus.get(i).equals("绿")){%>
 						<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="30" height="70" />
 						<%} else if(fv9KarosserStatus.get(i).equals("黄")){%>
@@ -77,7 +77,8 @@
 						<img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
 						<%}%>
 					</td>
-					<td width="60%" valign="top" class="pgpg" style="padding:5px">
+					<td width="60%" valign="top" class="pgpg" style="padding:12px">
+						<div class="tbnrr">
 						<div>
 						<%if (fv9KarossStCom_GM.get(i) != null && !"".equals(fv9KarossStCom_GM.get(i))) {
 						%> <%=Web.replaceSpecial(fv9KarossStCom_GM.get(i)) %>
@@ -86,7 +87,8 @@
 						&nbsp;
 						<%}%>
 					</td>
-					<td width="40%" valign="top" class="pgpg">
+					<td width="40%" valign="top" class="pgpg" style="padding:12px">
+						<div class="tbnrr">
 						<div>
 						<%if (fv9KarossMab_GM.get(i) != null && !"".equals(fv9KarossMab_GM.get(i))) {
 						%> <%=Web.replaceSpecial(fv9KarossMab_GM.get(i)) %></div>
@@ -105,7 +107,7 @@
 		<div id="china" style="display: none;">
 			<input type="button" class="german" onclick="changeGerman()"/>
 		</div>
-		<div id="datatable2" style="width: 800px; display: none;margin:20px 50px">
+		<div id="datatable2" style="width: 980px;display: none; margin:5px auto; margin-top: 30px;">
 		    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 				<tr>
 					<td width="239" class="pg" colspan="2">&nbsp;</td>
@@ -118,10 +120,10 @@
 				  for(int i=0; i<fv9KarosserStyle.size(); i++){
 				%>
 				<tr>
-					<td valign="top" class="pgpg" style="width: 200px;padding:5px">
+					<td valign="top" class="pgpg" style="width:100px;padding:10px; font-size: 14px;">
 						<h2> <%= Web.replaceSpecial(fv9KarosserStyle.get(i)) %></h2>
 					</td>
-					<td valign="top" class="pgpg" style="width: 39px;padding:5px">
+					<td valign="top" class="pgpg" style="width: 39px;padding:10px">
 						<% if(fv9KarosserStatus.get(i).equals("绿")){%>
 						<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="30" height="70" />
 						<%} else if(fv9KarosserStatus.get(i).equals("黄")){%>
@@ -130,7 +132,7 @@
 						<img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
 						<%}%>
 					</td>
-					<td width="60%" valign="top" class="pgpg" style="padding:5px">
+					<td width="60%" valign="top" class="pgpg" style="padding:12px">
 						<div>
 						<%
 						if (fv9KarossStCom_CN.get(i) != null && !"".equals(fv9KarossStCom_CN.get(i))) {
@@ -141,7 +143,7 @@
 						&nbsp;
 						<%}%>
 					</td>
-					<td width="40%" valign="top" class="pgpg">
+					<td width="40%" valign="top" class="pgpg" style="padding:12px">
 						<div>
 						<%
 						if (fv9KarossMab_CN.get(i) != null && !"".equals(fv9KarossMab_CN.get(i))) {

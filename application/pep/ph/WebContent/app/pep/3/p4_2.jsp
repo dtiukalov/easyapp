@@ -93,8 +93,8 @@
 					legend: {
 						layout: 'vertical',
 						verticalAlign: 'right',
-						x:210,
-						y:300,
+						x:270,
+						y:480,
 						borderColor: '#CCC',
 						borderWidth: 0,
 						shadow: false,
@@ -111,6 +111,8 @@
 						series: {
 							stacking: 'normal',
 							borderColor: 'black',
+							groupPadding:0.06,
+							pointPadding:0.06,
 							dataLabels: {
 								enabled: true,
 								align: 'center',

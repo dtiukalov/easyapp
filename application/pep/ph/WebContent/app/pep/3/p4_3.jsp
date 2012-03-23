@@ -105,7 +105,8 @@
 				title: {
 					text: 'Gesamt: <%=gesamt%> Funktionsmasse',
 					style:{
-						color:'black'
+						color:'black',
+						font-size: '14px'
 					},
 					align:'left'
 				},
@@ -168,7 +169,7 @@
 						enabled: false
 				},
 			    series: [{
-					name: 'Anzahl AEnderungen',
+					name: 'Anzahl Aenderungen',
 					data: [{ 
 							y: <%=y1%>, 
 							low: <%=low1%>,
@@ -252,7 +253,7 @@
 			</div>
 			
 			<div id="content">
-				<div id="chart" style="width: 700px; height: 450px; margin: 0 50px; float: left;"></div>
+				<div id="chart" style="width: 1000px; height: 500px; margin: 5px auto; margin-top: 30px;"></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

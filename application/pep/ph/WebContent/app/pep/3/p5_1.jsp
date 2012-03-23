@@ -179,7 +179,7 @@
 			</div>
 			
 			<div id="content"> 
-				<div id="chart" style="width: 850px; height: 450px; margin: 0 auto"></div>
+				<div id="chart" style="width: 1000px; height: 450px; margin: 5px auto; "></div>
 				
 			<%
 			if (Web.getListYesOrNo((List<String>)form.get("fv9KWNo"))) {
@@ -195,7 +195,7 @@
 				double value4 = lichenbeiPillarNum.get("sopPillar");
 				double sum = value0 + value1 + value2 + value3 + value4;
 				%>
-				<div id="meilsteinouter" style="width: 800px;">
+				<div id="meilsteinouter" style="width: 1000px;">
 					<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 73px; text-align: center; overflow: hidden; ">
 						<div style=" width: <%=value0 %>px; height: 30px; float: left; background-color: white; vertical-align: bottom; padding-top: 5px;"><span style="color: white;"></span></div>
 						<div style=" width: <%=value1 %>px; height: 30px; float: left; background-color: #99FF99; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">VFF</span></div>

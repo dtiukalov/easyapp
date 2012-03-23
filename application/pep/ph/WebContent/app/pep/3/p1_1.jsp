@@ -10,7 +10,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<%@ include file="/app/pep/include/header.jsp"%>
+	<%@ include file="/app/pep/include/header.jsp"%>
+	<title><%=title %></title>
 </head>
 
 <%
@@ -27,66 +28,53 @@
 	<div id="top">
 		<div class="fl"><%=status_left %></div>
 		<div class="fr"><%=status_right %></div>
-		<h1><%=title %></h1>
+		<h1>
+			<%=title %>
+			<span style="font-size: 16px;">
+				<a href="javascript:changeChinese()" id="german">C</a>
+				<a href="javascript:changeGerman()" id="china" style="display: none;">D</a>
+			</span>
+		</h1>
 	</div>
     <div id="content">
-    	<div id="german">
-			<input type="button" class="china" onclick="changeChinese()" />
-		</div>
-		<div id="datatable1" style="width: 800px; font-size:12px; margin:0 50px">
-			    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
-				  <tr>
-				    <td width="239" class="pg">&nbsp;</td>
-				    <td width="311" class="pg"><h2>Status</h2></td>
-				    <td width="433" class="pg"><h2>Massnahmen</h2></td>
-				  </tr>
-				 <%
-				 if (fv9PrMSBCubStyle != null && fv9PrMSBCubStyle.size() > 0) {
-				  for(int i=0; i<fv9PrMSBCubStyle.size(); i++){
-					String PrMSBCubStyle = Web.replaceSpecial((String)fv9PrMSBCubStyle.get(i));
-					String PrMSBCubStatus = Web.replaceSpecial((String)fv9PrMSBCubStatus.get(i));
-					String PrMSBCubStCom_GM = Web.replaceSpecial((String)fv9PrMSBCubStCom_GM.get(i));
-					String PrMSBCubMabnh_GM = Web.replaceSpecial((String)fv9PrMSBCubMabnh_GM.get(i));
-					  %>  
+		<div id="datatable1" style="font-size:14px; margin:30px 30px auto;">
+		    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
+			  <tr>
+			    <td width="239" class="pg">&nbsp;</td>
+			    <td width="311" class="pg"><h2>Status</h2></td>
+			    <td width="433" class="pg"><h2>Massnahmen</h2></td>
+			  </tr>
+			 <%
+			 if (fv9PrMSBCubStyle != null && fv9PrMSBCubStyle.size() > 0) {
+			  for(int i=0; i<fv9PrMSBCubStyle.size(); i++){
+				String PrMSBCubStyle = Web.replaceSpecial((String)fv9PrMSBCubStyle.get(i));
+				String PrMSBCubStatus = Web.replaceSpecial((String)fv9PrMSBCubStatus.get(i));
+				String PrMSBCubStCom_GM = Web.replaceSpecial((String)fv9PrMSBCubStCom_GM.get(i));
+				String PrMSBCubMabnh_GM = Web.replaceSpecial((String)fv9PrMSBCubMabnh_GM.get(i));
+				  %>  
 				<tr>
-					    <td valign="top" class="pgpg" style="width:239px;">
-						    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
-							  <tr>
-					   			 <td width="70%" valign="top"><h2><%=PrMSBCubStyle %> </h2></td>
-							   	 <td>
-									<% if(("绿").equals(PrMSBCubStatus)){%>
-									    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" style="height:59px;width:25px;" />
-									<%} else if(("黄").equals(PrMSBCubStatus)){%>
-									    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" style="height:59px;width:25px;" />	
-									<%} else if(("红").equals(PrMSBCubStatus)){%>
-										   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" style="height:59px;width:25px;" /> 
-									<%}%>
-								</td>
-							  </tr>
-							</table>
-						</td>
-			    		<td width="60%" valign="top" class="pgpg">
-				    		<div class="tbnrr">
-				    			<%
-			    				if (PrMSBCubStCom_GM != null && !"".equals(PrMSBCubStCom_GM)) {
-				    			%>
-				    				<%=PrMSBCubStCom_GM %>
-				    			<%
-				    				} else {
-			   					%>
-			   	    				&nbsp;
-			   	    			<%		
-				    				}
-				    			%>
-				    			
-							</div>
-					    </td>
-			   			<td width="40%" valign="top" class="pgpg">
-			   				<div class="tbnrr">
-			   				<%
-			    				if (PrMSBCubMabnh_GM != null && !"".equals(PrMSBCubMabnh_GM)) {
+				    <td valign="top" class="pgpg" style="width:239px; height: 90px;">
+					    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
+						  <tr>
+				   			 <td width="70%" valign="top"><h2><%=Web.replaceSpecial(PrMSBCubStyle) %> </h2></td>
+						   	 <td>
+								<% if(("绿").equals(PrMSBCubStatus)){%>
+								    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" style="height:59px;width:25px;" />
+								<%} else if(("黄").equals(PrMSBCubStatus)){%>
+								    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" style="height:59px;width:25px;" />	
+								<%} else if(("红").equals(PrMSBCubStatus)){%>
+									   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" style="height:59px;width:25px;" /> 
+								<%}%>
+							</td>
+						  </tr>
+						</table>
+					</td>
+		    		<td width="60%" valign="top" class="pgpg">
+			    		<div class="tbnrr">
+			    			<%
+		    				if (PrMSBCubStCom_GM != null && !"".equals(PrMSBCubStCom_GM)) {
 			    			%>
-			    				<%=PrMSBCubMabnh_GM %>
+			    				<%=Web.replaceSpecial(PrMSBCubStCom_GM) %>
 			    			<%
 			    				} else {
 		   					%>
@@ -94,8 +82,24 @@
 		   	    			<%		
 			    				}
 			    			%>
-			    			</div>
-						</td>
+			    			
+						</div>
+				    </td>
+		   			<td width="40%" valign="top" class="pgpg">
+		   				<div class="tbnrr">
+		   				<%
+		    				if (PrMSBCubMabnh_GM != null && !"".equals(PrMSBCubMabnh_GM)) {
+		    			%>
+		    				<%=Web.replaceSpecial(PrMSBCubMabnh_GM) %>
+		    			<%
+		    				} else {
+	   					%>
+	   	    				&nbsp;
+	   	    			<%		
+		    				}
+		    			%>
+		    			</div>
+					</td>
 				</tr>
 				<% 
 				  }
@@ -103,63 +107,44 @@
 				%>
 			</table>
 		</div>   
-		<div id="china" style="display: none;">
-			<input type="button" class="german" onclick="changeGerman()"/>
-		</div>
-		<div id="datatable2" style="width: 800px; font-size:12px; margin:0 50px; display: none;">
-			    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
-				  <tr>
-				    <td width="239" class="pg">&nbsp;</td>
-				    <td width="311" class="pg"><h2>Status</h2></td>
-				    <td width="433" class="pg"><h2>Massnahmen</h2></td>
-				  </tr>
-				 <%
-				 if (fv9PrMSBCubStyle != null && fv9PrMSBCubStyle.size() > 0) {
-				  for(int i=0; i<fv9PrMSBCubStyle.size(); i++){
-					String PrMSBCubStyle = Web.replaceSpecial((String)fv9PrMSBCubStyle.get(i));
-					String PrMSBCubStatus = Web.replaceSpecial((String)fv9PrMSBCubStatus.get(i));
-					String PrMSBCubStCom_CN = Web.replaceSpecial((String)fv9PrMSBCubStCom_CN.get(i));
-					String PrMSBCubMabnh_CN = Web.replaceSpecial((String)fv9PrMSBCubMabnh_CN.get(i));
-					  %>  
+		<div id="datatable2" style="font-size:14px; margin:30px 30px auto; display: none;">
+		    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
+			  <tr>
+			    <td width="239" class="pg">&nbsp;</td>
+			    <td width="311" class="pg"><h2>Status</h2></td>
+			    <td width="433" class="pg"><h2>Massnahmen</h2></td>
+			  </tr>
+			 <%
+			 if (fv9PrMSBCubStyle != null && fv9PrMSBCubStyle.size() > 0) {
+			  for(int i=0; i<fv9PrMSBCubStyle.size(); i++){
+				String PrMSBCubStyle = Web.replaceSpecial((String)fv9PrMSBCubStyle.get(i));
+				String PrMSBCubStatus = Web.replaceSpecial((String)fv9PrMSBCubStatus.get(i));
+				String PrMSBCubStCom_CN = Web.replaceSpecial((String)fv9PrMSBCubStCom_CN.get(i));
+				String PrMSBCubMabnh_CN = Web.replaceSpecial((String)fv9PrMSBCubMabnh_CN.get(i));
+				  %>  
 				<tr>
-					    <td valign="top" class="pgpg" style="width:239px;">
-						    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
-							  <tr>
-					   			 <td width="70%" valign="top"><h2><%=PrMSBCubStyle %> </h2></td>
-							   	 <td>
-									<% if(("绿").equals(PrMSBCubStatus)){%>
-									    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" style="height:59px;width:25px;"/>
-									<%} else if(("黄").equals(PrMSBCubStatus)){%>
-									    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" style="height:59px;width:25px;" />	
-									<%} else if(("红").equals(PrMSBCubStatus)){%>
-										   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" style="height:59px;width:25px;" /> 
-									<%}%>
-								</td>
-							  </tr>
-							</table>
-						</td>
-			    		<td width="60%" valign="top" class="pgpg">
-				    		<div class="tbnrr">
-				    			<%
-			    				if (PrMSBCubStCom_CN != null && !"".equals(PrMSBCubStCom_CN)) {
-				    			%>
-				    				<%=PrMSBCubStCom_CN%>
-				    			<%
-				    				} else {
-			   					%>
-			   	    				&nbsp;
-			   	    			<%		
-				    				}
-				    			%>
-				    			
-							</div>
-					    </td>
-			   			<td width="40%" valign="top" class="pgpg">
-			   				<div class="tbnrr">
-			   				<%
-			    				if (PrMSBCubMabnh_CN != null && !"".equals(PrMSBCubMabnh_CN)) {
+				    <td valign="top" class="pgpg" style="width:239px; height: 90px;">
+					    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
+						  <tr>
+				   			 <td width="70%" valign="top"><h2><%=Web.replaceSpecial(PrMSBCubStyle) %> </h2></td>
+						   	 <td>
+								<% if(("绿").equals(PrMSBCubStatus)){%>
+								    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" style="height:59px;width:25px;"/>
+								<%} else if(("黄").equals(PrMSBCubStatus)){%>
+								    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" style="height:59px;width:25px;" />	
+								<%} else if(("红").equals(PrMSBCubStatus)){%>
+									   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" style="height:59px;width:25px;" /> 
+								<%}%>
+							</td>
+						  </tr>
+						</table>
+					</td>
+		    		<td width="60%" valign="top" class="pgpg">
+			    		<div class="tbnrr">
+			    			<%
+		    				if (PrMSBCubStCom_CN != null && !"".equals(PrMSBCubStCom_CN)) {
 			    			%>
-			    				<%=PrMSBCubMabnh_CN%>
+			    				<%=Web.replaceSpecial(PrMSBCubStCom_CN)%>
 			    			<%
 			    				} else {
 		   					%>
@@ -167,8 +152,24 @@
 		   	    			<%		
 			    				}
 			    			%>
-			    			</div>
-						</td>
+			    			
+						</div>
+				    </td>
+		   			<td width="40%" valign="top" class="pgpg">
+		   				<div class="tbnrr">
+		   				<%
+		    				if (PrMSBCubMabnh_CN != null && !"".equals(PrMSBCubMabnh_CN)) {
+		    			%>
+		    				<%=Web.replaceSpecial(PrMSBCubMabnh_CN)%>
+		    			<%
+		    				} else {
+	   					%>
+	   	    				&nbsp;
+	   	    			<%		
+		    				}
+		    			%>
+		    			</div>
+					</td>
 				</tr>
 				<% 
 				  }

@@ -48,16 +48,16 @@
 	<style type="text/css">
 		#subtitle h1{
 			font-family:Arial, Helvetica, sans-serif;
-			font-size:16px; margin:15px 50px auto;
+			font-size:18px; margin:15px 50px auto;
 		}
 		#left {
-			width: 500px; height:600px; margin: 0px; float: left; overflow: hidden;
+			width: 500px; height:600px; margin: 0px 20px auto; float: left; overflow: hidden;
 		}
 		#left chart{
-			width: 500px; height: 400px; margin: 0px; float: left;
+			width: 500px; height: 400px; margin: 0px 0px auto; float: left; 
 		}
 		#left time{
-			width: 500px; height: 200px; margin: 0px; float: left;
+			width: 500px; height: 200px; margin: 0px 0px auto; float: left;
 		}
 		#time table tr td{
 			text-align: center;

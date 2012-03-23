@@ -20,6 +20,7 @@
 			int fv9PronoseAbgesch = 0;
 			int fv9PronoseSmall2Woch = 0;
 			int fv9PronoseBig2Woch = 0;
+			int length = 0;
 
 			 if(Web.getListYesOrNo((List<String>)form.get("fv9KWNo"))){
 				fv9KWNo = Web.getNumberListStrSubFirst((List<String>)form.get("fv9KWNo"));
@@ -79,6 +80,7 @@
 			if(Web.getListYesOrNo((List<String>)form.get("fv9KWNo"))){
 				List weeks = ((List<String>)form.get("fv9KWNo"));
 				int n = weeks.size();
+				length = weeks.size();
 				if (n >= 2) {
 					if (Integer.parseInt((String)weeks.get(0)) >= Integer.parseInt((String)weeks.get(n-1))) {
 						show_year = (Integer.parseInt((String)DateUtils.getCurrentYear()) - 1) + "";
@@ -93,6 +95,7 @@
 					}
 				}
 			}
+			int max = fv9PronoseAbgesch + fv9PronoseSmall2Woch + fv9PronoseBig2Woch;
 		%>
 
 		<script type="text/javascript">
@@ -105,13 +108,18 @@
 		//			marginLeft:30
 				},
 				title: {
+					text: ''
+				},
+				subtitle: {
 					text: 'Anzahl Aenderungen',
 					style:{
 						color:'black',
-						fontSize:'20px'
+						fontSize:'18px'
 					}
-				},
+				}, 
 				xAxis: [{
+					min: 0,
+					max: <%=length+1%>,
 					lineColor:'black',
 					tickWidth:0,
 					lineWidth:2,
@@ -240,7 +248,24 @@
 						},
 						color: 'white'
 					}
-				}]
+				},{
+					data: [[0, <%=max%>], [<%=length+100%>, <%=max%>]],
+					//			color: 'black',
+								dashStyle: 'dash',
+								lineWidth: 2,
+								marker: {enabled: false},
+								shadow: false,
+								showInLegend: false,
+								enableMouseTracking: false,
+								type: 'line',
+								name :"VFF",
+								dataLabels: {
+									enabled: true,
+									formatter: function() {
+										return "<%=max%>";
+									}
+								}
+							}]
 			});
 			
 		});

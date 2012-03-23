@@ -106,7 +106,7 @@
 					text: 'Gesamt: <%=gesamt%> Funktionsmasse',
 					style:{
 						color:'black',
-						font-size: '14px'
+						fontSize: '14px'
 					},
 					align:'left'
 				},

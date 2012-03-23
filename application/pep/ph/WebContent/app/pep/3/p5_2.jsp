@@ -23,10 +23,10 @@
 				font-weight: bolder;color: white;
 			}
 			.chart{
-				width: 800px; height: 110px; margin: 0px 0px auto; float: left;
+				width: 800px; height: 100px; margin: 0px 0px auto; float: left;
 			}
 			.last-chart {
-				width: 800px; height: 130px; margin: 0px 0px auto; float: left;
+				width: 800px; height: 120px; margin: 0px 0px auto; float: left;
 			}
 			.clear1{
 				width: 100%; height: 1px; margin: 0 auto; float: left;

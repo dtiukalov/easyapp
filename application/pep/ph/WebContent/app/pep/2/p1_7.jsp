@@ -347,14 +347,15 @@
 		</div>
 	
 		<div id="content">
+			<br>
 			<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LC P-Freigaben-Teile von ES Teileliste(<%=fv9DisDate%>)</h5>
-		 
+		 	<br>
 		<style>
 			.top-table {
-				width: 820px; height: 200px; float: left; margin: 0px; overflow: hidden;
+				width: 940px; height: 180px; float: left; margin: 0px 0px auto; overflow: hidden;
 			}
 			.top-table table {
-				width: 520px; height: 200px; float: left; margin-left: 150px;overflow: hidden;
+				width: 520px; height: 180px; float: left; margin-left: 210px; overflow: hidden;
 				font-size: 9px;
 			}
 			.top-table table tr td {
@@ -369,7 +370,7 @@
 		List<String> fv9TeilNum = (List<String>)form.get("fv9TeilNum"); //零件数量
 		if (Web.getListYesOrNo(fv9KWNo)) {
 			int n = fv9KWNo.size() + 3;
-			double tdHeight = (200*1.0)/(n*1.0);
+			double tdHeight = (180*1.0)/(n*1.0);
 			int teilSumNum = 0; //总零件数
 			String tempKWNo = ""; //临时周数
 			String tempZBS = "";  //临时零件范围
@@ -452,7 +453,7 @@
 		
 		%>
 
-			<div id="chart1" style="width: 820px; height: 320px; float: left; margin: 0px;  margin-left: 30px;"></div>
+			<div id="chart1" style="width: 950px; height: 340px; float: left; margin: 0px;  margin-left: 30px;"></div>
 		</div>
 		<%@ include file="/app/pep/include/foot.jsp"%>
 	</div>	

@@ -3,12 +3,11 @@
 	MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial,宋体; COLOR: #000; LIST-STYLE-IMAGE: none; PADDING-TOP: 0px;
 }
 
-
 #content {
 	margin: 0px;
 	WIDTH: 1024px; HEIGHT: 580px; OVERFLOW: hidden;
-	/*debug*/
-	background-color: green;	
+	/*debug background-color: green;	 */
+	
 }
 
 #no-state {
@@ -22,7 +21,8 @@
 	font-weight:bold; font-size:30px; font-family:Arial, 宋体;
 }
 .containerLeft{
-	margin: 0px; width: 37px; height:60px; overflow: hidden; float: left; text-align: center; margin-top: 330px;
+	margin: 0px; width: 37
+	''px; height:60px; overflow: hidden; float: left; text-align: center; margin-top: 330px;
 }
 .containerRight{
 	margin: 0px; width: 37px; height:60px; overflow: hidden; float: left; text-align: center; margin-top: 330px;
@@ -30,8 +30,8 @@
 #container {
 	MARGIN: 0px; WIDTH: 1024px; HEIGHT: 760px;font-family:Arial; 
 	
-	/*debug*/
-	background-color: red;
+	/*debug background-color: red;*/
+	
 }
 #container #nr {
 	MARGIN: 0px auto; WIDTH: 1024px
@@ -264,7 +264,7 @@
 	MARGIN: 0px auto
 }
 .kbg {
-	BORDER-BOTTOM: #424242 1px solid; BORDER-LEFT: #424242 1px solid; WIDTH: 140px; BACKGROUND: #c0c0c0; HEIGHT: 90px; OVERFLOW: hidden; BORDER-TOP: #424242 1px solid; BORDER-RIGHT: #424242 1px solid
+	BORDER-BOTTOM: #424242 1px solid; BORDER-LEFT: #424242 1px solid; WIDTH: 140px; BACKGROUND: #c0c0c0; HEIGHT: 90px; OVERFLOW: hidden; BORDER-TOP: #424242 1px solid; BORDER-RIGHT: #424242 1px solid;
 }
 .kbgg {
 	BORDER-BOTTOM: #424242 1px solid; BORDER-LEFT: #424242 1px solid; MARGIN-TOP: 20px; WIDTH: 181px; BACKGROUND: #c0c0c0; HEIGHT: 102px; BORDER-TOP: #424242 1px solid; BORDER-RIGHT: #424242 1px solid
@@ -276,7 +276,7 @@
 	PADDING-LEFT: 10px; PADDING-TOP: 20px
 }
 .he {
-	MARGIN: 5px auto; WIDTH: 138px; FLOAT: left
+	MARGIN: 0px 0px auto; WIDTH: 133spx; FLOAT: left
 }
 .tupian {
 	FLOAT: left; 
@@ -383,14 +383,22 @@
 	width: 45px; height: 35px; BACKGROUND: url(../images/german.jpg) no-repeat 0px 0px;border:none;
 } */
 .china{ 
-	display:block;width: 45px; height: 35px;margin:0 60px; float:right;background:url(../images/china1.jpg) no-repeat;border:none;
-} 
-.china:hover{background:url(../images/china2.jpg) no-repeat;}
+	display:block; width: 15px; height: 15px;margin:0px 0px; float:left; border:none; 
+	/* background:url(../images/china1.jpg) no-repeat; */
+}
 
 .german{ 
-	display:block;width: 45px; height: 35px;margin:0 60px; float:right;background:url(../images/german1.jpg) no-repeat;border:none;
+	display:block;width: 15px; height: 15px;margin:0px 0px; float:left; border:none;
+	/*background:url(../images/german1.jpg) no-repeat;*/
 } 
+/*
+.china:hover{background:url(../images/china2.jpg) no-repeat;}
 .german:hover{background:url(../images/german2.jpg) no-repeat;}
+
+*/
+
+
+
 
 .bj {
 	height: 750px;

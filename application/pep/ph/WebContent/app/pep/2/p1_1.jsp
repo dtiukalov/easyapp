@@ -65,13 +65,16 @@
 		<div id="top">
 			<div class="fl"><%=status_left %></div>
 			<div class="fr"><%=status_right %></div>
-			<h1><%=title %></h1>
+			<h1>
+				<%=title %>
+				<span style="font-size: 16px;">
+					<a href="javascript:changeChinese()" id="german">C</a>
+					<a href="javascript:changeGerman()" id="china" style="display: none;">D</a>
+				</span>
+			</h1>
 		</div>
 		<div id="content">
-			<div id="german">
-				<input type="button" class="china" onclick="changeChinese()"/>
-			</div>
-			<div id="datatable1" style="font-size:13px; margin: 30px 50px;">
+			<div id="datatable1" style="font-size:15px; margin: 30px 30px auto;">
 				<table width="100%" cellspacing="2" rules="rows" >
 					<tr style="border-bottom:2px solid #333333;font-weight:bold;">
 						<td>&nbsp;</td>
@@ -93,19 +96,19 @@
 							}
 					%>
 					<tr border="2" border-collapse: collapse" bordercolor="#333333">
-						<td width="30%" style="font-weight:bold; font-size: 13px;">
+						<td width="30%" style="font-weight:bold; font-size: 15px;">
 							<%=fv9FreigabeStyle.get(i) %>
 							<img src="<%=imagePath %>" align="right" border=0 width=50 height=56 style="margin-right:50px"> 
 						</td>
 						<td width="22%">
-							<table style="padding:5px; font-size: 11px;" >
+							<table style="padding:5px; font-size: 14px;" >
 								<%=getAnzahl(fv9AnzahlNum.get(i)) %>
 								<tr><td>Soll</td><td>&nbsp;=&nbsp;</td><td><%=fv9FreigSollNum.get(i) %></td></tr>
 								<tr><td>Ist</td><td>&nbsp;=&nbsp;</td><td><%=fv9FreiglstNum.get(i) %></td></tr>
 								<tr><td>offen</td><td>&nbsp;=&nbsp;</td><td><%=fv9OffenNum.get(i)%></td></tr>
 							</table>
 						</td>
-						<td width="48%" style="font-size: 11px;">
+						<td width="48%" style="font-size: 14px; vertical-align: top;">
 							<%= Web.replaceSpecial(fv9FreigCom_GM.get(i))%>
 						</td>
 					</tr>
@@ -116,10 +119,7 @@
 					<tr></tr>
 				</table>
 			</div>
-			<div id="china" style="display: none;">
-				<input type="button" class="german" onclick="changeGerman()" />
-			</div>
-			<div id="datatable2" style="font-size:13px;margin: 30px 50px;display: none;">
+			<div id="datatable2" style="font-size:15px; margin: 30px 30px auto; display: none;">
 				<table width="100%" cellspacing="2" rules="rows" >
 					<tr style="border-bottom:2px solid #333333;font-weight:bold;">
 						<td>&nbsp;</td>
@@ -141,19 +141,19 @@
 							}
 					%>
 					<tr border="2" border-collapse: collapse" bordercolor="#333333">
-						<td width="30%" style="font-weight:bold; font-size: 13px;">
+						<td width="30%" style="font-weight:bold; font-size: 15px;">
 							<%=fv9FreigabeStyle.get(i) %>
 							<img src="<%=imagePath %>" align="right" border=0 width=50 height=56 style="margin-right:50px"> 
 						</td>
 						<td width="22%">
-							<table style="padding:5px; font-size: 11px;">
+							<table style="padding:5px; font-size: 14px;">
 								<%=getAnzahl(fv9AnzahlNum.get(i)) %>
 								<tr><td>Soll</td><td>&nbsp;=&nbsp;</td><td><%=fv9FreigSollNum.get(i) %></td></tr>
 								<tr><td>Ist</td><td>&nbsp;=&nbsp;</td><td><%=fv9FreiglstNum.get(i) %></td></tr>
 								<tr><td>offen</td><td>&nbsp;=&nbsp;</td><td><%=fv9OffenNum.get(i)%></td></tr>
 							</table>
 						</td>
-						<td  width="48%" style="font-size: 11px;">
+						<td  width="48%" style="font-size: 14px; vertical-align: top;">
 							<%= Web.replaceSpecial(fv9FreigCom_CN.get(i))%>
 						</td>
 					</tr>

@@ -45,18 +45,21 @@
 			<div id="top">
 				<div class="fl"><%=status_left %></div>
 				<div class="fr"><%=status_right %></div>
-				<h1><%=title %></h1>
+				<h1>
+					<%=title %>
+					<span style="font-size: 16px;">
+						<a href="javascript:changeChinese()" id="german">C</a>
+						<a href="javascript:changeGerman()" id="china" style="display: none;">D</a>
+					</span>
+				</h1>
 			</div>
-			<div id="content" style="margin:5px 30px;font-size:12px;height:590px;">
-				<div id="german">
-					<input type="button" class="china" onclick="changeChinese()" />
-				</div>
-				<div id="datatable1" style="margin:10px auto; font-size: 12px;">
+			<div id="content">
+				<div id="datatable1" style="margin:10px 10px auto; font-size: 12px;">
 					<table width="96%" border="0" cellspacing="5" cellpadding="0" class="ed">
 				        <tr>
-				        	<td width="19%">&nbsp;</td>
-				        	<td width="81%" style="border-bottom:2px solid #424242;">
-					        	<table width="98%" border="0" cellspacing="0" cellpadding="0" style="font-size:14px; font-weight: bolder;">
+				        	<td width="18%">&nbsp;</td>
+				        	<td width="82%" style="border-bottom:2px solid #424242;">
+					        	<table width="98%" border="0" cellspacing="0" cellpadding="0" style="font-size:18px; font-weight: bolder;">
 						            <tr>
 							            <td width="60%">Aktueller Status</td>
 							            <td width="40%">Naechste Status</td>
@@ -73,7 +76,7 @@
 									String nachsch_gm = Web.replaceSpecial((String)fv9ErprobNachSch_GM.get(i));
 						%>
 						 <tr>
-				          <td width="19%">
+				          <td width="18%">
 					          <div class="kbg">
 					          	<div class="he">
 						          	<div class="wz"><%=Style %></div>
@@ -100,11 +103,11 @@
 						          </div>
 					          </div>
 				          </td>
-				          <td width="81%"  valign="top" class="xx">
-					          <table width="98%" border="0" cellspacing="2" cellpadding="0" style="font-size: 11px;">
+				          <td width="82%"  valign="top" class="xx"">
+					          <table width="100%" border="0" cellspacing="2" cellpadding="0">
 						            <tr>
 						              <td>
-						              	<table width="98%" border="0" cellspacing="2" cellpadding="0" > 
+						              	<table width="100%" border="0" cellspacing="2" cellpadding="0" > 
 								            <tr>
 								              <td width="60%"><%=stcom_gm %></td>
 								              <td width="40%" valign="top"><%=nachsch_gm %></td>
@@ -122,15 +125,12 @@
 				       
 				      </table>
 			      </div>
-			      <div id="china" style="display: none;">
-				  	<input type="button" class="german" onclick="changeGerman()"/>
-				  </div>
-			      <div id="datatable2" style=" display: none; margin:10px auto; font-size: 12px;">
+			      <div id="datatable2" style=" display: none; margin:10px 10px auto; font-size: 12px;">
 					<table width="96%" border="0" cellspacing="5" cellpadding="0" class="ed">
 				        <tr>
-				        	<td width="19%">&nbsp;</td>
-				        	<td width="81%"  style="border-bottom:2px solid #424242;">
-					        	<table width="98%" border="0" cellspacing="0" cellpadding="0" style="font-size:14px; font-weight: bolder;">
+				        	<td width="18%">&nbsp;</td>
+				        	<td width="82%"  style="border-bottom:2px solid #424242;">
+					        	<table width="98%" border="0" cellspacing="0" cellpadding="0" style="font-size:18px; font-weight: bolder;">
 						            <tr>
 							            <td width="60%">Aktueller Status</td>
 							            <td width="40%">Naechste Status</td>
@@ -147,7 +147,7 @@
 									String nachsch_cn = (String)fv9ErprobNachSch_CN.get(i);
 						%>
 						 <tr>
-				          <td width="19%">
+				          <td width="18%">
 					          <div class="kbg">
 					          	<div class="he">
 						          	<div class="wz"><%=Style %></div>
@@ -174,10 +174,10 @@
 						          </div>
 					          </div>
 				          </td>
-				          <td width="81%" valign="top" class="xx"><table width="98%" border="0" cellspacing="2" cellpadding="0">
+				          <td width="82%" valign="top" class="xx"><table width="98%" border="0" cellspacing="2" cellpadding="0">
 				            <tr>
 				              <td height="25">
-				              	<table width="98%" border="0" cellspacing="2" cellpadding="0" style="font-size: 11px;">
+				              	<table width="98%" border="0" cellspacing="2" cellpadding="0" >
 						            <tr>
 						              <td width="60%" height="25"><%=stcom_cn %></td>
 						              <td width="40%" valign="top"><%=nachsch_cn %></td>

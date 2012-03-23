@@ -132,7 +132,7 @@
 		$(document).ready(function() {
 			chart1 = new Highcharts.Chart({
 				chart: {
-					renderTo: 'chart1',
+					renderTo: 'chart',
 					defaultSeriesType: 'column',
 					marginTop:120
 				},
@@ -212,7 +212,8 @@
 					column: {
 						stacking: 'normal',
 						borderColor: 'black',
-						pointWidth:25,
+						groupPadding:0.06,
+						pointPadding:0.06,
 						borderWidth: 1,
 						dataLabels: {
 							enabled: true,
@@ -282,7 +283,7 @@
 			</div>
 			
 			<div id="content">
-				<div id="chart1" style="width: 700px; height: 450px; margin: 0 50px; float: left;"></div>
+				<div id="chart" style="width: 1000px; height: 450px; margin: 5px auto; float: left; margin-top: 30px;"></div>
 			<%
 			if (lichenbeiNum != null && arr != null) {
 				double totalWidth = 604.0;
@@ -297,7 +298,7 @@
 				double sum = value0 + value1 + value2 + value3 + value4;
 				
 				%>
-				<div id="meilsteinouter" style="width: 800px;">
+				<div id="meilsteinouter" style="width: 1000px;">
 					<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 90px; text-align: center; overflow: hidden; ">
 						<div style=" width: <%=value0 %>px; height: 30px; float: left; background-color: white; vertical-align: bottom; padding-top: 5px;"><span style="color: white;"></span></div>
 						<div style=" width: <%=value1 %>px; height: 30px; float: left; background-color: #99FF99; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">VFF</span></div>

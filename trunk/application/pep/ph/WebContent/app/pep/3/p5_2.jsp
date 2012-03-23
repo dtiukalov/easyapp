@@ -14,19 +14,22 @@
 		<title><%=title %></title>
 		<style type="text/css">
 			.left{
-				width: 100px; height: 50px;float: left;margin: 20px 50px;
+				width: 100px; height: 60px;float: left; margin: 20px 20px;
 				vertical-align: middle;
-				font-size:12px;
+				font-size:14px;
 			}
 			.title{
-				width: 90px; height: 40px; float: left; margin: 0 auto; text-align: center;vertical-align: middle;padding-top: 20px;
+				width: 90px; height: 40px; float: left; margin: 0px 0px auto; text-align: center;vertical-align: middle;padding-top: 20px;
 				font-weight: bolder;color: white;
 			}
 			.chart{
-				width: 700px; height: 110px; margin: -6px -20px; float: left;
+				width: 800px; height: 110px; margin: 0px 0px auto; float: left;
+			}
+			.last-chart {
+				width: 800px; height: 130px; margin: 0px 0px auto; float: left;
 			}
 			.clear1{
-				width: 100%;height: 1px;margin: 0 auto; float: left;
+				width: 100%; height: 1px; margin: 0 auto; float: left;
 			}
 		</style>
 		<%
@@ -71,8 +74,6 @@
 		
 		%>
 		<%
-		
-		
 		double sum = 0.0;
 		int[] arr = null;
 		if (Web.getListYesOrNo((List<String>)form.get("fv9KWNo"))) {
@@ -179,6 +180,8 @@
 							shadow: false,
 							borderColor:'black',
 							borderWidth:1,
+							groupPadding:0.06,
+							pointPadding:0.06,
 							dataLabels: {
 								enabled: false
 								//verticalAlign:'bottom',
@@ -272,6 +275,8 @@
 							shadow: false,
 							borderColor:'black',
 							borderWidth:1,
+							groupPadding:0.06,
+							pointPadding:0.06,
 							dataLabels: {
 								enabled: false,
 								style : {
@@ -376,6 +381,8 @@
 							shadow: false,
 							borderColor:'black',
 							borderWidth:1,
+							groupPadding:0.06,
+							pointPadding:0.06,
 							dataLabels: {
 								enabled: false,
 								style : {
@@ -480,6 +487,8 @@
 							shadow: false,
 							borderColor:'black',
 							borderWidth:1,
+							groupPadding:0.06,
+							pointPadding:0.06,
 							dataLabels: {
 								enabled: false,
 								style : {
@@ -585,6 +594,8 @@
 							shadow: false,
 							borderColor:'black',
 							borderWidth:1,
+							groupPadding:0.06,
+							pointPadding:0.06,
 							dataLabels: {
 								enabled: false,
 								style : {
@@ -667,8 +678,9 @@
 				<div class="left">
 					<div class="title" style="border: solid black 1px;background-color: #3366FF">Kaufteile</div>
 				</div>
-				<div id="chart5" class="chart"></div>
+				<div id="chart5" class="last-chart"></div>
 				<div class="clear1">&nbsp;</div>
+				
 				<div id="meilsteinouter" style="width: 800px;">
 				<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 228px; text-align: center; overflow: hidden; ">
 					<div style=" width: <%=value0 %>px; height: 30px; float: left; background-color: white; vertical-align: bottom; padding-top: 5px;"><span style="color: white;"></span></div>

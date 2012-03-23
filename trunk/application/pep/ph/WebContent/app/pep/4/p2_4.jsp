@@ -48,25 +48,29 @@
 	<style type="text/css">
 		#subtitle h1{
 			font-family:Arial, Helvetica, sans-serif;
-			font-size:16px; margin:15px auto;
+			font-size:16px; margin:15px 50px auto;
 		}
 		#left {
-			width: 450px; height:600px; margin: 0px; float: left; overflow: hidden;
+			width: 500px; height:600px; margin: 0px; float: left; overflow: hidden;
 		}
 		#left chart{
-			width: 450px; height: 400px; margin: 0px; float: left;
+			width: 500px; height: 400px; margin: 0px; float: left;
 		}
 		#left time{
-			width: 400px; height: 200px; margin: 0px; float: left;
+			width: 500px; height: 200px; margin: 0px; float: left;
 		}
 		#time table tr td{
 			text-align: center;
 		}
 		#right {
-			width: 350px; margin: 20px 10px; float: left; padding: 10px; 
+			width: 400px; margin: 0px 10px auto; float: left; padding: 10px; 
+		}
+		.biaoshi{
+			width: 400px;
+			height: 120px;
 		}
 		.div {
-			width: 350px;
+			width: 400px;
 			border-top-width: 1px;
 			border-top-style: solid;
 			border-top-color: #000000;
@@ -86,7 +90,7 @@
 			font-size: 12px;
 			line-height: 35px;
 			color: #000000;
-			text-align: center;
+			text-align: left;
 		}
 	</style>	
 	<script type="text/javascript">
@@ -137,7 +141,7 @@
 					},
 					legend: {
 						layout: 'vertical',
-						enabled: true,
+						enabled: false,
 						align: 'center',
 						x: 0,
 						verticalAlign: 'top',
@@ -155,7 +159,8 @@
 					plotOptions: {
 						column: {
 							stacking: 'normal',
-							pointWidth:30,
+							groupPadding:0.1,
+							pointPadding:0.1,
 							shadow: false,
 							borderWidth:1,
 							borderColor:'black',
@@ -301,19 +306,17 @@
 						<table style="font-size: 10px; ">
 							<tr>
 								<td style="width: 12px; ">KW</td>
-								<td style="width: 30px;">
-									<%=tbtKW %>
-								</td>
-								<td style="width: 30px;">&nbsp;</td>
-								<td style="text-align:left; width: 90px; padding-left: 15px;">
+								<td style="width: 45px;"><%=tbtKW %></td>
+								<td style="width: 10px;">&nbsp;</td>
+								<td style="text-align:left; width: 110px; padding-left: 35px;">
 									<%=(Integer)session.getAttribute("KW_PVS") %>
 								</td>
-								<td style="width: 30px;">&nbsp;</td>
-								<td style="text-align:left; width: 40px; padding-left: 5px;">
+								<td style="width: 10px;">&nbsp;</td>
+								<td style="text-align:left; width: 50px; padding-left: 15px;">
 									<%=(Integer)session.getAttribute("KW_0S") %>
 								</td>
-								<td style="width: 20px;">&nbsp;</td>
-								<td style="text-align:left; width: 40px; padding-left: 5px;">
+								<td style="width: 10px;">&nbsp;</td>
+								<td style="text-align:left; width: 50px; padding-left: 15px;">
 									<%=(Integer)session.getAttribute("KW_SOP") %>
 								</td>
 							</tr>
@@ -325,15 +328,15 @@
 								<td style="text-align: center; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/VFF-TBT.jpg', sizingMethod='scale'); height: 35px;">
 									&nbsp;
 								</td>
-								<td style="width: 30px;">&nbsp;</td>
+								<td style="width: 10px;">&nbsp;</td>
 								<td style="text-align: center; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/PVS-T.jpg', sizingMethod='scale'); height: 35px; ">
 									<span style="font-size: 14px; color: white;font-weight: bolder;">PVS</span>
 								</td>
-								<td style="width: 30px;">&nbsp;</td>
+								<td style="width: 10px;">&nbsp;</td>
 								<td style="text-align: center; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/0S-T.jpg', sizingMethod='scale'); height: 35px;">
 									<span style="font-size: 14px; color: white;font-weight: bolder;">0-S</span>
 								</td>
-								<td style="width: 20px;">&nbsp;</td>
+								<td style="width: 10px;">&nbsp;</td>
 								<td style="text-align: center; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/SOP-T.jpg', sizingMethod='scale'); height: 35px;">
 									<span style="font-size: 14px; color: white;font-weight: bolder;">SOP</span>
 								</td>
@@ -346,9 +349,34 @@
 					
 				</div>
 				<div id="right" style="font-family: Arial;">
-						<div style="margin:3px 10px;font-weight: bold;">Top</div>
+					<div class="biaoshi">
+						<table style="margin: 0px 30px auto; float: right;">
+							<tr>
+								<td style="width: 20px; height: 20px; background-color: #FFFFFF; border: 1px solid;"></td>
+								<td>PT-Teile/Alternativteile</td>
+							</tr>
+							<tr>
+								<td style="width: 20px; height: 20px; background-color: #CCFFCC; border: 1px solid;"></td>
+								<td>Teile aus Serienwerkzeug</td>
+							</tr>
+							<tr>
+								<td style="width: 20px; height: 20px; background-color: #00FF00; border: 1px solid;"></td>
+								<td>Note 3</td>
+							</tr>
+							<tr>
+								<td style="width: 20px; height: 20px; background-color: #003300; border: 1px solid;"></td>
+								<td>Note 1</td>
+							</tr>
+							<tr>
+								<td style="width: 20px; height: 20px; background-color: #FF0000; border: 1px solid;"></td>
+								<td>Note 6</td>
+							</tr>
+						</table>
+					</div>
+					
+					<div style="margin:3px 10px;font-weight: bold;">Top</div>
 						<div class="div">
-							<table width="350" cellspacing="0">
+							<table width="400" cellspacing="0">
 								<tr style="font-weight: bold;">
 									<td>Kritische Umfaenge</td>
 									<td>Einzelteile</td>
@@ -394,8 +422,8 @@
 								</tr>
 								<%
 									}
-									if (fv9TopKrisUmf.size() < 10) {
-										for (int k=0; k<10-fv9TopKrisUmf.size(); k++) {
+									if (fv9TopKrisUmf.size() < 8) {
+										for (int k=0; k<8-fv9TopKrisUmf.size(); k++) {
 								%>
 										<tr>
 											<td style="text-indent: 15px;text-align: left;">&nbsp;</td>
@@ -409,7 +437,7 @@
 								}
 									
 								if (fv9TopKrisUmf == null) {
-									for (int k=0; k<10; k++) {
+									for (int k=0; k<8; k++) {
 								%>
 								<tr>
 									<td style="text-indent: 15px;text-align: left;">&nbsp;</td>

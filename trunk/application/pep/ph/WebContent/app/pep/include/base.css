@@ -5,8 +5,10 @@
 
 
 #content {
-	margin: 30px 23px;
-	WIDTH: 950px; HEIGHT: 540px; OVERFLOW: hidden;
+	margin: 0px;
+	WIDTH: 1024px; HEIGHT: 580px; OVERFLOW: hidden;
+	/*debug*/
+	background-color: green;	
 }
 
 #no-state {
@@ -26,10 +28,13 @@
 	margin: 0px; width: 37px; height:60px; overflow: hidden; float: left; text-align: center; margin-top: 330px;
 }
 #container {
-	MARGIN: 0px auto; WIDTH: 950px; HEIGHT: 720px; font-family:Arial; 
+	MARGIN: 0px; WIDTH: 1024px; HEIGHT: 760px;font-family:Arial; 
+	
+	/*debug*/
+	background-color: red;
 }
 #container #nr {
-	MARGIN: 0px auto; WIDTH: 950px; height: 720px;
+	MARGIN: 0px auto; WIDTH: 1024px
 }
 #container #top {
 	BORDER-BOTTOM: #000099 2px solid; height:100px; OVERFLOW: hidden; 
@@ -38,11 +43,11 @@
 	FONT-FAMILY: Arial, Helvetica, sans-serif; FONT-SIZE: 28px; margin-top:25px;
 }
 #footer {
-	WIDTH: 950px; HEIGHT: 30px;
+	WIDTH: 1024px; HEIGHT: 30px;
 	BORDER-TOP: #000099 2px solid;
 }
 #footer .ft {
-	MARGIN: 7px auto; WIDTH: 950px; HEIGHT: 30px
+	MARGIN: 7px auto; WIDTH: 1024px; HEIGHT: 30px
 }
 #footer .ztu {
 	WIDTH: 100px; DISPLAY: inline; FLOAT: left;margin-left:20px;height:50px;
@@ -389,7 +394,7 @@
 
 .bj {
 	height: 750px;
-	width: 1000px;
+	width: 1024px;
 	margin-right: auto;
 	margin-left: auto;
 	background-image: url(../images/login.jpg);

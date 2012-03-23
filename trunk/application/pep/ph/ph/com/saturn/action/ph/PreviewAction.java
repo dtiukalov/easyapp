@@ -43,6 +43,7 @@ public class PreviewAction implements IAction {
 		}
 
 		String type = object.getType().getName();
+		System.out.println("type = " + type);
 		if(type.equalsIgnoreCase(WorkspaceUtils.DatasetType)){
 			try {
 				PH.getDataService().getProperties(object, WorkspaceUtils.DatasetPageName);
@@ -50,6 +51,10 @@ public class PreviewAction implements IAction {
 			} catch (NotLoadedException e) {
 				e.printStackTrace();
 			}
+		}
+		
+		if(type.equalsIgnoreCase(WorkspaceUtils.BackUpType)){
+			type = "FV9PHBackup";
 		}
 		
 		Map<String, Object> form = FormManager.getFormValue(type, uid, true);

@@ -155,7 +155,9 @@
 				plotOptions: {
 					column: {
 						stacking: 'normal',
-						pointWidth:30,
+				//		pointWidth:30,
+						groupPadding:0.06,
+						pointPadding:0.06,
 						borderWidth:0,
 						shadow:false,
 						dataLabels: {
@@ -209,7 +211,7 @@
 					<h1><%=title %></h1>
 				</div>
 				<div id="content">
-					<div id="chart" style="width: 850px; height: 450px;margin:30px 50px"></div>
+					<div id="chart" style="width: 900px; height: 500px; margin:30px 30px auto;"></div>
 				</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 			</div>	

@@ -101,11 +101,11 @@
 			chart1 = new Highcharts.Chart({
 				chart: {
 					renderTo: 'chart',
-					defaultSeriesType: 'column',
-					marginLeft:30
+					defaultSeriesType: 'column'
+		//			marginLeft:30
 				},
 				title: {
-					text: 'Anzahl AEnderungen',
+					text: 'Anzahl Aenderungen',
 					style:{
 						color:'black',
 						fontSize:'20px'
@@ -255,11 +255,11 @@
 				<h1><%=title %></h1>
 			</div>
 			<div id="content">
-				<div style="width: 60px; height: 60px; margin-left: 30px; text-align: center; vertical-align: bottom; float: left;font-family: Arail; font-size: 11px; padding-top: 440px;">
+				<div style="width: 60px; height: 60px; margin-left: 20px; text-align: center; vertical-align: bottom; float: left;font-family: Arail; font-size: 11px; padding-top: 460px;">
 					KW<br><br>
 					Anzahl <br> neuer <br> AEKOs
 				</div>
-				<div id="chart" style="width: 840px; height: 500px; float: left; margin: 0px;"></div>
+				<div id="chart" style="width: 910px; height: 520px; float: left; margin: 0px 0px auto;"></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

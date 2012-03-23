@@ -64,7 +64,7 @@
 		%>
 		<style>
 	     	.stufeTable {
-				width: 900px; height: auto; font-size: 10px; overflow: hidden; margin: 0px; padding: 0px;
+				width: 990px; height: auto; font-size: 10px; overflow: hidden; margin: 0px auto; padding: 0px;
 			}
 			.stufeTable td {
 				height: 30px;  width: <%=tdWidth%>px;
@@ -247,7 +247,7 @@
 			<%
 			}
 			%>
-	   		<table style="font-family: Arial; font-size: 9px; position: absolute; top: 640px;">
+	   		<table style="font-family: Arial; font-size: 9px; position: absolute; top: 600px; width: auto; height: auto; left: 15px;" >
 	   			<tr>
 	   				<td style="width: 20px; height: 20px; background-color: #AED4F8;">&nbsp;</td>
 	   				<td>Karosseriebau</td>

@@ -161,6 +161,7 @@
 			padding-top: 20px;
 		}
 		.titleStyleTD {
+			padding-left: 5px;
 			font-weight: bolder;
 			font-size: 13px;
 			text-align: left;
@@ -176,10 +177,11 @@
 			font-size: 8px;
 		}
 		.massTD {
+			padding-left: 5px;
 			height: 45px;
 			overflow: hidden;
 			text-align: left;
-			font-size: 8px;
+			font-size: 11px;
 			border: 1px solid #000000;
 		}
 	</style>
@@ -192,24 +194,24 @@
 		<div class="fr"><%=status_right %></div>
 		<h1><%=title %></h1>
 	</div>
-    <div id="content" style="height:590px; margin:0px 0px;">
+    <div id="content">
    		<div id="german">
 			<input type="button" class="china" onclick="changeChinese()" />
 		</div>
 		<div id="datatable1"  cellspacing="2" style="margin:0px;">
 		<table class="Reifegrads" cellspacing="2">
 			<tr>
-				<td width="10%" height="12">&nbsp;</td>
+				<td width="5%" height="12">&nbsp;</td>
 				<td width="18%" height="12">&nbsp;</td>
 			  	<td width="3.5%" height="12">&nbsp;</td>
 			    <td width="34%" height="12" style="font-weight: bolder;">&nbsp;Kritische Berichtspunkte:</td>
 			    <td width="34%" height="12" style="font-weight: bolder;">&nbsp;Massnahmen: </td>
 			</tr>
 			<tr>
-			  <td width="10%" rowspan="11" class="mileStone">
+			  <td width="5%" rowspan="11" class="mileStone">
 				  	<img src="<%=projectStatusImage %>" alt="里程碑状态" width="50" height="118"/>
 				 	<br>
-				 	<span><%=fv9PHMeetStyle_GM %></span>
+				 	<div style="width: 80px;"><%=fv9PHMeetStyle_GM %></div>
 			  </td>
 			  <td width="18%" class="titleStyleTD">Produktstand</td>
 			  <td width="3.5%" class="statusTD">
@@ -299,17 +301,17 @@
 		<div id="datatable2" style="display: none;">
 		   <table class="Reifegrads" cellspacing="2">
 			<tr>
-				<td width="10%" height="12">&nbsp;</td>
+				<td width="5%" height="12">&nbsp;</td>
 				<td width="18%" height="12">&nbsp;</td>
 			  	<td width="3.5%" height="12">&nbsp;</td>
 			    <td width="34%" height="12" style="font-weight: bolder;">&nbsp;重要汇报点:</td>
 			    <td width="34%" height="12" style="font-weight: bolder;">&nbsp;措施: </td>
 			</tr>
 			<tr>
-			  <td width="10%" rowspan="11" class="mileStone">
+			  <td width="5%" rowspan="11" class="mileStone">
 				  	<img src="<%=projectStatusImage %>" alt="里程碑状态" width="50" height="118"/>
 				 	<br>
-				 	<span><%=fv9PHMeetStyle_CN %></span>
+				 	<div style="width: 80px;"><%=fv9PHMeetStyle_CN %></div>
 			  </td>
 			  <td width="18%" class="titleStyleTD">产品状态</td>
 			  <td width="3.5%" class="statusTD">

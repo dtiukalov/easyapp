@@ -47,12 +47,15 @@
 	<div id="top">
 		<div class="fl"><%=status_left %></div>
 		<div class="fr"><%=status_right %></div>
-		<h1><%=title %></h1>
+		<h1><%=title %>
+		<span style="font-size: 16px;">
+						<a href="javascript:changeChinese()" id="german">C</a>
+						<a href="javascript:changeGerman()" id="china" style="display: none;">D</a>
+		</span>
+		</h1>
 	</div>
     <div id="content" >
-    	<div id="german">
-			<input type="button" class="china" onclick="changeChinese()" />
-		</div>
+    	
 	    <div id="datatable1" style="width: 980px;margin:5px auto; margin-top: 30px;">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table" >
 				<tr>
@@ -275,9 +278,7 @@
 				</tr>
 			</table>
 	    </div>
-	    <div id="china" style="display: none;">
-			<input type="button" class="german" onclick="changeGerman()"/>
-		</div>
+	  
 	    <div id="datatable2" style="width: 980px;display: none; margin:5px auto; margin-top: 30px;">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 				<tr>

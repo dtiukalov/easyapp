@@ -256,7 +256,7 @@
 				}
 				<%if(vffNum > 0){%>
 				,{
-					data: [[<%=temp0-1%> + 0.5, 0], [<%=temp0-1%> + 0.5001, <%=total%>]],
+					data: [[<%=temp0-1%> + 0.5, -30], [<%=temp0-1%> + 0.5001, <%=total%>]],
 		//			color: 'black',
 					dashStyle: 'dash',
 					lineWidth: 2,
@@ -275,7 +275,7 @@
 				}
 <%}%><%if(pvsNum > 0){%>
 				,{
-					data: [[<%=temp1 - 1%> + 0.5, 0], [<%=temp1 - 1%> + 0.5001, <%=total%>]],
+					data: [[<%=temp1 - 1%> + 0.5, -30], [<%=temp1 - 1%> + 0.5001, <%=total%>]],
 		//			color: 'black',
 					dashStyle: 'dash',
 					lineWidth: 2,
@@ -294,7 +294,7 @@
 				}
 <%}%><%if(osNum > 0){%>
 				, {
-					data: [[<%=temp2 - 1%> + 0.5, 0], [<%=temp2 - 1%> + 0.5001, <%=total%>]],
+					data: [[<%=temp2 - 1%> + 0.5, -30], [<%=temp2 - 1%> + 0.5001, <%=total%>]],
 		//			color: 'black',
 					dashStyle: 'dash',
 					lineWidth: 2,
@@ -313,7 +313,7 @@
 				}
 <%}%><%if(sopNum > 0){%>
 				, {
-					data: [[<%=temp3-1%> + 0.5, 0], [<%=temp3-1%> + 0.5001, <%=total%>]],
+					data: [[<%=temp3-1%> + 0.5, -30], [<%=temp3-1%> + 0.5001, <%=total%>]],
 		//			color: 'black',
 					dashStyle: 'dash',
 					lineWidth: 2,

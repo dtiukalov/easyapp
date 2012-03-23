@@ -20,33 +20,31 @@ public class DatasetUtils {
 		
 		String src = "/ph/app/pep/images/default.jpg";
 		Object userUid = request.getSession().getAttribute("TC_USER_UID");
-		
-		if(!Web.getObjectYesOrNo(userUid)){
-			return src;
-		}
-		
-		if(!Web.getObjectYesOrNo(uid)){
-			return src;
-		}
-		
-		Dataset dataset = (Dataset)PH.getDataService().loadModelObject(uid);
-		String datasetpath = "attachment" + File.separator +  DateUtils.getSysTime() + File.separator + userUid.toString() + File.separator;
-		
-		String path = request.getRealPath("/") ;
-		//判断realPath后有没有 “/”没有就加上
-		if(Web.getObjectYesOrNo(path)){
-			if(path.split("ph")[1]!= File.separator){
-				path = path + File.separator;
-				System.out.println("path: " + path);
+		System.out.println("userUid = " + userUid);
+		System.out.println("	uid = " + uid);
+		if(!"".equals(uid)){
+			Dataset dataset = (Dataset)PH.getDataService().loadModelObject(uid);
+			String datasetpath = "";
+			if (userUid != null && !"".equals((String)userUid)) {
+				datasetpath = "attachment" + File.separator +  DateUtils.getSysTime() + File.separator + userUid.toString() + File.separator;
+			} else {
+				datasetpath = "attachment" + File.separator +  DateUtils.getSysTime() + File.separator + "tempUser" + File.separator;
+			}
+			
+			String path = request.getRealPath("/") ;
+			//判断realPath后有没有 “/”没有就加上
+			if(Web.getObjectYesOrNo(path)){
+				if(path.split("ph")[1]!= File.separator){
+					path = path + File.separator;
+				}
+			}
+			path = path + datasetpath;
+			String downloadDatasetName = downloadDatasetFromTc(dataset ,path);
+			if(!downloadDatasetName.equals("")){
+				src =  request.getContextPath()+ File.separator + datasetpath + downloadDatasetName;
 			}
 		}
-		path = path + datasetpath;
-		
-		String downloadDatasetName = downloadDatasetFromTc(dataset ,path);
-		if(!downloadDatasetName.equals("")){
-			src =  request.getContextPath()+ File.separator + datasetpath + downloadDatasetName;
-		}
-		
+		System.out.println("src = " + src);
 		return src ;
 	}
 

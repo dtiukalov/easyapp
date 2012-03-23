@@ -14,7 +14,7 @@
 			String FuntionsmasseUID = (String)session.getAttribute("FuntionsmasseUID");
 			System.out.println("FuntionsmasseUID = " + FuntionsmasseUID);
 			int gesamt = 0;
-			if (!"".equals(FuntionsmasseUID)) {
+			if (!"".equals(FuntionsmasseUID) && FuntionsmasseUID != null) {
 				Map<String, Object> Funtionsmasse = FormManager.getFormValue("FV9_34FuntNachBaut", FuntionsmasseUID, true);
 				List<String> aK = (List<String>)Funtionsmasse.get("fv9FunctionAK");
 				List<String> bK = (List<String>)Funtionsmasse.get("fv9FunctionBK");

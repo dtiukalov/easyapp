@@ -96,7 +96,8 @@ public class FormManager {
 
 		if (object != null) {
 			String type = object.getType().getName();
-			if (type.equalsIgnoreCase(WorkspaceUtils.DatasetType)) {
+			if (type.equalsIgnoreCase(WorkspaceUtils.DatasetType) ||
+					type.equalsIgnoreCase(WorkspaceUtils.BackUpType)) {
 				try {
 					if(object.getProperty(WorkspaceUtils.DatasetPageName) != null){
 						type = object.getProperty(WorkspaceUtils.DatasetPageName)
@@ -127,6 +128,10 @@ public class FormManager {
 				} catch (NotLoadedException e) {
 					e.printStackTrace();
 				}
+			}
+			
+			if (type.equalsIgnoreCase(WorkspaceUtils.BackUpType)) {
+				type = "FV9PHBackup";
 			}
 			
 			return type;

@@ -47,11 +47,11 @@
 			<div class="fr"><%=status_right %></div>
 			<h1><%=title %></h1>
 		</div>
-	    <div id="content" style="margin-top:20px;font-size:12px;height:550px;">
+	    <div id="content" >
 	    	<div id="german">
 				<input type="button" class="china" onclick="changeChinese()" />
 			</div>
-		    <div id="datatable1" style="width: 800px; margin:20px 50px">
+		    <div id="datatable1" style="width: 900px;margin:5px auto; margin-top: 30px;">
 			    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table" style="overflow: hidden;">
 					  <tr>
 					    <td width="239" class="pg">&nbsp;</td>
@@ -103,7 +103,7 @@
 			<div id="china" style="display: none;">
 				<input type="button" class="german" onclick="changeGerman()"/>
 			</div>
-			<div id="datatable2" style="width: 800px; display: none;margin:20px 50px">
+			<div id="datatable2" style="width: 900px; display: none;margin:5px auto; margin-top: 30px;">
 			    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 					  <tr>
 					    <td width="239" class="pg">&nbsp;</td>

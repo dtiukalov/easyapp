@@ -46,11 +46,11 @@ public class LoadAction implements IAction {
 		String name = (String)request.getParameter("name");
 		String uid = (String)request.getParameter("uid");
 		
-		PHBuffer buffer = (PHBuffer) request.getSession().getAttribute(PHBuffer.PH_BUFFER);
+/*		PHBuffer buffer = (PHBuffer) request.getSession().getAttribute(PHBuffer.PH_BUFFER);
 		if (buffer == null) {
 			buffer = new PHBuffer();
 			request.getSession().setAttribute(PHBuffer.PH_BUFFER, buffer);
-		}
+		}*/
 		
 //		String platformType = (String)request.getParameter("platformType");		
 		Item item = null;

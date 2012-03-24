@@ -75,20 +75,25 @@ public class TCLogoutAction implements IAction {
 		request.getSession().removeAttribute("milepost");
 		request.getSession().removeAttribute("project");
 		request.getSession().removeAttribute("indexes");
-
-		session.logout();
 		
-		return new JspView("/app/tc/index.jsp");
+	//	session.logout();
+		
+		return new JspView("/app/pep/login.jsp");
 	}
 	@SuppressWarnings("deprecation")
 	private void clearCache(HttpServletRequest request, TCSession session) {
 		Object userUid = request.getSession().getAttribute("TC_USER_UID");
+		Object defaultUserUid = request.getSession().getAttribute("TC_DEFAULT_USER_UID");
 		
 		if(!Web.getObjectYesOrNo(userUid)){
 			return ;
 		}
+		if(!Web.getObjectYesOrNo(defaultUserUid)){
+			return ;
+		}
 		
 		String datasetpath = "attachment" + File.separator + DateUtils.getSysTime() + File.separator + userUid + File.separator;
+		String defaultdatasetpath = "attachment" + File.separator + DateUtils.getSysTime() + File.separator + userUid + File.separator;
 		
 		String path = request.getRealPath("/") ;
 		//判断realPath后有没有 “/”没有就加上
@@ -98,14 +103,12 @@ public class TCLogoutAction implements IAction {
 				System.out.println("path: " + path);
 			}
 		}
-		path = path + datasetpath;
-		
 		if (session != null) {
 			session.logout();
 		}
-
 		try {
-			deleteFile(path);
+			deleteFile(path + datasetpath);
+			deleteFile(path + defaultdatasetpath);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

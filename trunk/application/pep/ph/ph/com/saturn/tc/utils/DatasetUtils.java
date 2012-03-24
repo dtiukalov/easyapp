@@ -22,6 +22,9 @@ public class DatasetUtils {
 		Object userUid = request.getSession().getAttribute("TC_USER_UID");
 		System.out.println("userUid = " + userUid);
 		System.out.println("	uid = " + uid);
+		if(userUid == null){
+			userUid = request.getSession().getAttribute("TC_DEFAULT_USER_UID");
+		}
 		if(!"".equals(uid)){
 			Dataset dataset = (Dataset)PH.getDataService().loadModelObject(uid);
 			String datasetpath = "";

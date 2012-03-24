@@ -58,6 +58,7 @@ public class PH {
 			
 			context.setAttribute("TC_SESSION", session);
 			context.setAttribute("TC_USER_ADMIN", user);
+			context.setAttribute("TC_DEFAULT_USER_UID", user.getUid());
 		}
 		return session;
 	}

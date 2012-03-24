@@ -59,21 +59,27 @@ $(document).ready(function(){
 		</div> --%>
 		    <P><%=prev %>Seite<%=current %><%=next %></P>
 	    </div>
-	    <div class="ylogo">
-	    <%
-	    if ("fawvw".equalsIgnoreCase(platformType)) {
-    	%>
- 	    <img src="<%=request.getContextPath() %>/app/pep/images/FAWVW-logo.jpg" width="120px" height="41px"/>
- 	    <%		
-	    }
-	    if ("audi".equalsIgnoreCase(platformType)) {
-	    %>
-	    <img src="<%=request.getContextPath() %>/app/pep/images/Audi-logo.jpg" width="120px" height="41px"/>
-	    <%	
-	    }
-	    %>
 	    
+	    <div class="ylogo">
+		    <%
+		    if ("fawvw".equalsIgnoreCase(platformType)) {
+		    	%>
+		    	<a href="<%=request.getContextPath() %>/app/pep/logout.do" >
+		 	    	<img src="<%=request.getContextPath() %>/app/pep/images/FAWVW-logo.jpg" width="120px" height="41px"/>
+		 	    </a>
+		 	    <%		
+		    }
+		    
+		    if ("audi".equalsIgnoreCase(platformType)) {
+			    %>
+			    <a href="<%=request.getContextPath() %>/app/pep/logout.do" class="link">
+			   		<img src="<%=request.getContextPath() %>/app/pep/images/Audi-logo.jpg" width="120px" height="41px"/>
+			   	</a>
+			    <%	
+		    }
+		    %>
 	    </div>
+	    
 	    <div class="clear"></div>
     </div>
 </div>

@@ -28,146 +28,144 @@
 		<div id="top">
 			<div class="fl"><%=status_left %></div>
 			<div class="fr"><%=status_right %></div>
-			<h1><%=title %></h1>
+			<h1>
+				<a href="javascript:changeChinese()" id="german"><%=title %></a>
+				<a href="javascript:changeGerman()" id="china" style="display: none;"><%=title %></a>
+			</h1>
 		</div>
     	<div id="content">
-    	<div id="german">
-			<input type="button" class="china" onclick="changeChinese()" />
-		</div>
-    	<div id="datatable1" style="width: 800px; margin:0 50px">
-			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
-			  <tr>
-			    <td width="239" class="pg">&nbsp;</td>
-			    <td width="311" class="pg"><h2>Status</h2></td>
-			    <td width="433" class="pg"><h2>Massnahmen</h2></td>
-			  </tr>
-			   <%
-			   if (Web.getListYesOrNo(fv9FugRadName)) {
-		  		for(int i=0; i<fv9FugRadName.size(); i++){
-		  			String FugRadName = Web.replaceSpecial(fv9FugRadName.get(i)); //名称 
-		  			String FugRadStatus = Web.replaceSpecial(fv9FugRadStatus.get(i)); // 状态
-		  			String FugRadCom_GM = Web.replaceSpecial(fv9FugRadCom_GM.get(i));  //状态描述_德文
-		  			String FugRadMabnh_GM = Web.replaceSpecial(fv9FugRadMabnh_GM.get(i));  //措施_德文 
-			  %>  
-			  <tr>
-			    <td valign="top" class="pgpg" style="width:239px;">
-			    	<table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
-				  		<tr>
-				    		<td valign="top"><h2><%=FugRadName %> </h2></td>
-				    		<td>
-				    			<% if(("绿").equals(FugRadStatus)){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="30" height="70" />
-							<%} else if(("黄").equals(FugRadStatus)){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="30" height="70" />	
-							<%} else if(("红").equals(FugRadStatus)){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
-							<%}%>
-				    		</td>
-				  		</tr>
-					</table>
-				</td>
-			    <td width="60%" valign="top" class="pgpg"><div class="tbnrr">
-			    <%
-   				if (FugRadCom_GM != null && !"".equals(FugRadCom_GM)) {
-    			%>
-    				<%=FugRadCom_GM %>
-    			<%
-    				} else {
-  					%>
-  	    				&nbsp;
-  	    			<%		
-    				}
-    			%>
-			    </div></td>
-			    <td width="40%" valign="top" class="pgpg"><div class="tbnrr">
-			    	<%
-	    				if (FugRadMabnh_GM != null && !"".equals(FugRadMabnh_GM)) {
+	    	<div id="datatable1" style="width: 800px; margin:0 50px">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
+				  <tr>
+				    <td width="239" class="pg">&nbsp;</td>
+				    <td width="311" class="pg"><h2>Status</h2></td>
+				    <td width="433" class="pg"><h2>Massnahmen</h2></td>
+				  </tr>
+				   <%
+				   if (Web.getListYesOrNo(fv9FugRadName)) {
+			  		for(int i=0; i<fv9FugRadName.size(); i++){
+			  			String FugRadName = Web.replaceSpecial(fv9FugRadName.get(i)); //名称 
+			  			String FugRadStatus = Web.replaceSpecial(fv9FugRadStatus.get(i)); // 状态
+			  			String FugRadCom_GM = Web.replaceSpecial(fv9FugRadCom_GM.get(i));  //状态描述_德文
+			  			String FugRadMabnh_GM = Web.replaceSpecial(fv9FugRadMabnh_GM.get(i));  //措施_德文 
+				  %>  
+				  <tr>
+				    <td valign="top" class="pgpg" style="width:239px;">
+				    	<table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
+					  		<tr>
+					    		<td valign="top"><h2><%=FugRadName %> </h2></td>
+					    		<td>
+					    			<% if(("绿").equals(FugRadStatus)){%>
+								    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="30" height="70" />
+								<%} else if(("黄").equals(FugRadStatus)){%>
+								    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="30" height="70" />	
+								<%} else if(("红").equals(FugRadStatus)){%>
+									   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
+								<%}%>
+					    		</td>
+					  		</tr>
+						</table>
+					</td>
+				    <td width="60%" valign="top" class="pgpg"><div class="tbnrr">
+				    <%
+	   				if (FugRadCom_GM != null && !"".equals(FugRadCom_GM)) {
 	    			%>
-	    				<%=FugRadMabnh_GM %>
+	    				<%=FugRadCom_GM %>
 	    			<%
 	    				} else {
-   					%>
-   	    				&nbsp;
-   	    			<%		
+	  					%>
+	  	    				&nbsp;
+	  	    			<%		
 	    				}
 	    			%>
-			    </div></td>
-			  </tr>
-				<% 
-		  			}
-			   }
-				%>  
-			</table>
-		</div>
-		<div id="china" style="display: none;">
-			<input type="button" class="german" onclick="changeGerman()"/>
-		</div>
-		<div id="datatable2" style="width: 800px; display: none;margin:0 50px">
-			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
-			  <tr>
-			    <td width="239" class="pg">&nbsp;</td>
-			    <td width="311" class="pg"><h2>Status</h2></td>
-			    <td width="433" class="pg"><h2>Massnahmen</h2></td>
-			  </tr>
-			   <%
-			   if (Web.getListYesOrNo(fv9FugRadName)) {
-		  		for(int i=0; i<fv9FugRadName.size(); i++){
-		  			String FugRadName = Web.replaceSpecial(fv9FugRadName.get(i)); //名称 
-		  			String FugRadStatus = Web.replaceSpecial(fv9FugRadStatus.get(i)); // 状态
-		  			String FugRadCom_CN = Web.replaceSpecial(fv9FugRadCom_CN.get(i));  //状态描述_中文
-		  			String FugRadMabnh_CN = Web.replaceSpecial(fv9FugRadMabnh_CN.get(i));  //措施_中文
-			  %>  
-			  <tr>
-			    <td valign="top" class="pgpg" style="width:239px;">
-			    	<table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
-				  		<tr>
-				    		<td valign="top"><h2><%=FugRadName %> </h2></td>
-				    		<td>
-				    			<% if(("绿").equals(FugRadStatus)){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="30" height="70" />
-							<%} else if(("黄").equals(FugRadStatus)){%>
-							    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="30" height="70" />	
-							<%} else if(("红").equals(FugRadStatus)){%>
-								   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
-							<%}%>
-				    		</td>
-				  		</tr>
-					</table>
-				</td>
-			    <td width="60%" valign="top" class="pgpg"><div class="tbnrr">
-			    <%
-   				if (FugRadCom_CN != null && !"".equals(FugRadCom_CN)) {
-    			%>
-    				<%=FugRadCom_CN %>
-    			<%
-    				} else {
-  					%>
-  	    				&nbsp;
-  	    			<%		
-    				}
-    			%>
-			    </div></td>
-			    <td width="40%" valign="top" class="pgpg"><div class="tbnrr">
-			    	<%
-	    				if (FugRadMabnh_CN != null && !"".equals(FugRadMabnh_CN)) {
+				    </div></td>
+				    <td width="40%" valign="top" class="pgpg"><div class="tbnrr">
+				    	<%
+		    				if (FugRadMabnh_GM != null && !"".equals(FugRadMabnh_GM)) {
+		    			%>
+		    				<%=FugRadMabnh_GM %>
+		    			<%
+		    				} else {
+	   					%>
+	   	    				&nbsp;
+	   	    			<%		
+		    				}
+		    			%>
+				    </div></td>
+				  </tr>
+					<% 
+			  			}
+				   }
+					%>  
+				</table>
+			</div>
+		
+			<div id="datatable2" style="width: 800px; display: none;margin:0 50px">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
+				  <tr>
+				    <td width="239" class="pg">&nbsp;</td>
+				    <td width="311" class="pg"><h2>Status</h2></td>
+				    <td width="433" class="pg"><h2>Massnahmen</h2></td>
+				  </tr>
+				   <%
+				   if (Web.getListYesOrNo(fv9FugRadName)) {
+			  		for(int i=0; i<fv9FugRadName.size(); i++){
+			  			String FugRadName = Web.replaceSpecial(fv9FugRadName.get(i)); //名称 
+			  			String FugRadStatus = Web.replaceSpecial(fv9FugRadStatus.get(i)); // 状态
+			  			String FugRadCom_CN = Web.replaceSpecial(fv9FugRadCom_CN.get(i));  //状态描述_中文
+			  			String FugRadMabnh_CN = Web.replaceSpecial(fv9FugRadMabnh_CN.get(i));  //措施_中文
+				  %>  
+				  <tr>
+				    <td valign="top" class="pgpg" style="width:239px;">
+				    	<table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
+					  		<tr>
+					    		<td valign="top"><h2><%=FugRadName %> </h2></td>
+					    		<td>
+					    			<% if(("绿").equals(FugRadStatus)){%>
+								    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="30" height="70" />
+								<%} else if(("黄").equals(FugRadStatus)){%>
+								    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="30" height="70" />	
+								<%} else if(("红").equals(FugRadStatus)){%>
+									   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
+								<%}%>
+					    		</td>
+					  		</tr>
+						</table>
+					</td>
+				    <td width="60%" valign="top" class="pgpg"><div class="tbnrr">
+				    <%
+	   				if (FugRadCom_CN != null && !"".equals(FugRadCom_CN)) {
 	    			%>
-	    				<%=FugRadMabnh_CN %>
+	    				<%=FugRadCom_CN %>
 	    			<%
 	    				} else {
-   					%>
-   	    				&nbsp;
-   	    			<%		
+	  					%>
+	  	    				&nbsp;
+	  	    			<%		
 	    				}
 	    			%>
-			    </div></td>
-			  </tr>
-				<% 
-		  			}
-			   }
-				%>  
-			</table>
+				    </div></td>
+				    <td width="40%" valign="top" class="pgpg"><div class="tbnrr">
+				    	<%
+		    				if (FugRadMabnh_CN != null && !"".equals(FugRadMabnh_CN)) {
+		    			%>
+		    				<%=FugRadMabnh_CN %>
+		    			<%
+		    				} else {
+	   					%>
+	   	    				&nbsp;
+	   	    			<%		
+		    				}
+		    			%>
+				    </div></td>
+				  </tr>
+					<% 
+			  			}
+				   }
+					%>  
+				</table>
+			</div>
 		</div>
-	</div>
     <%@ include file="/app/pep/include/foot.jsp"%>
 </div>
 </body>

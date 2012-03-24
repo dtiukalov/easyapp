@@ -379,13 +379,29 @@
 } */
 .china{ 
 	display:block; width: 15px; height: 15px;margin:0px 0px; float:left; border:none; 
-	/* background:url(../images/china1.jpg) no-repeat; */
+}
+
+.china a{ 
+	text-decoration: none;
 }
 
 .german{ 
 	display:block;width: 15px; height: 15px;margin:0px 0px; float:left; border:none;
-	/*background:url(../images/german1.jpg) no-repeat;*/
-} 
+}
+
+.german a{ 
+	text-decoration: none;
+}
+
+a { 
+	text-decoration:none;
+}
+
+a:hover {
+	text-decoration:none;
+}
+
+
 /*
 .china:hover{background:url(../images/china2.jpg) no-repeat;}
 .german:hover{background:url(../images/german2.jpg) no-repeat;}

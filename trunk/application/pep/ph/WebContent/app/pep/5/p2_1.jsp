@@ -45,11 +45,9 @@
 		<div id="top">
 			<div class="fl"><%=status_left %></div>
 			<div class="fr"><%=status_right %></div>
-			<h1><%=title %>
-			<span style="font-size: 16px;">
-						<a href="javascript:changeChinese()" id="german">C</a>
-						<a href="javascript:changeGerman()" id="china" style="display: none;">D</a>
-					</span>
+			<h1>
+				<a href="javascript:changeChinese()" id="german"><%=title %></a>
+				<a href="javascript:changeGerman()" id="china" style="display: none;"><%=title %></a>
 			</h1>
 		</div>
 	    <div id="content" >

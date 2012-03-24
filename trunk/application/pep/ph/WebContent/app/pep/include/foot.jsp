@@ -65,7 +65,7 @@ $(document).ready(function(){
 		    if ("fawvw".equalsIgnoreCase(platformType)) {
 		    	%>
 		    	<a href="<%=request.getContextPath() %>/app/pep/logout.do" >
-		 	    	<img src="<%=request.getContextPath() %>/app/pep/images/FAWVW-logo.jpg" width="120px" height="41px"/>
+		 	    	<img src="<%=request.getContextPath() %>/app/pep/images/FAWVW-logo.jpg" width="120px" height="41px" border="0"/>
 		 	    </a>
 		 	    <%		
 		    }
@@ -73,7 +73,7 @@ $(document).ready(function(){
 		    if ("audi".equalsIgnoreCase(platformType)) {
 			    %>
 			    <a href="<%=request.getContextPath() %>/app/pep/logout.do" class="link">
-			   		<img src="<%=request.getContextPath() %>/app/pep/images/Audi-logo.jpg" width="120px" height="41px"/>
+			   		<img src="<%=request.getContextPath() %>/app/pep/images/Audi-logo.jpg" width="120px" height="41px"  border="0"/>
 			   	</a>
 			    <%	
 		    }

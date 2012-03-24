@@ -77,7 +77,9 @@ public class TCLogoutAction implements IAction {
 		request.getSession().removeAttribute("indexes");
 		
 	//	session.logout();
-		
+		if (session != null) {
+			session.logout();
+		}
 		return new JspView("/app/pep/login.jsp");
 	}
 	@SuppressWarnings("deprecation")
@@ -103,9 +105,7 @@ public class TCLogoutAction implements IAction {
 				System.out.println("path: " + path);
 			}
 		}
-		if (session != null) {
-			session.logout();
-		}
+
 		try {
 			deleteFile(path + datasetpath);
 			deleteFile(path + defaultdatasetpath);

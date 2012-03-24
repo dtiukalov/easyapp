@@ -83,12 +83,11 @@
 					},
 					legend: {
 						layout: 'vertical',
-						align: 'right',
-						verticalAlign: 'top',
-						x: -10,
-						y: 60,
-						borderWidth: 0,
-						shadow:false
+				//		align: 'right',
+						verticalAlign: 'center',
+						x: 400,
+						y: 30,
+						borderWidth: 0
 					},
 					tooltip: {
 						formatter: function() {
@@ -225,14 +224,21 @@
 				<h1><%=title %></h1>
 			</div>
 			<div id="content">
-				<div id="chart" style="width: 1000px; height: 450px; margin:5px auto; margin-top: 30px;"></div>
+				<div id="chart" style="width: 1000px; height: 450px; margin:5px auto; "></div>
 				<%
 				if (Web.getListYesOrNo((List<String>)form.get("fv9KWNo"))) {
 					int[] arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9KWNo"));
 					
-					double totalWidth = 760.0;
+					double totalWidth = 912.0;
+/* 					Map<String,Integer> result = new HashMap<String,Integer>();
+					result.put("vffqianNum", 0);
+					result.put("vffNum", 1);
+					result.put("pvsNum", 1);
+					result.put("osNum", 1);
+					result.put("sopNum", 1); */
 					
 					Map<String,Double> lichenbeiPillarNum = Web.getLCBPillar(Web.getLCBNum(request, arr), arr, totalWidth);
+			//		Map<String,Double> lichenbeiPillarNum = Web.getLCBPillar(result, arr, totalWidth);
 				
 					double value0 = lichenbeiPillarNum.get("vffqianPillar"); 
 					double value1 = lichenbeiPillarNum.get("vffPillar"); 
@@ -242,7 +248,7 @@
 					double sum = value0 + value1 + value2 + value3 + value4;
 				%>
 				<div id="meilsteinouter" style="width: 1000px;">
-					<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 115px; text-align: center; overflow: hidden; ">
+					<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 92px; text-align: center; overflow: hidden; ">
 					<div style=" width: <%=value0 %>px; height: 30px; float: left; background-color: white; vertical-align: bottom; padding-top: 5px;"><span style="color: white;"></span></div>
 
 						<div style=" width: <%=value1 %>px; height: 30px; float: left; background-color: #99FF99; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">VFF</span></div>

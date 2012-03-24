@@ -286,8 +286,9 @@
 				<div id="chart" style="width: 1000px; height: 450px; margin: 5px auto; float: left; margin-top: 30px;"></div>
 			<%
 			if (lichenbeiNum != null && arr != null) {
-				double totalWidth = 604.0;
+				double totalWidth = 840.0;
 				Map<String,Integer> tt = lichenbeiNum;
+		
 				Map<String,Double> lichenbeiPillarNum = Web.getLCBPillar(tt, arr, totalWidth);
 				
 				double value0 = lichenbeiPillarNum.get("vffqianPillar"); 
@@ -299,7 +300,7 @@
 				
 				%>
 				<div id="meilsteinouter" style="width: 1000px;">
-					<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 90px; text-align: center; overflow: hidden; ">
+					<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 40px; text-align: center; overflow: hidden; ">
 						<div style=" width: <%=value0 %>px; height: 30px; float: left; background-color: white; vertical-align: bottom; padding-top: 5px;"><span style="color: white;"></span></div>
 						<div style=" width: <%=value1 %>px; height: 30px; float: left; background-color: #99FF99; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">VFF</span></div>
 						<div style=" width: <%=value2 %>px; height: 30px; float: left; background-color: #33CC33; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">PVS</span></div>

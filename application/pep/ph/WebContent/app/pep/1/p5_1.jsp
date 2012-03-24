@@ -189,8 +189,8 @@
 
 			%>
 				<tr>
-					<td style="width: 20px; height:30px; text-align: center; font-weight: bolder; font-size: 12px;"><%=i + 1%></td>
-					<td style="width: 100px; font-size: 11px;"><%=Fahrzeuge %></td>
+					<td style="width: 20px; height:30px; text-align: center; font-weight: bolder; font-size: 14px;"><%=i + 1%></td>
+					<td style="width: 100px; font-size: 14px;"><%=Fahrzeuge %></td>
 					<%
 					if (colspan11 > 0) {
 					%>
@@ -204,7 +204,7 @@
 				</tr>
 				<tr>
 					<td style="width: 20px; height:30px;">&nbsp;</td>
-					<td style="width: 100px; font-size: 11px;"><%=Karosserien %></td>
+					<td style="width: 100px; font-size: 14px;"><%=Karosserien %></td>
 					<%
 					if (colspan21 > 0) {
 					%>

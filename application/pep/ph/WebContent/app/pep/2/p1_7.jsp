@@ -200,7 +200,7 @@
 					verticalAlign: 'middle',
 					borderWidth: 1,
 					shadow:false,
-					enabled:true
+					enabled:false
 				},
 			    series: [{
 					name: 'BMG frei Soll',
@@ -352,16 +352,17 @@
 		 	<br>
 		<style>
 			.top-table {
-				width: 940px; height: 180px; float: left; margin: 0px 0px auto; overflow: hidden;
+				width: 520px; height: 180px; float: left; margin-left: 260px; overflow: hidden; 
 			}
 			.top-table table {
-				width: 520px; height: 180px; float: left; margin-left: 210px; overflow: hidden;
-				font-size: 9px;
+				width: 520px; height: 180px; float: left; font-size: 9px; 
 			}
 			.top-table table tr td {
 				border: 1px solid #000000;
 			}
-			
+			.biaoshi{
+				width: 180px; height: 180px; float: left; overflow: hidden; margin: 0px; 
+			}
 		</style>
 		<%
 		List<String> fv9KWNo = (List<String>)form.get("fv9KWNo"); //周数 
@@ -445,6 +446,26 @@
 			}
 			}
 		%>
+				</table>
+				
+				
+			</div>
+			
+			<div class="biaoshi">
+				<div style="width: 180px; height: 90px; margin: 0px;">&nbsp;</div>
+				<table style="width: 130px; margin-left: 50px; ">
+					<tr>
+						<td style="background-color: #00FF00; width: 15px; height: 15px;"></td>
+						<td style="font-size: 14px; height: 15px;">BMG frei Soll</td>
+					</tr>
+					<tr>
+						<td style="background-color: #FFFFCC; width: 15px; height: 15px;"></td>
+						<td style="font-size: 14px; height: 15px;">AWE</td>
+					</tr>
+					<tr>
+						<td style="background-color: #FFCC00; width: 15px; height: 15px;"></td>
+						<td style="font-size: 14px; height: 15px;">in arbeit</td>
+					</tr>
 				</table>
 			</div>
 		

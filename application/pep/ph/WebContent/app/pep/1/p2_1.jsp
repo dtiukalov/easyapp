@@ -50,11 +50,11 @@
 				</h1>
 				
 			</div>
-			<div id="content" style="font-size:16px;">
+			<div id="content">
 				
-				<div id="datatable1" style="height: 500px;margin: 30px 50px;">
+				<div id="datatable1" style="height: 500px; margin: 30px 50px; font-size: 18px;">
 					<table width="100%" cellspacing="2" rules="rows">
-						<tr style="border-bottom:2px solid #333333;font-size:18px;font-weight:bold;">
+						<tr style="border-bottom:2px solid #333333; font-weight:bold;">
 							<td width="35%">Aktion</td>
 							<td width="30%">Verantwortlich</td>
 							<td width="18%">Termin</td>
@@ -85,9 +85,9 @@
 					</table>
 				</div>
 				
-				<div id="datatable2" style=" height: 500px;margin: 30px 50px;display: none; ">
+				<div id="datatable2" style=" height: 500px; margin: 30px 50px; font-size:18px; display: none; ">
 					<table width="100%" cellspacing="2" rules="rows">
-						<tr style="border-bottom:2px solid #333333;font-size:18px;font-weight:bold;">
+						<tr style="border-bottom:2px solid #333333;font-weight:bold;">
 							<td width="35%">Aktion</td>
 							<td width="30%">Verantwortlich</td>
 							<td width="18%">Termin</td>

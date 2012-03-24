@@ -71,7 +71,7 @@
 			</h1>
 		</div>
 		<div id="content">
-			<div id="datatable1" style="font-size:15px; margin: 30px 30px auto;">
+			<div id="datatable1" style="font-size:17px; margin: 30px 30px auto;">
 				<table width="100%" cellspacing="2" rules="rows" >
 					<tr style="border-bottom:2px solid #333333;font-weight:bold;">
 						<td>&nbsp;</td>
@@ -93,7 +93,7 @@
 							}
 					%>
 					<tr border="2" border-collapse: collapse" bordercolor="#333333">
-						<td width="30%" style="font-weight:bold; font-size: 15px;">
+						<td width="30%" style="font-weight:bold; font-size: 17px;">
 							<%=fv9FreigabeStyle.get(i) %>
 							<img src="<%=imagePath %>" align="right" border=0 width=50 height=56 style="margin-right:50px"> 
 						</td>
@@ -116,7 +116,7 @@
 					<tr></tr>
 				</table>
 			</div>
-			<div id="datatable2" style="font-size:15px; margin: 30px 30px auto; display: none;">
+			<div id="datatable2" style="font-size:17px; margin: 30px 30px auto; display: none;">
 				<table width="100%" cellspacing="2" rules="rows" >
 					<tr style="border-bottom:2px solid #333333;font-weight:bold;">
 						<td>&nbsp;</td>
@@ -138,7 +138,7 @@
 							}
 					%>
 					<tr border="2" border-collapse: collapse" bordercolor="#333333">
-						<td width="30%" style="font-weight:bold; font-size: 15px;">
+						<td width="30%" style="font-weight:bold; font-size: 17px;">
 							<%=fv9FreigabeStyle.get(i) %>
 							<img src="<%=imagePath %>" align="right" border=0 width=50 height=56 style="margin-right:50px"> 
 						</td>

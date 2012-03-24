@@ -70,7 +70,7 @@
 					labels:{
 						y:30,
 						style:{
-							fontSize:'14px',
+							fontSize:'18px',
 							color:'black',
 							fontWeight: 'bold'
 						}
@@ -88,12 +88,12 @@
 						text: 'Anzahl Fzg.',
 						style: {
 							color: 'black',
-							fontSize:'14px'
+							fontSize:'16px'
 						}
 					},
 					labels:{
 						style:{
-							fontSize:'14px',
+							fontSize:'16px',
 							color:'black',
 							fontWeight: 'bold'
 						}
@@ -104,7 +104,7 @@
 						style: {
 							fontWeight: 'bold',
 							color: 'black',
-							fontSize:'14px'
+							fontSize:'16px'
 						}
 					}
 				},

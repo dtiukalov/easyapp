@@ -51,7 +51,7 @@
 				</h1>
 			</div>
 			<div id="content">
-				<div id="datatable1" style="margin:10px 10px auto; font-size: 12px;">
+				<div id="datatable1" style="margin:10px 10px auto; font-size: 14px;">
 					<table width="96%" border="0" cellspacing="5" cellpadding="0" class="ed">
 				        <tr>
 				        	<td width="18%">&nbsp;</td>
@@ -122,7 +122,7 @@
 				       
 				      </table>
 			      </div>
-			      <div id="datatable2" style=" display: none; margin:10px 10px auto; font-size: 12px;">
+			      <div id="datatable2" style=" display: none; margin:10px 10px auto; font-size: 14px;">
 					<table width="96%" border="0" cellspacing="5" cellpadding="0" class="ed">
 				        <tr>
 				        	<td width="18%">&nbsp;</td>
@@ -138,10 +138,10 @@
 				        <%
 							if (fv9ErprobStyle != null && fv9ErprobStyle.size() >0) {
 								for (int i=0; i<fv9ErprobStyle.size(); i++){
-									String Style = (String)fv9ErprobStyle.get(i);
-									String status = (String)fv9ErprobStatus.get(i);
-									String stcom_cn = (String)fv9ErprobStCom_CN.get(i);
-									String nachsch_cn = (String)fv9ErprobNachSch_CN.get(i);
+									String Style = Web.replaceSpecial((String)fv9ErprobStyle.get(i));
+									String status = Web.replaceSpecial((String)fv9ErprobStatus.get(i));
+									String stcom_cn = Web.replaceSpecial((String)fv9ErprobStCom_CN.get(i));
+									String nachsch_cn = Web.replaceSpecial((String)fv9ErprobNachSch_CN.get(i));
 						%>
 						 <tr>
 				          <td width="18%">
@@ -176,7 +176,7 @@
 				              <td height="25">
 				              	<table width="98%" border="0" cellspacing="2" cellpadding="0" >
 						            <tr>
-						              <td width="60%" height="25"><%=stcom_cn %></td>
+						              <td width="60%" ><%=stcom_cn %></td>
 						              <td width="40%" valign="top"><%=nachsch_cn %></td>
 						            </tr>
 						          </table>

@@ -138,7 +138,7 @@
 						y:12,
 						style:{
 							color:'black',
-							fontSize:'12px'
+							fontSize:'14px'
 						}
 					}
 				}, {
@@ -149,7 +149,8 @@
 					title: {
 						text: '<%=show_year%>',
 						style:{
-							color:'white'
+							color:'white',
+							fontSize:'14px'
 						}
 					},
 					labels: {
@@ -162,7 +163,8 @@
 					linkedTo: 1,
 					title: {
 						style:{
-							color:'black'
+							color:'black',
+							fontSize:'14px'
 						}
 					},
 					labels: {
@@ -219,7 +221,7 @@
 						dataLabels: {
 							enabled: true,
 							style : {
-								fontSize:'12px'
+								fontSize:'13px'
 							},
 							color: 'black',
 							formatter: function() {
@@ -239,7 +241,7 @@
 					dataLabels: {
 						enabled: true,
 						style : {
-							fontSize:'12px'
+							fontSize:'13px'
 						},
 						color: 'white'
 					}
@@ -254,7 +256,7 @@
 					dataLabels: {
 						enabled: true,
 						style : {
-							fontSize:'12px'
+							fontSize:'13px'
 						},
 						color: 'white'
 					}

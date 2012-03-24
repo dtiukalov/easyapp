@@ -21,8 +21,9 @@
 			String ist = Web.getNumberListStr(form.get("fv9ZP5Numlst"));
 			
 			String fv9ReportKW = (String)request.getSession().getAttribute("fv9ReportKW");
+			
 			String sumIst = "[]";
-			if(kws.contains(fv9ReportKW)){
+			if(fv9ReportKW!= null && !"".equals(fv9ReportKW) && kws.contains(fv9ReportKW)){
 				List<String> k = (List<String>) form.get("fv9KWNo");
 				
 				List<String> fv9ZP5Numlst = (List<String>) form.get("fv9ZP5Numlst");

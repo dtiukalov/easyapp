@@ -138,7 +138,7 @@
 						y:12,
 						style:{
 							color:'black',
-							fontSize:'14px'
+							fontSize:'11px'
 						}
 					}
 				}, {
@@ -312,7 +312,7 @@
 				<h1><%=title %></h1>
 			</div>
 			<div id="content">
-				<div style="width: 60px; height: 60px; margin-left: 20px; text-align: center; vertical-align: bottom; float: left;font-family: Arail; font-size: 11px; padding-top: 460px;">
+				<div style="width: 60px; height: 60px; margin-left: 20px; text-align: center; vertical-align: bottom; float: left;font-family: Arail; font-size: 11px; padding-top: 455px;">
 					KW<br><br>
 					Anzahl <br> neuer <br> AEKOs
 				</div>

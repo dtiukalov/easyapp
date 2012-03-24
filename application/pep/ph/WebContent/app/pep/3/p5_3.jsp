@@ -67,7 +67,7 @@
 							}
 						},
 						stackLabels: {
-							enabled: true,
+							enabled: false,
 							y:-15,
 							style: {
 								color: 'black',
@@ -99,7 +99,8 @@
 					plotOptions: {
 						column: {
 							stacking: 'normal',
-							pointWidth:28,
+							groupPadding:0.1,
+							pointPadding:0.1,
 							shadow: false,
 							borderColor:'black',
 							borderWidth:0,
@@ -125,7 +126,7 @@
 						data: <%=fv9Presswerk%>,
 						color: '#BBC2C5',
 						dataLabels: {
-							enabled: true,
+							enabled: false,
 							style : {
 								fontSize:'11px'
 							},
@@ -143,7 +144,7 @@
 						data: <%=fv9Karosseriebau%>,
 						color: '#AED4F8',
 						dataLabels: {
-							enabled:true,
+							enabled: false,
 							formatter: function() {
 								if (this.y == 0 || this.y == 0.0 || this.y == null) {
 									return '';
@@ -157,7 +158,7 @@
 						data: <%=fv9Kaufteile%>,
 						color: '#91AFFF',
 						dataLabels: {
-							enabled:true,
+							enabled:false,
 							formatter: function() {
 								if (this.y == 0 || this.y == 0.0 || this.y == null) {
 									return '';
@@ -171,7 +172,7 @@
 						data: <%=fv9Lack%>,
 						color: '#BBC2C5',
 						dataLabels: {
-							enabled:true,
+							enabled:false,
 							formatter: function() {
 								if (this.y == 0 || this.y == 0.0 || this.y == null) {
 									return '';
@@ -185,7 +186,7 @@
 						data: <%=fv9Montage%>,
 						color: '#00235A',
 						dataLabels: {
-							enabled:true,
+							enabled:false,
 							formatter: function() {
 								if (this.y == 0 || this.y == 0.0 || this.y == null) {
 									return '';
@@ -224,12 +225,13 @@
 				<h1><%=title %></h1>
 			</div>
 			<div id="content">
-				<div id="chart" style="width: 850px; height: 400px; margin: 50px auto"></div>
+				<div id="chart" style="width: 1000px; height: 450px; margin:5px auto; margin-top: 30px;"></div>
 				<%
 				if (Web.getListYesOrNo((List<String>)form.get("fv9KWNo"))) {
 					int[] arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9KWNo"));
 					
-					double totalWidth = 628.0;
+					double totalWidth = 760.0;
+					
 					Map<String,Double> lichenbeiPillarNum = Web.getLCBPillar(Web.getLCBNum(request, arr), arr, totalWidth);
 				
 					double value0 = lichenbeiPillarNum.get("vffqianPillar"); 
@@ -237,10 +239,10 @@
 					double value2 = lichenbeiPillarNum.get("pvsPillar");
 					double value3 = lichenbeiPillarNum.get("osPillar");
 					double value4 = lichenbeiPillarNum.get("sopPillar");
-					double sum = value1 + value2 + value3 + value4;
+					double sum = value0 + value1 + value2 + value3 + value4;
 				%>
-				<div id="meilsteinouter" style="width: 800px;">
-					<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 105px; text-align: center; overflow: hidden; ">
+				<div id="meilsteinouter" style="width: 1000px;">
+					<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 115px; text-align: center; overflow: hidden; ">
 					<div style=" width: <%=value0 %>px; height: 30px; float: left; background-color: white; vertical-align: bottom; padding-top: 5px;"><span style="color: white;"></span></div>
 
 						<div style=" width: <%=value1 %>px; height: 30px; float: left; background-color: #99FF99; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">VFF</span></div>

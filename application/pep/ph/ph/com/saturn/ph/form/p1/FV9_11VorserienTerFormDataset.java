@@ -19,7 +19,7 @@ public class FV9_11VorserienTerFormDataset extends Form {
 
 	@Override
 	public String getType() {
-		return "1.1 VorserienTer";
+		return "1.1 Vorserienterminplan";
 	}
 
 	@Override

@@ -3,13 +3,22 @@
 	MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial,宋体; COLOR: #000; LIST-STYLE-IMAGE: none; PADDING-TOP: 0px;
 }
 
+#container {
+	MARGIN: 0px; WIDTH: 1024px; HEIGHT: 760px;font-family:Arial; 
+}
+#container #nr {
+	MARGIN: 0px auto; WIDTH: 1024px
+}
+#container #top {
+	BORDER-BOTTOM: #000099 2px solid; height:100px; OVERFLOW: hidden; 
+}
+#top H1 {
+	FONT-FAMILY: Arial, Helvetica, sans-serif; FONT-SIZE: 28px; margin-top:25px;
+}
 #content {
 	margin: 0px;
 	WIDTH: 1024px; HEIGHT: 580px; OVERFLOW: hidden;
-	/*debug background-color: green;	 */
-	
 }
-
 #no-state {
 	position:absolute; top:10px; height:14px;bottom:0px; right:30px;
 	padding:1px;color:green; direction:rtl;
@@ -27,21 +36,7 @@
 .containerRight{
 	margin: 0px; width: 37px; height:60px; overflow: hidden; float: left; text-align: center; margin-top: 330px;
 }
-#container {
-	MARGIN: 0px; WIDTH: 1024px; HEIGHT: 760px;font-family:Arial; 
-	
-	/*debug background-color: red;*/
-	
-}
-#container #nr {
-	MARGIN: 0px auto; WIDTH: 1024px
-}
-#container #top {
-	BORDER-BOTTOM: #000099 2px solid; height:100px; OVERFLOW: hidden; 
-}
-#top H1 {
-	FONT-FAMILY: Arial, Helvetica, sans-serif; FONT-SIZE: 28px; margin-top:25px;
-}
+
 #footer {
 	WIDTH: 1024px; HEIGHT: 30px;
 	BORDER-TOP: #000099 2px solid;

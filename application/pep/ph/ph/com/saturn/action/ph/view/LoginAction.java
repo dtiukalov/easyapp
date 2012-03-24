@@ -45,10 +45,10 @@ public class LoginAction implements IAction {
 				Map<String,Item>  phItemMap = WorkspaceUtils.initPHItemlist(tcsession, user);
 				request.getSession().setAttribute("CURR_USER_PHITEM_LIST", phItemMap);
 				
-				PHBuffer buffer = (PHBuffer) request.getSession().getAttribute(PHBuffer.PH_BUFFER);
+				/*PHBuffer buffer = (PHBuffer) request.getSession().getAttribute(PHBuffer.PH_BUFFER);
 				if (buffer != null) {
 					request.getSession().removeAttribute(PHBuffer.PH_BUFFER);
-				}
+				}*/
 			}
 			
 			return new JspView("/app/pep/initworkspace.jsp");

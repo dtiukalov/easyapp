@@ -8,10 +8,10 @@ import java.util.Map;
 public class PHManager {
 
 	private static final String[] ALL = {
-			"FV9_11ProjectTermin","1.1 ProjectTermin",
+			"FV9_11ProjectTermin","1.1 Projektterminplan",
 			"1.1 Anlaufuebersicht",
 			// "FV9_11Anlaufueber",
-			"FV9_11VorserienTer", "1.1 VorserienTer",
+			"FV9_11VorserienTer", "1.1 Vorserienterminplan",
 			"FV9_12Aktionspunkte",
 			"1.3 Anlauforganisation - Fahrzeugbau", "1.4 Anlaufkurve",
 			"FV9_15BauprogVFF", "FV9_15FahrzeugaufZP5", "FV9_15FahrzeugaufZP8",

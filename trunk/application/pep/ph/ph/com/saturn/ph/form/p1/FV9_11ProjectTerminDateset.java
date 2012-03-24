@@ -19,7 +19,7 @@ public class FV9_11ProjectTerminDateset extends Form {
 
 	@Override
 	public String getType() {
-		return "1.1 ProjectTermin";
+		return "1.1 Projektterminplan";
 	}
 
 	@Override

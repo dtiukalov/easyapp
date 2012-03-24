@@ -139,8 +139,9 @@
 						enabled:true,
 						y:20,
 						style:{
-							fontSize:'10px',
+							fontSize:'12px',
 							color:'black'
+							
 						}
 					}
 				},

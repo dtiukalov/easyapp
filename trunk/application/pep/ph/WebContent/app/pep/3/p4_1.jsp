@@ -286,10 +286,17 @@
 				<div id="chart" style="width: 1000px; height: 450px; margin: 5px auto; float: left; margin-top: 30px;"></div>
 			<%
 			if (lichenbeiNum != null && arr != null) {
-				double totalWidth = 840.0;
+				double totalWidth = 890.0;
 				Map<String,Integer> tt = lichenbeiNum;
-		
+				
+			/* 	lichenbeiNum.put("vffqianNum",0);//柱子个数
+				lichenbeiNum.put("vffNum",1);//柱子个数
+				lichenbeiNum.put("pvsNum",1);//柱子个数
+				lichenbeiNum.put("osNum",1);//柱子个数
+				lichenbeiNum.put("sopNum",1);//柱子个数 */
+				
 				Map<String,Double> lichenbeiPillarNum = Web.getLCBPillar(tt, arr, totalWidth);
+				totalWidth = totalWidth - lichenbeiPillarNum.get("pillar");
 				
 				double value0 = lichenbeiPillarNum.get("vffqianPillar"); 
 				double value1 = lichenbeiPillarNum.get("vffPillar"); 

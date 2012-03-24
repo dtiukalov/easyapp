@@ -551,10 +551,10 @@ public class Web {
 		double value2 = 0;
 		double value3 = 0;
 		double value4 = 0;
+		double pillar = 0.0;
 		
 		if(arr != null && arr.length > 0){
 			int size = totalzhuziNum;//一共有多少个柱子 
-			double pillar = 0.0;
 			if(size > 0){
 				double totalWidth = totalW;
 				pillar = totalWidth/size; 
@@ -581,6 +581,7 @@ public class Web {
 				value4 = sopPillarNum* pillar ;
 			}*/
 		}
+		result.put("pillar", pillar);
 		result.put("vffqianPillar", value0);
 		result.put("vffPillar", value1);
 		result.put("pvsPillar", value2);

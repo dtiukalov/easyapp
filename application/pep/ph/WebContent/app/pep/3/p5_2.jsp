@@ -104,8 +104,8 @@
 			temp3 = vffNum + pvsNum + osNum ;
 		}
 		
-		double totalWidth = 640.0;
-		
+		double totalWidth = 755.0;
+	
 		Map<String,Double> lichenbeiPillarNum = Web.getLCBPillar(Web.getLCBNum(request,arr), arr, totalWidth);
 		
 		double value0 = lichenbeiPillarNum.get("vffqianPillar"); 
@@ -682,7 +682,7 @@
 				<div class="clear1">&nbsp;</div>
 				
 				<div id="meilsteinouter" style="width: 800px;">
-				<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 228px; text-align: center; overflow: hidden; ">
+				<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 181px; text-align: center; overflow: hidden; ">
 					<div style=" width: <%=value0 %>px; height: 30px; float: left; background-color: white; vertical-align: bottom; padding-top: 5px;"><span style="color: white;"></span></div>
 
 					<div style=" width: <%=value1 %>px; height: 30px; float: left; background-color: #99FF99; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">VFF</span></div>

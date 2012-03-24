@@ -76,6 +76,10 @@
 			 
 			//如果二维表中的周数跨年，则取当前年的前一年+当前年
 			//如果二维表中的周数不跨年，则取当前年
+			int first = 0; 
+			int first_year = 0;
+			int second = 0;
+			int second_year = 0;
 			String show_year = DateUtils.getCurrentYear();
 			if(Web.getListYesOrNo((List<String>)form.get("fv9KWNo"))){
 				List weeks = ((List<String>)form.get("fv9KWNo"));
@@ -83,19 +87,24 @@
 				length = weeks.size();
 				if (n >= 2) {
 					if (Integer.parseInt((String)weeks.get(0)) >= Integer.parseInt((String)weeks.get(n-1))) {
-						show_year = (Integer.parseInt((String)DateUtils.getCurrentYear()) - 1) + "";
+						first_year = Integer.parseInt((String)DateUtils.getCurrentYear()) - 1;
 						for (int m=1; m<weeks.size(); m++) {
 							//前一年，周数越来越大
+							
 							if (Integer.parseInt((String)weeks.get(m)) > Integer.parseInt((String)weeks.get(m-1))) {
-								show_year += "  ";
+								second_year = Integer.parseInt((String)DateUtils.getCurrentYear());
+								second = m-2;
 							} 
 						}
 						
-						show_year += "." + DateUtils.getCurrentYear();
+				//		show_year += "." + DateUtils.getCurrentYear();
 					}
 				}
 			}
 			int max = fv9PronoseAbgesch + fv9PronoseSmall2Woch + fv9PronoseBig2Woch;
+			
+			System.out.println("first = " + first + " first-year = " + first_year);
+			System.out.println("second = " + second + " second-year = " + second_year);
 		%>
 
 		<script type="text/javascript">
@@ -140,7 +149,7 @@
 					title: {
 						text: '<%=show_year%>',
 						style:{
-							color:'black'
+							color:'white'
 						}
 					},
 					labels: {
@@ -162,6 +171,7 @@
 				}
 				],
 				yAxis: {
+				//	min: -10,
 					gridLineWidth: 0,
 					title: {
 						text: ''
@@ -249,7 +259,7 @@
 						color: 'white'
 					}
 				},{
-					data: [[0, <%=max%>], [<%=length+100%>, <%=max%>]],
+					data: [[0, <%=max%>], [<%=length+10%>, <%=max%>]],
 					//			color: 'black',
 								dashStyle: 'dash',
 								lineWidth: 2,
@@ -266,6 +276,26 @@
 									}
 								}
 							}]
+			},function(chart) { 
+				var point1 = chart.series[0].data[<%=first%>];
+				var point2 = chart.series[0].data[<%=second%>];
+
+				var text1 = chart.renderer.text(
+	                '<b><%=first_year%></b>', 
+	                point1.plotX, 
+	                490
+	            ).attr({
+	                zIndex: 5
+	            }).add();
+	        
+				var text2 = chart.renderer.text(
+	                '<b><%=second_year%></b>', 
+	                point2.plotX, 
+	                490
+	            ).attr({
+	                zIndex: 5
+	            }).add();
+
 			});
 			
 		});

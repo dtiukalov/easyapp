@@ -91,7 +91,7 @@
 					defaultSeriesType: 'column'
 				},
 				title: {
-					text: 'Anzahl AEnderungen',
+					text: 'Anzahl Aenderungen',
 					style:{
 						color:'black',
 						fontSize:'20px'

@@ -26,6 +26,7 @@
 					gesamt += Integer.parseInt(iO.get(i));
 				}
 			}
+			System.out.println("gesamt = " + gesamt);
 			
 			List<String> functionStylelist = new ArrayList<String>();
 			List<String> sum = Web.SumList(aK,bK,iO);
@@ -54,7 +55,7 @@
 			$(document).ready(function() {
 				chart = new Highcharts.Chart({
 					chart: {
-						renderTo: 'content',
+						renderTo: 'chart',
 						defaultSeriesType: 'bar'
 					},
 					title: {
@@ -94,7 +95,7 @@
 						layout: 'vertical',
 						verticalAlign: 'right',
 						x:270,
-						y:480,
+						y:400,
 						borderColor: '#CCC',
 						borderWidth: 0,
 						shadow: false,
@@ -169,11 +170,16 @@
 			<div id="top">
 				<div class="fl"><%=status_left %></div>
 				<div class="fr"><%=status_right %></div>
-				<h1><%=title %></h1>
+				<h1><%=title %>1111</h1>
 			</div>
 			
 			<div id="content">
-				<div id="chart" style="width: 700px; height: 450px; margin: 0 50px; float: left;"></div>
+				<div style="width: 1000px; height: 50px; padding-left: 30px; padding-top: 10px;">
+					<span style="font-size: 18px;">Zusammenbauteile (Anzahl FM/Anzahl Messungen)</span><br>
+					<span style="font-size: 14px;">Gesamt: <%=gesamt %> Funktionsmasse</span>
+				</div>
+				
+				<div id="chart" style="width: 1000px; height: 500px; margin: 0px 30px auto; float: left;"></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

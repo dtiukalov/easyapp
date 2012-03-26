@@ -30,7 +30,7 @@
 	}
 	
 	private static String getContent(Object content) {
-		String fv9Content = "";
+		String fv9Content = "&nbsp;";
 		if (!"".equals((String) content) && content != null) {
 			fv9Content = Web.replaceSpecial((String) content);
 		} 
@@ -149,40 +149,42 @@
 	<style type="text/css">
 		.Reifegrads {
 			height: 520px;
-			width: 940px;
+			width: 980px;
 			overflow: hidden;
 		}
-		.Reifegrads tr td{
-			overflow: hidden;
-		}
-		.mileStone{
+		
+		.Reifegrads .mileStone{
 			text-align: center;
 			vertical-align: middle;
 			padding-top: 20px;
+			width: 50px;
 		}
-		.titleStyleTD {
+		.Reifegrads .titleStyleTD {
 			padding-left: 5px;
 			font-weight: bolder;
 			font-size: 13px;
 			text-align: left;
 			white-space: normal;
+			width: 150px;
 			height: 45px;
 			overflow: hidden;
 			border: 1px solid #000000;
 		}
-		.statusTD {
+		.Reifegrads .statusTD {
+			width: 35px;
 			height: 45px;
 			overflow: hidden;
 			text-align: center;
-			font-size: 8px;
 		}
-		.massTD {
-			padding-left: 5px;
+		.Reifegrads .massTD {
+			padding-left: 1px;
+			width: 335px;
 			height: 45px;
 			overflow: hidden;
 			text-align: left;
 			font-size: 11px;
 			border: 1px solid #000000;
+			vertical-align: top;
 		}
 	</style>
 </head>
@@ -202,96 +204,96 @@
 		<div id="datatable1"  cellspacing="2" style="margin:0px;">
 		<table class="Reifegrads" cellspacing="2">
 			<tr>
-				<td width="5%" height="12">&nbsp;</td>
-				<td width="18%" height="12">&nbsp;</td>
-			  	<td width="3.5%" height="12">&nbsp;</td>
-			    <td width="34%" height="12" style="font-weight: bolder;">&nbsp;Kritische Berichtspunkte:</td>
-			    <td width="34%" height="12" style="font-weight: bolder;">&nbsp;Massnahmen: </td>
+				<td style="width: 50px; height: 12px;">&nbsp;</td>
+				<td style="width: 150px; height: 12px;">&nbsp;</td>
+			  	<td style="width: 35px; height: 12px;">&nbsp;</td>
+			    <td style="font-weight: bolder; width: 335px; height: 12px;">&nbsp;Kritische Berichtspunkte:</td>
+			    <td style="font-weight: bolder; width: 335px; height: 12px;">&nbsp;Massnahmen: </td>
 			</tr>
 			<tr>
-			  <td width="5%" rowspan="11" class="mileStone">
+			  <td rowspan="11" class="mileStone">
 				  	<img src="<%=projectStatusImage %>" alt="里程碑状态" width="50" height="118"/>
 				 	<br>
-				 	<div style="width: 80px;"><%=fv9PHMeetStyle_GM %></div>
+				 	<div style="width: 100%;"><%=fv9PHMeetStyle_GM %></div>
 			  </td>
-			  <td width="18%" class="titleStyleTD">Produktstand</td>
-			  <td width="3.5%" class="statusTD">
+			  <td class="titleStyleTD">Produktstand</td>
+			  <td class="statusTD">
 			  	<img src="<%=fv9ProdStatusImage %>" width="23" height="50"/>
 			  </td>
-			  <td width="34%" class="massTD"><%=fv9ProdStatusCom %></td>
-			   <td width="34%" class="massTD"><%=fv9ProdMass_GM %></td>
+			  <td class="massTD"><%=fv9ProdStatusCom %></td>
+			  <td class="massTD"><%=fv9ProdMass_GM %></td>
 			</tr>
 			<tr>
-			  <td width="18%" class="titleStyleTD">Funktionserfuellung</td>
-			  <td width="3.5%" class="statusTD">
+			  <td class="titleStyleTD">Funktionserfuellung</td>
+			  <td class="statusTD">
 			  	<img src="<%=fv9FunktionImage %>" width="23" height="50"/>
 			  </td>
-			   <td width="34%" class="massTD"><%=fv9FunktionCom %></td>
-			   <td width="34%" class="massTD"><%=fv9FunktionMass_GM %></td>
+			   <td class="massTD"><%=fv9FunktionCom %></td>
+			   <td class="massTD"><%=fv9FunktionMass_GM %></td>
 			</tr>
 			<tr>
-			  <td width="18%" class="titleStyleTD">Produktion/<br>Standardisierung</td>
-			  <td width="3.5%" class="statusTD">
+			  <td class="titleStyleTD">Produktion/<br>Standardisierung</td>
+			  <td class="statusTD">
 			  	<img src="<%=fv9ProduktionImage %>" width="23" height="50"/>
 			  </td>
-			   <td width="34%" class="massTD"><%=fv9ProduktionCom %></td>
-			   <td width="34%" class="massTD"><%=fv9ProduktionMass_GM %></td>
+			   <td class="massTD"><%=fv9ProduktionCom %></td>
+			   <td class="massTD"><%=fv9ProduktionMass_GM %></td>
 			</tr>
 			<tr>
-			  <td width="18%" class="titleStyleTD">Beschaffung</td>
-			  <td width="3.5%" class="statusTD">
+			  <td class="titleStyleTD">Beschaffung</td>
+			  <td class="statusTD">
 			  	<img src="<%=fv9BeschaffImage %>" width="23" height="50"/>
 			  </td>
-			   <td width="34%" class="massTD"><%=fv9BeschaffCom %></td>
-			   <td width="34%" class="massTD"><%=fv9BeschaffMass_GM %></td>
+			   <td class="massTD"><%=fv9BeschaffCom %></td>
+			   <td class="massTD"><%=fv9BeschaffMass_GM %></td>
 			</tr>
 			<tr>
-			  <td width="18%" class="titleStyleTD">Qualitaet</td>
-			  <td width="3.5%" class="statusTD">
+			  <td class="titleStyleTD">Qualitaet</td>
+			  <td class="statusTD">
 			  	<img src="<%=fv9QualitImage %>" width="23" height="50"/>
 			  </td>
-			   <td width="34%" class="massTD"><%=fv9QualitCom %></td>
-			   <td width="34%" class="massTD"><%=fv9QualitMass_GM %></td>
+			   <td class="massTD"><%=fv9QualitCom %></td>
+			   <td class="massTD"><%=fv9QualitMass_GM %></td>
 			</tr>
 			<tr>
-			  <td width="18%" class="titleStyleTD">Vertrieb / Markt</td>
-			  <td width="3.5%" class="statusTD">
+			  <td class="titleStyleTD">Vertrieb / Markt</td>
+			  <td class="statusTD">
 			  	<img src="<%=fv9VertriebImage %>" width="23" height="50"/>
 			  </td>
-			   <td width="34%" class="massTD"><%=fv9VertriebCom %></td>
-			   <td width="34%" class="massTD"><%=fv9VertrieMass_GM %></td>
+			   <td class="massTD"><%=fv9VertriebCom %></td>
+			   <td class="massTD"><%=fv9VertrieMass_GM %></td>
 			</tr>
 			<tr>
-			  <td width="18%" class="titleStyleTD">Finanzen</td>
-			  <td width="3.5%" class="statusTD">
+			  <td class="titleStyleTD">Finanzen</td>
+			  <td class="statusTD">
 			  	<img src="<%=fv9FinanzenImage %>" width="23" height="50"/>
 			  </td>
-			   <td width="34%" class="massTD"><%=fv9FinanzenCom %></td>
-			   <td width="34%" class="massTD"><%=fv9FinanzenMass_GM %></td>
+			   <td class="massTD"><%=fv9FinanzenCom %></td>
+			   <td class="massTD"><%=fv9FinanzenMass_GM %></td>
 			</tr>
 			<tr>
-			  <td width="18%" class="titleStyleTD">Gewicht / CO2</td>
-			  <td width="3.5%" class="statusTD">
+			  <td class="titleStyleTD">Gewicht / CO2</td>
+			  <td class="statusTD">
 			  	<img src="<%=fv9GewichtImage %>" width="23" height="50"/>
 			  </td>
-			   <td width="34%" class="massTD"><%=fv9GewichtCom %></td>
-			   <td width="34%" class="massTD"><%=fv9GewichtMass_GM %></td>
+			   <td class="massTD"><%=fv9GewichtCom %></td>
+			   <td class="massTD"><%=fv9GewichtMass_GM %></td>
 			</tr>
 			<tr>
-			  <td width="18%" class="titleStyleTD">Doku / Freigaben</td>
-			  <td width="3.5%" class="statusTD">
+			  <td class="titleStyleTD">Doku / Freigaben</td>
+			  <td class="statusTD">
 			  	<img src="<%=fv9DokuImage%>" width="23" height="50"/>
 			  </td>
-			   <td width="34%" class="massTD"><%=fv9DokuCom %></td>
-			   <td width="34%" class="massTD"><%=fv9DokuMass_GM %></td>
+			   <td class="massTD"><%=fv9DokuCom %></td>
+			   <td class="massTD"><%=fv9DokuMass_GM %></td>
 			</tr>
 			<tr>
-			  <td width="18%" class="titleStyleTD">Termine / Orga</td>
-			  <td width="3.5%" class="statusTD">
+			  <td class="titleStyleTD">Termine / Orga</td>
+			  <td class="statusTD">
 			  	<img src="<%=fv9TermineImage%>" width="23" height="50"/>
 			  </td>
-			   <td width="34%" class="massTD"><%=fv9TermineCom %></td>
-			   <td width="34%" class="massTD"><%=fv9TerminMass_GM %></td>
+			   <td class="massTD"><%=fv9TermineCom %></td>
+			   <td class="massTD"><%=fv9TerminMass_GM %></td>
 			</tr>
 		</table>
 		</div>
@@ -299,96 +301,96 @@
 		<div id="datatable2" style="display: none;">
 		   <table class="Reifegrads" cellspacing="2">
 			<tr>
-				<td width="5%" height="12">&nbsp;</td>
-				<td width="18%" height="12">&nbsp;</td>
-			  	<td width="3.5%" height="12">&nbsp;</td>
-			    <td width="34%" height="12" style="font-weight: bolder;">&nbsp;重要汇报点:</td>
-			    <td width="34%" height="12" style="font-weight: bolder;">&nbsp;措施: </td>
+				<td style="width: 50px; height: 12px;">&nbsp;</td>
+				<td style="width: 150px; height: 12px;">&nbsp;</td>
+			  	<td style="width: 35px; height: 12px;">&nbsp;</td>
+			    <td style="font-weight: bolder; width: 335px; height: 12px;">&nbsp;重要汇报点:</td>
+			    <td style="font-weight: bolder; width: 335px; height: 12px;">&nbsp;措施: </td>
 			</tr>
 			<tr>
-			  <td width="5%" rowspan="11" class="mileStone">
+			  <td rowspan="11" class="mileStone">
 				  	<img src="<%=projectStatusImage %>" alt="里程碑状态" width="50" height="118"/>
 				 	<br>
-				 	<div style="width: 80px;"><%=fv9PHMeetStyle_CN %></div>
+				 	<div style="width: 100%;"><%=fv9PHMeetStyle_CN %></div>
 			  </td>
-			  <td width="18%" class="titleStyleTD">产品状态</td>
-			  <td width="3.5%" class="statusTD">
+			  <td class="titleStyleTD">产品状态</td>
+			  <td class="statusTD">
 			  	<img src="<%=fv9ProdStatusImage %>" width="23" height="50"/>
 			  </td>
-			  <td width="34%" class="massTD"><%=fv9ProdStatusComC %></td>
-			   <td width="34%" class="massTD"><%=fv9ProdMass_CN %></td>
+			  <td class="massTD"><%=fv9ProdStatusComC %></td>
+			   <td class="massTD"><%=fv9ProdMass_CN %></td>
 			</tr>
 			<tr>
-			  <td width="18%" class="titleStyleTD">功能</td>
-			  <td width="3.5%" class="statusTD">
+			  <td class="titleStyleTD">功能</td>
+			  <td class="statusTD">
 			  	<img src="<%=fv9FunktionImage %>" width="23" height="50"/>
 			  </td>
-			   <td width="34%" class="massTD"><%=fv9FunktionComC %></td>
-			   <td width="34%" class="massTD"><%=fv9FunktionMass_CN %></td>
+			   <td class="massTD"><%=fv9FunktionComC %></td>
+			   <td class="massTD"><%=fv9FunktionMass_CN %></td>
 			</tr>
 			<tr>
-			  <td width="18%" class="titleStyleTD">生产</td>
-			  <td width="3.5%" class="statusTD">
+			  <td class="titleStyleTD">生产</td>
+			  <td class="statusTD">
 			  	<img src="<%=fv9ProduktionImage %>" width="23" height="50"/>
 			  </td>
-			   <td width="34%" class="massTD"><%=fv9ProduktionComC %></td>
-			   <td width="34%" class="massTD"><%=fv9ProduktionMass_CN %></td>
+			   <td class="massTD"><%=fv9ProduktionComC %></td>
+			   <td class="massTD"><%=fv9ProduktionMass_CN %></td>
 			</tr>
 			<tr>
-			  <td width="18%" class="titleStyleTD">采购</td>
-			  <td width="3.5%" class="statusTD">
+			  <td class="titleStyleTD">采购</td>
+			  <td class="statusTD">
 			  	<img src="<%=fv9BeschaffImage %>" width="23" height="50"/>
 			  </td>
-			   <td width="34%" class="massTD"><%=fv9BeschaffComC %></td>
-			   <td width="34%" class="massTD"><%=fv9BeschaffMass_CN %></td>
+			   <td class="massTD"><%=fv9BeschaffComC %></td>
+			   <td class="massTD"><%=fv9BeschaffMass_CN %></td>
 			</tr>
 			<tr>
-			  <td width="18%" class="titleStyleTD">质量</td>
-			  <td width="3.5%" class="statusTD">
+			  <td class="titleStyleTD">质量</td>
+			  <td class="statusTD">
 			  	<img src="<%=fv9QualitImage %>" width="23" height="50"/>
 			  </td>
-			   <td width="34%" class="massTD"><%=fv9QualitComC %></td>
-			   <td width="34%" class="massTD"><%=fv9QualitMass_CN %></td>
+			   <td class="massTD"><%=fv9QualitComC %></td>
+			   <td class="massTD"><%=fv9QualitMass_CN %></td>
 			</tr>
 			<tr>
-			  <td width="18%" class="titleStyleTD">销售/市场</td>
-			  <td width="3.5%" class="statusTD">
+			  <td class="titleStyleTD">销售/市场</td>
+			  <td class="statusTD">
 			  	<img src="<%=fv9VertriebImage %>" width="23" height="50"/>
 			  </td>
-			   <td width="34%" class="massTD"><%=fv9VertriebComC %></td>
-			   <td width="34%" class="massTD"><%=fv9VertrieMass_CN %></td>
+			   <td class="massTD"><%=fv9VertriebComC %></td>
+			   <td class="massTD"><%=fv9VertrieMass_CN %></td>
 			</tr>
 			<tr>
-			  <td width="18%" class="titleStyleTD">财务</td>
-			  <td width="3.5%" class="statusTD">
+			  <td class="titleStyleTD">财务</td>
+			  <td class="statusTD">
 			  	<img src="<%=fv9FinanzenImage %>" width="23" height="50"/>
 			  </td>
-			   <td width="34%" class="massTD"><%=fv9FinanzenComC %></td>
-			   <td width="34%" class="massTD"><%=fv9FinanzenMass_CN %></td>
+			   <td class="massTD"><%=fv9FinanzenComC %></td>
+			   <td class="massTD"><%=fv9FinanzenMass_CN %></td>
 			</tr>
 			<tr>
-			  <td width="18%" class="titleStyleTD">重量/CO2</td>
-			  <td width="3.5%" class="statusTD">
+			  <td class="titleStyleTD">重量/CO2</td>
+			  <td class="statusTD">
 			  	<img src="<%=fv9GewichtImage %>" width="23" height="50"/>
 			  </td>
-			   <td width="34%" class="massTD"><%=fv9GewichtComC %></td>
-			   <td width="34%" class="massTD"><%=fv9GewichtMass_CN %></td>
+			   <td class="massTD"><%=fv9GewichtComC %></td>
+			   <td class="massTD"><%=fv9GewichtMass_CN %></td>
 			</tr>
 			<tr>
-			  <td width="18%" class="titleStyleTD">文件/认可</td>
-			  <td width="3.5%" class="statusTD">
+			  <td class="titleStyleTD">文件/认可</td>
+			  <td class="statusTD">
 			  	<img src="<%=fv9DokuImage%>" width="23" height="50"/>
 			  </td>
-			   <td width="34%" class="massTD"><%=fv9DokuComC %></td>
-			   <td width="34%" class="massTD"><%=fv9DokuMass_CN %></td>
+			   <td class="massTD"><%=fv9DokuComC %></td>
+			   <td class="massTD"><%=fv9DokuMass_CN %></td>
 			</tr>
 			<tr>
-			  <td width="18%" class="titleStyleTD">进度/组织</td>
-			  <td width="3.5%" class="statusTD">
+			  <td class="titleStyleTD">进度/组织</td>
+			  <td class="statusTD">
 			  	<img src="<%=fv9TermineImage%>" width="23" height="50"/>
 			  </td>
-			   <td width="34%" class="massTD"><%=fv9TermineComC %></td>
-			   <td width="34%" class="massTD"><%=fv9TerminMass_CN %></td>
+			   <td class="massTD"><%=fv9TermineComC %></td>
+			   <td class="massTD"><%=fv9TerminMass_CN %></td>
 			</tr>
 		</table>
 		</div>

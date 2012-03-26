@@ -98,6 +98,11 @@
 		
 		if (Web.getListYesOrNo(kwno)) {
 			kwno.remove(kwno.size()-1);
+			
+			if(Web.getObjectYesOrNo(form.get("fv9PrognoseKW"))){
+				kwno.add((String)form.get("fv9PrognoseKW"));
+			}
+			
 			arr = Web.getIntArrByStringlist(kwno);
 			
 			lichenbeiNum = Web.getLCBNum(request, arr);
@@ -165,7 +170,7 @@
 						y:20,
 						style: {
 							 padding:'5px',
-							 fontSize: '10px',
+							 fontSize: '12px',
 							 color:'black'
 						}
 					},
@@ -233,7 +238,14 @@
 			    series: [{
 					name: 'AK: Abweichung Toleranz > 100 %',
 					color: '#E63110',
-					data:  <%=fv9FunktionSmall75%>
+					data:  <%=fv9FunktionSmall75%>,
+					dataLabels: {
+						enabled: true,
+						style : {
+							fontSize:'12px'
+						},
+						color: 'white'
+					}
 				}, {
 					name: 'BK: 75% < Abweichung Toleranz < 100 %',
 					color: '#F9A700',
@@ -268,6 +280,14 @@
 				}
 
 				]
+			}, function(chart) { 
+				chart.renderer.text(
+		                '<span style="font-size:12px;">KW</span>', 
+		               	20, 
+		                400
+		            ).attr({
+		                zIndex: 6
+		            }).add();
 			});
 		})
 		</script>
@@ -286,7 +306,7 @@
 				<div id="chart" style="width: 1000px; height: 450px; margin: 5px auto; float: left; margin-top: 30px;"></div>
 			<%
 			if (lichenbeiNum != null && arr != null) {
-				double totalWidth = 890.0;
+				double totalWidth = 950.0;
 				Map<String,Integer> tt = lichenbeiNum;
 				
 			/* 	lichenbeiNum.put("vffqianNum",0);//柱子个数
@@ -296,7 +316,7 @@
 				lichenbeiNum.put("sopNum",1);//柱子个数 */
 				
 				Map<String,Double> lichenbeiPillarNum = Web.getLCBPillar(tt, arr, totalWidth);
-				totalWidth = totalWidth - lichenbeiPillarNum.get("pillar");
+				//totalWidth = totalWidth - lichenbeiPillarNum.get("pillar");
 				
 				double value0 = lichenbeiPillarNum.get("vffqianPillar"); 
 				double value1 = lichenbeiPillarNum.get("vffPillar"); 

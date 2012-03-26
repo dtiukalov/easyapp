@@ -56,7 +56,7 @@
 					  <tr>
 					    <td width="239" class="pg">&nbsp;</td>
 					    <td width="311" class="pg"><h2>Status</h2></td>
-					    <td width="433" class="pg"><h2>NAEchste Schritte</h2></td>
+					    <td width="433" class="pg" style="font-size: 18px;">Naechste Schritte</td>
 					  </tr>
 					  <%
 					  for(int i=0; i<fv9LogistikStyle.size(); i++){
@@ -106,7 +106,7 @@
 					  <tr>
 					    <td width="239" class="pg">&nbsp;</td>
 					    <td width="311" class="pg"><h2>Status</h2></td>
-					    <td width="433" class="pg"><h2>NAEchste Schritte</h2></td>
+					    <td width="433" class="pg" style="font-size: 18px;">Naechste Schritte</td>
 					  </tr>
 					  <%
 					  for(int i=0; i<fv9LogistikStyle.size(); i++){

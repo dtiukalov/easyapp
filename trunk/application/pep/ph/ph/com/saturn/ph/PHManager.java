@@ -21,12 +21,16 @@ public class PHManager {
 			"FV9_21BFreigabe", "FV9_21BFAbarbuebersc", "FV9_21BMG",
 			"FV9_21BMGAbarbuebers", "FV9_22ErprobDauer",
 			"2.3 Softwarefehlerentwicklung", "2.3 Fehlerabbaustatus",
-			"FV9_24StatusAEKO", "FV9_24AEKOUmsetz",
+			//"FV9_24StatusAEKO", 
+			"2.4 Status AEKO",
+			"FV9_24AEKOUmsetz",
 
 			"FV9_31PrufMBCub", "FV9_32FugenRad",
 			"3.3 Baubarkeit Gesamtfahrzeug", "3.3 Baubarkeit Gesamtfahrzeug\n",
 			"3.3 Problemblatt", "FV9_34Funtionsmasse", "FV9_34FuntNachBaut",
-			"FV9_34FuntAussTol", "FV9_35AuditNoteZP8", "FV9_35FehlerDenGew",
+	//		"FV9_34FuntAussTol", 
+			"3.4 Funktionsmasse ausserhalb der Toleranz",
+			"FV9_35AuditNoteZP8", "FV9_35FehlerDenGew",
 			"FV9_35NachareitPunk", "FV9_35MassnAbarBF", "FV9_35MassVerAud",
 			"FV9_35AuditZP8Press", "FV9_35AuditZP8Kaross",
 			"FV9_35AuditZP8Lack", "FV9_35AuditZP8Mont", "FV9_35AuditZP8Kauf",
@@ -41,13 +45,18 @@ public class PHManager {
 			"FV9_42TeileStatPVSKT", "FV9_42TeileStat0SKT",
 			"4.2 Terminubersicht ZP5 (KT)", "4.2 Problemblatt\n",
 
-			"4.3 Teilequalitaet ZP7 (KT)", "FV9_43TeileStatVFFKT",
+			"4.3 Teilequalitaet ZP7 (KT)", 
+		//	"FV9_43TeileStatVFFKT",
+			"4.3 Teilestatus zu VFF ZP7 (KT)",
 			"FV9_43TeileStatPVSKT", "FV9_43TeileStat0SKT",
 			"4.3 Terminubersicht ZP7 (KT)", "4.3 Problemblatt",
 
 			"4.4 Aggregateverfuegbarkeit ZP3/ZP4",
 
-			"FV9_51PrKarLacMon", "FV9_51KarosserStat", "FV9_52Logiskonzept",
+			"FV9_51PrKarLacMon", 
+		//	"FV9_51KarosserStat", 
+			"5.1 Status Karosseriebau",
+			"FV9_52Logiskonzept",
 
 			"6.1 Launchplanung",
 

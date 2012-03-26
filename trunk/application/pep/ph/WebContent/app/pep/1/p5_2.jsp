@@ -44,6 +44,7 @@
 				sumIst = Web.getSumNumberListStr(form.get("fv9ZP5Numlst"));
 			}
 			
+			
 		%>
 		<script type="text/javascript">
 		
@@ -83,6 +84,8 @@
 				yAxis: {
 					min:0,
 					lineWidth:1,
+			//		maxPadding:5,
+					tickPixelInterval: 100,
 					lineColor:'gray',
 					tickWidth:1,
 					ticlColor:'gray',
@@ -222,6 +225,14 @@
 		                radius: 3
 					}
 				}]
+			}, function(chart) { 
+				chart.renderer.text(
+		                '<span style="font-size:18px;">KW</span>', 
+		               	40, 
+		                460
+		            ).attr({
+		                zIndex: 6
+		            }).add();
 			});
 		});
 		</script>

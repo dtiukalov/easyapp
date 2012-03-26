@@ -29,12 +29,14 @@ import com.saturn.ph.form.p2.FV9_22ErprobDauerForm;
 import com.saturn.ph.form.p2.FV9_23FehlerabbaustatusDataset;
 import com.saturn.ph.form.p2.FV9_23SoftwarefehlerentwicklungDataset;
 import com.saturn.ph.form.p2.FV9_24AEKOUmsetzForm;
+import com.saturn.ph.form.p2.FV9_24StatusAEKODataset;
 import com.saturn.ph.form.p2.FV9_24StatusAEKOForm;
 import com.saturn.ph.form.p3.FV9_31PrufMBCubForm;
 import com.saturn.ph.form.p3.FV9_32FugenRadForm;
 import com.saturn.ph.form.p3.FV9_33BaubarkeitGesamtfahrzeug1Dataset;
 import com.saturn.ph.form.p3.FV9_33BaubarkeitGesamtfahrzeug2Dataset;
 import com.saturn.ph.form.p3.FV9_33ProblemblattDataset;
+import com.saturn.ph.form.p3.FV9_34FuntAussTolDataset;
 import com.saturn.ph.form.p3.FV9_34FuntAussTolForm;
 import com.saturn.ph.form.p3.FV9_34FuntNachBautForm;
 import com.saturn.ph.form.p3.FV9_34FuntionsmasseForm;
@@ -66,10 +68,12 @@ import com.saturn.ph.form.p4.FV9_42TerminubersichtZP5KTDataset;
 import com.saturn.ph.form.p4.FV9_43ProblemblattZP7KTDataset;
 import com.saturn.ph.form.p4.FV9_43TeileStat0SKTForm;
 import com.saturn.ph.form.p4.FV9_43TeileStatPVSKTForm;
+import com.saturn.ph.form.p4.FV9_43TeileStatVFFKTDataset;
 import com.saturn.ph.form.p4.FV9_43TeileStatVFFKTForm;
 import com.saturn.ph.form.p4.FV9_43TeilequalitaetZP7KTDataset;
 import com.saturn.ph.form.p4.FV9_43TerminubersichtZP7KTDataset;
 import com.saturn.ph.form.p4.FV9_44AggregateverfuegbarkeitDataset;
+import com.saturn.ph.form.p5.FV9_51KarosserStatDataset;
 import com.saturn.ph.form.p5.FV9_51KarosserStatForm;
 import com.saturn.ph.form.p5.FV9_51PrKarLacMonForm;
 import com.saturn.ph.form.p5.FV9_52LogistikkonzeptForm;
@@ -198,7 +202,8 @@ public class FormManager {
 		add(new FV9_22ErprobDauerForm());
 		add(new FV9_23FehlerabbaustatusDataset());
 		add(new FV9_23SoftwarefehlerentwicklungDataset());
-		add(new FV9_24StatusAEKOForm());
+//		add(new FV9_24StatusAEKOForm());
+		add(new FV9_24StatusAEKODataset());
 		add(new FV9_24AEKOUmsetzForm());
 
 		add(new FV9_31PrufMBCubForm());
@@ -208,7 +213,8 @@ public class FormManager {
 		add(new FV9_33ProblemblattDataset());
 		add(new FV9_34FuntionsmasseForm());
 		add(new FV9_34FuntNachBautForm());
-		add(new FV9_34FuntAussTolForm());
+	//	add(new FV9_34FuntAussTolForm());
+		add(new FV9_34FuntAussTolDataset());
 		add(new FV9_35AuditNoteZP8Form());
 		add(new FV9_35FehlerDenGewForm());
 		add(new FV9_35NachareitPunkForm());
@@ -238,7 +244,8 @@ public class FormManager {
 		add(new FV9_42ProblemblattZP5KTDataset());
 
 		add(new FV9_43TeilequalitaetZP7KTDataset());
-		add(new FV9_43TeileStatVFFKTForm());
+	//	add(new FV9_43TeileStatVFFKTForm());
+		add(new FV9_43TeileStatVFFKTDataset());
 		add(new FV9_43TeileStatPVSKTForm());
 		add(new FV9_43TeileStat0SKTForm());
 		add(new FV9_43TerminubersichtZP7KTDataset());
@@ -246,7 +253,8 @@ public class FormManager {
 
 		add(new FV9_44AggregateverfuegbarkeitDataset());
 
-		add(new FV9_51KarosserStatForm());
+	//	add(new FV9_51KarosserStatForm());
+		add(new FV9_51KarosserStatDataset());
 		add(new FV9_51PrKarLacMonForm());
 		add(new FV9_52LogistikkonzeptForm());
 

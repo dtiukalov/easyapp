@@ -412,19 +412,20 @@
 								<%} %>
 								</td>
 								<td>
-								<% if (!"".equals(fv9TopVSIN3.get(i))) { %>
-									<%=fv9TopVSIN3.get(i) %>
-								<%} else {%>
-									&nbsp;
-								<%}%>
-								</td>
-								<td>
 								<% if (!"".equals(fv9TopVSISWZ.get(i))) { %>
 									<%=fv9TopVSISWZ.get(i) %>
 								<%} else {%>
 									&nbsp;
 								<%} %>
 								</td>
+								<td>
+								<% if (!"".equals(fv9TopVSIN3.get(i))) { %>
+									<%=fv9TopVSIN3.get(i) %>
+								<%} else {%>
+									&nbsp;
+								<%}%>
+								</td>
+								
 								
 							</tr>
 							<%

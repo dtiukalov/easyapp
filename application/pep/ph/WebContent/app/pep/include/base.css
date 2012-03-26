@@ -1,10 +1,12 @@
 * {
 	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; 
 	MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial,宋体; COLOR: #000; LIST-STYLE-IMAGE: none; PADDING-TOP: 0px;
+	/*overflow-y: auto; overflow-x:hidden;*/
 }
 
 #container {
 	MARGIN: 0px; WIDTH: 1024px; HEIGHT: 760px;font-family:Arial; 
+	
 }
 #container #nr {
 	MARGIN: 0px auto; WIDTH: 1024px
@@ -38,7 +40,7 @@
 }
 
 #footer {
-	WIDTH: 1024px; HEIGHT: 30px;
+	WIDTH: 1024px; HEIGHT: 100px;
 	BORDER-TOP: #000099 2px solid;
 }
 #footer .ft {

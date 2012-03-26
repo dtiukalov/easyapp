@@ -284,7 +284,7 @@
 				chart.renderer.text(
 		                '<span style="font-size:12px;">KW</span>', 
 		               	20, 
-		                400
+		                375
 		            ).attr({
 		                zIndex: 6
 		            }).add();

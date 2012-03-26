@@ -142,7 +142,7 @@
 							color: 'white'
 						}
 					}, {
-						name: 'BK: 75% < Abweichung Toleranz < 100 ',
+						name: 'BK: 75% < Abweichung Toleranz < 100% ',
 						color: '#F9A700',
 						data: <%=fv9FunctionBK%>
 					}, {

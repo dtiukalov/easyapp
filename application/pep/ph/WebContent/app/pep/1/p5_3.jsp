@@ -41,6 +41,7 @@
 			} else {
 				sumIst = Web.getSumNumberListStr(form.get("fv9ZP8Numlst"));
 			}
+			
 		%>
 		<script type="text/javascript">
 		
@@ -75,12 +76,21 @@
 							fontWeight: 'bold'
 						}
 					},
-					categories: <%=kws%>//[5,6,7,8,9,10,11]  
+					categories: <%=kws%>
+					/*title: {
+						text: 'KW',
+						style: {
+							color: 'black',
+							fontSize:'16px'
+						}, 
+						align: 'middle'
+					}*/
 				},
 				yAxis: {
 					min:0,
 					lineWidth:1,
 					lineColor:'gray',
+					tickPixelInterval: 100,
 					tickWidth:1,
 					ticlColor:'gray',
 					tickPosition:'inside',
@@ -227,6 +237,14 @@
 		                radius: 3
 					}
 				}]
+			}, function(chart) { 
+				chart.renderer.text(
+		                '<span style="font-size:18px;">KW</span>', 
+		               	40, 
+		                460
+		            ).attr({
+		                zIndex: 6
+		            }).add();
 			});
 			
 			

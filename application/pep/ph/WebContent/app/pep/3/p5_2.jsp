@@ -14,19 +14,19 @@
 		<title><%=title %></title>
 		<style type="text/css">
 			.left{
-				width: 100px; height: 60px;float: left; margin: 20px 20px;
+				width: 120px; height: 60px; float: left; margin: 0px 5px; margin-left:50px;
 				vertical-align: middle;
 				font-size:14px;
 			}
 			.title{
-				width: 90px; height: 40px; float: left; margin: 0px 0px auto; text-align: center;vertical-align: middle;padding-top: 20px;
-				font-weight: bolder;color: white;
+				width: 120px; height: 40px; float: left; margin: 0px 0px auto; text-align: center;vertical-align: middle;padding-top: 20px;
+				font-weight: bolder;
 			}
 			.chart{
-				width: 800px; height: 100px; margin: 0px 0px auto; float: left;
+				width: 800px; height: 90px; margin: 0px 0px auto; float: left;
 			}
 			.last-chart {
-				width: 800px; height: 120px; margin: 0px 0px auto; float: left;
+				width: 800px; height: 110px; margin: 0px 0px auto; float: left;
 			}
 			.clear1{
 				width: 100%; height: 1px; margin: 0 auto; float: left;
@@ -104,7 +104,7 @@
 			temp3 = vffNum + pvsNum + osNum ;
 		}
 		
-		double totalWidth = 755.0;
+		double totalWidth = 747.0;
 	
 		Map<String,Double> lichenbeiPillarNum = Web.getLCBPillar(Web.getLCBNum(request,arr), arr, totalWidth);
 		
@@ -638,6 +638,14 @@
 					}
 
 					]
+				}, function(chart5) { 
+					chart5.renderer.text(
+			                '<span style="font-size:10px;">KW</span>', 
+			               	30, 
+			                75
+			            ).attr({
+			                zIndex: 6
+			            }).add();
 				});
 			});
 		</script>
@@ -648,41 +656,60 @@
 			<div id="top">
 				<div class="fl"><%=status_left %></div>
 				<div class="fr"><%=status_right %></div>
-				<h1><%=title %></h1>
+				<h1>
+					<%=title %>
+				</h1>
 			</div>
 			<div id="content">
+				<div style="float: right; width: 200px; font-size: 14px; font-weight: normal;">
+					<table>
+						<tr>
+							<td style="width: 15px; height: 15px; background-color: #CFD7D9;border: 1px solid;"></td>
+							<td>Fehl14px;erpunkte</td>
+						</tr>
+						<tr>
+							<td style="width: 15px; height: 15px; color: #99CC00;">----</td>
+							<td>Prognose</td>
+						</tr>
+						<tr>
+							<td style="width: 15px; height: 15px; background-color: white;border: 1px solid;"></td>
+							<td>Punkteziel</td>
+						</tr>
+					</table>
+				</div>
+				<div class="clear1">&nbsp;</div>
 				<div class="left">
-					<div class="title" style="border: solid black 1px;background-color: #003C65">Presswerk</div>
+					<div class="title" style="border: solid black 1px;background-color: #003C65;color: white;">Presswerk</div>
 				</div>
 				<div id="chart1" class="chart"></div>
 				<div class="clear1">&nbsp;</div>
 				
 				<div class="left">
-					<div class="title" style="border: solid black 1px;background-color: #AED4F8;">Karosseriebau</div>
+					<div class="title" style="border: solid black 1px;background-color: #AED4F8;color: black;">Karosseriebau</div>
 				</div>
 				<div id="chart2" class="chart"></div>
 				<div class="clear1">&nbsp;</div>
 				
 				<div class="left">
-					<div class="title" style="border: solid black 1px;background-color: #8994A0">Lackiererei</div>
+					<div class="title" style="border: solid black 1px;background-color: #8994A0;color: white;">Lackiererei</div>
 				</div>
 				<div id="chart3" class="chart"></div>
 				<div class="clear1">&nbsp;</div>
 				
 				<div class="left">
-					<div class="title" style="color:black;border: solid black 1px;background-color: #CFD7D9">Montage</div>
+					<div class="title" style="border: solid black 1px;background-color: #CFD7D9;color: black;">Montage</div>
 				</div>
 				<div id="chart4" class="chart"></div>
 				<div class="clear1">&nbsp;</div>
 				
 				<div class="left">
-					<div class="title" style="border: solid black 1px;background-color: #3366FF">Kaufteile</div>
+					<div class="title" style="border: solid black 1px;background-color: #3366FF;color: white;">Kaufteile</div>
 				</div>
 				<div id="chart5" class="last-chart"></div>
 				<div class="clear1">&nbsp;</div>
 				
 				<div id="meilsteinouter" style="width: 800px;">
-				<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 181px; text-align: center; overflow: hidden; ">
+				<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 220px; text-align: center; overflow: hidden; ">
 					<div style=" width: <%=value0 %>px; height: 30px; float: left; background-color: white; vertical-align: bottom; padding-top: 5px;"><span style="color: white;"></span></div>
 
 					<div style=" width: <%=value1 %>px; height: 30px; float: left; background-color: #99FF99; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">VFF</span></div>

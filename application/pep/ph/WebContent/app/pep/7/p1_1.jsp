@@ -32,7 +32,7 @@
 	private static String getContent(Object content) {
 		String fv9Content = "";
 		if (!"".equals((String) content) && content != null) {
-			fv9Content = (String) content;
+			fv9Content = Web.replaceSpecial((String) content);
 		} 
 		return fv9Content;
 	}

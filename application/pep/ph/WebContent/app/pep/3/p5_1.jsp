@@ -46,7 +46,8 @@
 							y:25,
 							//x:-6,
 							style: {
-								color:'black'
+								color:'black',
+								fontSize:'12px'
 							}
 						},
 						categories: <%=fv9KWNo%>
@@ -92,7 +93,7 @@
 							dataLabels: {
 								enabled: true,
 								style : {
-									fontSize:'10px'
+									fontSize:'12px'
 								},
 								color: 'black',
 								formatter: function() {
@@ -104,7 +105,11 @@
 							}
 						}
 					},
-				    series: [{
+				    series: [ {
+						name: 'Audit-Erstangebot',
+						data: <%=fv9AuditErstang%>,
+						color: '#AED4F8'
+					}, {
 						type: 'line',
 						name: 'Konzernziel Audit mit NA',
 						data: <%=fv9KonzAuditMitNA%>,
@@ -139,10 +144,6 @@
 							}
 						}
 					}, {
-						name: 'Audit-Erstangebot',
-						data: <%=fv9AuditErstang%>,
-						color: '#AED4F8'
-					}, {
 						type: 'scatter',
 						name: 'Audit-Zweitangebot',
 						data: <%=fv9AuditZweit%>,
@@ -163,6 +164,14 @@
 					%>
 					<%=js_str%>
 					]
+				}, function(chart) { 
+					chart.renderer.text(
+			                '<span style="font-size:12px;">KW</span>', 
+			               	10, 
+			                435
+			            ).attr({
+			                zIndex: 6
+			            }).add();
 				});
 			});
 			

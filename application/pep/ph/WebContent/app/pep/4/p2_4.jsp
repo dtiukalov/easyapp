@@ -258,9 +258,7 @@
 				<h1><%=title %></h1>
 			</div>
 			<div id="content">
-				<div id="subtitle">
-					<h1>Anzahl Teile nach TEVON</h1>
-				</div>
+				
 				<div id="left">
 					<div id="chart"></div>
 					<%

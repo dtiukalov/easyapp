@@ -16,7 +16,7 @@ public class FV9_24StatusAEKOForm extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/2/p4_1.jsp";
+		return "/app/pep/2/FV9_24StatusAEKO.jsp";
 	}
 
 	@Override

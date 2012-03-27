@@ -19,7 +19,7 @@ public class FV9_51PrKarLacMonForm extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/5/p1_1.jsp";
+		return "/app/pep/5/FV9_51PrKarLacMon.jsp";
 	}
 
 	@Override

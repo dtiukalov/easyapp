@@ -15,7 +15,7 @@ public class FV9_21PFreigabeForm extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/2/p1_2.jsp";
+		return "/app/pep/2/FV9_21PFreigabe.jsp";
 	}
 
 	@Override

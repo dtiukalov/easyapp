@@ -16,7 +16,7 @@ public class FV9_32FugenRadForm extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/3/p2_1.jsp";
+		return "/app/pep/3/FV9_32FugenRad.jsp";
 	}
 
 	@Override

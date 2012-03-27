@@ -15,7 +15,7 @@ public class FV9_12AktionspunkteForm extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/1/p2_1.jsp";
+		return "/app/pep/1/FV9_12Aktionspunkte.jsp";
 	}
 
 	@Override

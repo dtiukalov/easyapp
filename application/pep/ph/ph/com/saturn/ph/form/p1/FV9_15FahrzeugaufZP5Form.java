@@ -15,7 +15,7 @@ public class FV9_15FahrzeugaufZP5Form extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/1/p5_2.jsp";
+		return "/app/pep/1/FV9_15FahrzeugaufZP5.jsp";
 	}
 
 	@Override

@@ -17,7 +17,7 @@ public class FV9_22ErprobDauerForm extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/2/p2_1.jsp";
+		return "/app/pep/2/FV9_22ErprobDauer.jsp";
 	}
 
 	@Override

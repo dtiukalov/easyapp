@@ -17,7 +17,7 @@ public class FV9_52LogistikkonzeptForm extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/5/p2_1.jsp";
+		return "/app/pep/5/FV9_52Logiskonzept.jsp";
 	}
 
 	@Override

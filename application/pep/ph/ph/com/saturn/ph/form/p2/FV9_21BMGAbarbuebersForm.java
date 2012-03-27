@@ -17,7 +17,7 @@ public class FV9_21BMGAbarbuebersForm extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/2/p1_7.jsp";
+		return "/app/pep/2/FV9_21BMGAbarbuebers.jsp";
 	}
 
 	@Override

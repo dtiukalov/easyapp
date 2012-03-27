@@ -25,7 +25,7 @@ public class FV9_71ReifegradsForm extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/7/p1_1.jsp";
+		return "/app/pep/7/FV9_71Reifegrads.jsp";
 	}
 
 	@Override

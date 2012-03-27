@@ -16,7 +16,7 @@ public class FV9_36Vorch2TagForm extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/3/p6_1.jsp";
+		return "/app/pep/3/FV9_36Vorch2Tag.jsp";
 	}
 
 	@Override

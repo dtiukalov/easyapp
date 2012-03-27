@@ -16,7 +16,7 @@ public class FV9_31PrufMBCubForm extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/3/p1_1.jsp";
+		return "/app/pep/3/FV9_31PrufMBCub.jsp";
 	}
 
 	@Override

@@ -18,7 +18,7 @@ public class FV9_42TeileStatVFFKTForm extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/4/p2_2.jsp";
+		return "/app/pep/4/FV9_42TeileStatVFF.jsp";
 	}
 
 	@Override

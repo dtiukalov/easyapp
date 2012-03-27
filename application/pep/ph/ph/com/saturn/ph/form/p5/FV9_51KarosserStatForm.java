@@ -17,7 +17,7 @@ public class FV9_51KarosserStatForm extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/5/p1_2.jsp";
+		return "/app/pep/5/FV9_51KarosserStat.jsp";
 	}
 
 	@Override

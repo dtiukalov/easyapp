@@ -16,7 +16,7 @@ public class FV9_21PBFreigBMGForm extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/2/p1_1.jsp";
+		return "/app/pep/2/FV9_21PBFreigBMG.jsp";
 	}
 
 	@Override

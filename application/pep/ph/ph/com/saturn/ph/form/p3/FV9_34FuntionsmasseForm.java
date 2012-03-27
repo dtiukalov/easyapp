@@ -16,7 +16,7 @@ public class FV9_34FuntionsmasseForm extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/3/p4_1.jsp";
+		return "/app/pep/3/FV9_34Funtionsmasse.jsp";
 	}
 
 	@Override

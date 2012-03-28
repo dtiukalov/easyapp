@@ -492,6 +492,31 @@ public class DateUtils {
 		return result;
 	}
 	
+
+	public static String getDateAddMonth(String dateStr, int month, String flag){
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date();
+		try {
+			date = sdf.parse(dateStr);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        Calendar calender = Calendar.getInstance();
+        calender.setTime(date);
+        if ("+".equals(flag)) {
+        	calender.add(Calendar.MONTH, month);
+        }
+        if ("-".equals(flag)) {
+        	calender.add(Calendar.MONTH, -month);
+        }
+        
+        sdf.format(calender.getTime());
+        return sdf.format(calender.getTime()).toString();
+
+	}
+	
 	 /**
 	  * 比较两个日期所差的天数
 	  */
@@ -515,6 +540,63 @@ public class DateUtils {
 		 
 		return new Long(day).intValue();
 	}
+	 
+	 /**
+	  * 比较两个日期所差的月份
+	  */
+	public static int getTwoDateSepMonths(String datestr1, String datestr2){      
+		Date date1 = new Date();
+		Date date2 = new Date();
+		int iMonth = 0;      
+		int flag = 0;    
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			date1 = sdf.parse(datestr1);
+			date2 = sdf.parse(datestr2);
+   
+			Calendar objCalendarDate1 = Calendar.getInstance();      
+			objCalendarDate1.setTime(date1);      
+			Calendar objCalendarDate2 = Calendar.getInstance();      
+			objCalendarDate2.setTime(date2);      
+			if (objCalendarDate2.equals(objCalendarDate1))      
+				return 0;      
+			if (objCalendarDate1.after(objCalendarDate2)){      
+				Calendar temp = objCalendarDate1;      
+				objCalendarDate1 = objCalendarDate2;      
+				objCalendarDate2 = temp;      
+			}      
+			if (objCalendarDate2.get(Calendar.DAY_OF_MONTH) < objCalendarDate1.get(Calendar.DAY_OF_MONTH))      
+				flag = 1;      
+			if (objCalendarDate2.get(Calendar.YEAR) > objCalendarDate1.get(Calendar.YEAR))      
+				iMonth = ((objCalendarDate2.get(Calendar.YEAR) - objCalendarDate1.get(Calendar.YEAR))      
+						* 12 + objCalendarDate2.get(Calendar.MONTH) - flag)      
+						- objCalendarDate1.get(Calendar.MONTH);      
+			else     
+				iMonth = objCalendarDate2.get(Calendar.MONTH)      
+						- objCalendarDate1.get(Calendar.MONTH) - flag;      
+		} catch (ParseException e1) {
+			e1.printStackTrace();   
+		} catch (Exception e){      
+			e.printStackTrace();      
+		}      
+		return iMonth;      
+	 }    
 
+	/*
+	 * 判断一个日期在上旬、下旬
+	 * 输入：字符串-日期(yyyy-MM-dd)
+	 * 输出：1 - 上旬   默认为上旬
+	 * 输出：2 - 中旬
+	 */
+	public static int getTenDays(String datestr) {
+		int day = Integer.parseInt(datestr.split("-")[2]);
+		if (day >= 1 && day <= 15) 
+			return 1;
+		if (day >= 16 && day <= 31) 
+			return 2;
+		
+		return 1;
+	}
+	
 	
 }

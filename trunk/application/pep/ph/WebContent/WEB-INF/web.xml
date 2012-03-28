@@ -31,7 +31,7 @@
 	<context-param>
 		<description>tc路径</description>
 		<param-name>url</param-name>
-		<param-value>http://192.168.214.128:7001/tc</param-value>
+		<param-value>http://localhost:7001/tc</param-value>
 	</context-param>
 	
 	<listener>

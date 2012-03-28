@@ -499,3 +499,14 @@ a:hover {
 	position:absolute;
 	z-index: 9999;
 }
+.GTaska {
+	height: 19px;
+	background-color: yellow;
+	background: url(../images/bg.gif) no-repeat 0 0;
+	font-size: 9px;
+	font-weight: bolder;
+	text-align: center;
+	font-weight: bold;
+	line-height: 19px;
+	color: #FFF;
+}

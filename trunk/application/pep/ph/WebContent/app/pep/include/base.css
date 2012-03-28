@@ -4,12 +4,16 @@
 	/*overflow-y: auto; overflow-x:hidden;*/
 }
 
+body {
+	overflow: hidden;
+}
+
 #container {
-	MARGIN: 0px; WIDTH: 1024px; HEIGHT: 760px;font-family:Arial; 
+	MARGIN: 0px; WIDTH: 1000px; HEIGHT: 760px;font-family:Arial; overflow: hidden; 
 	
 }
 #container #nr {
-	MARGIN: 0px auto; WIDTH: 1024px
+	MARGIN: 0px auto; WIDTH: 1000px
 }
 #container #top {
 	BORDER-BOTTOM: #000099 2px solid; height:100px; OVERFLOW: hidden; 
@@ -19,7 +23,7 @@
 }
 #content {
 	margin: 0px;
-	WIDTH: 1024px; HEIGHT: 580px; OVERFLOW: hidden;
+	WIDTH: 1000px; HEIGHT: 580px; OVERFLOW: hidden;
 }
 #no-state {
 	position:absolute; top:10px; height:14px;bottom:0px; right:30px;
@@ -40,11 +44,11 @@
 }
 
 #footer {
-	WIDTH: 1024px; HEIGHT: 100px;
+	WIDTH: 1000px; HEIGHT: 50px;
 	BORDER-TOP: #000099 2px solid;
 }
 #footer .ft {
-	MARGIN: 7px auto; WIDTH: 1024px; HEIGHT: 30px
+	MARGIN: 7px auto; WIDTH: 1000px; HEIGHT: 30px
 }
 #footer .ztu {
 	WIDTH: 100px; DISPLAY: inline; FLOAT: left;margin-left:20px;height:50px;
@@ -417,7 +421,7 @@ a:hover {
 
 
 .bj {
-	height: 750px;
+	height: 740px;
 	width: 1000px;
 	margin-right: auto;
 	margin-left: auto;

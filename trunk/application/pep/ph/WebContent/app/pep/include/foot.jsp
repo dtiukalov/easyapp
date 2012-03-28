@@ -42,7 +42,6 @@ $(document).ready(function(){
 </script> -->
 <div id="footer">
 	<div class="foot">
-		<!-- <div class="lanst">&nbsp;</div> -->
 		<div class="lanstk"><%=oraganization %></div>
 		<div class="clear"></div>
     </div>
@@ -79,8 +78,8 @@ $(document).ready(function(){
 		    }
 		    %>
 	    </div>
-	    
-	    <div class="clear"></div>
+	    <!--  <div class="clear" style="background-color: green;"></div> -->
+	   
     </div>
 </div>
-<div class="clear"></div>
+<!-- <div class="clear" style="background-color: red;"></div> -->

@@ -168,7 +168,7 @@
 					chart.renderer.text(
 			                '<span style="font-size:12px;">KW</span>', 
 			               	10, 
-			                435
+			                445
 			            ).attr({
 			                zIndex: 6
 			            }).add();
@@ -205,7 +205,7 @@
 				double sum = value0 + value1 + value2 + value3 + value4;
 				%>
 				<div id="meilsteinouter" style="width: 1000px;">
-					<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 35px; text-align: center; overflow: hidden; ">
+					<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 23px; text-align: center; overflow: hidden; ">
 						<div style=" width: <%=value0 %>px; height: 30px; float: left; background-color: white; vertical-align: bottom; padding-top: 5px;"><span style="color: white;"></span></div>
 						<div style=" width: <%=value1 %>px; height: 30px; float: left; background-color: #99FF99; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">VFF</span></div>
 						<div style=" width: <%=value2 %>px; height: 30px; float: left; background-color: #33CC33; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">PVS</span></div>

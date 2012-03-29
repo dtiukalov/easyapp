@@ -30,7 +30,7 @@
 			String url = (String)indexes.get(i);
 			System.out.println(url);     
 			%>
-				<iframe scrolling="no" frameborder="0" src="<%=request.getContextPath()%><%=url %>" style="width:970px;height:750px;"></iframe>
+				<iframe scrolling="no" frameborder="0" src="<%=request.getContextPath()%><%=url %>" style="width:1000px;height:750px;"></iframe>
 			<%
 		}
 	%>

@@ -52,17 +52,19 @@
 				int flag = DateUtils.getTenDays(MLDate);
 				if (flag == 1) {
 					//上旬-菱形处于月前的线上
-					left = marginLeft + MLIndex*(tdWidth+1.5) - tdWidth/2;
+					left = marginLeft + MLIndex*(tdWidth+1) - tdWidth/2;
 				}
 				if (flag == 2) {
 					//下旬-菱形处于月末的线上
-					left = marginLeft + MLIndex*(tdWidth+1.5) + tdWidth/2;
+					left = marginLeft + MLIndex*(tdWidth+1) + tdWidth/2;
 				}
 				
-				div_class += "<div style=\"width: " + tdWidth + "px; height:100px; position: absolute;left: " + left + "px;top: 410px;\">";
-				div_class += "	<div style=\"width: 100%; float: left; text-align:center; font-size:10px;\">" + ML + "</div>";
-				div_class += "	<div style=\"width: 100%; float: left;\">";
-				div_class += "		<img src=\"" + request.getContextPath() + "/app/pep/images/bg.gif\" width=\"" + tdWidth + "\" height=\""+tdWidth+"\">";
+				div_class += "<div style=\"width: " + tdWidth + "px; height:100px; text-align: center; position: absolute;left: " + left + "px;top: 375px; font-size: 12px; font-weight: bolder;\">";
+				div_class += "	<div style=\"width: 100%; height:50px; float: left; font-size:12px; vertical-align: bottom;\">" + ML + "</div>";
+				div_class += "	<div style=\"width: 100%; height:22px; float: left; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" 
+									+ request.getContextPath() 
+									+ "/app/pep/images/bg.gif', sizingMethod='scale'); \">";
+				div_class += "		<span style=\"color:white; font-size:10px; vertical-align: bottom;\">"+MLOrg+"</span>";
 				div_class += "	</div>";
 				div_class += "</div>";
 			}
@@ -172,7 +174,7 @@
 			<div id="top">
 				<div class="fl"><%=status_left %></div>
 				<div class="fr"><%=status_right %></div>
-				<h1><%=title %>11111111</h1>
+				<h1><%=title %></h1>
 			</div>
 			<div id="content">
 			<%
@@ -189,7 +191,11 @@
 			int PMIndex=0, PPIndex=0, PDIndex=0, PFIndex=0, KEIndex=0, DEIndex = 0;
 			int DFExtIndex=0, DFIntIndex=0, BFIndex=0, LFIndex=0, VFFIndex=0, PVSIndex = 0;
 			int OSIndex=0, SOPIndex=0, MEIndex = 0;
-
+			
+			int currentIndex = 0;
+			String currentDate = DateUtils.getSysDate();
+			System.out.println("currentDate = " + currentDate);
+			
 			if (tdNum > 0) {
 				double tdWidth = 780.0/tdNum;
 				System.out.println("tdWidth = " + tdWidth);
@@ -233,6 +239,10 @@
 						SOPIndex = n;
 					if (getMLIndex(fv9MEMLDate, temp_date))
 						MEIndex = n;
+					
+					if (getMLIndex(currentDate, temp_date)) {
+						currentIndex = n;
+					}
 				}
 
 				year[tdNum] = 1900; //添加最后一年的信息，用来比较
@@ -265,14 +275,15 @@
 				}
 				
 				int month1 = 0; //PF-LF
-				int month2 = 0; //LF-SOP
+				int month2 = 0; //LF-SOP (如果SOP在下旬，多加一个月)
 				if (!"1900-01-01 00:00:00".equals(fv9PFMLDate) &&
 						!"1900-01-01 00:00:00".equals(fv9LFMLDate)) {
 					month1 = DateUtils.getTwoDateSepMonths(fv9PFMLDate, fv9LFMLDate);
 				}
 				if (!"1900-01-01 00:00:00".equals(fv9LFMLDate) &&
 						!"1900-01-01 00:00:00".equals(fv9SOPMLDate)) {
-					month2 = DateUtils.getTwoDateSepMonths(fv9LFMLDate, fv9SOPMLDate);
+					month2 = DateUtils.getTwoDateSepMonths(fv9LFMLDate, fv9SOPMLDate) + 1;
+					
 				}
 				
 				
@@ -280,10 +291,12 @@
 				
 			%>
 				<table style="border: 1px solid; width: 1000px; height: 300px; margin: 100px 0px auto; 
-				font-size: 9px; text-align: center; padding: 0px;">
+				font-size: 9px; text-align: center; padding: 0px;
+				border-collapse:collapse; border:none;">
 					<!-- 时间轴 - 年 -->
 					<tr>
-						<td style="width: 180px; height: 78px; border: 1px solid;" 
+						<td style="width: 180px; height: 78px; border: 1px solid; 
+							text-align: left; font-size: 18px; font-weight: bolder;"  
 							rowspan="2">
 							Projekt
 						</td>
@@ -291,7 +304,8 @@
 					for (int l=0; l<yearList.size(); l++) {
 						YearInfo y = (YearInfo)yearList.get(l);
 					%>
-						<td style="height:48px;border: 1px solid;" 
+						<td style="height:48px;border: 1px solid; 
+							font-size: 15px; font-weight: bolder; background-color: #FFFFC0;" 
 							colspan="<%=y.cols%>">
 						<%=y.year %>
 						</td>
@@ -305,8 +319,22 @@
 					<%
 					for (int m=0; m<month.length; m++) {
 					%>
-						<td style="width: <%=tdWidth%>; height:30px; border: 1px solid;">
+						<td style="width: <%=tdWidth%>; height:30px; 
+							border: 1px solid; background-color: #FFFFC0;">
 							<%=month[m]%>
+					<%
+					//当前月上加红线
+						if (m == currentIndex) {
+							%>
+							<div style="width: 2px; background-color: #FF00FF; 
+								height: 195px; 
+								position: absolute;
+								margin-left:<%=tdWidth/2%>px;">
+							</div>
+							<%
+						}
+					
+					%>
 						</td>
 						
 					<%
@@ -317,14 +345,30 @@
 					
 					<!-- 里程碑 -->
 					<tr>
-						<td style="width: 180px; height: 140px; border: 1px solid;" rowspan="3">
+						<td style="width: 180px; height: 110px; border: 1px solid;
+							text-align: left; font-size: 18px; font-weight: bolder; overflow: hidden;" 
+							rowspan="3">
 							<%=project %>
 						</td>
 					<%
 					for (int m=0; m<month.length; m++) {
-						
+						//一年的最后一个月用黑线表示
+						boolean flag = false;
+						if (month[m]==12) 
+							flag = true; 
+							 
 					%>
-						<td style="width: <%=tdWidth%>px; height: 107px;border: 1px solid;">
+						<td style="width: <%=tdWidth%>px; height: 80px;
+						border-top: 1px solid white;
+						border-left: 1px solid gray; 
+						<%
+						if (flag) {
+							out.print("border-right: 1px solid;");
+						} else {
+							out.print("border-right: 1px solid gray;");
+						}
+						%>
+						">
 							&nbsp;&nbsp;&nbsp;&nbsp;
 						</td>	
 
@@ -340,19 +384,27 @@
 					<%
 						for (int m=0; m<PFIndex; m++) {
 					%>
-						<td style="width: <%=tdWidth%>px; height: 16px;border: 1px solid;">
+						<td style="width: <%=tdWidth%>px; height: 16px;
+						border-top: 1px solid white;
+						border-bottom: 1px solid white; 
+						border-left: 1px solid gray; 
+						border-right: 1px solid gray;">
 						
 						</td>
 					<%
 						}
 					%>
-						<td colspan="<%=month1%>" style="background-color: #B0B0B0; color: white; border: 1px solid;"><%=month1 %>&nbsp;Mo</td>
-						<td colspan="<%=month2%>" style="background-color: #808080; color: white; border: 1px solid;"><%=month2 %>&nbsp;Mo</td>
+						<td colspan="<%=month1%>" style="background-color: #B0B0B0; color: white; border: 1px solid; font-size: 12px; font-weight: bolder;"><%=month1 %>&nbsp;Mo</td>
+						<td colspan="<%=month2%>" style="background-color: #808080; color: white; border: 1px solid; font-size: 12px; font-weight: bolder;"><%=month2 %>&nbsp;Mo</td>
 					<%
 						int last = month.length - PFIndex - month1 - month2;
 						for (int m=0; m<last; m++) {
 					%>
-						<td style="width: <%=tdWidth%>px; height: 16px;border: 1px solid;">
+						<td style="width: <%=tdWidth%>px; height: 16px;
+						border-top: 1px solid white;
+						border-bottom: 1px solid white; 
+						border-left: 1px solid gray; 
+						border-right: 1px solid gray;">
 						
 						</td>
 					<%
@@ -366,8 +418,20 @@
 					<tr>
 					<%
 					for (int m=0; m<month.length; m++) {
+						//一年的最后一个月用黑线表示
+						boolean flag = false;
+						if (month[m]==12) 
+							flag = true; 
 					%>
-						<td style="width: <%=tdWidth%>; height:17px; border: 1px solid;">
+						<td style="width: <%=tdWidth%>; height:14px; border: 1px solid gray;
+					<%
+						if (flag) {
+							out.print("border-right: 1px solid;");
+						} else {
+							out.print("border-right: 1px solid gray;");
+						}
+					%>
+						">
 							
 						</td>
 					<%
@@ -378,7 +442,7 @@
 				</table>
 				<!-- 开始写入里程碑，计算绝对位置 -->
 			<%
-			double marginLeft = 136.0;
+			double marginLeft = 180.0;
 			
 			String PMDiv = "", PPDiv = "", PDDiv = "", PFDiv = "";
 			String KEDiv = "", DEDiv = "", DFExtDiv = "", DFIntDiv = "";
@@ -390,120 +454,121 @@
 			//如果一个里程碑与前面的里程碑在同一个月内，那么不显示后一个里程碑
 			//PM
 			if (PMIndex != PPIndex) {
-				PMDiv = getDiv(request, "PM", fv9PMMLDate, fv9PMMLOrg, PMIndex, tdWidth, marginLeft);
+				PMDiv = getDiv(request, "&nbsp;<br>&nbsp;<br>PM", fv9PMMLDate, fv9PMMLOrg, PMIndex, tdWidth, marginLeft);
 			} else {
-				PMDiv = getDiv(request, "PM<br>PP", fv9PMMLDate, fv9PMMLOrg, PMIndex, tdWidth, marginLeft);
+				PMDiv = getDiv(request, "PM<br>nbsp;<br>PP", fv9PMMLDate, fv9PMMLOrg, PMIndex, tdWidth, marginLeft);
 			}
 			//PP
 			if (PPIndex != PDIndex && PPIndex != PMIndex) {
 				//不与后面的里程碑在相同月份
-				PPDiv = getDiv(request, "PP", fv9PPMLDate, fv9PPMLOrg, PPIndex, tdWidth, marginLeft);
+				PPDiv = getDiv(request, "sp;<br>&nbsp;<br>PP", fv9PPMLDate, fv9PPMLOrg, PPIndex, tdWidth, marginLeft);
 			} else if (PPIndex == PMIndex){
 				//与前面里程碑在相同月份
 				PPDiv = "";
 			} else {
 				//其他情况-前后里程碑在同一月份内
-				PPDiv = getDiv(request, "PP<br>PD", fv9PPMLDate, fv9PPMLOrg, PPIndex, tdWidth, marginLeft);
+				PPDiv = getDiv(request, "PP<br>&nbsp;<br>PD", fv9PPMLDate, fv9PPMLOrg, PPIndex, tdWidth, marginLeft);
 			}
 			//PD
 			if (PDIndex != PFIndex && PDIndex != PPIndex) {
-				PDDiv = getDiv(request, "PD", fv9PDMLDate, fv9PDMLOrg, PDIndex, tdWidth, marginLeft);
+				PDDiv = getDiv(request, "&nbsp;<br>&nbsp;<br>PD", fv9PDMLDate, fv9PDMLOrg, PDIndex, tdWidth, marginLeft);
 			} else if (PDIndex == PPIndex) {
 				PDDiv = "";
 			} else {
-				PDDiv = getDiv(request, "PD<br>PF", fv9PDMLDate, fv9PDMLOrg, PDIndex, tdWidth, marginLeft);
+				PDDiv = getDiv(request, "PD<br>&nbsp;<br>PF", fv9PDMLDate, fv9PDMLOrg, PDIndex, tdWidth, marginLeft);
 			}
 			//PF
 			if (PFIndex != KEIndex && PFIndex != PDIndex) {
-				PFDiv = getDiv(request, "PF", fv9PFMLDate, fv9PFMLOrg, PFIndex, tdWidth, marginLeft);
+				PFDiv = getDiv(request, "&nbsp;<br>&nbsp;<br>PF", fv9PFMLDate, fv9PFMLOrg, PFIndex, tdWidth, marginLeft);
 			} else if (PFIndex == PDIndex) {
 				PFDiv = "";
 			} else {
-				PFDiv = getDiv(request, "PF<br>KE", fv9PFMLDate, fv9PFMLOrg, PFIndex, tdWidth, marginLeft);
+				PFDiv = getDiv(request, "PF<br>&nbsp;<br>KE", fv9PFMLDate, fv9PFMLOrg, PFIndex, tdWidth, marginLeft);
 			}
 			//KE
 			if (KEIndex != DEIndex && KEIndex != PFIndex) {
-				KEDiv = getDiv(request, "KE", fv9KEMLDate, fv9KEMLOrg, KEIndex, tdWidth, marginLeft);
+				KEDiv = getDiv(request, "&nbsp;<br>&nbsp;<br>KE", fv9KEMLDate, fv9KEMLOrg, KEIndex, tdWidth, marginLeft);
 			} else if (KEIndex == PFIndex) {
 				KEDiv = "";
 			} else {
-				KEDiv = getDiv(request, "KE<br>DE", fv9KEMLDate, fv9KEMLOrg, KEIndex, tdWidth, marginLeft);
+				KEDiv = getDiv(request, "KE<br>&nbsp;<br>DE", fv9KEMLDate, fv9KEMLOrg, KEIndex, tdWidth, marginLeft);
 			}
 			//DE
 			if (DEIndex != DFExtIndex && DEIndex != KEIndex) {
-				DEDiv = getDiv(request, "DE", fv9DEMLDate, fv9DEMLOrg, DEIndex, tdWidth, marginLeft);
+				DEDiv = getDiv(request, "&nbsp;<br>&nbsp;<br>DE", fv9DEMLDate, fv9DEMLOrg, DEIndex, tdWidth, marginLeft);
 			} else if (DEIndex == KEIndex) {
 				DEDiv = "";
 			} else {
-				DEDiv = getDiv(request, "DE<br>DFExt", fv9DEMLDate, fv9DEMLOrg, DEIndex, tdWidth, marginLeft);
+				DEDiv = getDiv(request, "DE<br>&nbsp;<br>DF<span style=\"font-size:8px;\">Ext</span>", fv9DEMLDate, fv9DEMLOrg, DEIndex, tdWidth, marginLeft);
 			}
 			//DFExt
 			if (DFExtIndex != DFIntIndex && DFExtIndex != DEIndex) {
-				DFExtDiv = getDiv(request, "DFExt", fv9DFExtMLDate, fv9DFExtMLOrg, DFExtIndex, tdWidth, marginLeft);
+				DFExtDiv = getDiv(request, "&nbsp;<br>&nbsp;<br>DF<span style=\"font-size:8px;\">Ext</span>", fv9DFExtMLDate, fv9DFExtMLOrg, DFExtIndex, tdWidth, marginLeft);
 			} else if (DFExtIndex == DEIndex) {
 				DFExtDiv = "";
 			} else {
-				DFExtDiv = getDiv(request, "DFExt<br>DFInt", fv9DFExtMLDate, fv9DFExtMLOrg, DFExtIndex, tdWidth, marginLeft);
+				DFExtDiv = getDiv(request, "DFExt<br>&nbsp;<br>DF<span style=\"font-size:8px;\">Int</span>", fv9DFExtMLDate, fv9DFExtMLOrg, DFExtIndex, tdWidth, marginLeft);
 			}
 			//DFInt
 			if (DFIntIndex != DFExtIndex && DFIntIndex != BFIndex) {
-				DFIntDiv = getDiv(request, "DFInt", fv9DFIntMLDate, fv9DFIntMLOrg, DFIntIndex, tdWidth, marginLeft);
+				DFIntDiv = getDiv(request, "&nbsp;<br>&nbsp;<br>DF<span style=\"font-size:8px;\">Int</span>", fv9DFIntMLDate, fv9DFIntMLOrg, DFIntIndex, tdWidth, marginLeft);
 			} else if (DFIntIndex == DFExtIndex) {
 				DFIntDiv = "";
 			} else {
-				DFIntDiv = getDiv(request, "DFInt<br>BF", fv9DFIntMLDate, fv9DFIntMLOrg, DFIntIndex, tdWidth, marginLeft);
+				DFIntDiv = getDiv(request, "DFInt<br>&nbsp;<br>BF", fv9DFIntMLDate, fv9DFIntMLOrg, DFIntIndex, tdWidth, marginLeft);
 			}
 			//BF
 			if (BFIndex != LFIndex && BFIndex != DFIntIndex) {
-				BFDiv = getDiv(request, "BF", fv9BFMLDate, fv9BFMLOrg, BFIndex, tdWidth, marginLeft);
+				BFDiv = getDiv(request, "&nbsp;<br>&nbsp;<br>BF", fv9BFMLDate, fv9BFMLOrg, BFIndex, tdWidth, marginLeft);
 			} else if (BFIndex == DFIntIndex) {
 				BFDiv = "";
 			} else {
-				BFDiv = getDiv(request, "BF<br>LF", fv9BFMLDate, fv9BFMLOrg, BFIndex, tdWidth, marginLeft);
+				BFDiv = getDiv(request, "BF<br>&nbsp;<br>LF", fv9BFMLDate, fv9BFMLOrg, BFIndex, tdWidth, marginLeft);
 			}
 			//LF
 			if (LFIndex != VFFIndex && LFIndex != BFIndex) {
-				LFDiv = getDiv(request, "LF", fv9LFMLDate, fv9LFMLOrg, LFIndex, tdWidth, marginLeft);
+				LFDiv = getDiv(request, "&nbsp;<br>&nbsp;<br>LF", fv9LFMLDate, fv9LFMLOrg, LFIndex, tdWidth, marginLeft);
 			} else if (LFIndex == BFIndex) {
 				LFDiv = "";
 			} else {
-				LFDiv = getDiv(request, "LF<br>VFF", fv9LFMLDate, fv9LFMLOrg, LFIndex, tdWidth, marginLeft);
+				LFDiv = getDiv(request, "LF<br>&nbsp;<br>VFF", fv9LFMLDate, fv9LFMLOrg, LFIndex, tdWidth, marginLeft);
 			}
 			//VFF
 			if (VFFIndex != PVSIndex && VFFIndex != LFIndex) {
-				VFFDiv = getDiv(request, "VFF", fv9VFFMLDate, fv9VFFMLOrg, VFFIndex, tdWidth, marginLeft);
+				VFFDiv = getDiv(request, "&nbsp;<br>&nbsp;<br>VFF", fv9VFFMLDate, fv9VFFMLOrg, VFFIndex, tdWidth, marginLeft);
 			} else if (LFIndex == BFIndex) {
 				VFFDiv = "";
 			} else {
-				VFFDiv = getDiv(request, "VFF<br>PVS", fv9VFFMLDate, fv9VFFMLOrg, VFFIndex, tdWidth, marginLeft);
+				VFFDiv = getDiv(request, "VFF<br>&nbsp;<br>PVS", fv9VFFMLDate, fv9VFFMLOrg, VFFIndex, tdWidth, marginLeft);
 			}
 			//PVS
 			if (PVSIndex != OSIndex && PVSIndex != VFFIndex) {
-				PVSDiv = getDiv(request, "PVS", fv9PVSMLDate, fv9PVSMLOrg, PVSIndex, tdWidth, marginLeft);
+				PVSDiv = getDiv(request, "&nbsp;<br>&nbsp;<br>PVS", fv9PVSMLDate, fv9PVSMLOrg, PVSIndex, tdWidth, marginLeft);
 			} else if (PVSIndex == VFFIndex) {
 				PVSDiv = "";
 			} else {
-				PVSDiv = getDiv(request, "PVS<br>0-S", fv9PVSMLDate, fv9PVSMLOrg, PVSIndex, tdWidth, marginLeft);
+				PVSDiv = getDiv(request, "PVS<br>&nbsp;<br>0S", fv9PVSMLDate, fv9PVSMLOrg, PVSIndex, tdWidth, marginLeft);
 			}
 			//0S
 			if (OSIndex != SOPIndex && OSIndex != PVSIndex) {
-				OSDiv = getDiv(request, "0-S", fv90SMLDate, fv90SMLOrg, OSIndex, tdWidth, marginLeft);
+				OSDiv = getDiv(request, "&nbsp;<br>&nbsp;<br>0S", fv90SMLDate, fv90SMLOrg, OSIndex, tdWidth, marginLeft);
 			} else if (OSIndex == PVSIndex) {
 				OSDiv = "";
 			} else {
-				OSDiv = getDiv(request, "0-S<br>SOP", fv90SMLDate, fv90SMLOrg, OSIndex, tdWidth, marginLeft);
+				OSDiv = getDiv(request, "0S<br>&nbsp;<br>SOP", fv90SMLDate, fv90SMLOrg, OSIndex, tdWidth, marginLeft);
 			}
 			//SOP
+			String sop_time = fv9SOPMLDate.split("-")[1] + "/" + fv9SOPMLDate.split("-")[2];
 			if (SOPIndex != MEIndex && SOPIndex != OSIndex) {
-				SOPDiv = getDiv(request, "SOP", fv9SOPMLDate, fv9SOPMLOrg, SOPIndex, tdWidth, marginLeft);
+				SOPDiv = getDiv(request, "SOP<br>&nbsp;<br>" + sop_time, fv9SOPMLDate, fv9SOPMLOrg, SOPIndex, tdWidth, marginLeft);
 			} else if (SOPIndex == OSIndex) {
 				SOPDiv = "";
 			} else {
-				SOPDiv = getDiv(request, "SOP<br>ME", fv9SOPMLDate, fv9SOPMLOrg, SOPIndex, tdWidth, marginLeft);
+				SOPDiv = getDiv(request, "SOP<br>&nbsp;<br>ME", fv9SOPMLDate, fv9SOPMLOrg, SOPIndex, tdWidth, marginLeft);
 			}
 			//ME
 			if (MEIndex != SOPIndex) {
-				MEDiv = getDiv(request, "ME", fv9MEMLDate, fv9MEMLOrg, MEIndex, tdWidth, marginLeft);
+				MEDiv = getDiv(request, "&nbsp;<br>&nbsp;<br>ME", fv9MEMLDate, fv9MEMLOrg, MEIndex, tdWidth, marginLeft);
 			} else {
 				MEDiv = "";
 			} 

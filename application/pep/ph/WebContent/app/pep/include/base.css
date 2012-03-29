@@ -1,15 +1,12 @@
 * {
 	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; 
-	MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial,宋体; COLOR: #000; LIST-STYLE-IMAGE: none; PADDING-TOP: 0px;
+	MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; 
+	FONT-FAMILY: Arial,宋体; COLOR: #000; LIST-STYLE-IMAGE: none; PADDING-TOP: 0px;
 	/*overflow-y: auto; overflow-x:hidden;*/
 }
 
-body {
-	overflow: hidden;
-}
-
 #container {
-	MARGIN: 0px; WIDTH: 1000px; HEIGHT: 760px;font-family:Arial; overflow: hidden; 
+	MARGIN: 0px; WIDTH: 1000px; HEIGHT: 760px;font-family:Arial;
 	
 }
 #container #nr {
@@ -23,7 +20,7 @@ body {
 }
 #content {
 	margin: 0px;
-	WIDTH: 1000px; HEIGHT: 580px; OVERFLOW: hidden;
+	WIDTH: 1000px; HEIGHT: 580px; overflow: hidden;
 }
 #no-state {
 	position:absolute; top:10px; height:14px;bottom:0px; right:30px;

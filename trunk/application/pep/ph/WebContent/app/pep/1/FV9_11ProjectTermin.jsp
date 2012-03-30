@@ -298,7 +298,7 @@
 						<td style="width: 180px; height: 78px; border: 1px solid; 
 							text-align: left; font-size: 18px; font-weight: bolder;"  
 							rowspan="2">
-							Projekt
+							&nbsp;&nbsp;Projekt
 						</td>
 					<%
 					for (int l=0; l<yearList.size(); l++) {
@@ -348,7 +348,7 @@
 						<td style="width: 180px; height: 110px; border: 1px solid;
 							text-align: left; font-size: 18px; font-weight: bolder; overflow: hidden;" 
 							rowspan="3">
-							<%=project %>
+							&nbsp;&nbsp;<%=project %>
 						</td>
 					<%
 					for (int m=0; m<month.length; m++) {
@@ -382,7 +382,12 @@
 					<!-- 合并里程碑 -->
 					<tr>
 					<%
-						for (int m=0; m<PFIndex; m++) {
+						int beginPF = PFIndex; //从PF里程碑
+						//如果PF在下旬
+						if (DateUtils.getTenDays(fv9PFMLDate) == 2) {
+							beginPF = beginPF + 1;
+						}
+						for (int m=0; m<beginPF; m++) {
 					%>
 						<td style="width: <%=tdWidth%>px; height: 16px;
 						border-top: 1px solid white;

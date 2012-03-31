@@ -22,10 +22,10 @@
 			idField : 'uid',//唯一标识列
 			treeField:'name',
 			remoteSort : true,
-			frozenColumns : [ [ {//不可被删除的列
-				field : 'ck',
-				checkbox : true
-			}] ],
+//			frozenColumns : [ [ {//不可被删除的列
+//				field : 'ck',
+//				checkbox : true
+//			}] ],
 			columns : [ [ {
 				field : 'name',
 				title : '<%=International.get(request, "attachment.name") %>',
@@ -50,7 +50,7 @@
 				field : 'type',
 				title : '<%=International.get(request, "attachment.type") %>',
 				width : 150
-			}, {
+			}/*, {
 				field : 'opt',
 				title : '<%=International.get(request, "operation") %>',
 				width : 100,
@@ -66,7 +66,7 @@
 						return '<span></span>';
 					}
 				}
-			} ] ],
+			} */] ],
 			animate:true,
 			rownumbers : true,
 			toolbar : [ {
@@ -74,20 +74,9 @@
 				text : '<%=International.get(request, "batch.download") %>',
 				iconCls : 'icon-download',
 				handler : function() {
-					var rows = $('#queryTable').treegrid('getSelections');
-					if (rows.length == 0) {
-						$.messager.alert('<%=International.get(request, "info") %>','<%=International.get(request, "download.noselect") %>','info');
-						return;
-					} 
-					
-					var ids = [];
-					for(var i=0;i<rows.length;i++){
-						ids.push(rows[i].uid);
-					}					
-										
 					$.messager.confirm('<%=International.get(request, "download.info") %>', '<%=International.get(request, "download.info") %>', function(result){
 						if (result){
-							window.open('<%=request.getContextPath()%>/app/tc/foton/gys/download.action?uid=${mail.mailuid}&ids=' + ids);
+							window.open('<%=request.getContextPath()%>/app/tc/foton/gys/batchdownload.action?uid=${mail.mailuid}');
 						}
 					});
 					return false;

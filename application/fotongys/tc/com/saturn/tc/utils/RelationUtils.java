@@ -9,19 +9,18 @@ import com.saturn.tc.utils.server.EasyDataManagementService;
 import com.teamcenter.services.strong.core.DataManagementService;
 import com.teamcenter.soa.client.model.ModelObject;
 import com.teamcenter.soa.client.model.strong.ItemRevision;
-import com.teamcenter.soa.client.model.strong.ReleaseStatus;
 import com.teamcenter.soa.client.model.strong.WorkspaceObject;
 import com.teamcenter.soa.exceptions.NotLoadedException;
 
 public class RelationUtils {
 
-	public static LinkedList<Attachment> queryStacksByItemRevRelation(
+	public static int queryStacksByItemRevRelation(
 			String mailId, Attachment attachment,
 			ItemRevision itemRev, String[] relations,
 			LinkedList<Attachment> stack, TCSession session,List<Attachment> attachments) {
 		EasyDataManagementService service = new EasyDataManagementService(session);
 		DataManagementService dmService = DataManagementService.getService(session.getConnection());
-		
+		int num = 0;
 		if (relations.length > 0) {
 			try {
 				ModelObject[] objects1 = { itemRev };
@@ -39,12 +38,13 @@ public class RelationUtils {
 								(WorkspaceObject)modelObject, attachment.getUid(), service);
 						attachments.add(child);
 						stack.add(child);
+						num ++ ;
 					}
 				}
 			} catch (NotLoadedException e) {
 				e.printStackTrace();
 			}
 		}
-		return stack;
+		return num;
 	}
 }

@@ -3,7 +3,6 @@ package com.saturn.tc.utils;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Arrays;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -21,7 +20,7 @@ public class XMLUtils {
 	public static String[] getXmlValue() {
 		
 		try {
-			long lasting = System.currentTimeMillis(); 
+		//	long lasting = System.currentTimeMillis(); 
    
 			File file = new File(getCurrentPath() + "relations.xml");    
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();    
@@ -31,10 +30,9 @@ public class XMLUtils {
 			String[] relations = new String[nl.getLength()];
 			for (int i = 0; i < nl.getLength(); i++) {    
 				String en_US = doc.getElementsByTagName("en_US").item(i).getFirstChild().getNodeValue(); 
-				String zh_CN = doc.getElementsByTagName("zh_CN").item(i).getFirstChild().getNodeValue();  
+			//	String zh_CN = doc.getElementsByTagName("zh_CN").item(i).getFirstChild().getNodeValue();  
 				relations[i] = en_US;
 			}    
-			
 			return relations;
 		} catch (DOMException e) {
 			e.printStackTrace();

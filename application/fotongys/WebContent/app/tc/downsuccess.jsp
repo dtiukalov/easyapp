@@ -17,22 +17,30 @@
 		icon="icon-edit-form" collapsible="true" style="padding: 10px;">
 		<%
 			String hrefstr = (String)request.getAttribute("zipPath");
+			Boolean download = (Boolean)request.getAttribute("download");
+			
 			System.out.println(hrefstr);
 			hrefstr = hrefstr.replace("\\", "/");
 			
-			if(hrefstr.contains("zip")){
+			if(download == true  && hrefstr.contains("zip")){
 			%>
 		<center>
 			<a href="<%=request.getContextPath() + hrefstr%>"><%=International.get(request, "attachment.detail") %></a>
 		</center>
 			<% 
-			} else {
+			} else if(download == false ){
 				//hrefstr =  hrefstr.replace("/", File.separator);
 			%>
 		<center>
-			Error!Please login!
+			没有可以下载的数据 !
 		</center>
 			<%	
+			} else {
+		%>
+		<center>
+			Error!Please login!
+		</center>
+		<%		
 			}
 		%>
 	

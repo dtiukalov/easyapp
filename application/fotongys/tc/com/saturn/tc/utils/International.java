@@ -54,7 +54,7 @@ public class International {
 		en.put("download.info", "Confirm Download?");
 		en.put("download.noselect", "Please select at least one item");
 		en.put("batch.delete", "Batch Delete");
-		en.put("batch.download", "Batch Download");
+		en.put("batch.download", "Download");
 		en.put("attachment", "Attachment");
 		en.put("attachment.list", "Attachment List");
 		en.put("attachment.name", "Name");
@@ -71,6 +71,8 @@ public class International {
 		en.put("cancel", "Cancel");
 		en.put("back", "Back");
 		en.put("info", "Info");
+		en.put("help", "help");
+		en.put("currentUserLoginTime", "Login Date");
 		
 		
 		cn.put("login_title", "福田汽车供应商PLM系统");
@@ -92,7 +94,7 @@ public class International {
 		cn.put("view", "查看");
 		cn.put("delete", "删除");
 		cn.put("batch.delete", "批量删除");
-		cn.put("batch.download", "批量下载");
+		cn.put("batch.download", "下载");
 		cn.put("attachment", "附件");
 		cn.put("attachment.list", "附件列表");
 		cn.put("attachment.name", "名称");
@@ -113,7 +115,8 @@ public class International {
 		cn.put("cancel", "取消");
 		cn.put("back", "返回");
 		cn.put("info", "提示");
-		
+		cn.put("help", "帮助");
+		cn.put("currentUserLoginTime", "当前用户登录时间");
 	}
 
 	private static Map<String, String> getMap(String local) {

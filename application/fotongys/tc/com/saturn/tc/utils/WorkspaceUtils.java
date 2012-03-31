@@ -9,7 +9,6 @@ import com.teamcenter.soa.client.model.strong.Dataset;
 import com.teamcenter.soa.client.model.strong.Folder;
 import com.teamcenter.soa.client.model.strong.ImanFile;
 import com.teamcenter.soa.client.model.strong.User;
-import com.teamcenter.soa.client.model.strong.WorkspaceObject;
 import com.teamcenter.soa.exceptions.NotLoadedException;
 
 public class WorkspaceUtils {

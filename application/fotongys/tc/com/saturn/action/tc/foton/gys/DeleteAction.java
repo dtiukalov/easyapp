@@ -8,6 +8,7 @@ import com.saturn.app.web.IView;
 import com.saturn.app.web.view.JspView;
 import com.saturn.tc.clientx.TCSession;
 import com.saturn.tc.foton.gys.Mail;
+import com.teamcenter.soa.client.model.strong.User;
 import com.teamcenter.soa.client.model.strong.WorkspaceObject;
 
 public class DeleteAction implements IAction {
@@ -17,12 +18,14 @@ public class DeleteAction implements IAction {
 
 		TCSession session = (TCSession) request.getSession().getAttribute(
 				"TC_session");
-
+		User user = (User) request.getSession().getAttribute("TC_USER");
+		String userUid = user.getUid();
+		
 		String idStr = request.getParameter("ids");
 
 		String[] ids = idStr.split(",");
 
-		Mail.removes(session, ids);
+		Mail.removes(session, ids, userUid);
 
 		WorkspaceObject[] workspaceObjects = (WorkspaceObject[]) request
 				.getSession().getAttribute(ListAction.TC_MAIL_LIST);

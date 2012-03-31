@@ -18,11 +18,10 @@
 		<%
 			String hrefstr = (String)request.getAttribute("zipPath");
 			Boolean download = (Boolean)request.getAttribute("download");
-			
-			System.out.println(hrefstr);
-			hrefstr = hrefstr.replace("\\", "/");
-			
 			if(download == true  && hrefstr.contains("zip")){
+				if(hrefstr!= null){
+					hrefstr = hrefstr.replace("\\", "/");
+				}
 			%>
 		<center>
 			<a href="<%=request.getContextPath() + hrefstr%>"><%=International.get(request, "attachment.detail") %></a>
@@ -32,7 +31,7 @@
 				//hrefstr =  hrefstr.replace("/", File.separator);
 			%>
 		<center>
-			没有可以下载的数据 !
+			<%=International.get(request,"downloadInfo") %>
 		</center>
 			<%	
 			} else {

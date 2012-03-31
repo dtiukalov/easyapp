@@ -69,95 +69,109 @@ public class BatchDownLoadAction implements IAction {
 		String zipPath = null;
 		Boolean zipdone = false;
 		// 设置浏览器显示的内容类型为Zip
-		zipName = vo.getDatetime().replaceAll(":", "") + "_From_"
-				+ vo.getFromUser();// 下载完压缩包的名字
-		String zipFolderPath = this.tempPath + zipName;// 下载完压缩包的路径
-		zipPath = this.tempPath + zipName + ".zip";// 下载完压缩包的路径 + 压缩包的名字 + zip
-		zipdone = DownLoadAttachmentUtil.doZip(zipName, zipFolderPath, zipPath,
-				attachments);
-		if (zipdone) {
-			updateMail(request, session, mailuid, attachments);
-			request.setAttribute("zipPath", File.separator + ATTACHMENT_ROOT
-					+ File.separator + userUid + File.separator + zipName
-					+ ".zip");
+		if (download) {
+			zipName = vo.getDatetime().replaceAll(":", "") + "_From_"
+					+ vo.getFromUser();// 下载完压缩包的名字
+			String zipFolderPath = this.tempPath + zipName;// 下载完压缩包的路径
+			zipPath = this.tempPath + zipName + ".zip";// 下载完压缩包的路径 + 压缩包的名字 +
+														// zip
+			zipdone = DownLoadAttachmentUtil.doZip(zipName, zipFolderPath,
+					zipPath, attachments);
+			if (zipdone) {
+				updateMail(request, session, mailuid, attachments);
+				request.setAttribute("zipPath", File.separator + ATTACHMENT_ROOT
+						+ File.separator + userUid + File.separator + zipName
+						+ ".zip");
+				request.setAttribute("zipdone", zipdone);
+				request.setAttribute("download", download);
+				return new JspView("/app/tc/downsuccess.jsp");
+			} else {
+				request.setAttribute(WebHelper.ERROR_MESSAGE, "download failed");
+				return new JspView(WebHelper.ERROR_JSP);
+			}
+		} else {
 			request.setAttribute("zipdone", zipdone);
 			request.setAttribute("download", download);
 			return new JspView("/app/tc/downsuccess.jsp");
-		} else {
-			request.setAttribute(WebHelper.ERROR_MESSAGE, "download failed");
-			return new JspView(WebHelper.ERROR_JSP);
 		}
+		
 	}
 
 	// -----------------从TC中下载数据集--------------------------------------
-	private Boolean downLoadDatasetFromTC(TCSession session, List<String> revUids,
-			List<String> attachments, String downloadpath, String mailuid, String userUid) {
-		
+	private Boolean downLoadDatasetFromTC(TCSession session,
+			List<String> revUids, List<String> attachments,
+			String downloadpath, String mailuid, String userUid) {
+
 		Boolean result = false;
-		if (revUids != null && revUids.size() > 0 ) {
-			for(String revUid : revUids){
-			
-			Mail dbvo = Mail.getMailFromDBByMailUidAndRevUid(mailuid, revUid, userUid);
-			
-			EasyDataManagementService service = new EasyDataManagementService(
-					session);
-			ModelObject itemRev = service.loadModelObject(revUid);
-			
-			if(itemRev instanceof ItemRevision){
-				
-				String[] relations = XMLUtils.getXmlValue();
-				// 按关系类型查询附件
-				DataManagementService dmService = DataManagementService.getService(session.getConnection());
-				List<String> datesetsUid =  new ArrayList<String>();
-				int num = 0;
-				if (relations.length > 0) {
-					try {
-						ModelObject[] objects1 = { itemRev };
-						dmService.getProperties(objects1, relations);
-						
-						for (int r = 0; r < relations.length; r++) {
-							String relation = relations[r];
-							
-							ModelObject[] models1 = itemRev.getProperty(relation).getModelObjectArrayValue();
-							service.getProperties(models1, 
-									new String[] {"object_name"});
-							for (int i = 0; i < models1.length; i++) {
-								ModelObject modelObject = models1[i];
-								datesetsUid.add(modelObject.getUid());
-								num ++ ;
+		if (revUids != null && revUids.size() > 0) {
+			for (String revUid : revUids) {
+
+				Mail dbvo = Mail.getMailFromDBByMailUidAndRevUid(mailuid,
+						revUid, userUid);
+
+				EasyDataManagementService service = new EasyDataManagementService(
+						session);
+				ModelObject itemRev = service.loadModelObject(revUid);
+
+				if (itemRev instanceof ItemRevision) {
+
+					String[] relations = XMLUtils.getXmlValue();
+					// 按关系类型查询附件
+					DataManagementService dmService = DataManagementService
+							.getService(session.getConnection());
+					List<String> datesetsUid = new ArrayList<String>();
+					int num = 0;
+					if (relations.length > 0) {
+						try {
+							ModelObject[] objects1 = { itemRev };
+							dmService.getProperties(objects1, relations);
+
+							for (int r = 0; r < relations.length; r++) {
+								String relation = relations[r];
+
+								ModelObject[] models1 = itemRev.getProperty(
+										relation).getModelObjectArrayValue();
+								service.getProperties(models1,
+										new String[] { "object_name" });
+								for (int i = 0; i < models1.length; i++) {
+									ModelObject modelObject = models1[i];
+									datesetsUid.add(modelObject.getUid());
+									num++;
+								}
+							}
+						} catch (NotLoadedException e) {
+							e.printStackTrace();
+						}
+					}
+
+					if (num > 0) { // 有可以下载的数据集对象
+						for (String datsetUid : datesetsUid) {// 下载
+							ImanFile file = WorkspaceUtils
+									.getFirstFileFromDataset(session, datsetUid);
+							if (file != null) {
+								String picpath = DatasetUtils
+										.downloadDatasetFromTc(session, file,
+												downloadpath);
+								attachments.add(picpath);
 							}
 						}
-					} catch (NotLoadedException e) {
-						e.printStackTrace();
-					}
-				}
-				
-				if(num > 0){ //有可以下载的数据集对象
-					for(String datsetUid : datesetsUid){//下载
-						ImanFile file = WorkspaceUtils.getFirstFileFromDataset(session, datsetUid);
-						if (file != null) {
-							String picpath = DatasetUtils.downloadDatasetFromTc(session, file,
-									downloadpath);
-							attachments.add(picpath);
+						if (dbvo != null) {// 设置下载次数
+							dbvo.setDatetime(DateUtils.getSystemTime());
+							dbvo.setDownloadNum(String.valueOf((Integer
+									.parseInt(dbvo.getDownloadNum()) + 1)));
+							dbvo.setHasDownload("1");
+							Mail.editMailFromDB(dbvo);
+						}
+						result = true;
+					} else { // 没有可以下载的数据集对象 设置该条IR可删除 状态是1
+						if (dbvo != null) {
+							dbvo.setDatetime(DateUtils.getSystemTime());
+							dbvo.setHasDownload("1");
+							Mail.editMailFromDB(dbvo);
 						}
 					}
-					if(dbvo != null){//设置下载次数
-						dbvo.setDatetime(DateUtils.getSystemTime());
-						dbvo.setDownloadNum(String.valueOf((Integer.parseInt(dbvo
-								.getDownloadNum()) + 1)));
-						dbvo.setHasDownload("1");
-						Mail.editMailFromDB(dbvo);
-					}
-					result = true;
-				} else {   //没有可以下载的数据集对象    设置该条IR可删除 状态是1
-					if(dbvo != null){
-						dbvo.setDatetime(DateUtils.getSystemTime());
-						dbvo.setHasDownload("1");
-						Mail.editMailFromDB(dbvo);
-					}
+
 				}
-				
-			}
 			}
 		}
 		return result;

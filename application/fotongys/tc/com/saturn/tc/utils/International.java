@@ -73,6 +73,7 @@ public class International {
 		en.put("info", "Info");
 		en.put("help", "help");
 		en.put("currentUserLoginTime", "Login Date");
+		en.put("downloadInfo", "No valid data can be downloaded");
 		
 		
 		cn.put("login_title", "福田汽车供应商PLM系统");
@@ -117,6 +118,7 @@ public class International {
 		cn.put("info", "提示");
 		cn.put("help", "帮助");
 		cn.put("currentUserLoginTime", "当前用户登录时间");
+		cn.put("downloadInfo", "没有可以下载的数据 !");
 	}
 
 	private static Map<String, String> getMap(String local) {

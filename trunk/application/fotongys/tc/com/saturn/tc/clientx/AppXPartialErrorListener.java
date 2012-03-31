@@ -7,7 +7,6 @@
 package com.saturn.tc.clientx;
 
 import com.teamcenter.soa.client.model.ErrorStack;
-import com.teamcenter.soa.client.model.ErrorValue;
 import com.teamcenter.soa.client.model.PartialErrorListener;
 
 /**

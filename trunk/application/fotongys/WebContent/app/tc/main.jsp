@@ -40,8 +40,8 @@
 			<div class="menu-logo">
 				<div class="menu-info"><%=International.get(request, "login_title") %></div>
 			</div>
-			<div class="cnen-info">当前用户登录时间：[<%=date %>][<a href="<%=request.getContextPath()%>/app/tc/foton/gys/local.do?local=<%=local%>"><%=localStr%></a>] </div>
-	    	<div class="user-info"><%=International.get(request, "username") %>:<%=user.get_user_name()%> [<a href="<%=request.getContextPath()%>/app/tc/logout.do"><%=International.get(request, "logout") %></a>] </div>
+			<div class="cnen-info"><%=International.get(request,"currentUserLoginTime") %> ：[<%=date %>][<a href="<%=request.getContextPath()%>/app/tc/foton/gys/local.do?local=<%=local%>"><%=localStr%></a>] </div>
+	    	<div class="user-info"><%=International.get(request, "username") %>:<%=user.get_user_name()%> [<a href=""><%=International.get(request, "help")%></a>][<a href="<%=request.getContextPath()%>/app/tc/logout.do"><%=International.get(request, "logout") %></a>] </div>
 		</div> 
 	</div>
 	<div region="center" style="overflow: hidden;">

@@ -15,6 +15,7 @@ import com.teamcenter.soa.client.model.strong.User;
 
 public class ListAttachmentAction implements IAction {
 
+	@SuppressWarnings("deprecation")
 	public IView execute(HttpServletRequest request,
 			HttpServletResponse response) {
 

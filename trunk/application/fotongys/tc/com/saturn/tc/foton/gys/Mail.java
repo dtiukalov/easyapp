@@ -30,25 +30,30 @@ public class Mail {
 	private String type;
 
 	private String from;
-	private String fromUser;//发件人
+	private String fromUser;// 发件人
 	private String fromUserId;
-	private String fromUserDept;//发件人事业部属性
+	private String fromUserDept;// 发件人事业部属性
 	private String userid;// 收件人 ：当前登录供应商
 	private String userName;// 收件人 ：当前登录供应商
+	private String userUid;// 收件人 ：当前登录供应商Uid
 	private String to;
 	private String content;
 	private String datetime;
 
 	private String mailpid;
+
 	private String downloadNum;
 
 	private String hasDownload;// 0:不可以删除,没被下载过 1:可以删除,已经被下载过 2:已经被删除了
 	private String hasRead;
 
+	private String revUid;
+	private String revItemid;
+
 	private static ORMapping<Mail> mapping = new ResultORMapping<Mail>();
 
-	public static Map<String,String> dept = new HashMap<String, String>();
-	     
+	public static Map<String, String> dept = new HashMap<String, String>();
+
 	public Mail() {
 		super();
 		dept.put("JTGS", "集团公司");
@@ -56,13 +61,13 @@ public class Mail {
 		dept.put("Huairou", "怀柔汽研所");
 		dept.put("FJGC", "蒙派克工厂");
 		dept.put("AMGC", " 欧曼工厂");
-		
+
 		dept.put("NFGC", "南方工厂");
 		dept.put("BFGC", "北方工厂");
 		dept.put("ALGC", "奥铃工厂");
 		dept.put("NHGC", "萨普工厂");
 		dept.put("OVGC", "欧V客车");
-		
+
 		dept.put("LWDL", "雷沃动力");
 		dept.put("FTZJ", "雷沃重机");
 		dept.put("ALFDJ", "奥铃发动机");
@@ -74,7 +79,7 @@ public class Mail {
 			TCSession session) {
 		EasyDataManagementService service = new EasyDataManagementService(
 				session);
-		
+
 		WorkspaceObject[] workspaceObjects = null;
 		try {
 			Folder mailbox = WorkspaceUtils.getMailBox(session, user.getUid());
@@ -97,64 +102,76 @@ public class Mail {
 			String offset) {
 		EasyDataManagementService service = new EasyDataManagementService(
 				session);
-		
+
 		List<Mail> mails = new ArrayList<Mail>();
 
 		for (WorkspaceObject wos : workspaceObjects) {
 			if (wos instanceof Envelope) {
 				service.refreshObjects(wos);
 				Envelope envelope = (Envelope) wos;
-				
+
 				Mail mail = new Mail(user, session, envelope);
-				Mail dbmail = Mail.getMailFromDB(mail.getMailuid());
-	
-				if (dbmail != null) {
-					mail.downloadNum = dbmail.getDownloadNum();
-					mail.hasDownload = dbmail.getHasDownload();
+				// Mail dbmail = Mail.getMailFromDB(mail.getMailuid());
+				List<Mail> dbmail = Mail.getMailFromDBByMailUidAndUserUid(
+						mail.getMailuid(), mail.getUserUid());
+
+				if (dbmail.size() > 0) {
+					for (Mail ma : dbmail) {
+						if (ma.getHasDownload().equalsIgnoreCase("0")) {
+							mail.hasDownload = "0";
+							break;
+						} else if (ma.getHasDownload().equalsIgnoreCase("2")) {
+							mail.hasDownload = "2";
+							break;
+						} else {
+							mail.hasDownload = ma.getHasDownload();
+						}
+					}
+					// mail.hasDownload = "0";
+					// mail.downloadNum = dbmail.getDownloadNum();
 				} else {
 					Mail.addMailtoDB(mail);
 				}
-	
+
 				String fromUser = condition.fromUser;
 				String title = condition.title;
 				String hasDownload = condition.hasDownload;
 				String datetime = condition.datetime;
 				String content = condition.content;
-				
-				if (like(mail.fromUser, fromUser)
-						&& like(mail.title, title)
+
+				if (like(mail.fromUser, fromUser) && like(mail.title, title)
 						&& like(mail.hasDownload, hasDownload)
 						&& like(mail.content, content)
 						&& like(mail.datetime, datetime)) {
-	
+
 					mails.add(mail);
 					// reviseProperties(envelope,session);
 				}
 			}
 		}
-		
+
 		int startValue = 0;
 		if (start != null && !"".equals(start)) {
 			try {
 				startValue = Integer.parseInt(start);
 			} catch (NumberFormatException e) {
-			//	e.printStackTrace();
+				// e.printStackTrace();
 			}
 		}
-		
+
 		int rowsValue = 10;
 		if (offset != null && !"".equals(offset)) {
 			try {
 				rowsValue = Integer.parseInt(offset);
 			} catch (NumberFormatException e) {
-			//	e.printStackTrace();
+				// e.printStackTrace();
 			}
 		}
-		
+
 		List<Mail> result = new ArrayList<Mail>();
-		
+
 		int size = mails.size();
-		for (int i = startValue; i < startValue+rowsValue; ++i) {
+		for (int i = startValue; i < startValue + rowsValue; ++i) {
 			if (i < size) {
 				result.add(mails.get(i));
 			}
@@ -166,61 +183,74 @@ public class Mail {
 	private static boolean like(String src, String con) {
 		return (con == null || "".equals(con.trim()) || src.indexOf(con) >= 0);
 	}
-	
-	public static int addMailtoDB(Mail mail) {
-		// 指定值对象类型(VOClass)。例子：User
-		// 指定插入表名称(tableName)。例子：如user表3个列，tableName=user(id, name, gender)
-		// 根据列的顺序获取值对象的属性值。例子：vo.getId(), vo.getName(), vo.getGender()
-		/*
-		 * return SimpleDaoTemplate .update( "INSERT INTO download (mailuid,
-		 * mailpid, fromUser, userid, datetime, hasDownload, downloadNum)
-		 * VALUES(?, ?, ?, ?, ?, ?, ?)", mail.getMailuid(), mail.getMailpid(),
-		 * mail.getFromUser() + "_" + mail.getTitle(), mail.getUserid() + "(" +
-		 * mail.getUserName() + ")",mail .getDatetime(), mail.getHasDownload(),
-		 * "0"); mysql
-		 */
 
+	public static int addMailtoDB(Mail mail) {
 		return SimpleDaoTemplate
-				.update("INSERT INTO \"download\" (\"mailuid\", \"mailpid\", \"fromUser\", \"userid\", \"datetime\", \"hasDownload\", \"downloadNum\") VALUES(?, ?, ?, ?, ?, ?, ?)",
+				.update("INSERT INTO \"download\" (\"mailuid\", \"mailpid\", \"fromUser\", \"userid\", \"userUid\",\"datetime\", \"hasDownload\", \"downloadNum\", \"revUid\", \"revItemid\") VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
 						mail.getMailuid(), mail.getMailpid(),
 						mail.getFromUser() + "_" + mail.getTitle(),
 						mail.getUserid() + "(" + mail.getUserName() + ")",
-						mail.getDatetime(), mail.getHasDownload(), "0");
+						mail.getUserUid(), mail.getDatetime(),
+						mail.getHasDownload(), "0", "", "");
 	}
 
 	public static int editMailFromDB(Mail mail) {
-		// 指定值对象类型(VOClass)。例子：User
-		// 指定插入表名称(tableName)。例子：如user表3个列，tableName=user
-		// 指定修改列信息(modify)。例子：name=?, value=?
-		// 根据修改列的顺序获取值对象的属性值。例子：vo.getName(), vo.getValue(), vo.getId()
-		/*
-		 * return SimpleDaoTemplate .update( "UPDATE download SET datetime = ?,
-		 * hasDownload = ?, downloadNum = ? WHERE mailuid = ?",
-		 * mail.getDatetime(), mail.get(), mail .getDownloadNum(),
-		 * mail.getMailuid()); mysql
-		 */
 		return SimpleDaoTemplate
-				.update("UPDATE \"download\" SET \"datetime\" = ?, \"hasDownload\" = ?, \"downloadNum\" = ? WHERE \"mailuid\" = ?",
+				.update("UPDATE \"download\" SET \"datetime\" = ?, \"hasDownload\" = ?, \"downloadNum\" = ? WHERE \"mailuid\" = ? and  \"revUid\" = ? and  \"userUid\" = ?",
 						mail.getDatetime(), mail.getHasDownload(),
-						mail.getDownloadNum(), mail.getMailuid());
+						mail.getDownloadNum(), mail.getMailuid(),
+						mail.getRevUid(), mail.getUserUid());
+	}
+	
+	/*
+	 * public static Mail getMailFromDB(String uid) { Mail test =
+	 * SimpleDaoTemplate.queryOne(
+	 * "SELECT * FROM \"download\" WHERE 1 = 1 and \"mailuid\" = '" + uid + "'",
+	 * null, mapping, Mail.class); return test; }
+	 */
+
+	/*
+	 * public static List<Mail> getMailFromDBByMailUid(String mailuid) {
+	 * List<Mail> test = SimpleDaoTemplate.query(
+	 * "SELECT * FROM \"download\" WHERE 1 = 1 and \"mailuid\" = '" + mailuid +
+	 * "'", null, mapping, Mail.class); return test; }
+	 */
+
+	public static List<Mail> getMailFromDBByMailUidAndUserUid(String mailuid,
+			String userUid) {
+		List<Mail> test = SimpleDaoTemplate.query(
+				"SELECT * FROM \"download\" WHERE 1 = 1 and \"mailuid\" = '"
+						+ mailuid + "' and \"userUid\" = '" + userUid + "'",
+				null, mapping, Mail.class);
+		return test;
 	}
 
-	public static Mail getMailFromDB(String uid) {
-		// 指定值对象类型(VOClass)。例子VOClass=User
-		// 指定表主键(key)。例子:key=id
-		// 指定插入表名称(tableName)。例子：如user表，tableName=user
-		// 指定O-R映射规则对象。默认mapping
-
-		/*
-		 * Mail test = SimpleDaoTemplate.queryOne(
-		 * "SELECT * FROM download WHERE 1 = 1 and mailuid = '" + uid + "'",
-		 * null, mapping, Mail.class);
-		 */
-
+	public static Mail getMailFromDBByMailUidAndRevUid(String mailUid,
+			String revUid, String userUid) {
 		Mail test = SimpleDaoTemplate.queryOne(
 				"SELECT * FROM \"download\" WHERE 1 = 1 and \"mailuid\" = '"
-						+ uid + "'", null, mapping, Mail.class);
+						+ mailUid + "' and \"revUid\" = '" + revUid
+						+ "' and \"userUid\" = '" + userUid + "'", null,
+				mapping, Mail.class);
 		return test;
+	}
+
+	public static int updateRevUidFromDBByMailUid(final String mailUid,
+			final String revUid, final String revItemid, final String userUid) {
+		return SimpleDaoTemplate
+				.update("UPDATE \"download\" SET \"revUid\" = ?, \"revItemid\" = ? WHERE \"mailuid\" = ?",
+						revUid, revItemid, mailUid);
+	}
+
+	public static int addMailUidAndRevUidtoDB(Mail mail) {
+		return SimpleDaoTemplate
+				.update("INSERT INTO \"download\" (\"mailuid\", \"mailpid\", \"fromUser\", \"userid\", \"userUid\",\"datetime\", \"hasDownload\", \"downloadNum\", \"revUid\", \"revItemid\") VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+						mail.getMailuid(), mail.getMailpid(),
+						mail.getFromUser() + "_" + mail.getTitle(),
+						mail.getUserid() + "(" + mail.getUserName() + ")",
+						mail.getUserUid(),
+						mail.getDatetime(), mail.getHasDownload(), "0",
+						mail.getRevUid(), mail.getRevItemid());
 	}
 
 	public static int removeMailFromDB(final String uid) {
@@ -233,36 +263,13 @@ public class Mail {
 				"DELETE FROM \"download\" WHERE \"uid\" = ?", uid);
 	}
 
-	/*
-	 * public static void reviseProperties(Envelope envelope,TCSession session)
-	 * {
-	 * 
-	 * try { String flag = envelope.get_envelopeReadFlag() + ""; } catch
-	 * (NotLoadedException e) { // TODO Auto-generated catch block
-	 * e.printStackTrace(); } // Get the service stub DataManagementService
-	 * dmService = DataManagementService.getService(session.getConnection());
-	 * 
-	 * ReviseProperties revProps = new ReviseProperties(); revProps.description
-	 * = "describe testRevise";
-	 * 
-	 * Map<String,String> attrs = new HashMap<String,String>();
-	 * attrs.put("project_id", "true");
-	 * 
-	 * revProps.extendedAttributes = attrs; ReviseInfo reviseInfo = new
-	 * ReviseInfo(); reviseInfo.description = "describe testRevise";
-	 * 
-	 * try { ReviseResponse revised = dmService.revise(attrs); } catch
-	 * (ServiceException e) { // TODO Auto-generated catch block
-	 * e.printStackTrace(); } }
-	 */
-
 	public static Mail getByUid(User user, TCSession session, String uid) {
 		EasyDataManagementService service = new EasyDataManagementService(
 				session);
 		Envelope envelope = (Envelope) service.loadModelObject(uid);
 		service.getProperties(envelope, "uid", "object_name", "object_type",
 				"object_desc", "object_type", "envelopeReadFlag",
-				"last_mod_user", "contents","sent_date","senders_tag");
+				"last_mod_user", "contents", "sent_date", "senders_tag");
 
 		Mail mail = new Mail(user, session, envelope);
 
@@ -276,6 +283,7 @@ public class Mail {
 		try {
 			this.mailuid = envelope.getUid();
 			this.mailpid = envelope.get_pid() + "";
+			this.userUid = receiveUser.getUid();
 			this.userid = receiveUser.get_userid();
 			this.userName = receiveUser.get_user_name();
 			this.title = envelope.get_object_name();
@@ -286,13 +294,12 @@ public class Mail {
 					DateUtils.getTimeFormat());
 			service.getProperties(envelope, "sent_date");
 			service.getProperties(envelope, "senders_tag");
-			this.datetime = format.format(envelope.get_sent_date()
-					.getTime());//邮戳时间
+			this.datetime = format.format(envelope.get_sent_date().getTime());// 邮戳时间
 
 			this.hasDownload = "0";
 			this.hasRead = envelope.get_envelopeReadFlag() + "";
 
-			User user = (User) envelope.get_senders_tag();//get_last_mod_user();//发件人
+			User user = (User) envelope.get_senders_tag();// get_last_mod_user();//发件人
 			Person fromPerson = (Person) user.get_person();
 			service.refreshObjects(fromPerson);
 			service.getProperties(fromPerson, "PA9");
@@ -301,8 +308,8 @@ public class Mail {
 			this.fromUserId = user.getUid();
 			this.from = fromPerson.get_PA9();
 			this.fromUserDept = "";
-			
-			if(fromPerson.get_PA3()!= null ){
+
+			if (fromPerson.get_PA3() != null) {
 				this.fromUserDept = dept.get(fromPerson.get_PA3().trim());
 			}
 		} catch (NotLoadedException e) {
@@ -310,38 +317,56 @@ public class Mail {
 		}
 
 	}
-	
+
 	public static String replaceSpecial(String str) {
-		if(str != null){
-			if(str.startsWith("\"")){
+		if (str != null) {
+			if (str.startsWith("\"")) {
 				str.replaceFirst("\"", "");
 			}
 		}
 		return str;
 	}
 
-	public static void remove(TCSession session, final String id) {
-		Mail vo = Mail.getMailFromDB(id);
-		if ("0".equals(vo.hasDownload)) {
-			// 如果邮件没有被下载，不能删除；
-			return;
+	public static void remove(TCSession session, final String id,
+			final String userUid) {
+		// Mail vo = Mail.getMailFromDB(id);
+		List<Mail> vo = Mail.getMailFromDBByMailUidAndUserUid(id, userUid);
+
+		if (vo != null) {
+			for (Mail ma : vo) {
+				String hasDownload = ma.getHasDownload();
+				if ("0".equals(hasDownload)) {
+					// 如果邮件没有被下载，不能删除；
+					return;
+				}
+			}
 		}
+		/*
+		 * if ("0".equals(vo.hasDownload)) { // 如果邮件没有被下载，不能删除； return; }
+		 */
 
 		EasyDataManagementService service = new EasyDataManagementService(
 				session);
 
 		Envelope envelope = (Envelope) service.loadModelObject(id);
 		service.deleteObjects(envelope);
-
-		vo.setDatetime(DateUtils.getSystemTime());
-		vo.setHasDownload("2");
-		Mail.editMailFromDB(vo);
+		if (vo != null) {
+			for (Mail ma : vo) {
+				ma.setDatetime(DateUtils.getSystemTime());
+				ma.setHasDownload("2");
+				Mail.editMailFromDB(ma);
+			}
+		}
+		/*
+		 * vo.setDatetime(DateUtils.getSystemTime()); vo.setHasDownload("2");
+		 */
+		// Mail.editMailFromDB(vo);
 	}
 
-	public static void removes(TCSession session, String[] ids) {
+	public static void removes(TCSession session, String[] ids, String userUid) {
 		if (ids != null) {
 			for (String id : ids) {
-				remove(session, id);
+				remove(session, id, userUid);
 			}
 		}
 	}
@@ -470,13 +495,37 @@ public class Mail {
 	public void setFromUserId(String fromUserId) {
 		this.fromUserId = fromUserId;
 	}
-	
+
 	public String getFromUserDept() {
 		return fromUserDept;
 	}
 
 	public void setFromUserDept(String fromUserDept) {
 		this.fromUserDept = fromUserDept;
+	}
+
+	public String getRevUid() {
+		return revUid;
+	}
+
+	public void setRevUid(String revUid) {
+		this.revUid = revUid;
+	}
+
+	public String getRevItemid() {
+		return revItemid;
+	}
+
+	public void setRevItemid(String revItemid) {
+		this.revItemid = revItemid;
+	}
+
+	public String getUserUid() {
+		return userUid;
+	}
+
+	public void setUserUid(String userUid) {
+		this.userUid = userUid;
 	}
 
 }

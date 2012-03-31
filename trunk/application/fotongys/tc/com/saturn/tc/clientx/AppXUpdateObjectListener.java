@@ -8,7 +8,6 @@ package com.saturn.tc.clientx;
 
 import com.teamcenter.soa.client.model.ChangeListener;
 import com.teamcenter.soa.client.model.ModelObject;
-import com.teamcenter.soa.exceptions.NotLoadedException;
 
 /**
  * Implementation of the ChangeListener. Print out all objects that have been

@@ -90,7 +90,7 @@ input:right{ border: 1px dotted #009900; }*/
 	height: 27px;
 	margin: 0px;
 	padding-left: 5px;
-	width: 1005px;
+	width: 725px;
 	font-weight: bolder;
 }
 
@@ -99,13 +99,13 @@ input:right{ border: 1px dotted #009900; }*/
 	font-size: 12px;
 	line-height: 27px;
 	color: #2A5AB3;
-	float: right;
+	float: left;
 	height: 27px;
-	width: 190px;
+	width: 200px;
 	margin: 0px;
 	text-align: right;
 	padding-right: 25px;
-	margin-right: 60px;
+	margin-right: 40px;
 }
 
 

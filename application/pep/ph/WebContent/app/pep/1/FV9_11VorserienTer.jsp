@@ -111,7 +111,8 @@
 		String fv90SDesc = " QA 3 PVS-Fahrzeug ,2 0S-Fahrzeug fuer MQ200 Projekt"; // (String)form.get("fv90SDesc");
 		
 		//SOP时间
-		String DATE_SOP = (String)session.getAttribute("DATE_SOP");
+		String DATE_SOP = "2012-09-12"; //(String)session.getAttribute("DATE_SOP");
+		System.out.println("------------------------------------------");
 		int SOP_KW = DateUtils.getWeekOfYear(DATE_SOP + " 00:00");
 		int SOP_Year = Integer.parseInt(DATE_SOP.split("-")[0]);
 		
@@ -698,14 +699,6 @@
 				<!--  
 				通过绝对位置控制TBT、装车时间、路试时间等信息
 				-->
-				<style>
-				.aa{font-weight: bolder; background-color: white; font-size: 10px; color: white; 
-				text-align: center; border: 0.01px solid;
-				vertical-align: bottom; padding-top: 10px; 
-				}
-				
-			</style>
-			
 				<%
 				//关键点的绝对高度
 				int baseTop = 110 + 20 + 60 + 18 + 15 + 15; //title(100) + 表格与上面的空白（20） + 表格LOGO（60） + 年（18） + 周（15） + 与SOP倒数的周数（15）

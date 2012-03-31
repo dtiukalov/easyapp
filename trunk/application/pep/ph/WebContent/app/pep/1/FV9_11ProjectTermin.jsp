@@ -274,25 +274,45 @@
 					
 				}
 				
-				int month1 = 0; //PF-LF
-				int month2 = 0; //LF-SOP (如果SOP在下旬，多加一个月)
-				if (!"1900-01-01 00:00:00".equals(fv9PFMLDate) &&
+				
+				System.out.println("PFIndex = " + PFIndex);
+				System.out.println("LFIndex = " + LFIndex);
+				System.out.println("SOPIndex = " + SOPIndex);
+				
+				int month1 = LFIndex - PFIndex; //PF-LF
+				int month2 = SOPIndex - LFIndex; //LF-SOP (如果SOP在下旬，多加一个月)
+				System.out.println("month1 = " + month1);
+				System.out.println("month2 = " + month2);
+				//LF在上旬、SOP在下旬，月份+1
+			/* 	if ((DateUtils.getTenDays(fv9PFMLDate) == 1 && DateUtils.getTenDays(fv9LFMLDate) == 2) ||
+						((Integer.parseInt(fv9PFMLDate.split("-")[2]) > Integer.parseInt(fv9LFMLDate.split("-")[2]))))
+					month1 += 1;
+				
+				if ((DateUtils.getTenDays(fv9LFMLDate) == 1 && DateUtils.getTenDays(fv9SOPMLDate) == 2) ||
+						((Integer.parseInt(fv9LFMLDate.split("-")[2]) > Integer.parseInt(fv9SOPMLDate.split("-")[2]))))
+					month2 += 1; */
+				System.out.println("month11 = " + month1);
+				System.out.println("month22 = " + month2);
+				/* if (!"1900-01-01 00:00:00".equals(fv9PFMLDate) &&
 						!"1900-01-01 00:00:00".equals(fv9LFMLDate)) {
 					month1 = DateUtils.getTwoDateSepMonths(fv9PFMLDate, fv9LFMLDate);
+					if ((Integer.parseInt(fv9PFMLDate.split("-")[2]) > Integer.parseInt(fv9LFMLDate.split("-")[2])) ||
+							(Integer.parseInt(fv9PFMLDate.split("-")[2]) < Integer.parseInt(fv9LFMLDate.split("-")[2]))) {
+						month1 += 1;
+					}
 				}
 				if (!"1900-01-01 00:00:00".equals(fv9LFMLDate) &&
 						!"1900-01-01 00:00:00".equals(fv9SOPMLDate)) {
-					month2 = DateUtils.getTwoDateSepMonths(fv9LFMLDate, fv9SOPMLDate) + 1;
-					
-				}
-				
-				
-				
-				
+					month2 = DateUtils.getTwoDateSepMonths(fv9LFMLDate, fv9SOPMLDate);
+					if ((Integer.parseInt(fv9LFMLDate.split("-")[2]) > Integer.parseInt(fv9SOPMLDate.split("-")[2])) ||
+							(Integer.parseInt(fv9LFMLDate.split("-")[2]) < Integer.parseInt(fv9SOPMLDate.split("-")[2]))) {
+						month2 += 1;
+					}
+				} */
 			%>
 				<table style="border: 1px solid; width: 1000px; height: 300px; margin: 100px 0px auto; 
 				font-size: 9px; text-align: center; padding: 0px;
-				border-collapse:collapse; border:none;">
+				border-collapse:collapse; border:none; border-bottom: 1px solid;">
 					<!-- 时间轴 - 年 -->
 					<tr>
 						<td style="width: 180px; height: 78px; border: 1px solid; 
@@ -346,26 +366,29 @@
 					<!-- 里程碑 -->
 					<tr>
 						<td style="width: 180px; height: 110px; border: 1px solid;
-							text-align: left; font-size: 18px; font-weight: bolder; overflow: hidden;" 
-							rowspan="3">
+							text-align: left; font-size: 18px; font-weight: bolder; overflow: hidden;">
 							&nbsp;&nbsp;<%=project %>
 						</td>
 					<%
 					for (int m=0; m<month.length; m++) {
 						//一年的最后一个月用黑线表示
+						//最后一列不需要右边框
 						boolean flag = false;
 						if (month[m]==12) 
 							flag = true; 
 							 
 					%>
-						<td style="width: <%=tdWidth%>px; height: 80px;
+						<td style="width: <%=tdWidth%>px; height: 110px;
 						border-top: 1px solid white;
-						border-left: 1px solid gray; 
+						border-left: 1px solid #E0E0E0; 
+						
 						<%
 						if (flag) {
 							out.print("border-right: 1px solid;");
+						} else if (m == month.length-1) {
+							out.print("border-right: 1px solid;");
 						} else {
-							out.print("border-right: 1px solid gray;");
+							out.print("border-right: 1px solid #E0E0E0;");
 						}
 						%>
 						">
@@ -379,74 +402,10 @@
 					%>
 					</tr>
 					
-					<!-- 合并里程碑 -->
-					<tr>
-					<%
-						int beginPF = PFIndex; //从PF里程碑
-						//如果PF在下旬
-						if (DateUtils.getTenDays(fv9PFMLDate) == 2) {
-							beginPF = beginPF + 1;
-						}
-						for (int m=0; m<beginPF; m++) {
-					%>
-						<td style="width: <%=tdWidth%>px; height: 16px;
-						border-top: 1px solid white;
-						border-bottom: 1px solid white; 
-						border-left: 1px solid gray; 
-						border-right: 1px solid gray;">
-						
-						</td>
-					<%
-						}
-					%>
-						<td colspan="<%=month1%>" style="background-color: #B0B0B0; color: white; border: 1px solid; font-size: 12px; font-weight: bolder;"><%=month1 %>&nbsp;Mo</td>
-						<td colspan="<%=month2%>" style="background-color: #808080; color: white; border: 1px solid; font-size: 12px; font-weight: bolder;"><%=month2 %>&nbsp;Mo</td>
-					<%
-						int last = month.length - PFIndex - month1 - month2;
-						for (int m=0; m<last; m++) {
-					%>
-						<td style="width: <%=tdWidth%>px; height: 16px;
-						border-top: 1px solid white;
-						border-bottom: 1px solid white; 
-						border-left: 1px solid gray; 
-						border-right: 1px solid gray;">
-						
-						</td>
-					<%
-						}
-					%>
-						
-						<td colspan="<%=tdNum - PFIndex - month1 - month2%>" style=""></td>
-					</tr>
 					
-					<!-- 空白处 -->
-					<tr>
-					<%
-					for (int m=0; m<month.length; m++) {
-						//一年的最后一个月用黑线表示
-						boolean flag = false;
-						if (month[m]==12) 
-							flag = true; 
-					%>
-						<td style="width: <%=tdWidth%>; height:14px; border: 1px solid gray;
-					<%
-						if (flag) {
-							out.print("border-right: 1px solid;");
-						} else {
-							out.print("border-right: 1px solid gray;");
-						}
-					%>
-						">
-							
-						</td>
-					<%
-					}
-					%>
-						
-					</tr>
 				</table>
-				<!-- 开始写入里程碑，计算绝对位置 -->
 			<%
+			//开始写入里程碑，计算绝对位置
 			double marginLeft = 180.0;
 			
 			String PMDiv = "", PPDiv = "", PDDiv = "", PFDiv = "";
@@ -597,7 +556,35 @@
 			<%=MEDiv %>
 			<%
 			
+			//写入里程碑间距
+			int beginPF = PFIndex; //从PF里程碑
+			//如果PF在下旬			
+			if (DateUtils.getTenDays(fv9PFMLDate) == 2) {
+				beginPF = beginPF + 1;
 			}
+			double width1 = 0.0;
+			double width2 = 0.0;
+			
+	//		MLIndex*(tdWidth+1)
+			%>
+			<div style="width: 100%;float: left; position: absolute; top:450px;">
+				<div style="background-color: #B0B0B0; color: white; border: 1px solid; font-size: 12px; font-weight: bolder;
+					text-align: center; float: left;
+					width: <%=(month1)*(tdWidth+1)%>px; height: 16px; margin-left: <%=185+beginPF*tdWidth%>px;">
+					<%=month1 %>&nbsp;Mo
+				</div>
+				<div style="background-color: #808080; color: white; border: 1px solid; font-size: 12px; font-weight: bolder;
+					text-align: center; float: left;
+					width: <%=(month2)*(tdWidth+1)%>px; height: 16px; margin-left: 0px;">
+					<%=month2 %>&nbsp;Mo
+				</div>
+			</div>
+			
+			<%
+			
+			
+			}
+			
 			%>
 				
 			</div>

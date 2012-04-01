@@ -59,9 +59,10 @@
 					left = marginLeft + MLIndex*(tdWidth+1) + tdWidth/2;
 				}
 				
-				div_class += "<div style=\"width: " + tdWidth + "px; height:100px; text-align: center; position: absolute;left: " + left + "px;top: 375px; font-size: 12px; font-weight: bolder;\">";
-				div_class += "	<div style=\"width: 100%; height:50px; float: left; font-size:12px; vertical-align: bottom;\">" + ML + "</div>";
-				div_class += "	<div style=\"width: 100%; height:22px; float: left; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" 
+				div_class += "<div style=\"width: " + tdWidth + "px; height:100px; text-align: center; position: absolute;left: " + left + "px;top: 340px; font-size: 12px; font-weight: bolder;\">";
+				div_class += "	<div style=\"width: 100%; height:50px; float: left; font-size:14px; vertical-align: bottom;\">" + ML + "</div>";
+				div_class += "	<div style=\"width: 100%; height:26px; float: left; vertical-align: middle; padding-top: 5px;"
+									+ "filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" 
 									+ request.getContextPath() 
 									+ "/app/pep/images/bg.gif', sizingMethod='scale'); \">";
 				div_class += "		<span style=\"color:white; font-size:10px; vertical-align: bottom;\">"+MLOrg+"</span>";
@@ -87,6 +88,7 @@
 		}
 		
 		%>
+		
 		<%
 		String project = "";
 		if (!"".equals((String)request.getSession().getAttribute("project"))) {
@@ -191,9 +193,9 @@
 			</div>
 			<div id="content">
 			<%
-			//最早时间与最晚时间前后各加4个月
-			startDate = DateUtils.getDateAddMonth(startDate, 4, "-");
-			endDate = DateUtils.getDateAddMonth(endDate, 4, "+");
+			//最早时间与最晚时间前后各加2个月
+			startDate = DateUtils.getDateAddMonth(startDate, 2, "-");
+			endDate = DateUtils.getDateAddMonth(endDate, 2, "+");
 			System.out.println("startDate = " + startDate);
 			System.out.println("endDate = " + endDate);
 			
@@ -288,12 +290,12 @@
 				}
 				
 			%>
-				<table style="border: 1px solid; width: 1000px; height: 300px; margin: 100px 0px auto; 
+				<table style="border: 1px solid; width: 1000px; height: 200px; margin: 150px 0px auto; 
 				font-size: 9px; text-align: center; padding: 0px;
 				border-collapse:collapse; border:none; border-bottom: 1px solid;">
 					<!-- 时间轴 - 年 -->
 					<tr>
-						<td style="width: 180px; height: 78px; border: 1px solid; 
+						<td style="width: 180px; height: 60px; border: 1px solid; 
 							text-align: left; font-size: 18px; font-weight: bolder;"  
 							rowspan="2">
 							&nbsp;&nbsp;Projekt
@@ -302,7 +304,7 @@
 					for (int l=0; l<yearList.size(); l++) {
 						YearInfo y = (YearInfo)yearList.get(l);
 					%>
-						<td style="height:48px;border: 1px solid; 
+						<td style="height:40px;border: 1px solid; 
 							font-size: 15px; font-weight: bolder; background-color: #FFFFC0;" 
 							colspan="<%=y.cols%>">
 						<%=y.year %>
@@ -317,7 +319,7 @@
 					<%
 					for (int m=0; m<month.length; m++) {
 					%>
-						<td style="width: <%=tdWidth%>; height:30px; 
+						<td style="width: <%=tdWidth%>; height:20px; 
 							border: 1px solid; background-color: #FFFFC0;">
 							<%=month[m]%>
 					<%
@@ -325,7 +327,7 @@
 						if (m == currentIndex) {
 							%>
 							<div style="width: 2px; background-color: #FF00FF; 
-								height: 195px; 
+								height: 140px; 
 								position: absolute;
 								margin-left:<%=tdWidth/2%>px;">
 							</div>
@@ -549,7 +551,7 @@
 
 		
 			%>
-			<div style="width: 100%;float: left; position: absolute; top:450px; margin: 0px; padding: 0px;">
+			<div style="width: 100%;float: left; position: absolute; top:422px; margin: 0px; padding: 0px;">
 				<div style="background-color: #B0B0B0; color: white; border: 1px solid; font-size: 12px; font-weight: bolder;
 					text-align: center; float: left;
 					width: <%=width1%>px; height: 16px; margin-left: <%=180+beginPF*tdWidth%>px;">

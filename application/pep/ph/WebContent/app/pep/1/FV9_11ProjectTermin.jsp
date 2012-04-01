@@ -72,6 +72,19 @@
 			return div_class;
 		}
 		
+		public static double getLeftWidth (double marginLeft, double tdWidth, int MLIndex, String MLDate) {
+			double left = 0.0;
+			int flag = DateUtils.getTenDays(MLDate);
+			if (flag == 1) {
+				//上旬-菱形处于月前的线上
+				left = marginLeft + MLIndex*(tdWidth+1) - tdWidth/2;
+			}
+			if (flag == 2) {
+				//下旬-菱形处于月末的线上
+				left = marginLeft + MLIndex*(tdWidth+1) + tdWidth/2;
+			}
+			return left;
+		}
 		
 		%>
 		<%
@@ -274,41 +287,6 @@
 					
 				}
 				
-				
-				System.out.println("PFIndex = " + PFIndex);
-				System.out.println("LFIndex = " + LFIndex);
-				System.out.println("SOPIndex = " + SOPIndex);
-				
-				int month1 = LFIndex - PFIndex; //PF-LF
-				int month2 = SOPIndex - LFIndex; //LF-SOP (如果SOP在下旬，多加一个月)
-				System.out.println("month1 = " + month1);
-				System.out.println("month2 = " + month2);
-				//LF在上旬、SOP在下旬，月份+1
-			/* 	if ((DateUtils.getTenDays(fv9PFMLDate) == 1 && DateUtils.getTenDays(fv9LFMLDate) == 2) ||
-						((Integer.parseInt(fv9PFMLDate.split("-")[2]) > Integer.parseInt(fv9LFMLDate.split("-")[2]))))
-					month1 += 1;
-				
-				if ((DateUtils.getTenDays(fv9LFMLDate) == 1 && DateUtils.getTenDays(fv9SOPMLDate) == 2) ||
-						((Integer.parseInt(fv9LFMLDate.split("-")[2]) > Integer.parseInt(fv9SOPMLDate.split("-")[2]))))
-					month2 += 1; */
-				System.out.println("month11 = " + month1);
-				System.out.println("month22 = " + month2);
-				/* if (!"1900-01-01 00:00:00".equals(fv9PFMLDate) &&
-						!"1900-01-01 00:00:00".equals(fv9LFMLDate)) {
-					month1 = DateUtils.getTwoDateSepMonths(fv9PFMLDate, fv9LFMLDate);
-					if ((Integer.parseInt(fv9PFMLDate.split("-")[2]) > Integer.parseInt(fv9LFMLDate.split("-")[2])) ||
-							(Integer.parseInt(fv9PFMLDate.split("-")[2]) < Integer.parseInt(fv9LFMLDate.split("-")[2]))) {
-						month1 += 1;
-					}
-				}
-				if (!"1900-01-01 00:00:00".equals(fv9LFMLDate) &&
-						!"1900-01-01 00:00:00".equals(fv9SOPMLDate)) {
-					month2 = DateUtils.getTwoDateSepMonths(fv9LFMLDate, fv9SOPMLDate);
-					if ((Integer.parseInt(fv9LFMLDate.split("-")[2]) > Integer.parseInt(fv9SOPMLDate.split("-")[2])) ||
-							(Integer.parseInt(fv9LFMLDate.split("-")[2]) < Integer.parseInt(fv9SOPMLDate.split("-")[2]))) {
-						month2 += 1;
-					}
-				} */
 			%>
 				<table style="border: 1px solid; width: 1000px; height: 300px; margin: 100px 0px auto; 
 				font-size: 9px; text-align: center; padding: 0px;
@@ -558,25 +536,29 @@
 			
 			//写入里程碑间距
 			int beginPF = PFIndex; //从PF里程碑
-			//如果PF在下旬			
+			//如果PF在下旬,从下个月的线开始			
 			if (DateUtils.getTenDays(fv9PFMLDate) == 2) {
 				beginPF = beginPF + 1;
 			}
-			double width1 = 0.0;
-			double width2 = 0.0;
-			
-	//		MLIndex*(tdWidth+1)
+			double width1 = getLeftWidth(0, tdWidth, LFIndex, fv9LFMLDate) - 
+						getLeftWidth(0, tdWidth, PFIndex, fv9PFMLDate);
+			int month01 = (int)(width1/tdWidth);
+			double width2 = getLeftWidth(0, tdWidth, SOPIndex, fv9SOPMLDate) - 
+						getLeftWidth(0, tdWidth, LFIndex, fv9LFMLDate);
+			int month02 = (int)(width2/tdWidth);
+
+		
 			%>
-			<div style="width: 100%;float: left; position: absolute; top:450px;">
+			<div style="width: 100%;float: left; position: absolute; top:450px; margin: 0px; padding: 0px;">
 				<div style="background-color: #B0B0B0; color: white; border: 1px solid; font-size: 12px; font-weight: bolder;
 					text-align: center; float: left;
-					width: <%=(month1)*(tdWidth+1)%>px; height: 16px; margin-left: <%=185+beginPF*tdWidth%>px;">
-					<%=month1 %>&nbsp;Mo
+					width: <%=width1%>px; height: 16px; margin-left: <%=180+beginPF*tdWidth%>px;">
+					<%=month01 %>&nbsp;Mo
 				</div>
 				<div style="background-color: #808080; color: white; border: 1px solid; font-size: 12px; font-weight: bolder;
 					text-align: center; float: left;
-					width: <%=(month2)*(tdWidth+1)%>px; height: 16px; margin-left: 0px;">
-					<%=month2 %>&nbsp;Mo
+					width: <%=width2%>px; height: 16px; margin-left: 0px;">
+					<%=month02 %>&nbsp;Mo
 				</div>
 			</div>
 			

@@ -173,35 +173,35 @@
 					data: [{ 
 							y: <%=y1%>, 
 							low: <%=low1%>,
-							color: '#F9A700',
-							desc: ''
+//							desc: '',
+							color: '#F9A700'
 						}, {
 						 	y: <%=y2%>, 
 						 	low: <%=low2%>,
-						 	desc: "<%=Web.replaceSpecial(fv9FuncSmall05Com)%>",
+			//			 	desc: "<%=Web.replaceSpecial(fv9FuncSmall05Com)%>",
 							color: '#E63110'
 						}, {
 							y: <%=y3%>,
 							low: <%=low3%>,
-							desc: "<%=Web.replaceSpecial(fv9FuncSmall10Com)%>",
+			//				desc: "<%=Web.replaceSpecial(fv9FuncSmall10Com)%>",
 							color: '#E63110'
 						}, {
 							y: <%=y4%>,
 							low: <%=low4%>,
-							desc: "<%=Web.replaceSpecial(fv9FuncSmall15Com)%>",
+			//				desc: "<%=Web.replaceSpecial(fv9FuncSmall15Com)%>",
 							color: '#E63110'
 						}, { 
 							y: <%=y5%>, 
 							low:<%=low5%>,
-							desc: "<%=Web.replaceSpecial(fv9FuncSmall20Com)%>",
+				//			desc: "<%=Web.replaceSpecial(fv9FuncSmall20Com)%>",
 							color: '#E63110'
 						}, {
 						 	y: <%=y6%>, 
 						 	low: <%=low6%>,
-						 	desc: "<%=Web.replaceSpecial(fv9FuncBig20Com)%>",
+				//		 	desc: "<%=Web.replaceSpecial(fv9FuncBig20Com)%>",
 							color: '#E63110'
 						}],
-					cursor: 'pointer',
+		/*			cursor: 'pointer',
 					point: {
 						events: {
 							click: function() {
@@ -219,7 +219,7 @@
 								});
 							}
 						}
-					}, 
+					}, */
 					marker: {
 						lineWidth: 1
 					}
@@ -254,6 +254,43 @@
 			
 			<div id="content">
 				<div id="chart" style="width: 1000px; height: 500px; margin: 5px auto; margin-top: 30px;"></div>
+				<div style = "font-size: 12px; overflow: hidden;">
+					<!-- 
+					<div style="position: absolute; width: 1px; height: 20px; top:330px; margin-left: 252px; border-left: 1px solid;"></div>
+					 -->
+					<div style="position: absolute; width: 85px; height: 210px; top: 350px; margin-left: 210px; border: 1px solid;">
+						<%= Web.replaceSpecial(fv9FuncSmall05Com) %>
+					</div>
+					
+					<!-- 
+					<div style="position: absolute; width: 1px; height: 20px; top:330px; margin-left: 417px; border-left: 1px solid;"></div>
+					 -->
+					<div style="position: absolute; width: 85px; height: 210px; top: 350px; margin-left: 375px; border: 1px solid;">
+						<%= Web.replaceSpecial(fv9FuncSmall10Com) %>
+					</div>
+					
+					<!-- 
+					<div style="position: absolute; width: 1px; height: 20px; top:330px; margin-left: 582px; border-left: 1px solid;"></div>
+					 -->
+					<div style="position: absolute; width: 85px; height: 210px; top: 350px; margin-left: 540px; border: 1px solid;">
+						<%= Web.replaceSpecial(fv9FuncSmall15Com) %>
+					</div>
+					
+					<!-- 
+					<div style="position: absolute; width: 1px; height: 20px; top:330px; margin-left: 742px; border-left: 1px solid;"></div>
+					 -->
+					<div style="position: absolute; width: 85px; height: 210px; top: 350px; margin-left: 700px; border: 1px solid;">
+						<%= Web.replaceSpecial(fv9FuncSmall20Com) %>
+					</div>
+					
+					<!-- 
+					<div style="position: absolute; width: 1px; height: 20px; top:330px; margin-left: 902px; border-left: 1px solid;"></div>
+					 -->
+					<div style="position: absolute; width: 85px; height: 210px; top: 350px; margin-left: 860px; border: 1px solid;">
+						<%= Web.replaceSpecial(fv9FuncBig20Com) %>
+					</div>
+				</div>
+				
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

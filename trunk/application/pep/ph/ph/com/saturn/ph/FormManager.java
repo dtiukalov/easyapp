@@ -213,8 +213,8 @@ public class FormManager {
 		add(new FV9_33ProblemblattDataset());
 		add(new FV9_34FuntionsmasseForm());
 		add(new FV9_34FuntNachBautForm());
-	//	add(new FV9_34FuntAussTolForm());
-		add(new FV9_34FuntAussTolDataset());
+		add(new FV9_34FuntAussTolForm());
+//		add(new FV9_34FuntAussTolDataset());
 		add(new FV9_35AuditNoteZP8Form());
 		add(new FV9_35FehlerDenGewForm());
 		add(new FV9_35NachareitPunkForm());
@@ -244,8 +244,8 @@ public class FormManager {
 		add(new FV9_42ProblemblattZP5KTDataset());
 
 		add(new FV9_43TeilequalitaetZP7KTDataset());
-	//	add(new FV9_43TeileStatVFFKTForm());
-		add(new FV9_43TeileStatVFFKTDataset());
+		add(new FV9_43TeileStatVFFKTForm());
+//		add(new FV9_43TeileStatVFFKTDataset());
 		add(new FV9_43TeileStatPVSKTForm());
 		add(new FV9_43TeileStat0SKTForm());
 		add(new FV9_43TerminubersichtZP7KTDataset());

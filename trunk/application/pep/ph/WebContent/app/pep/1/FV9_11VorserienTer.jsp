@@ -111,9 +111,10 @@
 		String fv90SDesc = " QA 3 PVS-Fahrzeug ,2 0S-Fahrzeug fuer MQ200 Projekt"; // (String)form.get("fv90SDesc");
 		
 		//SOP时间
-		String DATE_SOP = "2012-09-12"; //(String)session.getAttribute("DATE_SOP");
-		System.out.println("------------------------------------------");
-		int SOP_KW = DateUtils.getWeekOfYear(DATE_SOP + " 00:00");
+		String DATE_SOP = (String)session.getAttribute("DATE_SOP");
+		
+		System.out.println("--------------------" + DATE_SOP + "----------------------");
+		int SOP_KW = DateUtils.getWeekOfYear(DATE_SOP);
 		int SOP_Year = Integer.parseInt(DATE_SOP.split("-")[0]);
 		
 		//认可信息

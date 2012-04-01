@@ -34,7 +34,8 @@
 			</h1>
 		</div>
     	<div id="content">
-	    	<div id="datatable1" style="width: 800px; margin:0 50px">
+    							 
+	    	<div id="datatable1" style="width: 980px;margin:5px auto; margin-top: 30px;">
 				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 				  <tr>
 				    <td width="239" class="pg">&nbsp;</td>
@@ -99,8 +100,8 @@
 					%>  
 				</table>
 			</div>
-		
-			<div id="datatable2" style="width: 800px; display: none;margin:0 50px">
+			
+			<div id="datatable2" style="width: 980px; display: none;margin:5px auto; margin-top: 30px;">
 				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 				  <tr>
 				    <td width="239" class="pg">&nbsp;</td>

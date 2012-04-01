@@ -20,7 +20,7 @@
 		List<String> fv9PFMajor = (List<String>) form.get("fv9PFMajor");
 		if(Web.getListYesOrNo(fv9PFMajor)){
 			 fv9PFMajor.add("Gesamt"); 
-			 tdwidth = 694.0/(fv9PFMajor.size());
+			 tdwidth = 780.0/(fv9PFMajor.size());
 		}
 		String PFMajor = Web.getStrListStr(fv9PFMajor);
 		PFMajor = Web.replaceSpecial(PFMajor);
@@ -184,11 +184,11 @@
 				<h1><%=title %></h1>
 			</div>
 			<div id="content">
-				<div id="chart" style="width: 850px; height: 400px; margin: 0 auto"></div>
-				<div id="table" style="width: 850px; height: 400px; margin: 0 8px">
+				<div id="chart" style="width: 950px; height: 480px; margin: 0 auto"></div>
+				<div id="table" style="width: 950px; height: 400px; margin: 0 8px">
 					<table class="table2" style="border-color: #000;border-collapse:collapse;" cellpadding="0" cellspacing="0" border="1"">
 						<tr>
-							<td style="text-align: left; width: 80px;"">&nbsp;Pos.Gesamt</td>
+							<td style="text-align: left; width: 90px;"">&nbsp;Pos.Gesamt</td>
 							<%
 							if (Web.getListYesOrNo(fv9PFGesamtNum)) {
 								for (int i=0; i < fv9PFGesamtNum.size(); i++){
@@ -200,7 +200,7 @@
 							%>
 						</tr>
 						<tr>
-							<td style="text-align: left; width: 80px;"">&nbsp;P - Soll</td>
+							<td style="text-align: left; width: 90px;"">&nbsp;P - Soll</td>
 							<%
 							if (Web.getListYesOrNo(fv9PFSollNum)) {
 								for (int i=0; i < fv9PFSollNum.size(); i++){
@@ -212,7 +212,7 @@
 							%>
 						</tr>
 						<tr>
-							<td style="text-align: left; width: 80px;"">&nbsp;P - Ist</td>
+							<td style="text-align: left; width: 90px;"">&nbsp;P - Ist</td>
 							<%
 							if (Web.getListYesOrNo(fv9PFlstNum)) {
 								for (int i=0; i<fv9PFlstNum.size(); i++){
@@ -224,7 +224,7 @@
 							%>
 						</tr>
 						<tr>
-							<td style="text-align: left; width: 80px;"">&nbsp;P - Offen</td>
+							<td style="text-align: left; width: 90px;"">&nbsp;P - Offen</td>
 							<%
 							if (Web.getListYesOrNo(fv9PFoffenNum)) {
 								for (int i=0; i<fv9PFoffenNum.size(); i++){

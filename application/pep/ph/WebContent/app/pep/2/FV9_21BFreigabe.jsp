@@ -20,7 +20,7 @@
 		List<String> fv9BFMajor = (List<String>) form.get("fv9BFMajor");
 		if (Web.getListYesOrNo(fv9BFMajor)) {
 			fv9BFMajor.add("Gesamt"); 
-			tdwidth = 694.0/(fv9BFMajor.size());
+			tdwidth = 780.0/(fv9BFMajor.size());
 		}
 		String BFMajor = Web.getStrListStr(fv9BFMajor);
 		BFMajor = Web.replaceSpecial(BFMajor);
@@ -180,11 +180,11 @@
 				<h1><%=title %></h1>
 			</div>
 			<div id="content">
-				<div id="chart" style="width: 850px; height: 400px; margin: 0 auto"></div>
-				<div id="table" style="width: 800px; height: 400px; margin: 0 8px">
+				<div id="chart" style="width: 950px; height: 480px; margin: 0 auto"></div>
+				<div id="table" style="width: 950px; height: 400px; margin: 0 8px">
 					<table class="table2" style="border-color: #000;border-collapse:collapse;" cellpadding="0" cellspacing="0" border="1"">
 						<tr>
-							<td style="text-align: left; width: 80px;">&nbsp;Pos.Gesamt</td>
+							<td style="text-align: left; width: 90px;">&nbsp;Pos.Gesamt</td>
 							<%
 							if (Web.getListYesOrNo(fv9BFGesamtNum)) {
 								for (int i=0; i<fv9BFGesamtNum.size(); i++){
@@ -196,7 +196,7 @@
 							%>
 						</tr>
 						<tr>
-							<td style="text-align: left; width: 80px;">&nbsp;B - Soll</td>
+							<td style="text-align: left; width: 90px;">&nbsp;B - Soll</td>
 							<%
 							if (Web.getListYesOrNo(fv9BFSollNum)) {
 								for (int i=0; i<fv9BFSollNum.size(); i++){
@@ -208,7 +208,7 @@
 							%>
 						</tr>
 						<tr>
-							<td style="text-align: left; width: 80px;">&nbsp;B - Ist</td>
+							<td style="text-align: left; width: 90px;">&nbsp;B - Ist</td>
 							<%
 							if (Web.getListYesOrNo(fv9BFlstNum)) {
 								for (int i=0; i<fv9BFlstNum.size(); i++){
@@ -220,7 +220,7 @@
 							%>
 						</tr>
 						<tr>
-							<td style="text-align: left; width: 80px;">&nbsp;B - Offen</td>
+							<td style="text-align: left; width: 90px;">&nbsp;B - Offen</td>
 							<%
 							if (Web.getListYesOrNo(fv9BFOffenNum)) {
 								for (int i=0; i<fv9BFOffenNum.size(); i++){

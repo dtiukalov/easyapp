@@ -101,7 +101,8 @@
 				title: {
 					text: 'Anzahl Teile nach TEVON',
 					style:{
-						color:'black'
+						color:'black',
+						fontSize:'16px'
 					}
 				},
 				xAxis: {
@@ -111,14 +112,14 @@
 					labels:{
 						y:20,
 						style:{
-							color:'black'
+							color:'black',
+							fontSize:'14px'
 						}
 					},
 					categories: ["Gesamt", "Nominiert", "Nicht<br>nominiert"]
 				},
 				yAxis: {
 					min: 0,
-					max: 250,
 					gridLineWidth:0,
 					title: {
 						text: ' '
@@ -147,8 +148,10 @@
 				plotOptions: {
 					column: {
 						stacking: 'normal',
-						pointWidth:33,
+					//	pointWidth:33,
 						shadow: false,
+						groupPadding:0.11,
+						pointPadding:0.11,
 						dataLabels: {
 							enabled: false,
 							style : {
@@ -209,20 +212,21 @@
 					labels:{
 						y:20,
 						style:{
-							color:'black'
+							color:'black',
+							fontSize:'14px'
 						}
 					},
 					title: {
 						text: 'Geplante Nominierungen',
 						style:{
-							color:'black'
+							color:'black',
+							fontSize:'14px'
 						}
 					},
 					categories: <%=categories%> 
 				},
 				yAxis: {
 					min: 0,
-					max: 20,
 					gridLineWidth:0,
 					title: {
 						text: ' '
@@ -252,8 +256,10 @@
 				plotOptions: {
 					column: {
 						stacking: 'normal',
-						pointWidth:40,
+						//pointWidth:40,
 						shadow: false,
+						groupPadding:0.11,
+						pointPadding:0.11,
 						dataLabels: {
 							enabled: true,
 							style : {
@@ -288,8 +294,8 @@
 			</div>
 			<div id="content">
 				<div style="width: 50px; height: 400px; margin: 0 auto; float: left;"></div>
-				<div id="chart1" style="width: 260px; height: 400px; margin: 20px auto; float: left;"></div>
-				<div id="chart2" style="width: 500px; height: 400px; margin: 0 auto; float: left;margin-top:40px"></div>
+				<div id="chart1" style="width: 300px; height: 500px; margin: 0; float: left;margin-top:20px"></div>
+				<div id="chart2" style="width: 640px; height: 500px; margin: 0;  float: left;margin-top:40px"></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

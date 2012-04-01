@@ -41,8 +41,9 @@
 					text: 'Modellpflegepunkte',
 					style:{
 						color:'black',
-						fontSize:'26px',
-						fontWeight: 'bold'
+						fontSize:'30px',
+						fontWeight: 'bold',
+						margin: '10'
 					}
 				},
 				xAxis: {
@@ -53,7 +54,7 @@
 						y:30,
 						style:{
 							color:'black',
-							fontSize:'14px'
+							fontSize:'16px'
 						}
 					},
 					categories: ["Genehmigt MOP-Punkte zum ...(Fahrzeug)", "PP COP, Ersteinsatz in anderen Projekten", "PP Ersteinsatz...(Fahrzeug)", "PP nicht relevant oder Steuerungspunkte"] 
@@ -146,7 +147,7 @@
 				<h1><%=title %></h1>
 			</div>
 			<div id="content">
-				<div id="chart" style="width: 850px; height: 450px; margin: 30px 50px;"></div>
+				<div id="chart" style="width: 950px; height: 520px; margin-left: 20x; "></div>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

@@ -27,7 +27,7 @@
 				chart = new Highcharts.Chart({
 					chart: {
 						renderTo: 'chart',
-						margin: [20, 0, 30, 50]
+						margin: [20, 0, 30, 50] //下 上 右 左
 					},
 					title: {
 						text: ' '

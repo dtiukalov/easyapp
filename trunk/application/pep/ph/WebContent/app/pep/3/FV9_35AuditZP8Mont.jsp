@@ -67,7 +67,8 @@
 			$(document).ready(function() {
 				chart = new Highcharts.Chart({
 					chart: {
-						renderTo: 'chart'
+						renderTo: 'chart',
+						margin: [20, 0, 30, 50] //下 上 右 左
 					},
 					title: {
 						text: ' '
@@ -98,25 +99,24 @@
 							}
 						},
 						title: {
-							rotation:0,
-							text: 'Punkte',
-							x:-15,
-							y:-160,
-							style: {
-								color: 'black',
-								fontSize:'14px'
+			                align: 'high',
+			                offset: 0,
+			                text: 'Punkte',
+			                rotation: 0,
+			                x: 50,
+			                y: -10,
+			                style: {
+								color:'black',
+								fontSize:'12px'
 							}
 						}
 					},
 					legend: {
 						layout: 'vertical',
-						align: 'right',
-						verticalAlign: 'top',
-						x: -10,
-						y: 100,
-						borderWidth: 1,
-						borderRadius: 0,
-						shadow: false
+						verticalAlign: 'center',
+						x: 250,
+						y: 50,
+						borderWidth: 0
 					},
 					tooltip: {
 						formatter: function() {
@@ -194,12 +194,12 @@
 				<h1><%=title %></h1>
 			</div>
 			<div id="content">
-				<div id="chart" style="width: 800px; height: 400px; margin: 0 auto"></div>
+				<div id="chart" style="width: 1000px; height: 500px; margin: 5px auto; "></div>
 					<%
 					if (Web.getListYesOrNo((List<String>)form.get("fv9KWNo"))) {
 						int[] arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9KWNo"));
 						
-						double totalWidth = 560.0;
+						double totalWidth = 950.0;
 						Map<String,Double> lichenbeiPillarNum = Web.getLCBPillar(Web.getLCBNum(request, arr), arr, totalWidth);
 					
 						double value0 = lichenbeiPillarNum.get("vffqianPillar"); 
@@ -207,11 +207,10 @@
 						double value2 = lichenbeiPillarNum.get("pvsPillar");
 						double value3 = lichenbeiPillarNum.get("osPillar");
 						double value4 = lichenbeiPillarNum.get("sopPillar");
-						double sum = value1 + value2 + value3 + value4;
+						double sum = value0 + value1 + value2 + value3 + value4;
 					%>
-				<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 156px; text-align: center; overflow: hidden; ">
+				<div id="meilstein" style="width: <%=sum%>px; height: 30px; margin-left: 50px; text-align: center; overflow: hidden; ">
 					<div style=" width: <%=value0 %>px; height: 30px; float: left; background-color: white; vertical-align: bottom; padding-top: 5px;"><span style="color: white;"></span></div>
-
 					<div style=" width: <%=value1 %>px; height: 30px; float: left; background-color: #99FF99; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">VFF</span></div>
 					<div style=" width: <%=value2 %>px; height: 30px; float: left; background-color: #33CC33; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">PVS</span></div>
 					<div style=" width: <%=value3 %>px; height: 30px; float: left; background-color: #006600; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">0S</span></div>

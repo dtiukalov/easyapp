@@ -20,7 +20,7 @@
 		List<String> fv9BMGMajor = (List<String>) form.get("fv9BMGMajor");
 		if (Web.getListYesOrNo(fv9BMGMajor)) {
 			fv9BMGMajor.add("Gesamt"); 
-			tdwidth = 694.0/(fv9BMGMajor.size());
+			tdwidth = 780.0/(fv9BMGMajor.size());
 		}
 		String BMG_Major = Web.getStrListStr(fv9BMGMajor);
 		BMG_Major = Web.replaceSpecial(BMG_Major);
@@ -182,11 +182,11 @@
 				<h1><%=title %></h1>
 			</div>
 			<div id="content">
-				<div id="chart" style="width: 850px; height: 400px; margin: 0 auto"></div>
-				<div id="table" style="width: 800px; height: 400px; margin: 0 8px">
+				<div id="chart" style="width: 950px; height: 480px; margin: 0 auto"></div>
+				<div id="table" style="width: 950px; height: 400px; margin: 0 8px">
 					<table class="table2" style="border-color: #000;border-collapse:collapse;" cellpadding="0" cellspacing="0" border="1"">
 						<tr>
-							<td style="text-align: left; width: 80px;">&nbsp;Pos.Gesamt</td>
+							<td style="text-align: left; width: 90px;">&nbsp;Pos.Gesamt</td>
 							<%
 							if (Web.getListYesOrNo(fv9BMGGesamtNum)) {
 								for (int i=0; i<fv9BMGGesamtNum.size(); i++){
@@ -198,7 +198,7 @@
 							%>
 						</tr>
 						<tr>
-							<td style="text-align: left; width: 80px;">&nbsp;BMG - Soll</td>
+							<td style="text-align: left; width: 90px;">&nbsp;BMG - Soll</td>
 							<%
 							if (Web.getListYesOrNo(fv9BMGSollNum)) {
 								for (int i=0; i<fv9BMGSollNum.size(); i++){
@@ -210,7 +210,7 @@
 							%>
 						</tr>
 						<tr>
-							<td style="text-align: left; width: 80px;">&nbsp;BMG - Ist</td>
+							<td style="text-align: left; width: 90px;">&nbsp;BMG - Ist</td>
 							<%
 							if (Web.getListYesOrNo(fv9BMGlstNum)) {
 								for (int i=0; i<fv9BMGlstNum.size(); i++){
@@ -222,7 +222,7 @@
 							%>
 						</tr>
 						<tr>
-							<td style="text-align: left; width: 80px;">&nbsp;BMG - Offen</td>
+							<td style="text-align: left; width: 90px;">&nbsp;BMG - Offen</td>
 							<%
 							if (Web.getListYesOrNo(fv9BFOffenNum)) {
 								for (int i=0; i<fv9BFOffenNum.size(); i++){

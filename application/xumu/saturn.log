@@ -1,0 +1,258 @@
+[main] 2012-04-02 13:26:48,407 DEBUG [app] ->->Load database config info from saturn-config.xml
+[main] 2012-04-02 13:27:17,819 DEBUG [app] ->->Load database config info from saturn-config.xml
+[main] 2012-04-02 13:27:18,034 DEBUG [app] querySql:SELECT count(*) FROM XM_FARMER_PIG WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 13:27:18,034 DEBUG [app] querySql:SELECT * FROM xm_farmer_pig WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 13:27:18,044 DEBUG [app] Result Mapping Object[FarmerPig]:{"total":"60.00","id":"1","createTime":"2012-04-02 00:00:00","num":"3","price":"20.00","opId":"12313123123","userName":"张三","opType":"新增","type":"仔猪"}
+[main] 2012-04-02 13:27:18,044 DEBUG [app] querySql:SELECT * FROM xm_farmer_pig WHERE 1 = 1 and id = '1'
+[main] 2012-04-02 13:27:18,049 DEBUG [app] Result Mapping Object[FarmerPig]:{"total":"60.00","id":"1","createTime":"2012-04-02 00:00:00","num":"3","price":"20.00","opId":"12313123123","userName":"张三","opType":"新增","type":"仔猪"}
+[main] 2012-04-02 13:31:36,723 DEBUG [app] ->->Load database config info from saturn-config.xml
+[main] 2012-04-02 13:31:36,913 DEBUG [app] querySql:SELECT count(*) FROM XM_FARMER_FORAGE WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 13:31:36,913 DEBUG [app] querySql:SELECT * FROM xm_farmer_forage WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 13:31:36,918 DEBUG [app] Result Mapping Object[FarmerForage]:{"total":"40.00","id":"1","createTime":"2012-04-02 00:00:00","num":"4","price":"10.00","opId":"12313123123","userName":"张三","mapping":{},"type":"玉米"}
+[main] 2012-04-02 13:31:36,923 DEBUG [app] querySql:SELECT * FROM xm_farmer_forage WHERE 1 = 1 and id = '1'
+[main] 2012-04-02 13:31:36,923 DEBUG [app] Result Mapping Object[FarmerForage]:{"total":"40.00","id":"1","createTime":"2012-04-02 00:00:00","num":"4","price":"10.00","opId":"12313123123","userName":"张三","mapping":{},"type":"玉米"}
+[main] 2012-04-02 13:34:49,221 DEBUG [app] ->->Load database config info from saturn-config.xml
+[main] 2012-04-02 13:34:49,431 DEBUG [app] querySql:SELECT count(*) FROM XM_FARMER_FORAGE WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 13:34:49,436 DEBUG [app] querySql:SELECT * FROM xm_farmer_forage WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 13:34:49,441 DEBUG [app] java.lang.NoSuchMethodException: com.saturn.warning.date.farmer.FarmerSpend.setNum(java.lang.String)
+[main] 2012-04-02 13:34:49,441 DEBUG [app] java.lang.NoSuchMethodException: com.saturn.warning.date.farmer.FarmerSpend.setTotal(java.lang.String)
+[main] 2012-04-02 13:34:49,446 DEBUG [app] Result Mapping Object[FarmerSpend]:{"id":"2","createTime":"2012-04-02 00:00:00","price":"3000.00","opId":"12313123123","userName":"张三","mapping":{},"type":"人员工资"}
+[main] 2012-04-02 13:34:49,446 DEBUG [app] querySql:SELECT * FROM xm_farmer_forage WHERE 1 = 1 and id = '2'
+[main] 2012-04-02 13:34:49,451 DEBUG [app] java.lang.NoSuchMethodException: com.saturn.warning.date.farmer.FarmerSpend.setNum(java.lang.String)
+[main] 2012-04-02 13:34:49,451 DEBUG [app] java.lang.NoSuchMethodException: com.saturn.warning.date.farmer.FarmerSpend.setTotal(java.lang.String)
+[main] 2012-04-02 13:34:49,451 DEBUG [app] Result Mapping Object[FarmerSpend]:{"id":"2","createTime":"2012-04-02 00:00:00","price":"3000.00","opId":"12313123123","userName":"张三","mapping":{},"type":"人员工资"}
+[main] 2012-04-02 13:46:24,031 DEBUG [app] ->->Load database config info from saturn-config.xml
+[main] 2012-04-02 13:46:24,241 DEBUG [app] querySql:SELECT count(*) FROM XM_FARMER WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 13:46:24,241 DEBUG [app] querySql:SELECT * FROM xm_farmer WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 13:46:24,246 DEBUG [app] Result Mapping Object[Farmer]:{"id":"1","createTime":"2012-04-02 00:00:00","opId":"12313123123","userId":"zhangsan","userName":"张三"}
+[main] 2012-04-02 13:46:24,246 DEBUG [app] querySql:SELECT * FROM xm_farmer WHERE 1 = 1 and id = '1'
+[main] 2012-04-02 13:46:24,251 DEBUG [app] Result Mapping Object[Farmer]:{"id":"1","createTime":"2012-04-02 00:00:00","opId":"12313123123","userId":"zhangsan","userName":"张三"}
+[main] 2012-04-02 14:58:59,438 DEBUG [app] ->->Load database config info from saturn-config.xml
+[main] 2012-04-02 14:58:59,633 DEBUG [app] querySql:SELECT count(*) FROM XM_FARMER WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 14:58:59,633 DEBUG [app] querySql:SELECT * FROM xm_farmer WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 14:58:59,643 DEBUG [app] Result Mapping Object[Farmer]:{"id":"2","createTime":"2012-04-02 00:00:00","opId":"12313123123","userId":"zhangsan","userName":"张三"}
+[main] 2012-04-02 14:58:59,643 DEBUG [app] querySql:SELECT * FROM xm_farmer WHERE 1 = 1 and id = '2'
+[main] 2012-04-02 14:58:59,643 DEBUG [app] Result Mapping Object[Farmer]:{"id":"2","createTime":"2012-04-02 00:00:00","opId":"12313123123","userId":"zhangsan","userName":"张三"}
+[main] 2012-04-02 15:37:48,479 DEBUG [app] ->->Load database config info from saturn-config.xml
+[main] 2012-04-02 15:37:48,719 DEBUG [app] querySql:SELECT count(*) FROM XM_FARMER_PIG WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 15:37:48,744 DEBUG [app] querySql:SELECT * FROM xm_farmer_pig WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 15:37:48,759 DEBUG [app] Result Mapping Object[FarmerPig]:{"total":"60.00","id":"2","createTime":"2012-04-02 00:00:00","num":"3","price":"20.00","opId":"12313123123","userName":"张三","opType":"新增","type":"仔猪"}
+[main] 2012-04-02 15:37:48,759 DEBUG [app] querySql:SELECT * FROM xm_farmer_pig WHERE 1 = 1 and id = '2'
+[main] 2012-04-02 15:37:48,759 DEBUG [app] Result Mapping Object[FarmerPig]:{"total":"60.00","id":"2","createTime":"2012-04-02 00:00:00","num":"3","price":"20.00","opId":"12313123123","userName":"张三","opType":"新增","type":"仔猪"}
+[main] 2012-04-02 15:37:48,769 DEBUG [app] querySql:SELECT count(*) FROM XM_FARMER_FORAGE WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 15:37:48,769 DEBUG [app] querySql:SELECT * FROM xm_farmer_forage WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 15:37:48,769 DEBUG [app] Result Mapping Object[FarmerForage]:{"total":"40.00","id":"3","createTime":"2012-04-02 00:00:00","num":"4","price":"10.00","opId":"12313123123","userName":"张三","type":"玉米"}
+[main] 2012-04-02 15:37:48,769 DEBUG [app] querySql:SELECT * FROM xm_farmer_forage WHERE 1 = 1 and id = '3'
+[main] 2012-04-02 15:37:48,769 DEBUG [app] Result Mapping Object[FarmerForage]:{"total":"40.00","id":"3","createTime":"2012-04-02 00:00:00","num":"4","price":"10.00","opId":"12313123123","userName":"张三","type":"玉米"}
+[main] 2012-04-02 15:37:48,784 DEBUG [app] querySql:SELECT count(*) FROM XM_FARMER WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 15:37:48,784 DEBUG [app] querySql:SELECT * FROM xm_farmer WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 15:37:48,784 DEBUG [app] Result Mapping Object[Farmer]:{"id":"3","createTime":"2012-04-02 00:00:00","userId":"zhangsan","opId":"12313123123","userName":"张三"}
+[main] 2012-04-02 15:37:48,784 DEBUG [app] querySql:SELECT * FROM xm_farmer WHERE 1 = 1 and id = '3'
+[main] 2012-04-02 15:37:48,784 DEBUG [app] Result Mapping Object[Farmer]:{"id":"3","createTime":"2012-04-02 00:00:00","userId":"zhangsan","opId":"12313123123","userName":"张三"}
+[main] 2012-04-02 15:38:22,269 DEBUG [app] ->->Load database config info from saturn-config.xml
+[main] 2012-04-02 15:38:22,494 DEBUG [app] querySql:SELECT count(*) FROM XM_FARMER_PIG WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 15:38:22,494 DEBUG [app] querySql:SELECT * FROM xm_farmer_pig WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 15:38:22,509 DEBUG [app] Result Mapping Object[FarmerPig]:{"total":"60.00","id":"3","createTime":"2012-04-02 00:00:00","num":"3","price":"20.00","opId":"12313123123","userName":"张三","opType":"新增","type":"仔猪"}
+[main] 2012-04-02 15:38:22,509 DEBUG [app] querySql:SELECT * FROM xm_farmer_pig WHERE 1 = 1 and id = '3'
+[main] 2012-04-02 15:38:22,509 DEBUG [app] Result Mapping Object[FarmerPig]:{"total":"60.00","id":"3","createTime":"2012-04-02 00:00:00","num":"3","price":"20.00","opId":"12313123123","userName":"张三","opType":"新增","type":"仔猪"}
+[main] 2012-04-02 15:38:22,519 DEBUG [app] querySql:SELECT count(*) FROM XM_FARMER_FORAGE WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 15:38:22,519 DEBUG [app] querySql:SELECT * FROM xm_farmer_forage WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 15:38:22,519 DEBUG [app] Result Mapping Object[FarmerForage]:{"total":"40.00","id":"4","createTime":"2012-04-02 00:00:00","num":"4","price":"10.00","opId":"12313123123","userName":"张三","type":"玉米"}
+[main] 2012-04-02 15:38:22,519 DEBUG [app] querySql:SELECT * FROM xm_farmer_forage WHERE 1 = 1 and id = '4'
+[main] 2012-04-02 15:38:22,519 DEBUG [app] Result Mapping Object[FarmerForage]:{"total":"40.00","id":"4","createTime":"2012-04-02 00:00:00","num":"4","price":"10.00","opId":"12313123123","userName":"张三","type":"玉米"}
+[main] 2012-04-02 15:38:22,534 DEBUG [app] querySql:SELECT count(*) FROM XM_FARMER WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 15:38:22,534 DEBUG [app] querySql:SELECT * FROM xm_farmer WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 15:38:22,539 DEBUG [app] Result Mapping Object[Farmer]:{"id":"4","createTime":"2012-04-02 00:00:00","userId":"zhangsan","opId":"12313123123","userName":"张三"}
+[main] 2012-04-02 15:38:22,539 DEBUG [app] querySql:SELECT * FROM xm_farmer WHERE 1 = 1 and id = '4'
+[main] 2012-04-02 15:38:22,539 DEBUG [app] Result Mapping Object[Farmer]:{"id":"4","createTime":"2012-04-02 00:00:00","userId":"zhangsan","opId":"12313123123","userName":"张三"}
+[main] 2012-04-02 15:38:46,293 DEBUG [app] ->->Load database config info from saturn-config.xml
+[main] 2012-04-02 15:38:46,513 DEBUG [app] querySql:SELECT count(*) FROM XM_FARMER_PIG WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 15:38:46,518 DEBUG [app] querySql:SELECT * FROM xm_farmer_pig WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 15:38:46,528 DEBUG [app] Result Mapping Object[FarmerPig]:{"total":"60.00","id":"4","createTime":"2012-04-02 00:00:00","num":"3","price":"20.00","opId":"12313123123","userName":"张三","opType":"新增","type":"仔猪"}
+[main] 2012-04-02 15:38:46,528 DEBUG [app] querySql:SELECT * FROM xm_farmer_pig WHERE 1 = 1 and id = '4'
+[main] 2012-04-02 15:38:46,528 DEBUG [app] Result Mapping Object[FarmerPig]:{"total":"60.00","id":"4","createTime":"2012-04-02 00:00:00","num":"3","price":"20.00","opId":"12313123123","userName":"张三","opType":"新增","type":"仔猪"}
+[main] 2012-04-02 15:38:46,533 DEBUG [app] querySql:SELECT count(*) FROM XM_FARMER_FORAGE WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 15:38:46,533 DEBUG [app] querySql:SELECT * FROM xm_farmer_forage WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 15:38:46,533 DEBUG [app] Result Mapping Object[FarmerForage]:{"total":"40.00","id":"5","createTime":"2012-04-02 00:00:00","num":"4","price":"10.00","opId":"12313123123","userName":"张三","type":"玉米"}
+[main] 2012-04-02 15:38:46,533 DEBUG [app] querySql:SELECT * FROM xm_farmer_forage WHERE 1 = 1 and id = '5'
+[main] 2012-04-02 15:38:46,538 DEBUG [app] Result Mapping Object[FarmerForage]:{"total":"40.00","id":"5","createTime":"2012-04-02 00:00:00","num":"4","price":"10.00","opId":"12313123123","userName":"张三","type":"玉米"}
+[main] 2012-04-02 15:38:46,543 DEBUG [app] querySql:SELECT count(*) FROM XM_FARMER_SPEND WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 15:38:46,543 DEBUG [app] querySql:SELECT * FROM xm_farmer_spend WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 15:38:46,543 DEBUG [app] Result Mapping Object[FarmerSpend]:{"id":"1","createTime":"2012-04-02 00:00:00","price":"3000.00","opId":"12313123123","userName":"张三","type":"人员工资"}
+[main] 2012-04-02 15:38:46,543 DEBUG [app] querySql:SELECT * FROM xm_farmer_spend WHERE 1 = 1 and id = '1'
+[main] 2012-04-02 15:38:46,543 DEBUG [app] Result Mapping Object[FarmerSpend]:{"id":"1","createTime":"2012-04-02 00:00:00","price":"3000.00","opId":"12313123123","userName":"张三","type":"人员工资"}
+[main] 2012-04-02 15:38:46,553 DEBUG [app] querySql:SELECT count(*) FROM XM_FARMER WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 15:38:46,553 DEBUG [app] querySql:SELECT * FROM xm_farmer WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 15:38:46,553 DEBUG [app] Result Mapping Object[Farmer]:{"id":"5","createTime":"2012-04-02 00:00:00","userId":"zhangsan","opId":"12313123123","userName":"张三"}
+[main] 2012-04-02 15:38:46,553 DEBUG [app] querySql:SELECT * FROM xm_farmer WHERE 1 = 1 and id = '5'
+[main] 2012-04-02 15:38:46,553 DEBUG [app] Result Mapping Object[Farmer]:{"id":"5","createTime":"2012-04-02 00:00:00","userId":"zhangsan","opId":"12313123123","userName":"张三"}
+[main] 2012-04-02 15:47:55,078 DEBUG [app] ->->Load database config info from saturn-config.xml
+[main] 2012-04-02 15:47:56,109 WARN [app] ->->Config dataSource failed from JDBC : [databaseType->mysql], [jdbcDriver->com.mysql.jdbc.Driver], [url->jdbc:mysql://localhost:3307/xumu], [username->root], [passowrd->root]
+org.apache.commons.dbcp.SQLNestedException: Cannot create PoolableConnectionFactory (Unable to connect to any hosts due to exception: java.net.SocketException: java.net.ConnectException: Connection refused: connect
+
+** BEGIN NESTED EXCEPTION ** 
+
+java.net.SocketException
+MESSAGE: java.net.ConnectException: Connection refused: connect
+
+STACKTRACE:
+
+java.net.SocketException: java.net.ConnectException: Connection refused: connect
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:143)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:225)
+	at com.mysql.jdbc.Connection.createNewIO(Connection.java:1805)
+	at com.mysql.jdbc.Connection.<init>(Connection.java:452)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:411)
+	at org.apache.commons.dbcp.DriverConnectionFactory.createConnection(DriverConnectionFactory.java:38)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:294)
+	at org.apache.commons.dbcp.BasicDataSource.validateConnectionFactory(BasicDataSource.java:1247)
+	at org.apache.commons.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:1221)
+	at org.apache.commons.dbcp.BasicDataSource.getConnection(BasicDataSource.java:880)
+	at com.saturn.app.db.DatabaseManager.initalDataSource(DatabaseManager.java:147)
+	at com.saturn.app.db.DatabaseManager.<init>(DatabaseManager.java:67)
+	at com.saturn.app.db.DatabaseManager.<clinit>(DatabaseManager.java:63)
+	at com.saturn.app.db.SimpleDaoTemplate.<clinit>(SimpleDaoTemplate.java:22)
+	at com.saturn.warning.date.farmer.FarmerPig.add(FarmerPig.java:59)
+	at com.saturn.warning.date.farmer.FarmerPig.add(FarmerPig.java:36)
+	at com.saturn.warning.date.farmer.FarmerPigTest.testAdd(FarmerPigTest.java:13)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:44)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:41)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:76)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:236)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:49)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+
+
+** END NESTED EXCEPTION **
+
+)
+	at org.apache.commons.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:1225)
+	at org.apache.commons.dbcp.BasicDataSource.getConnection(BasicDataSource.java:880)
+	at com.saturn.app.db.DatabaseManager.initalDataSource(DatabaseManager.java:147)
+	at com.saturn.app.db.DatabaseManager.<init>(DatabaseManager.java:67)
+	at com.saturn.app.db.DatabaseManager.<clinit>(DatabaseManager.java:63)
+	at com.saturn.app.db.SimpleDaoTemplate.<clinit>(SimpleDaoTemplate.java:22)
+	at com.saturn.warning.date.farmer.FarmerPig.add(FarmerPig.java:59)
+	at com.saturn.warning.date.farmer.FarmerPig.add(FarmerPig.java:36)
+	at com.saturn.warning.date.farmer.FarmerPigTest.testAdd(FarmerPigTest.java:13)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:44)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:41)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:76)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:236)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:49)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+Caused by: java.sql.SQLException: Unable to connect to any hosts due to exception: java.net.SocketException: java.net.ConnectException: Connection refused: connect
+
+** BEGIN NESTED EXCEPTION ** 
+
+java.net.SocketException
+MESSAGE: java.net.ConnectException: Connection refused: connect
+
+STACKTRACE:
+
+java.net.SocketException: java.net.ConnectException: Connection refused: connect
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:143)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:225)
+	at com.mysql.jdbc.Connection.createNewIO(Connection.java:1805)
+	at com.mysql.jdbc.Connection.<init>(Connection.java:452)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:411)
+	at org.apache.commons.dbcp.DriverConnectionFactory.createConnection(DriverConnectionFactory.java:38)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:294)
+	at org.apache.commons.dbcp.BasicDataSource.validateConnectionFactory(BasicDataSource.java:1247)
+	at org.apache.commons.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:1221)
+	at org.apache.commons.dbcp.BasicDataSource.getConnection(BasicDataSource.java:880)
+	at com.saturn.app.db.DatabaseManager.initalDataSource(DatabaseManager.java:147)
+	at com.saturn.app.db.DatabaseManager.<init>(DatabaseManager.java:67)
+	at com.saturn.app.db.DatabaseManager.<clinit>(DatabaseManager.java:63)
+	at com.saturn.app.db.SimpleDaoTemplate.<clinit>(SimpleDaoTemplate.java:22)
+	at com.saturn.warning.date.farmer.FarmerPig.add(FarmerPig.java:59)
+	at com.saturn.warning.date.farmer.FarmerPig.add(FarmerPig.java:36)
+	at com.saturn.warning.date.farmer.FarmerPigTest.testAdd(FarmerPigTest.java:13)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:44)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:41)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:76)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:236)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:49)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+
+
+** END NESTED EXCEPTION **
+
+
+	at com.mysql.jdbc.Connection.createNewIO(Connection.java:1875)
+	at com.mysql.jdbc.Connection.<init>(Connection.java:452)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:411)
+	at org.apache.commons.dbcp.DriverConnectionFactory.createConnection(DriverConnectionFactory.java:38)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:294)
+	at org.apache.commons.dbcp.BasicDataSource.validateConnectionFactory(BasicDataSource.java:1247)
+	at org.apache.commons.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:1221)
+	... 30 more
+[main] 2012-04-02 15:48:09,078 DEBUG [app] ->->Load database config info from saturn-config.xml
+[main] 2012-04-02 15:48:09,578 DEBUG [app] querySql:SELECT count(*) FROM XM_FARMER_PIG WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 15:48:09,578 DEBUG [app] querySql:SELECT * FROM xm_farmer_pig WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 15:48:09,593 DEBUG [app] Result Mapping Object[FarmerPig]:{"total":"60.00","id":"3","createTime":"2012-04-02 00:00:00","num":"3","price":"20.00","opId":"12313123123","opType":"新增","userName":"张三","type":"仔猪"}
+[main] 2012-04-02 15:48:09,593 DEBUG [app] querySql:SELECT * FROM xm_farmer_pig WHERE 1 = 1 and id = '3'
+[main] 2012-04-02 15:48:09,593 DEBUG [app] Result Mapping Object[FarmerPig]:{"total":"60.00","id":"3","createTime":"2012-04-02 00:00:00","num":"3","price":"20.00","opId":"12313123123","opType":"新增","userName":"张三","type":"仔猪"}
+[main] 2012-04-02 15:48:09,671 DEBUG [app] querySql:SELECT count(*) FROM XM_FARMER_FORAGE WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 15:48:09,671 DEBUG [app] querySql:SELECT * FROM xm_farmer_forage WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 15:48:09,671 DEBUG [app] Result Mapping Object[FarmerForage]:{"total":"40.00","id":"1","createTime":"2012-04-02 00:00:00","num":"4","price":"10.00","opId":"12313123123","userName":"张三","type":"玉米"}
+[main] 2012-04-02 15:48:09,671 DEBUG [app] querySql:SELECT * FROM xm_farmer_forage WHERE 1 = 1 and id = '1'
+[main] 2012-04-02 15:48:09,671 DEBUG [app] Result Mapping Object[FarmerForage]:{"total":"40.00","id":"1","createTime":"2012-04-02 00:00:00","num":"4","price":"10.00","opId":"12313123123","userName":"张三","type":"玉米"}
+[main] 2012-04-02 15:48:09,718 DEBUG [app] querySql:SELECT count(*) FROM XM_FARMER_SPEND WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 15:48:09,718 DEBUG [app] querySql:SELECT * FROM xm_farmer_spend WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 15:48:09,734 DEBUG [app] Result Mapping Object[FarmerSpend]:{"id":"1","createTime":"2012-04-02 00:00:00","price":"3000.00","opId":"12313123123","userName":"张三","type":"人员工资"}
+[main] 2012-04-02 15:48:09,734 DEBUG [app] querySql:SELECT * FROM xm_farmer_spend WHERE 1 = 1 and id = '1'
+[main] 2012-04-02 15:48:09,734 DEBUG [app] Result Mapping Object[FarmerSpend]:{"id":"1","createTime":"2012-04-02 00:00:00","price":"3000.00","opId":"12313123123","userName":"张三","type":"人员工资"}
+[main] 2012-04-02 15:48:09,781 DEBUG [app] querySql:SELECT count(*) FROM XM_FARMER WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 15:48:09,781 DEBUG [app] querySql:SELECT * FROM xm_farmer WHERE 1 = 1  AND opId = '12313123123' 
+[main] 2012-04-02 15:48:09,781 DEBUG [app] Result Mapping Object[Farmer]:{"id":"2","createTime":"2012-04-02 00:00:00","userId":"zhangsan","opId":"12313123123","userName":"张三"}
+[main] 2012-04-02 15:48:09,781 DEBUG [app] querySql:SELECT * FROM xm_farmer WHERE 1 = 1 and id = '2'
+[main] 2012-04-02 15:48:09,781 DEBUG [app] Result Mapping Object[Farmer]:{"id":"2","createTime":"2012-04-02 00:00:00","userId":"zhangsan","opId":"12313123123","userName":"张三"}

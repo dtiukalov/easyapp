@@ -16,7 +16,7 @@ public class FarmerPigTest {
 		String id = item.getId();
 		assertNotNull(FarmerPig.get(id));
 		
-		FarmerPig.remove(id);
+		FarmerPig.remove(null, id);
 	}
 
 }

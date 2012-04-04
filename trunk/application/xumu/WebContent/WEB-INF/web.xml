@@ -13,6 +13,10 @@
 	</context-param>
 	
 	<listener>
+  		<listener-class>com.saturn.passing.MinaListener</listener-class>
+  	</listener>
+	
+	<listener>
 		<listener-class>
 			com.saturn.app.web.ActionLoaderListener
 		</listener-class>

@@ -116,14 +116,65 @@ public class Farmer {
 		// 指定O-R映射规则对象。默认mapping
 		return SimpleDaoTemplate.query("SELECT * FROM xm_farmer WHERE 1 = 1",
 				new DymaticCondition().addCondition(" AND opId = '?'", vo.opId)
+						.addCondition(" AND userName = '?'", vo.userName)
+						.addCondition(" AND createTime like '%?%'", vo.createTime)
 						.addCondition("ORDER BY {0} {1}", orderBy, order),
 				mapping, Farmer.class, start, offset);
 	}
-
+/*
 	public static int remove(final String id) {
 		// 指定插入表名称(tableName)。例子：如user表，tableName=user
 		return SimpleDaoTemplate.update("DELETE FROM xm_farmer WHERE id = ?",
 				id);
+	}
+	*/
+	public static int remove(Connection connection, final String id) {
+		if(connection != null) {
+			Farmer farmer = get(id);
+			if(farmer != null && farmer.getOpId() != null) {
+				int value = SimpleDaoTemplate.update(connection,
+						"DELETE FROM xm_farmer WHERE id = ?", id);
+				int value1 = SimpleDaoTemplate.update(connection,
+						"DELETE FROM xm_farmer_pig WHERE opId = ?", farmer.getOpId());
+				int value2 = SimpleDaoTemplate.update(connection,
+						"DELETE FROM xm_farmer_forage WHERE opId = ?", farmer.getOpId());
+				int value3 = SimpleDaoTemplate.update(connection,
+						"DELETE FROM xm_farmer_spend WHERE opId = ?", farmer.getOpId());
+				return 1;
+			}
+		}
+		return SimpleDaoTemplate.update(new ITransaction() {
+			public int execute(Connection connection) {
+				Farmer farmer = get(id);
+				if(farmer != null && farmer.getOpId() != null) {
+					int value = SimpleDaoTemplate.update(connection,
+							"DELETE FROM xm_farmer WHERE id = ?", id);
+					int value1 = SimpleDaoTemplate.update(connection,
+							"DELETE FROM xm_farmer_pig WHERE opId = ?", farmer.getOpId());
+					int value2 = SimpleDaoTemplate.update(connection,
+							"DELETE FROM xm_farmer_forage WHERE opId = ?", farmer.getOpId());
+					int value3 = SimpleDaoTemplate.update(connection,
+							"DELETE FROM xm_farmer_spend WHERE opId = ?", farmer.getOpId());
+					return 1;
+				}
+				return 0;
+			}
+		});
+	}
+
+	public static int removes(final String[] ids) {
+		if (ids != null) {
+			return SimpleDaoTemplate.update(new ITransaction() {
+				public int execute(Connection connection) {
+					for (String id : ids) {
+						remove(connection, id);
+					}
+					return 1;
+				}
+			});
+			
+		}
+		return 0;
 	}
 
 	private static ORMapping<Farmer> mapping = new ResultORMapping<Farmer>();

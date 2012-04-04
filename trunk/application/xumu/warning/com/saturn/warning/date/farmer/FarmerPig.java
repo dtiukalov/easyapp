@@ -5,6 +5,7 @@ import java.sql.Connection;
 import org.json.JSONObject;
 
 import com.saturn.app.db.DymaticCondition;
+import com.saturn.app.db.ITransaction;
 import com.saturn.app.db.ListData;
 import com.saturn.app.db.ORMapping;
 import com.saturn.app.db.ResultORMapping;
@@ -91,11 +92,41 @@ public class FarmerPig {
 						.addCondition("ORDER BY {0} {1}", orderBy, order),
 				mapping, FarmerPig.class, start, offset);
 	}
-	
+	/*
 	public static int remove(final String id) {
 		//指定插入表名称(tableName)。例子：如user表，tableName=user
 		return SimpleDaoTemplate.update("DELETE FROM xm_farmer_pig WHERE id = ?",
 				id);
+	}
+	*/
+	public static int remove(Connection connection, final String id) {
+		if(connection != null) {
+			return SimpleDaoTemplate.update(connection, 
+					"DELETE FROM xm_farmer_pig WHERE id = ?",
+					id);
+		}
+		return SimpleDaoTemplate.update(new ITransaction() {
+			public int execute(Connection connection) {
+				return SimpleDaoTemplate.update(connection, 
+						"DELETE FROM xm_farmer_pig WHERE id = ?",
+						id);
+			}
+		});
+	}
+
+	public static int removes(final String[] ids) {
+		if (ids != null) {
+			return SimpleDaoTemplate.update(new ITransaction() {
+				public int execute(Connection connection) {
+					for (String id : ids) {
+						remove(connection, id);
+					}
+					return 1;
+				}
+			});
+			
+		}
+		return 0;
 	}
 	
 	public FarmerPig() {

@@ -18,6 +18,6 @@ public class FarmerTest {
 		String id = item.getId();
 		assertNotNull(Farmer.get(id));
 
-		Farmer.remove(id);
+		Farmer.remove(null, id);
 	}
 }

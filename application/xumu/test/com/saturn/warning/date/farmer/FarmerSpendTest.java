@@ -17,7 +17,7 @@ public class FarmerSpendTest {
 		String id = item.getId();
 		assertNotNull(FarmerSpend.get(id));
 
-		FarmerSpend.remove(id);
+		FarmerSpend.remove(null, id);
 	}
 
 }

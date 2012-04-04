@@ -17,7 +17,7 @@ public class FarmerForageTest {
 		String id = item.getId();
 		assertNotNull(FarmerForage.get(id));
 
-		FarmerForage.remove(id);
+		FarmerForage.remove(null, id);
 	}
 
 }

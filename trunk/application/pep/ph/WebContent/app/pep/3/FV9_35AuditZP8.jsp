@@ -193,8 +193,8 @@
 						column: {
 							stacking: 'normal',
 				//			groupPadding:0.35,
-							groupPadding:0.01,
-							pointPadding:0.01,
+							groupPadding:0.06,
+							pointPadding:0.06,
 							shadow: false,
 							borderColor:'black',
 							borderWidth:1,

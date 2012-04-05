@@ -50,7 +50,6 @@
 		List<Integer> reduce_no = new ArrayList();
 		List<Integer> reduce_low = new ArrayList();
 		
-		
 		if (fv9KWNo != null && fv9KWNo.size() > 0){
 			//获取各个车间实际错误状况
 //			ist_kw = "KW" + (String)fv9KWNo.get(0);
@@ -97,11 +96,11 @@
 		<style type="text/css">
 			.div {
 					width: 450px;
-					margin-top:30px;
+					margin-top:80px;
 					margin-left:30px;
 				}
 			.div div {
-					height: 35px;
+					height: 25px;
 					border-bottom-width: 2px;
 					border-bottom-style: solid;
 					border-bottom-color: #000000;

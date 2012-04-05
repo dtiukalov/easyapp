@@ -557,8 +557,12 @@
 						lineColor:'black',
 						tickColor:'black',
 						labels: {
-							enabled:true
+							enabled:true,
+							style: {
+								color: 'black'
+							}
 						},
+						
 						categories: <%=fv9KWNo%>
 		//				tickmarkPlacement: 'between'
 					}],
@@ -659,9 +663,9 @@
 					]
 				}, function(chart5) { 
 					chart5.renderer.text(
-			                '<span style="font-size:10px;">KW</span>', 
-			               	30, 
-			                100
+			                '<span style="font-size:10px;">KW<br>Fahrzeuge</span>', 
+			               	15, 
+			                90
 			            ).attr({
 			                zIndex: 6
 			            }).add();

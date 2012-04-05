@@ -9,7 +9,7 @@
 		<title><%=title %></title>
 		<style type="text/css">
 			.div {
-				width: 350px;
+				width: 450px;
 				margin-top:80px;
 				margin-left:30px;
 			}
@@ -22,7 +22,7 @@
 			.div table td {
 				font-family: "宋体";
 				font-size: 12px;
-				line-height: 30px;
+				line-height: 25px;
 				color: #000000;
 			}
 		</style>
@@ -144,7 +144,7 @@
 						Problem p = new Problem();
 						p.kw = fv9KWNo.get(k);
 						p.type = "Projekt";
-						p.desc = fv9ProjektCom_GM.get(k);
+						p.desc = Web.replaceSpecial(fv9ProjektCom_GM.get(k));
 						p.num = fv9Projekt.get(k);
 						t_Projekt.add(p);
 					}
@@ -153,7 +153,7 @@
 						Problem p = new Problem();
 						p.kw = fv9KWNo.get(k);
 						p.type = "Kaufteile";
-						p.desc = fv9KaufteileCom_GM.get(k);
+						p.desc = Web.replaceSpecial(fv9KaufteileCom_GM.get(k));
 						p.num = fv9Kaufteile.get(k);
 						t_Kaufteile.add(p);
 					}
@@ -162,7 +162,7 @@
 						Problem p = new Problem();
 						p.kw = fv9KWNo.get(k);
 						p.type = "Montage";
-						p.desc = fv9MontageCom_GM.get(k);
+						p.desc = Web.replaceSpecial(fv9MontageCom_GM.get(k));
 						p.num = fv9Montage.get(k);
 						t_Montage.add(p);
 					}
@@ -171,7 +171,7 @@
 						Problem p = new Problem();
 						p.kw = fv9KWNo.get(k);
 						p.type = "Lack";
-						p.desc = fv9LackCom_GM.get(k);
+						p.desc = Web.replaceSpecial(fv9LackCom_GM.get(k));
 						p.num = fv9Lack.get(k);
 						t_Lack.add(p);
 					}
@@ -180,7 +180,7 @@
 						Problem p = new Problem();
 						p.kw = fv9KWNo.get(k);
 						p.type = "Karosseriebau";
-						p.desc = fv9KarossCom_GM.get(k);
+						p.desc = Web.replaceSpecial(fv9KarossCom_GM.get(k));
 						p.num = fv9Karosseriebau.get(k);
 						t_Karosseriebau.add(p);
 					}
@@ -189,7 +189,7 @@
 						Problem p = new Problem();
 						p.kw = fv9KWNo.get(k);
 						p.type = "Presswerk";
-						p.desc = fv9PresswerkCom_GM.get(k);
+						p.desc = Web.replaceSpecial(fv9PresswerkCom_GM.get(k));
 						p.num = fv9Presswerk.get(k);
 						t_Presswerk.add(p);
 					}
@@ -402,6 +402,14 @@
 					shadow: false,
 					enableMouseTracking: false
 				}]
+			}, function(chart) { 
+				chart.renderer.text(
+		                '<span style="font-size:12px;">KW</span>', 
+		               	0, 
+		                450
+		            ).attr({
+		                zIndex: 6
+		            }).add();
 			});
 		});
 		</script>
@@ -416,8 +424,8 @@
 				</div>
 				<div id="content">
 					<div id="left" style="width: 400px; height: auto; margin: 0 30px; float: left;">
-						<div id="chart" style="width: 400px; height: 450px; margin: 0 auto; float: left;"></div>
-						<div style="width: 400px; height: 100px; margin: 0px 20px; float: left; font-size: 12px;font-family: '宋体'">
+						<div id="chart" style="width: 400px; height: 480px; margin: 0 auto; float: left;"></div>
+						<div style="width: 400px; height: auto; margin: 0px 10px auto; float: left; font-size: 12px;font-family: '宋体'">
 							<div style="width: 100px; height: 30px; float: left; vertical-align: middle; padding-top: 10px; ">
 								<img src="<%=request.getContextPath()%>/app/pep/images/presswerk.jpg" width="15" height="15" />Presswerk
 							</div>
@@ -442,19 +450,19 @@
 						</div>
 					</div>
 					
-					<div id="table" style="width: 400px; height: 400px; margin: -50px auto; float: left;">&nbsp;
+					<div id="table" style="width: 500px; height: 540px; margin: 0px 0px auto; float: left;">&nbsp;
 						<div class="div">
 								<div>
-								  <table cellspacing="0" style="width: 350px; font-size: 9px; overflow: hidden;">
+								  <table cellspacing="0" style="width: 450px; font-size: 9px; overflow: hidden;">
 								    <tr>
 								      <td style="width: 30px; height: 30px;">KW</td>
 								      <td style="width: 220px;">&nbsp;Wichtigste Massnahmen</td>
-								      <td style="width: 50px;text-align: right;">Reduzierung&nbsp;</td>
+								      <td style="width: 100px;text-align: right;">Reduzierung&nbsp;</td>
 								      <td style="width: 50px;text-align: right;">Fehlerpunkte/Fzg</td>
 								    </tr>
 								  </table>
 								</div>
-								<table width="350" cellspacing="0">
+								<table width="450" cellspacing="0">
 								<% 
 									if (t_Presswerk != null && t_Presswerk.size() > 0) {
 										int sum = 0;

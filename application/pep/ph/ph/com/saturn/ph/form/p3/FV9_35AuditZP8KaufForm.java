@@ -17,7 +17,7 @@ public class FV9_35AuditZP8KaufForm extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/3/FV9_35AuditZP8Kauf.jsp";
+		return "/app/pep/3/FV9_35AuditZP8.jsp";
 	}
 
 	@Override

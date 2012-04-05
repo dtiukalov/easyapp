@@ -101,6 +101,8 @@
 							stacking: 'normal',
 							shadow: false,
 							borderColor:'black',
+							groupPadding:0.01,
+							pointPadding:0.01,
 							borderWidth:0,
 							dataLabels: {
 								enabled: true,

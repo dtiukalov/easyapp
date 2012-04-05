@@ -15,13 +15,56 @@
 		<%@ include file="/app/pep/include/highslidecss.jsp"%>
 		<title><%=title %></title>
 		<%
+		String legent = ""; //图例
+		
+		List<String> PresswerkNum = new ArrayList<String>();
+		List<String> KarosseriebauNum = new ArrayList<String>();
+		List<String> KaufteileNum = new ArrayList<String>();
+		List<String> LackierereiNum = new ArrayList<String>();
+		List<String> MontageNum = new ArrayList<String>();
+		
+		String fv9PresswerkNum = "[]";
+		String fv9KarosseriebauNum = "[]";
+		String fv9KaufteileNum = "[]";
+		String fv9LackierereiNum = "[]";
+		String fv9MontageNum = "[]";
+		
 		List<String> KWNo = (List)form.get("fv9KWNo");
-		List<String> KarosseriebauNum = (List)form.get("fv9KarosseriebauNum");
 		List<String> KonzernNum = (List)form.get("fv9KonzernNum");
 		List<String> PrognoseNum = (List)form.get("fv9PrognoseNum");
 		
+		//不同类型的Form，获取的属性不一致
+		if ("FV9_35AuditZP8Kaross".equals(type)) {
+			KarosseriebauNum = (List)form.get("fv9KarosseriebauNum");
+			fv9KarosseriebauNum = Web.getNumberListStr(KarosseriebauNum);
+			legent = "Karosseriebau";
+		}
+			
+		if ("FV9_35AuditZP8Kauf".equals(type)) {
+			KaufteileNum = (List)form.get("fv9KaufteileNum");
+			fv9KaufteileNum = Web.getNumberListStr(KaufteileNum);
+			legent = "Kaufteile";
+		}
+			
+		if ("FV9_35AuditZP8Lack".equals(type)) {
+			LackierereiNum = (List)form.get("fv9LackierereiNum");
+			fv9LackierereiNum = Web.getNumberListStr(LackierereiNum);
+			legent = "Lackiererei";
+		}
+			
+		if ("FV9_35AuditZP8Press".equals(type)) {
+			PresswerkNum = (List)form.get("fv9PresswerkNum");
+			fv9PresswerkNum = Web.getNumberListStr(PresswerkNum);
+			legent = "Presswerk";
+		}
+			
+		if ("FV9_35AuditZP8Mont".equals(type)) {
+			MontageNum = (List)form.get("fv9MontageNum");
+			fv9MontageNum = Web.getNumberListStr(MontageNum);
+			legent = "Montage";
+		}
+		
 		String fv9KWNo = Web.getNumberListStr(KWNo);
-		String fv9KarosseriebauNum = Web.getNumberListStr(KarosseriebauNum);
 		String fv9KonzernNum = Web.getNumberListStr(KonzernNum);
 		String fv9PrognoseNum = Web.getNumberListStr(PrognoseNum);
 		
@@ -30,36 +73,56 @@
 		List<String> fv9Score = (List)form.get("fv9Score");
 		List<String> fv9Option = (List)form.get("fv9Option");
 
-		List<String> newKarosseriebau = new ArrayList();
-		if (Web.getObjectYesOrNo(KarosseriebauNum)) {
-			for(int i=0; i<KarosseriebauNum.size(); i++){
-				String table = "<table style=\"border-collapse:collapse;border:solid 1px black;\" width=\"350\" cellpadding=\"0\" cellspacing=\"0\">";
+		List<String> newlist = new ArrayList();
+		if (Web.getObjectYesOrNo(PresswerkNum)) {
+			for(int i=0; i<PresswerkNum.size(); i++){
+				String table = "<table style=\"border-collapse:collapse;border:solid 1px #000;\" width=\"350\" cellpadding=\"0\" cellspacing=\"0\">";
 				if (Web.getListYesOrNo(fv9KW)) {
 					for(int k=0; k<fv9KW.size(); k++) {
 						if ((!"".equals(fv9KW.get(k))) && (fv9KW.get(k).equals(KWNo.get(i)))) {
 							table += "<tr>";
-							table += "	<td width=\"50%\" style=\"border-bottom:solid 1px black;border-right:solid 1px black;text-align:left;\">" + fv9Name.get(k) + "</td>";
-							table += "	<td width=\"30%\" style=\"border-bottom:solid 1px black;border-right:solid 1px black\">" + fv9Score.get(k) + " Pkt.</td>";
+							table += "	<td width=\"50%\" style=\"border-bottom:solid 1px #000;border-right:solid 1px #000;text-align:left;\">" + fv9Name.get(k) + "</td>";
+							table += "	<td width=\"30%\" style=\"border-bottom:solid 1px #000;border-right:solid 1px #000\">" + fv9Score.get(k) + " Pkt.</td>";
 							if ("Yes".equals(fv9Option.get(k))) {
-								table += "	<td width=\"25%\" style=\"border-bottom:solid 1px black;text-align:center\">√</td>";
+								table += "	<td width=\"25%\" style=\"border-bottom:solid 1px #000;text-align:center\">√</td>";
 							}
 							if ("No".equals(fv9Option.get(k))) {
-								table += "	<td width=\"25%\" style=\"border-bottom:solid 1px black;text-align:center\">×</td>";
+								table += "	<td width=\"25%\" style=\"border-bottom:solid 1px #000;text-align:center\">×</td>";
 							}
 							if ("".equals(fv9Option.get(k))) {
-								table += "	<td width=\"25%\" style=\"border-bottom:solid 1px black;text-align:center\"></td>";
+								table += "	<td width=\"25%\" style=\"border-bottom:solid 1px #000;text-align:center\">&nbsp;</td>";
 							}
-							table += "</tr>";
+							table += "</tr><br>";
 						}
 					}
 				}
 				table += "</table>";
-				newKarosseriebau.add(mergeTableAndNum(KarosseriebauNum.get(i), table));
+				
+				if ("FV9_35AuditZP8Kaross".equals(type)) {
+					newlist.add(mergeTableAndNum(KarosseriebauNum.get(i), table));
+				}
+					
+				if ("FV9_35AuditZP8Kauf".equals(type)) {
+					newlist.add(mergeTableAndNum(KaufteileNum.get(i), table));
+				}
+					
+				if ("FV9_35AuditZP8Lack".equals(type)) {
+					newlist.add(mergeTableAndNum(LackierereiNum.get(i), table));
+				}
+					
+				if ("FV9_35AuditZP8Press".equals(type)) {
+					newlist.add(mergeTableAndNum(PresswerkNum.get(i), table));
+				}
+					
+				if ("FV9_35AuditZP8Mont".equals(type)) {
+					newlist.add(mergeTableAndNum(MontageNum.get(i), table));
+				}
+				
 			}
 		}
 		
-		String Karosseriebau = Web.getStrListStr(newKarosseriebau);
-		Karosseriebau = Karosseriebau.replaceAll("\"", "");
+		String column = Web.getStrListStr(newlist);
+		column = column.replaceAll("\"", "");
 		%>
 		
 		<script type="text/javascript">
@@ -84,7 +147,7 @@
 								 font: 'normal 12px Verdana, sans-serif',
 								 color: 'black'
 							}
-						},
+					},
 						categories: <%=fv9KWNo%>
 					},
 					yAxis: {
@@ -130,6 +193,8 @@
 						column: {
 							stacking: 'normal',
 				//			groupPadding:0.35,
+							groupPadding:0.01,
+							pointPadding:0.01,
 							shadow: false,
 							borderColor:'black',
 							borderWidth:1,
@@ -141,14 +206,36 @@
 								},
 								color: 'white',
 								rotation: -90,
-								x:5
+								x:5,
+								formatter: function() {
+									if (this.y == 0 || this.y == 0.0 || this.y == null) {
+										return '';
+									}
+									return this.y + '';
+								}
+							}
+						},
+						spline: {
+				//			stacking: 'normal',
+				//			groupPadding:0.35,
+							shadow: false,
+							borderColor:'black',
+							borderWidth:1,
+							dataLabels: {
+								enabled: true,
+								formatter: function() {
+									if (this.y == 0 || this.y == 0.0 || this.y == null || this.y == null) {
+										return '';
+									}
+									return this.y + '';
+								}
 							}
 						}
 					},
-					series: [{
+				    series: [{
 						type: 'column',
-						name: 'Karosseriebau',
-						data: <%=Karosseriebau%>,
+						name: '<%=legent%>',
+						data: <%=column%>,
 						color: '#00235A',
 						cursor: 'pointer',
 						point: {
@@ -183,13 +270,10 @@
 						color: '#E63110'
 					}]
 				});
-				
-				
 			});
 			
 			
 		</script>
-
 	</head>
 	<body>
 		<div id="container">
@@ -204,7 +288,7 @@
 					<%
 					if (Web.getListYesOrNo((List<String>)form.get("fv9KWNo"))) {
 						int[] arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9KWNo"));
-						
+							
 						double totalWidth = 950.0;
 						Map<String,Double> lichenbeiPillarNum = Web.getLCBPillar(Web.getLCBNum(request, arr), arr, totalWidth);
 						
@@ -223,11 +307,10 @@
 					<div style=" width: <%=value3 %>px; height: 30px; float: left; background-color: #006600; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">0S</span></div>
 					<div style=" width: <%=value4 %>px; height: 30px; float: left; background-color: #333333; vertical-align: bottom; padding-top: 5px;"><span style="color: white;">SOP</span></div>
 				</div>
-			<%
+				<%
 				}
-					%>		
+					%>
 				
-
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

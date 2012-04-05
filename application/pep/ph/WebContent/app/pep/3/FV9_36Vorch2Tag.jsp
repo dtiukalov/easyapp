@@ -32,54 +32,59 @@
 		String fv9PrognosePlan = Web.getNumberListStr(PrognosePlan);
 		String fv9Zeil = Web.getNumberListStr(Zeil);
 		String fv9PrognoseIO = Web.getNumberListStr(PrognoseIO);
+
+		int total = 0;
+		if(Web.getObjectYesOrNo(Zeil)){
+			total = Integer.parseInt(Zeil.get(0).toString()) + 5;
+		}
+		int[] arr = null;
+		if(Web.getObjectYesOrNo(form.get("fv9KWNo"))){
+		 	arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9KWNo"));
+		}
 		
-		%>
-			<%
-			int total = 0;
-			if(Web.getObjectYesOrNo(Zeil)){
-				total = Integer.parseInt(Zeil.get(0).toString()) + 5;
-			}
-			int[] arr = null;
-			if(Web.getObjectYesOrNo(form.get("fv9KWNo"))){
-			 	arr = Web.getIntArrByStringlist( (List<String>)form.get("fv9KWNo"));
-			}
-			
-			Map<String,Integer> lichengbeiNum = Web.getLCBNum(request, arr);
-			
-			int vffNum =  lichengbeiNum.get("vffNum");//柱子个数
-			int pvsNum = lichengbeiNum.get("pvsNum");//柱子个数
-			int osNum =  lichengbeiNum.get("osNum");//柱子个数
-			int sopNum =  lichengbeiNum.get("sopNum");//柱子个数
-			
-			double temp0 = 0;
-			int temp1 = 0;
-			int temp2 = 0;
-			int temp3 = 0;
-			
-			if(vffNum > 0){
-				temp0 = 0.5;
-			}
-			if(pvsNum > 0){
-				temp1 = vffNum;
-			}
-			if(osNum > 0){
-				temp2 = vffNum + pvsNum ;
-			}
-			if(sopNum > 0){
-				temp3 = vffNum + pvsNum + osNum ;
-			}
+		Map<String,Integer> lichengbeiNum = Web.getLCBNum(request, arr);
+		
+		int vffqianNum = lichengbeiNum.get("vffqianNum");//VFF前的柱子个数
+		int vffNum =  lichengbeiNum.get("vffNum");//柱子个数
+		int pvsNum = lichengbeiNum.get("pvsNum");//柱子个数
+		int osNum =  lichengbeiNum.get("osNum");//柱子个数
+		int sopNum =  lichengbeiNum.get("sopNum");//柱子个数
+		
+		double vffIndex = -0.5;
+		double pvsIndex = 0.0;
+		double osIndex = 0.0;
+		double sopIndex = 0.0;
+		
+		if (vffqianNum > 0) {
+			vffIndex = vffqianNum;
+		}
+		if(vffNum > 0){
+			pvsIndex = vffIndex + vffNum;
+		}
+		if(pvsNum > 0){
+			osIndex = pvsIndex + pvsNum;
+		}
+		if(osNum > 0){
+			sopIndex = osIndex + osNum;
+		}
+		System.out.println("vffIndex = " + vffIndex);
+		System.out.println("pvsIndex = " + pvsIndex);
+		System.out.println("osIndex = " + osIndex);
+		System.out.println("sopIndex = " + sopIndex);
 		%>
 		<script type="text/javascript">
 		var chart;
 			$(document).ready(function() {
 				chart = new Highcharts.Chart({
 					chart: {
-						renderTo: 'chart'
+						renderTo: 'chart',
+						margin: [10, 0, 5, 30] //上 右   下左3
 					},
 					title: {
 						text: ' '
 					},
 					xAxis: {
+						min: 0,
 						lineColor:'black',
 						gridLineWidth:1,
 						gridLineColor:'black',
@@ -134,6 +139,8 @@
 					plotOptions: {
 						column: {
 							stacking: 'normal',
+							groupPadding:0.01,
+							pointPadding:0.01,
 							shadow: false,
 							borderColor:'black',
 							borderWidth:1,
@@ -203,7 +210,7 @@
 					}
 <%if(vffNum > 0){%>
 					,{
-						data: [[<%=temp0-1%> + 0.3, 0], [<%=temp0-1%> + 0.3001, <%=total%>]],
+						data: [[<%=vffIndex%>, 0], [<%=vffIndex%>, <%=total%>]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,
@@ -222,7 +229,7 @@
 					}
 	<%}%><%if(pvsNum > 0){%>
 					,{
-						data: [[<%=temp1 - 1%> + 0.3, 0], [<%=temp1 - 1%> + 0.3001, <%=total%>]],
+						data: [[<%=pvsIndex%>, 0], [<%=pvsIndex%>, <%=total%>]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,
@@ -241,7 +248,7 @@
 					}
 	<%}%><%if(osNum > 0){%>
 					, {
-						data: [[<%=temp2 - 1%> + 0.3, 0], [<%=temp2 - 1%> + 0.3001, <%=total%>]],
+						data: [[<%=osIndex%>, 0], [<%=osIndex%>, <%=total%>]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,
@@ -260,7 +267,7 @@
 					}
 	<%}%><%if(sopNum > 0){%>
 					, {
-						data: [[<%=temp3-1%> + 0.3, 0], [<%=temp3-1%> + 0.3001, <%=total%>]],
+						data: [[<%=sopIndex%>, 0], [<%=sopIndex%>, <%=total%>]],
 			//			color: 'black',
 						dashStyle: 'dash',
 						lineWidth: 2,
@@ -294,23 +301,25 @@
 				<h1><%=title %></h1>
 			</div>
 			<div id="content">
-				<div id="chart" style="width: 700px; height: 400px; margin: -30px 183px;position:absolute;z-index:1;"></div>
-				<div style="width: 821px; margin: 355px 52px;text-align: center;position:absolute;z-index:2;">
+				<div id="chart" style="width: 750px; height: 350px; margin: 0px 0px auto; margin-left:180px; float: left;"></div>
+				<div style="width: 920px; margin: 10px 10px auto;text-align: center;float: left;">
 				<table class="freigaben" style="border-color: #000;border-collapse:collapse;" cellpadding="0" cellspacing="0" border="1"">
 					<tr>
-						<td style="text-align: left;width: 400px;">&nbsp;</td>
+						<td style="text-align: left;width: 550px;">&nbsp;</td>
 						<%
+						double tdWidth = 370.0/(KWNo.size() + 1);
+							
 						if (KWNo != null && KWNo.size() > 0) {
 							for (int j=0; j<KWNo.size(); j++) {
 						%>
-							<td style="width: <%=642/KWNo.size()%>px"><%=KWNo.get(j) %></td>
+							<td style="width: <%=tdWidth%>px"><%=KWNo.get(j) %></td>
 						<%
 							}
 						}
 						%>
 					</tr>
 					<tr>
-						<td style="text-align: left;width:400px;"><img src="<%=request.getContextPath() %>/app/pep/images/ls.jpg">in Planung</td>
+						<td style="text-align: left;"><img src="<%=request.getContextPath() %>/app/pep/images/ls.jpg">in Planung</td>
 						<%
 						if (InPlanung != null && InPlanung.size() > 0) {
 							for (int j=0; j<InPlanung.size(); j++) {
@@ -322,7 +331,7 @@
 						%>
 					</tr>
 					<tr>
-						<td style="text-align: left;width: 400px;"><img src="<%=request.getContextPath() %>/app/pep/images/hs.jpg">Massnahme nicht erarbeitet</td>
+						<td style="text-align: left;"><img src="<%=request.getContextPath() %>/app/pep/images/hs.jpg">Massnahme nicht erarbeitet</td>
 						<%
 						if (MabnaNichtErarb != null && MabnaNichtErarb.size() > 0) {
 							for (int j=0; j<MabnaNichtErarb.size(); j++) {
@@ -334,7 +343,7 @@
 						%>
 					</tr>
 					<tr>
-						<td style="text-align: left;width: 550px;"><img src="<%=request.getContextPath() %>/app/pep/images/huangs.jpg">Massnahmen werden definiert</td>
+						<td style="text-align: left;"><img src="<%=request.getContextPath() %>/app/pep/images/huangs.jpg">Massnahmen werden definiert</td>
 						<%
 						if (MabnaWerdenDef != null && MabnaWerdenDef.size() > 0) {
 							for (int j=0; j<MabnaWerdenDef.size(); j++) {
@@ -346,7 +355,7 @@
 						%>
 					</tr>
 					<tr>
-						<td style="text-align: left;width: 300px;"><img src="<%=request.getContextPath() %>/app/pep/images/lvs.jpg">Massnahme definiert</td>
+						<td style="text-align: left;"><img src="<%=request.getContextPath() %>/app/pep/images/lvs.jpg">Massnahme definiert</td>
 						<%
 						if (MabnaDef != null && MabnaDef.size() > 0) {
 							for (int j=0; j<MabnaDef.size(); j++) {
@@ -358,7 +367,7 @@
 						%>
 					</tr>
 					<tr>
-						<td style="text-align: left;width: 300px;"><img src="<%=request.getContextPath() %>/app/pep/images/slv.jpg">i.O.</td>
+						<td style="text-align: left;"><img src="<%=request.getContextPath() %>/app/pep/images/slv.jpg">i.O.</td>
 						<%
 						if (IO != null && IO.size() > 0) {
 							for (int j=0; j<IO.size(); j++) {
@@ -370,7 +379,7 @@
 						%>
 					</tr>
 					<tr>
-						<td style="text-align: left;width: 300px;"><img src="<%=request.getContextPath() %>/app/pep/images/lx.jpg">Prognose in Planung</td>
+						<td style="text-align: left;"><img src="<%=request.getContextPath() %>/app/pep/images/lx.jpg">Prognose in Planung</td>
 						<%
 						if (PrognosePlan != null && PrognosePlan.size() > 0) {
 							for (int j=0; j<PrognosePlan.size(); j++) {
@@ -382,7 +391,7 @@
 						%>
 					</tr>
 					<tr>
-						<td style="text-align: left;width: 300px;"><img src="<%=request.getContextPath() %>/app/pep/images/hsx.jpg">Ziel</td>
+						<td style="text-align: left;"><img src="<%=request.getContextPath() %>/app/pep/images/hsx.jpg">Ziel</td>
 						<%
 						if (Zeil != null && Zeil.size() > 0) {
 							for (int j=0; j<Zeil.size(); j++) {
@@ -394,7 +403,7 @@
 						%>
 					</tr>
 					<tr>
-						<td style="text-align: left;width: 300px;"><img src="<%=request.getContextPath() %>/app/pep/images/lsx.jpg">Prognose i.O.</td>
+						<td style="text-align: left;"><img src="<%=request.getContextPath() %>/app/pep/images/lsx.jpg">Prognose i.O.</td>
 						<%
 						if (PrognoseIO != null && PrognoseIO.size() > 0) {
 							for (int j=0; j<PrognoseIO.size(); j++) {

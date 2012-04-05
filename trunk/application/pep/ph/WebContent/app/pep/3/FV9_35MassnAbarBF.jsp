@@ -96,7 +96,7 @@
 		%>
 		<style type="text/css">
 			.div {
-					width: 350px;
+					width: 450px;
 					margin-top:30px;
 					margin-left:30px;
 				}
@@ -112,7 +112,7 @@
 					border-bottom-color: #000000;
 					font-family: "宋体";
 					font-size: 12px;
-					line-height: 35px;
+					line-height: 25px;
 					color: #000000;
 					text-indent: 10px;
 				}
@@ -132,7 +132,7 @@
 						color:'black',
 						fontSize:'18px'
 					},
-				align:'left'
+					align:'left'
 				},
 				xAxis: {
 					tickLength: 0,
@@ -263,6 +263,14 @@
 						low: <%=low_Projekt%>
 					}]
 				}]
+			}, function(chart) { 
+				chart.renderer.text(
+		                '<span style="font-size:14px;">KW</span>', 
+		               	0, 
+		                450
+		            ).attr({
+		                zIndex: 6
+		            }).add();
 			});
 		});
 		</script>
@@ -277,8 +285,8 @@
 				</div>
 				<div id="content" >
 					<div id="left" style="width: 400px; height: auto; margin: 0 30px; float: left;">
-						<div id="chart" style="width: 400px; height: 400px; margin: 0px auto; float: left;"></div>
-						<div style="width: 400px; height: 100px; margin: 0px 10px; float: left;">
+						<div id="chart" style="width: 400px; height: 480px; margin: 0px 0px auto; float: left;"></div>
+						<div style="width: 400px; height: auto; margin: 0px 10px; float: left;">
 							<div style="width: 120px; height: 30px; float: left; vertical-align: middle; padding-top: 10px; padding-left: 10px;">
 								<img src="<%=request.getContextPath()%>/app/pep/images/presswerk.jpg" width="15" height="15" />Presswerk
 							</div>
@@ -300,10 +308,10 @@
 						</div>
 					</div>
 					
-					<div id="table" style="width: 400px; height: 400px; margin: 0 auto; float: left;">&nbsp;
+					<div id="table" style="width: 500px; height: 540px; margin: 0px 0px auto; float: left;">&nbsp;
 					<div class="div">
 						<div>
-						  <table width="350" cellspacing="0">
+						  <table width="450" cellspacing="0">
 						    <tr>
 						      <td>Wichtigste Massnahmen</td>
 						      <td></td>
@@ -312,7 +320,7 @@
 						    </tr>
 						  </table>
 						</div>
-						<table width="350" cellspacing="0">
+						<table width="450" cellspacing="0">
 						<% 
 						List ps = new ArrayList();
 						
@@ -324,7 +332,7 @@
 									Problem p = new Problem();
 									p.kw = (String)fv9KWNo.get(i);
 									p.type = "Projekt";
-									p.desc = fv9ProjektCom_GM.get(i);
+									p.desc = Web.replaceSpecial(fv9ProjektCom_GM.get(i));
 									ps.add(p);
 								}
 								if (Integer.parseInt(fv9Kaufteile.get(i)) > 0) {
@@ -332,7 +340,7 @@
 									Problem p = new Problem();
 									p.kw = (String)fv9KWNo.get(i);
 									p.type = "Kaufteile";
-									p.desc = fv9KaufteileCom_GM.get(i);
+									p.desc = Web.replaceSpecial(fv9KaufteileCom_GM.get(i));
 									ps.add(p);
 								}
 								if (Integer.parseInt(fv9Montage.get(i)) > 0) {
@@ -340,7 +348,7 @@
 									Problem p = new Problem();
 									p.kw = (String)fv9KWNo.get(i);
 									p.type = "Montage";
-									p.desc = fv9MontageCom_GM.get(i);
+									p.desc = Web.replaceSpecial(fv9MontageCom_GM.get(i));
 									ps.add(p);
 								}
 								if (Integer.parseInt(fv9Lack.get(i)) > 0) {
@@ -348,7 +356,7 @@
 									Problem p = new Problem();
 									p.kw = (String)fv9KWNo.get(i);
 									p.type = "Lack";
-									p.desc = fv9LackCom_GM.get(i);
+									p.desc = Web.replaceSpecial(fv9LackCom_GM.get(i));
 									ps.add(p);
 								}
 								if (Integer.parseInt(fv9Presswerk.get(i)) > 0) {
@@ -356,7 +364,7 @@
 									Problem p = new Problem();
 									p.kw = (String)fv9KWNo.get(i);
 									p.type = "Presswerk";
-									p.desc = fv9PresswerkCom_GM.get(i);
+									p.desc = Web.replaceSpecial(fv9PresswerkCom_GM.get(i));
 									ps.add(p);
 								}
 								if (Integer.parseInt(fv9Karosseriebau.get(i)) > 0) {
@@ -364,7 +372,7 @@
 									Problem p = new Problem();
 									p.kw = (String)fv9KWNo.get(i);
 									p.type = "Karosseriebau";
-									p.desc = fv9KarossCom_GM.get(i);
+									p.desc = Web.replaceSpecial(fv9KarossCom_GM.get(i));
 									ps.add(p);
 								}
 

@@ -46,7 +46,7 @@ $(document).ready(function(){
 		<%
 		if (request.getSession().getAttribute("indexes") != null) {
 		%>
-			<a href="<%=request.getContextPath() %>/app/pep/print.jsp" target="_blank">
+			<a href="<%=request.getContextPath() %>/app/pep/print.jsp" target="_blank" style="color: white;">
 				<%=oraganization %>
 			</a>
 		<%

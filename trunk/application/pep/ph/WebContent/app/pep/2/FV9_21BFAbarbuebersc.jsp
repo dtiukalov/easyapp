@@ -132,7 +132,11 @@
 					defaultSeriesType: 'column'
 				},
 				title: {
-					text: ''
+					text: 'LC BMG-Teile von ES Teileliste',
+					align: 'left',
+					style: {
+						color: 'black'
+					}
 				},
 				xAxis: {
 					lineColor:'black',
@@ -140,6 +144,7 @@
 					tickColor:'black',
 					categories: <%=cat%>,
 					labels:{
+						rotation: -45,
 						enabled:true,
 						y:20,
 						style:{
@@ -258,7 +263,7 @@
 				}
 <%if(vffNum > 0){%>
 				,{
-					data: [[<%=temp0-1%> + 0.5, 0], [<%=temp0-1%> + 0.5001, <%=total%>]],
+					data: [[<%=temp0-1%> + 0.5, -20], [<%=temp0-1%> + 0.5001, <%=total%>]],
 		//			color: 'black',
 					dashStyle: 'dash',
 					lineWidth: 2,
@@ -277,7 +282,7 @@
 				}
 <%}%><%if(pvsNum > 0){%>
 				,{
-					data: [[<%=temp1 - 1%> + 0.5, 0], [<%=temp1 - 1%> + 0.5001, <%=total%>]],
+					data: [[<%=temp1 - 1%> + 0.5, -20], [<%=temp1 - 1%> + 0.5001, <%=total%>]],
 		//			color: 'black',
 					dashStyle: 'dash',
 					lineWidth: 2,
@@ -296,7 +301,7 @@
 				}
 <%}%><%if(osNum > 0){%>
 				, {
-					data: [[<%=temp2 - 1%> + 0.5, 0], [<%=temp2 - 1%> + 0.5001, <%=total%>]],
+					data: [[<%=temp2 - 1%> + 0.5, -20], [<%=temp2 - 1%> + 0.5001, <%=total%>]],
 		//			color: 'black',
 					dashStyle: 'dash',
 					lineWidth: 2,
@@ -315,7 +320,7 @@
 				}
 <%}%><%if(sopNum > 0){%>
 				, {
-					data: [[<%=temp3-1%> + 0.5, 0], [<%=temp3-1%> + 0.5001, <%=total%>]],
+					data: [[<%=temp3-1%> + 0.5, -20], [<%=temp3-1%> + 0.5001, <%=total%>]],
 		//			color: 'black',
 					dashStyle: 'dash',
 					lineWidth: 2,
@@ -349,9 +354,7 @@
 		</div>
 	
 		<div id="content">
-			<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LC BMG-Teile von ES Teileliste</h5>
-			
-			<div id="chart1" style="width: 820px; height: 320px; float: left; margin: 0px; margin-top: 50px; margin-left: 30px;"></div>
+			<div id="chart1" style="width: 900px; height: 520px; float: left; margin: 30px 30px auto; "></div>
 		</div>
 		<%@ include file="/app/pep/include/foot.jsp"%>
 	</div>	

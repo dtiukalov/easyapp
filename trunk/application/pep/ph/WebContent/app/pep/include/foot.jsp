@@ -42,7 +42,22 @@ $(document).ready(function(){
 </script> -->
 <div id="footer">
 	<div class="foot">
-		<div class="lanstk"><%=oraganization %></div>
+		<div class="lanstk">
+		<%
+		if (request.getSession().getAttribute("indexes") != null) {
+		%>
+			<a href="<%=request.getContextPath() %>/app/pep/print.jsp" target="_blank">
+				<%=oraganization %>
+			</a>
+		<%
+		} else {
+		%>
+			<%=oraganization %>
+		<%	
+		}
+		%>
+		
+		</div>
 		<div class="clear"></div>
     </div>
 	<div class="ft">

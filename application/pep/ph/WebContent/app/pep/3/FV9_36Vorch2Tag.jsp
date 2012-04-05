@@ -105,6 +105,7 @@
 					},
 					yAxis: {
 						min: 0,
+						max: <%=total%>,
 						tickWidth:1,
 						gridLineColor:'black',
 						tickColor:'black',
@@ -210,10 +211,10 @@
 					}
 <%if(vffNum > 0){%>
 					,{
-						data: [[<%=vffIndex%>, 0], [<%=vffIndex%>, <%=total%>]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
+						data: [[<%=vffIndex%>, -100], [<%=vffIndex%>, <%=total%>]],
+						color: 'red',
+						dashStyle: 'solid',
+						lineWidth: 3,
 						marker: {enabled: false},
 						shadow: false,
 						showInLegend: false,
@@ -229,10 +230,10 @@
 					}
 	<%}%><%if(pvsNum > 0){%>
 					,{
-						data: [[<%=pvsIndex%>, 0], [<%=pvsIndex%>, <%=total%>]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
+						data: [[<%=pvsIndex%>, -100], [<%=pvsIndex%>, <%=total%>]],
+						color: 'red',
+						dashStyle: 'solid',
+						lineWidth: 3,
 						marker: {enabled: false},
 						shadow: false,
 						showInLegend: false,
@@ -248,10 +249,10 @@
 					}
 	<%}%><%if(osNum > 0){%>
 					, {
-						data: [[<%=osIndex%>, 0], [<%=osIndex%>, <%=total%>]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
+						data: [[<%=osIndex%>, -100], [<%=osIndex%>, <%=total%>]],
+						color: 'red',
+						dashStyle: 'solid',
+						lineWidth: 3,
 						marker: {enabled: false},
 						shadow: false,
 						showInLegend: false,
@@ -267,10 +268,10 @@
 					}
 	<%}%><%if(sopNum > 0){%>
 					, {
-						data: [[<%=sopIndex%>, 0], [<%=sopIndex%>, <%=total%>]],
-			//			color: 'black',
-						dashStyle: 'dash',
-						lineWidth: 2,
+						data: [[<%=sopIndex%>, -100], [<%=sopIndex%>, <%=total%>]],
+						color: 'red',
+						dashStyle: 'solid',
+						lineWidth: 3,
 						marker: {enabled: false},
 						shadow: false,
 						showInLegend: false,
@@ -301,7 +302,7 @@
 				<h1><%=title %></h1>
 			</div>
 			<div id="content">
-				<div id="chart" style="width: 750px; height: 350px; margin: 0px 0px auto; margin-left:180px; float: left;"></div>
+				<div id="chart" style="width: 750px; height: 350px; margin: 5px 0px auto; margin-left:180px; float: left;"></div>
 				<div style="width: 920px; margin: 10px 10px auto;text-align: center;float: left;">
 				<table class="freigaben" style="border-color: #000;border-collapse:collapse;" cellpadding="0" cellspacing="0" border="1"">
 					<tr>

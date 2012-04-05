@@ -17,6 +17,8 @@
 		<%
 		String legent = ""; //图例
 		
+		List<String> showNum = new ArrayList<String>();
+		
 		List<String> PresswerkNum = new ArrayList<String>();
 		List<String> KarosseriebauNum = new ArrayList<String>();
 		List<String> KaufteileNum = new ArrayList<String>();
@@ -38,30 +40,35 @@
 			KarosseriebauNum = (List)form.get("fv9KarosseriebauNum");
 			fv9KarosseriebauNum = Web.getNumberListStr(KarosseriebauNum);
 			legent = "Karosseriebau";
+			showNum = KarosseriebauNum;
 		}
 			
 		if ("FV9_35AuditZP8Kauf".equals(type)) {
 			KaufteileNum = (List)form.get("fv9KaufteileNum");
 			fv9KaufteileNum = Web.getNumberListStr(KaufteileNum);
 			legent = "Kaufteile";
+			showNum = KaufteileNum;
 		}
 			
 		if ("FV9_35AuditZP8Lack".equals(type)) {
 			LackierereiNum = (List)form.get("fv9LackierereiNum");
 			fv9LackierereiNum = Web.getNumberListStr(LackierereiNum);
 			legent = "Lackiererei";
+			showNum = LackierereiNum;
 		}
 			
 		if ("FV9_35AuditZP8Press".equals(type)) {
 			PresswerkNum = (List)form.get("fv9PresswerkNum");
 			fv9PresswerkNum = Web.getNumberListStr(PresswerkNum);
 			legent = "Presswerk";
+			showNum = PresswerkNum;
 		}
 			
 		if ("FV9_35AuditZP8Mont".equals(type)) {
 			MontageNum = (List)form.get("fv9MontageNum");
 			fv9MontageNum = Web.getNumberListStr(MontageNum);
 			legent = "Montage";
+			showNum = MontageNum;
 		}
 		
 		String fv9KWNo = Web.getNumberListStr(KWNo);
@@ -74,8 +81,9 @@
 		List<String> fv9Option = (List)form.get("fv9Option");
 
 		List<String> newlist = new ArrayList();
-		if (Web.getObjectYesOrNo(PresswerkNum)) {
-			for(int i=0; i<PresswerkNum.size(); i++){
+		if (Web.getObjectYesOrNo(showNum)) {
+			
+			for(int i=0; i<showNum.size(); i++){
 				String table = "<table style=\"border-collapse:collapse;border:solid 1px #000;\" width=\"350\" cellpadding=\"0\" cellspacing=\"0\">";
 				if (Web.getListYesOrNo(fv9KW)) {
 					for(int k=0; k<fv9KW.size(); k++) {
@@ -98,26 +106,7 @@
 				}
 				table += "</table>";
 				
-				if ("FV9_35AuditZP8Kaross".equals(type)) {
-					newlist.add(mergeTableAndNum(KarosseriebauNum.get(i), table));
-				}
-					
-				if ("FV9_35AuditZP8Kauf".equals(type)) {
-					newlist.add(mergeTableAndNum(KaufteileNum.get(i), table));
-				}
-					
-				if ("FV9_35AuditZP8Lack".equals(type)) {
-					newlist.add(mergeTableAndNum(LackierereiNum.get(i), table));
-				}
-					
-				if ("FV9_35AuditZP8Press".equals(type)) {
-					newlist.add(mergeTableAndNum(PresswerkNum.get(i), table));
-				}
-					
-				if ("FV9_35AuditZP8Mont".equals(type)) {
-					newlist.add(mergeTableAndNum(MontageNum.get(i), table));
-				}
-				
+				newlist.add(mergeTableAndNum(showNum.get(i), table));
 			}
 		}
 		
@@ -186,7 +175,8 @@
 					},
 					tooltip: {
 						formatter: function() {
-							return this.point.table;
+			//				return this.point.table;
+							return '';
 						}
 					},
 					plotOptions: {
@@ -205,7 +195,7 @@
 									fontSize:'12px'
 								},
 								color: 'white',
-								rotation: -90,
+					//			rotation: -90,
 								x:5,
 								formatter: function() {
 									if (this.y == 0 || this.y == 0.0 || this.y == null) {

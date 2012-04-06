@@ -84,11 +84,13 @@ public class LoadAction implements IAction {
 							"IMAN_specification", "view", "IMAN_requirement",
 							"IMAN_reference", "TC_WorkContext_Relation",
 							"TC_Attaches", "VisItemRevCreatedSnapshot2D",
-							"project_ids", "fv9MLName","fv9ReportKW");
+							"project_ids", "fv9MLName", "fv9ReportKW", "fv9PlatformType");
 					
 					PH.getDataService().getProperties(itemRev, relations);
 					PH.getDataService().refreshObjects(itemRev);
 					String projects = itemRev.getPropertyDisplayableValue("project_ids");
+					String platformType = itemRev.getPropertyDisplayableValue("fv9PlatformType");
+					
 					if (!"".equals(projects)) {
 						project = projects.split(",")[0];
 					}
@@ -96,6 +98,7 @@ public class LoadAction implements IAction {
 					
 					request.getSession().setAttribute("milepost", roadmap);
 					request.getSession().setAttribute("project", project);
+					request.getSession().setAttribute("platformType", platformType);
 					
 					formIds = ItemUtils.getLastRevisionFormIds(itemRev, relations ,request);
 					

@@ -344,17 +344,20 @@
 					<tr>
 					<!-- 按SOP时间倒数周数 -->
 					<%
-					for(int i=sopIndex; i>=0; i--) {
+					for(int i=sopIndex+1; i>0; i--) {
+						//奇数为灰色
 					%>
-						<td style="border: 1px solid;width: <%=tdWidth%>px; height:15px; background-color: #FFFFC0;">
+						<td style="border: 1px solid;width: <%=tdWidth%>px; height:15px; 
+							<%if (i%2!=0) out.print("background-color: #C0C0C0;");%>">
 							<%=i %>
 						</td>
 					<%
 					}
-					for (int i=0; i<weeks-sopIndex-1; i++) {
+					for (int i=0; i>sopIndex-weeks+1; i--) {
 					%>
-						<td style="border: 1px solid;width: <%=tdWidth%>px; height:15px; background-color: #FFFFC0;">
-							<%=i+1 %>
+						<td style="border: 1px solid;width: <%=tdWidth%>px; height:15px; 
+							<%if (i%2!=0) out.print("background-color: #C0C0C0;");%>">
+							<%=i-1 %>
 						</td>
 					<%	
 					}
@@ -722,7 +725,7 @@
 				%>
 					<div style="width: <%=tdWidth*1.5%>px; height: 30px; position: absolute; font-size: 10px; text-align: center;
 					top: <%=level1%>px; margin-left: <%=VFFTBTZP5*tdWidth - tdWidth/4%>px; word-wrap:break-word;
-					filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/tbt_logo.gif', 
+					filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/tbt_logo.png', 
 					sizingMethod='scale');">
 					TBT<br>ZP5
 					</div>
@@ -731,7 +734,7 @@
 				%>
 					<div style="width: <%=tdWidth*1.5%>px; height: 30px; position: absolute; font-size: 10px; text-align: center;
 					top: <%=level1%>px; margin-left: <%=VFFTBTZP7*tdWidth - tdWidth/4%>px; word-wrap:break-word;
-					filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/tbt_logo.gif', 
+					filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/tbt_logo.png', 
 					sizingMethod='scale');">
 					TBT ZP7
 					</div>
@@ -768,7 +771,7 @@
 				%>
 						<div style="width: <%=tdWidth*1.5%>px; height: 30px; position: absolute; font-size: 10px; text-align: center;
 						top: <%=level3%>px; margin-left: <%=PVSTBTZP5*tdWidth - tdWidth/4%>px; word-wrap:break-word;
-						filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/tbt_logo.gif', 
+						filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/tbt_logo.png', 
 						sizingMethod='scale');">
 						TBT ZP7
 						</div>
@@ -777,7 +780,7 @@
 				%>
 						<div style="width: <%=tdWidth*1.5%>px; height: 30px; position: absolute; font-size: 10px; text-align: center;
 						top: <%=level3%>px; margin-left: <%=PVSTBTZP7*tdWidth - tdWidth/4%>px; word-wrap:break-word;
-						filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/tbt_logo.gif', 
+						filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/tbt_logo.png', 
 						sizingMethod='scale');">
 						TBT ZP7
 						</div>
@@ -814,7 +817,7 @@
 				%>
 						<div style="width: <%=tdWidth*1.5%>px; height: 30px; position: absolute; font-size: 10px; text-align: center;
 						top: <%=level5%>px; margin-left: <%=OSTBTZP5*tdWidth - tdWidth/4%>px; word-wrap:break-word;
-						filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/tbt_logo.gif', 
+						filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/tbt_logo.png', 
 						sizingMethod='scale');">
 						TBT ZP7
 						</div>
@@ -823,7 +826,7 @@
 				%>
 						<div style="width: <%=tdWidth*1.5%>px; height: 30px; position: absolute; font-size: 10px; text-align: center;
 						top: <%=level5%>px; margin-left: <%=OSTBTZP7*tdWidth - tdWidth/4%>px; word-wrap:break-word;
-						filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/tbt_logo.gif', 
+						filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/tbt_logo.png', 
 						sizingMethod='scale');">
 						TBT ZP7
 						</div>
@@ -887,8 +890,8 @@
 				if (sopIndex != 0) {
 				%>
 						<div style="width: <%=tdWidth*1.5%>px; height: 21px; position: absolute; font-size: 10px; text-align: center;
-							top: <%=level9%>px; margin-left: <%=sopIndex*tdWidth - tdWidth/4%>px; word-wrap:break-word; color:white; padding-top:9px;
-							filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/ml.jpg', 
+							top: <%=level9%>px; margin-left: <%=sopIndex*tdWidth%>px; word-wrap:break-word; color:white; padding-top:9px;
+							filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/ml.png', 
 							sizingMethod='scale');">
 							SOP
 						</div>
@@ -907,7 +910,7 @@
 				
 			}
 			%>
-				
+			
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	

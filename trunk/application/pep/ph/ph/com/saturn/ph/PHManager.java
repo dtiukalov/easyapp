@@ -8,6 +8,7 @@ import java.util.Map;
 public class PHManager {
 
 	private static final String[] ALL = {
+			"Agenda",
 			"FV9_11ProjectTermin","1.1 Projektterminplan",
 			"1.1 Anlaufuebersicht",
 			// "FV9_11Anlaufueber",
@@ -84,14 +85,17 @@ public class PHManager {
 	@SuppressWarnings("unchecked")
 	public static List<String> getIndexes(String roadmap,
 			Map<String, Object> forms) {
+		String path = "/app/pep/do/preview.do";// FormManager.getJspPath(type);
+		//	String path = "/app/pep/do/bufferview.do";// FormManager.getJspPath(type);
+		
 		List<String> indexes = new ArrayList<String>();
-
+		
+		indexes.add("/app/pep/titlePage.jsp");
 		// if (roadmaps.containsKey(roadmap)) {
 		String[] types = roadmaps.get("ALL");
 
 		for (String type : types) {
-			String path = "/app/pep/do/preview.do";// FormManager.getJspPath(type);
-		//	String path = "/app/pep/do/bufferview.do";// FormManager.getJspPath(type);
+			
 			Object object = forms.get(type);
 
 			if (object != null) {

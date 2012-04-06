@@ -45,8 +45,10 @@
 <div id="container">
 	<div id="nr">
 	<div id="top">
+		
 		<div class="fl"><%=status_left %></div>
 		<div class="fr"><%=status_right %></div>
+		
 		<h1>
 			<a href="javascript:changeChinese()" id="german"><%=title %></a>
 			<a href="javascript:changeGerman()" id="china" style="display: none;"><%=title %></a>

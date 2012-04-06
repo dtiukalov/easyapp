@@ -3,6 +3,7 @@ package com.saturn.ph;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.saturn.ph.form.AgendaDataset;
 import com.saturn.ph.form.p1.FV9_11AnlaufueberForm;
 import com.saturn.ph.form.p1.FV9_11AnlaufuebersichtDataset;
 import com.saturn.ph.form.p1.FV9_11ProjectTerminDateset;
@@ -176,6 +177,7 @@ public class FormManager {
 	}
 
 	private static void inital() {
+		add(new AgendaDataset());
 		add(new FV9_11ProjectTerminForm());
 		add(new FV9_11ProjectTerminDateset());
 		add(new FV9_11AnlaufuebersichtDataset());

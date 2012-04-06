@@ -24,11 +24,19 @@
 	String title = "";
 	String oraganization = "";
 	String platformType = "";
+	String projectInfo = "VG311,New Bora FL , 17.04.2012";
 	
 	if (form != null) {
 		title = (String)form.get("fv9PageName");
 		oraganization = (String)form.get("fv9Oraganization");
-		platformType = (String)form.get("fv9PlatformType");
+	}
+	
+	if (session.getAttribute("platformType") != null) {
+		platformType = (String)session.getAttribute("platformType");
+	}
+	
+	if (session.getAttribute("projectInfo") != null) {
+		projectInfo = (String)session.getAttribute("projectInfo");
 	}
 	
 //	String status_left = "VW471 CN-Pilothalle VFF,20.10.2012";

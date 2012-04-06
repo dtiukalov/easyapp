@@ -19,17 +19,21 @@
 	
 	/* String next = "<img src=\"/ph/app/pep/images/n.jpg\" width=\"40\" height=\"70\">";
 	String prev = "<img src=\"/ph/app/pep/images/p.jpg\" width=\"40\" height=\"70\">"; */
-	String next = "<img src=\"/ph/app/pep/images/n2.jpg\" width=\"19\" height=\"10\">";
-	String prev = "<img src=\"/ph/app/pep/images/p1.jpg\" width=\"19\" height=\"10\">";
+	String next = "&nbsp;>&nbsp;";
+//	String next = "<img src=\"/ph/app/pep/images/n2.jpg\" width=\"19\" height=\"10\">";
+	String prev = "&nbsp;<&nbsp;";
+//	String prev = "<img src=\"/ph/app/pep/images/p1.jpg\" width=\"19\" height=\"10\">";
 	if (indexes != null) {
 		int pageSize = indexes.size();
 		
 		if (cur > 1) {
-			prev = "<a href='" + request.getContextPath() + "/app/pep/view/view.do?current=" + (cur-1) + "'><img src=\"/ph/app/pep/images/p1.jpg\" width=\"19\" height=\"10\" style=\"border:none\"></a>";
+	//		prev = "<a href='" + request.getContextPath() + "/app/pep/view/view.do?current=" + (cur-1) + "'><img src=\"/ph/app/pep/images/p1.jpg\" width=\"19\" height=\"10\" style=\"border:none\"></a>";
+			prev = "<a href='" + request.getContextPath() + "/app/pep/view/view.do?current=" + (cur-1) + "'>&nbsp;<&nbsp;</a>";
 		}
 		
 		if (cur < pageSize) {
-			next = "<a href='" + request.getContextPath() + "/app/pep/view/view.do?current=" + (cur+1) + "'><img src=\"/ph/app/pep/images/n2.jpg\" width=\"19\" height=\"10\" style=\"border:none\"></a>";
+//			next = "<a href='" + request.getContextPath() + "/app/pep/view/view.do?current=" + (cur+1) + "'><img src=\"/ph/app/pep/images/n2.jpg\" width=\"19\" height=\"10\" style=\"border:none\"></a>";
+			next = "<a href='" + request.getContextPath() + "/app/pep/view/view.do?current=" + (cur+1) + "'>&nbsp;>&nbsp;</a>";
 		}
 	}
 %>
@@ -42,22 +46,21 @@ $(document).ready(function(){
 </script> -->
 <div id="footer">
 	<div class="foot">
-		<div class="lanstk">
+		
 		<%
-		if (request.getSession().getAttribute("indexes") != null) {
+		if (request.getSession().getAttribute("indexes") != null &&
+				!"".equals(oraganization)) {
 		%>
+		<div class="lanstk">
 			<a href="<%=request.getContextPath() %>/app/pep/print.jsp" target="_blank" style="color: white;">
 				<%=oraganization %>
 			</a>
+		</div>
 		<%
-		} else {
-		%>
-			<%=oraganization %>
-		<%	
 		}
 		%>
 		
-		</div>
+		
 		<div class="clear"></div>
     </div>
 	<div class="ft">
@@ -71,7 +74,11 @@ $(document).ready(function(){
 	    	<div class="P"><%=prev %></div>
 			<div class="N"><%=next %></div>
 		</div> --%>
-		    <P><%=prev %>Seite<%=current %><%=next %></P>
+		    <%=prev %>Seite&nbsp;<%=current %><%=next %>
+	    </div>
+	    
+	    <div style="WIDTH: 250px; DISPLAY: inline; FLOAT: left;margin-left:100px;margin-top:5px; padding-top: 10px; font-size: 14px;">
+	    	<%=projectInfo %>
 	    </div>
 	    
 	    <div class="ylogo">

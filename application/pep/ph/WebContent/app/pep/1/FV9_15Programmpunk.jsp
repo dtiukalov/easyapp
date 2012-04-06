@@ -108,7 +108,7 @@
 			                style: {
 			                    fontSize:'16px'
 			                },
-		                    color:'white'
+			                color:'black'
 			            }
 			        }
 				},

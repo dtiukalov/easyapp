@@ -235,7 +235,7 @@
 						style : {
 							fontSize:'12px'
 						},
-						color: 'white'
+						color: 'black'
 					}
 				}]
 			});

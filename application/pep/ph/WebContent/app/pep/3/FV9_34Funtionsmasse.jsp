@@ -264,7 +264,7 @@
 						style : {
 							fontSize:'12px'
 						},
-						color: 'white'
+						color: 'black'
 					},
 					data:  <%=fv9FunktionBig100%>
 				}, {

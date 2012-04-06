@@ -210,7 +210,7 @@
 						style : {
 							fontSize:'14px'
 						},
-						color: 'white'
+						color: 'black'
 					}
 				},{
 					name: 'Presswerk',
@@ -260,7 +260,14 @@
 					data: [{ 
 						y: <%=ist_Projekt%>, 
 						low: <%=low_Projekt%>
-					}]
+					}],
+					dataLabels: {
+						enabled: true,
+						style : {
+							fontSize:'14px'
+						},
+						color: 'black'
+					}
 				}]
 			}, function(chart) { 
 				chart.renderer.text(

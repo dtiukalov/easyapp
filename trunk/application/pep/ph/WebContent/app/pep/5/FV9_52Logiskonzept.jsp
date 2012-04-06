@@ -51,7 +51,7 @@
 			</h1>
 		</div>
 	    <div id="content" >
-		    <div id="datatable1" style="width: 900px;margin:5px auto; margin-top: 30px;">
+		    <div id="datatable1" style="width: 900px;margin:5px auto; margin-top: 30px; font-family: Arial; ">
 			    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table" style="overflow: hidden;">
 					  <tr>
 					    <td width="239" class="pg">&nbsp;</td>

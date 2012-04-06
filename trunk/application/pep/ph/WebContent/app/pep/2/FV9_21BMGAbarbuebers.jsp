@@ -218,7 +218,7 @@
 						style : {
 							fontSize:'10px'
 						},
-						color: 'white'
+						color: 'black'
 					}
 				},{
 					name: 'in arbeit',

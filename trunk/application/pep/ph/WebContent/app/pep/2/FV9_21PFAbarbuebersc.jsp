@@ -203,7 +203,7 @@
 					enabled:true
 				},
 			    series: [{
-					name: 'BMG frei Soll',
+					name: 'P Freigaben Soll',
 					data: <%=BFreiSoll%>,
 					color: '#00FF00',
 					type: 'column',
@@ -217,7 +217,7 @@
 						style : {
 							fontSize:'10px'
 						},
-						color: 'white'
+						color: 'black'
 					}
 				},{
 					name: 'in arbeit',

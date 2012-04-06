@@ -113,7 +113,6 @@
 		//SOP时间
 		String DATE_SOP = (String)session.getAttribute("DATE_SOP");
 		
-		System.out.println("--------------------" + DATE_SOP + "----------------------");
 		int SOP_KW = DateUtils.getWeekOfYear(DATE_SOP);
 		int SOP_Year = Integer.parseInt(DATE_SOP.split("-")[0]);
 		
@@ -723,16 +722,16 @@
 				%>
 					<div style="width: <%=tdWidth*1.5%>px; height: 30px; position: absolute; font-size: 10px; text-align: center;
 					top: <%=level1%>px; margin-left: <%=VFFTBTZP5*tdWidth - tdWidth/4%>px; word-wrap:break-word;
-					filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/tbt_logo.png', 
+					filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/tbt_logo.gif', 
 					sizingMethod='scale');">
-					TBT ZP5
+					TBT<br>ZP5
 					</div>
 				<%
 				if (VFFTBTZP7 != 0)
 				%>
 					<div style="width: <%=tdWidth*1.5%>px; height: 30px; position: absolute; font-size: 10px; text-align: center;
 					top: <%=level1%>px; margin-left: <%=VFFTBTZP7*tdWidth - tdWidth/4%>px; word-wrap:break-word;
-					filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/tbt_logo.png', 
+					filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/tbt_logo.gif', 
 					sizingMethod='scale');">
 					TBT ZP7
 					</div>
@@ -769,7 +768,7 @@
 				%>
 						<div style="width: <%=tdWidth*1.5%>px; height: 30px; position: absolute; font-size: 10px; text-align: center;
 						top: <%=level3%>px; margin-left: <%=PVSTBTZP5*tdWidth - tdWidth/4%>px; word-wrap:break-word;
-						filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/tbt_logo.png', 
+						filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/tbt_logo.gif', 
 						sizingMethod='scale');">
 						TBT ZP7
 						</div>
@@ -778,7 +777,7 @@
 				%>
 						<div style="width: <%=tdWidth*1.5%>px; height: 30px; position: absolute; font-size: 10px; text-align: center;
 						top: <%=level3%>px; margin-left: <%=PVSTBTZP7*tdWidth - tdWidth/4%>px; word-wrap:break-word;
-						filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/tbt_logo.png', 
+						filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/tbt_logo.gif', 
 						sizingMethod='scale');">
 						TBT ZP7
 						</div>
@@ -815,7 +814,7 @@
 				%>
 						<div style="width: <%=tdWidth*1.5%>px; height: 30px; position: absolute; font-size: 10px; text-align: center;
 						top: <%=level5%>px; margin-left: <%=OSTBTZP5*tdWidth - tdWidth/4%>px; word-wrap:break-word;
-						filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/tbt_logo.png', 
+						filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/tbt_logo.gif', 
 						sizingMethod='scale');">
 						TBT ZP7
 						</div>
@@ -824,7 +823,7 @@
 				%>
 						<div style="width: <%=tdWidth*1.5%>px; height: 30px; position: absolute; font-size: 10px; text-align: center;
 						top: <%=level5%>px; margin-left: <%=OSTBTZP7*tdWidth - tdWidth/4%>px; word-wrap:break-word;
-						filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/tbt_logo.png', 
+						filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/tbt_logo.gif', 
 						sizingMethod='scale');">
 						TBT ZP7
 						</div>
@@ -889,7 +888,7 @@
 				%>
 						<div style="width: <%=tdWidth*1.5%>px; height: 21px; position: absolute; font-size: 10px; text-align: center;
 							top: <%=level9%>px; margin-left: <%=sopIndex*tdWidth - tdWidth/4%>px; word-wrap:break-word; color:white; padding-top:9px;
-							filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/bg.gif', 
+							filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath() %>/app/pep/images/ml.jpg', 
 							sizingMethod='scale');">
 							SOP
 						</div>
@@ -905,6 +904,7 @@
 						</div>
 				<%	
 				}
+				
 			}
 			%>
 				

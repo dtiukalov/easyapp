@@ -64,7 +64,7 @@
 				div_class += "	<div style=\"width: 100%; height:26px; float: left; vertical-align: middle; padding-top: 5px;"
 									+ "filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" 
 									+ request.getContextPath() 
-									+ "/app/pep/images/bg.gif', sizingMethod='scale'); \">";
+									+ "/app/pep/images/ml.jpg', sizingMethod='scale'); \">";
 				div_class += "		<span style=\"color:white; font-size:10px; vertical-align: bottom;\">"+MLOrg+"</span>";
 				div_class += "	</div>";
 				div_class += "</div>";

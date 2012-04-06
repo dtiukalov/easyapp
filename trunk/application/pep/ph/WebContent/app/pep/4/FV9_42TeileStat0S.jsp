@@ -202,7 +202,7 @@
 								style : {
 									fontSize:'12px'
 								},
-								color: 'white'
+								color: 'black'
 							}
 						},{
 							name: 'Note 1',

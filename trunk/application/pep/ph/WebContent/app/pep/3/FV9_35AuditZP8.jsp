@@ -259,6 +259,14 @@
 						data: <%=fv9KonzernNum%>,
 						color: '#E63110'
 					}]
+				}, function(chart) { 
+					chart.renderer.text(
+			                '<span style="font-size:12px;">KW</span>', 
+			               	30, 
+			                490
+			            ).attr({
+			                zIndex: 6
+			            }).add();
 				});
 			});
 			

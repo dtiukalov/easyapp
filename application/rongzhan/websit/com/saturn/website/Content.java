@@ -232,8 +232,8 @@ public class Content {
 			List<Content> child = Content.getChildren(content.getId());
 			
 			if (child == null || child.isEmpty()) {//没有子节点还没有要维护的内容
-				if ("content.mode.none".equals(content.getMode()) 
-						|| (content.getPath() != null && !"".equals(content.getPath()))) { //有独立的jsp页，无需维护
+				if ("content.mode.none".equals(content.getMode())) {
+						//|| (content.getPath() != null && !"".equals(content.getPath()))) { //有独立的jsp页，无需维护
 					continue;
 				}
 			}

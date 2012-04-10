@@ -56,7 +56,7 @@ public class ForageAction implements IAction {
 	}
 
 	public String requestMapping() {
-		return "/app/warning/farmer/forage.action";
+		return "/app/warning/farmer/forage.do";
 	}
 	
 }

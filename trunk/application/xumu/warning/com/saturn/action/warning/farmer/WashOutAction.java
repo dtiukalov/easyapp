@@ -52,7 +52,7 @@ public class WashOutAction implements IAction {
 	}
 
 	public String requestMapping() {
-		return "/app/warning/farmer/washout.action";
+		return "/app/warning/farmer/washout.do";
 	}
 	
 }

@@ -39,7 +39,7 @@ input {
 <center>
 <div id="main" align="left" style="width:800px;height:600px;font-size: 25px;">
 <form id="addForm" name="addForm"
-			action="<%=request.getContextPath()%>/app/warning/farmer/upload.action"
+			action="<%=request.getContextPath()%>/app/warning/farmer/upload.do"
 			method="post">
 			<%=new SimpleDateFormat("yyyy年MM月dd日HH时mm分ss秒：").format(new Date()) %><br/>
 			<%=WebUtils.print(request)%>

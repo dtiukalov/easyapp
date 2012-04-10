@@ -53,7 +53,7 @@ input {
 <center>
 <div id="main">
 <form id="addForm" name="addForm"
-			action="<%=request.getContextPath()%>/app/warning/farmer/sale.action"
+			action="<%=request.getContextPath()%>/app/warning/farmer/sale.do"
 			method="post">
 <table cellpadding="0px" cellspacing="1px" bgcolor="#000000" width="800px">
 <tr bgcolor="#ffffff" height="100px">

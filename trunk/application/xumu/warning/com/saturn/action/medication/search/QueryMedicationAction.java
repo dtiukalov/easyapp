@@ -21,7 +21,7 @@ public class QueryMedicationAction implements IAction {
 	}
 
 	public String requestMapping() {
-		return "/app/medication/search/queryMedication.action";
+		return "/app/medication/search/queryMedication.do";
 	}
 
 }

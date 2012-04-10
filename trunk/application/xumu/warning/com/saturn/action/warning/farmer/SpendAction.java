@@ -38,7 +38,7 @@ public class SpendAction implements IAction {
 	}
 
 	public String requestMapping() {
-		return "/app/warning/farmer/spend.action";
+		return "/app/warning/farmer/spend.do";
 	}
 	
 }

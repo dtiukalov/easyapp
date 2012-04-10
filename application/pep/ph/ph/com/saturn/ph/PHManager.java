@@ -9,10 +9,10 @@ public class PHManager {
 
 	private static final String[] ALL = {
 			"Agenda",
-			"FV9_11ProjectTermin","1.1 Projektterminplan",
+			"FV9_11ProjectTermin",
 			"1.1 Anlaufuebersicht",
 			// "FV9_11Anlaufueber",
-			"FV9_11VorserienTer", "1.1 Vorserienterminplan",
+			"FV9_11VorserienTer", 
 			"FV9_12Aktionspunkte",
 			"1.3 Anlauforganisation - Fahrzeugbau", "1.4 Anlaufkurve",
 			"FV9_15FahrzeugaufZP5", "FV9_15FahrzeugaufZP8",

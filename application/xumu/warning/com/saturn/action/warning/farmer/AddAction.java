@@ -56,7 +56,7 @@ public class AddAction implements IAction {
 	}
 
 	public String requestMapping() {
-		return "/app/warning/farmer/add.action";
+		return "/app/warning/farmer/add.do";
 	}
 	
 }

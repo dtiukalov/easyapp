@@ -44,7 +44,7 @@ public class DeadAction implements IAction {
 	}
 
 	public String requestMapping() {
-		return "/app/warning/farmer/dead.action";
+		return "/app/warning/farmer/dead.do";
 	}
 	
 }

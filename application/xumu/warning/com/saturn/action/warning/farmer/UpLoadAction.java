@@ -29,8 +29,8 @@ public class UpLoadAction implements IAction {
 		
 		if((pigs!=null&&!pigs.isEmpty())||(forages!=null&&!forages.isEmpty())||(spends!=null&&!spends.isEmpty())){
 			Farmer farmer = new Farmer();
-			farmer.setUserId(user.getId());
-			farmer.setUserName(user.getName());
+			farmer.setUserId("1010101");
+			farmer.setUserName("站点1");
 			
 			int i = Farmer.addAll(farmer, pigs, forages, spends);
 			if( i == 1 ) {
@@ -210,7 +210,7 @@ public class UpLoadAction implements IAction {
 	}
 */
 	public String requestMapping() {
-		return "/app/warning/farmer/upload.action";
+		return "/app/warning/farmer/upload.do";
 	}
 	
 }

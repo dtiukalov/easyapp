@@ -52,7 +52,7 @@ input {
 <center>
 <div id="main">
 <form id="addForm" name="addForm"
-			action="<%=request.getContextPath()%>/app/warning/farmer/spend.action"
+			action="<%=request.getContextPath()%>/app/warning/farmer/spend.do"
 			method="post">
 <table cellpadding="0px" cellspacing="1px" bgcolor="#000000" width="800px">
 <tr bgcolor="#ffffff" height="100px">
@@ -60,15 +60,15 @@ input {
 <td colspan="2" style="font-size:25px;">本次实际支出（元）</td>
 <tr bgcolor="#ffffff" height="80px">
 <td style="font-size:25px;">人员工资</td>
-<td width="350px;"><input id="price1" name="price1" type="text" value="<%=p1.getPrice()%>"/></td><td width="50px;" style="font-size:40px;">头</td>
+<td width="350px;"><input id="price1" name="price1" type="text" value="<%=p1.getPrice()%>"/></td><td width="50px;" style="font-size:40px;">元</td>
 </tr>
 <tr bgcolor="#ffffff">
 <td style="font-size:25px;">疫苗、治疗、劁猪费</td>
-<td width="350px;"><input id="price2" name="price2" type="text" value="<%=p2.getPrice()%>"/></td><td width="50px;" style="font-size:40px;">头</td>
+<td width="350px;"><input id="price2" name="price2" type="text" value="<%=p2.getPrice()%>"/></td><td width="50px;" style="font-size:40px;">元</td>
 </tr>
 <tr bgcolor="#ffffff">
 <td style="font-size:25px;">水、电、燃料费</td>
-<td width="350px;"><input id="price3" name="price3" type="text" value="<%=p3.getPrice()%>"/></td><td width="50px;" style="font-size:40px;">头</td>
+<td width="350px;"><input id="price3" name="price3" type="text" value="<%=p3.getPrice()%>"/></td><td width="50px;" style="font-size:40px;">元</td>
 </tr>
 </table>
 <table width="800px">

@@ -9,49 +9,10 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/app/js/jquery-1.4.4.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/app/js/testCode.js"></script>
 <title>登录页面</title>
-<script type="text/javascript">
-	var code = __getTestCode();
-
-	function login() {
-		var testCode = $('#testCode').val();
-		
-		if (testCode.toLowerCase() != code.toLowerCase()) {
-			alert('验证码不正确');
-			
-			$('#testCode').focus();
-			return;
-		}
-		
-		$('#loginForm').submit();
-	}
-	
-	function reload() {
-		code = __getTestCode();
-		$('#testCodeImage').attr("src", "<%=request.getContextPath()%>/app/system/testcode/test.do?code=" + code);
-		return false;
-	}
-	
-	$(function() {
-		code = __getTestCode();
-		$('#testCodeImage').attr("src", "<%=request.getContextPath()%>/app/system/testcode/test.do?code=" + code);
-		
-		$('#testCode').val(code);
-	});
-	
-</script>
 </head>
 <body background="<%=request.getContextPath()%>/app/themes/saturn/images/saturn/background.png">
-	<div class="login_img">
-		<div class="login_text">
-			<form id="loginForm" name="form1" method="post"
-				action="<%=request.getContextPath()%>/app/warning/login.do">
-				用户名： <input name="id" type="text" class="login_input" value="admin"/> <br /> <br />
-				密&nbsp;&nbsp;码： <input name="password" type="password" class="login_input" value="111111" /><br /> <br /> 
-				验证码： <input id="testCode" name="testCode" type="text" class="login_input" value="" /><br /> <br /> 
-				<input name="Submit" type="button" class="login_ok" onclick="login()"
-					value="登录" /> <img id="testCodeImage" alt="验证码" onclick="reload()" style="cursor:hand">
-			</form>
-		</div>
-	</div>
+	<script>
+	window.location = "<%=request.getContextPath()%>/app/warning/farmer/main.jsp";
+</script>
 </body>
 </html>

@@ -56,7 +56,7 @@ public class SaleAction implements IAction {
 	}
 
 	public String requestMapping() {
-		return "/app/warning/farmer/sale.action";
+		return "/app/warning/farmer/sale.do";
 	}
 	
 }

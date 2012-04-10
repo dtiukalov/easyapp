@@ -14,7 +14,7 @@
 </head>
 <body>
 <center>
-		<form id="queryForm" method="post" action="<%=request.getContextPath() %>/app/medication/search/queryMedication.action">
+		<form id="queryForm" method="post" action="<%=request.getContextPath() %>/app/medication/search/queryMedication.do">
 			<table>
 				<tr align="right">
 					<td style="font-size:25px;">编号:</td>

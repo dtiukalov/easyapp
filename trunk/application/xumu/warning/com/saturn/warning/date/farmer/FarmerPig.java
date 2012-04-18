@@ -16,6 +16,8 @@ public class FarmerPig {
 	public final static String SESSION_SALE = "PIG_SESSION_SALE";
 	public final static String SESSION_DEAD = "PIG_SESSION_DEAD";
 	public final static String SESSION_WASHOUT = "PIG_SESSION_WASHOUT";
+	public final static String SESSION_CHECK = "PIG_SESSION_CHECK";
+	public final static String SESSION_PRICE = "PIG_SESSION_PRICE";
 	
 	private String id;
 

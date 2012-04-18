@@ -246,7 +246,126 @@ public class WebUtils {
 				}
 			}
 		}
-		
+		Map checkPigs = (Map)request.getSession().getAttribute(FarmerPig.SESSION_CHECK);
+		if(checkPigs != null) {
+			FarmerPig p1 = (FarmerPig)checkPigs.get("出省境仔猪");
+			FarmerPig p2 = (FarmerPig)checkPigs.get("出省境育肥猪");
+			FarmerPig p3 = (FarmerPig)checkPigs.get("省内仔猪");
+			FarmerPig p4 = (FarmerPig)checkPigs.get("省内育肥猪");
+			FarmerPig p5 = (FarmerPig)checkPigs.get("屠宰育肥猪");
+			
+			if (p1 != null) {
+				String num = p1.getNum()!=null?p1.getNum().trim():"";
+				String price = p1.getPrice()!=null?p1.getPrice().trim():"";
+				String total = p1.getTotal()!=null?p1.getTotal().trim():"";
+				if(!"".equals(num)){
+					print.append("检疫出省境仔猪：").append(num+"头");
+					if(!"".equals(price)){
+						print.append("，单价"+price+"元/斤");
+					}
+					if(!"".equals(total)){
+						print.append("，本次卖出共收入"+total+"元");
+					}
+					print.append("；</br>");
+				}
+			}
+			if (p2 != null) {
+				String num = p2.getNum()!=null?p2.getNum().trim():"";
+				String price = p2.getPrice()!=null?p2.getPrice().trim():"";
+				String total = p2.getTotal()!=null?p2.getTotal().trim():"";
+				if(!"".equals(num)){
+					print.append("检疫出省境育肥猪：").append(num+"头");
+					if(!"".equals(price)){
+						print.append("，单价"+price+"元/斤");
+					}
+					if(!"".equals(total)){
+						print.append("，本次卖出共收入"+total+"元");
+					}
+					print.append("；</br>");
+				}
+			}
+			if (p3 != null) {
+				String num = p3.getNum()!=null?p3.getNum().trim():"";
+				String price = p3.getPrice()!=null?p3.getPrice().trim():"";
+				String total = p3.getTotal()!=null?p3.getTotal().trim():"";
+				if(!"".equals(num)){
+					print.append("检疫省内仔猪：").append(num+"头");
+					if(!"".equals(price)){
+						print.append("，单价"+price+"元/斤");
+					}
+					if(!"".equals(total)){
+						print.append("，本次卖出共收入"+total+"元");
+					}
+					print.append("；</br>");
+				}
+			}
+			if (p4 != null) {
+				String num = p4.getNum()!=null?p4.getNum().trim():"";
+				String price = p4.getPrice()!=null?p4.getPrice().trim():"";
+				String total = p4.getTotal()!=null?p4.getTotal().trim():"";
+				if(!"".equals(num)){
+					print.append("检疫省内育肥猪：").append(num+"头");
+					if(!"".equals(price)){
+						print.append("，单价"+price+"元/斤");
+					}
+					if(!"".equals(total)){
+						print.append("，本次卖出共收入"+total+"元");
+					}
+					print.append("；</br>");
+				}
+			}
+			if (p5 != null) {
+				String num = p5.getNum()!=null?p5.getNum().trim():"";
+				String price = p5.getPrice()!=null?p5.getPrice().trim():"";
+				String total = p5.getTotal()!=null?p5.getTotal().trim():"";
+				if(!"".equals(num)){
+					print.append("检疫屠宰育肥猪：").append(num+"头");
+					if(!"".equals(price)){
+						print.append("，单价"+price+"元/斤");
+					}
+					if(!"".equals(total)){
+						print.append("，本次卖出共收入"+total+"元");
+					}
+					print.append("；</br>");
+				}
+			}
+		}
+		Map pricePigs = (Map)request.getSession().getAttribute(FarmerPig.SESSION_PRICE);
+		if(pricePigs != null) {
+			FarmerPig p2 = (FarmerPig)pricePigs.get("育肥猪");
+			FarmerPig p3 = (FarmerPig)pricePigs.get("能繁母猪");
+			if (p2 != null) {
+				String num = p2.getNum()!=null?p2.getNum().trim():"";
+				String price = p2.getPrice()!=null?p2.getPrice().trim():"";
+				String total = p2.getTotal()!=null?p2.getTotal().trim():"";
+				if(!"".equals(num)){
+					print.append("市场价格育肥猪：").append(num+"头");
+					if(!"".equals(price)){
+						print.append("，单价"+price+"元/斤");
+					}
+					if(!"".equals(total)){
+						print.append("，本次卖出共收入"+total+"元");
+					}
+					print.append("；</br>");
+				}
+			}
+			
+			if (p3 != null) {
+				String num = p3.getNum()!=null?p3.getNum().trim():"";
+				String price = p3.getPrice()!=null?p3.getPrice().trim():"";
+				String total = p3.getTotal()!=null?p3.getTotal().trim():"";
+				if(!"".equals(num)){
+					print.append("企业价格育肥猪：").append(num+"头");
+					if(!"".equals(price)){
+						print.append("，单价"+price+"元/斤");
+					}
+					if(!"".equals(total)){
+						print.append("，本次卖出共收入"+total+"元");
+					}
+					print.append("；</br>");
+				}
+			}
+		}
 		Map forages = (Map)request.getSession().getAttribute(FarmerForage.SESSION_FORAGE);
 		if(forages != null) {
 			FarmerForage p1 = (FarmerForage)forages.get("浓缩料");

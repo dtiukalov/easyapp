@@ -44,7 +44,7 @@
 	<div class="login_img">
 		<div class="login_text">
 			<form id="loginForm" name="form1" method="post"
-				action="<%=request.getContextPath()%>/app/auth/user/login.do">
+				action="<%=request.getContextPath()%>/app/warning/login.do">
 				用户名： <input name="id" type="text" class="login_input" value="admin"/> <br /> <br />
 				密&nbsp;&nbsp;码： <input name="password" type="password" class="login_input" value="111111" /><br /> <br /> 
 				验证码： <input id="testCode" name="testCode" type="text" class="login_input" value="" /><br /> <br /> 

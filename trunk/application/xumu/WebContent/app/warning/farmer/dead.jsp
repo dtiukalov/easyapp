@@ -17,13 +17,14 @@
 	color:#000;
 }
 input {
-	width:350px;
+	width:180px;
 	height:80px;
 	font-size: 40px;
 	line-height: 80px;
-	direction:rtl;
+	/* direction:rtl; */
 	border-width:0px;
-	cursor: pointer;
+	/* cursor: pointer; */
+	text-align:center;
 }
 </style>
 <script type="text/javascript">
@@ -55,34 +56,35 @@ input {
 <form id="addForm" name="addForm"
 			action="<%=request.getContextPath()%>/app/warning/farmer/dead.do"
 			method="post">
-<table cellpadding="0px" cellspacing="1px" bgcolor="#000000" width="800px">
+<table cellpadding="0px" cellspacing="1px" bgcolor="#000000" width="800px" style="font-weight:bold">
+<tr bgcolor="#ffffff"><td style="font-size:35px;line-height:80px;" colspan=3>生猪死亡</td></tr>
 <tr bgcolor="#ffffff" height="100px">
 <td style="font-size:25px;">死亡类别</td>
 <td colspan="2" style="font-size:25px;">数量（头）</td>
 <tr bgcolor="#ffffff" height="80px">
 <td style="font-size:25px;">仔猪</td>
-<td width="350px;"><input id="num1" name="num1" type="text" value="<%=p1.getNum()%>"/></td><td width="50px;" style="font-size:40px;">头</td>
+<td width="350px;"><input id="num1" name="num1" type="text" value="<%=p1.getNum()%>"/></td><td width="50px;" style="font-size:30px;">头</td>
 </tr>
 <tr bgcolor="#ffffff">
 <td style="font-size:25px;">育肥猪</td>
-<td width="350px;"><input id="num2" name="num2" type="text" value="<%=p2.getNum()%>"/></td><td width="50px;" style="font-size:40px;">头</td>
+<td width="350px;"><input id="num2" name="num2" type="text" value="<%=p2.getNum()%>"/></td><td width="50px;" style="font-size:30px;">头</td>
 </tr>
 <tr bgcolor="#ffffff">
 <td style="font-size:25px;">能繁母猪</td>
-<td width="350px;"><input id="num3" name="num3" type="text" value="<%=p3.getNum()%>"/></td><td width="50px;" style="font-size:40px;">头</td>
+<td width="350px;"><input id="num3" name="num3" type="text" value="<%=p3.getNum()%>"/></td><td width="50px;" style="font-size:30px;">头</td>
 </tr>
 <tr bgcolor="#ffffff">
 <td style="font-size:25px;">后备母猪</td>
-<td width="350px;"><input id="num4" name="num4" type="text" value="<%=p4.getNum()%>"/></td><td width="50px;" style="font-size:40px;">头</td>
+<td width="350px;"><input id="num4" name="num4" type="text" value="<%=p4.getNum()%>"/></td><td width="50px;" style="font-size:30px;">头</td>
 </tr>
 </table>
 <table width="800px">
 <tr>
 <td align="left" width="50%">
-<input type="button" value="返回" onclick="javascript:location.href='<%=request.getContextPath() %>/app/warning/farmer/main.jsp'" src="" alt="返回" style="font-size:20px;line-height: 50px;width:150px;height:50px;cursor: pointer;" />
+<input type="button" value="保存" onclick="add()" src="" alt="保存" style="font-size:20px;line-height: 50px;width:150px;height:50px;cursor: pointer;" />
 </td>
 <td align="right" width="50%">
-<input type="button" value="确定" onclick="add()" src="" alt="确定" style="font-size:20px;line-height: 50px;width:150px;height:50px;cursor: pointer;" />
+<input type="button" value="返回" onclick="javascript:location.href='<%=request.getContextPath() %>/app/warning/farmer/main.jsp'" src="" alt="返回" style="font-size:20px;line-height: 50px;width:150px;height:50px;cursor: pointer;" />
 </td>
 </tr>
 </table>

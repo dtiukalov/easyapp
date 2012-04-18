@@ -18,13 +18,14 @@
 	color:#000;
 }
 input {
-	width:350px;
+	width:180px;
 	height:80px;
 	font-size: 40px;
 	line-height: 80px;
-	direction:rtl;
+	/* direction:rtl; */
 	border-width:0px;
-	cursor: pointer;
+	/* cursor: pointer; */
+	text-align:center;
 }
 </style>
 <script type="text/javascript">
@@ -54,30 +55,31 @@ input {
 <form id="addForm" name="addForm"
 			action="<%=request.getContextPath()%>/app/warning/farmer/spend.do"
 			method="post">
-<table cellpadding="0px" cellspacing="1px" bgcolor="#000000" width="800px">
+<table cellpadding="0px" cellspacing="1px" bgcolor="#000000" width="800px" style="font-weight:bold">
+<tr bgcolor="#ffffff"><td style="font-size:35px;line-height:80px;" colspan=3>费用支出</td></tr>
 <tr bgcolor="#ffffff" height="100px">
 <td style="font-size:25px;">支出类别</td>
 <td colspan="2" style="font-size:25px;">本次实际支出（元）</td>
 <tr bgcolor="#ffffff" height="80px">
 <td style="font-size:25px;">人员工资</td>
-<td width="350px;"><input id="price1" name="price1" type="text" value="<%=p1.getPrice()%>"/></td><td width="50px;" style="font-size:40px;">元</td>
+<td width="350px;"><input id="price1" name="price1" type="text" value="<%=p1.getPrice()%>"/></td><td width="50px;" style="font-size:30px;">元</td>
 </tr>
 <tr bgcolor="#ffffff">
 <td style="font-size:25px;">疫苗、治疗、劁猪费</td>
-<td width="350px;"><input id="price2" name="price2" type="text" value="<%=p2.getPrice()%>"/></td><td width="50px;" style="font-size:40px;">元</td>
+<td width="350px;"><input id="price2" name="price2" type="text" value="<%=p2.getPrice()%>"/></td><td width="50px;" style="font-size:30px;">元</td>
 </tr>
 <tr bgcolor="#ffffff">
 <td style="font-size:25px;">水、电、燃料费</td>
-<td width="350px;"><input id="price3" name="price3" type="text" value="<%=p3.getPrice()%>"/></td><td width="50px;" style="font-size:40px;">元</td>
+<td width="350px;"><input id="price3" name="price3" type="text" value="<%=p3.getPrice()%>"/></td><td width="50px;" style="font-size:30px;">元</td>
 </tr>
 </table>
 <table width="800px">
 <tr>
 <td align="left" width="50%">
-<input type="button" value="返回" onclick="javascript:location.href='<%=request.getContextPath() %>/app/warning/farmer/main.jsp'" src="" alt="返回" style="font-size:20px;line-height: 50px;width:150px;height:50px;cursor: pointer;" />
+<input type="button" value="保存" onclick="add()" src="" alt="保存" style="font-size:20px;line-height: 50px;width:150px;height:50px;cursor: pointer;" />
 </td>
 <td align="right" width="50%">
-<input type="button" value="确定" onclick="add()" src="" alt="确定" style="font-size:20px;line-height: 50px;width:150px;height:50px;cursor: pointer;" />
+<input type="button" value="返回" onclick="javascript:location.href='<%=request.getContextPath() %>/app/warning/farmer/main.jsp'" src="" alt="返回" style="font-size:20px;line-height: 50px;width:150px;height:50px;cursor: pointer;" />
 </td>
 </tr>
 </table>

@@ -30,14 +30,16 @@
 					if (tab == null) {
 						addTab(pageTab, node);
 					} else {
-						$.messager.confirm('提示', '"'+text+'"已打开,是否重新打开', function(result){
+						/* $.messager.confirm('提示', '"'+text+'"已打开,是否重新打开', function(result){
 							if (result){
 								pageTab.tabs('close', text);
 								addTab(pageTab, node);
 							} else {
 								pageTab.tabs('select', text);
 							}
-						});
+						}); */
+						pageTab.tabs('close', text);
+						addTab(pageTab, node);
 					}
 				}
 			}

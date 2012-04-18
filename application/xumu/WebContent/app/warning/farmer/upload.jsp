@@ -42,15 +42,18 @@ input {
 			action="<%=request.getContextPath()%>/app/warning/farmer/upload.do"
 			method="post">
 			<%=new SimpleDateFormat("yyyy年MM月dd日HH时mm分ss秒：").format(new Date()) %><br/>
-			<%=WebUtils.print(request)%>
-
+			<table cellpadding="0px" cellspacing="1px" bgcolor="#000000" width="800px">
+			<tr bgcolor="#ffffff" >
+				<td><%=WebUtils.print(request)%></td>
+			</tr>
+			</table>
 <table width="800px">
 <tr>
 <td align="left" width="50%">
-<input type="button" value="返回" onclick="javascript:location.href='<%=request.getContextPath() %>/app/warning/farmer/main.jsp'" src="" alt="返回" style="font-size:20px;line-height: 50px;width:150px;height:50px;cursor: pointer;" />
+<input type="button" value="保存" onclick="add()" src="" alt="保存" style="font-size:20px;line-height: 50px;width:150px;height:50px;cursor: pointer;" />
 </td>
 <td align="right" width="50%">
-<input type="button" value="确定" onclick="add()" src="" alt="确定" style="font-size:20px;line-height: 50px;width:150px;height:50px;cursor: pointer;" />
+<input type="button" value="返回" onclick="javascript:location.href='<%=request.getContextPath() %>/app/warning/farmer/main.jsp'" src="" alt="返回" style="font-size:20px;line-height: 50px;width:150px;height:50px;cursor: pointer;" />
 </td>
 </tr>
 </table>

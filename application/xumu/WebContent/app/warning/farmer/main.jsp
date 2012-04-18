@@ -27,16 +27,16 @@ input {
 <table width="800px" height="600px;">
 	<tr>
 		<td align="left" width="25%">
-		<input type="button" value="新增" onclick="javascript:location.href='<%=request.getContextPath()%>/app/warning/farmer/add.jsp'" />
+		<input type="button" value="生猪新增" onclick="javascript:location.href='<%=request.getContextPath()%>/app/warning/farmer/add.jsp'" />
 		</td>
 		<td align="left" width="25%">
-		<input type="button" value="卖出" onclick="javascript:location.href='<%=request.getContextPath()%>/app/warning/farmer/sale.jsp'" />
+		<input type="button" value="生猪卖出" onclick="javascript:location.href='<%=request.getContextPath()%>/app/warning/farmer/sale.jsp'" />
 		</td>
 		<td align="left" width="25%">
-		<input type="button" value="死亡" onclick="javascript:location.href='<%=request.getContextPath()%>/app/warning/farmer/dead.jsp'" />
+		<input type="button" value="生猪死亡" onclick="javascript:location.href='<%=request.getContextPath()%>/app/warning/farmer/dead.jsp'" />
 		</td>
 		<td align="left" width="25%">
-		<input type="button" value="淘汰" onclick="javascript:location.href='<%=request.getContextPath()%>/app/warning/farmer/washout.jsp'" />
+		<input type="button" value="生猪淘汰" onclick="javascript:location.href='<%=request.getContextPath()%>/app/warning/farmer/washout.jsp'" />
 		</td>
 	</tr>
 	<tr>
@@ -46,20 +46,29 @@ input {
 		<td align="left" width="25%">
 		<input type="button" value="费用支出" onclick="javascript:location.href='<%=request.getContextPath()%>/app/warning/farmer/spend.jsp'" />
 		</td>
+		 
+		<%--<td align="left" width="25%">
+		<input type="button" value="药品查询" onclick="javascript:location.href='<%=request.getContextPath()%>/app/medication/search/search.jsp'" />
+		</td> --%>
 		<td align="left" width="25%">
-		<input type="button" value="录入情况" onclick="javascript:location.href='<%=request.getContextPath()%>/app/warning/farmer/upload.jsp'" />
+		<input type="button" value="生猪检疫" onclick="javascript:location.href='<%=request.getContextPath()%>/app/warning/farmer/check.jsp'" />
 		</td>
 		<td align="left" width="25%">
-		<input type="button" value="药品查询" onclick="javascript:location.href='<%=request.getContextPath()%>/app/medication/search/search.jsp'" />
+		<input type="button" value="生猪价格" onclick="javascript:location.href='<%=request.getContextPath()%>/app/warning/farmer/price.jsp'" />
+		</td>
+	</tr>
+	<tr>
+		<td align="left" width="25%">
+		<input type="button" value="录入情况" onclick="javascript:location.href='<%=request.getContextPath()%>/app/warning/farmer/upload.jsp'" />
 		</td>
 	</tr>
 </table>
 </center>
 <!-- 
-<a href="<%=request.getContextPath()%>/app/warning/farmer/add.jsp">新增</a>
-<a href="<%=request.getContextPath()%>/app/warning/farmer/sale.jsp">卖出</a>
-<a href="<%=request.getContextPath()%>/app/warning/farmer/dead.jsp">死亡</a>
-<a href="<%=request.getContextPath()%>/app/warning/farmer/washout.jsp">淘汰</a>
+<a href="<%=request.getContextPath()%>/app/warning/farmer/add.jsp">生猪新增</a>
+<a href="<%=request.getContextPath()%>/app/warning/farmer/sale.jsp">生猪卖出</a>
+<a href="<%=request.getContextPath()%>/app/warning/farmer/dead.jsp">生猪死亡</a>
+<a href="<%=request.getContextPath()%>/app/warning/farmer/washout.jsp">生猪淘汰</a>
 <a href="<%=request.getContextPath()%>/app/warning/farmer/forage.jsp">饲料购进</a>
 <a href="<%=request.getContextPath()%>/app/warning/farmer/spend.jsp">费用支出</a>
 <a href="<%=request.getContextPath()%>/app/warning/farmer/upload.jsp">录入情况</a>

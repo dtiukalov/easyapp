@@ -40,6 +40,8 @@ public class UpLoadAction implements IAction {
 				request.getSession().removeAttribute(FarmerPig.SESSION_WASHOUT);
 				request.getSession().removeAttribute(FarmerForage.SESSION_FORAGE);
 				request.getSession().removeAttribute(FarmerSpend.SESSION_SPEND);
+				request.getSession().removeAttribute(FarmerPig.SESSION_CHECK);
+				request.getSession().removeAttribute(FarmerPig.SESSION_PRICE);
 			}
 		}
 		return new JspView("/app/warning/farmer/main.jsp");
@@ -95,8 +97,29 @@ public class UpLoadAction implements IAction {
 			addOrNo(allPigs, p1);
 			addOrNo(allPigs, p2);
 		}
+		Map checkPigs = (Map)request.getSession().getAttribute(FarmerPig.SESSION_CHECK);
+		if(checkPigs != null) {
+			FarmerPig p1 = (FarmerPig)checkPigs.get("出省境仔猪");
+			FarmerPig p2 = (FarmerPig)checkPigs.get("出省境育肥猪");
+			FarmerPig p3 = (FarmerPig)checkPigs.get("省内仔猪");
+			FarmerPig p4 = (FarmerPig)checkPigs.get("省内育肥猪");
+			FarmerPig p5 = (FarmerPig)checkPigs.get("屠宰育肥猪");
 			
-		
+			
+			addOrNo(allPigs, p1);
+			addOrNo(allPigs, p2);
+			addOrNo(allPigs, p3);
+			addOrNo(allPigs, p4);
+			addOrNo(allPigs, p5);
+		}	
+		Map pricePigs = (Map)request.getSession().getAttribute(FarmerPig.SESSION_PRICE);
+		if(pricePigs != null) {
+			FarmerPig p2 = (FarmerPig)pricePigs.get("育肥猪");
+			FarmerPig p3 = (FarmerPig)pricePigs.get("育肥猪");
+			
+			addOrNo(allPigs, p2);
+			addOrNo(allPigs, p3);
+		}
 		return allPigs;
 	}
 	

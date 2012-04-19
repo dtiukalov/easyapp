@@ -47,18 +47,6 @@ input {
 <td style="font-size:25px; font-weight:bold">操作</td>
 </tr>
 <tr bgcolor="#ffffff" height="50px">
-<td style="font-size:20px; color:red">无</td>
-<td style="font-size:20px; color:red">无</td>
-<td style="font-size:20px; color:red">无</td>
-<td style="font-size:20px;"><a href="<%=request.getContextPath() %>/app/animal/drug/false.jsp"></a></td>
-</tr>
-<tr bgcolor="#ffffff" height="50px">
-<td style="font-size:20px; color:red">无</td>
-<td style="font-size:20px; color:red">无</td>
-<td style="font-size:20px; color:red">无</td>
-<td style="font-size:20px;"><a href="<%=request.getContextPath() %>/app/animal/drug/false.jsp"></a></td>
-</tr>
-<tr bgcolor="#ffffff" height="50px">
 <td style="font-size:20px;">兽药字（2006）160355103</td>
 <td style="font-size:20px;">金花平喘散</td>
 <td style="font-size:20px;">新乡天桥药业有限公司</td>

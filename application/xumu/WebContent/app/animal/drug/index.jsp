@@ -17,10 +17,12 @@
 <body>
 <center>
 <form id="" name="" action="" method="post">
-	<div style="font-size:50px;margin-top:200px;">
+	<div style="font-size:50px;margin-top:200px;height: 250px;
+	width: 800px;margin-right: auto;
+	margin-left: auto;">
 		兽药真假查询<br><br>
-		批准文号：<input id="num" name="num" value="" type="text" style="font-size:20px;line-height: 50px;width:180px;height:35px;cursor: pointer;"/>
-		&nbsp;&nbsp;&nbsp;<input type="button" onclick="javascript:location.href='<%=request.getContextPath() %>/app/animal/drug/show.jsp'" value="查询" style="border-width:0px;font-size:20px;line-height: 30px;width:120px;height:45px;cursor: pointer;"/>
+		批准文号：<input name="textfield" type="text" value="" style="font-size:30px;line-height: 38px;width:250px;height:34px;cursor: pointer;"/>
+		&nbsp;&nbsp;&nbsp;<input type="submit" name="Submit" value="查询" onclick="javascript:location.href='<%=request.getContextPath() %>/app/animal/drug/show.jsp'" style="border-width:0px;font-size:26px;line-height: 48px;width:120px;height:40px"/>
 	</div>
 </form>
 </center>

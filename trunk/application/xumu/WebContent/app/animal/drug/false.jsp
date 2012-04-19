@@ -33,7 +33,7 @@
 <table cellpadding="0px" cellspacing="0px" bgcolor="#000000" width="800px" style="border:none">
 <tr bgcolor="#ffffff" height="70px">
 	<td style="font-size:25px;text-align:right;">批准文号:</td>
-	<td style="text-align:left;">&nbsp;&nbsp;<input type="text" id="num" name="num" style="width:200px;height:20px;cursor: pointer;"/></td>
+	<td style="text-align:left;">&nbsp;&nbsp;<input type="text" id="num" name="num" value="兽药字（2006）160355103" style="width:200px;height:20px;cursor: pointer;"/></td>
 </tr>
 <tr bgcolor="#ffffff" height="70px">
 	<td style="font-size:25px;text-align:right;">单价:</td>

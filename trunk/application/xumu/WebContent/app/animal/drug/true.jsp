@@ -51,35 +51,35 @@ input {
 <td style="font-size:20px;">兽药字（2006）160355103</td>
 <td style="font-size:20px;">金花平喘散</td>
 <td style="font-size:20px;">新乡天桥药业有限公司</td>
-<td style="font-size:20px;">161972110</td>
+<td style="font-size:20px;">201112140001</td>
 <td style="font-size:20px;"><a href="<%=request.getContextPath() %>/app/animal/drug/false.jsp">假药</a></td>
 </tr>
 <tr bgcolor="#ffffff" height="50px">
 <td style="font-size:20px;">兽药字（2006）160355103</td>
 <td style="font-size:20px;">金花平喘散</td>
 <td style="font-size:20px;">新乡天桥药业有限公司</td>
-<td style="font-size:20px;">161972110</td>
+<td style="font-size:20px;">201112140001</td>
 <td style="font-size:20px;"><a href="<%=request.getContextPath() %>/app/animal/drug/false.jsp">假药</a></td>
 </tr>
 <tr bgcolor="#ffffff" height="50px">
 <td style="font-size:20px;">兽药字（2006）160355103</td>
 <td style="font-size:20px;">金花平喘散</td>
 <td style="font-size:20px;">新乡天桥药业有限公司</td>
-<td style="font-size:20px;">161972110</td>
+<td style="font-size:20px;">200112140001</td>
 <td style="font-size:20px;"><a href="<%=request.getContextPath() %>/app/animal/drug/false.jsp">假药</a></td>
 </tr>
 <tr bgcolor="#ffffff" height="50px">
 <td style="font-size:20px;">兽药字（2006）160355103</td>
 <td style="font-size:20px;">金花平喘散</td>
 <td style="font-size:20px;">新乡天桥药业有限公司</td>
-<td style="font-size:20px;">161972110</td>
+<td style="font-size:20px;">201112140001</td>
 <td style="font-size:20px;"><a href="<%=request.getContextPath() %>/app/animal/drug/false.jsp">假药</a></td>
 </tr>
 <tr bgcolor="#ffffff" height="50px">
 <td style="font-size:20px;">兽药字（2006）160355103</td>
 <td style="font-size:20px;">金花平喘散</td>
 <td style="font-size:20px;">新乡天桥药业有限公司</td>
-<td style="font-size:20px;">161972110</td>
+<td style="font-size:20px;">20012140001</td>
 <td style="font-size:20px;"><a href="<%=request.getContextPath() %>/app/animal/drug/false.jsp">假药</a></td>
 </tr>
 </table>

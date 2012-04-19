@@ -50,13 +50,13 @@ input {
 <td style="font-size:20px; color:red">无</td>
 <td style="font-size:20px; color:red">无</td>
 <td style="font-size:20px; color:red">无</td>
-<td style="font-size:20px;"><a href="<%=request.getContextPath() %>/app/animal/drug/false.jsp">假药</a></td>
+<td style="font-size:20px;"><a href="<%=request.getContextPath() %>/app/animal/drug/false.jsp"></a></td>
 </tr>
 <tr bgcolor="#ffffff" height="50px">
 <td style="font-size:20px; color:red">无</td>
 <td style="font-size:20px; color:red">无</td>
 <td style="font-size:20px; color:red">无</td>
-<td style="font-size:20px;"><a href="<%=request.getContextPath() %>/app/animal/drug/false.jsp">假药</a></td>
+<td style="font-size:20px;"><a href="<%=request.getContextPath() %>/app/animal/drug/false.jsp"></a></td>
 </tr>
 <tr bgcolor="#ffffff" height="50px">
 <td style="font-size:20px;">兽药字（2006）160355103</td>
@@ -74,6 +74,9 @@ input {
 <table width="800px">
 <tr>
 <td align="left" width="50%">
+<input type="button" value="假药" onclick="javascript:location.href='<%=request.getContextPath() %>/app/animal/drug/false.jsp'"" src="" alt="假药" style="font-size:20px;line-height: 50px;width:150px;height:50px;cursor: pointer;" />
+</td>
+<td align="right" width="50%">
 <input type="button" value="返回" onclick="javascript:location.href='<%=request.getContextPath() %>/app/animal/drug/index.jsp'" src="" alt="返回" style="font-size:20px;line-height: 50px;width:150px;height:50px;cursor: pointer;" />
 </td>
 </tr>

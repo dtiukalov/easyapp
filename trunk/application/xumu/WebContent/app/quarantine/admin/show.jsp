@@ -129,9 +129,7 @@
 				</tr>
 				<tr>
 					<td colspan="3">
-						<div style="padding: 10px;margin-left:80px;">
-							<a href="#" onclick="deal()" class="easyui-linkbutton"
-								iconCls="icon-add">监管结果</a> <a href="javascript:history.back(-1)"
+						<div style="padding: 10px;margin-left:80px;"> <a href="javascript:history.back(-1)"
 								class="easyui-linkbutton" iconCls="icon-back">返回</a>
 						</div></td>
 						<td></td>

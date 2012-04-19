@@ -68,11 +68,12 @@
 				},{
 					field : 'opt',
 					title : '操作',
-					width : 70,
+					width : 100,
 					align : 'center',
 					rowspan : 2,	
 					formatter : function(value, rec) {
-						return '<span><a href="#" onclick="editVO(\'' + rec.id + '\');"><img src="<%=request.getContextPath()%>/app/themes/icons/query-form.png" width="16" height="16" border="0" /></a></span>';
+						return '<span><a href="#" onclick="editVO(\'' + rec.id + '\');">查看</a>'+
+						'&nbsp;&nbsp;<a href="<%=request.getContextPath()%>/app/quarantine/admin/deal.jsp">监管结果</a></span>';
 					}
 				} ] ],
 				pagination : true,

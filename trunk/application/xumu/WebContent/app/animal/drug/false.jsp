@@ -40,6 +40,10 @@
 	<td style="text-align:left;">&nbsp;&nbsp;<input type="text" id="num" name="num" style="width:200px;height:20px;cursor: pointer;"/></td>
 </tr>
 <tr bgcolor="#ffffff" height="70px">
+	<td style="font-size:25px;text-align:right;">数量:</td>
+	<td style="text-align:left;">&nbsp;&nbsp;<input type="text" id="num" name="num" style="width:200px;height:20px;cursor: pointer;"/></td>
+</tr>
+<tr bgcolor="#ffffff" height="70px">
 	<td style="font-size:25px;text-align:right;">总价:</td>
 	<td style="text-align:left;">&nbsp;&nbsp;<input type="text" id="num" name="num" style="width:200px;height:20px;cursor: pointer;"/></td>
 </tr>
@@ -50,7 +54,7 @@
 </tr>
 <tr bgcolor="#ffffff" height="70px">
 	<td style="font-size:25px;text-align:right;">处理意见:</td>
-	<td style="text-align:left;">&nbsp;&nbsp;<textarea id="num" name="num" style="height:150px;width:200px"></textarea></td>
+	<td style="text-align:left;">&nbsp;&nbsp;<textarea id="num" name="num" style="height:100px;width:250px"></textarea></td>
 </tr>
 </table><br><br>
 <table width="400px">

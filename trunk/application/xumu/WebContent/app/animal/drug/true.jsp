@@ -38,7 +38,7 @@ input {
 <form id="addForm" name="addForm"
 			action="<%=request.getContextPath()%>/app/warning/farmer/price.do"
 			method="post">
-<label style="font-size:35px;margin-left:-560px;">兽药基本信息：</label>
+<label style="font-size:35px;margin-left:-560px;">假药基本信息：</label>
 <table cellpadding="0px" cellspacing="1px" bgcolor="#000000" width="800px">
 <tr bgcolor="#ffffff" height="70px">
 <td style="font-size:25px;font-weight:bold"">批准文号</td>

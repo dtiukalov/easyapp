@@ -44,33 +44,33 @@
 				</tr>
 				<tr>
 					<td style="text-align:right">日龄:</td>
-					<td><input id="title" name="title" type="text" value="2"></input></td>
+					<td><input id="title" name="title" type="text" value="300天"></input></td>
 					<td><div id="titleTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right">病因:</td>
-					<td><input id="title" name="title" type="text" value="潮湿"></input></td>
+					<td><input id="title" name="title" type="text" value="感冒"></input></td>
 					<td><div id="titleTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right">诊疗人员:</td>
-					<td><input id="number" name="number" type="text" value="张三"></input></td>
+					<td><input id="number" name="number" type="text" value="王帅"></input></td>
 					<td><div id="numberTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right">用药名称:</td>
-					<td><input id="title" name="title" type="text" value="种猪消炎药"></input></td>
+					<td><input id="title" name="title" type="text" value="益毒灵"></input></td>
 					<td><div id="titleTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right">用药方法:</td>
-					<td><input id="number" name="number" type="text" value="针扎"></input></td>
+					<td><input id="number" name="number" type="text" value="肌肉注"></input></td>
 					<td><div id="numberTip"></div></td>
 				</tr>
 				
 				<tr>
 					<td style="text-align:right">诊疗结果:</td>
-					<td><input id="number" name="number" type="text" value="正常"></input></td>
+					<td><input id="number" name="number" type="text" value="痊愈"></input></td>
 					<td><div id="numberTip"></div></td>
 				</tr>
 				<tr>

@@ -43,7 +43,7 @@
 				}, {
 					field : 'home',
 					title : '生产厂家',
-					width : 100,
+					width : 150,
 					sortable : true
 				}, {
 					field : 'date',

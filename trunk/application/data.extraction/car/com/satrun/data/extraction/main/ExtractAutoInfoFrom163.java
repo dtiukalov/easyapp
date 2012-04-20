@@ -72,12 +72,12 @@ public class ExtractAutoInfoFrom163 {
 //				获取各品牌的全部车系[车系、链接、图片链接、厂商、厂商类型（进口厂商、合资厂商、自主厂商）、是否停产]
 				ArrayList<CarType> cartypeList = new ArrayList<CarType>();
 				for (Brand brand : brandList) {
-					if("莲花汽车".equals(brand.getBrand())) {  //测试时只取奥迪
+//					if("奥迪".equals(brand.getBrand())) {  //测试时只取奥迪
 						String htmlCode2 = ExtractUtils.extractHtmlByUrl(DOMAIN + brand.getUrl()).toString();
 						cartypeList = getCarTypeInfo(cartypeList, 
 								htmlCode2, brand);
-						break;
-					}
+//						break;
+//					}
 				}
 				
 //				进入三级页面

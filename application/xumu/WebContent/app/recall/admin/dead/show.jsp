@@ -53,7 +53,7 @@
 				}, {
 					field : 'note',
 					title : '备注',
-					width : 80,
+					width : 120,
 					sortable : true
 				}, {
 					field : 'opt',

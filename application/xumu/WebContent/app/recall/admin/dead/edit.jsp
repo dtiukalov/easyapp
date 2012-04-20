@@ -44,22 +44,22 @@
 				</tr>
 				<tr>
 					<td style="text-align:right">处理或死亡原因:</td>
-					<td><input id="title" name="title" type="text" value="感冒"></input></td>
+					<td><input id="title" name="title" type="text" value="肠炎脱水"></input></td>
 					<td><div id="titleTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right">处理方法:</td>
-					<td><input id="title" name="title" type="text" value="宰杀"></input></td>
+					<td><input id="title" name="title" type="text" value="深埋"></input></td>
 					<td><div id="titleTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right">处理单位(或责任人):</td>
-					<td><input id="number" name="number" type="text" value="张三"></input></td>
+					<td><input id="number" name="number" type="text" value="王宝龙"></input></td>
 					<td><div id="numberTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right">备注:</td>
-					<td><input id="title" name="title" type="text" value="无"></input></td>
+					<td><input id="title" name="title" type="text" value="未断奶没有标识"></input></td>
 					<td><div id="titleTip"></div></td>
 				</tr>
 				<tr>

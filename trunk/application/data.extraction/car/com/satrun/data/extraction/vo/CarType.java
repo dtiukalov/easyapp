@@ -2,22 +2,22 @@ package com.satrun.data.extraction.vo;
 
 
 public class CarType {
-	//车系
-	private String brandId;  //品牌ID
-	private String brand;  //品牌
-	private String brandLogo; //品牌LOGO
+	//杞︾郴
+	private String brandId;  //鍝佺墝ID
+	private String brand;  //鍝佺墝
+	private String brandLogo; //鍝佺墝LOGO
 	
-	private String carTypeId; //车系ID
-	private String carType; //车系
-	private String carTypeLogo; //车系LOGO
+	private String carTypeId; //杞︾郴ID
+	private String carType; //杞︾郴
+	private String carTypeLogo; //杞︾郴LOGO
 	
 	
-	private String company; //厂商
-	private String companyType; //厂商类型
+	private String company; //鍘傚晢
+	private String companyType; //鍘傚晢绫诲瀷
 	
-	private String isStop; //是否停产
+	private String isStop; //鏄惁鍋滀骇
 	
-	private String url; //车系链接
+	private String url; //杞︾郴閾炬帴
 	
 	public String getBrandId() {
 		return brandId;

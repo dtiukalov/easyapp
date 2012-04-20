@@ -1,7 +1,7 @@
 package com.satrun.data.extraction.vo;
 
 public class Brand {
-//	Æ·ÅÆ
+//	å“ç‰Œ
 	
 	private String brand;
 	private String url;

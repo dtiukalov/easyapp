@@ -40,17 +40,17 @@
 			<table class="table-form">
 				<tr>
 					<td style="text-align:right">开始使用时间:</td>
-					<td><input id="number" name="number" type="text" value="2012-04-15" class="easyui-datebox"></input></td>
+					<td><input id="number" name="number" type="text" value="2012-01" class="easyui-datebox"></input></td>
 					<td><div id="numberTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right">停止使用时间:</td>
-					<td><input id="title" name="title" type="text" value="2012-04-15" class="easyui-datebox"></input></td>
+					<td><input id="title" name="title" type="text" value="2012-04" class="easyui-datebox"></input></td>
 					<td><div id="titleTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right">投入产品名称:</td>
-					<td><input id="title" name="title" type="text" value="种猪饲料"></input></td>
+					<td><input id="title" name="title" type="text" value="仔猪预混料"></input></td>
 					<td><div id="titleTip"></div></td>
 				</tr>
 				<tr>
@@ -60,17 +60,17 @@
 				</tr>
 				<tr>
 					<td style="text-align:right">批号/加工日期:</td>
-					<td><input id="title" name="title" type="text" value="2012-04-13"></input></td>
+					<td><input id="title" name="title" type="text" value="20120413"></input></td>
 					<td><div id="titleTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right">用量:</td>
-					<td><input id="number" name="number" type="text" value="2"></input></td>
+					<td><input id="number" name="number" type="text" value="5%"></input></td>
 					<td><div id="numberTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right">备注:</td>
-					<td><input id="number" name="number" type="text" value="无"></input></td>
+					<td><input id="number" name="number" type="text" value="蛋白质粉"></input></td>
 					<td><div id="numberTip"></div></td>
 				</tr>
 				<tr>

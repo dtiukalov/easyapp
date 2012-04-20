@@ -3,6 +3,13 @@ package com.satrun.data.extraction.vo;
 public class SubCarType {
 
 //	车系下各排量的链接
+	private int id; //DB 
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	private String brandId;
 	private String brand;
 	private String carTypeId;

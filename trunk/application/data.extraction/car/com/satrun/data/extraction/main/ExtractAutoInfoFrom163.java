@@ -38,7 +38,7 @@ import com.satrun.data.extraction.vo.SubCarType;
 
 public class ExtractAutoInfoFrom163 {
 
-	private static String DOMAIN = "http://product.auto.163.com";
+	public static String DOMAIN = "http://product.auto.163.com";
 	private static String WEBADDRESS = "http://product.auto.163.com/brand/";
 	
 	private static String dbUrl = "jdbc:mysql://192.168.7.8:3306/autocar";

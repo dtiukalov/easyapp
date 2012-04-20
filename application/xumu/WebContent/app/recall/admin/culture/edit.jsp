@@ -40,7 +40,7 @@
 			<table class="table-form">
 				<tr>
 					<td style="text-align:right">畜禽养殖档案:</td>
-					<td><input id="number" name="number" type="text" value="畜禽养殖档案"></input></td>
+					<td><input id="number" name="number" type="text" value="档案1"></input></td>
 					<td><div id="numberTip"></div></td>
 				</tr>
 				<tr>
@@ -55,7 +55,7 @@
 				</tr>
 				<tr>
 					<td style="text-align:right">圈舍号:</td>
-					<td><input id="number" name="number" type="text" value="111111"></input></td>
+					<td><input id="number" name="number" type="text" value="1号舍"></input></td>
 					<td><div id="numberTip"></div></td>
 				</tr>
 				<tr>

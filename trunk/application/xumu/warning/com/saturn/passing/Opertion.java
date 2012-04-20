@@ -11,6 +11,8 @@ public class Opertion {
 		String card = getCard(data);
 		String createTime = DateUtils.getSystemTime();
 		Passing vo = new Passing(null, station, card, createTime);
+		Passing voCheck = Passing.getLog(card);
+		Passing.addCheck(voCheck,createTime);
 		Passing.add(vo);
 		//System.out.println(card);
 		return true;

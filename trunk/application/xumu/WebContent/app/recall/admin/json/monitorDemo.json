@@ -2,17 +2,17 @@
 "rows":[
   {"id":"1",
   "dateTime":"2012-04-15",
-  "name":"种猪运转",
-  "unit":"长春市兽药制药中心",
-  "result":"正常",
+  "name":"猪口蹄",
+  "unit":"动检所",
+  "result":"合格",
   "status":"无",
   "note":"无"
   },
   {"id":"2",
   "dateTime":"2012-04-15",
-  "name":"种猪运转",
-  "unit":"长春市兽药制药中心",
-  "result":"正常",
+  "name":"猪口蹄",
+  "unit":"动检所",
+  "result":"合格",
   "status":"无",
   "note":"无"
   }

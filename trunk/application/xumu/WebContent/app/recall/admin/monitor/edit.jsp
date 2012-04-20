@@ -44,17 +44,17 @@
 				</tr>
 				<tr>
 					<td style="text-align:right">监测项目:</td>
-					<td><input id="title" name="title" type="text" value="种猪运转"></input></td>
+					<td><input id="title" name="title" type="text" value="猪口蹄"></input></td>
 					<td><div id="titleTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right">监测单位:</td>
-					<td><input id="title" name="title" type="text" value="长春市兽药制药中心"></input></td>
+					<td><input id="title" name="title" type="text" value="动检所"></input></td>
 					<td><div id="titleTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right">监测结果:</td>
-					<td><input id="number" name="number" type="text" value="正常"></input></td>
+					<td><input id="number" name="number" type="text" value="合格"></input></td>
 					<td><div id="numberTip"></div></td>
 				</tr>
 				<tr>

@@ -45,32 +45,32 @@
 				</tr>
 				<tr>
 					<td style="text-align:right">疫苗名称:</td>
-					<td><input id="title" name="title" type="text" value="种猪疫苗"></input></td>
+					<td><input id="title" name="title" type="text" value="猪瘟牌"></input></td>
 					<td><div id="titleTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right">疫苗生产厂家:</td>
-					<td><input id="title" name="title" type="text" value="长春兽药制药厂"></input></td>
+					<td><input id="title" name="title" type="text" value="四川精药生产厂"></input></td>
 					<td><div id="titleTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right">批号(有效期):</td>
-					<td><input id="number" name="number" type="text" value="090909"></input></td>
+					<td><input id="number" name="number" type="text" value="0808072J"></input></td>
 					<td><div id="numberTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right">免疫方法:</td>
-					<td><input id="title" name="title" type="text" value="打针"></input></td>
+					<td><input id="title" name="title" type="text" value="肌肉注"></input></td>
 					<td><div id="titleTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right">免疫剂量:</td>
-					<td><input id="title" name="title" type="text" value="20"></input></td>
+					<td><input id="title" name="title" type="text" value="262"></input></td>
 					<td><div id="titleTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right">免疫人员:</td>
-					<td><input id="number" name="number" type="text" value="张三"></input></td>
+					<td><input id="number" name="number" type="text" value="张少辉"></input></td>
 					<td><div id="numberTip"></div></td>
 				</tr>
 				<tr>

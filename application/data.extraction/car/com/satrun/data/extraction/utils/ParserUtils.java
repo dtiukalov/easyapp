@@ -67,8 +67,8 @@ public class ParserUtils {
 	}
 
 	/**
-	 * @param  htmlCode htmlÒ³ÃæÔ´´úÂë
-	 * @param  tagNameFilter Ò³Ãæ±êÇ©
+	 * @param  htmlCode htmlé¡µé¢æºä»£ç 
+	 * @param  tagNameFilter é¡µé¢æ ‡ç­¾
 	 * @return  NodeList
 	 * @throws  
 	 */
@@ -80,21 +80,21 @@ public class ParserUtils {
 		} catch (ParserException e1) {
 			e1 = null;
 		}
-		// ËùÓĞµÄ½Úµã
+		// æ‰€æœ‰çš„èŠ‚ç‚¹
 		NodeList nodelist = visitor.getBody();
 		
-		// ½¨Á¢Ò»¸ö½ÚµãfilterÓÃÓÚ¹ıÂË½Úµã
+		// å»ºç«‹ä¸€ä¸ªèŠ‚ç‚¹filterç”¨äºè¿‡æ»¤èŠ‚ç‚¹
 		NodeFilter filter = new TagNameFilter(tagNameFilter);
-		// µÃµ½ËùÓĞ¹ıÂËºó£¬ÏëÒªµÄ½Úµã
+		// å¾—åˆ°æ‰€æœ‰è¿‡æ»¤åï¼Œæƒ³è¦çš„èŠ‚ç‚¹
 		nodelist = nodelist.extractAllNodesThatMatch(filter, true);
 		
 		return nodelist;
 	}
 	
 	/**
-	 * @param  htmlCode htmlÒ³ÃæÔ´´úÂë
-	 * @param  tagNameFilter Ò³Ãæ±êÇ©
-	 * @param  cssClass Ò³Ãæ±êÇ©µÄÑùÊ½
+	 * @param  htmlCode htmlé¡µé¢æºä»£ç 
+	 * @param  tagNameFilter é¡µé¢æ ‡ç­¾
+	 * @param  cssClass é¡µé¢æ ‡ç­¾çš„æ ·å¼
 	 * @return  ArrayList<TagNode>
 	 * @throws  
 	 */

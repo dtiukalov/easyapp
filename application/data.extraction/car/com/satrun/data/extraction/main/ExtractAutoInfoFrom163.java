@@ -32,7 +32,6 @@ import sun.security.jca.GetInstance.Instance;
 import com.satrun.data.extraction.utils.ExtractUtils;
 import com.satrun.data.extraction.utils.ImageUtils;
 import com.satrun.data.extraction.utils.ParserUtils;
-import com.satrun.data.extraction.utils.StringUtils;
 import com.satrun.data.extraction.vo.Brand;
 import com.satrun.data.extraction.vo.CarType;
 import com.satrun.data.extraction.vo.SubCarType;
@@ -57,23 +56,23 @@ public class ExtractAutoInfoFrom163 {
 			statement = conn.createStatement();
 			
 			
-			//»ñÈ¡Ò»¼¶Ò³ÃæÔ´´úÂë
+			//è·å–ä¸€çº§é¡µé¢æºä»£ç 
 			String htmlCode = ExtractUtils.extractHtmlByUrl(WEBADDRESS).toString();
 			
 			if (htmlCode != null) {
-//				»ñÈ¡ÍøÒ³±êÌâ
+//				è·å–ç½‘é¡µæ ‡é¢˜
 				String htmlTitle = ParserUtils.getHtmlTitle(htmlCode);
 				
-//				½øÈëÒ»¼¶Ò³Ãæ
-//				»ñÈ¡Æ·ÅÆ¡¢Á´½Ó¡¢Í¼Æ¬
+//				è¿›å…¥ä¸€çº§é¡µé¢
+//				è·å–å“ç‰Œã€é“¾æ¥ã€å›¾ç‰‡
 				ArrayList<Brand> brandList = getBrandInfo(htmlCode);
 				
 				
-//				½øÈë¶ş¼¶Ò³Ãæ
-//				»ñÈ¡¸÷Æ·ÅÆµÄÈ«²¿³µÏµ[³µÏµ¡¢Á´½Ó¡¢Í¼Æ¬Á´½Ó¡¢³§ÉÌ¡¢³§ÉÌÀàĞÍ£¨½ø¿Ú³§ÉÌ¡¢ºÏ×Ê³§ÉÌ¡¢×ÔÖ÷³§ÉÌ£©¡¢ÊÇ·ñÍ£²ú]
+//				è¿›å…¥äºŒçº§é¡µé¢
+//				è·å–å„å“ç‰Œçš„å…¨éƒ¨è½¦ç³»[è½¦ç³»ã€é“¾æ¥ã€å›¾ç‰‡é“¾æ¥ã€å‚å•†ã€å‚å•†ç±»å‹ï¼ˆè¿›å£å‚å•†ã€åˆèµ„å‚å•†ã€è‡ªä¸»å‚å•†ï¼‰ã€æ˜¯å¦åœäº§]
 				ArrayList<CarType> cartypeList = new ArrayList<CarType>();
 				for (Brand brand : brandList) {
-					if("´óÍ¨".equals(brand.getBrand())) {  //²âÊÔÊ±Ö»È¡°ÂµÏ
+					if("è²èŠ±æ±½è½¦".equals(brand.getBrand())) {  //æµ‹è¯•æ—¶åªå–å¥¥è¿ª
 						String htmlCode2 = ExtractUtils.extractHtmlByUrl(DOMAIN + brand.getUrl()).toString();
 						cartypeList = getCarTypeInfo(cartypeList, 
 								htmlCode2, brand);
@@ -81,8 +80,8 @@ public class ExtractAutoInfoFrom163 {
 					}
 				}
 				
-//				½øÈëÈı¼¶Ò³Ãæ
-//				»ñÈ¡¸÷³µÏµµÄÈ«²¿³µ¿î[°´ÅÅÁ¿»ñÈ¡Á´½Ó]
+//				è¿›å…¥ä¸‰çº§é¡µé¢
+//				è·å–å„è½¦ç³»çš„å…¨éƒ¨è½¦æ¬¾[æŒ‰æ’é‡è·å–é“¾æ¥]
 				
 				ArrayList<SubCarType> subCarTypeList = new ArrayList<SubCarType>();
 				for(CarType car : cartypeList) {
@@ -98,7 +97,7 @@ public class ExtractAutoInfoFrom163 {
 					statement.executeUpdate(sql);
 					
 					String carType = car.getCarType();
-//					if ("A4L".equals(carType)) {  //²âÊÔÊ±Ö»È¡A4
+//					if ("A4L".equals(carType)) {  //æµ‹è¯•æ—¶åªå–A4
 						String htmlCode3 = ExtractUtils.extractHtmlByUrl(DOMAIN + car.getUrl()).toString();
 						getSubCarType(subCarTypeList, htmlCode3, car);
 //					}
@@ -146,8 +145,8 @@ public class ExtractAutoInfoFrom163 {
 	
 	public static ArrayList<SubCarType> getSubCarType(ArrayList<SubCarType> subCarTypeList,
 			String htmlCode, CarType carTypeInfo) {
-System.out.println("³µÏµ = " + carTypeInfo.getCarType());
-//		µ±Ç°ÏÔÊ¾µÄ£¬Ä¬ÈÏÎªÔÚ²ú³µ¿î(Èç¹ûÕû¸ö³µÏµ¶¼Í£²úÁË£¬ÔòÔÚ´ËDIVÖĞ£¬²»´æÔÚDIV£ºpanel)
+System.out.println("è½¦ç³» = " + carTypeInfo.getCarType());
+//		å½“å‰æ˜¾ç¤ºçš„ï¼Œé»˜è®¤ä¸ºåœ¨äº§è½¦æ¬¾(å¦‚æœæ•´ä¸ªè½¦ç³»éƒ½åœäº§äº†ï¼Œåˆ™åœ¨æ­¤DIVä¸­ï¼Œä¸å­˜åœ¨DIVï¼španel)
 		ArrayList<TagNode> tagNodes1 = ParserUtils.
 			getNodeListByTagAndClass(htmlCode, "div", "panel current");
 		String divHtml1 = ParserUtils.addBodyTag(tagNodes1.get(0).toHtml());
@@ -179,7 +178,7 @@ System.out.println("³µÏµ = " + carTypeInfo.getCarType());
 		}
 		
 		
-//		Èç¹û´æÔÚÕâ¸ö£¬Ôò±íÊ¾¼ÈÓĞÔÚ²ú³µ¿îÒ²ÓĞÍ£ÊÛ³µ¿î
+//		å¦‚æœå­˜åœ¨è¿™ä¸ªï¼Œåˆ™è¡¨ç¤ºæ—¢æœ‰åœ¨äº§è½¦æ¬¾ä¹Ÿæœ‰åœå”®è½¦æ¬¾
 		ArrayList<TagNode> tagNodes2 = ParserUtils.
 			getNodeListByTagAndClass(htmlCode, "div", "panel");
 		if (tagNodes2.size() > 0) {
@@ -225,13 +224,13 @@ System.out.println("³µÏµ = " + carTypeInfo.getCarType());
 		NodeList nodelist = ParserUtils.getNodeListByTagFilter(htmlCode, "div");
 		
 		if (nodelist.size() > 0) {
-//			»ñÈ¡Í¬Ò»Æ·ÅÆµÄ²»Í¬³§ÉÌ
-			int count = 0; //ÓÃÓÚÑ­»·group
+//			è·å–åŒä¸€å“ç‰Œçš„ä¸åŒå‚å•†
+			int count = 0; //ç”¨äºå¾ªç¯group
 			
 			for (int i = 0; i < nodelist.size(); i++) {
 				if (nodelist.elementAt(i) instanceof Div) {
 					Div div = (Div)nodelist.elementAt(i);
-//					³µÏµĞÅÏ¢ÔÚÑùÊ½±íÎªgroup group1¡¢group group2...µÄDIVÖĞ
+//					è½¦ç³»ä¿¡æ¯åœ¨æ ·å¼è¡¨ä¸ºgroup group1ã€group group2...çš„DIVä¸­
 					if (div.getAttribute("class") != null && 
 							div.getAttribute("class").startsWith("group group")) {
 						
@@ -245,29 +244,29 @@ System.out.println("³µÏµ = " + carTypeInfo.getCarType());
 						TagNode tagNode = tagNodes.get(0);
 						String tagNodeHtml = ParserUtils.addBodyTag(tagNode.toHtml());
 						HeadingTag H5 = (HeadingTag)ParserUtils.getNodeListByTagFilter(tagNodeHtml, "h5").toNodeArray()[0];
-						String company = H5.getStringText(); //³§ÉÌ
+						String company = H5.getStringText(); //å‚å•†
 						ParagraphTag p = (ParagraphTag)ParserUtils.getNodeListByTagFilter(tagNodeHtml, "p").toNodeArray()[0];
-						String companyType = p.getStringText(); //³§ÉÌÀàĞÍ
+						String companyType = p.getStringText(); //å‚å•†ç±»å‹
 						
-//						Ñ­»·»ñÈ¡Ã¿¸ö³§ÉÌµÄ³µÏµ
+//						å¾ªç¯è·å–æ¯ä¸ªå‚å•†çš„è½¦ç³»
 						ArrayList<TagNode> groupNode = ParserUtils.getNodeListByTagAndClass(htmlCode, "div", "group group"+count);
 						String groupNodeTtml = ParserUtils.addBodyTag(groupNode.get(0).toHtml());
 						
 						
-//						Í£²ú³µÏµ--class="autocard disabled"
+//						åœäº§è½¦ç³»--class="autocard disabled"
 						ArrayList<TagNode> stopCarTypeDiv = ParserUtils.getNodeListByTagAndClass(groupNodeTtml, "div", "autocard disabled");
 						for (TagNode node : stopCarTypeDiv) {
 							String nodehtml = ParserUtils.addBodyTag(node.toHtml());
 							CarType car = new CarType();
 							
-							car.setBrandId(brand_id); //Æ·ÅÆID
-							car.setBrand(brand.getBrand()); //Æ·ÅÆ
-							car.setBrandLogo(brand.getImageUrl()); //Æ·ÅÆLOGO
+							car.setBrandId(brand_id); //å“ç‰ŒID
+							car.setBrand(brand.getBrand()); //å“ç‰Œ
+							car.setBrandLogo(brand.getImageUrl()); //å“ç‰ŒLOGO
 							
-							car.setCompany(company);//³§ÉÌ
-							car.setCompanyType(companyType);//³§ÉÌÀàĞÍ
+							car.setCompany(company);//å‚å•†
+							car.setCompanyType(companyType);//å‚å•†ç±»å‹
 							
-							car.setIsStop("Í£²ú"); //ÊÇ·ñÍ£²ú
+							car.setIsStop("åœäº§"); //æ˜¯å¦åœäº§
 
 							ArrayList<TagNode> firstDiv = ParserUtils.getNodeListByTagAndClass(nodehtml, "div", "cardhd");
 							TagNode firstTag = firstDiv.get(0);
@@ -275,9 +274,9 @@ System.out.println("³µÏµ = " + carTypeInfo.getCarType());
 									ParserUtils.addBodyTag(firstTag.toHtml()), "a");
 							LinkTag href = (LinkTag)carTypeHref.elementAt(0);
 							
-							car.setCarTypeId(Long.toString(System.currentTimeMillis()));  //³µÏµID
-							car.setCarType(href.getLinkText()); //³µÏµ
-							car.setUrl(href.getLink()); //³µÏµÁ´½Ó
+							car.setCarTypeId(Long.toString(System.currentTimeMillis()));  //è½¦ç³»ID
+							car.setCarType(href.getLinkText()); //è½¦ç³»
+							car.setUrl(href.getLink()); //è½¦ç³»é“¾æ¥
 							
 							NodeList imgNode = ParserUtils.getNodeListByTagFilter(nodehtml, "img");
 							ImageTag imgTag = (ImageTag)imgNode.elementAt(0);
@@ -287,25 +286,25 @@ System.out.println("³µÏµ = " + carTypeInfo.getCarType());
 									imgTag.getImageURL(), 
 									localPath);
 							
-							car.setCarTypeLogo("/car/logo/" + brand.getBrand() + "/" + href.getLinkText() + ".png"); //Í¼Æ¬Á´½Ó
+							car.setCarTypeLogo("/car/logo/" + brand.getBrand() + "/" + href.getLinkText() + ".png"); //å›¾ç‰‡é“¾æ¥
 							
 							carTypeList.add(car);
 						}
 		
-//						ÔÚ²ú³µÏµ--class="autocard "
+//						åœ¨äº§è½¦ç³»--class="autocard "
 						ArrayList<TagNode> onlineCarTypeDiv = ParserUtils.getNodeListByTagAndClass(groupNodeTtml, "div", "autocard ");
 						for (TagNode node : onlineCarTypeDiv) {
 							String nodehtml = ParserUtils.addBodyTag(node.toHtml());
 							CarType car = new CarType();
 							
-							car.setBrandId(brand_id); //Æ·ÅÆID
-							car.setBrand(brand.getBrand()); //Æ·ÅÆ
-							car.setBrandLogo(brand.getImageUrl()); //Æ·ÅÆLOGO
+							car.setBrandId(brand_id); //å“ç‰ŒID
+							car.setBrand(brand.getBrand()); //å“ç‰Œ
+							car.setBrandLogo(brand.getImageUrl()); //å“ç‰ŒLOGO
 							
-							car.setCompany(company);//³§ÉÌ
-							car.setCompanyType(companyType);//³§ÉÌÀàĞÍ
+							car.setCompany(company);//å‚å•†
+							car.setCompanyType(companyType);//å‚å•†ç±»å‹
 							
-							car.setIsStop("ÔÚ²ú"); //ÊÇ·ñÍ£²ú
+							car.setIsStop("åœ¨äº§"); //æ˜¯å¦åœäº§
 
 							ArrayList<TagNode> firstDiv = ParserUtils.getNodeListByTagAndClass(nodehtml, "div", "cardhd");
 							TagNode firstTag = firstDiv.get(0);
@@ -313,9 +312,9 @@ System.out.println("³µÏµ = " + carTypeInfo.getCarType());
 									ParserUtils.addBodyTag(firstTag.toHtml()), "a");
 							LinkTag href = (LinkTag)carTypeHref.elementAt(0);
 							
-							car.setCarTypeId(Long.toString(System.currentTimeMillis()));  //³µÏµID
-							car.setCarType(href.getLinkText()); //³µÏµ
-							car.setUrl(href.getLink()); //³µÏµÁ´½Ó
+							car.setCarTypeId(Long.toString(System.currentTimeMillis()));  //è½¦ç³»ID
+							car.setCarType(href.getLinkText()); //è½¦ç³»
+							car.setUrl(href.getLink()); //è½¦ç³»é“¾æ¥
 
 							NodeList imgNode = ParserUtils.getNodeListByTagFilter(nodehtml, "img");
 							ImageTag imgTag = (ImageTag)imgNode.elementAt(0);
@@ -325,7 +324,7 @@ System.out.println("³µÏµ = " + carTypeInfo.getCarType());
 									imgTag.getImageURL(), 
 									localPath);
 							
-							car.setCarTypeLogo("/car/logo/" + brand.getBrand() + "/" + href.getLinkText() + ".png"); //Í¼Æ¬Á´½Ó
+							car.setCarTypeLogo("/car/logo/" + brand.getBrand() + "/" + href.getLinkText() + ".png"); //å›¾ç‰‡é“¾æ¥
 							
 							carTypeList.add(car);
 						}
@@ -346,8 +345,8 @@ System.out.println("³µÏµ = " + carTypeInfo.getCarType());
 				LinkTag link = (LinkTag)nodelist.elementAt(i);
 				
 				if (link.getAttribute("title") != null && 
-						link.getAttribute("title").startsWith("½øÈë") &&
-						link.getAttribute("title").endsWith("ÆµµÀ")) {
+						link.getAttribute("title").startsWith("è¿›å…¥") &&
+						link.getAttribute("title").endsWith("é¢‘é“")) {
 					
 					String title = link.getAttribute("title");
 					String url = link.getLink();

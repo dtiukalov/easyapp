@@ -2,7 +2,7 @@ package com.satrun.data.extraction.vo;
 
 public class SubCarType {
 
-//	³µÏµÏÂ¸÷ÅÅÁ¿µÄÁ´½Ó
+//	è½¦ç³»ä¸‹å„æ’é‡çš„é“¾æ¥
 	private String brandId;
 	private String brand;
 	private String carTypeId;

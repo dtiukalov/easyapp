@@ -44,12 +44,12 @@
 				</tr>
 				<tr>
 					<td style="text-align:right">调出地(场):</td>
-					<td><input id="title" name="title" type="text" value="种猪中心"></input></td>
+					<td><input id="title" name="title" type="text" value="长春市种畜中心"></input></td>
 					<td><div id="titleTip"></div></td>
 				</tr>
 				<tr>
 					<td style="text-align:right">调入地(场):</td>
-					<td><input id="title" name="title" type="text" value="种猪中转站"></input></td>
+					<td><input id="title" name="title" type="text" value="浙江省种畜中心"></input></td>
 					<td><div id="titleTip"></div></td>
 				</tr>
 				<tr>

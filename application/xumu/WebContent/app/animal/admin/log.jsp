@@ -16,7 +16,7 @@
 				striped : true, //数据条纹显示
 				collapsible : true,
 				singleSelect : false,//只能选一行
-				url : '<%=request.getContextPath()%>/app/animal/admin/demo.json',
+				url : '<%=request.getContextPath()%>/app/warning/warm/listLogAll.action',
 				idField : 'id',//唯一标识列
 				sortName : 'id',
 				sortOrder : 'desc',
@@ -28,12 +28,12 @@
 				}] */ 
 				                  ],
 				columns : [ [ {
-					field : 'time',
+					field : 'dateTime',
 					title : '时间',
-					width : 100,
+					width : 200,
 					sortable : true
 				}, {
-					field : 'user',
+					field : 'people',
 					title : '监管人员',
 					width : 100,
 					sortable : true
@@ -45,7 +45,7 @@
 				}, {
 					field : 'name',
 					title : '兽药店名称',
-					width : 100,
+					width : 200,
 					sortable : true
 				}, {
 					field : 'address',
@@ -53,7 +53,7 @@
 					width : 200,
 					sortable : true
 				}, {
-					field : 'people',
+					field : 'peop',
 					title : '联系人',
 					width : 80,
 					sortable : true

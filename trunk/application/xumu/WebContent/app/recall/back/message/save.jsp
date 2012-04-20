@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>新增</title>
+<title>仓储追溯信息</title>
 <%@ include file="/app/includes/header.jsp"%>
 <style type="text/css">
 * {

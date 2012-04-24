@@ -34,15 +34,26 @@
 			value:'',
 
 			idField:'code',
-			textField:'name',
+			textField:'createTime',
+			sortOrder : 'desc',
+			fitColumns: true,   
+			striped: true,   
+			editable:true,   
+			pagination : true,//是否分页   
+			rownumbers:true,//序号   
+			collapsible:false,//是否可折叠的   
+			fit: true,//自动大小   
+			pageSize: 20,//每页显示的记录条数，默认为10   
+			pageList: [20],//可以设置每页记录条数的列表   
+			method:'post', 
 			url:'<%=request.getContextPath()%>/app/passing/pass/listPass.action',
 			frozenColumns:[[
 	                {field:'ck',checkbox:true}
 				]],
 				columns:[[
-					{field:'station',title:'站点编号',width:120},
-					{field:'card',title:'耳标信息码',width:120},
-					{field:'createTime',title:'时间',width:220,rowspan:2,sortable:true}
+					{field:'station',title:'站点编号',width:60},
+					{field:'card',title:'耳标信息码',width:160},
+					{field:'createTime',title:'时间',width:150,sortable:true}
 				]],
 				pagination : true,
 				rownumbers : true

@@ -49,15 +49,13 @@ input {
 		 
 		<%--<td align="left" width="25%">
 		<input type="button" value="药品查询" onclick="javascript:location.href='<%=request.getContextPath()%>/app/medication/search/search.jsp'" />
-		</td> --%>
+		</td> 
 		<td align="left" width="25%">
 		<input type="button" value="生猪检疫" onclick="javascript:location.href='<%=request.getContextPath()%>/app/warning/farmer/check.jsp'" />
-		</td>
+		</td>--%>
 		<td align="left" width="25%">
-		<input type="button" value="生猪价格" onclick="javascript:location.href='<%=request.getContextPath()%>/app/warning/farmer/price.jsp'" />
+		<input type="button" value="市场价格" onclick="javascript:location.href='<%=request.getContextPath()%>/app/warning/farmer/price.jsp'" />
 		</td>
-	</tr>
-	<tr>
 		<td align="left" width="25%">
 		<input type="button" value="录入情况" onclick="javascript:location.href='<%=request.getContextPath()%>/app/warning/farmer/upload.jsp'" />
 		</td>

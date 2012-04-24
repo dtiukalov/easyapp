@@ -38,7 +38,7 @@ input {
 <form id="addForm" name="addForm"
 			action="<%=request.getContextPath()%>/app/warning/farmer/price.do"
 			method="post">
-<label style="font-size:35px;margin-left:-560px;">假药基本信息：</label>
+<label style="font-size:35px;margin-left:-520px;">不合格批次信息：</label>
 <table cellpadding="0px" cellspacing="1px" bgcolor="#000000" width="800px">
 <tr bgcolor="#ffffff" height="70px">
 <td style="font-size:25px;font-weight:bold"">批准文号</td>
@@ -51,36 +51,36 @@ input {
 <td style="font-size:20px;">兽药字（2006）160355103</td>
 <td style="font-size:20px;">金花平喘散</td>
 <td style="font-size:20px;">新乡天桥药业有限公司</td>
-<td style="font-size:20px;">201112140001</td>
-<td style="font-size:20px;"><a href="<%=request.getContextPath() %>/app/animal/drug/false.jsp">假药</a></td>
+<td style="font-size:20px;">2003221403301</td>
+<td style="font-size:20px;"><a href="<%=request.getContextPath() %>/app/animal/drug/false.jsp">不合格</a></td>
 </tr>
 <tr bgcolor="#ffffff" height="50px">
 <td style="font-size:20px;">兽药字（2006）160355103</td>
 <td style="font-size:20px;">金花平喘散</td>
 <td style="font-size:20px;">新乡天桥药业有限公司</td>
-<td style="font-size:20px;">201112140001</td>
-<td style="font-size:20px;"><a href="<%=request.getContextPath() %>/app/animal/drug/false.jsp">假药</a></td>
+<td style="font-size:20px;">2009111452601</td>
+<td style="font-size:20px;"><a href="<%=request.getContextPath() %>/app/animal/drug/false.jsp">不合格</a></td>
 </tr>
 <tr bgcolor="#ffffff" height="50px">
 <td style="font-size:20px;">兽药字（2006）160355103</td>
 <td style="font-size:20px;">金花平喘散</td>
 <td style="font-size:20px;">新乡天桥药业有限公司</td>
-<td style="font-size:20px;">200112140001</td>
-<td style="font-size:20px;"><a href="<%=request.getContextPath() %>/app/animal/drug/false.jsp">假药</a></td>
+<td style="font-size:20px;">2001012300321</td>
+<td style="font-size:20px;"><a href="<%=request.getContextPath() %>/app/animal/drug/false.jsp">不合格</a></td>
 </tr>
 <tr bgcolor="#ffffff" height="50px">
 <td style="font-size:20px;">兽药字（2006）160355103</td>
 <td style="font-size:20px;">金花平喘散</td>
 <td style="font-size:20px;">新乡天桥药业有限公司</td>
-<td style="font-size:20px;">201112140001</td>
-<td style="font-size:20px;"><a href="<%=request.getContextPath() %>/app/animal/drug/false.jsp">假药</a></td>
+<td style="font-size:20px;">2008091123431</td>
+<td style="font-size:20px;"><a href="<%=request.getContextPath() %>/app/animal/drug/false.jsp">不合格</a></td>
 </tr>
 <tr bgcolor="#ffffff" height="50px">
 <td style="font-size:20px;">兽药字（2006）160355103</td>
 <td style="font-size:20px;">金花平喘散</td>
 <td style="font-size:20px;">新乡天桥药业有限公司</td>
-<td style="font-size:20px;">20012140001</td>
-<td style="font-size:20px;"><a href="<%=request.getContextPath() %>/app/animal/drug/false.jsp">假药</a></td>
+<td style="font-size:20px;">2010092212211</td>
+<td style="font-size:20px;"><a href="<%=request.getContextPath() %>/app/animal/drug/false.jsp">不合格</a></td>
 </tr>
 </table>
 <table width="800px">

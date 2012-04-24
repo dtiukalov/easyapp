@@ -38,26 +38,12 @@ input {
 <form id="addForm" name="addForm"
 			action="<%=request.getContextPath()%>/app/warning/farmer/price.do"
 			method="post">
-<label style="font-size:35px;margin-left:-560px;">兽药基本信息：</label>
-<table cellpadding="0px" cellspacing="1px" bgcolor="#000000" width="800px">
-<tr bgcolor="#ffffff" height="70px">
-<td style="font-size:25px; font-weight:bold">批准文号</td>
-<td style="font-size:25px; font-weight:bold">兽药名称</td>
-<td style="font-size:25px; font-weight:bold">生产厂家</td>
-<td style="font-size:25px; font-weight:bold">操作</td>
-</tr>
-<tr bgcolor="#ffffff" height="50px">
-<td style="font-size:20px;">兽药字（2006）160355103</td>
-<td style="font-size:20px;">金花平喘散</td>
-<td style="font-size:20px;">新乡天桥药业有限公司</td>
-<td style="font-size:20px;"><a href="<%=request.getContextPath() %>/app/animal/drug/true.jsp">真药？</a></td>
-</tr>
-</table>
-<table width="800px">
+<label style="font-size:30px;color:red">数据库中无该产品批准文号......</label>
+<table width="800px" style="margin-top:80px;">
 <tr>
-<%-- <td align="left" width="50%">
-<input type="button" value="假药" onclick="javascript:location.href='<%=request.getContextPath() %>/app/animal/drug/none.jsp'"" src="" alt="假药" style="font-size:20px;line-height: 50px;width:150px;height:50px;cursor: pointer;" />
-</td> --%>
+<td align="left" width="50%">
+<input type="button" value="假药" onclick="javascript:location.href='<%=request.getContextPath() %>/app/animal/drug/false.jsp'" src="" alt="返回" style="font-size:20px;line-height: 50px;width:150px;height:50px;cursor: pointer;" />
+</td>
 <td align="right" width="50%">
 <input type="button" value="返回" onclick="javascript:location.href='<%=request.getContextPath() %>/app/animal/drug/index.jsp'" src="" alt="返回" style="font-size:20px;line-height: 50px;width:150px;height:50px;cursor: pointer;" />
 </td>

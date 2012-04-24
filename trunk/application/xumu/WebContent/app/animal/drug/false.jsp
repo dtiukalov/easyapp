@@ -33,19 +33,19 @@
 <table cellpadding="0px" cellspacing="0px" bgcolor="#000000" width="800px" style="border:none">
 <tr bgcolor="#ffffff" height="70px">
 	<td style="font-size:25px;text-align:right;">批准文号:</td>
-	<td style="text-align:left;">&nbsp;&nbsp;<input type="text" id="num" name="num" value="兽药字（2006）160355103" style="width:200px;height:20px;cursor: pointer;"/></td>
+	<td style="text-align:left;">&nbsp;&nbsp;<input type="text" id="num" name="num" value="兽药字（2006）160355103" style="font-size:20px;width:200px;height:30px;cursor: pointer;"/></td>
 </tr>
 <tr bgcolor="#ffffff" height="70px">
 	<td style="font-size:25px;text-align:right;">单价:</td>
-	<td style="text-align:left;">&nbsp;&nbsp;<input type="text" id="num" name="num" style="width:200px;height:20px;cursor: pointer;"/></td>
+	<td style="text-align:left;">&nbsp;&nbsp;<input type="text" id="num" name="num" style="width:200px;height:30px;cursor: pointer;"/></td>
 </tr>
 <tr bgcolor="#ffffff" height="70px">
 	<td style="font-size:25px;text-align:right;">数量:</td>
-	<td style="text-align:left;">&nbsp;&nbsp;<input type="text" id="num" name="num" style="width:200px;height:20px;cursor: pointer;"/></td>
+	<td style="text-align:left;">&nbsp;&nbsp;<input type="text" id="num" name="num" style="width:200px;height:30px;cursor: pointer;"/></td>
 </tr>
 <tr bgcolor="#ffffff" height="70px">
 	<td style="font-size:25px;text-align:right;">总价:</td>
-	<td style="text-align:left;">&nbsp;&nbsp;<input type="text" id="num" name="num" style="width:200px;height:20px;cursor: pointer;"/></td>
+	<td style="text-align:left;">&nbsp;&nbsp;<input type="text" id="num" name="num" style="width:200px;height:30px;cursor: pointer;"/></td>
 </tr>
 <tr bgcolor="#ffffff" height="70px">
 	<td style="font-size:25px;text-align:right;">立案:</td>
@@ -57,7 +57,7 @@
 	<td style="text-align:left;">&nbsp;&nbsp;<textarea id="num" name="num" style="height:100px;width:250px"></textarea></td>
 </tr>
 </table><br><br>
-<table width="400px">
+<table width="400px" style="margin-left:-200px;">
 <tr>
 <td align="left" width="50%">
 <input type="button" value="保存" onclick="add()" src="" alt="保存" style="direction:rtl;border-width:0px;font-size:20px;line-height: 50px;width:150px;height:50px;cursor: pointer;" />

@@ -18,7 +18,7 @@
 }
 input {
 	width:180px;
-	height:80px;
+	height:60px;
 	font-size: 40px;
 	line-height: 80px;
 	/* direction:rtl; */
@@ -60,7 +60,7 @@ input {
 			method="post">
 <table cellpadding="0px" cellspacing="1px" bgcolor="#000000" width="800px" style="font-weight:bold">
 <tr bgcolor="#ffffff"><td style="font-size:35px;line-height:80px;" colspan=4>生猪检疫</td></tr>
-<tr bgcolor="#ffffff" height="100px">
+<tr bgcolor="#ffffff" height="80px">
 <td colspan="2" style="font-size:25px;">类别</td>
 <td colspan="2" style="font-size:25px;">数量</td></tr>
 <tr bgcolor="#ffffff" height="80px">

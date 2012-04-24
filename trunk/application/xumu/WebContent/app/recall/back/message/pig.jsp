@@ -47,7 +47,7 @@ input {
 <tr bgcolor="#ffffff" height="50px">
 <td style="font-size:25px;" width="200px;">物流单据号</td>
 <td width="150px;">2012011210001</td><td width="200px;" style="font-size:25px;">养殖场</td>
-<td width="150px;">上海湾</td>
+<td width="150px;">华正</td>
 </tr>
 <tr bgcolor="#ffffff" height="50px">
 <td style="font-size:25px;" width="200px;">送货人</td>
@@ -61,7 +61,7 @@ input {
 </tr>
 <tr bgcolor="#ffffff" height="50px">
 <td style="font-size:25px;" width="200px;">运送屠宰场</td>
-<td width="220px;">吉林省绿邦肉业科技有限公司</td><td width="200px;" style="font-size:25px;">接收人</td>
+<td width="220px;">吉林省华正肉业科技有限公司</td><td width="200px;" style="font-size:25px;">接收人</td>
 <td width="150px;">朱莱</td>
 </tr>
 <tr bgcolor="#ffffff" height="50px">
@@ -78,7 +78,7 @@ input {
 <table width="800px">
 <tr>
 <td align="right" width="50%">
-<input type="button" value="返回" onclick="javascript:location.href='<%=request.getContextPath() %>/app/recall/back/index.jsp'" src="" alt="返回" style="font-size:20px;line-height: 50px;width:150px;height:50px;cursor: pointer;" />
+<input type="button" value="返回" onclick="javascript:location.href='<%=request.getContextPath() %>/app/recall/back/message/show.jsp'" src="" alt="返回" style="font-size:20px;line-height: 50px;width:150px;height:50px;cursor: pointer;" />
 </td>
 
 </tr>

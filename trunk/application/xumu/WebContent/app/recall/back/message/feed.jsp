@@ -61,8 +61,8 @@ input {
 </tr>
 <tr bgcolor="#ffffff" height="50px">
 <td style="font-size:25px;" width="200px;">养殖场</td>
-<td width="150px;">格润养殖场</td><td width="200px;" style="font-size:25px;">屠宰地点</td>
-<td width="150px;">格润屠宰场</td>
+<td width="150px;">华正养殖场</td><td width="200px;" style="font-size:25px;">屠宰地点</td>
+<td width="150px;">华正屠宰场</td>
 </tr>
 <tr bgcolor="#ffffff" height="50px">
 <td style="font-size:25px;" width="200px;">品种</td>
@@ -83,7 +83,7 @@ input {
 <table width="800px">
 <tr>
 <td align="right" width="50%">
-<input type="button" value="返回" onclick="javascript:location.href='<%=request.getContextPath() %>/app/recall/back/index.jsp'" src="" alt="返回" style="font-size:20px;line-height: 50px;width:150px;height:50px;cursor: pointer;" />
+<input type="button" value="返回" onclick="javascript:location.href='<%=request.getContextPath() %>/app/recall/back/message/show.jsp'" src="" alt="返回" style="font-size:20px;line-height: 50px;width:150px;height:50px;cursor: pointer;" />
 </td>
 
 </tr>

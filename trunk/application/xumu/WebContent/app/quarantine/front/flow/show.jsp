@@ -18,9 +18,9 @@
 }
 input {
 	width:100px;
-	height:80px;
+	height:60px;
 	font-size: 20px;
-	line-height: 80px;
+	line-height: 60px;
 	/* direction:rtl; */
 	border-width:0px;
 	/* cursor: pointer; */
@@ -40,35 +40,35 @@ input {
 			action="<%=request.getContextPath()%>/app/warning/farmer/check.do"
 			method="post">
 <table cellpadding="0px" cellspacing="1px" bgcolor="#000000" width="800px" style="font-weight:bold">
-<tr bgcolor="#ffffff"><td style="font-size:35px;line-height:50px;" colspan=6>动物检疫合格证明(动物A)<br><label style="font-size:25px;color:red;float:right;">No 2200018514</label></td></tr>
-<tr bgcolor="#ffffff" height="100px">
+<tr bgcolor="#ffffff"><td style="font-size:35px;line-height:45px;" colspan=6>动物检疫合格证明(动物A)<br><label style="font-size:25px;color:red;float:right;">No 2200018514</label></td></tr>
+<tr bgcolor="#ffffff" height="60px">
 <td style="font-size:25px;">货主</td>
 <td style="width:50px;"><input id="num1" name="num1" type="text" value="尚万春"/></td>
 <td style="font-size:25px;width:250px;">联系电话</td>
 <td style="font-size:25px;" colspan=3><input id="num1" name="num1" type="text" style="width:150px" value="13630991888"/></td>
 </tr>
-<tr bgcolor="#ffffff" height="100px">
+<tr bgcolor="#ffffff" height="60px">
 <td style="font-size:25px;width:200px;">动物种类</td>
 <td><input id="num1" name="num1" type="text"  value="猪"/></td>
 <td style="font-size:25px;">数量及单位</td>
 <td style="font-size:25px;" colspan=3><input id="num1" name="num1" type="text" value="一百头"/></td>
 </tr>
-<tr bgcolor="#ffffff" height="80px">
+<tr bgcolor="#ffffff" height="60px">
 <td style="font-size:25px;">启动地点</td>
 <td width="150px;" style="font-size:25px;" colspan=5><input id="num2" name="num2" type="text" style="width:200px;" value="吉林省 四平市 梨树县"/> </td>
 </tr>
-<tr bgcolor="#ffffff" height="80px">
+<tr bgcolor="#ffffff" height="60px">
 <td style="font-size:25px;">到达地点</td>
 <td width="150px;" style="font-size:25px;" colspan=5><input id="num2" name="num2" type="text" style="width:200px;" value="浙江省 台市 嫩江县"/></td>
 </tr>
-<tr bgcolor="#ffffff" height="80px">
+<tr bgcolor="#ffffff" height="60px">
 <td style="font-size:25px;">用途</td>
 <td><input id="num2" name="num2" type="text" value="屠宰"/></td>
 <td style="font-size:25px;">承运人</td><td width="50px;" style="font-size:30px;"><input id="num2" name="num2" type="text" style="width:100px;" value="王守忠"/></td>
 <td style="font-size:20px;width:130px;">联系电话</td>
 <td style="font-size:10px;"><input id="num2" name="num2" type="text" style="width:200px;" value="15886096188"/></td>
 </tr>
-<tr bgcolor="#ffffff" height="100px">
+<tr bgcolor="#ffffff" height="60px">
 <td style="font-size:25px;">运载方式</td>
 <td style="font-size:25px;"><input id="num1" name="num1" type="text" value="公路 水路"/></td>
 <td style="font-size:25px;">运载工具牌号</td>

@@ -30,19 +30,22 @@
 			action=""
 			method="post">
 <center>
-<div style="font-size:30px">监管结果</div><br><br>
+<div style="font-size:35px">监管结果</div><br><br>
 <table cellpadding="0px" cellspacing="0px" bgcolor="#000000" width="800px" style="border:none">
 <tr bgcolor="#ffffff" height="70px">
-	<td style="font-size:25px;text-align:right;">耳标信息码:</td>
-	<td style="text-align:left;font-size:20px;">&nbsp;&nbsp;<input style="width:30px" type="radio" id="num" name="num"/>&nbsp;证物相符<br>&nbsp;&nbsp;<input style="width:30px" type="radio" id="num" name="num"/>&nbsp;证物不符<input style="width:30px" type="radio" id="num" name="num"/>&nbsp;销毁&nbsp;&nbsp;<input style="width:30px" type="radio" id="num" name="num"/>&nbsp;补检</td>
+	<td style="font-size:35px;text-align:right;">处理结果:</td>
+	<td style="text-align:left;font-size:30px;">&nbsp;&nbsp;<input style="width:30px" type="radio" id="num" name="num"/>&nbsp;证物相符<br><br>&nbsp;&nbsp;<input style="width:30px" type="radio" id="num" name="num"/>&nbsp;证物不符<input style="width:30px" type="radio" id="num" name="num"/>&nbsp;销毁&nbsp;&nbsp;<input style="width:30px" type="radio" id="num" name="num"/>&nbsp;补检</td>
 </tr>
 <tr bgcolor="#ffffff" height="70px">
-	<td style="font-size:25px;text-align:right;">备注:</td>
-	<td style="text-align:left;">&nbsp;&nbsp;<textarea id="num" name="num" style="height:100px;width:350px"></textarea></td>
+	<td style="font-size:35px;text-align:right;">备注:</td>
+	<td style="text-align:left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea id="num" name="num" style="height:100px;width:350px"></textarea></td>
 </tr>
 </table><br><br>
 <table width="400px">
 <tr>
+<td align="left" width="50%">
+<input type="button" value="保存" onclick="javascript:location.href='<%=request.getContextPath() %>/app/quarantine/front/flow/list.jsp'" src="" alt="返回" style="direction:rtl;border-width:0px;font-size:20px;line-height: 50px;width:150px;height:50px;cursor: pointer;" />
+</td>
 <td align="right" width="50%">
 <input type="button" value="返回" onclick="javascript:location.href='<%=request.getContextPath() %>/app/quarantine/front/flow/list.jsp'" src="" alt="返回" style="direction:rtl;border-width:0px;font-size:20px;line-height: 50px;width:150px;height:50px;cursor: pointer;" />
 </td>

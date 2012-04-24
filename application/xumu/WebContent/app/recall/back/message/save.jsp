@@ -78,7 +78,7 @@ input {
 <table width="800px">
 <tr>
 <td align="right" width="50%">
-<input type="button" value="返回" onclick="javascript:location.href='<%=request.getContextPath() %>/app/recall/back/index.jsp'" src="" alt="返回" style="font-size:20px;line-height: 50px;width:150px;height:50px;cursor: pointer;" />
+<input type="button" value="返回" onclick="javascript:location.href='<%=request.getContextPath() %>/app/recall/back/message/show.jsp'" src="" alt="返回" style="font-size:20px;line-height: 50px;width:150px;height:50px;cursor: pointer;" />
 </td>
 </tr>
 </table>

@@ -93,7 +93,7 @@ public class ParamterConfigration {
 		paramtersMap.put("环保标准", "environmental_standards");
 		paramtersMap.put("官方油耗(L)", "official_fuel_consumption");
 		paramtersMap.put("最高车速(Km/h)", "maximum_speed");
-		paramtersMap.put("官方0—100加速时间(s..", "official_0to100_acceleration_time");
+		paramtersMap.put("官方0―100加速时间(s..", "official_0to100_acceleration_time");
 		paramtersMap.put("挡位数", "gear_number");
 		paramtersMap.put("变速器形式", "transmission_in_the_form");
 		paramtersMap.put("四驱类型", "four_wheel_drive_type");

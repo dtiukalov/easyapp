@@ -97,8 +97,16 @@ public class ExtractParameterConfiguration {
 							NodeList nodeCarTitleList_span = myParser_span
 									.extractAllNodesThatMatch(new TagNameFilter(
 											"span"));
-							String price = nodeCarTitleList_span.elementAt(0)
-									.getChildren().elementAt(0).getText();
+							
+							String price = "";
+							if(nodeCarTitleList_span.elementAt(0)
+									.getChildren() == null){
+								 price = "";
+							} else {
+								 price = nodeCarTitleList_span.elementAt(0)
+									.getChildren().toHtml();
+							}
+							
 							ParamterConfigration car = new ParamterConfigration();
 							car.setTitle(carTitle);// 获取 奥迪A4L
 							car.setCartype(carType);// 获取 2010款 1.8 TFSI 舒适型

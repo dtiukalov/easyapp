@@ -201,20 +201,6 @@ public class Mail {
 						mail.getDownloadNum(), mail.getMailuid(),
 						mail.getRevUid(), mail.getUserUid());
 	}
-	
-	/*
-	 * public static Mail getMailFromDB(String uid) { Mail test =
-	 * SimpleDaoTemplate.queryOne(
-	 * "SELECT * FROM \"download\" WHERE 1 = 1 and \"mailuid\" = '" + uid + "'",
-	 * null, mapping, Mail.class); return test; }
-	 */
-
-	/*
-	 * public static List<Mail> getMailFromDBByMailUid(String mailuid) {
-	 * List<Mail> test = SimpleDaoTemplate.query(
-	 * "SELECT * FROM \"download\" WHERE 1 = 1 and \"mailuid\" = '" + mailuid +
-	 * "'", null, mapping, Mail.class); return test; }
-	 */
 
 	public static List<Mail> getMailFromDBByMailUidAndUserUid(String mailuid,
 			String userUid) {

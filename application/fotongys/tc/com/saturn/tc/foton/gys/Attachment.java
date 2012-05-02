@@ -318,7 +318,7 @@ public class Attachment {
 				if (status != null && status.length > 0) {
 					service.getProperties(status, "object_name");
 					for (int p = 0; p < status.length; p++) {
-						String value = status[p].getPropertyDisplayableValue("object_name");
+						String value = status[p].getProperty("object_name").getStringValue();
 						//if (!value.equalsIgnoreCase("F6_Released")) {
 							if (statusDisPlayValue.containsKey(value)) {
 								value = statusDisPlayValue.get(value);
@@ -336,7 +336,7 @@ public class Attachment {
 				if (status != null && status.length > 0) {
 					service.getProperties(status, "object_name");
 					for (int t = 0; t < status.length; t++) {
-						String value = status[t].getPropertyDisplayableValue("object_name");
+						String value = status[t].getProperty("object_name").getStringValue();
 
 						//if (!value.equalsIgnoreCase("F6_Released")) {
 							if (statusDisPlayValue.containsKey(value)) {

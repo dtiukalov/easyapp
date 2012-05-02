@@ -41,7 +41,7 @@ public class SaturnDispatcherServlet extends HttpServlet {
 			EmailUtils.host = emailhost;
 			EmailUtils.fromEmail = fromEmail;
 			EmailUtils.fromPass = fromPass;
-			EmailUtils.mailSession = mailSeesion.trim();
+			EmailUtils.mailSession = mailSeesion;
 		}
 		super.init(config);
 	}

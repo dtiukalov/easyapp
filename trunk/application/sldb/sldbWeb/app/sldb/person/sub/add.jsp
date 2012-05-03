@@ -19,13 +19,13 @@
 	$(function() {
 		$('#name').focus();
 		
-		$('#type').combobox({
+		/* $('#type').combobox({
 			value : '城镇低保',
 			onHidePanel : function() {
 				$("#combo_type").focus();
 			},
 			width : 256
-		});
+		}); */
 		
 		$('#gender').combobox({
 			onHidePanel : function() {

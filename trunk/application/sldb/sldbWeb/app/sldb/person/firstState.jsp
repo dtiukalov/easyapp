@@ -138,7 +138,7 @@
 		}
 		
 		function showVO(id){
-			window.location.href='<%=request.getContextPath()%>/app/sldb/person/showState.jsp?pid='+ id;
+			window.location.href='<%=request.getContextPath()%>/app/sldb/person/showFirstState.jsp?pid='+ id;
 			return false;
 		}
 	</script>

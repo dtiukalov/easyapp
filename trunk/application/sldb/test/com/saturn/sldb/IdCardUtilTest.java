@@ -12,6 +12,8 @@ public class IdCardUtilTest {
 		
 		assertEquals("220102198112034412", IdCardUtil.to18("220102811203441"));
 		
+		assertEquals("220323881101161", IdCardUtil.to15("220323198811011618"));
+		
 	//	assertEquals("220102198112034412", IdCardUtil.to18("220102811203442"));
 	}
 

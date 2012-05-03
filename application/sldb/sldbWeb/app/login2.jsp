@@ -26,8 +26,9 @@
 	}
 	
 %>
+
 </head>
-<body background="<%=request.getContextPath()%>/app/themes/saturn/images/saturn/background.png">
+<body>
 	<OBJECT classid="clsid:CA69969C-2F27-41D3-954D-A48B941C3BA7" width=2 height=2 id=zkonline >
 	</OBJECT>
 	<COMMENT>
@@ -94,7 +95,7 @@
 				<br /> <br /> 
 				<!--  <input name="Submit" type="button" class="login_ok" onclick="submitRegister()"
 					value="验证指纹" />-->
-				<div style="text-align:right;margin-right:30px;"><a href="<%=request.getContextPath()%>/app/login.jsp" style="text-decoration: none;color: black;">管理员登录</a></div>
+				<div style="text-align:right;margin-right:30px;margin-top:-60px;"><a href="<%=request.getContextPath()%>/app/login.jsp" style="text-decoration: none;color: black;">管理员登录</a></div>
 				<input id="id" name="id" type="hidden" value=""></input>
 			</form>
 		</div>

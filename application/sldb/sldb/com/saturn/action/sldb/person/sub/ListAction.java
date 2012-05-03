@@ -19,7 +19,8 @@ public class ListAction implements IAction{
 		DataGridInfo dataGridInfo = new DataGridInfo(request);
 		
 		PersonSub vo = BeanUtils.getBean(request, PersonSub.class);
-		vo.setPid(request.getParameter("id"));
+		String id = request.getParameter("id");
+		vo.setPid(id);
 		
 		ListData<PersonSub> data = PersonSub.getAllByPid(vo, dataGridInfo.getStartPage(), dataGridInfo.getRows(),
 				dataGridInfo.getSortId(), dataGridInfo.getOreder()); 

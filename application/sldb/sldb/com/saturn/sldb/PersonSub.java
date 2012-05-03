@@ -109,13 +109,13 @@ public class PersonSub {
 				null, mapping, PersonSub.class);
 	}
 
-	public static List<PersonSub> getByPid(String id) {
+	public static List<PersonSub> getByPid(String pid) {
 		// 指定值对象类型(VOClass)。例子VOClass=User
 		// 指定表主键(key)。例子:key=id
 		// 指定插入表名称(tableName)。例子：如user表，tableName=user
 		// 指定O-R映射规则对象。默认mapping
 		return SimpleDaoTemplate.query(
-				"SELECT * FROM sldb_Person_Sub WHERE 1 = 1 and pid = '" + id + "'",
+				"SELECT * FROM sldb_Person_Sub WHERE 1 = 1 and pid = '" + pid + "'",
 				null, mapping, PersonSub.class);
 	}
 	
@@ -139,13 +139,11 @@ public class PersonSub {
 		// 指定O-R映射规则对象。默认mapping
 		return SimpleDaoTemplate.query(
 				"SELECT * FROM sldb_Person_Sub WHERE 1 = 1",
-				new DymaticCondition().addSimpleCondition(vo, "pid","state",
+				new DymaticCondition().addSimpleCondition(vo, "state",
 						"identify", "name", "gender", "createrName",
-						"createTime").addCondition("ORDER BY {0} {1}", orderBy,
+						"createTime").addCondition("and pid = '?' ", vo.getPid()).addCondition("ORDER BY {0} {1}", orderBy,
 						order), mapping, PersonSub.class, start, offset);
 	}
-
-
 
 	public static int remove(final String id) {
 		// 指定插入表名称(tableName)。例子：如user表，tableName=user

@@ -7,6 +7,7 @@ import com.saturn.app.web.IAction;
 import com.saturn.app.web.IView;
 import com.saturn.app.web.view.JspView;
 import com.saturn.sldb.Person;
+import com.saturn.sldb.PersonSub;
 
 public class QueryPersonAction implements IAction{
 
@@ -14,9 +15,9 @@ public class QueryPersonAction implements IAction{
 			HttpServletResponse response) {
 		
 		String pid = request.getParameter("id");
-		
-		Person voPerson = Person.get(pid);
-		request.setAttribute("person", voPerson);
+/*		
+		PersonSub voPersonSub = PersonSub.get(pid);
+		request.setAttribute("personSub", voPersonSub);*/
 		return new JspView("/app/sldb/person/sub/show.jsp?id=" + pid);
 	}
 

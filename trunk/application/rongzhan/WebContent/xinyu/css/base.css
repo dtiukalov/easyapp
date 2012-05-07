@@ -33,7 +33,7 @@ a:hover {
 }
 .top .logo {
 	float:left;
-	width:130px;
+	width:200px;
 	height:49px;
 }
 .top .logo img {
@@ -41,7 +41,7 @@ a:hover {
 	padding-top:3px;
 }
 .xs {
-	width:750px;
+	width:700px;
 	float:left;
 	line-height:49px;
 	padding-top:3px;

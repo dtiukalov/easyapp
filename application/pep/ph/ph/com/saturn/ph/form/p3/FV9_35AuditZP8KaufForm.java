@@ -9,7 +9,8 @@ public class FV9_35AuditZP8KaufForm extends Form {
 		"fv9Note3Num", "fv9Note2Num", "fv9Note1Num",
 		"fv9KW", "fv9Name", "fv9Score", "fv9Option",
 		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
-		"fv9PlatformType","fv9otherUid", "fv9IsBackup", "object_type"
+		"fv9PlatformType","fv9otherUid", "fv9IsBackup", "object_type",
+		"fv9DisplayRule"
 	};
 
 	public String[] getAttributes() {

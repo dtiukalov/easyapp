@@ -6,7 +6,21 @@
 
 <%
 	Map __form = (Map)request.getAttribute("form");
-	out.print(Web.getFormState(__form));	
+out.print(Web.getFormState(__form));	
+
+	String oraganization1 = "";
+	String projectInfo1 = "";
+	String platformType1 = "";
+	
+	if (__form != null) {
+		oraganization1 = (String)__form.get("fv9Oraganization");
+	}
+	if (session.getAttribute("fv9ProjectCode") != null) {
+		projectInfo1 = (String)session.getAttribute("fv9ProjectCode");
+	}
+	if (session.getAttribute("platformType") != null) {
+		platformType1 = (String)session.getAttribute("platformType");
+	}
 
 	List indexes = (List)request.getSession().getAttribute("indexes"); 
 	String current = (String)request.getAttribute("current");
@@ -49,11 +63,11 @@ $(document).ready(function(){
 		
 		<%
 		if (request.getSession().getAttribute("indexes") != null &&
-				!"".equals(oraganization)) {
+				!"".equals(oraganization1)) {
 		%>
 		<div class="lanstk">
 			<a href="<%=request.getContextPath() %>/app/pep/print.jsp" target="_blank" style="color: white;">
-				<%=oraganization %>
+				<%=oraganization1 %>
 			</a>
 		</div>
 		<%
@@ -78,12 +92,12 @@ $(document).ready(function(){
 	    </div>
 	    
 	    <div style="WIDTH: 250px; DISPLAY: inline; FLOAT: left;margin-left:100px;margin-top:5px; padding-top: 10px; font-size: 14px;">
-	    	<%=projectInfo %>
+	    	<%=projectInfo1 %>
 	    </div>
 	    
 	    <div class="ylogo">
 		    <%
-		    if ("fawvw".equalsIgnoreCase(platformType)) {
+		    if ("fawvw".equalsIgnoreCase(platformType1)) {
 		    	%>
 		    	<a href="<%=request.getContextPath() %>/app/pep/logout.do" >
 		 	    	<img src="<%=request.getContextPath() %>/app/pep/images/FAWVW-logo.jpg" width="120px" height="41px" border="0"/>
@@ -91,7 +105,7 @@ $(document).ready(function(){
 		 	    <%		
 		    }
 		    
-		    if ("audi".equalsIgnoreCase(platformType)) {
+		    if ("audi".equalsIgnoreCase(platformType1)) {
 			    %>
 			    <a href="<%=request.getContextPath() %>/app/pep/logout.do" class="link">
 			   		<img src="<%=request.getContextPath() %>/app/pep/images/Audi-logo.jpg" width="120px" height="41px"  border="0"/>

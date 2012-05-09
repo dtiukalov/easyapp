@@ -14,7 +14,10 @@
 		<%
 			request.getSession().setAttribute("FV9_11ProjectTermin", null);
 			request.getSession().setAttribute("FV9_11VorserienTer", null);
-			Map<String,Item>  phItemMap = (Map<String,Item> )request.getSession().getAttribute("CURR_USER_PHITEM_LIST");
+			Map<String,Item>  phItemMap = null;
+			if (session.getAttribute("CURR_USER_PHITEM_LIST") != null) {
+				phItemMap = (Map<String,Item>)session.getAttribute("CURR_USER_PHITEM_LIST");
+			}
 		%>
 		<script type="text/javascript">
 			function submitForm() {
@@ -29,7 +32,7 @@
 		    	<div id="content">
 		    		<div style="width: 800px; height: 500px; margin-top: 50px; text-align: center;">
 		    		<%
-					if(phItemMap == null && phItemMap.size() <= 0){
+					if(phItemMap == null || phItemMap.size() <= 0){
 					%>
 						<h1>此用户没有PH汇报项</h1>
 					<%

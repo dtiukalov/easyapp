@@ -6,10 +6,8 @@ import java.util.Map;
 import com.saturn.ph.form.AgendaDataset;
 import com.saturn.ph.form.p1.FV9_11AnlaufueberForm;
 import com.saturn.ph.form.p1.FV9_11AnlaufuebersichtDataset;
-import com.saturn.ph.form.p1.FV9_11ProjectTerminDateset;
 import com.saturn.ph.form.p1.FV9_11ProjectTerminForm;
 import com.saturn.ph.form.p1.FV9_11VorserienTerForm;
-import com.saturn.ph.form.p1.FV9_11VorserienTerFormDataset;
 import com.saturn.ph.form.p1.FV9_12AktionspunkteForm;
 import com.saturn.ph.form.p1.FV9_13AnlauforganisationDataset;
 import com.saturn.ph.form.p1.FV9_14AnlaufkurveDataset;
@@ -37,7 +35,6 @@ import com.saturn.ph.form.p3.FV9_32FugenRadForm;
 import com.saturn.ph.form.p3.FV9_33BaubarkeitGesamtfahrzeug1Dataset;
 import com.saturn.ph.form.p3.FV9_33BaubarkeitGesamtfahrzeug2Dataset;
 import com.saturn.ph.form.p3.FV9_33ProblemblattDataset;
-import com.saturn.ph.form.p3.FV9_34FuntAussTolDataset;
 import com.saturn.ph.form.p3.FV9_34FuntAussTolForm;
 import com.saturn.ph.form.p3.FV9_34FuntNachBautForm;
 import com.saturn.ph.form.p3.FV9_34FuntionsmasseForm;
@@ -161,7 +158,7 @@ public class FormManager {
 			return forms.get(type).getJspPath();
 		}
 
-		return "/app/pep/index.jsp";
+		return "/app/pep/imageDataset.jsp";
 	}
 
 	public static String getFormTitle(String type) {

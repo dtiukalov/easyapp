@@ -44,8 +44,8 @@
 		}
 		%>
 		<%
-		String fv9Status = "V3"; //(String)form.get("fv9Status");
-		String fv9Ausgabe = "30.01.12"; //(String)form.get("fv9Ausgabe");
+		String fv9Status = (String)form.get("fv9Status");
+		String fv9Ausgabe = (String)form.get("fv9Ausgabe");
 
 		//VFF阶段信息
 		String fv9VFFTBTZP5 = (String)form.get("fv9VFFTBTZP5");
@@ -66,7 +66,7 @@
 		if (Web.getObjectYesOrNo(form.get("fv9VFFAbsMeter"))) {
 			fv9VFFAbsMeter = Integer.parseInt((String)form.get("fv9VFFAbsMeter"));
 		}
-		String fv9VFFDesc = ""; //(String)form.get("fv9VFFDesc");
+		String fv9VFFDesc = (String)form.get("fv9VFFDesc");
 		
 		//PVS阶段信息
 		String fv9PVSTBTZP5 = (String)form.get("fv9PVSTBTZP5");
@@ -87,7 +87,7 @@
 		if (Web.getObjectYesOrNo(form.get("fv9PVSAbsMeter"))) {
 			fv9PVSAbsMeter = Integer.parseInt((String)form.get("fv9PVSAbsMeter"));
 		}
-		String fv9PVSDesc = "14PVS-Fahrzeug  (inkl.TE 13,QA 1 )fuer EU5 Projekt"; //(String)form.get("fv9PVSDesc");
+		String fv9PVSDesc = (String)form.get("fv9PVSDesc");
 		
 		//0S阶段信息
 		String fv90STBTZP5 = (String)form.get("fv90STBTZP5");
@@ -108,7 +108,7 @@
 		if (Web.getObjectYesOrNo(form.get("fv90SAbsMeter"))) {
 			fv90SAbsMeter = Integer.parseInt((String)form.get("fv90SAbsMeter"));
 		}
-		String fv90SDesc = " QA 3 PVS-Fahrzeug ,2 0S-Fahrzeug fuer MQ200 Projekt"; // (String)form.get("fv90SDesc");
+		String fv90SDesc = (String)form.get("fv90SDesc");
 		
 		//SOP时间
 		String DATE_SOP = (String)session.getAttribute("DATE_SOP");
@@ -901,7 +901,7 @@
 				if (!"".equals(fv9VFFDesc) || !"".equals(fv9PVSDesc) || !"".equals(fv90SDesc)) {
 					String desc = fv9VFFDesc + "<br>" + fv9PVSDesc + "<br>" + fv90SDesc;
 				%>
-						<div style="width: 300px; height: 60px; position: absolute; font-size: 10px; 
+						<div style="width: 450px; height: 60px; position: absolute; font-size: 10px; 
 							word-wrap:break-word; background-color: white;
 							top: <%=level8%>px; margin-left: 100px; ">
 							<%=desc %>

@@ -5,8 +5,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <%@ include file="/app/pep/include/header.jsp"%>
 <%
-	String ppttitle = "VG311 Pilothallengespraeche";
-	String subtitle = "Entwurf Unterlage fuer Meilenstein PVS <br>Status 05.04.2012";
+	String fv9FrontTitle = "";
+	String fv9FrontSubTitle = "";
+	
+	if (session.getAttribute("fv9FrontTitle") != null) {
+		fv9FrontTitle = (String)session.getAttribute("fv9FrontTitle");
+	}
+	
+	if (session.getAttribute("fv9FrontSubTitle") != null) {
+		fv9FrontSubTitle = (String)session.getAttribute("fv9FrontSubTitle");
+	}
+	
 %>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -22,9 +31,9 @@
 				</div>
 				<div style="float: left; width: 900px; height: 150px; margin: 10px 10px auto; font-size: 28px; 
 					font-family: Arial; margin-top: 35px;">
-					<b><%=Web.replaceSpecial(ppttitle) %></b>
+					<b><%=Web.replaceSpecial(fv9FrontTitle) %></b>
 					<br><br>
-					<%=Web.replaceSpecial(subtitle) %>
+					<%=Web.replaceSpecial(fv9FrontSubTitle) %>
 				</div>
 			</div>
 			<div style="float: left; width: 1000px; height: auto; border-bottom: #000099 2px solid;"></div>

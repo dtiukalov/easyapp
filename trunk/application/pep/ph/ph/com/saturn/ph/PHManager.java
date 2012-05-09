@@ -5,6 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.teamcenter.soa.client.model.ModelObject;
+import com.teamcenter.soa.client.model.Property;
+import com.teamcenter.soa.client.model.Type;
+import com.teamcenter.soa.exceptions.NotLoadedException;
+
 public class PHManager {
 
 	private static final String[] ALL = {
@@ -100,19 +105,84 @@ public class PHManager {
 
 			if (object != null) {
 				if (object instanceof String) {
-					indexes.add(path + "?uid=" + object);
+					
+					addIndex(indexes, object.toString(), path);
+					
 				} else if (object instanceof List) {
 					List<String> ids = (List<String>) object;
 
 					for (String id : ids) {
-						indexes.add(path + "?uid=" + id);
+//						indexes.add(path + "?uid=" + id);
+						addIndex(indexes, id, path);
 					}
+										
 				}
 			}
 		}
 		// }
 
 		return indexes;
+	}
+	
+	/*
+	 * indexes为页面索引
+	 * object为某个类型的数据对象 1-n个
+	 * path 页面路径
+	 * */
+	public static void addIndex(List<String> indexes, String uid, String path) {
+		try {
+			//根据UID获取对象
+			ModelObject form = PH.getDataService().loadModelObjectRefresh(uid);
+			String form_type = form.getProperty("object_type").getStringValue();
+			//FV9PHImage 和 FV9PHBackup  不做任何处理
+			if ("FV9PHImage".equals(form_type) || "FV9PHBackup".equals(form_type)) {
+				indexes.add(path + "?uid=" + uid);
+			} else {
+				//非FV9PHImage 和 FV9PHBackup 要判断关系下是否存在数据集
+				PH.getDataService().getProperties(form, "fv9DisplayRule", "FV9Options");
+				
+				String displayRules = (String)form.getPropertyDisplayableValue("fv9DisplayRule");
+				//显示规则为Form或者为空,只显示Form
+				//显示规则为Image,只显示数据集
+				//显示规则为Both,先显示Form,再显示数据集
+				if ("Image".equals(displayRules)) {
+					ModelObject[] images = form.getProperty("FV9Options").getModelObjectArrayValue();
+					PH.getDataService().getProperties(images, "object_type", "fv9PreRelesed");
+					
+					for (ModelObject model : images){
+						//FV9Options关系下的对象为FV9PHImage类型 且 已经预发布
+						PH.getDataService().refreshObjects(model);
+						if ("FV9PHImage".equals(model.getProperty("object_type").getStringValue()) &&
+								"Yes".equalsIgnoreCase(model.getPropertyDisplayableValue("fv9PreRelesed"))) {
+							indexes.add(path + "?uid=" + model.getUid());
+						}
+					}
+					
+				} else if ("Both".equals(displayRules)) {
+					
+					indexes.add(path + "?uid=" + uid);
+					
+					ModelObject[] images = form.getProperty("FV9Options").getModelObjectArrayValue();
+					PH.getDataService().getProperties(images, "object_type", "fv9PreRelesed");
+					
+					for (ModelObject model : images){
+						PH.getDataService().refreshObjects(model);
+						//FV9Options关系下的对象为FV9PHImage类型 且 已经预发布
+						if ("FV9PHImage".equals(model.getProperty("object_type").getStringValue()) &&
+								"Yes".equalsIgnoreCase(model.getPropertyDisplayableValue("fv9PreRelesed"))) {
+							indexes.add(path + "?uid=" + model.getUid());
+						}
+					}
+				} else {
+					indexes.add(path + "?uid=" + uid);
+				}
+
+			}
+			
+		} catch (NotLoadedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public static void doBuffer(Map<String, Object> forms, PHBuffer buffer) {

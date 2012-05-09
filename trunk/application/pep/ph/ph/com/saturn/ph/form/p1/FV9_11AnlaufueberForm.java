@@ -8,7 +8,8 @@ public class FV9_11AnlaufueberForm extends Form {
 		"fv9ProjectDerivat", "fv9ProjectStufe", "fv9ProjectPVS",
 		"fv9ProjectVFF", "fv9Project0S", "fv9ProjectSOP", "fv9ProjectMix",
 		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
-		"fv9PlatformType", "fv9otherUid", "fv9IsBackup", "object_type"
+		"fv9PlatformType", "fv9otherUid", "fv9IsBackup", "object_type", 
+		"fv9DisplayRule"
 	};
 
 	public String[] getAttributes() {

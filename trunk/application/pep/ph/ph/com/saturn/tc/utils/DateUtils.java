@@ -11,7 +11,6 @@ import java.util.GregorianCalendar;
 import org.apache.commons.httpclient.util.DateUtil;
 
 public class DateUtils {
-	
 	 
 	 /*
 	  * 字符串转化为Date类型
@@ -231,8 +230,10 @@ public class DateUtils {
 
 	public static String getSysDate() {
 		Date now = new Date();
-		DateFormat df = DateFormat.getDateInstance();
-		String sysDate = df.format(now);
+//		DateFormat df = DateFormat.getDateInstance();
+//		String sysDate = df.format(now);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String sysDate = sdf.format(now);
 		return sysDate;
 	}
 

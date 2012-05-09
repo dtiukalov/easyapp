@@ -65,11 +65,15 @@
 				}
 			}
 			
-			//设置spAEter
-			KW.add("spAeter");
+			//设置spaeter
+			KW.add("spaeter");
 			value.add(max);
 			low.add(0);
-			desc.add("");
+			String spaeterCom = "";
+			if (form.get("fv9SpaeterCom") != null) {
+				spaeterCom = ((String)form.get("fv9SpaeterCom")).replaceAll("\n", "<br>").replaceAll("\"", "").replaceAll("\'", "");
+			}
+			desc.add(spaeterCom);
 			
 			String categories = Web.getStrListStr(KW);
 			

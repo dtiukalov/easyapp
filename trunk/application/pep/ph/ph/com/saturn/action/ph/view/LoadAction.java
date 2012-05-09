@@ -84,12 +84,16 @@ public class LoadAction implements IAction {
 							"IMAN_specification", "view", "IMAN_requirement",
 							"IMAN_reference", "TC_WorkContext_Relation",
 							"TC_Attaches", "VisItemRevCreatedSnapshot2D",
-							"project_ids", "fv9MLName", "fv9ReportKW", "fv9PlatformType");
+							"project_ids", "fv9MLName", "fv9ReportKW", "fv9PlatformType",
+							"fv9FrontTitle", "fv9FrontSubTitle", "fv9ProjectCode");
 					
 					PH.getDataService().getProperties(itemRev, relations);
 					PH.getDataService().refreshObjects(itemRev);
 					String projects = itemRev.getPropertyDisplayableValue("project_ids");
 					String platformType = itemRev.getPropertyDisplayableValue("fv9PlatformType");
+					String fv9FrontTitle = itemRev.getProperty("fv9FrontTitle").getDisplayableValue();
+					String fv9FrontSubTitle = itemRev.getProperty("fv9FrontSubTitle").getDisplayableValue();
+					String fv9ProjectCode = itemRev.getProperty("fv9ProjectCode").getDisplayableValue();
 					
 					if (!"".equals(projects)) {
 						project = projects.split(",")[0];
@@ -99,6 +103,9 @@ public class LoadAction implements IAction {
 					request.getSession().setAttribute("milepost", roadmap);
 					request.getSession().setAttribute("project", project);
 					request.getSession().setAttribute("platformType", platformType);
+					request.getSession().setAttribute("fv9FrontTitle", fv9FrontTitle);
+					request.getSession().setAttribute("fv9FrontSubTitle", fv9FrontSubTitle);
+					request.getSession().setAttribute("fv9ProjectCode", fv9ProjectCode);
 					
 					formIds = ItemUtils.getLastRevisionFormIds(itemRev, relations ,request);
 					

@@ -1,3 +1,4 @@
+<%@page import="com.teamcenter.soa.client.model.ModelObject"%>
 <META http-equiv="Pragma" content="no-cache">
 <META http-equiv="Expires" content="-1">
 
@@ -7,6 +8,7 @@
 <%@page import="java.util.Map"%>
 <%@page import="java.util.List"%>
 <%@page import="com.saturn.web.Web"%>
+<%@page import="com.saturn.ph.PH"%>
 <%@page import="java.util.Date"%>	
 <%@page import="java.text.SimpleDateFormat"%>	
 <%@page import="java.text.DateFormat"%>	
@@ -16,7 +18,6 @@
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/app/pep/include/base.css">
 <%
-	
 	String type = (String)request.getAttribute("type");
 	System.out.println("type = " + type);
 	Map form = (Map)request.getAttribute("form");
@@ -24,10 +25,16 @@
 	String title = "";
 	String oraganization = "";
 	String platformType = "";
-	String projectInfo = "VG311,New Bora FL , 17.04.2012";
+	String projectInfo = "";
+	
+	Object tempUID = request.getAttribute("uid");
+	if (tempUID != null) {
+		ModelObject model = PH.getDataService().loadModelObjectRefresh(tempUID.toString());	
+		PH.getDataService().getProperties(model, "fv9PageName");
+		title = model.getProperty("fv9PageName").getStringValue();
+	}
 	
 	if (form != null) {
-		title = (String)form.get("fv9PageName");
 		oraganization = (String)form.get("fv9Oraganization");
 	}
 	
@@ -35,8 +42,8 @@
 		platformType = (String)session.getAttribute("platformType");
 	}
 	
-	if (session.getAttribute("projectInfo") != null) {
-		projectInfo = (String)session.getAttribute("projectInfo");
+	if (session.getAttribute("fv9ProjectCode") != null) {
+		projectInfo = (String)session.getAttribute("fv9ProjectCode");
 	}
 	
 //	String status_left = "VW471 CN-Pilothalle VFF,20.10.2012";

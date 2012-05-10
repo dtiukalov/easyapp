@@ -26,8 +26,10 @@
 	
 	
 		for (int i = 0; i < indexes.size(); ++i) {
-			
 			String url = (String)indexes.get(i);
+			if (i > 0) {
+				url += "&pageNo=" + (i+1);
+			}
 			System.out.println(url);     
 			%>
 				<iframe scrolling="no" frameborder="0" src="<%=request.getContextPath()%><%=url %>" style="width:1000px;height:750px;"></iframe>

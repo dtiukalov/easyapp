@@ -24,10 +24,15 @@ out.print(Web.getFormState(__form));
 
 	List indexes = (List)request.getSession().getAttribute("indexes"); 
 	String current = (String)request.getAttribute("current");
+	String pageNo = (String)request.getAttribute("pageNo");
 	
-	if (current == null) {
-		current = "1";
-	} 
+	if (request.getAttribute("pageNo") != null) {
+		current = pageNo;
+	} else {
+		if (current == null) {
+			current = "1";
+		} 
+	}
 	
 	int cur = Integer.parseInt(current);
 	

@@ -26,6 +26,7 @@
 			
 			List<String> Gesamt = new ArrayList<String>();
 			List<String> categories = new ArrayList<String>();
+			StringBuffer BMGType = new StringBuffer();
 			StringBuffer BFreiSoll = new StringBuffer();
 			StringBuffer BFInArbeirt = new StringBuffer();
 			StringBuffer BFAWE = new StringBuffer();
@@ -33,6 +34,7 @@
 			
 			int temptotal = 0;
 			
+			BMGType.append("[");
 			BFreiSoll.append("[");
 			BFInArbeirt.append("[");
 			BFAWE.append("[");
@@ -45,7 +47,8 @@
 				}
 			
 				categories.add("Gesamt");
-				BFreiSoll.append("{y:" + sum + ", low:0, color:'#0200FE'},");
+				BMGType.append("{y:" + sum + ", low:0, color:'#0200FE'},");
+				BFreiSoll.append("{y:0, low:0, color:'#0200FE'},");
 				BFInArbeirt.append("{y:0, low:0, color:'#FFCC00'},");
 				BFAWE.append("{y:0, low:0, color:'#FFFFCC'},");
 				PrognoseShow.append("null,");
@@ -60,7 +63,8 @@
 					if (i == fv9BMGTypeNum.size()-1) {
 						color = "#FF00FE";
 					}
-					BFreiSoll.append("{y:" + y + ", low:" + low + ", color:'" + color + "'},");
+					BMGType.append("{y:" + y + ", low:" + low + ", color:'" + color + "'},");
+					BFreiSoll.append("{y:0, low:0, color:'0200FE'},");
 					BFInArbeirt.append("{y:0, low:0, color:'#FFCC00'},");
 					BFAWE.append("{y:0, low:0, color:'#FFFFCC'},");
 					PrognoseShow.append("null,");
@@ -80,11 +84,13 @@
 					
 					/* 最后一列去掉,	 */			
 					if (m == fv9BMGKWNo.size()-1) {
+						BMGType.append("{y:0, low:0, color:'#FFFFFF'}");
 						BFAWE.append("{y:" + BFAWENUM + ", low:0, color:'#FFFFCC'}");
 						BFInArbeirt.append("{y:" + BFInArbeirtNUM + ", low:" + BFAWENUM + ", color:'#FFCC00'}");
 						BFreiSoll.append("{y:" + BFreiSollNUM + ", low:" + (BFInArbeirtNUM+BFAWENUM) + ", color:'#00FF00'}");
 						PrognoseShow.append(BMGPrognoseShowNum);
 					} else {
+						BMGType.append("{y:0, low:0, color:'#FFFFFF'},");
 						BFAWE.append("{y:" + BFAWENUM + ", low:0, color:'#FFFFCC'},");
 						BFInArbeirt.append("{y:" + BFInArbeirtNUM + ", low:" + BFAWENUM + ", color:'#FFCC00'},");
 						BFreiSoll.append("{y:" + BFreiSollNUM + ", low:" + (BFInArbeirtNUM+BFAWENUM) + ", color:'#00FF00'},");
@@ -93,6 +99,7 @@
 				}
 			}
 			String cat = Web.getStrListStr(categories);
+			BMGType.append("]");
 			BFreiSoll.append("]");
 			BFInArbeirt.append("]");
 			BFAWE.append("]");
@@ -225,6 +232,25 @@
 					enabled:false
 				},
 			    series: [{
+					name: 'BMGType',
+					data: <%=BMGType%>,
+					color: '#00FF00',
+					type: 'column',
+					dashStyle: 'dash',
+					marker: {enabled: false},
+					lineWidth: 1,
+					shadow: false,
+					enableMouseTracking: false,
+					dataLabels: {
+						enabled: true,
+						style : {
+							fontSize:'10px'
+						},
+						verticalAlign: 'top',
+						color: 'black',
+						y:-10
+					}
+				},{
 					name: 'BMG frei Soll',
 					data: <%=BFreiSoll%>,
 					color: '#00FF00',

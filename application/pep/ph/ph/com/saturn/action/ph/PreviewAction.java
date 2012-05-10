@@ -29,6 +29,8 @@ public class PreviewAction implements IAction {
 			HttpServletResponse response) {
 
 		String uid = (String)request.getParameter("uid");
+//		pageNo供打印预览时使用，因为打印时current始终是1，页码有误
+		String pageNo = (String)request.getParameter("pageNo");
 		/*Integer current = Integer.parseInt(request.getParameter("current").toString());
 		if(current != null){
 			int curr = current.intValue();
@@ -61,6 +63,8 @@ public class PreviewAction implements IAction {
 		request.setAttribute("uid", uid);
 		request.setAttribute("type", type);
 		request.setAttribute("form", form);
+		if (pageNo != null && !"".equals(pageNo))
+			request.setAttribute("pageNo", pageNo);
 		
 		initcCommunalData(request,form);
 		return new JspView(FormManager.getJspPath(type));

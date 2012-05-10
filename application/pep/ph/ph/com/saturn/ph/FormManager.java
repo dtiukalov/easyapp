@@ -39,11 +39,13 @@ import com.saturn.ph.form.p3.FV9_34FuntAussTolForm;
 import com.saturn.ph.form.p3.FV9_34FuntNachBautForm;
 import com.saturn.ph.form.p3.FV9_34FuntionsmasseForm;
 import com.saturn.ph.form.p3.FV9_35AuditNoteZP8Form;
+import com.saturn.ph.form.p3.FV9_35AuditRedPrognoseDataset;
 import com.saturn.ph.form.p3.FV9_35AuditZP8KarossForm;
 import com.saturn.ph.form.p3.FV9_35AuditZP8KaufForm;
 import com.saturn.ph.form.p3.FV9_35AuditZP8LackForm;
 import com.saturn.ph.form.p3.FV9_35AuditZP8MontForm;
 import com.saturn.ph.form.p3.FV9_35AuditZP8PressForm;
+import com.saturn.ph.form.p3.FV9_35FehlerDenGewDataset;
 import com.saturn.ph.form.p3.FV9_35FehlerDenGewForm;
 import com.saturn.ph.form.p3.FV9_35MassVerAudForm;
 import com.saturn.ph.form.p3.FV9_35MassnAbarBFForm;
@@ -78,6 +80,7 @@ import com.saturn.ph.form.p5.FV9_52LogistikkonzeptForm;
 import com.saturn.ph.form.p6.FV9_61LaunchplanungDataset;
 import com.saturn.ph.form.p7.FV9_71ReifegradsForm;
 import com.saturn.ph.form.p7.FV9_72BeschlussDataset;
+import com.saturn.ph.form.p7.FV9_72BeschlussForm;
 import com.saturn.ph.form.p7.FV9_72UeberZuTerDataset;
 import com.saturn.ph.form.pbackup.FV9BackUpDataset;
 import com.saturn.tc.utils.WorkspaceUtils;
@@ -176,10 +179,8 @@ public class FormManager {
 	private static void inital() {
 		add(new AgendaDataset());
 		add(new FV9_11ProjectTerminForm());
-//		add(new FV9_11ProjectTerminDateset());
 		add(new FV9_11AnlaufuebersichtDataset());
 //		add(new FV9_11AnlaufueberForm());
-//		add(new FV9_11VorserienTerFormDataset());
 		add(new FV9_11VorserienTerForm());
 		add(new FV9_12AktionspunkteForm());
 		add(new FV9_13AnlauforganisationDataset());
@@ -200,9 +201,8 @@ public class FormManager {
 		add(new FV9_21BMGAbarbuebersForm());
 		add(new FV9_22ErprobDauerForm());
 		add(new FV9_23FehlerabbaustatusDataset());
-		add(new FV9_23SoftwarefehlerentwicklungDataset());
-//		add(new FV9_24StatusAEKOForm());
-		add(new FV9_24StatusAEKODataset());
+		add(new FV9_24StatusAEKOForm());
+//		add(new FV9_24StatusAEKODataset());
 		add(new FV9_24AEKOUmsetzForm());
 
 		add(new FV9_31PrufMBCubForm());
@@ -216,6 +216,8 @@ public class FormManager {
 //		add(new FV9_34FuntAussTolDataset());
 		add(new FV9_35AuditNoteZP8Form());
 		add(new FV9_35FehlerDenGewForm());
+		add(new FV9_35AuditRedPrognoseDataset());
+		add(new FV9_35FehlerDenGewDataset());
 		add(new FV9_35NachareitPunkForm());
 		add(new FV9_35MassnAbarBFForm());
 		add(new FV9_35MassVerAudForm());
@@ -260,16 +262,10 @@ public class FormManager {
 		add(new FV9_61LaunchplanungDataset());
 
 		add(new FV9_71ReifegradsForm());
-		add(new FV9_72BeschlussDataset());
+//		add(new FV9_72BeschlussDataset());
+		add(new FV9_72BeschlussForm());
 		add(new FV9_72UeberZuTerDataset());
-		
-/*		add(new FV9BackUp1Dataset());
-		add(new FV9BackUp2Dataset());
-		add(new FV9BackUp3Dataset());
-		add(new FV9BackUp4Dataset());
-		add(new FV9BackUp5Dataset());
-		add(new FV9BackUp6Dataset());
-		add(new FV9BackUp7Dataset());*/
+
 		add(new FV9BackUpDataset());
 
 	}

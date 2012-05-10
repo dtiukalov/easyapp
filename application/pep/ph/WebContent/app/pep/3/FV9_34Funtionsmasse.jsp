@@ -307,8 +307,8 @@
 				<div class="fr"><%=status_right %></div>
 				<h1><%=title %></h1>
 			</div>
-			
 			<div id="content">
+				
 				<div id="chart" style="width: 1000px; height: 450px; margin: 5px auto; float: left; margin-top: 30px;"></div>
 			<%
 			if (lichenbeiNum != null && arr != null) {
@@ -344,7 +344,18 @@
 				<%
 				}
 				%>	
+				<div id="legent" style="width: 130px; height: 100px; 
+				position: absolute; margin-left: 300px; margin-top: -500px; padding-left: 60px;
+				font-size: 12px;">
+					Konzernziele<br>
+					(max. rot)<br>
+					VFF	30 %<br>
+					PVS	15 %<br>
+					0&nbsp;-&nbsp;S	10 %<br>
+					SOP	5 %
+				</div>
 			</div>
+			
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>	
 	</body>

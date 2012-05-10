@@ -91,7 +91,7 @@
 						%>
 					</td>
 					<td width="50%" valign="top" class="pgpg" style="font-size: 12px;">
-						<div class="tbnrr">
+						<div class="tbnrr" style="padding-left:15px;">
 						<%
 							if (fv9PressStMab_GM != null && !"".equals(fv9PressStMab_GM)) {
 						%>
@@ -133,7 +133,7 @@
 						%>
 					</td>
 					<td width="50%" valign="top" class="pgpg" style="font-size: 12px;">
-						<div class="tbnrr">
+						<div class="tbnrr" style="padding-left:15px;">
 						<%
 							if (fv9KarossStMab_GM != null && !"".equals(fv9KarossStMab_GM)) {
 						%>
@@ -176,7 +176,7 @@
 						%>
 					</td>
 					<td width="50%" valign="top" class="pgpg" style="font-size: 12px;">
-						<div class="tbnrr">
+						<div class="tbnrr" style="padding-left:15px;">
 						<%
 							if (fv9LackStMab_GM != null && !"".equals(fv9LackStMab_GM)) {
 						%>
@@ -219,7 +219,7 @@
 						%>
 					</td>
 					<td width="50%" valign="top" class="pgpg" style="font-size: 12px;">
-						<div class="tbnrr">
+						<div class="tbnrr" style="padding-left:15px;">
 						<%
 							if (fv9MontStMab_GM != null && !"".equals(fv9MontStMab_GM)) {
 						%>
@@ -262,7 +262,7 @@
 						%>
 					</td>
 					<td width="50%" valign="top" class="pgpg" style="font-size: 12px;">
-						<div class="tbnrr">
+						<div class="tbnrr" style="padding-left:15px;">
 						<%
 							if (fv9ElectStMab_GM != null && !"".equals(fv9ElectStMab_GM)) {
 						%>
@@ -314,7 +314,7 @@
 						%>
 					</td>
 					<td width="50%" valign="top" class="pgpg" style="font-size: 12px;">
-						<div class="tbnrr">
+						<div class="tbnrr" style="padding-left:15px;">
 						<%
 							if (fv9PressStMab_CN != null && !"".equals(fv9PressStMab_CN)) {
 						%>
@@ -357,7 +357,7 @@
 						%>
 					</td>
 					<td width="50%" valign="top" class="pgpg" style="font-size: 12px;">
-						<div class="tbnrr">
+						<div class="tbnrr" style="padding-left:15px;">
 						<%
 							if (fv9KarossStMab_CN != null && !"".equals(fv9KarossStMab_CN)) {
 						%>
@@ -400,7 +400,7 @@
 						%>
 					</td>
 					<td width="50%" valign="top" class="pgpg" style="font-size: 12px;">
-						<div class="tbnrr">
+						<div class="tbnrr" style="padding-left:15px;">
 						<%
 							if (fv9LackStMab_CN != null && !"".equals(fv9LackStMab_CN)) {
 						%>
@@ -443,7 +443,7 @@
 						%>
 					</td>
 					<td width="50%" valign="top" class="pgpg" style="font-size: 12px;">
-						<div class="tbnrr">
+						<div class="tbnrr" style="padding-left:15px;">
 						<%
 							if (fv9MontStMab_CN != null && !"".equals(fv9MontStMab_CN)) {
 						%>
@@ -486,7 +486,7 @@
 						%>
 					</td>
 					<td width="50%" valign="top" class="pgpg" style="font-size: 12px;">
-						<div class="tbnrr">
+						<div class="tbnrr" style="padding-left:15px;">
 						<%
 							if (fv9ElectStMab_CN != null && !"".equals(fv9ElectStMab_CN)) {
 						%>

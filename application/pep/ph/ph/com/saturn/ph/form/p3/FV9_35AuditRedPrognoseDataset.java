@@ -1,8 +1,8 @@
-package com.saturn.ph.form.p2;
+package com.saturn.ph.form.p3;
 
 import com.saturn.ph.Form;
 
-public class FV9_23FehlerabbaustatusDataset extends Form {
+public class FV9_35AuditRedPrognoseDataset extends Form {
 	
 	private static final String[] attr = {
 		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
@@ -19,11 +19,12 @@ public class FV9_23FehlerabbaustatusDataset extends Form {
 
 	@Override
 	public String getType() {
-		return "2.3 Fehlerabbaustatus Software";
+		return "3.5 Audit Reduzierungsprognose";
 	}
 
 	@Override
 	public String getTitle() {
-		return "2.3 Fehlerabbaustatus Software";
+		return "3.5 Audit Reduzierungsprognose";
 	}
+
 }

@@ -18,6 +18,7 @@
 			List<String> fv9BMGType = (List<String>)form.get("fv9BMGType"); //零件类型
 			List<String> fv9BMGTypeNum = (List)form.get("fv9BMGNum");  //认可数量
 			List<String> fv9BMGKWNo = (List)form.get("fv9BMGKWNo");  //周数
+			List<String> fv9BMGPrognose = (List)form.get("fv9BMGPrognose");  //预测值
 			List<String> fv9BMGSoll = (List)form.get("fv9BMGSoll");  //fv9BMGSoll
 			List<String> fv9BMGInArbeirt = (List)form.get("fv9BMGInArbeirt");  //fv9BMGInArbeirt
 			List<String> fv9BMGAWE = (List)form.get("fv9BMGAWE");  //fv9BMGAWE
@@ -28,9 +29,15 @@
 			StringBuffer BFreiSoll = new StringBuffer();
 			StringBuffer BFInArbeirt = new StringBuffer();
 			StringBuffer BFAWE = new StringBuffer();
+			StringBuffer PrognoseShow = new StringBuffer();
+			
+			int temptotal = 0;
+			
 			BFreiSoll.append("[");
 			BFInArbeirt.append("[");
 			BFAWE.append("[");
+			PrognoseShow.append("[");
+			
 			int sum = 0;
 			if (Web.getListYesOrNo(fv9BMGTypeNum)) {
 				for (int i=0; i<fv9BMGTypeNum.size(); i++){
@@ -41,6 +48,7 @@
 				BFreiSoll.append("{y:" + sum + ", low:0, color:'#0200FE'},");
 				BFInArbeirt.append("{y:0, low:0, color:'#FFCC00'},");
 				BFAWE.append("{y:0, low:0, color:'#FFFFCC'},");
+				PrognoseShow.append("null,");
 				
 				int temp = 0;
 				for (int i=0; i<fv9BMGTypeNum.size(); i++){
@@ -55,6 +63,7 @@
 					BFreiSoll.append("{y:" + y + ", low:" + low + ", color:'" + color + "'},");
 					BFInArbeirt.append("{y:0, low:0, color:'#FFCC00'},");
 					BFAWE.append("{y:0, low:0, color:'#FFFFCC'},");
+					PrognoseShow.append("null,");
 				}
 				
 			}
@@ -64,17 +73,30 @@
 					int BFAWENUM = Integer.parseInt(fv9BMGAWE.get(m));
 					int BFInArbeirtNUM = Integer.parseInt(fv9BMGInArbeirt.get(m));
 					int BFreiSollNUM = Integer.parseInt(fv9BMGSoll.get(m));
+				
+					temptotal = BFAWENUM+BFInArbeirtNUM+BFreiSollNUM;
+					int BMGPrognoseShowNum = (BFAWENUM+BFInArbeirtNUM+BFreiSollNUM) - Integer.parseInt(fv9BMGPrognose.get(m));
 					
-					BFAWE.append("{y:" + BFAWENUM + ", low:0, color:'#FFFFCC'},");
-					BFInArbeirt.append("{y:" + BFInArbeirtNUM + ", low:" + BFAWENUM + ", color:'#FFCC00'},");
-					BFreiSoll.append("{y:" + BFreiSollNUM + ", low:" + (BFInArbeirtNUM+BFAWENUM) + ", color:'#00FF00'},");
 					
+					/* 最后一列去掉,	 */			
+					if (m == fv9BMGKWNo.size()-1) {
+						BFAWE.append("{y:" + BFAWENUM + ", low:0, color:'#FFFFCC'}");
+						BFInArbeirt.append("{y:" + BFInArbeirtNUM + ", low:" + BFAWENUM + ", color:'#FFCC00'}");
+						BFreiSoll.append("{y:" + BFreiSollNUM + ", low:" + (BFInArbeirtNUM+BFAWENUM) + ", color:'#00FF00'}");
+						PrognoseShow.append(BMGPrognoseShowNum);
+					} else {
+						BFAWE.append("{y:" + BFAWENUM + ", low:0, color:'#FFFFCC'},");
+						BFInArbeirt.append("{y:" + BFInArbeirtNUM + ", low:" + BFAWENUM + ", color:'#FFCC00'},");
+						BFreiSoll.append("{y:" + BFreiSollNUM + ", low:" + (BFInArbeirtNUM+BFAWENUM) + ", color:'#00FF00'},");
+						PrognoseShow.append(BMGPrognoseShowNum +",");
+					}
 				}
 			}
 			String cat = Web.getStrListStr(categories);
 			BFreiSoll.append("]");
 			BFInArbeirt.append("]");
 			BFAWE.append("]");
+			PrognoseShow.append("]");
 			
 		%>	
 	<%
@@ -121,7 +143,7 @@
 		var chart1;
 		var chart2;
 		$(document).ready(function() {
-				chart1 = new Highcharts.Chart({
+			chart1 = new Highcharts.Chart({
 				chart: {
 					renderTo: 'chart1',
 					defaultSeriesType: 'column'
@@ -141,7 +163,6 @@
 						style:{
 							fontSize:'12px',
 							color:'black'
-							
 						}
 					}
 				},
@@ -158,7 +179,7 @@
 					},
 					labels:{
 						style:{
-							color:'black'
+							color:'white'
 						}
 					}
 				},
@@ -218,10 +239,10 @@
 						style : {
 							fontSize:'10px'
 						},
-						color: 'black'
+						color: 'white'
 					}
 				},{
-					name: 'in arbeit',
+					name: 'in Arbeit',
 					data: <%=BFInArbeirt%>,
 					color: '#FFCC00',
 					type: 'column',
@@ -235,7 +256,7 @@
 						style : {
 							fontSize:'10px'
 						},
-						color: 'black'
+						color: 'white'
 					}
 				}, {
 					name: 'AWE',
@@ -253,6 +274,21 @@
 							fontSize:'10px'
 						},
 						color: 'black'
+					}
+				}, {
+					type: 'line',
+					name: 'Prognose',
+					data: <%=PrognoseShow%>,
+					color: '#0000FF',
+					dataLabels: {
+						enabled: true,
+						style : {
+							fontSize:'10px'
+						},
+						color: '#0000FF',
+						formatter: function() {
+							return (<%=temptotal%> -  this.y) + '';
+						}
 					}
 				}
 				<%if(vffNum > 0){%>
@@ -465,7 +501,7 @@
 					</tr>
 					<tr>
 						<td style="background-color: #FFCC00; width: 15px; height: 15px;"></td>
-						<td style="font-size: 14px; height: 15px;">in arbeit</td>
+						<td style="font-size: 14px; height: 15px;">in Arbeit</td>
 					</tr>
 				</table>
 			</div>

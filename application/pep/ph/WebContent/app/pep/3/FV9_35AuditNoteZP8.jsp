@@ -21,6 +21,39 @@
 		String fv9KonzAuditMitNA = Web.getNumberListStr((List)form.get("fv9KonzAuditMitNA"));
 		String fv9AuditMax = Web.getNumberListStr((List)form.get("fv9AuditMax"));
 		String fv9AuditMin = Web.getNumberListStr((List)form.get("fv9AuditMin"));
+		String fv9Anzahl = Web.getStrListStr((List)form.get("fv9Anzahl"));
+		System.out.println(fv9KWNo);
+		System.out.println(fv9Anzahl);
+		List kw_list = (List)form.get("fv9KWNo");
+		List anzahl_list = (List)form.get("fv9Anzahl");
+		StringBuffer x = new StringBuffer();
+		x.append("[");
+
+		int maxHeight = 0;
+		for (int i=0; i<anzahl_list.size(); i++) {
+			String anzahl = (String)anzahl_list.get(i);
+			if (maxHeight == 0)
+				maxHeight = anzahl.length();
+			
+			if (anzahl.length() > maxHeight) 
+				maxHeight = anzahl.length();
+		}
+		
+		for (int i=0; i<kw_list.size(); i++) {
+			String anzahl = (String)anzahl_list.get(i);
+			if (anzahl.equals("")) {
+				anzahl = "&nbsp;";
+			} 
+			anzahl = "<span style='writing-mode: tb-rl; height:" + (8 * maxHeight) + "px;'>" + anzahl + "</span>";
+			if (i == kw_list.size()-1) {
+				x.append("\"" + anzahl + "<br>" + kw_list.get(i)+ "\"");
+			} else { 
+				x.append("\"" + anzahl + "<br>" + kw_list.get(i) + "\", ");
+			}
+		}
+		x.append("]");
+		
+		System.out.println(x.toString());
 		
 		List auditMax = (List)form.get("fv9AuditMax");
 		List auditMin = (List)form.get("fv9AuditMin");
@@ -50,7 +83,7 @@
 								fontSize:'12px'
 							}
 						},
-						categories: <%=fv9KWNo%>
+						categories: <%=x%>
 						
 					},
 					yAxis: {
@@ -168,7 +201,7 @@
 					chart.renderer.text(
 			                '<span style="font-size:12px;">KW</span>', 
 			               	10, 
-			                445
+			                495
 			            ).attr({
 			                zIndex: 6
 			            }).add();
@@ -188,7 +221,7 @@
 			</div>
 			
 			<div id="content"> 
-				<div id="chart" style="width: 1000px; height: 450px; margin: 5px auto; "></div>
+				<div id="chart" style="width: 1000px; height: 500px; margin: 5px auto; "></div>
 				
 			<%
 			if (Web.getListYesOrNo((List<String>)form.get("fv9KWNo"))) {

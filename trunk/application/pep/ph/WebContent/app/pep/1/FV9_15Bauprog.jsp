@@ -73,7 +73,7 @@
 			<table class="stufeTable">
 				<tr>
 					<td style="width: 20px; text-align: center;">&nbsp;</td>
-					<td style="width: 100px;">&nbsp;</td>
+					<td style="width: 100px; vertical-align: bottom;"><b>Stufe</b></td>
 
 			<% 
 				String temp = "";

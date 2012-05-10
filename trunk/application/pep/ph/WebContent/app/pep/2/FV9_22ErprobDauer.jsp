@@ -59,7 +59,7 @@
 					        	<table width="98%" border="0" cellspacing="0" cellpadding="0" style="font-size:18px; font-weight: bolder;">
 						            <tr>
 							            <td width="60%">Aktueller Status</td>
-							            <td width="40%">Naechste Status</td>
+							            <td width="40%">Nächste Schritte</td>
 						            </tr>
 					            </table>
 					        </td>

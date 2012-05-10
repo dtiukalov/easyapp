@@ -184,7 +184,7 @@
 			text-align: left;
 			font-size: 11px;
 			border: 1px solid #000000;
-			vertical-align: top;
+			vertical-align: center;
 		}
 	</style>
 </head>

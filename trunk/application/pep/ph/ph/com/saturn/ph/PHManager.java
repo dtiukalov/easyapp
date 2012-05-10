@@ -27,9 +27,9 @@ public class PHManager {
 			"FV9_21PBFreigBMG", "FV9_21PFreigabe", "FV9_21PFAbarbuebersc",
 			"FV9_21BFreigabe", "FV9_21BFAbarbuebersc", "FV9_21BMG",
 			"FV9_21BMGAbarbuebers", "FV9_22ErprobDauer",
-			"2.3 Softwarefehlerentwicklung", "2.3 Fehlerabbaustatus",
-			//"FV9_24StatusAEKO", 
-			"2.4 Status AEKO",
+			"2.3 Fehlerabbaustatus Software",
+			"FV9_24StatusAEKO", 
+//			"2.4 Status AEKO",
 			"FV9_24AEKOUmsetz",
 
 			"FV9_31PrufMBCub", "FV9_32FugenRad",
@@ -38,6 +38,7 @@ public class PHManager {
 			"FV9_34FuntAussTol", 
 	//		"3.4 Funktionsmasse ausserhalb der Toleranz",
 			"FV9_35AuditNoteZP8", "FV9_35FehlerDenGew",
+			"3.5 Audit Reduzierungsprognose", "3.5 Fehlerpunkte in den Gewerken",
 			"FV9_35NachareitPunk", "FV9_35MassnAbarBF", "FV9_35MassVerAud",
 			"FV9_35AuditZP8Press", "FV9_35AuditZP8Kaross",
 			"FV9_35AuditZP8Lack", "FV9_35AuditZP8Mont", "FV9_35AuditZP8Kauf",
@@ -67,7 +68,9 @@ public class PHManager {
 
 			"6.1 Launchplanung",
 
-			"FV9_71Reifegrads", "7.2 Beschluss",
+			"FV9_71Reifegrads", 
+//			"7.2 Beschluss",
+			"FV9_72Beschluss",
 			"7.2 Uebersicht zukunftige Termine",
 
 			"FV9PHBackup" };

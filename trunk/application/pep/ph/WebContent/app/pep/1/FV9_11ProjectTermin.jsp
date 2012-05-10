@@ -502,7 +502,8 @@
 				OSDiv = getDiv(request, "0S<br>&nbsp;<br>SOP", fv90SMLDate, fv90SMLOrg, OSIndex, tdWidth, marginLeft);
 			}
 			//SOP
-			String sop_time = fv9SOPMLDate.split("-")[1] + "/" + fv9SOPMLDate.split("-")[2];
+			System.out.println("fv9SOPMLDate = " + fv9SOPMLDate);
+			String sop_time = fv9SOPMLDate.split("-")[1] + "/" + fv9SOPMLDate.split("-")[0].substring(2,4);
 			if (SOPIndex != MEIndex && SOPIndex != OSIndex) {
 				SOPDiv = getDiv(request, "SOP<br>&nbsp;<br>" + sop_time, fv9SOPMLDate, fv9SOPMLOrg, SOPIndex, tdWidth, marginLeft);
 			} else if (SOPIndex == OSIndex) {

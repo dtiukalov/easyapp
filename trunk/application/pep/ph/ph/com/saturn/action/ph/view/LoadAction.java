@@ -33,6 +33,7 @@ public class LoadAction implements IAction {
 		"FV9TEPH_Rel",
 		"FV9VSCPH_Rel",
 		"FV9SCPH_Rel",
+		"FV9CP1PH_Rel",
 		"FV9PHBackup_Rel"
 	};
 	

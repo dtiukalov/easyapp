@@ -84,7 +84,7 @@ $(document).ready(function(){
     </div>
 	<div class="ft">
 		<div class="ztu">
-			<a href="<%=request.getContextPath() %>/app/pep/initworkspace.jsp" class="link">
+			<a href="<%=request.getContextPath() %>/app/pep/temp.jsp?type=init" class="link">
 				<img src="<%=request.getContextPath() %>/app/pep/images/footerlogo.jpg" width="130px" height="37px" style="border: 0px;"/>
 			</a>
 		</div>
@@ -104,7 +104,7 @@ $(document).ready(function(){
 		    <%
 		    if ("fawvw".equalsIgnoreCase(platformType1)) {
 		    	%>
-		    	<a href="<%=request.getContextPath() %>/app/pep/logout.do" >
+		    	<a href="<%=request.getContextPath() %>/app/pep/temp.jsp?type=logout" >
 		 	    	<img src="<%=request.getContextPath() %>/app/pep/images/FAWVW-logo.jpg" width="120px" height="41px" border="0"/>
 		 	    </a>
 		 	    <%		
@@ -112,7 +112,7 @@ $(document).ready(function(){
 		    
 		    if ("audi".equalsIgnoreCase(platformType1)) {
 			    %>
-			    <a href="<%=request.getContextPath() %>/app/pep/logout.do" class="link">
+			    <a href="<%=request.getContextPath() %>/app/pep/temp.jsp?type=logout" class="link">
 			   		<img src="<%=request.getContextPath() %>/app/pep/images/Audi-logo.jpg" width="120px" height="41px"  border="0"/>
 			   	</a>
 			    <%	

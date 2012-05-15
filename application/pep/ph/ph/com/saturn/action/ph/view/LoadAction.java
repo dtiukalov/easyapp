@@ -135,10 +135,11 @@ public class LoadAction implements IAction {
 		
 		//PH下存在数据
 		if (indexes != null && indexes.size() > 0) {
-			return new JspView(indexes.get(0));
+			//return new JspView(indexes.get(0));
+			return new JspView("/app/pep/show.jsp");
 		}
 		//PH下不存在符合条件的数据
-		return new JspView("/app/pep/blank.jsp");
+			return new JspView("/app/pep/blank.jsp");
 	}
 	
 }

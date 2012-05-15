@@ -197,7 +197,7 @@
 							}
 						}
 					}, {
-						type: 'spline',
+						type: 'line',
 						name: 'Prognose',
 						data: <%=fv9Prognose%>,
 						color: '#A6DD00',

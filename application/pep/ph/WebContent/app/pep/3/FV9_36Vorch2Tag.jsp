@@ -174,7 +174,7 @@
 						data: <%=fv9IO%>,
 						color: '#008000'
 					}, {
-						type: 'spline',
+						type: 'line',
 						name: 'Prognose in Planung',
 						color: '#0000FE',
 						lineWidth:1,

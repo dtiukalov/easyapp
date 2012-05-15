@@ -268,7 +268,7 @@
 					},
 					data:  <%=fv9FunktionBig100%>
 				}, {
-					type: 'spline',
+					type: 'line',
 					name: 'Zielwert',
 					color: '#FF0000',
 					data: <%=fv9Zielwert%>,

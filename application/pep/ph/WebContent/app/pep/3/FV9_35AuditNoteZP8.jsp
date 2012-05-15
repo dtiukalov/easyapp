@@ -22,35 +22,46 @@
 		String fv9AuditMax = Web.getNumberListStr((List)form.get("fv9AuditMax"));
 		String fv9AuditMin = Web.getNumberListStr((List)form.get("fv9AuditMin"));
 		String fv9Anzahl = Web.getStrListStr((List)form.get("fv9Anzahl"));
-		System.out.println(fv9KWNo);
-		System.out.println(fv9Anzahl);
+
 		List kw_list = (List)form.get("fv9KWNo");
 		List anzahl_list = (List)form.get("fv9Anzahl");
 		StringBuffer x = new StringBuffer();
 		x.append("[");
 
+		int size = 0;
 		int maxHeight = 0;
-		for (int i=0; i<anzahl_list.size(); i++) {
-			String anzahl = (String)anzahl_list.get(i);
-			if (maxHeight == 0)
-				maxHeight = anzahl.length();
+		if (anzahl_list != null && anzahl_list.size() > 0) {
+			size = anzahl_list.size();
+			for (int i=0; i<anzahl_list.size(); i++) {
+				String anzahl = (String)anzahl_list.get(i);
+				if (maxHeight == 0)
+					maxHeight = anzahl.length();
+				
+				if (anzahl.length() > maxHeight) 
+					maxHeight = anzahl.length();
+			}
 			
-			if (anzahl.length() > maxHeight) 
-				maxHeight = anzahl.length();
 		}
 		
-		for (int i=0; i<kw_list.size(); i++) {
-			String anzahl = (String)anzahl_list.get(i);
-			if (anzahl.equals("")) {
-				anzahl = "&nbsp;";
-			} 
-			anzahl = "<span style='writing-mode: tb-rl; height:" + (8 * maxHeight) + "px;'>" + anzahl + "</span>";
-			if (i == kw_list.size()-1) {
-				x.append("\"" + anzahl + "<br>" + kw_list.get(i)+ "\"");
-			} else { 
-				x.append("\"" + anzahl + "<br>" + kw_list.get(i) + "\", ");
+		if (kw_list != null && kw_list.size() > 0) {
+			for (int i=0; i<kw_list.size(); i++) {
+				String anzahl = "";
+				if (i < size) {
+					anzahl = (String)anzahl_list.get(i);
+				} else if (anzahl.equals("")) {
+					anzahl = "&nbsp;";
+				} else {
+					anzahl = "&nbsp;";
+				}
+				anzahl = "<span style='writing-mode: tb-rl; height:" + (8 * maxHeight) + "px;'>" + anzahl + "</span>";
+				if (i == kw_list.size()-1) {
+					x.append("\"" + anzahl + "<br>" + kw_list.get(i)+ "\"");
+				} else { 
+					x.append("\"" + anzahl + "<br>" + kw_list.get(i) + "\", ");
+				}
 			}
-		}
+		}		
+		
 		x.append("]");
 		
 		System.out.println(x.toString());

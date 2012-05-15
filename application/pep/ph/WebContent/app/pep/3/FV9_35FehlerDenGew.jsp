@@ -201,7 +201,7 @@
 						data: <%=fv9PresswerkNum%>,
 						color: '#003C65'
 					}, {
-						type: 'spline',
+						type: 'line',
 						name: 'Prognose',
 						color: '#99CC00',
 						data: <%=fv9PresswerkProg%>,
@@ -308,7 +308,7 @@
 						data: <%=fv9KarossNum%>,
 						color: '#AED4F8'
 					}, {
-						type: 'spline',
+						type: 'line',
 						name: 'Prognose',
 						color: '#99CC00',
 						data: <%=fv9KarossProg%>,
@@ -415,7 +415,7 @@
 						data: <%=fv9LackNum%>,
 						color: '#8994A0'
 					}, {
-						type: 'spline',
+						type: 'line',
 						name: 'Prognose',
 						color: '#99CC00',
 						data: <%=fv9LackProg%>,
@@ -522,7 +522,7 @@
 						data: <%=fv9MontageNum%>,
 						color: '#CFD7D9'
 					}, {
-						type: 'spline',
+						type: 'line',
 						name: 'Prognose',
 						color: '#99CC00',
 						data: <%=fv9MontageProg%>,
@@ -642,7 +642,7 @@
 						data: <%=fv9KaufteileNum%>,
 						color: '#3366FF'
 					}, {
-						type: 'spline',
+						type: 'line',
 						name: 'Prognose',
 						color: '#99CC00',
 						data: <%=fv9KaufteileProg%>,

@@ -33,7 +33,8 @@
 					font-family: Arial; margin-top: 35px;">
 					<b><%=Web.replaceSpecial(fv9FrontTitle) %></b>
 					<br><br>
-					<%=Web.replaceSpecial(fv9FrontSubTitle) %>
+					<span style="font-size: 21px;"><%=Web.replaceSpecial(fv9FrontSubTitle) %></span>
+					
 				</div>
 			</div>
 			<div style="float: left; width: 1000px; height: auto; border-bottom: #000099 2px solid;"></div>

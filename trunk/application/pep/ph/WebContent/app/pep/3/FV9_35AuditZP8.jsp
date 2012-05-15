@@ -205,7 +205,7 @@
 								}
 							}
 						},
-						spline: {
+						line: {
 				//			stacking: 'normal',
 				//			groupPadding:0.35,
 							shadow: false,
@@ -249,12 +249,12 @@
 							lineWidth: 1
 						}
 					}, {
-						type: 'spline',
+						type: 'line',
 						name: 'Prognose',
 						data: <%=fv9PrognoseNum%>,
 						color: '#99CC00'
 					}, {
-						type: 'spline',
+						type: 'line',
 						name: 'Konzernziel',
 						data: <%=fv9KonzernNum%>,
 						color: '#E63110'

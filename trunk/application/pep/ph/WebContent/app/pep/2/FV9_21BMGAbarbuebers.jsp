@@ -18,7 +18,7 @@
 			List<String> fv9BMGType = (List<String>)form.get("fv9BMGType"); //零件类型
 			List<String> fv9BMGTypeNum = (List)form.get("fv9BMGNum");  //认可数量
 			List<String> fv9BMGKWNo = (List)form.get("fv9BMGKWNo");  //周数
-			List<String> fv9BMGPrognose = (List)form.get("fv9BMGPrognose");  //预测值
+			List<String> fv9BMGPrognose = (List)form.get("fv9Prognose");  //预测值
 			List<String> fv9BMGSoll = (List)form.get("fv9BMGSoll");  //fv9BMGSoll
 			List<String> fv9BMGInArbeirt = (List)form.get("fv9BMGInArbeirt");  //fv9BMGInArbeirt
 			List<String> fv9BMGAWE = (List)form.get("fv9BMGAWE");  //fv9BMGAWE
@@ -79,7 +79,11 @@
 					int BFreiSollNUM = Integer.parseInt(fv9BMGSoll.get(m));
 				
 					temptotal = BFAWENUM+BFInArbeirtNUM+BFreiSollNUM;
-					int BMGPrognoseShowNum = (BFAWENUM+BFInArbeirtNUM+BFreiSollNUM) - Integer.parseInt(fv9BMGPrognose.get(m));
+					int bmgprognose = 0;
+					if (fv9BMGPrognose != null && fv9BMGPrognose.size() > m) 
+						bmgprognose = Integer.parseInt(fv9BMGPrognose.get(m));
+					
+					int BMGPrognoseShowNum = (BFAWENUM+BFInArbeirtNUM+BFreiSollNUM) - bmgprognose;
 					
 					
 					/* 最后一列去掉,	 */			
@@ -88,13 +92,24 @@
 						BFAWE.append("{y:" + BFAWENUM + ", low:0, color:'#FFFFCC'}");
 						BFInArbeirt.append("{y:" + BFInArbeirtNUM + ", low:" + BFAWENUM + ", color:'#FFCC00'}");
 						BFreiSoll.append("{y:" + BFreiSollNUM + ", low:" + (BFInArbeirtNUM+BFAWENUM) + ", color:'#00FF00'}");
-						PrognoseShow.append(BMGPrognoseShowNum);
+						
+						if (bmgprognose == 0) {
+							PrognoseShow.append("null");
+						} else {
+							PrognoseShow.append(BMGPrognoseShowNum);
+						}
+						
 					} else {
 						BMGType.append("{y:0, low:0, color:'#FFFFFF'},");
 						BFAWE.append("{y:" + BFAWENUM + ", low:0, color:'#FFFFCC'},");
 						BFInArbeirt.append("{y:" + BFInArbeirtNUM + ", low:" + BFAWENUM + ", color:'#FFCC00'},");
 						BFreiSoll.append("{y:" + BFreiSollNUM + ", low:" + (BFInArbeirtNUM+BFAWENUM) + ", color:'#00FF00'},");
-						PrognoseShow.append(BMGPrognoseShowNum +",");
+						
+						if (bmgprognose == 0) {
+							PrognoseShow.append("null,");
+						} else {
+							PrognoseShow.append(BMGPrognoseShowNum +",");
+						}
 					}
 				}
 			}

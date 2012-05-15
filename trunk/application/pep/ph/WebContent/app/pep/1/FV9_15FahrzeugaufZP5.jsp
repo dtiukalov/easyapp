@@ -128,7 +128,7 @@
 					}
 				},
 				plotOptions: {
-					spline: {
+					line: {
 						dataLabels: {
 							enabled: true
 						},
@@ -183,7 +183,7 @@
 						}
 					}
 				}, {
-					type: 'spline',
+					type: 'line',
 					name: 'Kum Soll',
 					color: '#009C0E',
 					data: <%=sumSoll%>,
@@ -201,7 +201,7 @@
 		                radius: 3
 					}
 				}, {
-					type: 'spline',
+					type: 'line',
 					name: 'Kum lst',
 					color: '#0000FF',
 					data: <%=sumIst%>,

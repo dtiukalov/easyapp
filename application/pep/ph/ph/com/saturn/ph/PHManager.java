@@ -83,7 +83,7 @@ public class PHManager {
 			"FV9_43TeileStat0SKT",
 			"4.3 Terminubersicht ZP7 (KT)", 
 			"4.3 Problemblatt",
-			"4.4 Aggregateverfuegbarkeit ZP3/ZP4",
+			"FV9_44Aggregateverf",
 
 			"FV9_51PrKarLacMon", 
 		//	"FV9_51KarosserStat", 

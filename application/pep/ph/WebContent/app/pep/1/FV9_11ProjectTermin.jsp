@@ -556,12 +556,12 @@
 				<div style="background-color: #B0B0B0; color: white; border: 1px solid; font-size: 12px; font-weight: bolder;
 					text-align: center; float: left;
 					width: <%=width1%>px; height: 16px; margin-left: <%=180+beginPF*tdWidth%>px;">
-					<%=month01 %>&nbsp;Mo
+					<%=month01 %>&nbsp;Mo.
 				</div>
 				<div style="background-color: #808080; color: white; border: 1px solid; font-size: 12px; font-weight: bolder;
 					text-align: center; float: left;
 					width: <%=width2%>px; height: 16px; margin-left: 0px;">
-					<%=month02 %>&nbsp;Mo
+					<%=month02 %>&nbsp;Mo.
 				</div>
 			</div>
 			

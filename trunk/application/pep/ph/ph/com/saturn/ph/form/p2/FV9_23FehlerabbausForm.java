@@ -19,7 +19,7 @@ public class FV9_23FehlerabbausForm extends Form {
 	@Override
 	public String getJspPath() {
 		// TODO Auto-generated method stub
-		return "/app/pep/2/FV9_44Aggregateverf.jsp";
+		return "/app/pep/2/FV9_23Fehlerabbaus.jsp";
 	}
 
 	@Override

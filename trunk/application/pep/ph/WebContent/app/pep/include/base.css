@@ -7,7 +7,7 @@
 
 #container {
 	MARGIN: 0px; WIDTH: 1000px; HEIGHT: 760px;font-family:Arial;
-	
+	border:1px solid red; 
 }
 #container #nr {
 	MARGIN: 0px auto; WIDTH: 1000px

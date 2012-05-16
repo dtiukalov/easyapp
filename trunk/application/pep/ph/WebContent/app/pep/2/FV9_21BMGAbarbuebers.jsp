@@ -525,10 +525,11 @@
 			}
 		%>
 				</table>
-				
-				
 			</div>
-			
+		<%
+		}
+		
+		%>	
 			<div class="biaoshi">
 				<div style="width: 180px; height: 90px; margin: 0px;">&nbsp;</div>
 				<table style="width: 130px; margin-left: 50px; ">
@@ -547,10 +548,7 @@
 				</table>
 			</div>
 		
-		<%
-		}
 		
-		%>
 
 			<div id="chart1" style="width: 950px; height: 340px; float: left; margin: 0px;  margin-left: 30px;"></div>
 		</div>

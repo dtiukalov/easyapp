@@ -12,6 +12,7 @@ import com.saturn.app.web.view.JsonView;
 import com.saturn.ph.PH;
 import com.saturn.ph.PHResource;
 import com.saturn.tc.utils.server.EasyDataManagementService;
+import com.teamcenter.soa.client.model.ModelObject;
 import com.teamcenter.soa.exceptions.NotLoadedException;
 
 public class ListTreeAction implements IAction {
@@ -39,7 +40,9 @@ public class ListTreeAction implements IAction {
 			if(index.contains("=")){
 				String uid = index.split("=")[1];
 				try {
-				    titleName = PH.getDataService().loadModelObjectRefresh(uid).getPropertyDisplayableValue("fv9PageName");
+					ModelObject modelObject = PH.getDataService().loadModelObjectRefresh(uid);
+					PH.getDataService().getProperties(modelObject,"fv9PageName");
+				    titleName = modelObject.getPropertyDisplayableValue("fv9PageName");
 				    if(titleName == null){
 						titleName = "backup";
 					}

@@ -326,6 +326,7 @@
 						style : {
 							fontSize:'10px'
 						},
+						y: 15,
 						color: '#0000FF',
 						formatter: function() {
 							return (<%=temptotal%> -  this.y) + '';

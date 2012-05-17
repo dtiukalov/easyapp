@@ -178,7 +178,7 @@
 					}
 				},
 			    series: [{
-					name: 'Anzahl AEnderungen',
+					name: 'Anzahl Aenderungen',
 					data: [<%=data%>]
 				},{
 					data: [[4.5, 0], [ 4.501, <%=total%>]],
@@ -213,7 +213,7 @@
 				<div id="content">
 					<div style="width: 900px; height: 80px; margin: 0px 0px auto; font-size: 18px; text-align: left; padding-top: 10px; padding-left: 650px;
 						font-family: Arial;">
-						Status 485&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;technisch I.O.  <br>
+						Status 485&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;technisch i.O.  <br>
 						Status 487/496&nbsp;&nbsp;&nbsp;&nbsp;genehmigt  <br>
 						Status 800&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Terminfindung
 					</div>

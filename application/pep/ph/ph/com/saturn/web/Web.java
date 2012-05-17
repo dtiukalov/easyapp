@@ -600,34 +600,44 @@ public class Web {
 	public static Map<String,Object> getDisplaytd(int i,int size, int temp, List<String> list){
 		Map<String,Object> result = new HashMap<String,Object>();
 		String td = "";
-		if(i == 0){
-			if(list.get(i).equalsIgnoreCase(list.get(i+1))){
-				temp++;
-				if(list.get(i+1).equalsIgnoreCase(list.get(i+2))){
-					temp++;
+		
+		if(size == 1){
+			td = "<td class=\"mytd\" width=\"150px\">" + list.get(i) + "</td>";
+		} else {
+			if(i == 0){
+				for(int t=0; t < size-1-i; t++){
+					if(list.get(t).equalsIgnoreCase(list.get(t+1))){
+						temp++;
+					} else {
+						break;
+					}
 				}
+				td = "<td class=\"mytd\" width=\"150px\" rowspan=\"" + temp +"\"> " + list.get(i) + "</td>";
 			}
-			td = "<td class=\"mytd\" width=\"150px\" rowspan=\"" + temp +"\"> " + list.get(i) + "</td>";
+		
+		    if(i > 0 && i < size-1){
+		    	if(temp == 1){
+		    		for(int t=i; t < size-1; t++){
+						if(list.get(t).equalsIgnoreCase(list.get(t+1))){
+							temp++;
+						} else {
+							break;
+						}
+					}
+		    		td = "<td class=\"mytd\" width=\"150px\" rowspan=\"" + temp +"\"> " + list.get(i) + "</td>";
+		    	} else {
+		    		temp--;
+		    	}
+		    }
+		    
+		    if(i == size-1) {
+		    	if(temp == 1){
+		    		td = "<td class=\"mytd\" width=\"150px\" rowspan=\" " + temp +" \"> " + list.get(i) + "</td>";
+		    	} else {
+		    		temp--;
+		    	}
+		    }
 		}
-	
-	    if(i == 1){
-	    	if(temp == 1){
-	    		if(list.get(1).equalsIgnoreCase(list.get(2))){
-	    			temp++;
-				}
-	    		td = "<td class=\"mytd\" width=\"150px\" rowspan=\"" + temp +"\"> " + list.get(i) + "</td>";
-	    	} else {
-	    		temp--;
-	    	}
-	    }
-	    if(i == 2) {
-	    	if(temp == 1){
-	    		td = "<td class=\"mytd\" width=\"150px\" rowspan=\" " + temp +" \"> " + list.get(i) + "</td>";
-	    	} else {
-	    		temp--;
-	    	}
-	    }
-	    
 	    result.put("td", td);
 	    result.put("temp", temp);
 		return result;

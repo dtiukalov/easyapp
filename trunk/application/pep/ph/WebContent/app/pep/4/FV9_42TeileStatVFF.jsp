@@ -44,6 +44,27 @@
 		List<String> fv9TopVSISWZ = (List<String>)form.get("fv9TopVSISWZ");
 		List<String> fv9TopVSIN3 = (List<String>)form.get("fv9TopVSIN3");
 		
+		//计算横线
+		int x_max = 0;
+		double x_max2 = 0;
+		if (Web.getListYesOrNo(teilestName)) {
+			x_max = teilestName.size()-1;
+			x_max2 = teilestName.size()-0.5;
+		}
+		int topLine = 0;
+		if (fv9TotalNum != 0) {
+			topLine = fv9TotalNum;
+		} else {
+			if (Web.getListYesOrNo(teilestName)) {
+				topLine = Integer.parseInt(((List<String>)form.get("fv9TeileAusSerien")).get(0)) + 
+						Integer.parseInt(((List<String>)form.get("fv9TeileFehlend")).get(0)) + 
+						Integer.parseInt(((List<String>)form.get("fv9TeileNote3")).get(0)) + 
+						Integer.parseInt(((List<String>)form.get("fv9TeileNote1")).get(0)) + 
+						Integer.parseInt(((List<String>)form.get("fv9TeileNote6")).get(0));
+			}
+			
+		}
+		System.out.print("topLine = " + topLine);
 	%>
 	<style type="text/css">
 		#subtitle h1{
@@ -105,6 +126,8 @@
 						text: ' '
 					},
 					xAxis: {
+						min:0,
+						max:<%=x_max%>,
 						lineColor:'black',
 						lineWidth:2,
 						tickWidth:0,
@@ -241,6 +264,23 @@
 								},
 								color: 'white'
 							}
+						},{
+							data: [[-0.5, <%=topLine%>], [<%=x_max2%>, <%=topLine%>]],
+								color: 'black',
+								dashStyle: 'dash',
+								lineWidth: 2,
+								marker: {enabled: false},
+								shadow: false,
+								showInLegend: false,
+								enableMouseTracking: false,
+								type: 'line',
+								name: '',
+								dataLabels: {
+									enabled: true,
+									formatter: function() {
+										return "<%=topLine%>";
+									}
+								}
 						}
 				    ]
 				});

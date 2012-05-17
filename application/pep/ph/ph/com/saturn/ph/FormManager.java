@@ -248,8 +248,8 @@ public class FormManager {
 
 		add(new FV9_44AggregateverfForm());
 
-	//	add(new FV9_51KarosserStatForm());
-		add(new FV9_51KarosserStatDataset());
+		add(new FV9_51KarosserStatForm());
+//		add(new FV9_51KarosserStatDataset());
 		add(new FV9_51PrKarLacMonForm());
 		add(new FV9_52LogistikkonzeptForm());
 

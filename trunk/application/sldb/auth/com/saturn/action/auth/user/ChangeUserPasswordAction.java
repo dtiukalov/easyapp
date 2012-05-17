@@ -23,7 +23,7 @@ public class ChangeUserPasswordAction implements IAction {
 		if (user.getPassword().equals(old)) {
 			newP = CodeUtils.encode(newP);
 			user.setPassword(newP);
-			if (User.edit(user) == 1) {
+			if (User.exitUserPassword(user) == 1) {
 				return new JspView("/app/auth/user/changePassword.jsp?result=修改成功");
 			} else {
 				return new JspView("/app/auth/user/changePassword.jsp?result=修改失败");

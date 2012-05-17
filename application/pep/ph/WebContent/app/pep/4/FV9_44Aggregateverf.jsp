@@ -31,9 +31,11 @@
 			List<String> fv9SOPStatus = (List<String>)form.get("fv9SOPStatus");
 			
 			String sopdata  = (String)request.getSession().getAttribute("SOP_DATE");
-	/* 		fv9Motor.set(0,"EA111");
-			fv9Motor.set(1,"EA112");
-			fv9Motor.set(2,"EA112"); */
+			
+			if (session.getAttribute("DATE_SOP") != null) {
+				sopdata = "KW" + DateUtils.getWeekOfYear((String)session.getAttribute("DATE_SOP")) + "/" + 
+						((String)session.getAttribute("DATE_SOP")).split("-")[0].substring(2, 4);
+			}
 		%>
 <script type="text/javascript">
 	
@@ -41,17 +43,9 @@
 <style type="text/css">
 .mytable {
 	width: 100%;
-	overflow: hidden;
 	cellspacing: 0;
 	cellpadding: 0;
-	border-top: 1px #000000 double;
-	border-bottom: 1px #000000 double;
 }
-
-.mytable .mytr {
-	
-}
-
 .mytable .mytd {
 	padding-left: 5px;
 	font-size: 13px;
@@ -59,7 +53,6 @@
 	white-space: normal;
 	overflow: hidden;
 	border-bottom: 1px solid #000000;
-	border-top: 1px solid #000000;
 }
 
 .mytd {
@@ -100,17 +93,21 @@
 						<td class="mytd" width="80px">SOP</td>
 					</tr>
 				</table>
-
-				<HR SIZE=3 color=000000>
 				<table class="mytable">
+					<tr><td colspan="12" style="width:100%;height:3px; border-bottom: 3px solid black; "></td></tr>
+					<tr><td colspan="12" style="width:100%;height:2px; border-bottom: 1px solid black; "></td></tr>
 				<%
 				int temp1 = 1;
 				int temp2 = 1;
 				int size = fv9Market.size();
+				int height = 60;
+				if(size > 4){
+					height = 400/size;
+				}
 				if(fv9Market!=null && size>0){
 					for(int i=0;i<size;i++){
 				%>
-					<tr>
+					<tr height="<%=height%>">
 						<%
 					   if(i == 0){ %>
 						<td class="mytd" width="150px" rowspan="<%=fv9Market.size()%>">&nbsp;<%=sopdata %></td>
@@ -192,13 +189,13 @@
 						<td class="mytd" width="80px">
 							<%if(Web.getObjectYesOrNo(fv9VFFStatus)){
 					    	if(fv9VFFStatus.get(i).equals("绿")){%> <img
-							src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg"
+							src="<%=request.getContextPath()%>/app/pep/images/greenBig.jpg"
 							width="30" height="70" /> <%} else if(fv9VFFStatus.get(i).equals("黄")){%>
 							<img
-							src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png"
+							src="<%=request.getContextPath()%>/app/pep/images/yellowBig.jpg"
 							width="30" height="70" /> <%} else if(fv9VFFStatus.get(i).equals("红")){%>
 							<img
-							src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png"
+							src="<%=request.getContextPath()%>/app/pep/images/redBig.jpg"
 							width="30" height="70" /> <%}
 					   } else {
 						  %> &nbsp;&nbsp; <%
@@ -209,13 +206,13 @@
 						<td class="mytd" width="80px">
 							<%if(Web.getObjectYesOrNo(fv9PVSStatus)){
 						   if(fv9PVSStatus.get(i).equals("绿")){%> <img
-							src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg"
+							src="<%=request.getContextPath()%>/app/pep/images/greenBig.jpg"
 							width="30" height="70" /> <%} else if(fv9PVSStatus.get(i).equals("黄")){%>
 							<img
-							src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png"
+							src="<%=request.getContextPath()%>/app/pep/images/yellowBig.jpg"
 							width="30" height="70" /> <%} else if(fv9PVSStatus.get(i).equals("红")){%>
 							<img
-							src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png"
+							src="<%=request.getContextPath()%>/app/pep/images/redBig.jpg"
 							width="30" height="70" /> <%}
 					   } else {
 						  %> &nbsp;&nbsp;<%
@@ -226,13 +223,13 @@
 						<td class="mytd" width="80px">
 							<%if(Web.getObjectYesOrNo(fv90SStatus)){
 					    	if(fv90SStatus.get(i).equals("绿")){%> <img
-							src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg"
+							src="<%=request.getContextPath()%>/app/pep/images/greenBig.jpg"
 							width="30" height="70" /> <%} else if(fv90SStatus.get(i).equals("黄")){%>
 							<img
-							src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png"
+							src="<%=request.getContextPath()%>/app/pep/images/yellowBig.jpg"
 							width="30" height="70" /> <%} else if(fv90SStatus.get(i).equals("红")){%>
 							<img
-							src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png"
+							src="<%=request.getContextPath()%>/app/pep/images/redBig.jpg"
 							width="30" height="70" /> <%}
 					   } else {
 						  %> &nbsp;&nbsp; <%
@@ -262,10 +259,9 @@
 					}
 				}	
 				%>
+					<tr><td colspan="12" style="width:100%;height:3px; border-bottom: 3px solid black; "></td></tr>
+					
 				</table>
-
-				<HR SIZE=3 color=000000>
-
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 		</div>

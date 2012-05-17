@@ -108,7 +108,7 @@
 			                style: {
 			                    fontSize:'16px'
 			                },
-			                color:'black'
+			                color:'white'
 			            }
 			        }
 				},
@@ -118,7 +118,7 @@
 					data: [{  
 							y: <%=fv9Genehmigt %>,
 							low:0,
-							color: '#0000FF'
+							color: '#00235A'
 						}, {
 						 	y: <%=fv9PPCOP %>,
 						 	low:0,

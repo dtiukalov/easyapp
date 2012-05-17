@@ -49,7 +49,7 @@
 				categories.add("Gesamt");
 				BMGType.append("{y:" + sum + ", low:0, color:'#0200FE'},");
 				BFreiSoll.append("{y:0, low:0, color:'#0200FE'},");
-				BFInArbeirt.append("{y:0, low:0, color:'#FFCC00'},");
+				BFInArbeirt.append("{y:0, low:0, color:'#F9A700'},");
 				BFAWE.append("{y:0, low:0, color:'#FFFFCC'},");
 				PrognoseShow.append("null,");
 				
@@ -65,7 +65,7 @@
 					}
 					BMGType.append("{y:" + y + ", low:" + low + ", color:'" + color + "'},");
 					BFreiSoll.append("{y:0, low:0, color:'0200FE'},");
-					BFInArbeirt.append("{y:0, low:0, color:'#FFCC00'},");
+					BFInArbeirt.append("{y:0, low:0, color:'#F9A700'},");
 					BFAWE.append("{y:0, low:0, color:'#FFFFCC'},");
 					PrognoseShow.append("null,");
 				}
@@ -90,8 +90,8 @@
 					if (m == fv9BMGKWNo.size()-1) {
 						BMGType.append("{y:0, low:0, color:'#FFFFFF'}");
 						BFAWE.append("{y:" + BFAWENUM + ", low:0, color:'#FFFFCC'}");
-						BFInArbeirt.append("{y:" + BFInArbeirtNUM + ", low:" + BFAWENUM + ", color:'#FFCC00'}");
-						BFreiSoll.append("{y:" + BFreiSollNUM + ", low:" + (BFInArbeirtNUM+BFAWENUM) + ", color:'#00FF00'}");
+						BFInArbeirt.append("{y:" + BFInArbeirtNUM + ", low:" + BFAWENUM + ", color:'#F9A700'}");
+						BFreiSoll.append("{y:" + BFreiSollNUM + ", low:" + (BFInArbeirtNUM+BFAWENUM) + ", color:'#009C0E'}");
 						
 						if (bmgprognose == 0) {
 							PrognoseShow.append("null");
@@ -102,8 +102,8 @@
 					} else {
 						BMGType.append("{y:0, low:0, color:'#FFFFFF'},");
 						BFAWE.append("{y:" + BFAWENUM + ", low:0, color:'#FFFFCC'},");
-						BFInArbeirt.append("{y:" + BFInArbeirtNUM + ", low:" + BFAWENUM + ", color:'#FFCC00'},");
-						BFreiSoll.append("{y:" + BFreiSollNUM + ", low:" + (BFInArbeirtNUM+BFAWENUM) + ", color:'#00FF00'},");
+						BFInArbeirt.append("{y:" + BFInArbeirtNUM + ", low:" + BFAWENUM + ", color:'#F9A700'},");
+						BFreiSoll.append("{y:" + BFreiSollNUM + ", low:" + (BFInArbeirtNUM+BFAWENUM) + ", color:'#009C0E'},");
 						
 						if (bmgprognose == 0) {
 							PrognoseShow.append("null,");
@@ -249,7 +249,7 @@
 			    series: [{
 					name: 'BMGType',
 					data: <%=BMGType%>,
-					color: '#00FF00',
+					color: '#009C0E',
 					type: 'column',
 					dashStyle: 'dash',
 					marker: {enabled: false},
@@ -268,7 +268,7 @@
 				},{
 					name: 'BMG frei Soll',
 					data: <%=BFreiSoll%>,
-					color: '#00FF00',
+					color: '#009C0E',
 					type: 'column',
 					dashStyle: 'dash',
 					marker: {enabled: false},
@@ -285,7 +285,7 @@
 				},{
 					name: 'in Arbeit',
 					data: <%=BFInArbeirt%>,
-					color: '#FFCC00',
+					color: '#F9A700',
 					type: 'column',
 					dashStyle: 'dash',
 					marker: {enabled: false},
@@ -535,7 +535,7 @@
 				<div style="width: 180px; height: 90px; margin: 0px;">&nbsp;</div>
 				<table style="width: 130px; margin-left: 50px; ">
 					<tr>
-						<td style="background-color: #00FF00; width: 15px; height: 15px;"></td>
+						<td style="background-color: #009C0E; width: 15px; height: 15px;"></td>
 						<td style="font-size: 14px; height: 15px;">BMG frei Soll</td>
 					</tr>
 					<tr>
@@ -543,7 +543,7 @@
 						<td style="font-size: 14px; height: 15px;">AWE</td>
 					</tr>
 					<tr>
-						<td style="background-color: #FFCC00; width: 15px; height: 15px;"></td>
+						<td style="background-color: #F9A700; width: 15px; height: 15px;"></td>
 						<td style="font-size: 14px; height: 15px;">in Arbeit</td>
 					</tr>
 				</table>

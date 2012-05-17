@@ -228,7 +228,7 @@
 						dataLabels: {
 							enabled: true,
 							style : {
-								fontSize:'13px'
+								fontSize:'11px'
 							},
 							color: 'black',
 							formatter: function() {
@@ -248,7 +248,7 @@
 					dataLabels: {
 						enabled: true,
 						style : {
-							fontSize:'13px'
+							fontSize:'11px'
 						},
 						color: 'white'
 					}
@@ -263,7 +263,7 @@
 					dataLabels: {
 						enabled: true,
 						style : {
-							fontSize:'13px'
+							fontSize:'11px'
 						},
 						color: 'white'
 					}

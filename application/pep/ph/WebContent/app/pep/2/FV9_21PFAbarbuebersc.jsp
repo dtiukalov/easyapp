@@ -36,7 +36,7 @@
 			
 				categories.add("Gesamt");
 				BFreiSoll.append("{y:" + sum + ", low:0, color:'#0200FE'},");
-				BFInArbeirt.append("{y:0, low:0, color:'#FFCC00'},");
+				BFInArbeirt.append("{y:0, low:0, color:'#F9A700'},");
 				BFAWE.append("{y:0, low:0, color:'#FFFFCC'},");
 				
 				int temp = 0;
@@ -50,7 +50,7 @@
 						color = "#FF00FE";
 					}
 					BFreiSoll.append("{y:" + y + ", low:" + low + ", color:'" + color + "'},");
-					BFInArbeirt.append("{y:0, low:0, color:'#FFCC00'},");
+					BFInArbeirt.append("{y:0, low:0, color:'#F9A700'},");
 					BFAWE.append("{y:0, low:0, color:'#FFFFCC'},");
 				}
 				
@@ -63,8 +63,8 @@
 					int BFreiSollNUM = Integer.parseInt(fv9PFreiSoll.get(m));
 					
 					BFAWE.append("{y:" + BFAWENUM + ", low:0, color:'#FFFFCC'},");
-					BFInArbeirt.append("{y:" + BFInArbeirtNUM + ", low:" + BFAWENUM + ", color:'#FFCC00'},");
-					BFreiSoll.append("{y:" + BFreiSollNUM + ", low:" + (BFInArbeirtNUM+BFAWENUM) + ", color:'#00FF00'},");
+					BFInArbeirt.append("{y:" + BFInArbeirtNUM + ", low:" + BFAWENUM + ", color:'#F9A700'},");
+					BFreiSoll.append("{y:" + BFreiSollNUM + ", low:" + (BFInArbeirtNUM+BFAWENUM) + ", color:'#009C0E'},");
 					
 				}
 			}
@@ -205,7 +205,7 @@
 			    series: [{
 					name: 'P Freigaben Soll',
 					data: <%=BFreiSoll%>,
-					color: '#00FF00',
+					color: '#009C0E',
 					type: 'column',
 					dashStyle: 'dash',
 					marker: {enabled: false},
@@ -222,7 +222,7 @@
 				},{
 					name: 'in arbeit',
 					data: <%=BFInArbeirt%>,
-					color: '#FFCC00',
+					color: '#F9A700',
 					type: 'column',
 					dashStyle: 'dash',
 					marker: {enabled: false},

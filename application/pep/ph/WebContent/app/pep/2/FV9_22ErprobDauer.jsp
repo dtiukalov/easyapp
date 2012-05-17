@@ -37,7 +37,10 @@
 			if(form.get("fv9ErprobNachSch_CN") != null){
 				fv9ErprobNachSch_CN = (List)form.get("fv9ErprobNachSch_CN"); //下一步工作描述-中文
 			}
-			%>
+		%>
+		<style type="text/css">
+		td {word-break: break-all; word-wrap: break-word;}
+		</style>
 	</head>
 	<body>
 		<div id="container">
@@ -106,7 +109,7 @@
 						              <td>
 						              	<table width="100%" border="0" cellspacing="2" cellpadding="0" > 
 								            <tr>
-								              <td width="60%"><%=stcom_gm %></td>
+								              <td width="60%"><div style="padding-right: 25px;"><%=stcom_gm %></div></td>
 								              <td width="40%" valign="top"><%=nachsch_gm %></td>
 								            </tr>
 								        </table>
@@ -176,7 +179,7 @@
 				              <td height="25">
 				              	<table width="98%" border="0" cellspacing="2" cellpadding="0" >
 						            <tr>
-						              <td width="60%" ><%=stcom_cn %></td>
+						              <td width="60%" ><div style="padding-right: 25px;"><%=stcom_cn %></div></td>
 						              <td width="40%" valign="top"><%=nachsch_cn %></td>
 						            </tr>
 						          </table>

@@ -57,7 +57,7 @@
 			String[] keys = new String[fv9StyleName.size() + 2];
 			int[] lows = new int[fv9StyleName.size() + 2];
 			int[] values = new int[fv9StyleName.size() + 2];
-			String[] colors = {"'#0000FF'", "'#FFCC00'", "'#339966'", "'#339966'", "'#339966'", "'#0000FF'", 
+			String[] colors = {"'#0000FF'", "'#F9A700'", "'#339966'", "'#339966'", "'#339966'", "'#0000FF'", 
 					"'#00FF00'", "'#00CCFF'", "'#00CCFF'", "'#00CCFF'", "'#00CCFF'"};
 			
 			keys[0] = "Gesamt"; values[0] = num1+num2+num3+num4; lows[0] = 0;

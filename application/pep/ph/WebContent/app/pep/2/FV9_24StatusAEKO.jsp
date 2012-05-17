@@ -113,14 +113,21 @@
 			chart1 = new Highcharts.Chart({
 				chart: {
 					renderTo: 'chart',
-					defaultSeriesType: 'column'
-		//			marginLeft:30
+					defaultSeriesType: 'column',
+					margin: [0, 200, 60, 0] 
+				//           上      右     下
 				},
 				title: {
-					text: ''
+					text: 'Anzahl Aenderungen',
+					style:{
+						color:'black',
+						fontSize:'18px'
+					},
+					align:'left',
+					y:40
 				},
 				subtitle: {
-					text: 'Anzahl Aenderungen',
+					text: ' ',
 					style:{
 						color:'black',
 						fontSize:'18px'
@@ -312,8 +319,8 @@
 				<h1><%=title %></h1>
 			</div>
 			<div id="content">
-				<div style="width: 60px; height: 60px; margin-left: 20px; text-align: center; vertical-align: bottom; float: left;font-family: Arail; font-size: 11px; padding-top: 455px;">
-					KW<br><br>
+				<div style="width: 60px; height: 60px; margin-left: 20px; text-align: center; vertical-align: bottom; float: left;font-family: Arail; font-size: 11px; padding-top: 460px;">
+					KW<br><br><br>
 					Anzahl <br> neuer <br> AEKOs
 				</div>
 				<div id="chart" style="width: 910px; height: 520px; float: left; margin: 0px 0px auto;"></div>

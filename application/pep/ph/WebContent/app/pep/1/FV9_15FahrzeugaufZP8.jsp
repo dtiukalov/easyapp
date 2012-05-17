@@ -198,6 +198,7 @@
 						style : {
 							fontSize:'16px'
 						},
+						y: -10,
 						color: 'black',
 						formatter: function() {
 							if (this.y == 0 || this.y == 0.0 || this.y == null) {
@@ -222,6 +223,7 @@
 						style : {
 							fontSize:'16px'
 						},
+						y: 20,
 						color: 'black',
 						formatter: function() {
 							if (this.y == 0 || this.y == 0.0 || this.y == null) {

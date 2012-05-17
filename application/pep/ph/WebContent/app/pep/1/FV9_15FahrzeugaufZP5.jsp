@@ -192,6 +192,7 @@
 						style : {
 							fontSize:'16px'
 						},
+						y: -10,
 						color: 'black'
 					},
 					marker:{
@@ -210,6 +211,7 @@
 						style : {
 							fontSize:'16px'
 						},
+						y: 25,
 						color: 'black',
 						formatter: function() {
 							if (this.y == 0 || this.y == 0.0 || this.y == null) {

@@ -73,7 +73,9 @@
 			<table class="stufeTable">
 				<tr>
 					<td style="width: 20px; text-align: center;">&nbsp;</td>
-					<td style="width: 100px; vertical-align: bottom;"><b>Stufe</b></td>
+					<td style="width: 100px; vertical-align: bottom;">
+						<span style="font-size: 11px; font-weight: bold;">Stufe</span>
+					</td>
 
 			<% 
 				String temp = "";
@@ -128,7 +130,7 @@
 			%>
 	
 						
-					<td colspan="<%=bb.num%>" style="text-align: center; vertical-align: bottom; font-weight: bold;">
+					<td colspan="<%=bb.num%>" style="text-align: center; vertical-align: bottom; font-size: 11px; font-weight: bold;">
 						<%=bb.kw %>
 						<%if(bb.flag==true){%>
 						<div style="width: 2px; background-color: red; 
@@ -258,7 +260,7 @@
 	   				<td style="width: 20px; height: 20px; background-color: #8994A0;">&nbsp;</td>
 	   				<td>Lack</td>
 	   				<td style="width: 20px; height: 20px; background-color: #91AFFF;">&nbsp;</td>
-	   				<td>UEbergabe</td>
+	   				<td>Uebergabe</td>
 	   			</tr>
 	   		</table>
 	    </div>

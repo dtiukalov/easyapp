@@ -691,7 +691,9 @@
 							<td style="height: 15px;">Fehlerpunkte</td>
 						</tr>
 						<tr>
-							<td style="width: 15px; height: 15px; color: #99CC00;">---</td>
+							<td style="width: 15px; height: 15px;">
+								<div style="width: 100%; height: 2px; background-color: #99CC00;"></div>
+							</td>
 							<td>Prognose</td>
 						</tr>
 						<tr>

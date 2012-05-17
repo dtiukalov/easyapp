@@ -199,7 +199,16 @@
 								return this.y + '';
 							}
 						}
-					}
+					},
+					series: {
+			            dataLabels: {
+			                enabled: true,
+			                style: {
+			                    fontSize:'12px'
+			                },
+			                color:'white'
+			            }
+			        }
 				},
 				legend: {
 					layout: 'vertical',
@@ -215,11 +224,11 @@
 				},
 				series: [{
 						name: 'C Fehler',
-						color: '#99FF99',
+						color: '#009C0E',
 						data: <%=valuec.toString()%>
 					}, {
 						name: 'B Fehler',
-						color: '#91AFFF',
+						color: '#0000FF',
 						data: <%=valueb.toString()%>
 					}, {
 						name: 'A Fehler',

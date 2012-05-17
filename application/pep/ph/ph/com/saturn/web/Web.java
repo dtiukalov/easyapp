@@ -595,4 +595,42 @@ public class Web {
 		return str.replaceAll("\n", "<br>").replaceAll("\"", "\\\"")
 			.replaceAll("”", "\\\"").replaceAll("\'", "\\\'");
 	}
+	
+	//合并列
+	public static Map<String,Object> getDisplaytd(int i,int size, int temp, List<String> list){
+		Map<String,Object> result = new HashMap<String,Object>();
+		String td = "";
+		if(i == 0){
+			if(list.get(i).equalsIgnoreCase(list.get(i+1))){
+				temp++;
+				if(list.get(i+1).equalsIgnoreCase(list.get(i+2))){
+					temp++;
+				}
+			}
+			td = "<td class=\"mytd\" width=\"150px\" rowspan=\"" + temp +"\"> " + list.get(i) + "</td>";
+		}
+	
+	    if(i == 1){
+	    	if(temp == 1){
+	    		if(list.get(1).equalsIgnoreCase(list.get(2))){
+	    			temp++;
+				}
+	    		td = "<td class=\"mytd\" width=\"150px\" rowspan=\"" + temp +"\"> " + list.get(i) + "</td>";
+	    	} else {
+	    		temp--;
+	    	}
+	    }
+	    if(i == 2) {
+	    	if(temp == 1){
+	    		td = "<td class=\"mytd\" width=\"150px\" rowspan=\" " + temp +" \"> " + list.get(i) + "</td>";
+	    	} else {
+	    		temp--;
+	    	}
+	    }
+	    
+	    result.put("td", td);
+	    result.put("temp", temp);
+		return result;
+	}
+	
 }

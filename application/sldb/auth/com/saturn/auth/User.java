@@ -80,6 +80,12 @@ public class User {
 						user.getPassword(),user.getId());
 	}
 	
+	public static int exitUserPassword(User user) {
+		return SimpleDaoTemplate
+				.update("UPDATE auth_users SET password = ? WHERE id = ?",
+						user.getPassword(),user.getId());
+	}
+	
 	public static User get(String id) {
 		//指定值对象类型(VOClass)。例子VOClass=User
 		//指定表主键(key)。例子:key=id

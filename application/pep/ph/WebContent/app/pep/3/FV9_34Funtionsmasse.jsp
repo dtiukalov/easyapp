@@ -83,7 +83,7 @@
 			String fv9FunktionBig100 = Web.getNumberListStr(funktionBig100);	//i.O
 			
 			String fv9Zielwert = Web.getNumberListStr(form.get("fv9Zielwert")); //目标
-			//[70.0, 70.0, 70.0, 70.0, 70.0, 70.0, 70.0, 70.0], null, null,
+			
 			if (!"[]".equals(fv9Zielwert)) {
 				fv9Zielwert = fv9Zielwert.replaceAll("]", "");
 				String lastZiel = ((List<String>)form.get("fv9Zielwert")).get(((List)form.get("fv9Zielwert")).size()-1);
@@ -201,7 +201,8 @@
 							 padding:'5px',
 							 font: 'normal 14px Arial, sans-serif',
 							 fontWeight: 'bold'
-						}}
+						}
+					}
 				},
 				legend:{
 					borderWidth:0,
@@ -270,7 +271,7 @@
 				}, {
 					type: 'line',
 					name: 'Zielwert',
-					color: '#FF0000',
+					color: '#E63110',
 					data: <%=fv9Zielwert%>,
 					marker: {
 						enabled: false,

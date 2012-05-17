@@ -214,7 +214,7 @@
 			  <td rowspan="11" class="mileStone">
 				  	<img src="<%=projectStatusImage %>" alt="里程碑状态" width="50" height="118"/>
 				 	<br>
-				 	<div style="width: 100%;"><%=fv9PHMeetStyle_GM %></div>
+				 	<div style="width: 100%; font-size: 14px; font-weight: bold;"><%=fv9PHMeetStyle_GM %></div>
 			  </td>
 			  <td class="titleStyleTD">Produktstand</td>
 			  <td class="statusTD">
@@ -311,7 +311,7 @@
 			  <td rowspan="11" class="mileStone">
 				  	<img src="<%=projectStatusImage %>" alt="里程碑状态" width="50" height="118"/>
 				 	<br>
-				 	<div style="width: 100%;"><%=fv9PHMeetStyle_CN %></div>
+				 	<div style="width: 100%; font-size: 14px; font-weight: bold;"><%=fv9PHMeetStyle_CN %></div>
 			  </td>
 			  <td class="titleStyleTD">产品状态</td>
 			  <td class="statusTD">

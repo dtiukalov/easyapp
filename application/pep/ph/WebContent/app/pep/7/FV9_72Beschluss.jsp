@@ -35,7 +35,7 @@
 		    		</td>
 		    	</tr>
 		    	<tr>
-		    		<td colspan="4" style="height:110px;; font-size: 14px; ">
+		    		<td colspan="4" style="height:80px; font-size: 14px; ">
 		    		<%=fv9BeschlussPH %>
 		    		</td>
 		    	</tr>
@@ -45,7 +45,7 @@
 		    		</td>
 		    	</tr>
 		    	<tr>
-		    		<td colspan="4" style="height:126px; font-size: 14px; ">
+		    		<td colspan="4" style="height:156px; font-size: 14px; ">
 		    		<%=fv9Beschlussantrag %>
 		    		</td>
 		    	</tr>
@@ -79,7 +79,7 @@
 		    		StringBuffer sb = new StringBuffer();
 		    		for (int d=row*4; d<(row+1)*4; d++) {
 		    			String dept = getDept(fv9BeschlussDept, d);
-		    			sb.append("<td style='text-align: center; width: 25%; height: " + height + "px;'>");
+		    			sb.append("<td style='text-align: center; width: 25%; height: " + height + "px;padding-top:" + (height/5) + "px;'>");
 		    			if (!"&nbsp;".equals(dept))
 		    				sb.append("<div style='margin-left:15%;margin-right:15%;width:70%;height:1px;background-color:#303030;font-size: 14px; '>" + dept + "</div>");
 		    			sb.append("</td>");

@@ -20,7 +20,12 @@
 			String sumSoll = Web.getSumNumberListStr(form.get("fv9ZP5NumSoll"));
 			String ist = Web.getNumberListStr(form.get("fv9ZP5Numlst"));
 			
-			String fv9ReportKW = (String)request.getSession().getAttribute("fv9ReportKW");
+			String fv9ReportKW = "";
+			if (session.getAttribute("fv9ReportKW") != null) {
+				fv9ReportKW = Integer.parseInt(
+						((String)session.getAttribute("fv9ReportKW")).replaceAll("kw", "").replaceAll("KW", "")) + "";
+			}
+			
 			
 			String sumIst = "[]";
 			if(fv9ReportKW!= null && !"".equals(fv9ReportKW) && kws.contains(fv9ReportKW)){

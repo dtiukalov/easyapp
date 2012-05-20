@@ -15,7 +15,7 @@
 	BORDER-BOTTOM: #000099 2px solid; height:90px; OVERFLOW: hidden; 
 }
 #top H1 {
-	FONT-FAMILY: Arial, Helvetica, sans-serif; FONT-SIZE: 32px; margin-top:10px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif; FONT-SIZE: 32px; margin-top:10px; margin-left: 20px;
 }
 #content {
 	margin: 0px;

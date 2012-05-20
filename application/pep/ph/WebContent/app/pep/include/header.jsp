@@ -1,3 +1,4 @@
+<%@page import="com.saturn.ph.PHResource"%>
 <%@page import="com.teamcenter.soa.client.model.ModelObject"%>
 <META http-equiv="Pragma" content="no-cache">
 <META http-equiv="Expires" content="-1">
@@ -114,3 +115,63 @@
 	}
 	
 </script>
+
+<!-- 右边折叠菜单点击展开  -->
+<style>
+	#righteject {
+		Z-INDEX: 900000000; POSITION: fixed; TOP: 30px; left: 0px; _position: absolute; width: 5px;
+	}
+	.rightejecttit {
+		TEXT-ALIGN: center; BACKGROUND-COLOR: white; WIDTH: 3px; DISPLAY: block; FLOAT: left; HEIGHT: 35px; COLOR: #fff; CURSOR: pointer
+	}
+	.rightejectcon {
+		BACKGROUND-COLOR: #ccc; WIDTH: 0px; FLOAT: left; HEIGHT: 620px; OVERFLOW: scroll; 
+	}
+	.rightejecttit SPAN {
+		Z-INDEX: 910000000; POSITION: relative; DISPLAY: block; TOP: 50%
+	}
+	.rightejectthis {
+		BACKGROUND-COLOR: #930
+	}
+</style>
+
+<SCRIPT type=text/javascript>
+$(document).ready(function(){
+	$('#righteject strong').toggle(
+		function () {
+			$(this).addClass("rightejectthis").next("div").animate({width: '+350px'}, "100");
+			$('#rightejectcon').css("display", "");
+	  	},
+		function () {
+			$(this).removeClass("rightejectthis").next("div").animate({width: '-350px'}, "100");
+			$('#rightejectcon').css("display", "none");
+		}
+	);
+	/*下面这一句只是为了让标题中的文本垂直居中，如果你使用图片做tit或者你知道span的高度，你可以删除它，在.rightejecttit span写上margin-top:span高度的一半*/
+	$('#righteject strong span').css("margin-top",-$('#righteject strong span').height()*0.5);
+});
+</SCRIPT>
+
+<!--右边折叠菜单html代码--->
+<DIV id="righteject">
+	<STRONG class="rightejecttit"><SPAN>&nbsp;</SPAN></STRONG> 
+	<DIV class="rightejectcon" id="rightejectcon" style="display: none;">
+		<ul style="text-align: left; font-size: 12px; font-weight: bold;">
+		<%
+		List<PHResource> indexLeftList = (List<PHResource>)session.getAttribute("indexList");
+		System.out.println("indexList size = " + indexLeftList.size());
+		for (PHResource resource : indexLeftList) {
+			int indexId = resource.getId();
+			String text = resource.getText();
+			String path = request.getContextPath() + resource.getPath();
+	//		System.out.println("indexId = " + indexId + " text = " + text + " path = " + path);	
+			String li = "<li><a href='" + path + "' style=''>" + text + "</a>";
+		%>
+		<%=li %>
+		<%
+		}
+		%>
+			
+		</ul>
+	</DIV>
+</DIV>

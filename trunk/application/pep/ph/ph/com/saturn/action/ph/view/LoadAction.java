@@ -13,9 +13,11 @@ import com.saturn.app.web.IView;
 import com.saturn.app.web.WebHelper;
 import com.saturn.app.web.view.JspErrorView;
 import com.saturn.app.web.view.JspView;
+import com.saturn.ph.IndexManager;
 import com.saturn.ph.PH;
 import com.saturn.ph.PHBuffer;
 import com.saturn.ph.PHManager;
+import com.saturn.ph.PHResource;
 import com.saturn.tc.utils.ItemUtils;
 import com.teamcenter.soa.client.model.ModelObject;
 import com.teamcenter.soa.client.model.strong.Item;
@@ -135,8 +137,13 @@ public class LoadAction implements IAction {
 		
 		//PH下存在数据
 		if (indexes != null && indexes.size() > 0) {
-			//return new JspView(indexes.get(0));
-			return new JspView("/app/pep/show.jsp");
+System.out.println("indexes size = " + indexes.size());
+System.out.println("indexes.get(0) = " + indexes.get(0));		
+			List<PHResource> indexList = IndexManager.getListTree(indexes);
+			request.getSession().setAttribute("indexList", indexList);
+		
+			return new JspView(indexes.get(0));
+	//		return new JspView("/app/pep/show.jsp");
 		}
 		//PH下不存在符合条件的数据
 			return new JspView("/app/pep/blank.jsp");

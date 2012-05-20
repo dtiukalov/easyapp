@@ -15,12 +15,12 @@
 <%@ include file="/app/pep/include/header.jsp"%>
 <title><%=title %></title>
 <%!
-public static Map<String,Object> getDisplaytd(int i,int size, int temp, List<String> list){
+public static Map<String,Object> getDisplaytd(int i,int size, int temp, List<String> list, String tdClass){
 	Map<String,Object> result = new HashMap<String,Object>();
 	String td = "";
 	
 	if(size == 1){
-		td = "<td class=\"mytd\" width=\"150px\">" + list.get(i) + "</td>";
+		td = "<td class=\"" + tdClass + "\" width=\"150px\">" + list.get(i) + "</td>";
 	} else {
 		if(i == 0){
 			for(int t=0; t < size-1-i; t++){
@@ -30,7 +30,7 @@ public static Map<String,Object> getDisplaytd(int i,int size, int temp, List<Str
 					break;
 				}
 			}
-			td = "<td class=\"mytd\" width=\"150px\" rowspan=\"" + temp +"\"> " + list.get(i) + "</td>";
+			td = "<td class=\"" + tdClass + "\" width=\"150px\" rowspan=\"" + temp +"\"> " + list.get(i) + "</td>";
 		}
 	
 	    if(i > 0 && i < size-1){
@@ -42,7 +42,7 @@ public static Map<String,Object> getDisplaytd(int i,int size, int temp, List<Str
 						break;
 					}
 				}
-	    		td = "<td class=\"mytd\" width=\"150px\" rowspan=\"" + temp +"\"> " + list.get(i) + "</td>";
+	    		td = "<td class=\"" + tdClass + "\" width=\"150px\" rowspan=\"" + temp +"\"> " + list.get(i) + "</td>";
 	    	} else {
 	    		temp--;
 	    	}
@@ -50,7 +50,7 @@ public static Map<String,Object> getDisplaytd(int i,int size, int temp, List<Str
 	    
 	    if(i == size-1) {
 	    	if(temp == 1){
-	    		td = "<td class=\"mytd\" width=\"150px\" rowspan=\" " + temp +" \"> " + list.get(i) + "</td>";
+	    		td = "<td class=\"" + tdClass + "\" width=\"150px\" rowspan=\" " + temp +" \"> " + list.get(i) + "</td>";
 	    	} else {
 	    		temp--;
 	    	}
@@ -101,6 +101,14 @@ public static Map<String,Object> getDisplaytd(int i,int size, int temp, List<Str
 			overflow: hidden;
 			border-bottom: 1px solid #000000;
 		}
+		.mytable .mytd1 {
+			padding-left: 5px;
+			font-weight: bolder;
+			font-size: 13px;
+			text-align: center;
+			white-space: normal;
+			overflow: hidden;
+		}
 		.mytd {
 			padding-left: 5px;
 			font-weight: bolder;
@@ -143,52 +151,82 @@ public static Map<String,Object> getDisplaytd(int i,int size, int temp, List<Str
 				int temp1 = 1;
 				int temp2 = 1;
 				int size = fv9Market.size();
-				int height = 60;
+				double height = 60;
 				if(size > 4){
-					height = 400/size;
+					height = 400.0/size;
 				}
 				if(fv9Market!=null && size>0){
 					for(int i=0;i<size;i++){
+						String tdClass = "";
+						if (i == size-1) {
+							tdClass = "mytd1";
+						} else {
+							tdClass = "mytd";
+						}
 				%>
 					<tr height="<%=height%>">
 						<%
 					   if(i == 0){ %>
-						<td class="mytd" width="150px" rowspan="<%=fv9Market.size()%>">&nbsp;<%=sopdata %></td>
+						<td class="mytd1" width="150px" rowspan="<%=fv9Market.size()%>">&nbsp;<%=sopdata %></td>
 						<%  }
 					   %>
 					
 					<%
 					if(Web.getObjectYesOrNo(fv9Market)){
-						Map<String,Object> map = getDisplaytd(i,size,temp1,fv9Market);
+						String tempClass = "mytd";
+						Map<String,Object> map = getDisplaytd(i, size, temp1, fv9Market, tempClass);
 						map.get("td");
 						temp1 = (Integer)map.get("temp");
-						out.println(map.get("td"));
+						String tdMarket = (String)map.get("td");
+						if (i == size-1) {
+							tdMarket = tdMarket.replaceAll("mytd", "mytd1");
+						} else {
+							if (((temp1 + i) == size))  {
+								tdMarket = tdMarket.replaceAll("mytd", "mytd1");
+							}
+						}
+					%>
+					<%=tdMarket %>
+					<%
 					} else {
-						%>	<td class="mytd" width="150px"> &nbsp;&nbsp; </td><%
+						%>	<td class="<%=tdClass %>" width="150px"> &nbsp;&nbsp; </td><%
 					}
 					%>
 
 					<%
 					if(Web.getObjectYesOrNo(fv9Motor)){
-						Map<String,Object> map = getDisplaytd(i,size,temp2,fv9Motor);
+						String tempClass = "mytd";
+						Map<String,Object> map = getDisplaytd(i, size, temp2, fv9Motor, tempClass);
 						map.get("td");
 						temp2 = (Integer)map.get("temp");
-						out.println(map.get("td"));
+						String tdMotor = (String)map.get("td");
+						if (i == size-1) {
+							tdMotor = tdMotor.replaceAll("mytd", "mytd1");
+						} else {
+							if (((temp2 + i) == size))  {
+								tdMotor = tdMotor.replaceAll("mytd", "mytd1");
+							}
+						}
+					%>
+					<%=tdMotor %>
+					<%
 					} else {
-						%>	<td class="mytd" width="150px"> &nbsp;&nbsp; </td><%
+						%>	<td class="<%=tdClass %>" width="150px"> &nbsp;&nbsp; </td><%
 					}
 					%>
 
-						<td class="mytd" width="80px">
+						<td class="<%=tdClass %>" width="80px">
 							<%if(Web.getObjectYesOrNo(fv9MotorTech)){
-						   %> <%=fv9MotorTech.get(i)%> <%
+						   %> 
+						   <%=fv9MotorTech.get(i)%> 
+						   <%
 					   } else {
 						  %> &nbsp;&nbsp; <%
 					   }
 						  %>
 						</td>
 
-						<td class="mytd" width="80px">
+						<td class="<%=tdClass %>" width="80px">
 							<%if(Web.getObjectYesOrNo(fv9CylinderNo)){
 						   %> <%=fv9CylinderNo.get(i)%> <%
 					   } else {
@@ -197,7 +235,7 @@ public static Map<String,Object> getDisplaytd(int i,int size, int temp, List<Str
 						  %>
 						</td>
 
-						<td class="mytd" width="80px">
+						<td class="<%=tdClass %>" width="80px">
 							<%if(Web.getObjectYesOrNo(fv9Emission)){
 						   %> <%=fv9Emission.get(i)%> <%
 					   } else {
@@ -206,7 +244,7 @@ public static Map<String,Object> getDisplaytd(int i,int size, int temp, List<Str
 						  %>
 						</td>
 
-						<td class="mytd" width="100px">
+						<td class="<%=tdClass %>" width="100px">
 							<%if(Web.getObjectYesOrNo(fv9Parameter)){
 						   %> <%=fv9Parameter.get(i)%> <%
 					   } else {
@@ -220,7 +258,7 @@ public static Map<String,Object> getDisplaytd(int i,int size, int temp, List<Str
 						  %>
 						</td>
 
-						<td class="mytd" width="150px">
+						<td class="<%=tdClass %>" width="150px">
 							<%if(Web.getObjectYesOrNo(fv9Getriebe)){
 						   %> <%=fv9Getriebe.get(i).replaceAll("\n", "<br>")%> <%
 					   } else {
@@ -229,7 +267,7 @@ public static Map<String,Object> getDisplaytd(int i,int size, int temp, List<Str
 						  %>
 						</td>
 
-						<td class="mytd" width="80px">
+						<td class="<%=tdClass %>" width="80px">
 							<%if(Web.getObjectYesOrNo(fv9VFFStatus)){
 					    	if(fv9VFFStatus.get(i).equals("绿")){%> <img
 							src="<%=request.getContextPath()%>/app/pep/images/greenBig.jpg"
@@ -246,7 +284,7 @@ public static Map<String,Object> getDisplaytd(int i,int size, int temp, List<Str
 						  %>
 						</td>
 
-						<td class="mytd" width="80px">
+						<td class="<%=tdClass %>" width="80px">
 							<%if(Web.getObjectYesOrNo(fv9PVSStatus)){
 						   if(fv9PVSStatus.get(i).equals("绿")){%> <img
 							src="<%=request.getContextPath()%>/app/pep/images/greenBig.jpg"
@@ -263,7 +301,7 @@ public static Map<String,Object> getDisplaytd(int i,int size, int temp, List<Str
 						  %>
 						</td>
 
-						<td class="mytd" width="80px">
+						<td class="<%=tdClass %>" width="80px">
 							<%if(Web.getObjectYesOrNo(fv90SStatus)){
 					    	if(fv90SStatus.get(i).equals("绿")){%> <img
 							src="<%=request.getContextPath()%>/app/pep/images/greenBig.jpg"
@@ -280,7 +318,7 @@ public static Map<String,Object> getDisplaytd(int i,int size, int temp, List<Str
 						  %>
 						</td>
 
-						<td class="mytd" width="80px">
+						<td class="<%=tdClass %>" width="80px">
 							<%if(Web.getObjectYesOrNo(fv9SOPStatus)){
 						  if(fv9SOPStatus.get(i).equals("绿")){%> <img
 							src="<%=request.getContextPath()%>/app/pep/images/greenBig.jpg"
@@ -302,6 +340,7 @@ public static Map<String,Object> getDisplaytd(int i,int size, int temp, List<Str
 					}
 				}	
 				%>
+					<tr><td colspan="12" style="width:100%;height:2px; border-bottom: 1px solid black; "></td></tr>
 					<tr><td colspan="12" style="width:100%;height:3px; border-bottom: 3px solid black; "></td></tr>
 					
 				</table>

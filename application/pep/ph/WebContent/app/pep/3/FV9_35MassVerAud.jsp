@@ -325,7 +325,7 @@
 						style : {
 							fontSize:'12px'
 						},
-						color: 'black'
+						color: 'white'
 					}
 				},{
 					name: 'Presswerk',
@@ -400,7 +400,14 @@
 					marker: {enabled: false},
 					lineWidth: 1,
 					shadow: false,
-					enableMouseTracking: false
+					enableMouseTracking: false,
+					dataLabels: {
+						enabled: true,
+						style : {
+							fontSize:'12px'
+						},
+						color: 'white'
+					}
 				}]
 			}, function(chart) { 
 				chart.renderer.text(

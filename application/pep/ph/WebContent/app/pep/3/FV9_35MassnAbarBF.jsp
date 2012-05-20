@@ -210,7 +210,7 @@
 						style : {
 							fontSize:'14px'
 						},
-						color: 'black'
+						color: 'white'
 					}
 				},{
 					name: 'Presswerk',
@@ -266,7 +266,7 @@
 						style : {
 							fontSize:'14px'
 						},
-						color: 'black'
+						color: 'white'
 					}
 				}]
 			}, function(chart) { 

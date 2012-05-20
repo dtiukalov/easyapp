@@ -154,7 +154,7 @@
 							style : {
 								fontSize:'12px'
 							},
-							color: 'black'
+							color: 'white'
 						}
 					}]
 				});

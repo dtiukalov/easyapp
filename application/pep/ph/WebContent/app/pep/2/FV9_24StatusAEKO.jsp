@@ -124,7 +124,7 @@
 						fontSize:'18px'
 					},
 					align:'left',
-					y:40
+					y:20
 				},
 				subtitle: {
 					text: ' ',

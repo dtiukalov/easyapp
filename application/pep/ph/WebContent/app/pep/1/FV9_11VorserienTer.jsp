@@ -26,8 +26,10 @@
 			int cols;
 		}
 		public static int getIndex(String date, int index, int year, int kw) {
+	
 			if (year == Integer.parseInt(date.split("-")[0]) &&
 					kw == DateUtils.getWeekOfYear(date + " 00:00")) {
+				System.out.println("date = " + date + " index = " + index + " year = " + year + " kw = " + kw);
 				return index;
 			}
 			return 0;
@@ -68,6 +70,13 @@
 		}
 		String fv9VFFDesc = (String)form.get("fv9VFFDesc");
 		
+System.out.println("fv9VFFTBTZP5 = " + fv9VFFTBTZP5);
+System.out.println("fv9VFFTBTZP7 = " + fv9VFFTBTZP7);
+System.out.println("fv9VFFVorStart = " + fv9VFFVorStart);
+System.out.println("fv9VFFVorEnd = " + fv9VFFVorEnd);
+System.out.println("fv9VFFAbsStart = " + fv9VFFAbsStart);
+System.out.println("fv9VFFAbsEnd = " + fv9VFFAbsEnd);
+		
 		//PVS阶段信息
 		String fv9PVSTBTZP5 = (String)form.get("fv9PVSTBTZP5");
 		String fv9PVSTBTZP7 = (String)form.get("fv9PVSTBTZP7");
@@ -89,6 +98,13 @@
 		}
 		String fv9PVSDesc = (String)form.get("fv9PVSDesc");
 		
+System.out.println("fv9PVSTBTZP5 = " + fv9PVSTBTZP5);
+System.out.println("fv9PVSTBTZP7 = " + fv9PVSTBTZP7);
+System.out.println("fv9PVSVorStart = " + fv9PVSVorStart);
+System.out.println("fv9PVSVorEnd = " + fv9PVSVorEnd);
+System.out.println("fv9PVSAbsStart = " + fv9PVSAbsStart);
+System.out.println("fv9PVSAbsEnd = " + fv9PVSAbsEnd);
+		
 		//0S阶段信息
 		String fv90STBTZP5 = (String)form.get("fv90STBTZP5");
 		String fv90STBTZP7 = (String)form.get("fv90STBTZP7");
@@ -109,6 +125,13 @@
 			fv90SAbsMeter = Integer.parseInt((String)form.get("fv90SAbsMeter"));
 		}
 		String fv90SDesc = (String)form.get("fv90SDesc");
+		
+System.out.println("fv90STBTZP5 = " + fv90STBTZP5);
+System.out.println("fv90STBTZP7 = " + fv90STBTZP7);
+System.out.println("fv90SVorStart = " + fv90SVorStart);
+System.out.println("fv90SVorEnd = " + fv90SVorEnd);
+System.out.println("fv90SAbsStart = " + fv90SAbsStart);
+System.out.println("fv90SAbsEnd = " + fv90SAbsEnd);	
 		
 		//SOP时间
 		String DATE_SOP = (String)session.getAttribute("DATE_SOP");
@@ -264,10 +287,15 @@
 						PVSVORSTART = getIndex(fv9PVSVorStart, w, year, kw);
 					if (PVSVOREND == 0) 
 						PVSVOREND = getIndex(fv9PVSVorEnd, w, year, kw);
-					if (PVSABSSTART == 0)
+					if (PVSABSSTART == 0){
 						PVSABSSTART = getIndex(fv9PVSAbsStart, w, year, kw);
-					if (PVSABSEND == 0)
+					}
+					if (PVSABSEND == 0){
+						System.out.println(" ==== fv9PVSAbsEnd begin==== " + PVSABSEND);
 						PVSABSEND = getIndex(fv9PVSAbsEnd, w, year, kw);
+						System.out.println(" ==== fv9PVSAbsEnd ==== " + PVSABSEND);
+					}
+						
 					
 					if (OSTBTZP5 == 0)
 						OSTBTZP5 = getIndex(fv90STBTZP5, w, year, kw);
@@ -290,7 +318,7 @@
 					
 					if (QFTPPA_Kunde == 0) 
 						QFTPPA_Kunde = getIndex(fv9QFTPPA_Kunde, w, year, kw);
-					
+			
 				}
 			%>
 			
@@ -909,6 +937,11 @@
 				<%	
 				}
 				
+				
+	System.out.println("VFFTBTZP5 = " + VFFTBTZP5 + " VFFTBTZP7 = " + VFFTBTZP7 + " VFFVORSTART = " + VFFVORSTART + " VFFVOREND = " + VFFVOREND + " VFFABSSTART = " + VFFABSSTART + " VFFABSEND = " + VFFABSEND);
+	System.out.println("PVSTBTZP5 = " + PVSTBTZP5 + " PVSTBTZP7 = " + PVSTBTZP7 + " PVSVORSTART = " + PVSVORSTART + " PVSVOREND = " + PVSVOREND + " PVSABSSTART = " + PVSABSSTART + " PVSABSEND = " + PVSABSEND);
+	System.out.println("OSTBTZP5 = " + OSTBTZP5 + " OSTBTZP7 = " + OSTBTZP7 + " OSVORSTART = " + OSVORSTART + " OSVOREND = " + OSVOREND + " OSABSSTART = " + OSABSSTART + " OSABSEND = " + OSABSEND);
+	System.out.println("sopIndex = " + sopIndex + " TPPA_ME = " + TPPA_ME + " QFTPPA_Kunde = " + QFTPPA_Kunde);	
 			}
 			%>
 			

@@ -22,7 +22,7 @@ jQuery(document).ready(function(){
 </head>
 <body class="easyui-layout">
 	<div region="west" split="true" title="目录"
-		style="width: 200px; padding1: 10px;">
+		style="width: 200px; padding: 1px;">
 		<div style="padding: 1px;">
 			<ul id="navigateTree" class="easyui-tree"></ul>
 		</div>

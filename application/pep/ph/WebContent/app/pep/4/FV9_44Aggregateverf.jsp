@@ -14,56 +14,102 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <%@ include file="/app/pep/include/header.jsp"%>
 <title><%=title %></title>
-<%
-			List<String> fv9Market = (List<String>)form.get("fv9Market");
-			List<String> fv9Motor = (List<String>)form.get("fv9Motor");
-			List<String> fv9MotorTech = (List<String>)form.get("fv9MotorTech");
-			List<String> fv9CylinderNo = (List<String>)form.get("fv9CylinderNo");
-			
-			List<String> fv9Emission = (List<String>)form.get("fv9Emission");
-			List<String> fv9Parameter = (List<String>)form.get("fv9Parameter");
-			List<String> fv9EmissionStandards = (List<String>)form.get("fv9EmissionStandards");
-			List<String> fv9Getriebe = (List<String>)form.get("fv9Getriebe");
-			
-			List<String> fv9VFFStatus = (List<String>)form.get("fv9VFFStatus");
-			List<String> fv9PVSStatus = (List<String>)form.get("fv9PVSStatus");
-			List<String> fv90SStatus = (List<String>)form.get("fv90SStatus");
-			List<String> fv9SOPStatus = (List<String>)form.get("fv9SOPStatus");
-			
-			String sopdata  = (String)request.getSession().getAttribute("SOP_DATE");
-			
-			if (session.getAttribute("DATE_SOP") != null) {
-				sopdata = "KW" + DateUtils.getWeekOfYear((String)session.getAttribute("DATE_SOP")) + "/" + 
-						((String)session.getAttribute("DATE_SOP")).split("-")[0].substring(2, 4);
-			}
-		%>
-<script type="text/javascript">
+<%!
+public static Map<String,Object> getDisplaytd(int i,int size, int temp, List<String> list){
+	Map<String,Object> result = new HashMap<String,Object>();
+	String td = "";
 	
-</script>
-<style type="text/css">
-.mytable {
-	width: 100%;
-	cellspacing: 0;
-	cellpadding: 0;
+	if(size == 1){
+		td = "<td class=\"mytd\" width=\"150px\">" + list.get(i) + "</td>";
+	} else {
+		if(i == 0){
+			for(int t=0; t < size-1-i; t++){
+				if(list.get(t).equalsIgnoreCase(list.get(t+1))){
+					temp++;
+				} else {
+					break;
+				}
+			}
+			td = "<td class=\"mytd\" width=\"150px\" rowspan=\"" + temp +"\"> " + list.get(i) + "</td>";
+		}
+	
+	    if(i > 0 && i < size-1){
+	    	if(temp == 1){
+	    		for(int t=i; t < size-1; t++){
+					if(list.get(t).equalsIgnoreCase(list.get(t+1))){
+						temp++;
+					} else {
+						break;
+					}
+				}
+	    		td = "<td class=\"mytd\" width=\"150px\" rowspan=\"" + temp +"\"> " + list.get(i) + "</td>";
+	    	} else {
+	    		temp--;
+	    	}
+	    }
+	    
+	    if(i == size-1) {
+	    	if(temp == 1){
+	    		td = "<td class=\"mytd\" width=\"150px\" rowspan=\" " + temp +" \"> " + list.get(i) + "</td>";
+	    	} else {
+	    		temp--;
+	    	}
+	    }
+	}
+    result.put("td", td);
+    result.put("temp", temp);
+	return result;
 }
-.mytable .mytd {
-	padding-left: 5px;
-	font-size: 13px;
-	text-align: center;
-	white-space: normal;
-	overflow: hidden;
-	border-bottom: 1px solid #000000;
-}
+%>
+<%
+	List<String> fv9Market = (List<String>)form.get("fv9Market");
+	List<String> fv9Motor = (List<String>)form.get("fv9Motor");
+	List<String> fv9MotorTech = (List<String>)form.get("fv9MotorTech");
+	List<String> fv9CylinderNo = (List<String>)form.get("fv9CylinderNo");
+	
+	List<String> fv9Emission = (List<String>)form.get("fv9Emission");
+	List<String> fv9Parameter = (List<String>)form.get("fv9Parameter");
+	List<String> fv9EmissionStandards = (List<String>)form.get("fv9EmissionStandards");
+	List<String> fv9Getriebe = (List<String>)form.get("fv9Getriebe");
+	
+	List<String> fv9VFFStatus = (List<String>)form.get("fv9VFFStatus");
+	List<String> fv9PVSStatus = (List<String>)form.get("fv9PVSStatus");
+	List<String> fv90SStatus = (List<String>)form.get("fv90SStatus");
+	List<String> fv9SOPStatus = (List<String>)form.get("fv9SOPStatus");
+	
+	String sopdata  = "";
+	
+	if (session.getAttribute("DATE_SOP") != null) {
+	System.out.println("DATE_SOP1 = " +  session.getAttribute("DATE_SOP"));
+		sopdata = "KW" + DateUtils.getWeekOfYear((String)session.getAttribute("DATE_SOP")) + "/" + 
+				((String)session.getAttribute("DATE_SOP")).split("-")[0].substring(2, 4);
+	System.out.println("DATE_SOP2 = " +  sopdata);
+	}
+%>
 
-.mytd {
-	padding-left: 5px;
-	font-weight: bolder;
-	font-size: 13px;
-	text-align: center;
-	white-space: normal;
-	overflow: hidden;
-}
-</style>
+	<style type="text/css">
+		.mytable {
+			width: 100%;
+			cellspacing: 0;
+			cellpadding: 0;
+		}
+		.mytable .mytd {
+			padding-left: 5px;
+			font-size: 13px;
+			text-align: center;
+			white-space: normal;
+			overflow: hidden;
+			border-bottom: 1px solid #000000;
+		}
+		.mytd {
+			padding-left: 5px;
+			font-weight: bolder;
+			font-size: 13px;
+			text-align: center;
+			white-space: normal;
+			overflow: hidden;
+		}
+	</style>
 </head>
 <body>
 	<div id="container">
@@ -73,19 +119,16 @@
 				<div class="fr"><%=status_right %></div>
 				<h1><%=title %></h1>
 			</div>
-			<div id="content"
-				style="width: 1000px; height: 500px; margin: 50px auto;">
-				<table width="100%"
-					style="cellspacing: 0; cellpadding: 0; overflow: hidden;">
+			<div id="content" style="width: 1000px; height: 500px; margin: 50px auto;">
+				<table width="100%"	style="cellspacing: 0; cellpadding: 0; overflow: hidden;">
 					<tr>
 						<td class="mytd" width="150px">SOP</td>
 						<td class="mytd" width="150px">Markt</td>
 						<td class="mytd" width="150px">Motor</td>
-						<td class="mytd" width="80px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-						<td class="mytd" width="80px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-						<td class="mytd" width="80px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-						<td class="mytd" width="100px">
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td class="mytd" width="80px">&nbsp;</td>
+						<td class="mytd" width="80px">&nbsp;</td>
+						<td class="mytd" width="80px">&nbsp;</td>
+						<td class="mytd" width="100px">&nbsp;</td>
 						<td class="mytd" width="150px">Getreiebe</td>
 						<td class="mytd" width="80px">VFF</td>
 						<td class="mytd" width="80px">PVS</td>
@@ -116,7 +159,7 @@
 					
 					<%
 					if(Web.getObjectYesOrNo(fv9Market)){
-						Map<String,Object> map = Web.getDisplaytd(i,size,temp1,fv9Market);
+						Map<String,Object> map = getDisplaytd(i,size,temp1,fv9Market);
 						map.get("td");
 						temp1 = (Integer)map.get("temp");
 						out.println(map.get("td"));
@@ -127,7 +170,7 @@
 
 					<%
 					if(Web.getObjectYesOrNo(fv9Motor)){
-						Map<String,Object> map = Web.getDisplaytd(i,size,temp2,fv9Motor);
+						Map<String,Object> map = getDisplaytd(i,size,temp2,fv9Motor);
 						map.get("td");
 						temp2 = (Integer)map.get("temp");
 						out.println(map.get("td"));
@@ -179,7 +222,7 @@
 
 						<td class="mytd" width="150px">
 							<%if(Web.getObjectYesOrNo(fv9Getriebe)){
-						   %> <%=fv9Getriebe.get(i)%> <%
+						   %> <%=fv9Getriebe.get(i).replaceAll("\n", "<br>")%> <%
 					   } else {
 						  %> &nbsp;&nbsp; <%
 					   }
@@ -240,13 +283,13 @@
 						<td class="mytd" width="80px">
 							<%if(Web.getObjectYesOrNo(fv9SOPStatus)){
 						  if(fv9SOPStatus.get(i).equals("绿")){%> <img
-							src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg"
+							src="<%=request.getContextPath()%>/app/pep/images/greenBig.jpg"
 							width="30" height="70" /> <%} else if(fv9SOPStatus.get(i).equals("黄")){%>
 							<img
-							src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png"
+							src="<%=request.getContextPath()%>/app/pep/images/yellowBig.jpg"
 							width="30" height="70" /> <%} else if(fv9SOPStatus.get(i).equals("红")){%>
 							<img
-							src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png"
+							src="<%=request.getContextPath()%>/app/pep/images/redBig.jpg"
 							width="30" height="70" /> <%}
 					   } else {
 						  %> &nbsp; <%

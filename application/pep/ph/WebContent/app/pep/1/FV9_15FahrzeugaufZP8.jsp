@@ -22,8 +22,8 @@
 			
 			String fv9ReportKW = "";
 			if (session.getAttribute("fv9ReportKW") != null) {
-				fv9ReportKW = Integer.parseInt(
-						((String)session.getAttribute("fv9ReportKW")).replaceAll("kw", "").replaceAll("KW", "")) + "";
+				fv9ReportKW = (Integer.parseInt(
+						((String)session.getAttribute("fv9ReportKW")).replaceAll("kw", "").replaceAll("KW", "")) - 1) + "";
 			}	
 		
 			String sumIst = "[]";

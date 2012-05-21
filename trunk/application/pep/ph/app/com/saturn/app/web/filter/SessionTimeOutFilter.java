@@ -31,7 +31,7 @@ public class SessionTimeOutFilter implements Filter {
 			//	&& !"/app/auth/user/login.action".equals(loginAction)
 				) {
 
-			request.getRequestDispatcher("/app/pep/login.jsp").forward(
+			request.getRequestDispatcher("/app/pep/login.jsp?flag=1").forward(
 					httpRequest, httpResponse);
 		} else {
 			chain.doFilter(request, response);

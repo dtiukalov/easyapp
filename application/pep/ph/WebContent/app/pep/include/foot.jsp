@@ -14,7 +14,12 @@ out.print(Web.getFormState(__form));
 	
 	if (__form != null) {
 		oraganization1 = (String)__form.get("fv9Oraganization");
+	} 
+	
+	if ("".equals(oraganization1) || "null".equals(oraganization1) || oraganization1 == null) {
+		oraganization1 = (String)request.getAttribute("oraganization");
 	}
+	
 	if (session.getAttribute("fv9ProjectCode") != null) {
 		projectInfo1 = (String)session.getAttribute("fv9ProjectCode");
 	}

@@ -1,7 +1,9 @@
 package com.saturn.tc.utils;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import com.saturn.ph.PH;
@@ -65,9 +67,9 @@ public class WorkspaceUtils {
 		return contents;
 	}
 	
-	public static Map<String,Item> initPHItemlist(TCSession session, User user){
+	public static List<Map<String,Item>> initPHItemlist(TCSession session, User user){
 		
-		Map<String,Item>  phItemMap = new HashMap<String,Item>();//PHItem对象
+		List<Map<String,Item>> itemList = new ArrayList<Map<String,Item>>();
 		
 		String userUid = user.getUid();
 		
@@ -104,11 +106,16 @@ public class WorkspaceUtils {
 						ModelObject[] moEveryProject = result.objects;
 						
 						for (int i = 0; i < moEveryProject.length; i++) {
+							Map<String,Item>  phItemMap = new HashMap<String,Item>();//PHItem对象
+							
 							Item phitem = (Item)moEveryProject[i];
 							service.refreshObjects(phitem);
 							service.getProperties(phitem, "uid", "object_name",
 									"object_type", "contents");
+							
 							phItemMap.put(phitem.getUid(), phitem);
+							
+							itemList.add(phItemMap);
 						}
 						
 					} catch (Exception e) {
@@ -163,7 +170,7 @@ public class WorkspaceUtils {
 			e.printStackTrace();
 		}
 		
-		return phItemMap;
+		return itemList;
 	}
 
 	private static boolean ItemInProject(WorkspaceObject wo,

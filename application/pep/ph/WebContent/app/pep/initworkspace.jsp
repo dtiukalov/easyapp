@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="com.teamcenter.soa.client.model.strong.User"%>
@@ -14,9 +15,9 @@
 		<%
 			request.getSession().setAttribute("FV9_11ProjectTermin", null);
 			request.getSession().setAttribute("FV9_11VorserienTer", null);
-			Map<String,Item>  phItemMap = null;
+			List<Map<String,Item>> itemList = new ArrayList<Map<String,Item>>();
 			if (session.getAttribute("CURR_USER_PHITEM_LIST") != null) {
-				phItemMap = (Map<String,Item>)session.getAttribute("CURR_USER_PHITEM_LIST");
+				itemList = (List<Map<String,Item>>)session.getAttribute("CURR_USER_PHITEM_LIST");
 			}
 		%>
 		<script type="text/javascript">
@@ -32,21 +33,22 @@
 		    	<div id="content">
 		    		<div style="width: 800px; height: 500px; margin-top: 50px; text-align: center;">
 		    		<%
-					if(phItemMap == null || phItemMap.size() <= 0){
+					if(itemList == null || itemList.size() <= 0){
 					%>
 						<h1>此用户没有PH汇报项</h1>
 					<%
 					} else {
-						Iterator<String>  iterator = phItemMap.keySet().iterator();
 					%>
 						<table border="1" style="width: 700xp; margin-left: 100px;">
 							
 							<%
-							while(iterator.hasNext()){
-								String key = iterator.next().toString();
-								Item item = phItemMap.get(key);
+							for (Map<String,Item> map : itemList) {
+								String key =  map.keySet().iterator().next().toString();
+								Item item = map.get(key);
+								
 								PH.getDataService().getProperties(item, "object_name",
-										"fv9PlatformType");
+									"fv9PlatformType");
+								
 							%>	
 							<form id="showPHForm" name="showPHForm" method="post" action="<%=request.getContextPath()%>/app/pep/view/load.do">
 							

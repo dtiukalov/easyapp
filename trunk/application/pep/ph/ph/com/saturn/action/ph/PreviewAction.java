@@ -45,11 +45,14 @@ public class PreviewAction implements IAction {
 		}
 
 		String type = object.getType().getName();
+		String oraganization = "";
 		System.out.println("type = " + type);
 		if(type.equalsIgnoreCase(WorkspaceUtils.DatasetType)){
 			try {
 				PH.getDataService().getProperties(object, WorkspaceUtils.DatasetPageName);
+				PH.getDataService().getProperties(object, "fv9Oraganization");
 				type = object.getProperty(WorkspaceUtils.DatasetPageName).getDisplayableValue();
+				oraganization = object.getProperty("fv9Oraganization").getDisplayableValue();
 			} catch (NotLoadedException e) {
 				e.printStackTrace();
 			}
@@ -63,6 +66,7 @@ public class PreviewAction implements IAction {
 		request.setAttribute("uid", uid);
 		request.setAttribute("type", type);
 		request.setAttribute("form", form);
+		request.setAttribute("oraganization", oraganization);
 		if (pageNo != null && !"".equals(pageNo))
 			request.setAttribute("pageNo", pageNo);
 		

@@ -326,6 +326,7 @@
 						style : {
 							fontSize:'10px'
 						},
+						x: -15,
 						y: 15,
 						color: '#0000FF',
 						formatter: function() {

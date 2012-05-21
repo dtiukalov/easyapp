@@ -159,16 +159,14 @@ $(document).ready(function(){
 		<ul style="text-align: left; font-size: 12px; font-weight: bold;">
 		<%
 		List<PHResource> indexLeftList = (List<PHResource>)session.getAttribute("indexList");
-		System.out.println("indexList size = " + indexLeftList.size());
-		for (PHResource resource : indexLeftList) {
-			int indexId = resource.getId();
-			String text = resource.getText();
-			String path = request.getContextPath() + resource.getPath();
-	//		System.out.println("indexId = " + indexId + " text = " + text + " path = " + path);	
-			String li = "<li><a href='" + path + "' style=''>" + text + "</a>";
-		%>
-		<%=li %>
-		<%
+		if (indexLeftList != null && indexLeftList.size() > 0) {
+			for (PHResource resource : indexLeftList) {
+				String text = resource.getText();
+				String path = request.getContextPath() + resource.getPath();
+		//		System.out.println("indexId = " + indexId + " text = " + text + " path = " + path);
+				String li = "<li><a href='" + path + "' style=''>" + text + "</a>";
+				out.print(li);
+			}
 		}
 		%>
 			

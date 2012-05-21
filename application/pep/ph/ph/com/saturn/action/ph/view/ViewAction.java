@@ -29,7 +29,8 @@ public class ViewAction implements IAction {
 		if(indexes != null){
 			result = indexes.get(cur-1);
 		} else {
-			request.setAttribute(WebHelper.ERROR_MESSAGE, "Session过期  重新登陆 !!");
+			return new JspView("/app/pep/login.jsp?flag=1");
+//			request.setAttribute(WebHelper.ERROR_MESSAGE, "Session过期  重新登陆 !!");
 		}
 		
 		return new JspView(result);

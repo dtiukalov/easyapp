@@ -133,8 +133,9 @@ System.out.println("fv90SVorEnd = " + fv90SVorEnd);
 System.out.println("fv90SAbsStart = " + fv90SAbsStart);
 System.out.println("fv90SAbsEnd = " + fv90SAbsEnd);	
 		
-		//SOP时间
+		//SOP ME 时间
 		String DATE_SOP = (String)session.getAttribute("DATE_SOP");
+		String DATE_ME = (String)session.getAttribute("DATE_ME");
 		
 		int SOP_KW = DateUtils.getWeekOfYear(DATE_SOP);
 		int SOP_Year = Integer.parseInt(DATE_SOP.split("-")[0]);
@@ -176,8 +177,8 @@ System.out.println("fv90SAbsEnd = " + fv90SAbsEnd);
 			if (!"1900-01-01 00:00:00".equals(fv9VFFTBTZP5) && !"".equals(fv9VFFTBTZP5)) {
 				startDate = DateUtils.getDateAddMonth(fv9VFFTBTZP5, 1, "-");
 			}
-			if (!"1900-01-01 00:00:00".equals(DATE_SOP) && !"".equals(DATE_SOP)) {
-				endDate = DateUtils.getDateAddMonth(DATE_SOP, 1, "+");
+			if (!"1900-01-01 00:00:00".equals(DATE_ME) && !"".equals(DATE_ME)) {
+				endDate = DateUtils.getDateAddMonth(DATE_ME, 1, "+");
 			}
 			System.out.println("startDate = " + startDate);
 			System.out.println("endDate = " + endDate);
@@ -195,14 +196,14 @@ System.out.println("fv90SAbsEnd = " + fv90SAbsEnd);
 				
 				startKW = DateUtils.getWeekOfYear(startDate + " 00:00");
 				endKW = DateUtils.getWeekOfYear(endDate + " 00:00");
-				System.out.println("startDate = " + startDate + " - endDate = " + endDate);
-				System.out.println("startKW = " + startKW + " - endKW = " + endKW);
+		System.out.println("startDate = " + startDate + " - endDate = " + endDate);
+		System.out.println("startKW = " + startKW + " - endKW = " + endKW);
 				
 				//取得开始时间与结束时间所在的周一日期
 				Date startMonday = DateUtils.getFirstDayOfWeek(start);
 				Date endMonday = DateUtils.getFirstDayOfWeek(end);
-				System.out.println("startMonday = " + startMonday);
-				System.out.println("endMonday = " + endMonday);
+//		System.out.println("startMonday = " + startMonday);
+//		System.out.println("endMonday = " + endMonday);
 				
 				//计算结束时间的周一与开始时间的周一所差的天数
 				int days = DateUtils.dateDiff(startMonday, endMonday);
@@ -287,16 +288,11 @@ System.out.println("fv90SAbsEnd = " + fv90SAbsEnd);
 						PVSVORSTART = getIndex(fv9PVSVorStart, w, year, kw);
 					if (PVSVOREND == 0) 
 						PVSVOREND = getIndex(fv9PVSVorEnd, w, year, kw);
-					if (PVSABSSTART == 0){
+					if (PVSABSSTART == 0)
 						PVSABSSTART = getIndex(fv9PVSAbsStart, w, year, kw);
-					}
-					if (PVSABSEND == 0){
-						System.out.println(" ==== fv9PVSAbsEnd begin==== " + PVSABSEND);
+					if (PVSABSEND == 0)
 						PVSABSEND = getIndex(fv9PVSAbsEnd, w, year, kw);
-						System.out.println(" ==== fv9PVSAbsEnd ==== " + PVSABSEND);
-					}
 						
-					
 					if (OSTBTZP5 == 0)
 						OSTBTZP5 = getIndex(fv90STBTZP5, w, year, kw);
 					if (OSTBTZP7 == 0)
@@ -352,7 +348,8 @@ System.out.println("fv90SAbsEnd = " + fv90SAbsEnd);
 						<td style="border: 1px solid; width: <%=year.cols * tdWidth%>px; height:18px; font-size:12px; 
 							font-weight: bolder; background-color: #FFFFC0;" 
 							colspan="<%=year.cols%>">
-							<%=year.year %>
+							<!-- 如果一年内 只有一周的话  不显示年的信息 -->
+							<%if (year.cols != 1) out.print(year.year); %>
 						</td>
 					<%
 					}
@@ -931,7 +928,7 @@ System.out.println("fv90SAbsEnd = " + fv90SAbsEnd);
 				%>
 						<div style="width: 450px; height: 60px; position: absolute; font-size: 10px; 
 							word-wrap:break-word; background-color: white;
-							top: <%=level8%>px; margin-left: 100px; ">
+							top: <%=level9%>px; margin-left: 100px; ">
 							<%=desc %>
 						</div>
 				<%	

@@ -35,6 +35,10 @@
 		else alert(userNameRequiredStr);		
 	}
 
+	var flag = '<%=(String)request.getParameter("flag")%>';
+	if (flag == '1') {
+		alert('由于您长期未操作，请重新登录系统！');
+	}
 	</script>
 
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/app/pep/include/base.css">

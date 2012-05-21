@@ -444,91 +444,119 @@
 				width: 180px; height: 180px; float: left; overflow: hidden; margin: 0px; 
 			}
 		</style>
+
 		<%
 		List<String> fv9KWNo = (List<String>)form.get("fv9KWNo"); //周数 
 		List<String> fv9ZSB = (List<String>)form.get("fv9ZSB"); //零件范围
 		List<String> fv9Teil = (List<String>)form.get("fv9Tei"); //零件名称
 		List<String> fv9TeilNum = (List<String>)form.get("fv9TeilNum"); //零件数量
+		
+		int n = fv9KWNo.size() + 3;
+		double tdHeight = 170.0/n;
+		
 		if (Web.getListYesOrNo(fv9KWNo)) {
-			int n = fv9KWNo.size() + 3;
-			double tdHeight = (180*1.0)/(n*1.0);
+			
 			int teilSumNum = 0; //总零件数
 			String tempKWNo = ""; //临时周数
 			String tempZBS = "";  //临时零件范围
 
 			int flag = 0;
 			List<HashMap> teilList = new ArrayList<HashMap>();
-			List<Integer> indexArr = new ArrayList();
+			//周数与零件范围发生变化的位置索引
+			List<Integer> indexArr = new ArrayList<Integer>();
+			//合并行的值
+			List<Integer> rowSpanArr = new ArrayList<Integer>();
+			int count = 0;
+			
 			for (int i=0; i<fv9KWNo.size(); i++) {
 				String kw = (String)fv9KWNo.get(i);
 				String zsb = (String)fv9ZSB.get(i);
 				String teil = (String)fv9Teil.get(i);
 				int teilNum = Integer.parseInt((String)fv9TeilNum.get(i));
 				teilSumNum = teilSumNum + teilNum;
-				
+		//周数和零件范围均不相同的，需合并单元格		
 				if (!kw.equalsIgnoreCase(tempKWNo) ||
 						!zsb.equalsIgnoreCase(tempZBS)){
 					tempKWNo = kw;
 					tempZBS = zsb;
-
+//System.out.println("i = " + i + " tempKWNo = " + tempKWNo + " tempZBS = " + tempZBS);
 					indexArr.add(i);
 				} 
 			}
-
-		%>
-			<div class="top-table">
-				<table cellspacing="0">
-					<tr>
-						<td colspan="3" style="text-align: center;" height="<%=tdHeight%>px"><%=teilSumNum %> Teile Nach OS frei</td>
-					</tr>
-					<tr>
-						<td width="15%" height="<%=tdHeight%>px" style="text-align: center;">Zeil</td>
-						<td width="25%" height="<%=tdHeight%>px" style="text-align: center;">ZSB</td>
-						<td width="60%" height="<%=tdHeight%>px" style="text-align: center;">Teile</td>
-					</tr>
-		<%
-			if (indexArr != null && indexArr.size() > 0) {
-				
 			
-			for (int m = 0; m < indexArr.size()-1; m++) {
-				for (int t=m; t<indexArr.get(m+1); t++) {
-					int rowscol = indexArr.get(m+1) - indexArr.get(m);
-		%>
-					<tr>
-		<%
-					if (t == m) {
-		%>
-						<td rowspan="<%=rowscol%>" style="text-align: center;"><%=fv9KWNo.get(t) %></td>
-						<td rowspan="<%=rowscol%>" style="text-align: center;"><%=fv9ZSB.get(t) %></td>
-		<%	
-					}
-		%>
-						<td height="<%=tdHeight%>px" style="padding-left: 2px;"><%=fv9Teil.get(t) %> X<%=fv9TeilNum.get(t) %></td>
-					</tr>
-		<%			
+			if (indexArr != null && indexArr.size() > 0) {
+				for (int index = 1; index < indexArr.size(); index++) {
+					count += indexArr.get(index) - indexArr.get(index-1);
+					rowSpanArr.add(indexArr.get(index) - indexArr.get(index-1));
+//System.out.println(indexArr.get(index) - indexArr.get(index-1));
 				}
 			}
-			for (int p = indexArr.get(indexArr.size()-1); p<fv9KWNo.size(); p++) {
-					int rowscol = fv9KWNo.size() - indexArr.get(indexArr.size()-1);
+			
+			if (count < fv9KWNo.size()) {
+//System.out.println(fv9KWNo.size() - count);
+				rowSpanArr.add(fv9KWNo.size() - count);
+			}
+			
+			if (rowSpanArr != null && rowSpanArr.size() > 0) {
 		%>
-					<tr>
+				<div class="top-table">
+					<table cellspacing="0">
+						<tr>
+							<td colspan="3" style="text-align: center;" height="<%=tdHeight%>px"><%=teilSumNum %> Teile Nach OS frei</td>
+						</tr>
+						<tr>
+							<td width="15%" height="<%=tdHeight%>px" style="text-align: center;">Zeil</td>
+							<td width="25%" height="<%=tdHeight%>px" style="text-align: center;">ZSB</td>
+							<td width="60%" height="<%=tdHeight%>px" style="text-align: center;">Teile</td>
+						</tr>
 		<%
-					if (p == indexArr.get(indexArr.size()-1)) {
+			//按合并行循环	
+			int tempNo = 0;
+			int tempNo2 = 0;
+			for (int row_index = 0; row_index < rowSpanArr.size(); row_index++) {
+					
+					int rowcols = rowSpanArr.get(row_index);
+					tempNo += rowcols;
+//		System.out.println("row_index = " + row_index + " rowcols = " + rowcols + " tempNo = " + tempNo);
+					//每合并的所有零件名称行
+						for (int row=0; row<rowcols; row++) {
+							
+							String tempTeil = fv9Teil.get(tempNo2 + row);
+							String tempTeilNum = fv9TeilNum.get(tempNo2 + row);
+		System.out.println("No = " + (tempNo2 + row) + " tempTeil = " + tempTeil + " tempTeilNum = " + tempTeilNum);
 		%>
-						<td rowspan="<%=rowscol%>" style="text-align: center;"><%=fv9KWNo.get(p) %></td>
-						<td rowspan="<%=rowscol%>" style="text-align: center;"><%=fv9ZSB.get(p) %></td>
-		<%	
-					}
+						<tr>
+		<%
+							if (row==0) {
 		%>
-						<td height="<%=tdHeight%>px" style="padding-left: 2px;"><%=fv9Teil.get(p) %> X<%=fv9TeilNum.get(p) %></td>
-					</tr>
+							<td rowspan="<%=rowcols%>" width="15%" style="text-align: center;">
+								<%=fv9KWNo.get(tempNo-1) %>
+							</td>
+							<td rowspan="<%=rowcols%>" width="25%" style="text-align: center;">
+								<%=fv9ZSB.get(tempNo-1) %>
+							</td>
+		<%
+							}
+		%>
+							<td width="60%" height="<%=tdHeight%>px" style="text-align: center;">
+								<%=tempTeil %> X<%=tempTeilNum %>
+							</td>
+						</tr>
+							
+		<%
+						}
+						tempNo2 += rowcols;
+		%>
+
+						
+						
 		<%			
-			}
-			}
+				}
 		%>
-				</table>
-			</div>
+					</table>
+				</div>
 		<%
+			}
 		}
 		
 		%>	

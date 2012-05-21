@@ -31,7 +31,9 @@
 	<context-param>
 		<description>tc路径</description>
 		<param-name>url</param-name>
-		<param-value>http://localhost:7001/tc</param-value>
+		<!--  <param-value>http://168.168.16.18:9080/tc</param-value>  -->
+		
+		<param-value>http://192.168.1.102:7001/tc</param-value>
 	</context-param>
 	
 	<listener>
@@ -88,6 +90,12 @@
 	</servlet-mapping>
 
 	<session-config>
-		<session-timeout>30</session-timeout>
+	<!--  
+		<session-timeout>30</session-timeout>  
+		值为 -1 表示session永不过期
+		值为 -2 表示以服务器的配置session过期的时间为准
+	-->
+		
+		<session-timeout>60</session-timeout>
 	</session-config>
 </web-app>

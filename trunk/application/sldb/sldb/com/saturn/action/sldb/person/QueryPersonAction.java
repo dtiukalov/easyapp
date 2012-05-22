@@ -15,7 +15,6 @@ import com.saturn.sldb.Person;
 
 public class QueryPersonAction implements IAction{
 
-	@Override
 	public IView execute(HttpServletRequest request,
 			HttpServletResponse response) {
 		DataGridInfo dataGridInfo = new DataGridInfo(request);
@@ -43,7 +42,6 @@ public class QueryPersonAction implements IAction{
 		}
 	}
 
-	@Override
 	public String requestMapping() {
 		return "/app/sldb/person/queryPersonByPid.action";
 	}

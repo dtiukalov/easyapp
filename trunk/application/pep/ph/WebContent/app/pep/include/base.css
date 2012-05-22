@@ -332,24 +332,11 @@
 .ok TD {
 	BORDER-BOTTOM: #999 1px solid; BORDER-LEFT: #999 1px solid; BORDER-TOP: #999 1px solid; BORDER-RIGHT: #999 1px solid
 }
-.tpian {
-	WIDTH: 980px; BACKGROUND: url(../images/fm.png) no-repeat 0px 0px; HEIGHT: 220px
-}
+
 .an {
 	WIDTH: 139px; HEIGHT: 76px; PADDING-TOP: 138px
 }
-.tpian .lt {
-	BORDER-BOTTOM: #6c7b80 1px solid; BACKGROUND-COLOR: #cefefe; WIDTH: 139px; HEIGHT: 38px; BORDER-TOP: #6c7b80 1px solid; BORDER-RIGHT: #6c7b80 1px solid
-}
-.tpian .lt H4 {
-	LINE-HEIGHT: 38px
-}
-.tpian .ht {
-	BORDER-BOTTOM: #6c7b80 1px solid; BACKGROUND-COLOR: #fffea0; MARGIN-TOP: 3px; WIDTH: 139px; HEIGHT: 38px; BORDER-TOP: #6c7b80 1px solid; BORDER-RIGHT: #6c7b80 1px solid
-}
-.tpian .ht H4 {
-	LINE-HEIGHT: 38px
-}
+
 .table-top {
 	border-bottom:1px solid #000;
 	height: 43px;

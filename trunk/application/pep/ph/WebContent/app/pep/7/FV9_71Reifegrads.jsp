@@ -15,13 +15,13 @@
 		fv9Status = (String) status;
 		if (!"".equals(fv9Status)) {
 			if ("绿".equals(fv9Status)) {
-				imagePath = imagePath + "/app/pep/images/greenSmall.jpg";
+				imagePath = imagePath + "/app/pep/images/greenStatusLight.png";
 			}
 			if ("黄".equals(fv9Status)) {
-				imagePath = imagePath + "/app/pep/images/yellowSmall.jpg";
+				imagePath = imagePath + "/app/pep/images/yellowStatusLight.png";
 			}
 			if ("红".equals(fv9Status)) {
-				imagePath = imagePath + "/app/pep/images/redSmall.jpg";
+				imagePath = imagePath + "/app/pep/images/redStatusLight.png";
 			}
 		} else {
 			imagePath = imagePath + "/app/pep/images/defaultStatus.jpg";
@@ -45,13 +45,13 @@
 			fv9ProjectStatus = (String) form.get("fv9ProjectStatus");
 			if (!"".equals(fv9ProjectStatus)) {
 				if ("绿".equals(fv9ProjectStatus)) {
-					projectStatusImage = request.getContextPath() + "/app/pep/images/greenBig.jpg";
+					projectStatusImage = request.getContextPath() + "/app/pep/images/greenStatusLight.png";
 				}
 				if ("黄".equals(fv9ProjectStatus)) {
-					projectStatusImage = request.getContextPath() + "/app/pep/images/yellowBig.jpg";
+					projectStatusImage = request.getContextPath() + "/app/pep/images/yellowStatusLight.png";
 				}
 				if ("红".equals(fv9ProjectStatus)) {
-					projectStatusImage = request.getContextPath() + "/app/pep/images/redBig.jpg";
+					projectStatusImage = request.getContextPath() + "/app/pep/images/redStatusLight.png";
 				}
 			}
 		}
@@ -218,7 +218,7 @@
 			  </td>
 			  <td class="titleStyleTD">Produktstand</td>
 			  <td class="statusTD">
-			  	<img src="<%=fv9ProdStatusImage %>" width="23" height="50"/>
+			  	<img src="<%=fv9ProdStatusImage %>" width="23" height="45"/>
 			  </td>
 			  <td class="massTD"><%=fv9ProdStatusCom %></td>
 			  <td class="massTD"><%=fv9ProdMass_GM %></td>
@@ -226,7 +226,7 @@
 			<tr>
 			  <td class="titleStyleTD">Funktionserfuellung</td>
 			  <td class="statusTD">
-			  	<img src="<%=fv9FunktionImage %>" width="23" height="50"/>
+			  	<img src="<%=fv9FunktionImage %>" width="23" height="45"/>
 			  </td>
 			   <td class="massTD"><%=fv9FunktionCom %></td>
 			   <td class="massTD"><%=fv9FunktionMass_GM %></td>
@@ -234,7 +234,7 @@
 			<tr>
 			  <td class="titleStyleTD">Produktion/<br>Standardisierung</td>
 			  <td class="statusTD">
-			  	<img src="<%=fv9ProduktionImage %>" width="23" height="50"/>
+			  	<img src="<%=fv9ProduktionImage %>" width="23" height="45"/>
 			  </td>
 			   <td class="massTD"><%=fv9ProduktionCom %></td>
 			   <td class="massTD"><%=fv9ProduktionMass_GM %></td>
@@ -242,7 +242,7 @@
 			<tr>
 			  <td class="titleStyleTD">Beschaffung</td>
 			  <td class="statusTD">
-			  	<img src="<%=fv9BeschaffImage %>" width="23" height="50"/>
+			  	<img src="<%=fv9BeschaffImage %>" width="23" height="45"/>
 			  </td>
 			   <td class="massTD"><%=fv9BeschaffCom %></td>
 			   <td class="massTD"><%=fv9BeschaffMass_GM %></td>
@@ -250,7 +250,7 @@
 			<tr>
 			  <td class="titleStyleTD">Qualitaet</td>
 			  <td class="statusTD">
-			  	<img src="<%=fv9QualitImage %>" width="23" height="50"/>
+			  	<img src="<%=fv9QualitImage %>" width="23" height="45"/>
 			  </td>
 			   <td class="massTD"><%=fv9QualitCom %></td>
 			   <td class="massTD"><%=fv9QualitMass_GM %></td>
@@ -258,7 +258,7 @@
 			<tr>
 			  <td class="titleStyleTD">Vertrieb / Markt</td>
 			  <td class="statusTD">
-			  	<img src="<%=fv9VertriebImage %>" width="23" height="50"/>
+			  	<img src="<%=fv9VertriebImage %>" width="23" height="45"/>
 			  </td>
 			   <td class="massTD"><%=fv9VertriebCom %></td>
 			   <td class="massTD"><%=fv9VertrieMass_GM %></td>
@@ -266,7 +266,7 @@
 			<tr>
 			  <td class="titleStyleTD">Finanzen</td>
 			  <td class="statusTD">
-			  	<img src="<%=fv9FinanzenImage %>" width="23" height="50"/>
+			  	<img src="<%=fv9FinanzenImage %>" width="23" height="45"/>
 			  </td>
 			   <td class="massTD"><%=fv9FinanzenCom %></td>
 			   <td class="massTD"><%=fv9FinanzenMass_GM %></td>
@@ -274,7 +274,7 @@
 			<tr>
 			  <td class="titleStyleTD">Gewicht / CO2</td>
 			  <td class="statusTD">
-			  	<img src="<%=fv9GewichtImage %>" width="23" height="50"/>
+			  	<img src="<%=fv9GewichtImage %>" width="23" height="45"/>
 			  </td>
 			   <td class="massTD"><%=fv9GewichtCom %></td>
 			   <td class="massTD"><%=fv9GewichtMass_GM %></td>
@@ -282,7 +282,7 @@
 			<tr>
 			  <td class="titleStyleTD">Doku / Freigaben</td>
 			  <td class="statusTD">
-			  	<img src="<%=fv9DokuImage%>" width="23" height="50"/>
+			  	<img src="<%=fv9DokuImage%>" width="23" height="45"/>
 			  </td>
 			   <td class="massTD"><%=fv9DokuCom %></td>
 			   <td class="massTD"><%=fv9DokuMass_GM %></td>
@@ -290,7 +290,7 @@
 			<tr>
 			  <td class="titleStyleTD">Termine / Orga</td>
 			  <td class="statusTD">
-			  	<img src="<%=fv9TermineImage%>" width="23" height="50"/>
+			  	<img src="<%=fv9TermineImage%>" width="23" height="45"/>
 			  </td>
 			   <td class="massTD"><%=fv9TermineCom %></td>
 			   <td class="massTD"><%=fv9TerminMass_GM %></td>
@@ -315,7 +315,7 @@
 			  </td>
 			  <td class="titleStyleTD">产品状态</td>
 			  <td class="statusTD">
-			  	<img src="<%=fv9ProdStatusImage %>" width="23" height="50"/>
+			  	<img src="<%=fv9ProdStatusImage %>" width="23" height="45"/>
 			  </td>
 			  <td class="massTD"><%=fv9ProdStatusComC %></td>
 			   <td class="massTD"><%=fv9ProdMass_CN %></td>
@@ -323,7 +323,7 @@
 			<tr>
 			  <td class="titleStyleTD">功能</td>
 			  <td class="statusTD">
-			  	<img src="<%=fv9FunktionImage %>" width="23" height="50"/>
+			  	<img src="<%=fv9FunktionImage %>" width="23" height="45"/>
 			  </td>
 			   <td class="massTD"><%=fv9FunktionComC %></td>
 			   <td class="massTD"><%=fv9FunktionMass_CN %></td>
@@ -331,7 +331,7 @@
 			<tr>
 			  <td class="titleStyleTD">生产</td>
 			  <td class="statusTD">
-			  	<img src="<%=fv9ProduktionImage %>" width="23" height="50"/>
+			  	<img src="<%=fv9ProduktionImage %>" width="23" height="45"/>
 			  </td>
 			   <td class="massTD"><%=fv9ProduktionComC %></td>
 			   <td class="massTD"><%=fv9ProduktionMass_CN %></td>
@@ -339,7 +339,7 @@
 			<tr>
 			  <td class="titleStyleTD">采购</td>
 			  <td class="statusTD">
-			  	<img src="<%=fv9BeschaffImage %>" width="23" height="50"/>
+			  	<img src="<%=fv9BeschaffImage %>" width="23" height="45"/>
 			  </td>
 			   <td class="massTD"><%=fv9BeschaffComC %></td>
 			   <td class="massTD"><%=fv9BeschaffMass_CN %></td>
@@ -347,7 +347,7 @@
 			<tr>
 			  <td class="titleStyleTD">质量</td>
 			  <td class="statusTD">
-			  	<img src="<%=fv9QualitImage %>" width="23" height="50"/>
+			  	<img src="<%=fv9QualitImage %>" width="23" height="45"/>
 			  </td>
 			   <td class="massTD"><%=fv9QualitComC %></td>
 			   <td class="massTD"><%=fv9QualitMass_CN %></td>
@@ -355,7 +355,7 @@
 			<tr>
 			  <td class="titleStyleTD">销售/市场</td>
 			  <td class="statusTD">
-			  	<img src="<%=fv9VertriebImage %>" width="23" height="50"/>
+			  	<img src="<%=fv9VertriebImage %>" width="23" height="45"/>
 			  </td>
 			   <td class="massTD"><%=fv9VertriebComC %></td>
 			   <td class="massTD"><%=fv9VertrieMass_CN %></td>
@@ -363,7 +363,7 @@
 			<tr>
 			  <td class="titleStyleTD">财务</td>
 			  <td class="statusTD">
-			  	<img src="<%=fv9FinanzenImage %>" width="23" height="50"/>
+			  	<img src="<%=fv9FinanzenImage %>" width="23" height="45"/>
 			  </td>
 			   <td class="massTD"><%=fv9FinanzenComC %></td>
 			   <td class="massTD"><%=fv9FinanzenMass_CN %></td>
@@ -371,7 +371,7 @@
 			<tr>
 			  <td class="titleStyleTD">重量/CO2</td>
 			  <td class="statusTD">
-			  	<img src="<%=fv9GewichtImage %>" width="23" height="50"/>
+			  	<img src="<%=fv9GewichtImage %>" width="23" height="45"/>
 			  </td>
 			   <td class="massTD"><%=fv9GewichtComC %></td>
 			   <td class="massTD"><%=fv9GewichtMass_CN %></td>
@@ -379,7 +379,7 @@
 			<tr>
 			  <td class="titleStyleTD">文件/认可</td>
 			  <td class="statusTD">
-			  	<img src="<%=fv9DokuImage%>" width="23" height="50"/>
+			  	<img src="<%=fv9DokuImage%>" width="23" height="45"/>
 			  </td>
 			   <td class="massTD"><%=fv9DokuComC %></td>
 			   <td class="massTD"><%=fv9DokuMass_CN %></td>
@@ -387,7 +387,7 @@
 			<tr>
 			  <td class="titleStyleTD">进度/组织</td>
 			  <td class="statusTD">
-			  	<img src="<%=fv9TermineImage%>" width="23" height="50"/>
+			  	<img src="<%=fv9TermineImage%>" width="23" height="45"/>
 			  </td>
 			   <td class="massTD"><%=fv9TermineComC %></td>
 			   <td class="massTD"><%=fv9TerminMass_CN %></td>

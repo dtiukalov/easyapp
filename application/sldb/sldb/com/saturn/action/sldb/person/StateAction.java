@@ -14,7 +14,6 @@ import com.saturn.sldb.PersonState;
 
 public class StateAction implements IAction{
 
-	@Override
 	public IView execute(HttpServletRequest request,
 			HttpServletResponse response) {
 		
@@ -30,7 +29,6 @@ public class StateAction implements IAction{
 				data.getList()));
 	}
 
-	@Override
 	public String requestMapping() {
 		return "/app/sldb/person/state.action";
 	}

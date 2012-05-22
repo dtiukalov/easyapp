@@ -137,7 +137,7 @@ public static Map<String,Object> getDisplaytd(int i,int size, int temp, List<Str
 						<td class="mytd" width="80px">&nbsp;</td>
 						<td class="mytd" width="80px">&nbsp;</td>
 						<td class="mytd" width="100px">&nbsp;</td>
-						<td class="mytd" width="150px">Getreiebe</td>
+						<td class="mytd" width="150px">Getriebe</td>
 						<td class="mytd" width="80px">VFF</td>
 						<td class="mytd" width="80px">PVS</td>
 						<td class="mytd" width="80px">0S</td>

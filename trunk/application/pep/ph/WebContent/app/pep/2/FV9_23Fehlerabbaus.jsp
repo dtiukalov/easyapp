@@ -40,9 +40,9 @@
 		int gesamt = 0; 
 		
 		//计算汇报周所在位置
-		double currentIndex = 0;
-		String fv9ReportKW = (String)request.getSession().getAttribute("fv9ReportKW");
-		int reportKW = Integer.parseInt(fv9ReportKW.replaceAll("KW", "").replaceAll("kw", ""));
+		//double currentIndex = 0;
+		//String fv9ReportKW = (String)request.getSession().getAttribute("fv9ReportKW");
+		//int reportKW = Integer.parseInt(fv9ReportKW.replaceAll("KW", "").replaceAll("kw", ""));
 		
 		if (Web.getListYesOrNo(fv9KWNo)) {
 			int a_sum = getListSum(fv9AFelhler);
@@ -117,10 +117,10 @@
 				}
 				
 				//计算汇报周所在位置
-				String kw = KWNo.get(index);
+				/* String kw = KWNo.get(index);
 				if (kw.contains(fv9ReportKW) || kw.split("/")[0].equals(reportKW)) {
 					currentIndex = index - 0.3;
-				}
+				} */
 				
 				
 			}
@@ -132,7 +132,7 @@
 			System.out.println("valuec = " + valuec.toString());
 			System.out.println("valueb = " + valueb.toString());
 			System.out.println("valuea = " + valuea.toString());
-			System.out.println("currentIndex = " + currentIndex);
+		//	System.out.println("currentIndex = " + currentIndex);
 		}
 		
 		
@@ -236,10 +236,10 @@
 						data: <%=valuea.toString()%>
 					}
 				<%
-				if (currentIndex != -0.3) {
+				//if (currentIndex != -0.3) { data: [[=currentIndex, 0], [ =currentIndex, =gesamt]], 
 				%>
 					, {
-						data: [[<%=currentIndex%>, 0], [ <%=currentIndex%>, <%=gesamt%>]],
+						data: [[1.5, 0], [1.5, <%=gesamt%>]],
 						color: '#3366FF',
 						dashStyle: 'dash',
 						lineWidth: 3,
@@ -257,7 +257,7 @@
 						}
 					}
 				<%
-				}
+			//	}
 				%>
 					]
 				});

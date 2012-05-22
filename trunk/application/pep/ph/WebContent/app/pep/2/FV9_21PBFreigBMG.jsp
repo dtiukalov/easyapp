@@ -83,19 +83,19 @@
 						for(int i=0; i<fv9FreigabeStyle.size(); i++) {
 							String imagePath = request.getContextPath() + "/app/pep/images/";	
 							if ("红".equals(fv9FreigabeStatus.get(i))) {
-								imagePath += "light_red.jpg";
+								imagePath += "RedLight.png";
 							}
 							if ("黄".equals(fv9FreigabeStatus.get(i))) {
-								imagePath += "light_yellow.jpg";
+								imagePath += "YellowLight.png";
 							}
 							if ("绿".equals(fv9FreigabeStatus.get(i))) {
-								imagePath += "light_green.jpg";
+								imagePath += "GreenLight.png";
 							}
 					%>
 					<tr border="2" border-collapse: collapse" bordercolor="#333333">
 						<td width="30%" style="font-weight:bold; font-size: 17px;">
 							<%=fv9FreigabeStyle.get(i) %>
-							<img src="<%=imagePath %>" align="right" border=0 width=50 height=56 style="margin-right:50px"> 
+							<img src="<%=imagePath %>" align="right" border=0 width=35 height=75 style="margin-right:50px"> 
 						</td>
 						<td width="22%">
 							<table style="padding:5px; font-size: 14px;" >
@@ -128,19 +128,19 @@
 						for(int i=0; i<fv9FreigabeStyle.size(); i++) {
 							String imagePath = request.getContextPath() + "/app/pep/images/";	
 							if ("红".equals(fv9FreigabeStatus.get(i))) {
-								imagePath += "light_red.jpg";
+								imagePath += "RedLight.png";
 							}
 							if ("黄".equals(fv9FreigabeStatus.get(i))) {
-								imagePath += "light_yellow.jpg";
+								imagePath += "YellowLight.png";
 							}
 							if ("绿".equals(fv9FreigabeStatus.get(i))) {
-								imagePath += "light_green.jpg";
+								imagePath += "GreenLight.png";
 							}
 					%>
 					<tr border="2" border-collapse: collapse" bordercolor="#333333">
 						<td width="30%" style="font-weight:bold; font-size: 17px;">
 							<%=fv9FreigabeStyle.get(i) %>
-							<img src="<%=imagePath %>" align="right" border=0 width=50 height=56 style="margin-right:50px"> 
+							<img src="<%=imagePath %>" align="right" border=0 width=35 height=75 style="margin-right:50px"> 
 						</td>
 						<td width="22%">
 							<table style="padding:5px; font-size: 14px;">

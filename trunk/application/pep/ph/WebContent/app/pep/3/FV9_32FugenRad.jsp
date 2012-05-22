@@ -57,11 +57,11 @@
 					    		<td valign="top"><h2><%=FugRadName %> </h2></td>
 					    		<td>
 					    			<% if(("绿").equals(FugRadStatus)){%>
-								    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="30" height="70" />
+								    	<img src="<%=request.getContextPath()%>/app/pep/images/GreenLight.png" width="30" height="70" />
 								<%} else if(("黄").equals(FugRadStatus)){%>
-								    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="30" height="70" />	
+								    	<img src="<%=request.getContextPath()%>/app/pep/images/YellowLight.png" width="30" height="70" />	
 								<%} else if(("红").equals(FugRadStatus)){%>
-									   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
+									   <img src="<%=request.getContextPath()%>/app/pep/images/RedLight.png" width="30" height="70" /> 
 								<%}%>
 					    		</td>
 					  		</tr>
@@ -123,11 +123,11 @@
 					    		<td valign="top"><h2><%=FugRadName %> </h2></td>
 					    		<td>
 					    			<% if(("绿").equals(FugRadStatus)){%>
-								    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="30" height="70" />
+								    	<img src="<%=request.getContextPath()%>/app/pep/images/GreenLight.png" width="30" height="70" />
 								<%} else if(("黄").equals(FugRadStatus)){%>
-								    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="30" height="70" />	
+								    	<img src="<%=request.getContextPath()%>/app/pep/images/YellowLight.png" width="30" height="70" />	
 								<%} else if(("红").equals(FugRadStatus)){%>
-									   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
+									   <img src="<%=request.getContextPath()%>/app/pep/images/RedLight.png" width="30" height="70" /> 
 								<%}%>
 					    		</td>
 					  		</tr>

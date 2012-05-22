@@ -428,7 +428,7 @@
 	
 		<div id="content">
 			<br>
-			<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LC P-Freigaben-Teile von ES Teileliste(<%=fv9DisDate%>)</h5>
+			<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LC BMG-Teile von ES Teileliste(<%=fv9DisDate%>)</h5>
 		 	<br>
 		<style>
 			.top-table {
@@ -444,7 +444,7 @@
 				width: 180px; height: 180px; float: left; overflow: hidden; margin: 0px; 
 			}
 		</style>
-
+ 
 		<%
 		List<String> fv9KWNo = (List<String>)form.get("fv9KWNo"); //周数 
 		List<String> fv9ZSB = (List<String>)form.get("fv9ZSB"); //零件范围

@@ -69,11 +69,11 @@
 					</td>
 					<td valign="top" class="pgpg" style="width:39px;padding:10px;">
 						<% if(fv9PressStatus.equals("绿")){%>
-						<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="30" height="70" />
+						<img src="<%=request.getContextPath()%>/app/pep/images/GreenLight.png" width="30" height="70" />
 						<%} else if(fv9PressStatus.equals("黄")){%>
-						<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="30" height="70" />	
+						<img src="<%=request.getContextPath()%>/app/pep/images/YellowLight.png" width="30" height="70" />	
 						<%} else if(fv9PressStatus.equals("红")){%>
-						<img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
+						<img src="<%=request.getContextPath()%>/app/pep/images/RedLight.png" width="30" height="70" /> 
 						<%}%>
 					</td>
 					<td width="50%" valign="top" class="pgpg" style="font-size: 12px;">
@@ -111,11 +111,11 @@
 					</td>
 					<td valign="top" class="pgpg" style="width:39px;padding:10px">
 						<% if(fv9KarossStatus.equals("绿")){%>
-						<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="30" height="70" />
+						<img src="<%=request.getContextPath()%>/app/pep/images/GreenLight.png" width="30" height="70" />
 						<%} else if(fv9KarossStatus.equals("黄")){%>
-						<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="30" height="70" />	
+						<img src="<%=request.getContextPath()%>/app/pep/images/YellowLight.png" width="30" height="70" />	
 						<%} else if(fv9KarossStatus.equals("红")){%>
-						<img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
+						<img src="<%=request.getContextPath()%>/app/pep/images/RedLight.png" width="30" height="70" /> 
 						<%}%>
 					</td>
 					<td width="50%" valign="top" class="pgpg" style="font-size: 12px;">
@@ -154,11 +154,11 @@
 					</td>
 					<td valign="top" class="pgpg" style="width:39px;padding:10px">
 						<% if(fv9LackStatus.equals("绿")){%>
-						<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="30" height="70" />
+						<img src="<%=request.getContextPath()%>/app/pep/images/GreenLight.png" width="30" height="70" />
 						<%} else if(fv9LackStatus.equals("黄")){%>
-						<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="30" height="70" />	
+						<img src="<%=request.getContextPath()%>/app/pep/images/YellowLight.png" width="30" height="70" />	
 						<%} else if(fv9LackStatus.equals("红")){%>
-						<img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
+						<img src="<%=request.getContextPath()%>/app/pep/images/RedLight.png" width="30" height="70" /> 
 						<%}%>
 					</td>
 					<td width="50%" valign="top" class="pgpg" style="font-size: 12px;">
@@ -197,11 +197,11 @@
 					</td>
 					<td valign="top" class="pgpg" style="width:39px;padding:10px">
 						<% if(fv9MontStatus.equals("绿")){%>
-						<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="30" height="70" />
+						<img src="<%=request.getContextPath()%>/app/pep/images/GreenLight.png" width="30" height="70" />
 						<%} else if(fv9MontStatus.equals("黄")){%>
-						<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="30" height="70" />	
+						<img src="<%=request.getContextPath()%>/app/pep/images/YellowLight.png" width="30" height="70" />	
 						<%} else if(fv9MontStatus.equals("红")){%>
-						<img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
+						<img src="<%=request.getContextPath()%>/app/pep/images/RedLight.png" width="30" height="70" /> 
 						<%}%>
 					</td>
 					<td width="50%" valign="top" class="pgpg" style="font-size: 12px;">
@@ -240,11 +240,11 @@
 					</td>
 					<td valign="top" class="pgpg" style="width:39px;padding:10px">
 						<% if(fv9ElectStatus.equals("绿")){%>
-						<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="30" height="70" />
+						<img src="<%=request.getContextPath()%>/app/pep/images/GreenLight.png" width="30" height="70" />
 						<%} else if(fv9ElectStatus.equals("黄")){%>
-						<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="30" height="70" />	
+						<img src="<%=request.getContextPath()%>/app/pep/images/YellowLight.png" width="30" height="70" />	
 						<%} else if(fv9ElectStatus.equals("红")){%>
-						<img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
+						<img src="<%=request.getContextPath()%>/app/pep/images/RedLight.png" width="30" height="70" /> 
 						<%}%>
 					</td>
 					<td width="50%" valign="top" class="pgpg" style="font-size: 12px;">
@@ -292,11 +292,11 @@
 					</td>
 					<td valign="top" class="pgpg" style="width:39px;padding:10px">
 						<% if(fv9PressStatus.equals("绿")){%>
-						<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="30" height="70" />
+						<img src="<%=request.getContextPath()%>/app/pep/images/GreenLight.png" width="30" height="70" />
 						<%} else if(fv9PressStatus.equals("黄")){%>
-						<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="30" height="70" />	
+						<img src="<%=request.getContextPath()%>/app/pep/images/YellowLight.png" width="30" height="70" />	
 						<%} else if(fv9PressStatus.equals("红")){%>
-						<img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
+						<img src="<%=request.getContextPath()%>/app/pep/images/RedLight.png" width="30" height="70" /> 
 						<%}%>
 					</td>
 					<td width="50%" valign="top" class="pgpg" style="font-size: 12px;">
@@ -335,11 +335,11 @@
 					</td>
 					<td valign="top" class="pgpg" style="width:39px;padding:10px">
 						<% if(fv9KarossStatus.equals("绿")){%>
-						<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="30" height="70" />
+						<img src="<%=request.getContextPath()%>/app/pep/images/GreenLight.png" width="30" height="70" />
 						<%} else if(fv9KarossStatus.equals("黄")){%>
-						<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="30" height="70" />	
+						<img src="<%=request.getContextPath()%>/app/pep/images/YellowLight.png" width="30" height="70" />	
 						<%} else if(fv9KarossStatus.equals("红")){%>
-						<img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
+						<img src="<%=request.getContextPath()%>/app/pep/images/RedLight.png" width="30" height="70" /> 
 						<%}%>
 					</td>
 					<td width="50%" valign="top" class="pgpg" style="font-size: 12px;">
@@ -378,11 +378,11 @@
 					</td>
 					<td valign="top" class="pgpg" style="width:39px;padding:10px">
 						<% if(fv9LackStatus.equals("绿")){%>
-						<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="30" height="70" />
+						<img src="<%=request.getContextPath()%>/app/pep/images/GreenLight.png" width="30" height="70" />
 						<%} else if(fv9LackStatus.equals("黄")){%>
-						<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="30" height="70" />	
+						<img src="<%=request.getContextPath()%>/app/pep/images/YellowLight.png" width="30" height="70" />	
 						<%} else if(fv9LackStatus.equals("红")){%>
-						<img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
+						<img src="<%=request.getContextPath()%>/app/pep/images/RedLight.png" width="30" height="70" /> 
 						<%}%>
 					</td>
 					<td width="50%" valign="top" class="pgpg" style="font-size: 12px;">
@@ -421,11 +421,11 @@
 					</td>
 					<td valign="top" class="pgpg" style="width:39px;padding:10px">
 						<% if(fv9MontStatus.equals("绿")){%>
-						<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="30" height="70" />
+						<img src="<%=request.getContextPath()%>/app/pep/images/GreenLight.png" width="30" height="70" />
 						<%} else if(fv9MontStatus.equals("黄")){%>
-						<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="30" height="70" />	
+						<img src="<%=request.getContextPath()%>/app/pep/images/YellowLight.png" width="30" height="70" />	
 						<%} else if(fv9MontStatus.equals("红")){%>
-						<img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
+						<img src="<%=request.getContextPath()%>/app/pep/images/RedLight.png" width="30" height="70" /> 
 						<%}%>
 					</td>
 					<td width="50%" valign="top" class="pgpg" style="font-size: 12px;">
@@ -464,11 +464,11 @@
 					</td>
 					<td valign="top" class="pgpg" style="width:39px;padding:10px">
 						<% if(fv9ElectStatus.equals("绿")){%>
-						<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" width="30" height="70" />
+						<img src="<%=request.getContextPath()%>/app/pep/images/GreenLight.png" width="30" height="70" />
 						<%} else if(fv9ElectStatus.equals("黄")){%>
-						<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" width="30" height="70" />	
+						<img src="<%=request.getContextPath()%>/app/pep/images/YellowLight.png" width="30" height="70" />	
 						<%} else if(fv9ElectStatus.equals("红")){%>
-						<img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" width="30" height="70" /> 
+						<img src="<%=request.getContextPath()%>/app/pep/images/RedLight.png" width="30" height="70" /> 
 						<%}%>
 					</td>
 					<td width="50%" valign="top" class="pgpg" style="font-size: 12px;">

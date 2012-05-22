@@ -35,145 +35,156 @@
 	</div>
     <div id="content">
 		<div id="datatable1" style="font-size:14px; margin:30px 30px auto;">
-		    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
-			  <tr>
-			    <td width="239" class="pg">&nbsp;</td>
-			    <td width="311" class="pg"><h2>Status</h2></td>
-			    <td width="433" class="pg"><h2>Massnahmen</h2></td>
-			  </tr>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+			<tr>
+				<td width="180" class="pg">&nbsp;</td>
+				<td width="39" class="pg">&nbsp;</td>
+				<td width="331" class="pg"><h2>Status</h2></td>
+				<td width="433" class="pg"><h2>Massnahmen</h2></td>
+			</tr>
 			 <%
 			 if (fv9PrMSBCubStyle != null && fv9PrMSBCubStyle.size() > 0) {
-			  for(int i=0; i<fv9PrMSBCubStyle.size(); i++){
+
+//				默认5行数据，如果多余5行，自动计算行的高度
+				double sumHeight = 480.0;
+				double row_height = 0.0;
+				if (fv9PrMSBCubStyle.size() > 5) {
+					row_height = sumHeight/fv9PrMSBCubStyle.size();
+				} else {
+					row_height = sumHeight/5;
+				}
+				
+				for(int i=0; i<fv9PrMSBCubStyle.size(); i++){
 				String PrMSBCubStyle = Web.replaceSpecial((String)fv9PrMSBCubStyle.get(i));
 				String PrMSBCubStatus = Web.replaceSpecial((String)fv9PrMSBCubStatus.get(i));
 				String PrMSBCubStCom_GM = Web.replaceSpecial((String)fv9PrMSBCubStCom_GM.get(i));
 				String PrMSBCubMabnh_GM = Web.replaceSpecial((String)fv9PrMSBCubMabnh_GM.get(i));
-				  %>  
-				<tr>
-				    <td valign="top" class="pgpg" style="width:239px; height: 90px;">
-					    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
-						  <tr>
-				   			 <td width="70%" valign="top"><h2><%=Web.replaceSpecial(PrMSBCubStyle) %> </h2></td>
-						   	 <td>
-								<% if(("绿").equals(PrMSBCubStatus)){%>
-								    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" style="height:59px;width:25px;" />
-								<%} else if(("黄").equals(PrMSBCubStatus)){%>
-								    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" style="height:59px;width:25px;" />	
-								<%} else if(("红").equals(PrMSBCubStatus)){%>
-									   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" style="height:59px;width:25px;" /> 
-								<%}%>
-							</td>
-						  </tr>
-						</table>
-					</td>
-		    		<td width="60%" valign="top" class="pgpg">
-			    		<div class="tbnrr">
-			    			<%
-		    				if (PrMSBCubStCom_GM != null && !"".equals(PrMSBCubStCom_GM)) {
-			    			%>
-			    				<%=Web.replaceSpecial(PrMSBCubStCom_GM) %>
-			    			<%
-			    				} else {
-		   					%>
-		   	    				&nbsp;
-		   	    			<%		
-			    				}
-			    			%>
-			    			
-						</div>
-				    </td>
-		   			<td width="40%" valign="top" class="pgpg">
-		   				<div class="tbnrr">
-		   				<%
-		    				if (PrMSBCubMabnh_GM != null && !"".equals(PrMSBCubMabnh_GM)) {
-		    			%>
-		    				<%=Web.replaceSpecial(PrMSBCubMabnh_GM) %>
-		    			<%
-		    				} else {
-	   					%>
-	   	    				&nbsp;
-	   	    			<%		
-		    				}
-		    			%>
-		    			</div>
-					</td>
-				</tr>
+			 %>  
+			 <tr>
+			 	<td style="BORDER-BOTTOM: #7f7f7f 4px solid; width: 180px; height: <%=row_height%>px;">
+			 		<h3><%=Web.replaceSpecial(PrMSBCubStyle) %> </h3>
+			 	</td>
+			    <td style="BORDER-BOTTOM: #7f7f7f 4px solid; width: 39px; height: <%=row_height%>px;">
+			    	<% if(("绿").equals(PrMSBCubStatus)){%>
+					    	<img src="<%=request.getContextPath()%>/app/pep/images/GreenLight.png" 
+					    		style="height:<%=(row_height*2)/3%>px;width:30px;" />
+					<%} else if(("黄").equals(PrMSBCubStatus)){%>
+					    	<img src="<%=request.getContextPath()%>/app/pep/images/YellowLight.png" 
+					    		style="height:<%=(row_height*2)/3%>px;width:30px;" />	
+					<%} else if(("红").equals(PrMSBCubStatus)){%>
+						   <img src="<%=request.getContextPath()%>/app/pep/images/RedLight.png" 
+						   		style="height:<%=(row_height*2)/3%>px;width:30px;" /> 
+					<%}%>
+			    </td>
+			    <td style="BORDER-BOTTOM: #7f7f7f 4px solid; width: 331px; height: <%=row_height%>px;">
+					<%
+    					if (PrMSBCubStCom_GM != null && !"".equals(PrMSBCubStCom_GM)) {
+	    			%>
+	    				<%=Web.replaceSpecial(PrMSBCubStCom_GM) %>
+	    			<%
+	    				} else {
+   					%>
+   	    				&nbsp;
+   	    			<%		
+	    				}
+	    			%>
+			    </td>
+			    <td style="BORDER-BOTTOM: #7f7f7f 4px solid; width: 433px; height: <%=row_height%>px;">
+			    	<%
+	    				if (PrMSBCubMabnh_GM != null && !"".equals(PrMSBCubMabnh_GM)) {
+	    			%>
+	    				<%=Web.replaceSpecial(PrMSBCubMabnh_GM) %>
+	    			<%
+	    				} else {
+   					%>
+   	    				&nbsp;
+   	    			<%		
+	    				}
+	    			%>
+			    </td>
+			 </tr>
 				<% 
 				  }
 				 }
 				%>
 			</table>
-		</div>   
-		<div id="datatable2" style="font-size:14px; margin:30px 30px auto; display: none;">
-		    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
-			  <tr>
-			    <td width="239" class="pg">&nbsp;</td>
-			    <td width="311" class="pg"><h2>Status</h2></td>
-			    <td width="433" class="pg"><h2>Massnahmen</h2></td>
-			  </tr>
+		</div>  
+		 
+		<div id="datatable2" style="font-size:14px; margin:30px 30px auto;">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+			<tr>
+				<td width="180" class="pg">&nbsp;</td>
+				<td width="39" class="pg">&nbsp;</td>
+				<td width="331" class="pg"><h2>Status</h2></td>
+				<td width="433" class="pg"><h2>Massnahmen</h2></td>
+			</tr>
 			 <%
 			 if (fv9PrMSBCubStyle != null && fv9PrMSBCubStyle.size() > 0) {
-			  for(int i=0; i<fv9PrMSBCubStyle.size(); i++){
-				String PrMSBCubStyle = Web.replaceSpecial((String)fv9PrMSBCubStyle.get(i));
-				String PrMSBCubStatus = Web.replaceSpecial((String)fv9PrMSBCubStatus.get(i));
-				String PrMSBCubStCom_CN = Web.replaceSpecial((String)fv9PrMSBCubStCom_CN.get(i));
-				String PrMSBCubMabnh_CN = Web.replaceSpecial((String)fv9PrMSBCubMabnh_CN.get(i));
-				  %>  
-				<tr>
-				    <td valign="top" class="pgpg" style="width:239px; height: 90px;">
-					    <table width="220" border="0" cellspacing="0" cellpadding="0" style="margin:5px 5px 5px 0px;">
-						  <tr>
-				   			 <td width="70%" valign="top"><h2><%=Web.replaceSpecial(PrMSBCubStyle) %> </h2></td>
-						   	 <td>
-								<% if(("绿").equals(PrMSBCubStatus)){%>
-								    	<img src="<%=request.getContextPath()%>/app/pep/images/GREENSTATUS.jpg" style="height:59px;width:25px;"/>
-								<%} else if(("黄").equals(PrMSBCubStatus)){%>
-								    	<img src="<%=request.getContextPath()%>/app/pep/images/YELLOWSTATUS2.png" style="height:59px;width:25px;" />	
-								<%} else if(("红").equals(PrMSBCubStatus)){%>
-									   <img src="<%=request.getContextPath()%>/app/pep/images/REDSTATUS2.png" style="height:59px;width:25px;" /> 
-								<%}%>
-							</td>
-						  </tr>
-						</table>
-					</td>
-		    		<td width="60%" valign="top" class="pgpg">
-			    		<div class="tbnrr">
-			    			<%
-		    				if (PrMSBCubStCom_CN != null && !"".equals(PrMSBCubStCom_CN)) {
-			    			%>
-			    				<%=Web.replaceSpecial(PrMSBCubStCom_CN)%>
-			    			<%
-			    				} else {
-		   					%>
-		   	    				&nbsp;
-		   	    			<%		
-			    				}
-			    			%>
-			    			
-						</div>
-				    </td>
-		   			<td width="40%" valign="top" class="pgpg">
-		   				<div class="tbnrr">
-		   				<%
-		    				if (PrMSBCubMabnh_CN != null && !"".equals(PrMSBCubMabnh_CN)) {
-		    			%>
-		    				<%=Web.replaceSpecial(PrMSBCubMabnh_CN)%>
-		    			<%
-		    				} else {
-	   					%>
-	   	    				&nbsp;
-	   	    			<%		
-		    				}
-		    			%>
-		    			</div>
-					</td>
-				</tr>
+
+//				默认5行数据，如果多余5行，自动计算行的高度
+				double sumHeight = 480.0;
+				double row_height = 0.0;
+				if (fv9PrMSBCubStyle.size() > 5) {
+					row_height = sumHeight/fv9PrMSBCubStyle.size();
+				} else {
+					row_height = sumHeight/5;
+				}
+				
+				for(int i=0; i<fv9PrMSBCubStyle.size(); i++){
+					String PrMSBCubStyle = Web.replaceSpecial((String)fv9PrMSBCubStyle.get(i));
+					String PrMSBCubStatus = Web.replaceSpecial((String)fv9PrMSBCubStatus.get(i));
+					String PrMSBCubStCom_CN = Web.replaceSpecial((String)fv9PrMSBCubStCom_CN.get(i));
+					String PrMSBCubMabnh_CN = Web.replaceSpecial((String)fv9PrMSBCubMabnh_CN.get(i));
+			 %>  
+			 <tr>
+			 	<td style="BORDER-BOTTOM: #7f7f7f 4px solid; width: 180px; height: <%=row_height%>px;">
+			 		<h3><%=Web.replaceSpecial(PrMSBCubStyle) %> </h3>
+			 	</td>
+			    <td style="BORDER-BOTTOM: #7f7f7f 4px solid; width: 39px; height: <%=row_height%>px;">
+			    	<% if(("绿").equals(PrMSBCubStatus)){%>
+					    	<img src="<%=request.getContextPath()%>/app/pep/images/GreenLight.png" 
+					    		style="height:<%=(row_height*2)/3%>px;width:30px;" />
+					<%} else if(("黄").equals(PrMSBCubStatus)){%>
+					    	<img src="<%=request.getContextPath()%>/app/pep/images/YellowLight.png" 
+					    		style="height:<%=(row_height*2)/3%>px;width:30px;" />	
+					<%} else if(("红").equals(PrMSBCubStatus)){%>
+						   <img src="<%=request.getContextPath()%>/app/pep/images/RedLight.png" 
+						   		style="height:<%=(row_height*2)/3%>px;width:30px;" /> 
+					<%}%>
+			    </td>
+			    <td style="BORDER-BOTTOM: #7f7f7f 4px solid; width: 331px; height: <%=row_height%>px;">
+					<%
+    					if (PrMSBCubStCom_CN != null && !"".equals(PrMSBCubStCom_CN)) {
+	    			%>
+	    				<%=Web.replaceSpecial(PrMSBCubStCom_CN) %>
+	    			<%
+	    				} else {
+   					%>
+   	    				&nbsp;
+   	    			<%		
+	    				}
+	    			%>
+			    </td>
+			    <td style="BORDER-BOTTOM: #7f7f7f 4px solid; width: 433px; height: <%=row_height%>px;">
+			    	<%
+	    				if (PrMSBCubMabnh_CN != null && !"".equals(PrMSBCubMabnh_CN)) {
+	    			%>
+	    				<%=Web.replaceSpecial(PrMSBCubMabnh_CN) %>
+	    			<%
+	    				} else {
+   					%>
+   	    				&nbsp;
+   	    			<%		
+	    				}
+	    			%>
+			    </td>
+			 </tr>
 				<% 
 				  }
 				 }
 				%>
 			</table>
-		</div>   
+		</div>  
 	</div>
     <%@ include file="/app/pep/include/foot.jsp"%>
 </div>

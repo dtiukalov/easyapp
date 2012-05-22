@@ -147,6 +147,7 @@
 			%>
 					
 				</tr>
+				<!-- 表头下的横线  -->
 				<tr><td colspan="<%=tdNum+2%>" style="border-bottom: 2px solid; height: 0px;"></td></tr>
 			<%
 				for (int i=0; i<fv9Stufe.size(); i++) {
@@ -191,60 +192,88 @@
 
 			%>
 				<tr>
-					<td style="width: 20px; height:30px; text-align: center; font-weight: bolder; font-size: 14px;"><%=i + 1%></td>
-					<td style="width: 100px; font-size: 14px;"><%=Fahrzeuge %></td>
+					<!-- 装车轮次  -->
+					<td style="width: 20px; height:30px; text-align: center; font-weight: bolder; font-size: 14px;">
+						<%=i + 1%>
+					</td>
+					<!-- 计划与实际的装车数量  -->
+					<td style="width: 100px; font-size: 14px;">
+						<%=Fahrzeuge %>
+					</td>
 					<%
 					if (colspan11 > 0) {
 					%>
-					<td colspan="<%=colspan11%>" style="border-bottom: 0.01px solid gray; ">&nbsp;</td>
+					<!-- 焊装前的空白处  -->
+					<td colspan="<%=colspan11%>" style="border-bottom: 1px solid gray; ">&nbsp;</td>
 					<%
 					}
 					%>
-					
-					<td colspan="<%=colspan12%>" style="background-color: #AED4F8; border-bottom: 0.01px solid gray; ">&nbsp;</td>
-					<td colspan="<%=colspan13%>" style="border-bottom: 0.01px solid gray; ">&nbsp;</td>
+					<!-- 焊装合并列  -->
+					<td colspan="<%=colspan12%>" style="background-color: #AED4F8; border-bottom: 1px solid gray; ">
+						&nbsp;
+					</td>
+					<!-- 焊装之后的空白处  -->
+					<td colspan="<%=colspan13%>" style="border-bottom: 1px solid gray; ">
+						&nbsp;
+					</td>
 				</tr>
 				<tr>
+					<!-- 装车轮次下方的空白处  -->
 					<td style="width: 20px; height:30px;">&nbsp;</td>
+					<!-- 焊装计划与实际的装车数量  -->
 					<td style="width: 100px; font-size: 14px;"><%=Karosserien %></td>
 					<%
 					if (colspan21 > 0) {
 					%>
-					<td colspan="<%=colspan21%>" style="border-bottom: 0.01px solid gray; ">&nbsp;</td>
+					<!-- 油漆前的空白处  -->
+					<td colspan="<%=colspan21%>" style="border-bottom: 1px solid gray; ">
+						&nbsp;
+					</td>
 					<%
 					}
 					%>
-					
-					<td colspan="<%=colspan22%>" style="background-color: #8994A0; border-bottom: 0.01px solid gray; ">&nbsp;</td>
-					<td colspan="<%=colspan23%>" style="border-bottom: 0.01px solid gray; ">&nbsp;</td>
+					<!-- 油漆合并列  -->
+					<td colspan="<%=colspan22%>" style="background-color: #8994A0; border-bottom: 1px solid gray; ">
+						&nbsp;
+					</td>
+					<!-- 油漆后的空白处  -->
+					<td colspan="<%=colspan23%>" style="border-bottom: 1px solid gray; ">
+					&nbsp;
+					</td>
 					
 				</tr>
 				<tr>
+					<!-- 装车轮次下方的空白处  -->
 					<td style="width: 20px; height:30px;">&nbsp;</td>
+					<!-- 焊装装车数量下方的空白处  -->
 					<td style="width: 100px;">&nbsp;</td>
 					<%
 					if (colspan31 > 0) {
 					%>
+					<!-- 总装前的空白处  -->
 					<td colspan="<%=colspan31%>" >&nbsp;</td>
 					<%
 					}
 					%>
-					
+					<!-- 总装合并列  -->
 					<td colspan="<%=colspan32%>" style="background-color: #00235A;">&nbsp;</td>
+					<!-- 交车合并列  -->
 					<td colspan="<%=colspan33%>" style="background-color: #91AFFF;">&nbsp;</td>
+					<!-- 交车后的空白处  -->
 					<td colspan="<%=colspan34%>" >&nbsp;</td>
 					
 				</tr>
 			<%
 					if (i<fv9Stufe.size()-1) {
 			%>
-				<tr><td colspan="<%=tdNum+2%>" style="border-bottom: 0.01px solid; height: 0.01px; "></td></tr>
+				<!-- 最后一行的横线  -->
+				<tr><td colspan="<%=tdNum+2%>" style="border-bottom: 1px solid gray; height: 0px; "></td></tr>
 			<%	
 					}
 
 				}
 			%>
-				<tr><td colspan="<%=tdNum+2%>" style="border-bottom: 2px solid; height: 0px; "></td></tr>
+				<tr><td colspan="<%=tdNum+2%>" style="border-bottom: 2px solid black; height: 0px; "></td></tr>
 			</table>
 			<%
 			}

@@ -10,7 +10,6 @@ import com.saturn.auth.User;
 
 public class UpdateUserPassword implements IAction{
 
-	@Override
 	public IView execute(HttpServletRequest request,
 			HttpServletResponse response) {
 		
@@ -25,7 +24,6 @@ public class UpdateUserPassword implements IAction{
 		return null;
 	}
 
-	@Override
 	public String requestMapping() {
 		return "/app/auth/user/updateUserPassword.action";
 	}

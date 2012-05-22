@@ -14,7 +14,6 @@ import com.saturn.sldb.PersonSub;
 import com.saturn.app.utils.DateUtils;
 public class ReplayAction implements IAction {
 
-	@Override
 	public IView execute(HttpServletRequest request,
 			HttpServletResponse response) {
 
@@ -43,7 +42,6 @@ public class ReplayAction implements IAction {
 		return new JspView("/app/sldb/person/state.jsp");
 	}
 
-	@Override
 	public String requestMapping() {
 		return "/app/sldb/person/replay.action";
 	}

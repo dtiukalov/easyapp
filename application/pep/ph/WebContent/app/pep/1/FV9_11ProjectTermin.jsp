@@ -290,7 +290,7 @@
 				}
 				
 			%>
-				<table style="border: 1px solid; width: 1000px; height: 200px; margin: 150px 0px auto; 
+				<table style="border: 1px solid; width: 1000px; height: 230px; margin: 150px 0px auto; 
 				font-size: 9px; text-align: center; padding: 0px;
 				border-collapse:collapse; border:none; border-bottom: 1px solid;">
 					<!-- 时间轴 - 年 -->
@@ -327,7 +327,7 @@
 						if (m == currentIndex) {
 							%>
 							<div style="width: 2px; background-color: #FF00FF; 
-								height: 140px; 
+								height: 170px; 
 								position: absolute;
 								margin-left:<%=tdWidth/2%>px;">
 							</div>

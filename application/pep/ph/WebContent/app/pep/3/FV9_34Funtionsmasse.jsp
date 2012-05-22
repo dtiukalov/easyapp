@@ -93,7 +93,7 @@
 		%>
 		<%
 		double total = sum1 + 10;
-	
+		int vffqianNum = 0;
 		int vffNum =  0;
 		int pvsNum = 0;
 		int osNum = 0;
@@ -112,11 +112,13 @@
 			arr = Web.getIntArrByStringlist(kwno);
 			
 			lichenbeiNum = Web.getLCBNum(request, arr);
+			vffqianNum = lichenbeiNum.get("vffqianNum"); //VFF前柱子个数
+			vffNum =  lichenbeiNum.get("vffNum");//VFF柱子个数
+			pvsNum = lichenbeiNum.get("pvsNum");//PVS柱子个数
+			osNum = lichenbeiNum.get("osNum");//0S柱子个数
+			sopNum = lichenbeiNum.get("sopNum");//SOP柱子个数
 			
-			vffNum =  lichenbeiNum.get("vffNum");//柱子个数
-			pvsNum = lichenbeiNum.get("pvsNum");//柱子个数
-			osNum = lichenbeiNum.get("osNum");//柱子个数
-			sopNum = lichenbeiNum.get("sopNum");//柱子个数
+			System.out.println("vffqianNum = " + vffqianNum + " vffNum = " + vffNum + " pvsNum = " + pvsNum + " osNum = " + osNum + " sopNum = " + sopNum );
 		}
 		
 		double temp0 = 0;
@@ -285,6 +287,103 @@
 						}
 					}
 				}
+				<%
+				if (vffNum != 0) {
+					double vff_begin = -0.5 + vffqianNum;
+				%>
+				,{
+					data: [[<%=vff_begin%>, 0], [<%=vff_begin%>, 100]],
+					color: 'black',
+					dashStyle: 'dash',
+					lineWidth: 1,
+					marker: {enabled: false},
+					shadow: false,
+					showInLegend: false,
+					enableMouseTracking: false,
+					type: 'line',
+					name :"",
+					dataLabels: {
+						enabled: true,
+						formatter: function() {
+							return "<span style='font-size:18px; font-weight: bolder;'>VFF</span>";
+						}
+					}
+				}
+				<%
+				}
+
+				if (pvsNum != 0) {
+					double pvs_begin = -0.5 + vffqianNum + vffNum;
+				%>
+				,{
+					data: [[<%=pvs_begin%>, 0], [<%=pvs_begin%>, 100]],
+					color: 'black',
+					dashStyle: 'dash',
+					lineWidth: 1,
+					marker: {enabled: false},
+					shadow: false,
+					showInLegend: false,
+					enableMouseTracking: false,
+					type: 'line',
+					name :"",
+					dataLabels: {
+						enabled: true,
+						formatter: function() {
+							return "<span style='font-size:18px; font-weight: bolder;'>PVS</span>";
+						}
+					}
+				}
+				<%
+				}
+				
+				if (osNum != 0) {
+					double os_begin = -0.5 + vffqianNum + vffNum + pvsNum;
+				%>
+				,{
+					data: [[<%=os_begin%>, 0], [<%=os_begin%>, 100]],
+					color: 'black',
+					dashStyle: 'dash',
+					lineWidth: 1,
+					marker: {enabled: false},
+					shadow: false,
+					showInLegend: false,
+					enableMouseTracking: false,
+					type: 'line',
+					name :"",
+					dataLabels: {
+						enabled: true,
+						formatter: function() {
+							return "<span style='font-size:18px; font-weight: bolder;'>0S</span>";
+						}
+					}
+				}
+				<%
+				}
+
+				if (sopNum != 0) {
+					double sop_begin = -0.5 + vffqianNum + vffNum + pvsNum + osNum;
+				%>
+				,{
+					data: [[<%=sop_begin%>, 0], [<%=sop_begin%>, 100]],
+					color: 'black',
+					dashStyle: 'dash',
+					lineWidth: 1,
+					marker: {enabled: false},
+					shadow: false,
+					showInLegend: false,
+					enableMouseTracking: false,
+					type: 'line',
+					name :"",
+					dataLabels: {
+						enabled: true,
+						formatter: function() {
+							return "<span style='font-size:18px; font-weight: bolder;'>SOP</span>";
+						}
+					}
+				}
+				<%
+				}
+				%>
 
 				]
 			}, function(chart) { 

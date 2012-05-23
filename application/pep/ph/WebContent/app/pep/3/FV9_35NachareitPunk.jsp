@@ -99,6 +99,9 @@
 						}
 					},
 					plotOptions: {
+						line: {
+							shadow: false,
+						},
 						column: {
 							stacking: 'normal',
 							groupPadding:0.1,

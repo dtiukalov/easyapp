@@ -109,6 +109,9 @@
 						}
 					},
 					plotOptions: {
+						bar: {
+							shadow: false
+						},
 						series: {
 							stacking: 'normal',
 							borderColor: 'black',

@@ -162,6 +162,7 @@
 				},
 				plotOptions: {
 					column: {
+						shadow: false,
 						stacking: 'normal',
 						borderColor:'black',
 						borderWidth:1,

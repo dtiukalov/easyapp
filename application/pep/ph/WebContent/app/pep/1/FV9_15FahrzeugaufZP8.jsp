@@ -139,6 +139,7 @@
 				},
 				plotOptions: {
 					line: {
+						shadow: false,
 						dataLabels: {
 							enabled: true
 						},

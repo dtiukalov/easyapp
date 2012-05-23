@@ -166,6 +166,7 @@
 					align:'left'
 				}, 
 				xAxis: {
+					min:0,
 					lineWidth:1,
 					tickLength: 0,
 					lineColor:'black',
@@ -303,7 +304,7 @@
 					type: 'line',
 					name :"",
 					dataLabels: {
-						enabled: true,
+						enabled: false,
 						formatter: function() {
 							return "<span style='font-size:18px; font-weight: bolder;'>VFF</span>";
 						}
@@ -327,7 +328,7 @@
 					type: 'line',
 					name :"",
 					dataLabels: {
-						enabled: true,
+						enabled: false,
 						formatter: function() {
 							return "<span style='font-size:18px; font-weight: bolder;'>PVS</span>";
 						}
@@ -351,7 +352,7 @@
 					type: 'line',
 					name :"",
 					dataLabels: {
-						enabled: true,
+						enabled: false,
 						formatter: function() {
 							return "<span style='font-size:18px; font-weight: bolder;'>0S</span>";
 						}
@@ -375,7 +376,7 @@
 					type: 'line',
 					name :"",
 					dataLabels: {
-						enabled: true,
+						enabled: false,
 						formatter: function() {
 							return "<span style='font-size:18px; font-weight: bolder;'>SOP</span>";
 						}

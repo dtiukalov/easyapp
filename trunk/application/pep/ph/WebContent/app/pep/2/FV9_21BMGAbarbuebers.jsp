@@ -213,6 +213,13 @@
 					}
 				},
 				plotOptions: {
+					line: {
+						shadow: false,
+						dataLabels: {
+							enabled: true
+						},
+						enableMouseTracking: true
+					},
 					column: {
 						stacking: 'normal',
 						borderColor: 'black',

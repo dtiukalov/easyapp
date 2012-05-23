@@ -182,6 +182,9 @@
 						}
 					},
 					plotOptions: {
+						line: {
+							shadow: false,
+						},
 						column: {
 							stacking: 'normal',
 							shadow: false,
@@ -278,6 +281,9 @@
 						}
 					},
 					plotOptions: {
+						line: {
+							shadow: false,
+						},
 						column: {
 							stacking: 'normal',
 							shadow: false,
@@ -385,6 +391,9 @@
 						}
 					},
 					plotOptions: {
+						line: {
+							shadow: false,
+						},
 						column: {
 							stacking: 'normal',
 							shadow: false,
@@ -492,6 +501,9 @@
 						}
 					},
 					plotOptions: {
+						line: {
+							shadow: false,
+						},
 						column: {
 							stacking: 'normal',
 							shadow: false,
@@ -612,6 +624,9 @@
 						}
 					},
 					plotOptions: {
+						line: {
+							shadow: false,
+						},
 						column: {
 							stacking: 'normal',
 							shadow: false,

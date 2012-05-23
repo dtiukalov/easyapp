@@ -224,7 +224,15 @@
 					}
 				},
 				plotOptions: {
+					line: {
+						shadow: false,
+						dataLabels: {
+							enabled: false
+						},
+						enableMouseTracking: true
+					},
 					column: {
+						shadow: false,
 						stacking: 'normal',
 						borderColor: 'black',
 						groupPadding:0.06,

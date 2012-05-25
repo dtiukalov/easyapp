@@ -66,7 +66,7 @@
 						%>
 								<tr style="border-collapse: collapse; height: 85px;">
 								<td><br>
-									Auftrag <%=i %>: <br><%=fv9Aktion_GM.get(i)%><br>...
+									Auftrag <%=i+1 %>: <br><%=fv9Aktion_GM.get(i)%><br>
 								</td>
 								<td><br>
 									<%=fv9Verantwortlich.get(i) %>
@@ -100,7 +100,7 @@
 						%>
 						<tr style="border-collapse: collapse; height: 85px;">
 							<td>
-								<br>Auftrag <%=i %>: <br><%=fv9Aktion_CN.get(i)%><br>...
+								<br>Auftrag <%=i+1 %>: <br><%=fv9Aktion_CN.get(i)%><br>
 							</td>
 							<td>
 								<br><%=fv9Verantwortlich.get(i) %>

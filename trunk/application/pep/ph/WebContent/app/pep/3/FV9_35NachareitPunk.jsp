@@ -27,7 +27,8 @@
 				chart = new Highcharts.Chart({
 					chart: {
 						renderTo: 'chart',
-						margin: [20, 0, 30, 50] //下 上 右 左
+						margin: [40, 0, 30, 50] 
+						//       上
 					},
 					title: {
 						text: ' '
@@ -55,7 +56,7 @@
 					 	title: {
 			                align: 'high',
 			                offset: 0,
-			                text: 'Punkte',
+			                text: 'Min/分',
 			                rotation: 0,
 			                x: 50,
 			                y: -10,
@@ -125,45 +126,14 @@
 						}
 					},
 
-				    series: [{
-						type: 'column',
-						name: 'Presswerk',
-						data: <%=fv9Presswerk%>,
-						color: '#BBC2C5',
-						dataLabels: {
-							enabled: false,
-							style : {
-								fontSize:'11px'
-							},
-							color: 'black',
-							formatter: function() {
-								if (this.y == 0 || this.y == 0.0 || this.y == null) {
-									return '';
-								}
-								return this.y + '';
-							}
-						}
-					}, {
+				    series: [
+					{
 						type: 'column',
 						name: 'Karosseriebau',
 						data: <%=fv9Karosseriebau%>,
 						color: '#AED4F8',
 						dataLabels: {
 							enabled: false,
-							formatter: function() {
-								if (this.y == 0 || this.y == 0.0 || this.y == null) {
-									return '';
-								}
-								return this.y + '';
-							}
-						}
-					}, {
-						type: 'column',
-						name: 'Kaufteil',
-						data: <%=fv9Kaufteile%>,
-						color: '#91AFFF',
-						dataLabels: {
-							enabled:false,
 							formatter: function() {
 								if (this.y == 0 || this.y == 0.0 || this.y == null) {
 									return '';

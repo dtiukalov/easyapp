@@ -25,7 +25,7 @@
 			 if(Web.getListYesOrNo((List<String>)form.get("fv9KWNo"))){
 				fv9KWNo = Web.getNumberListStrSubFirst((List<String>)form.get("fv9KWNo"));
 				fv9KWNo = fv9KWNo.substring(0, fv9KWNo.length()-1);
-				fv9KWNo += ",'', '', '']";
+				fv9KWNo += ",'', '', 'IST']";
 			 }	
 			 
 			 if(Web.getListYesOrNo((List<String>)form.get("fv9AekoAbgesch"))){

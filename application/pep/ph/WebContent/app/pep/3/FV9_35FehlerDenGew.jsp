@@ -155,7 +155,7 @@
 						},
 						stackLabels: {
 							enabled: true,
-							y:1,
+						//	y:1,
 							style: {
 								color: 'black'
 							},
@@ -177,8 +177,7 @@
 					},
 					tooltip: {
 						formatter: function() {
-							return '<b>'+ this.x +'</b><br/>'+
-								 this.series.name +': '+ this.y;
+							return '<b>'+ this.series.name +': '+ this.y +'</b><br/>';
 						}
 					},
 					plotOptions: {
@@ -200,7 +199,7 @@
 					},
 				    series: [{
 						type: 'column',
-						name: 'aus Strassenfahrt',
+						name: 'Presswerk',
 						data: <%=fv9PresswerkNum%>,
 						color: '#003C65'
 					}, {
@@ -276,8 +275,7 @@
 					},
 					tooltip: {
 						formatter: function() {
-							return '<b>'+ this.x +'</b><br/>'+
-								 this.series.name +': '+ this.y;
+							return '<b>'+ this.series.name +': '+ this.y +'</b><br/>';
 						}
 					},
 					plotOptions: {
@@ -310,7 +308,7 @@
 					},
 				    series: [{
 						type: 'column',
-						name: 'aus Strassenfahrt',
+						name: 'Karosseriebau',
 						data: <%=fv9KarossNum%>,
 						color: '#AED4F8'
 					}, {
@@ -386,8 +384,7 @@
 					},
 					tooltip: {
 						formatter: function() {
-							return '<b>'+ this.x +'</b><br/>'+
-								 this.series.name +': '+ this.y;
+							return '<b>'+ this.series.name +': '+ this.y +'</b><br/>';
 						}
 					},
 					plotOptions: {
@@ -420,7 +417,7 @@
 					},
 				    series: [{
 						type: 'column',
-						name: 'aus Strassenfahrt',
+						name: 'Lackiererei',
 						data: <%=fv9LackNum%>,
 						color: '#8994A0'
 					}, {
@@ -496,8 +493,7 @@
 					},
 					tooltip: {
 						formatter: function() {
-							return '<b>'+ this.x +'</b><br/>'+
-								 this.series.name +': '+ this.y;
+							return '<b>'+ this.series.name +': '+ this.y +'</b><br/>';
 						}
 					},
 					plotOptions: {
@@ -530,7 +526,7 @@
 					},
 				    series: [{
 						type: 'column',
-						name: 'aus Strassenfahrt',
+						name: 'Montage',
 						data: <%=fv9MontageNum%>,
 						color: '#CFD7D9'
 					}, {
@@ -619,8 +615,7 @@
 					},
 					tooltip: {
 						formatter: function() {
-							return '<b>'+ this.x +'</b><br/>'+
-								 this.series.name +': '+ this.y;
+							return '<b>'+ this.series.name +': '+ this.y +'</b><br/>';
 						}
 					},
 					plotOptions: {
@@ -653,7 +648,7 @@
 					},
 				    series: [{
 						type: 'column',
-						name: 'aus Strassenfahrt',
+						name: 'Kaufteile',
 						data: <%=fv9KaufteileNum%>,
 						color: '#3366FF'
 					}, {

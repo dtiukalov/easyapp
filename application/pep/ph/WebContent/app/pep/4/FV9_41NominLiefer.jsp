@@ -144,9 +144,7 @@
 				},
 				tooltip: {
 					formatter: function() {
-						return '<b>'+ this.x +'</b><br/>'+
-							 this.series.name +': '+ this.y +'<br/>'+
-							 'Total: '+ this.point.stackTotal;
+						return '<b>'+ this.x +' '+ this.series.name +': '+ this.y + '</b>';
 					}
 				},
 				plotOptions: {

@@ -92,8 +92,8 @@
 					},
 					tooltip: {
 						formatter: function() {
-							return '<b>'+ this.x +'</b><br/>'+
-								 this.series.name +': '+ this.y;
+							return '<b>KW'+ this.x +' '+
+								 this.series.name +': '+ this.y + '</b>';
 						}
 					},
 					plotOptions: {

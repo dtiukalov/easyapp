@@ -135,12 +135,20 @@
 					}
 				},
 				tooltip: {
-					borderWidth: 0,
-					shadow:false,
-					 formatter: function() {
+					
+					//点击柱状图弹出一个对话框，显示备注信息
+					//borderWidth: 0,
+					//shadow:false,
+					// formatter: function() {
 					//	return '<table style="border-collapse:collapse;border:solid 1px #000;" width="200" cellpadding="0" cellspacing="0"><tr><td><br>' + this.point.desc +'<br></td></tr></table>';
-						return '';
-					 }
+					//	return '';
+					// }
+					borderWidth: 1,
+					shadow:false,
+					formatter: function() {
+						return '<b>'+ this.x +'</b><br/>'+
+						 this.series.name +': '+ this.y +'<br/>';
+					}
 				},
 				plotOptions: {
 					column: {

@@ -35,14 +35,16 @@
 		if(fv9StyleName.size()>0 && fv9StyleNum.size()> 0 &&fv9StyleName.size() == fv9StyleNum.size()){
 		
 			int index1 = fv9StyleName.indexOf("Planungs durchlauf");
-			int index2 = fv9StyleName.indexOf("Status 485");
-			int index3 = fv9StyleName.indexOf("Status 487/496");
-			int index4 = fv9StyleName.indexOf("Status 800");
-			int index5 = fv9StyleName.indexOf("VFF");
-			int index6 = fv9StyleName.indexOf("PVS");
-			int index7 = fv9StyleName.indexOf("0-Serie");
-			int index8 = fv9StyleName.indexOf("SOP");
-			int index9 = fv9StyleName.indexOf("Offen");
+			int index2 = fv9StyleName.indexOf("Status 701");
+			int index3 = fv9StyleName.indexOf("Status 485");
+			int index4 = fv9StyleName.indexOf("Status 487/496");
+			int index5 = fv9StyleName.indexOf("Status 800");
+			int index6 = fv9StyleName.indexOf("VFF");
+			int index7 = fv9StyleName.indexOf("PVS");
+			int index8 = fv9StyleName.indexOf("0-Serie");
+			int index9 = fv9StyleName.indexOf("SOP");
+			int index10 = fv9StyleName.indexOf("Offen");
+			
 			
 			int num1 = Integer.parseInt(fv9StyleNum.get(index1));
 			int num2 = Integer.parseInt(fv9StyleNum.get(index2));
@@ -53,24 +55,28 @@
 			int num7 = Integer.parseInt(fv9StyleNum.get(index7));
 			int num8 = Integer.parseInt(fv9StyleNum.get(index8));
 			int num9 = Integer.parseInt(fv9StyleNum.get(index9));
+			int num10 = Integer.parseInt(fv9StyleNum.get(index10));
+			
 			
 			String[] keys = new String[fv9StyleName.size() + 2];
 			int[] lows = new int[fv9StyleName.size() + 2];
 			int[] values = new int[fv9StyleName.size() + 2];
-			String[] colors = {"'#0000FF'", "'#F9A700'", "'#339966'", "'#339966'", "'#339966'", "'#0000FF'", 
-					"'#00FF00'", "'#00CCFF'", "'#00CCFF'", "'#00CCFF'", "'#00CCFF'"};
+			String[] colors = {"'#0000FF'", "'#F9A700'", "'#339966'", "'#339966'", "'#339966'", "'#339966'", 
+					"'#0000FF'", "'#00FF00'", "'#00CCFF'", "'#00CCFF'", "'#00CCFF'", "'#00CCFF'"};
 			
-			keys[0] = "Gesamt"; values[0] = num1+num2+num3+num4; lows[0] = 0;
+			keys[0] = "Gesamt"; values[0] = num1+num2+num3+num4+num5; lows[0] = 0;
 			keys[index1+1] = "Planungs durchlauf"; values[index1+1] = num1; lows[index1+1] = values[0]-values[index1+1];
-			keys[index2+1] = "Status 485"; values[index2+1] = num2; lows[index2+1] = lows[index1+1]-values[index2+1];
-			keys[index3+1] = "Status 487/496"; values[index3+1] = num3; lows[index3+1] = lows[index2+1]-values[index3+1];
-			keys[index4+1] = "Status 800"; values[index4+1] = num4; lows[index4+1] = lows[index3+1]-values[index4+1];
-			keys[5] = "genehmigt/ techn.i.O."; values[5] = num5+num6+num7+num8+num9; lows[5] = 0;
-			keys[index5+2] = "VFF"; values[index5+2] = num5; lows[index5+2] = values[5] - values[index5+2];
-			keys[index6+2] = "PVS"; values[index6+2] = num6; lows[index6+2] = lows[index5+2]-values[index6+2];
-			keys[index7+2] = "0-Serie"; values[index7+2] = num7; lows[index7+2] = lows[index6+2]-values[index7+2];
-			keys[index8+2] = "SOP"; values[index8+2] = num8; lows[index8+2] = lows[index7+2]-values[index8+2];
-			keys[index9+2] = "Offen"; values[index9+2] = num9; lows[index9+2] = lows[index8+2]-values[index9+2];
+			keys[index2+1] = "Status 701"; values[index2+1] = num2; lows[index2+1] = lows[index1+1]-values[index2+1];
+			keys[index3+1] = "Status 485"; values[index3+1] = num3; lows[index3+1] = lows[index2+1]-values[index3+1];
+			keys[index4+1] = "Status 487/496"; values[index4+1] = num4; lows[index4+1] = lows[index3+1]-values[index4+1];
+			keys[index5+1] = "Status 800"; values[index5+1] = num5; lows[index5+1] = lows[index4+1]-values[index5+1];
+			
+			keys[6] = "genehmigt/ techn.i.O."; values[6] = num6+num7+num8+num9+num10; lows[6] = 0;
+			keys[index6+2] = "VFF"; values[index6+2] = num6; lows[index6+2] = values[6] - values[index6+2];
+			keys[index7+2] = "PVS"; values[index7+2] = num7; lows[index7+2] = lows[index6+2]-values[index7+2];
+			keys[index8+2] = "0-Serie"; values[index8+2] = num8; lows[index8+2] = lows[index7+2]-values[index8+2];
+			keys[index9+2] = "SOP"; values[index9+2] = num9; lows[index9+2] = lows[index8+2]-values[index9+2];
+			keys[index10+2] = "Offen"; values[index10+2] = num10; lows[index10+2] = lows[index9+2]-values[index10+2];
 			
 			categories = Web.getStrFromStringArray(keys);
 			data = "";	
@@ -148,8 +154,7 @@
 				tooltip: {
 					formatter: function() {
 						return '<b>'+ this.x +'</b><br/>'+
-							 this.series.name +': '+ this.y +'<br/>'+
-							 'Total: '+ this.point.stackTotal;
+							 this.series.name +': '+ this.y +'<br/>';
 					}
 				},
 				plotOptions: {
@@ -181,7 +186,7 @@
 					name: 'Anzahl Aenderungen',
 					data: [<%=data%>]
 				},{
-					data: [[4.5, 0], [ 4.501, <%=total%>]],
+					data: [[5.5, 0], [ 5.501, <%=total%>]],
 					color: '#5762A0',
 					dashStyle: 'dash',
 					lineWidth: 1,

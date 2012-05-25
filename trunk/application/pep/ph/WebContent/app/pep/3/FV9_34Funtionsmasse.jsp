@@ -37,9 +37,9 @@
 				kwno = (List<String>)form.get("fv9KWNo");
 				
 				if (Web.getObjectYesOrNo(form.get("fv9PrognoseKW"))) {
-					kwno.add("Prognose zu Meilenstein SOP KW " + form.get("fv9PrognoseKW"));
+					kwno.add("<span style='font-size: 8px;'>Prognose zu Meilenstein SOP KW </span>" + form.get("fv9PrognoseKW") + "");
 				} else {
-					kwno.add("Prognose zu Meilenstein SOP KW XXX");
+					kwno.add("<span style='font-size: 8px;'>Prognose zu Meilenstein SOP KW XXX</span>");
 				}
 			}
 			String fv9KWNo = Web.getStrListStr(kwno);
@@ -219,8 +219,7 @@
 				tooltip: {
 					formatter: function() {
 						return '<b>'+ this.x +'</b><br/>'+
-							 this.series.name +': '+ this.y +'<br/>'+
-							 'Total: '+ this.point.stackTotal;
+							 this.series.name +': '+ this.y +'<br/>';
 					}
 				},
 				plotOptions: {

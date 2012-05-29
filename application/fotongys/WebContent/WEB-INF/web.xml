@@ -19,6 +19,11 @@
 	<listener>
 		<listener-class>com.saturn.app.web.ActionLoaderListener</listener-class>
 	</listener>
+	
+	<context-param>
+		<param-name>gysTCPass</param-name>
+		<param-value>12345678</param-value>
+	</context-param>
 
 	<context-param>
 		<param-name>mailSeesion</param-name>
@@ -27,7 +32,7 @@
 
 	<context-param>
 		<param-name>host</param-name>
-		<param-value>http://localhost:7001/tc</param-value>
+		<param-value>http://192.168.2.9:7001/tc</param-value>
 	</context-param>
 
 	<context-param>
@@ -89,6 +94,6 @@
 	</servlet-mapping>
 
 	<session-config>
-		<session-timeout>30</session-timeout>
+		<session-timeout>60</session-timeout>
 	</session-config>
 </web-app>

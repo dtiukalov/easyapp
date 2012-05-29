@@ -36,11 +36,29 @@ public class SaturnDispatcherServlet extends HttpServlet {
 		String fromEmail = config.getServletContext().getInitParameter("fromEmail");
 		String fromPass = config.getServletContext().getInitParameter("fromPass");
 		String mailSeesion = config.getServletContext().getInitParameter("mailSeesion");
+		String gysTCPass = config.getServletContext().getInitParameter("gysTCPass");
+		
 		if (host != null && !"".equals(host)) {
 			WorkspaceUtils.HOST = host;
+		}
+		
+		if (gysTCPass != null && !"".equals(gysTCPass)) {
+			WorkspaceUtils.GYS_TC_PASSWORD = gysTCPass;
+		}
+		
+		if (emailhost != null && !"".equals(emailhost)) {
 			EmailUtils.host = emailhost;
+		}
+		
+		if (fromEmail != null && !"".equals(fromEmail)) {
 			EmailUtils.fromEmail = fromEmail;
+		}
+		
+		if (fromPass != null && !"".equals(fromPass)) {
 			EmailUtils.fromPass = fromPass;
+		}
+		
+		if (mailSeesion != null && !"".equals(mailSeesion)) {
 			EmailUtils.mailSession = mailSeesion;
 		}
 		super.init(config);

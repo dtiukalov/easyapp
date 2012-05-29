@@ -162,18 +162,37 @@ public class SimpleDaoTemplate {
 		int total = SimpleDaoTemplate.queryCount(getCountSql(sql),
 				dymaticCondition);
 
+		int end = 0;
+		try {
+			end = Integer.parseInt(start) + Integer.parseInt(offset);
+		} catch (NumberFormatException e) {
+			//e.printStackTrace();
+		}
+		
 		List<T> list = query(sql,
-				dymaticCondition.addCondition("LIMIT {0}, {1}", start, offset),
+				dymaticCondition.addCondition("where no between {0} and {1}", start, end + ""),
 				mapping, clazzT);
 
 		return new ListData<T>(total, list);
 	}
 
 	private static String getCountSql(String sql) {
-		sql = sql.toUpperCase();
-		int index = sql.indexOf("FROM");
+	//	sql = sql.toUpperCase();
+		int index = 0;
+		if(sql.contains("from")){
+			index = sql.indexOf("from");
+		}
+		/*
+		if(sql.contains("FROM")){
+			index = sql.indexOf("FROM");
+		}
+		*/
+		if(index > 0){
+			return "SELECT count(*) " + sql.substring(index);
+		} else {
+			return sql;
+		}
 
-		return "SELECT count(*) " + sql.substring(index);
 	}
 
 	public static <T extends Object> T queryOne(String sql,

@@ -11,9 +11,9 @@
 </head>
 <body class="easyui-layout">
 	<%
-		User user = (User) session.getAttribute("TC_USER");
+		User user = (User) request.getSession().getAttribute("TC_USER");
 		String date = (String)request.getSession().getAttribute("logintime");
-	
+		String company = (String)request.getSession().getAttribute("company");
 		String local = (String)session.getAttribute(International.LOCAL);
 		String localStr = "";
 	
@@ -40,8 +40,14 @@
 			<div class="menu-logo">
 				<div class="menu-info"><%=International.get(request, "login_title") %></div>
 			</div>
-			<div class="cnen-info"><%=International.get(request,"currentUserLoginTime") %> ：[<%=date %>][<a href="<%=request.getContextPath()%>/app/tc/foton/gys/local.do?local=<%=local%>"><%=localStr%></a>] </div>
-	    	<div class="user-info"><%=International.get(request, "username") %>:<%=user.get_user_name()%> [<a href=""><%=International.get(request, "help")%></a>][<a href="<%=request.getContextPath()%>/app/tc/logout.do"><%=International.get(request, "logout") %></a>] </div>
+			<div class="cnen-info"><%=International.get(request,"currentUserLoginTime") %> ：[<%=date %>][<a href="<%=request.getContextPath()%>/app/tc/foton/gys/local.do?local=<%=local%>"><%=localStr%></a>] [<a href="<%=request.getContextPath()%>/app/tc/chpass.jsp?userid=<%=user.get_userid()%>"><%=International.get(request, "changepass")%></a>]&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%=company %></div>
+	    	
+	    	<div  class="user-info">
+	    		<table>
+	    			<tr><td><%=International.get(request, "username") %>:<%=user.get_user_name()%>[<a href=""><%=International.get(request, "help")%></a>][<a href="<%=request.getContextPath()%>/app/tc/logout.do"><%=International.get(request, "logout") %></a>] </td></tr>
+	    		</table>
+	    	</div>
+	    	
 		</div> 
 	</div>
 	<div region="center" style="overflow: hidden;">

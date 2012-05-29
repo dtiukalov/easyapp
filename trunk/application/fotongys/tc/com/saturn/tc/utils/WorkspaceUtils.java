@@ -15,6 +15,8 @@ public class WorkspaceUtils {
 	
 	public static String HOST = "http://localhost:7001/tc";
 	
+	public static String GYS_TC_PASSWORD = "12345678";
+	
 	public static Folder getHome(TCSession session, String userId) {
 		EasyDataManagementService service = new EasyDataManagementService(session);
 		

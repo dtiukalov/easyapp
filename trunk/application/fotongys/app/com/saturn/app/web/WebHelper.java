@@ -36,6 +36,7 @@ public class WebHelper {
 			IAction action = ActionManager.get(actionKey);
 			return action.execute(request, response);
 		} catch (Exception e) {
+			e.printStackTrace();
 			request.setAttribute(ERROR_MESSAGE, e.getMessage());
 			return new JspView(ERROR_JSP);
 		}

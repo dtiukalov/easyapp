@@ -74,8 +74,28 @@ public class International {
 		en.put("help", "help");
 		en.put("currentUserLoginTime", "Login Date");
 		en.put("downloadInfo", "No valid data can be downloaded");
+		en.put("changepass", "change password");
+		en.put("pass.success", "success, please log in again");
+		en.put("pass.fail", "failed, please try again");
+		en.put("pass.err", "The original password is incorrect, please try again");
+		en.put("pass.old", "old Password");
+		en.put("pass.new", "new password");
+		en.put("pass.re.enter", "Re-enter");
+		en.put("pass.lengthvalide", "Password median between 5-12");
+		en.put("pass.notmatch", "Two passwords do not match");
+		en.put("pass.companyname", "Company Name");
 		
 		
+		cn.put("pass.companyname", "公司名称");
+		cn.put("pass.success", "修改密码成功，请重新登录");
+		cn.put("pass.fail", "修改密码失败，请重试");
+		cn.put("pass.err", "原密码不正确，请重试");
+		cn.put("pass.old", "旧密码");
+		cn.put("pass.new", "新密码");
+		cn.put("pass.re.enter", "再次输入");
+		cn.put("pass.lengthvalide", "密码位数在5到12之间");
+		cn.put("pass.notmatch", "两次密码不一致");
+		cn.put("changepass", "修改密码");
 		cn.put("login_title", "福田汽车供应商PLM系统");
 		cn.put("username", "用户名");
 		cn.put("password", "密码");

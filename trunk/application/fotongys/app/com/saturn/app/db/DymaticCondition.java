@@ -54,7 +54,7 @@ public class DymaticCondition {
 				
 				if (value != null && !"".equals(value.trim())) {
 					
-					buffer.append("AND ").append("`" + field + "`").append(" like '%").append(value).append("%' ");
+					buffer.append("AND ").append("\"" + field + "\"").append(" like '%").append(value).append("%' ");
 				}
 			}
 		}

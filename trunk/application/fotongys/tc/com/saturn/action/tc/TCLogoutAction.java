@@ -29,9 +29,12 @@ public class TCLogoutAction implements IAction {
 
 		TCSession session = (TCSession) request.getSession().getAttribute(
 				"TC_session");
-		clearCache(request, session);
+		if(session!= null){
+			clearCache(request, session);
+		}
 
 		request.getSession().removeAttribute("TC_USER");
+		request.getSession().removeAttribute("company");
 		request.getSession().removeAttribute("authUser");
 		request.getSession().removeAttribute("TC_session");
 		request.getSession().removeAttribute(ListAction.TC_MAIL_LIST);

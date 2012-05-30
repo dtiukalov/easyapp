@@ -9,7 +9,7 @@ public class FV9_36Vorch2TagForm extends Form {
 		"fv9MabnaDef", "fv9IO", "fv9PrognosePlan", "fv9Zeil","fv9PrognoseIO",
 		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
 		"fv9PlatformType" ,"fv9otherUid", "fv9IsBackup", "object_type",
-		"fv9DisplayRule"
+		"fv9DisplayRule","fv9SortNum"
 	};
 	
 	public String[] getAttributes() {

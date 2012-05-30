@@ -18,7 +18,7 @@ public class FV9_71ReifegradsForm extends Form {
 		"fv9TermineStatus","fv9TermineCom","fv9TermineComC", "fv9TerminMass_GM", "fv9TerminMass_CN",
 		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
 		"fv9PlatformType","fv9otherUid", "fv9IsBackup", "object_type",
-		"fv9DisplayRule"
+		"fv9DisplayRule","fv9SortNum"
 	};
 
 	public String[] getAttributes() {

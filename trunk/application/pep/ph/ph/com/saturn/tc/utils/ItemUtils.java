@@ -10,9 +10,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import com.saturn.ph.PH;
-import com.teamcenter.services.internal.loose.core._2007_05.Session;
 import com.teamcenter.soa.client.model.ModelObject;
-import com.teamcenter.soa.client.model.strong.Item;
 import com.teamcenter.soa.client.model.strong.ItemRevision;
 import com.teamcenter.soa.exceptions.NotLoadedException;
 
@@ -141,5 +139,60 @@ public class ItemUtils {
 			}
 		}
 //  backup排序
+	}
+	/*
+	 * 
+	 */
+	public static Map<Integer, Object> getFormIds(
+			ItemRevision itemRev,
+			String[] relations,
+			HttpServletRequest request) {
+		Map<Integer, Object> ids = new HashMap<Integer, Object>();
+		
+		try {
+			for (String relation : relations) {
+				ModelObject[] objects = itemRev.getProperty(relation).getModelObjectArrayValue();
+				PH.getDataService().getProperties(objects, "object_type");
+				PH.getDataService().getProperties(objects, "object_name");
+				PH.getDataService().getProperties(objects, "fv9PreRelesed");
+				PH.getDataService().getProperties(objects, "fv9IsBackup");
+				PH.getDataService().getProperties(objects, "fv9SortNum");
+				
+				for (ModelObject modelObject : objects) {
+					PH.getDataService().refreshObjects(modelObject);
+					String uid = modelObject.getUid();				//获取对象Uid
+					String type = modelObject.getType().getName();	//获取FormType名称
+					Integer fv9sortnum = modelObject.getProperty("fv9SortNum").getIntValue();//获取排序属性值
+					String isPublic = modelObject.getPropertyDisplayableValue("fv9PreRelesed");//获取对象是否预发布，如果预发布则在Web端显示 
+					
+					if ("yes".equalsIgnoreCase(isPublic) && fv9sortnum != null && fv9sortnum != 0) {
+						if (ids.containsKey(fv9sortnum)) {
+							Object obj = ids.get(fv9sortnum);
+							if (obj instanceof List) {
+								((List)obj).add(uid);
+							} else {
+								List<String> arr = new ArrayList<String>();
+								arr.add((String)obj);
+								arr.add(uid);
+								ids.put(fv9sortnum, arr);
+							}
+						} else {
+							ids.put(fv9sortnum, uid);
+						}
+						
+						//将3.4 Funktionsmaße nach Bauteilen的UID放在session中，
+						//供3.4 Funktionsmaße 获取公差尺寸的总数
+						if ("FV9_34FuntNachBaut".equals(type)) {
+							request.getSession().setAttribute("FuntionsmasseUID", uid);
+						}
+					}
+					
+				}
+			}
+		} catch (NotLoadedException e) {
+			e.printStackTrace();
+			return null;
+		}
+		return ids;
 	}
 }

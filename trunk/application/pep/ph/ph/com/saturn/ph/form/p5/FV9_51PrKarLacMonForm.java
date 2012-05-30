@@ -12,7 +12,7 @@ public class FV9_51PrKarLacMonForm extends Form {
 		"fv9ElectStatus", "fv9ElectStCom_CN","fv9ElectStCom_GM", "fv9ElectStMab_CN", "fv9ElectStMab_GM",
 		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
 		"fv9PlatformType","fv9otherUid", "fv9IsBackup", "object_type",
-		"fv9DisplayRule"
+		"fv9DisplayRule","fv9SortNum"
 	};
 
 	public String[] getAttributes() {

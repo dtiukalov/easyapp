@@ -11,7 +11,7 @@ public class FV9_42TeileStatVFFHTForm extends Form {
 		"fv9TopKrisUmf", "fv9TopEinNum", "fv9TopVSISWZ", "fv9TopVSIN3",
 		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
 		"fv9PlatformType" ,"fv9otherUid", "fv9IsBackup", "object_type",
-		"fv9DisplayRule"
+		"fv9DisplayRule","fv9SortNum"
 	};
 
 	public String[] getAttributes() {

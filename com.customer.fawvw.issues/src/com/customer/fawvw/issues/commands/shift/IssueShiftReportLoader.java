@@ -178,25 +178,21 @@ public class IssueShiftReportLoader {
 								planMap.put("fv9IssueDesc", itemRevision //$NON-NLS-1$
 										.getProperty("fv9IssueDesc"));// Œ Ã‚√Ë ˆ //$NON-NLS-1$
 								//¥Î ©
-								planMap.put("fv9SolutionBS", itemRevision.getProperty("fv9SolutionBS"));
-								planMap.put("fv9SolutionCA", itemRevision.getProperty("fv9SolutionCA"));
 								planMap.put("fv9SolutionLO", itemRevision.getProperty("fv9SolutionLO"));
-								planMap.put("fv9SolutionPA", itemRevision.getProperty("fv9SolutionPA"));
 								planMap.put("fv9SolutionPL", itemRevision.getProperty("fv9SolutionPL"));
 								planMap.put("fv9SolutionQAPP", itemRevision.getProperty("fv9SolutionQAPP"));
 								planMap.put("fv9SolutionSU", itemRevision.getProperty("fv9SolutionSU"));
 								planMap.put("fv9SolutionVSC", itemRevision.getProperty("fv9SolutionVSC"));
 								planMap.put("fv9SolutionTE", itemRevision.getProperty("fv9SolutionTE"));
+								planMap.put("fv9SolutionCP1_ME", itemRevision.getProperty("fv9SolutionCP1_ME"));
+								planMap.put("fv9SolutionBS", itemRevision.getProperty("fv9SolutionBS"));
+								planMap.put("fv9SolutionCA", itemRevision.getProperty("fv9SolutionCA"));
+								planMap.put("fv9SolutionPA", itemRevision.getProperty("fv9SolutionPA"));
+								planMap.put("fv9SolutionCP2_ME", itemRevision.getProperty("fv9SolutionCP2_ME"));
+								planMap.put("fv9SolutionCP2BS", itemRevision.getProperty("fv9SolutionCP2BS"));
+								planMap.put("fv9SolutionCP2PA", itemRevision.getProperty("fv9SolutionCP2PA"));
+								planMap.put("fv9SolutionCP2CA", itemRevision.getProperty("fv9SolutionCP2CA"));
 								
-//								planMap.put("fv9SlResDepBS", itemRevision.getProperty("fv9SlResDepBS"));
-//								planMap.put("fv9SlResDepCA", itemRevision.getProperty("fv9SlResDepCA"));
-//								planMap.put("fv9SlResDepLO", itemRevision.getProperty("fv9SlResDepLO"));
-//								planMap.put("fv9SlResDepPA", itemRevision.getProperty("fv9SlResDepPA"));
-//								planMap.put("fv9SlResDepPL", itemRevision.getProperty("fv9SlResDepPL"));
-//								planMap.put("fv9SlResDepQAPP", itemRevision.getProperty("fv9SlResDepQAPP"));
-//								planMap.put("fv9SlResDepSU", itemRevision.getProperty("fv9SlResDepSU"));
-//								planMap.put("fv9SlResDepVSC", itemRevision.getProperty("fv9SlResDepVSC"));
-
 								planMap.put("fv9RGStatus", itemRevision //$NON-NLS-1$
 										.getProperty("fv9RGStatus"));// ∫Ï¬Ãµ∆◊¥Ã¨ //$NON-NLS-1$
 								planMap.put("carNumber", (String) parameters //$NON-NLS-1$
@@ -249,23 +245,20 @@ public class IssueShiftReportLoader {
 								actualMap.put("fv9IssueDesc", itemRevision //$NON-NLS-1$
 										.getProperty("fv9IssueDesc"));// Œ Ã‚√Ë ˆ //$NON-NLS-1$
 								
-								actualMap.put("fv9SolutionBS", itemRevision.getProperty("fv9SolutionBS"));
-								actualMap.put("fv9SolutionCA", itemRevision.getProperty("fv9SolutionCA"));
 								actualMap.put("fv9SolutionLO", itemRevision.getProperty("fv9SolutionLO"));
-								actualMap.put("fv9SolutionPA", itemRevision.getProperty("fv9SolutionPA"));
 								actualMap.put("fv9SolutionPL", itemRevision.getProperty("fv9SolutionPL"));
 								actualMap.put("fv9SolutionQAPP", itemRevision.getProperty("fv9SolutionQAPP"));
 								actualMap.put("fv9SolutionSU", itemRevision.getProperty("fv9SolutionSU"));
 								actualMap.put("fv9SolutionVSC", itemRevision.getProperty("fv9SolutionVSC"));
-								
-								actualMap.put("fv9SlResDepBS", itemRevision.getProperty("fv9SlResDepBS"));
-								actualMap.put("fv9SlResDepCA", itemRevision.getProperty("fv9SlResDepCA"));
-								actualMap.put("fv9SlResDepLO", itemRevision.getProperty("fv9SlResDepLO"));
-								actualMap.put("fv9SlResDepPA", itemRevision.getProperty("fv9SlResDepPA"));
-								actualMap.put("fv9SlResDepPL", itemRevision.getProperty("fv9SlResDepPL"));
-								actualMap.put("fv9SlResDepQAPP", itemRevision.getProperty("fv9SlResDepQAPP"));
-								actualMap.put("fv9SlResDepSU", itemRevision.getProperty("fv9SlResDepSU"));
-								actualMap.put("fv9SlResDepVSC", itemRevision.getProperty("fv9SlResDepVSC"));
+								actualMap.put("fv9SolutionTE", itemRevision.getProperty("fv9SolutionTE"));
+								actualMap.put("fv9SolutionCP1_ME", itemRevision.getProperty("fv9SolutionCP1_ME"));
+								actualMap.put("fv9SolutionBS", itemRevision.getProperty("fv9SolutionBS"));
+								actualMap.put("fv9SolutionCA", itemRevision.getProperty("fv9SolutionCA"));
+								actualMap.put("fv9SolutionPA", itemRevision.getProperty("fv9SolutionPA"));
+								actualMap.put("fv9SolutionCP2_ME", itemRevision.getProperty("fv9SolutionCP2_ME"));
+								actualMap.put("fv9SolutionCP2BS", itemRevision.getProperty("fv9SolutionCP2BS"));
+								actualMap.put("fv9SolutionCP2PA", itemRevision.getProperty("fv9SolutionCP2PA"));
+								actualMap.put("fv9SolutionCP2CA", itemRevision.getProperty("fv9SolutionCP2CA"));
 								
 								actualMap.put("fv9RGStatus", itemRevision //$NON-NLS-1$
 										.getProperty("fv9RGStatus"));// ∫Ï¬Ãµ∆◊¥Ã¨ //$NON-NLS-1$
@@ -323,7 +316,6 @@ public class IssueShiftReportLoader {
 						
 					}
 				}
-				
 				
 				System.out.println(log);
 				

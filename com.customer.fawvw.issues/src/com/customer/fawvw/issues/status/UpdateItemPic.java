@@ -51,7 +51,7 @@ public class UpdateItemPic extends DefaultLabelProviderDelegate
 
 			//流程阶段列表
 			String process_stage_list = ir.getProperty("process_stage_list");
-		System.out.println("process_stage_list = " + ir.getProperty("process_stage_list"));
+//		System.out.println("process_stage_list = " + ir.getProperty("process_stage_list"));
 			if (process_stage_list != null &&
 					!"".equals(process_stage_list)) {
 				release = AbstractUIPlugin.imageDescriptorFromPlugin(
@@ -60,7 +60,7 @@ public class UpdateItemPic extends DefaultLabelProviderDelegate
 			}
 			//发放状态
 			String release_status_list = ir.getProperty("release_status_list");
-		System.out.println("release_status_list = " + release_status_list);
+//		System.out.println("release_status_list = " + release_status_list);
 			if (!"".equals(ir.getProperty("release_status_list"))
 					&& (ir.getProperty("release_status_list").contains("TCM 已发放")) ||
 						(ir.getProperty("release_status_list").contains("TCM Released"))) {

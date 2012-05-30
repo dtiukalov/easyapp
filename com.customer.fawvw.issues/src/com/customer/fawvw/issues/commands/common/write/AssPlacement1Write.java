@@ -1,4 +1,4 @@
-package com.customer.fawvw.issues.commands.issuestatistic;
+package com.customer.fawvw.issues.commands.common.write;
 
 import java.util.Map;
 
@@ -7,12 +7,12 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
-public class AssPlacementWrite {
+public class AssPlacement1Write {
 
 	/*
 	 * 写入"按装车位置统计"页
 	 */
-	static void importDataPage(HSSFWorkbook workbook,
+	public static void importDataPage(HSSFWorkbook workbook,
 			HSSFSheet sheetPage, Map<String, Object> values) {
 		if (values.get("assPlacement") != null) { //$NON-NLS-1$
 			Map<String, Object> AssIssues = (Map<String, Object>)values.get("assPlacement"); //$NON-NLS-1$

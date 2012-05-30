@@ -460,7 +460,7 @@ public class ComponentUtils {
 					session, 
 					"ÏîÄ¿...", //$NON-NLS-1$
 					conditions, inputs);
-		System.out.println("projects.length = " + projects.length);			 //$NON-NLS-1$
+		
 		for (int i = 0; i < projects.length; i++) {
 			projectComboBox.addItem(projects[i]);
 		}

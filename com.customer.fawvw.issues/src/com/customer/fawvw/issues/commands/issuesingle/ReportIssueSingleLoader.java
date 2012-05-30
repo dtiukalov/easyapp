@@ -84,23 +84,33 @@ public class ReportIssueSingleLoader {
 				
 				values.put("fv9SolutionBS", fv9IssueRevision 
 						.getProperty("fv9SolutionBS")); 
-				System.out.println("BS措施：" + fv9IssueRevision  
+				System.out.println("CP1-BS措施：" + fv9IssueRevision  
 						.getProperty("fv9SolutionBS")); 
 				
 				values.put("fv9SlDLDateBS", fv9IssueRevision 
 						.getProperty("fv9SlDLDateBS")); 
-				System.out.println("BS措施完成期限： " + fv9IssueRevision  
+				System.out.println("CP1-BS措施完成期限： " + fv9IssueRevision  
 						.getProperty("fv9SlDLDateBS")); 
 			
 				values.put("fv9SolutionCA", fv9IssueRevision 
 						.getProperty("fv9SolutionCA")); 
-				System.out.println("CA措施：" + fv9IssueRevision  
+				System.out.println("CP1-CA措施：" + fv9IssueRevision  
 						.getProperty("fv9SolutionCA")); 
 				
 				values.put("fv9SlDLDateCA", fv9IssueRevision 
 						.getProperty("fv9SlDLDateCA")); 
-				System.out.println("CA措施完成期限：" + fv9IssueRevision  
+				System.out.println("CP1-CA措施完成期限：" + fv9IssueRevision  
 						.getProperty("fv9SlDLDateCA")); 
+				
+				values.put("fv9SolutionPA", fv9IssueRevision 
+						.getProperty("fv9SolutionPA")); 
+				System.out.println("CP1-PA措施：" + fv9IssueRevision  
+						.getProperty("fv9SolutionPA")); 
+				
+				values.put("fv9SlDLDatePA", fv9IssueRevision 
+						.getProperty("fv9SlDLDatePA")); 
+				System.out.println("CP1-PA措施完成期限： " + fv9IssueRevision  
+						.getProperty("fv9SlDLDatePA")); 
 								
 				values.put("fv9SolutionLO", fv9IssueRevision 
 						.getProperty("fv9SolutionLO")); 
@@ -111,16 +121,6 @@ public class ReportIssueSingleLoader {
 						.getProperty("fv9SlDLDateLO")); 
 				System.out.println("LO措施完成期限：" + fv9IssueRevision  
 						.getProperty("fv9SlDLDateLO")); 
-				
-				values.put("fv9SolutionPA", fv9IssueRevision 
-						.getProperty("fv9SolutionPA")); 
-				System.out.println("PA措施：" + fv9IssueRevision  
-						.getProperty("fv9SolutionPA")); 
-				
-				values.put("fv9SlDLDatePA", fv9IssueRevision 
-						.getProperty("fv9SlDLDatePA")); 
-				System.out.println("PA措施完成期限： " + fv9IssueRevision  
-						.getProperty("fv9SlDLDatePA")); 
 				
 				values.put("fv9SolutionPL", fv9IssueRevision 
 						.getProperty("fv9SolutionPL")); 
@@ -184,9 +184,60 @@ public class ReportIssueSingleLoader {
 				
 				values.put("fv9SupplierName", fv9IssueRevision 
 						.getProperty("fv9SupplierName")); 
-				
 				System.out.println("供应商名称：" + fv9IssueRevision  
 						.getProperty("fv9SupplierName")); 
+				
+				values.put("fv9SolutionCP1_ME", fv9IssueRevision 
+						.getProperty("fv9SolutionCP1_ME"));
+				System.out.println("CP1-ME措施：" + fv9IssueRevision  
+						.getProperty("fv9SolutionCP1_ME")); 
+				
+				values.put("fv9SlDLDateCP1_ME", fv9IssueRevision 
+						.getProperty("fv9SlDLDateCP1_ME"));
+				System.out.println("CP1-ME措施解决期限：" + fv9IssueRevision  
+						.getProperty("fv9SlDLDateCP1_ME")); 
+				
+				values.put("fv9SolutionCP2_ME", fv9IssueRevision 
+						.getProperty("fv9SolutionCP2_ME"));
+				System.out.println("CP2-ME措施：" + fv9IssueRevision  
+						.getProperty("fv9SolutionCP2_ME")); 
+				
+				values.put("fv9SlDLDateCP2_ME", fv9IssueRevision 
+						.getProperty("fv9SlDLDateCP2_ME"));
+				System.out.println("CP2-ME措施解决期限：" + fv9IssueRevision  
+						.getProperty("fv9SlDLDateCP2_ME")); 
+				
+				values.put("fv9SolutionCP2BS", fv9IssueRevision 
+						.getProperty("fv9SolutionCP2BS"));
+				System.out.println("CP2-BS措施：" + fv9IssueRevision  
+						.getProperty("fv9SolutionCP2BS")); 
+				
+				values.put("fv9SlDLDateCP2BS", fv9IssueRevision 
+						.getProperty("fv9SlDLDateCP2BS"));
+				System.out.println("CP2-BS措施解决期限：" + fv9IssueRevision  
+						.getProperty("fv9SlDLDateCP2BS")); 
+				
+				values.put("fv9SolutionCP2PA", fv9IssueRevision 
+						.getProperty("fv9SolutionCP2PA"));
+				System.out.println("CP2-PA措施：" + fv9IssueRevision  
+						.getProperty("fv9SolutionCP2PA")); 
+				
+				values.put("fv9SlDLDateCP2PA", fv9IssueRevision 
+						.getProperty("fv9SlDLDateCP2PA"));
+				System.out.println("CP2-PA措施解决期限：" + fv9IssueRevision  
+						.getProperty("fv9SlDLDateCP2PA")); 
+				
+				values.put("fv9SolutionCP2CA", fv9IssueRevision 
+						.getProperty("fv9SolutionCP2CA"));
+				System.out.println("CP2-CA措施：" + fv9IssueRevision  
+						.getProperty("fv9SolutionCP2CA")); 
+				
+				values.put("fv9SlDLDateCP2CA", fv9IssueRevision 
+						.getProperty("fv9SlDLDateCP2CA"));
+				System.out.println("CP2-CA措施解决期限：" + fv9IssueRevision  
+						.getProperty("fv9SlDLDateCP2CA")); 
+				
+				
 				
 				values.put("itemId", fv9IssueRevision.getProperty("item_id"));  //$NON-NLS-2$
 				

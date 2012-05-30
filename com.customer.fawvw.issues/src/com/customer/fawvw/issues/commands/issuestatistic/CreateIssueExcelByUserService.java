@@ -23,6 +23,10 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 
+import com.customer.fawvw.issues.commands.common.loader.DeptLoader;
+import com.customer.fawvw.issues.commands.common.write.DeptWrite;
+import com.customer.fawvw.issues.commands.common.write.MajorWrite;
+import com.customer.fawvw.issues.commands.common.write.TimeWrite;
 import com.customer.fawvw.issues.exception.FawvmLoaderException;
 import com.teamcenter.rac.kernel.TCComponentProject;
 import com.teamcenter.rac.kernel.TCException;
@@ -59,7 +63,7 @@ public class CreateIssueExcelByUserService {
 			
 			System.out.println("开始写入：按部门统计报表"); //$NON-NLS-1$
 			HSSFSheet sheetPage2 = workbook.getSheetAt(1);
-			DepartmentStatusWrite.importDataPage(workbook, sheetPage2, values);
+			DeptWrite.importDataPage(workbook, sheetPage2, values);
 			
 			System.out.println("开始写入：按专业组统计报表");			 //$NON-NLS-1$
 			HSSFSheet sheetPage3 = workbook.getSheetAt(2);

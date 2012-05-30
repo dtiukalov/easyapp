@@ -9,10 +9,12 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
@@ -38,6 +40,11 @@ import com.teamcenter.rac.kernel.TCComponentItem;
 import com.teamcenter.rac.kernel.TCSession;
 import com.teamcenter.rac.util.MessageBox;
 
+class Solution {
+	String sol;
+	String solDate;
+}
+
 public class CreateIssueSingleExcel {
 
 	public static final String TEMPLATE_FILE_PATH = System.getenv("TPR") + "\\plugins\\Template\\IssueSingleReport_Template.xls"; 
@@ -49,7 +56,7 @@ public class CreateIssueSingleExcel {
 	private static final float PX_MODIFIED = 36.56f;
 
 	private static final int PX_ROW = 15;
-
+	
 	public static void createExcel(InterfaceAIFComponent targetcompontent, 
 			String file, TCSession session)	throws Exception{
 		
@@ -147,9 +154,7 @@ public class CreateIssueSingleExcel {
 				HSSFRow row13 = sheet.getRow(13);
 				HSSFRow row15 = sheet.getRow(15);
 				HSSFRow row16 = sheet.getRow(16);
-				HSSFRow row19 = sheet.getRow(19);
 				HSSFRow row22 = sheet.getRow(22);
-				HSSFRow row24 = sheet.getRow(24);
 				HSSFRow row25 = sheet.getRow(25);
 				HSSFRow row28 = sheet.getRow(28);
 				HSSFRow row29 = sheet.getRow(29);
@@ -209,168 +214,268 @@ public class CreateIssueSingleExcel {
 					System.out.println("写入问题描述图片"); 
 				} 
 				
-				//临时措施
-				HSSFCell tempSolCell1 = row4.getCell(19);
-				if (tempSolCell1 == null) {
-					tempSolCell1 = row4.createCell(19);
-				}
-				tempSolCell1.setCellValue("临时措施：" + (String)values.get("fv9IssueTempSolution")); 
+				List<Solution> solutionList = new ArrayList<Solution>();
 				
-				//临时措施完成期限
-				HSSFCell tempSolTerminCell1 = row4.getCell(53);
-				if (tempSolTerminCell1 == null) {
-					tempSolTerminCell1 = row4.createCell(53);
-				}
-				if (!"".equals((String)values.get("fv9TempSolutionDL"))) { 
-					tempSolTerminCell1.setCellValue(DateUtil.getWeekOfYear((String)values.get("fv9TempSolutionDL")) + "/" +  
-							((String)values.get("fv9TempSolutionDL")).substring(0, 4)); 
-				} else {
-					tempSolTerminCell1.setCellValue(""); 
+				//临时措施
+				if ((String)values.get("fv9IssueTempSolution") != null &&
+						!"".equals((String)values.get("fv9IssueTempSolution"))) {
+					Solution solution = new Solution();
+					solution.sol = "临时措施:" + (String)values.get("fv9IssueTempSolution");
+					
+					if (!"".equals((String)values.get("fv9TempSolutionDL"))) { 
+						solution.solDate = DateUtil.getWeekOfYear((String)values.get("fv9TempSolutionDL")) + "/" +  
+								((String)values.get("fv9TempSolutionDL")).substring(0, 4); 
+					} else {
+						solution.solDate = ""; 
+					}
+					solutionList.add(solution);
 				}
 				
 				//TE措施
-				HSSFCell solTECell = row7.getCell(19);
-				if (solTECell == null) {
-					solTECell = row7.createCell(19);
-				}
-				solTECell.setCellValue("TE措施：" + (String)values.get("fv9SolutionTE")); 
-				
-				//TE措施解决期限
-				HSSFCell solTETerminCell = row7.getCell(53);
-				if (solTETerminCell == null) {
-					solTETerminCell = row7.createCell(53);
-				}
-				if (!"".equals((String)values.get("fv9SlDLDateTE"))) { 
-					solTETerminCell.setCellValue(DateUtil.getWeekOfYear((String)values.get("fv9SlDLDateTE")) + "/" +  
-							((String)values.get("fv9SlDLDateTE")).substring(0, 4)); 
-				} else {
-					solTETerminCell.setCellValue(""); 
-				}
-				
-				//CP=BS+PA+CA
-				//CP措施
-				HSSFCell CPSolCell = row11.getCell(19);
-				if (CPSolCell == null) {
-					CPSolCell = row11.createCell(19);
-				}
-				CPSolCell.setCellValue("BS措施：" + (String)values.get("fv9SolutionBS") + "\r\n" + 
-						"CA措施：" + (String)values.get("fv9SolutionCA") + "\r\n" + 
-						"PA措施：" + (String)values.get("fv9SolutionPA")); 
-				
-				//CP措施解决期限
-				HSSFCell solTerminCell1 = row11.getCell(53);
-				if (solTerminCell1 == null) {
-					solTerminCell1 = row11.createCell(53);
-				}
-				String cpSolDate = "";
-				if (!"".equals((String)values.get("fv9SlDLDateBS"))) { 
-					cpSolDate += DateUtil.getWeekOfYear((String)values.get("fv9SlDLDateBS")) + "/" + 
-						((String)values.get("fv9SlDLDateBS")).substring(0, 4) + "\r\n";
-				} 
-				if (!"".equals((String)values.get("fv9SlDLDateCA"))) { 
-					cpSolDate += DateUtil.getWeekOfYear((String)values.get("fv9SlDLDateCA")) + "/" + 
-						((String)values.get("fv9SlDLDateCA")).substring(0, 4) + "\r\n";;
-				} 
-				if (!"".equals((String)values.get("fv9SlDLDatePA"))) { 
-					cpSolDate += DateUtil.getWeekOfYear((String)values.get("fv9SlDLDatePA")) + "/" + 
-						((String)values.get("fv9SlDLDatePA")).substring(0, 4) + "\r\n";;
-				} 
-				solTerminCell1.setCellValue(cpSolDate); 
-				
-				//LO措施
-				HSSFCell solLOCell = row15.getCell(19);
-				if (solLOCell == null) {
-					solLOCell = row15.createCell(19);
-				}
-				solLOCell.setCellValue("LO措施：" + (String)values.get("fv9SolutionLO")); 
-				
-				//LO措施解决期限
-				HSSFCell solLOTerminCell = row15.getCell(53);
-				if (solLOTerminCell == null) {
-					solLOTerminCell = row15.createCell(53);
-				}
-				if (!"".equals((String)values.get("fv9SlDLDateLO"))) { 
-					solLOTerminCell.setCellValue(DateUtil.getWeekOfYear((String)values.get("fv9SlDLDateLO")) + "/" +  
-							((String)values.get("fv9SlDLDateLO")).substring(0, 4)); 
-				} else {
-					solLOTerminCell.setCellValue(""); 
-				}
-				
-				//PL措施
-				HSSFCell solCell5 = row19.getCell(19);
-				if (solCell5 == null) {
-					solCell5 = row19.createCell(19);
-				}
-				solCell5.setCellValue("PL措施：" + (String)values.get("fv9SolutionPL")); 
-				
-				//PL措施解决期限
-				HSSFCell solTerminCell5 = row19.getCell(53);
-				if (solTerminCell5 == null) {
-					solTerminCell5 = row19.createCell(53);
-				}
-				if (!"".equals((String)values.get("fv9SlDLDatePL"))) { 
-					solTerminCell5.setCellValue(DateUtil.getWeekOfYear((String)values.get("fv9SlDLDatePL")) + "/" +  
-							((String)values.get("fv9SlDLDatePL")).substring(0, 4)); 
-				} else {
-					solTerminCell5.setCellValue(""); 
+				if ((String)values.get("fv9SolutionTE") != null && 
+						!"".equals((String)values.get("fv9SolutionTE"))) {
+					Solution solution = new Solution();
+					solution.sol = "TE措施:" + (String)values.get("fv9SolutionTE");
+					if (!"".equals((String)values.get("fv9SlDLDateTE"))) { 
+						solution.solDate = DateUtil.getWeekOfYear((String)values.get("fv9SlDLDateTE")) + "/" +  
+								((String)values.get("fv9SlDLDateTE")).substring(0, 4); 
+					} else {
+						solution.solDate = ""; 
+					}
+					solutionList.add(solution);
 				}
 				
 				//QAPP措施
-				HSSFCell solCell6 = row22.getCell(19);
-				if (solCell6 == null) {
-					solCell6 = row22.createCell(19);
-				}
-				solCell6.setCellValue("QAPP措施：" + (String)values.get("fv9SolutionQAPP")); 
-				
-				//QAPP措施解决期限
-				HSSFCell solTerminCell6 = row22.getCell(53);
-				if (solTerminCell6 == null) {
-					solTerminCell6 = row22.createCell(53);
-				}
-				if (!"".equals((String)values.get("fv9SlDLDateQAPP"))) { 
-					solTerminCell6.setCellValue(DateUtil.getWeekOfYear((String)values.get("fv9SlDLDateQAPP")) + "/" +  
-							((String)values.get("fv9SlDLDateQAPP")).substring(0, 4)); 
-				} else {
-					solTerminCell6.setCellValue(""); 
+				if ((String)values.get("fv9SolutionQAPP") != null && 
+						!"".equals((String)values.get("fv9SolutionQAPP"))) {
+					Solution solution = new Solution();
+					solution.sol = "QAPP措施:" + (String)values.get("fv9SolutionQAPP");
+					if (!"".equals((String)values.get("fv9SlDLDateQAPP"))) { 
+						solution.solDate = DateUtil.getWeekOfYear((String)values.get("fv9SlDLDateQAPP")) + "/" +  
+								((String)values.get("fv9SlDLDateQAPP")).substring(0, 4); 
+					} else {
+						solution.solDate = ""; 
+					}
+					solutionList.add(solution);
 				}
 				
 				//SU措施
-				HSSFCell solCell7 = row25.getCell(19);
-				if (solCell7 == null) {
-					solCell7 = row25.createCell(19);
+				if ((String)values.get("fv9SolutionSU") != null && 
+						!"".equals((String)values.get("fv9SolutionSU"))) {
+					Solution solution = new Solution();
+					solution.sol = "SU措施:" + (String)values.get("fv9SolutionSU");
+					if (!"".equals((String)values.get("fv9SlDLDateSU"))) { 
+						solution.solDate = DateUtil.getWeekOfYear((String)values.get("fv9SlDLDateSU")) + "/" +  
+								((String)values.get("fv9SlDLDateSU")).substring(0, 4); 
+					} else {
+						solution.solDate = ""; 
+					}
+					solutionList.add(solution);
 				}
-				solCell7.setCellValue("SU措施：" + (String)values.get("fv9SolutionSU")); 
 				
-				//SU措施解决期限
-				HSSFCell solTerminCell7 = row25.getCell(53);
-				if (solTerminCell7 == null) {
-					solTerminCell7 = row25.createCell(53);
-				}
-				if (!"".equals((String)values.get("fv9SlDLDateSU"))) { 
-					solTerminCell7.setCellValue(DateUtil.getWeekOfYear((String)values.get("fv9SlDLDateSU")) + "/" +  
-							((String)values.get("fv9SlDLDateSU")).substring(0, 4)); 
-				} else {
-					solTerminCell7.setCellValue(""); 
+				//PL措施
+				if ((String)values.get("fv9SolutionPL") != null && 
+						!"".equals((String)values.get("fv9SolutionPL"))) {
+					Solution solution = new Solution();
+					solution.sol = "PL措施:" + (String)values.get("fv9SolutionPL");
+					if (!"".equals((String)values.get("fv9SlDLDatePL"))) { 
+						solution.solDate = DateUtil.getWeekOfYear((String)values.get("fv9SlDLDatePL")) + "/" +  
+								((String)values.get("fv9SlDLDatePL")).substring(0, 4); 
+					} else {
+						solution.solDate = ""; 
+					}
+					solutionList.add(solution);
 				}
 				
 				//VSC措施
-				HSSFCell solCell8 = row28.getCell(19);
-				if (solCell8 == null) {
-					solCell8 = row28.createCell(19);
+				if ((String)values.get("fv9SolutionVSC") != null && 
+						!"".equals((String)values.get("fv9SolutionVSC"))) {
+					Solution solution = new Solution();
+					solution.sol = "VSC措施:" + (String)values.get("fv9SolutionVSC");
+					if (!"".equals((String)values.get("fv9SlDLDateVSC"))) { 
+						solution.solDate = DateUtil.getWeekOfYear((String)values.get("fv9SlDLDateVSC")) + "/" +  
+								((String)values.get("fv9SlDLDateVSC")).substring(0, 4); 
+					} else {
+						solution.solDate = ""; 
+					}
+					solutionList.add(solution);
 				}
-				solCell8.setCellValue("VSC措施：" + (String)values.get("fv9SolutionVSC")); 
 				
-				//VSC措施解决期限
-				HSSFCell solTerminCell8 = row28.getCell(53);
-				if (solTerminCell8 == null) {
-					solTerminCell8 = row28.createCell(53);
+				//LO措施
+				if ((String)values.get("fv9SolutionLO") != null && 
+						!"".equals((String)values.get("fv9SolutionLO"))) {
+					Solution solution = new Solution();
+					solution.sol = "LO措施:" + (String)values.get("fv9SolutionLO");
+					if (!"".equals((String)values.get("fv9SlDLDateLO"))) { 
+						solution.solDate = DateUtil.getWeekOfYear((String)values.get("fv9SlDLDateLO")) + "/" +  
+								((String)values.get("fv9SlDLDateLO")).substring(0, 4); 
+					} else {
+						solution.solDate = ""; 
+					}
+					solutionList.add(solution);
 				}
-				if (!"".equals((String)values.get("fv9SlDLDateVSC"))) { 
-					solTerminCell8.setCellValue(DateUtil.getWeekOfYear((String)values.get("fv9SlDLDateVSC")) + "/" +  
-							((String)values.get("fv9SlDLDateVSC")).substring(0, 4)); 
-				} else {
-					solTerminCell8.setCellValue(""); 
+				
+				//CP1-ME措施
+				if ((String)values.get("fv9SolutionCP1_ME") != null && 
+						!"".equals((String)values.get("fv9SolutionCP1_ME"))) {
+//			System.out.println("CP1-ME措施");
+					Solution solution = new Solution();
+					solution.sol = "CP1-ME措施:" + (String)values.get("fv9SolutionCP1_ME");
+					if (!"".equals((String)values.get("fv9SlDLDateCP1_ME"))) { 
+						solution.solDate = DateUtil.getWeekOfYear((String)values.get("fv9SlDLDateCP1_ME")) + "/" +  
+								((String)values.get("fv9SlDLDateCP1_ME")).substring(0, 4); 
+					} else {
+						solution.solDate = ""; 
+					}
+					solutionList.add(solution);
 				}
+				
+				//CP2-ME措施
+				if ((String)values.get("fv9SolutionCP2_ME") != null && 
+						!"".equals((String)values.get("fv9SolutionCP2_ME"))) {
+//			System.out.println("CP2-ME措施");
+					Solution solution = new Solution();
+					solution.sol = "CP2-ME措施:" + (String)values.get("fv9SolutionCP2_ME");
+					if (!"".equals((String)values.get("fv9SlDLDateCP2_ME"))) { 
+						solution.solDate = DateUtil.getWeekOfYear((String)values.get("fv9SlDLDateCP2_ME")) + "/" +  
+								((String)values.get("fv9SlDLDateCP2_ME")).substring(0, 4); 
+					} else {
+						solution.solDate = ""; 
+					}
+					solutionList.add(solution);
+				}
+				
+				//CP1-BS措施
+				if ((String)values.get("fv9SolutionBS") != null && 
+						!"".equals((String)values.get("fv9SolutionBS"))) {
+					Solution solution = new Solution();
+					solution.sol = "CP1-BS措施:" + (String)values.get("fv9SolutionBS");
+					if (!"".equals((String)values.get("fv9SlDLDateBS"))) { 
+						solution.solDate = DateUtil.getWeekOfYear((String)values.get("fv9SlDLDateBS")) + "/" +  
+								((String)values.get("fv9SlDLDateBS")).substring(0, 4); 
+					} else {
+						solution.solDate = ""; 
+					}
+					solutionList.add(solution);
+				}
+				
+				//CP1-PA措施
+				if ((String)values.get("fv9SolutionPA") != null && 
+						!"".equals((String)values.get("fv9SolutionPA"))) {
+					Solution solution = new Solution();
+					solution.sol = "CP1-PA措施:" + (String)values.get("fv9SolutionPA");
+					if (!"".equals((String)values.get("fv9SlDLDatePA"))) { 
+						solution.solDate = DateUtil.getWeekOfYear((String)values.get("fv9SlDLDatePA")) + "/" +  
+								((String)values.get("fv9SlDLDatePA")).substring(0, 4); 
+					} else {
+						solution.solDate = ""; 
+					}
+					solutionList.add(solution);
+				}
+
+				//CP1-CA措施
+				if ((String)values.get("fv9SolutionCA") != null && 
+						!"".equals((String)values.get("fv9SolutionCA"))) {
+					Solution solution = new Solution();
+					solution.sol = "CP1-CA措施:" + (String)values.get("fv9SolutionCA");
+					if (!"".equals((String)values.get("fv9SlDLDateCA"))) { 
+						solution.solDate = DateUtil.getWeekOfYear((String)values.get("fv9SlDLDateCA")) + "/" +  
+								((String)values.get("fv9SlDLDateCA")).substring(0, 4); 
+					} else {
+						solution.solDate = ""; 
+					}
+					solutionList.add(solution);
+				}
+				
+				//CP2-BS措施
+				if ((String)values.get("fv9SolutionCP2BS") != null && 
+						!"".equals((String)values.get("fv9SolutionCP2BS"))) {
+					Solution solution = new Solution();
+					solution.sol = "CP2-BS措施:" + (String)values.get("fv9SolutionCP2BS");
+					if (!"".equals((String)values.get("fv9SlDLDateCP2BS"))) { 
+						solution.solDate = DateUtil.getWeekOfYear((String)values.get("fv9SlDLDateCP2BS")) + "/" +  
+								((String)values.get("fv9SlDLDateCP2BS")).substring(0, 4); 
+					} else {
+						solution.solDate = ""; 
+					}
+					solutionList.add(solution);
+				}
+				
+				//CP2-PA措施
+				if ((String)values.get("fv9SolutionCP2PA") != null && 
+						!"".equals((String)values.get("fv9SolutionCP2PA"))) {
+					Solution solution = new Solution();
+					solution.sol = "CP2-PA措施:" + (String)values.get("fv9SolutionCP2PA");
+					if (!"".equals((String)values.get("fv9SlDLDateCP2PA"))) { 
+						solution.solDate = DateUtil.getWeekOfYear((String)values.get("fv9SlDLDateCP2PA")) + "/" +  
+								((String)values.get("fv9SlDLDateCP2PA")).substring(0, 4); 
+					} else {
+						solution.solDate = ""; 
+					}
+					solutionList.add(solution);
+				}
+
+				//CP2-CA措施
+				if ((String)values.get("fv9SolutionCP2CA") != null && 
+						!"".equals((String)values.get("fv9SolutionCP2CA"))) {
+					Solution solution = new Solution();
+					solution.sol = "CP2-CA措施:" + (String)values.get("fv9SolutionCP2CA");
+					if (!"".equals((String)values.get("fv9SlDLDateCP2CA"))) { 
+						solution.solDate = DateUtil.getWeekOfYear((String)values.get("fv9SlDLDateCP2CA")) + "/" +  
+								((String)values.get("fv9SlDLDateCP2CA")).substring(0, 4); 
+					} else {
+						solution.solDate = ""; 
+					}
+					solutionList.add(solution);
+				}
+				
+				if (solutionList != null && solutionList.size() > 0) {
+					
+					String lastSol = "";
+					String lastSolDate = "";
+					
+					for (int index = 0; index < solutionList.size(); index++) {
+						Solution tempSol = solutionList.get(index);
+						if (index < 4) {
+							HSSFRow tempRow = sheet.getRow(4+index*5);
+							//措施
+							HSSFCell tempSolCell = tempRow.getCell(19);
+							if (tempSolCell == null) {
+								tempSolCell = tempRow.createCell(19);
+							}
+							tempSolCell.setCellValue(tempSol.sol); 
+							//措施解决期限
+							HSSFCell tempSolDateCell = tempRow.getCell(53);
+							if (tempSolDateCell == null) {
+								tempSolDateCell = tempRow.createCell(53);
+							}
+							tempSolDateCell.setCellValue(tempSol.solDate); 
+						} else {
+							lastSol += tempSol.sol + "\r\n";
+							lastSolDate += tempSol.solDate + "\r\n";
+						}
+
+					}
+					
+					//存在第五行的措施
+					if (!"".equals(lastSol)) {
+						HSSFRow row24 = sheet.getRow(24);
+						//最后一格措施
+						HSSFCell tempSolCell = row24.getCell(19);
+						if (tempSolCell == null) {
+							tempSolCell = row24.createCell(19);
+						}
+						tempSolCell.setCellValue(lastSol); 
+						//最后一格措施解决期限
+						HSSFCell tempSolDateCell = row24.getCell(53);
+						if (tempSolDateCell == null) {
+							tempSolDateCell = row24.createCell(53);
+						}
+						tempSolDateCell.setCellValue(lastSolDate); 
+					}
+					
+				}
+				
 				
 				//ASW
 				ImageCellInfo ASW = new ImageCellInfo(32, 3, 32, 3);
@@ -575,7 +680,7 @@ public class CreateIssueSingleExcel {
 					//循环写入74周
 					for (int i = 0; i < kws.length; i++) {
 						HSSFCell kwCell = row36.getCell(i+1);
-						System.out.println("i = " + i);
+//				System.out.println("i = " + i);
 						if (kwCell == null) {
 							kwCell = row36.createCell(i+1);
 						}

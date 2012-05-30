@@ -17,6 +17,10 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 
+import com.customer.fawvw.issues.commands.common.loader.AssPlacementLoader;
+import com.customer.fawvw.issues.commands.common.loader.DeptLoader;
+import com.customer.fawvw.issues.commands.common.write.AssPlacementWrite;
+import com.customer.fawvw.issues.commands.common.write.DeptWrite;
 import com.customer.fawvw.issues.exception.FawvmLoaderException;
 import com.customer.fawvw.issues.utils.DateUtil;
 import com.customer.fawvw.issues.utils.ExcelUtil;
@@ -31,12 +35,15 @@ public class IssueRelComponentReportExcel {
 	
 	public static void createExcel(ArrayList<HashMap<String, Object>> dataList,
 			HashMap<String, Object> parameters)  throws Exception{
-		
 
 		//按装车位置统计
-		HashMap<String, Object> assPlacement = IssueRelComponentReportAssPlacementLoader.load(dataList);
+		HashMap<String, Object> assPlacement = AssPlacementLoader.load(dataList);
 		//按责任部门统计
-		HashMap<String, Object> departments = IssueRelComponentReportResDepartLoader.load(dataList);
+		Map<String, Object> departments = DeptLoader.load(dataList);
+		
+		HashMap<String, Object> values = new HashMap<String, Object>();
+		values.put("department", departments);
+		values.put("assPlacement", assPlacement);
 		
 		now = DateUtil.getSysDate();
 		project_name = (String)parameters.get("project_name"); 
@@ -65,9 +72,8 @@ public class IssueRelComponentReportExcel {
 					HSSFSheet sheet2 = workbook.getSheetAt(2);
 					
 					importData(workbook, sheet, dataList);
-					importData1(workbook, sheet1, departments);//按责任部门统计
-					importData2(workbook, sheet2, assPlacement);//按装车位置统计
-					
+					DeptWrite.importDataPage(workbook, sheet1, values);//按责任部门统计
+					AssPlacementWrite.importData(workbook, sheet2, values);//按装车位置统计
 					
 					workbook.write(fileOut);
 					
@@ -160,50 +166,73 @@ public class IssueRelComponentReportExcel {
 				
 				String fv9Solution = ""; 
 				String slResDep = "";
-				if (!"".equals((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionTE"))) {  
-					fv9Solution += "TE:" + ((String)(String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionTE")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
-					slResDep += "TE\r\n";
+				if (!"".equals(((HashMap<String, Object>)values.get(i)).get("fv9SolutionTE"))) {
+					fv9Solution += "TE:" + ((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionTE")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
+					slResDep += "TE";
 				}
-				if (!"".equals((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionBS"))) {  
-					fv9Solution += "\r\nBS:" + ((String)(String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionBS")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
-					slResDep += "BS\r\n";
+				if (!"".equals(((HashMap<String, Object>)values.get(i)).get("fv9SolutionQAPP"))) {  
+					fv9Solution += "\r\n" + "QAPP:" + ((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionQAPP")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
+					slResDep += "\r\nQAPP";
 				}
-				if (!"".equals((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionCA"))) {  
-					fv9Solution += "\r\n" + "CA:" + ((String)(String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionCA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-					slResDep += "CA\r\n";
+				if (!"".equals(((HashMap<String, Object>)values.get(i)).get("fv9SolutionSU"))) {  
+					fv9Solution += "\r\n" + "SU:" + ((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionSU")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "\r\nSU";
 				}
-				if (!"".equals((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionLO"))) {  
-					fv9Solution += "\r\n" + "LO:" + ((String)(String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionLO")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-					slResDep += "LO\r\n";
+				if (!"".equals(((HashMap<String, Object>)values.get(i)).get("fv9SolutionPL"))) {  
+					fv9Solution += "\r\n" + "PL:" + ((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionPL")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "\r\nPL";
 				}
-				if (!"".equals((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionPA"))) {  
-					fv9Solution += "\r\n" + "PA:" + ((String)(String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionPA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				if (!"".equals(((HashMap<String, Object>)values.get(i)).get("fv9SolutionVSC"))) {  
+					fv9Solution += "\r\n" + "VSC:" + ((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionVSC")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "\r\nVSC";
 				}
-				if (!"".equals((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionPL"))) {  
-					fv9Solution += "\r\n" + "PL:" + ((String)(String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionPL")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-					slResDep += "PL\r\n";
+				if (!"".equals(((HashMap<String, Object>)values.get(i)).get("fv9SolutionLO"))) {  
+					fv9Solution += "\r\n" + "LO:" + ((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionLO")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$
+					slResDep += "\r\nLO"; //$NON-NLS-5$ 
 				}
-				if (!"".equals((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionQAPP"))) {  
-					fv9Solution += "\r\n" + "QAPP:" + ((String)(String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionQAPP")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-					slResDep += "QAPP\r\n";
+				if (!"".equals(((HashMap<String, Object>)values.get(i)).get("fv9SolutionCP1_ME"))) {  
+					fv9Solution += "\r\n" + "CP1-ME:" + ((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionCP1_ME")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "\r\nCP1-ME";
 				}
-				if (!"".equals((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionSU"))) {  
-					fv9Solution += "\r\n" + "SU:" + ((String)(String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionSU")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+				if (!"".equals(((HashMap<String, Object>)values.get(i)).get("fv9SolutionCP2_ME"))) {  
+					fv9Solution += "\r\n" + "CP2-ME:" + ((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionCP2_ME")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "\r\nCP2-ME";
 				}
-				if (!"".equals((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionVSC"))) {  
-					fv9Solution += "\r\n" + "VSC:" + ((String)(String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionVSC")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-					slResDep += "VSC\r\n";
+				if (!"".equals(((HashMap<String, Object>)values.get(i)).get("fv9SolutionBS"))) {  
+					fv9Solution += "\r\n" + "CP1-BS:" + ((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionBS")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "\r\nCP1-BS";
 				}
+				if (!"".equals(((HashMap<String, Object>)values.get(i)).get("fv9SolutionPA"))) {  
+					fv9Solution += "\r\n" + "CP1-PA:" + ((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionPA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "\r\nCP1-PA";
+				}
+				if (!"".equals(((HashMap<String, Object>)values.get(i)).get("fv9SolutionCA"))) {  
+					fv9Solution += "\r\n" + "CP1-CA:" + ((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionCA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "\r\nCP1-CA";
+				}
+				if (!"".equals(((HashMap<String, Object>)values.get(i)).get("fv9SolutionCP2BS"))) {  
+					fv9Solution += "\r\n" + "CP2-BS:" + ((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionCP2BS")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "\r\nCP2-BS";
+				}
+				if (!"".equals(((HashMap<String, Object>)values.get(i)).get("fv9SolutionCP2PA"))) {  
+					fv9Solution += "\r\n" + "CP2-PA:" + ((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionCP2PA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "\r\nCP2-PA";
+				}
+				if (!"".equals(((HashMap<String, Object>)values.get(i)).get("fv9SolutionCP2CA"))) {  
+					fv9Solution += "\r\n" + "CP2-CA:" + ((String)((HashMap<String, Object>)values.get(i)).get("fv9SolutionCP2CA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "\r\nCP2-CA";
+				}
+				
 				HSSFCell Solution1Cell = datarow.createCell(7);
 				Solution1Cell.setCellValue(new HSSFRichTextString(fv9Solution));
 				
 				HSSFCell SlResDep1Cell = datarow.createCell(8);
 				SlResDep1Cell.setCellValue(new HSSFRichTextString(slResDep));
 				
-				String RGStatus = (String)((HashMap<String, Object>)values.get(i)).
-					get("RGStatus"); 
+				String fv9RGStatus = (String)((HashMap<String, Object>)values.get(i)).
+					get("fv9RGStatus"); 
 				HSSFCell RGStatusCell = datarow.createCell(9);
-				ExcelUtil.fillTheCellColor(wb, RGStatusCell, RGStatus, ""); 
+				ExcelUtil.fillTheCellColor(wb, RGStatusCell, fv9RGStatus, ""); 
 				
 				String SolDeadlineDate = (String)((HashMap<String, Object>)values.get(i)).
 					get("SolDeadlineDate"); 
@@ -228,212 +257,6 @@ public class IssueRelComponentReportExcel {
 	}
 	
 
-	public static void importData1(HSSFWorkbook wb, HSSFSheet sheet,
-			HashMap<String, Object> department) throws Exception{
-		System.out.println("按责任部门统计" 
-				+ "\r\n" + "BS:" + department.get("BS")  
-				+ "\r\n" + "CA:" + department.get("CA") 
-				+ "\r\n" + "LO:" + department.get("LO") 
-				+ "\r\n" + "PA:" + department.get("PA") 
-				+ "\r\n" + "PL:" + department.get("PL") 
-				+ "\r\n" + "QAPP:" + department.get("QAPP") 
-				+ "\r\n" + "SU:" + department.get("SU") 
-				+ "\r\n" + "VSC" + department.get("VSC")
-				+ "\r\n" + "TE" + department.get("TE")); 
-		
-		if (department != null) { 
-
-			HSSFRow red_depart = sheet.getRow(25);
-			HSSFCell red_pl = red_depart.getCell(3);
-			red_pl.setCellValue(((Map<String, Integer>) department.get("PL")).get("red"));   
-						
-			HSSFCell red_qapp = red_depart.getCell(4);
-			red_qapp.setCellValue(((Map<String, Integer>) department.get("QAPP")).get("red"));  
-			
-			HSSFCell red_lo = red_depart.getCell(5);
-			red_lo.setCellValue(((Map<String, Integer>) department.get("LO")).get("red"));   
-			
-			HSSFCell red_bs = red_depart.getCell(6);
-			red_bs.setCellValue(((Map<String, Integer>) department.get("BS")).get("red"));   
-			
-			HSSFCell red_pa = red_depart.getCell(7);
-			red_pa.setCellValue(((Map<String, Integer>) department.get("PA")).get("red"));  
-			
-			HSSFCell red_su = red_depart.getCell(8);
-			red_su.setCellValue(((Map<String, Integer>) department.get("SU")).get("red"));  
-			
-			HSSFCell red_vsc = red_depart.getCell(9);
-			red_vsc.setCellValue(((Map<String, Integer>) department.get("VSC")).get("red"));   
-			
-			HSSFCell red_ca = red_depart.getCell(10);
-			red_ca.setCellValue(((Map<String, Integer>) department.get("CA")).get("red"));   
-			
-			HSSFCell red_te = red_depart.getCell(11);
-			red_te.setCellValue(((Map<String, Integer>) department.get("TE")).get("red"));   
-			
-			HSSFCell red_total = red_depart.getCell(12);
-			red_total.setCellFormula("SUM(D26:L26)"); 
 	
-			
-			HSSFRow yellow_depart = sheet.getRow(26);
-			HSSFCell yellow_pl = yellow_depart.getCell(3);
-			yellow_pl.setCellValue(((Map<String, Integer>) department.get("PL")).get("yellow"));   
-			
-			HSSFCell yellow_qapp = yellow_depart.getCell(4);
-			yellow_qapp.setCellValue(((Map<String, Integer>) department.get("QAPP")).get("yellow"));  
-			
-			HSSFCell yellow_lo = yellow_depart.getCell(5);
-			yellow_lo.setCellValue(((Map<String, Integer>) department.get("LO")).get("yellow"));   
-			
-			HSSFCell yellow_bs = yellow_depart.getCell(6);
-			yellow_bs.setCellValue(((Map<String, Integer>) department.get("BS")).get("yellow"));   
-			
-			HSSFCell yellow_pa = yellow_depart.getCell(7);
-			yellow_pa.setCellValue(((Map<String, Integer>) department.get("PA")).get("yellow"));  
-			
-			HSSFCell yellow_su = yellow_depart.getCell(8);
-			yellow_su.setCellValue(((Map<String, Integer>) department.get("SU")).get("yellow"));  
-			
-			HSSFCell yellow_vsc = yellow_depart.getCell(9);
-			yellow_vsc.setCellValue(((Map<String, Integer>) department.get("VSC")).get("yellow"));   
-			
-			HSSFCell yellow_ca = yellow_depart.getCell(10);
-			yellow_ca.setCellValue(((Map<String, Integer>) department.get("CA")).get("yellow"));   
-			
-			HSSFCell yellow_te = yellow_depart.getCell(11);
-			yellow_te.setCellValue(((Map<String, Integer>) department.get("TE")).get("yellow"));   
-			
-			HSSFCell yellow_total = yellow_depart.getCell(12);
-			yellow_total.setCellFormula("SUM(D27:L27)"); 
-			
-			HSSFRow green_depart = sheet.getRow(27);
-			
-			HSSFCell green_pl = green_depart.getCell(3);
-			green_pl.setCellValue(((Map<String, Integer>) department.get("PL")).get("green"));   
-			
-			HSSFCell green_qapp = green_depart.getCell(4);
-			green_qapp.setCellValue(((Map<String, Integer>) department.get("QAPP")).get("green"));  
-			
-			HSSFCell green_lo = green_depart.getCell(5);
-			green_lo.setCellValue(((Map<String, Integer>) department.get("LO")).get("green"));   
-			
-			HSSFCell green_bs = green_depart.getCell(6);
-			green_bs.setCellValue(((Map<String, Integer>) department.get("BS")).get("green"));   
-			
-			HSSFCell green_pa = green_depart.getCell(7);
-			green_pa.setCellValue(((Map<String, Integer>) department.get("PA")).get("green"));  
-			
-			HSSFCell green_su = green_depart.getCell(8);
-			green_su.setCellValue(((Map<String, Integer>) department.get("SU")).get("green"));  
-			
-			HSSFCell green_vsc = green_depart.getCell(9);
-			green_vsc.setCellValue(((Map<String, Integer>) department.get("VSC")).get("green"));   
-			
-			HSSFCell green_ca = green_depart.getCell(10);
-			green_ca.setCellValue(((Map<String, Integer>) department.get("CA")).get("green"));   
-			
-			HSSFCell green_te = green_depart.getCell(11);
-			green_te.setCellValue(((Map<String, Integer>) department.get("TE")).get("green")); 
-			
-			HSSFCell green_total = green_depart.getCell(12);
-			green_total.setCellFormula("SUM(D28:L28)"); 
-			
-			System.out.println("写入按部门统计页"); 
-			
-		}
-	}
 	
-	public static void importData2(HSSFWorkbook wb, HSSFSheet sheet,
-			HashMap<String, Object> values) throws Exception{
-		
-		if (values != null) {
-			System.out.println("按装车位置统计" 
-					+ "\r\n" + "前端" + values.get("front")      //$NON-NLS-3$ 
-					+ "\r\n" + "后部" + values.get("behind")  //$NON-NLS-"1$  //$NON-NLS-3$  //$NON-NLS-3$     
-					+ "\r\n" + "车门" + values.get("door")     //$NON-NLS-3$ 
-					+ "\r\n" + "内饰" + values.get("inner")     //$NON-NLS-3$ 
-					+ "\r\n" + "底盘" + values.get("chassis")     //$NON-NLS-3$ 
-					+ "\r\n" + "驱动模块" + values.get("driver")     //$NON-NLS-3$ 
-					+ "\r\n" + "电器" + values.get("electronik"));     //$NON-NLS-3$ 
-
-			
-			HSSFRow red_row = sheet.getRow(25);
-			HSSFCell red_front = red_row.getCell(3);
-			red_front.setCellValue(((Map<String, Integer>) values.get("front")).get("red"));  
-			
-			HSSFCell red_back = red_row.getCell(4);
-			red_back.setCellValue(((Map<String, Integer>) values.get("behind")).get("red"));  
-			
-			HSSFCell red_door = red_row.getCell(5);
-			red_door.setCellValue(((Map<String, Integer>) values.get("door")).get("red"));  
-			
-			HSSFCell red_inner = red_row.getCell(6);
-			red_inner.setCellValue(((Map<String, Integer>) values.get("inner")).get("red"));  
-			
-			HSSFCell red_chassis = red_row.getCell(7);
-			red_chassis.setCellValue(((Map<String, Integer>) values.get("chassis")).get("red"));  
-			
-			HSSFCell red_driver = red_row.getCell(8);
-			red_driver.setCellValue(((Map<String, Integer>) values.get("driver")).get("red"));  
-			
-			HSSFCell red_electronik = red_row.getCell(9);
-			red_electronik.setCellValue(((Map<String, Integer>) values.get("electronik")).get("red"));  
-			
-			HSSFCell red_total = red_row.getCell(10);
-			red_total.setCellFormula("SUM(D26:J26)");  
-			
-			HSSFRow yellow_row = sheet.getRow(26);
-			HSSFCell yellow_front = yellow_row.getCell(3);
-			yellow_front.setCellValue(((Map<String, Integer>) values.get("front")).get("yellow"));  
-			
-			HSSFCell yellow_back = yellow_row.getCell(4);
-			yellow_back.setCellValue(((Map<String, Integer>) values.get("behind")).get("yellow"));  
-			
-			HSSFCell yellow_door = yellow_row.getCell(5);
-			yellow_door.setCellValue(((Map<String, Integer>) values.get("door")).get("yellow"));  
-			
-			HSSFCell yellow_inner = yellow_row.getCell(6);
-			yellow_inner.setCellValue(((Map<String, Integer>) values.get("inner")).get("yellow"));  
-			
-			HSSFCell yellow_chassis = yellow_row.getCell(7);
-			yellow_chassis.setCellValue(((Map<String, Integer>) values.get("chassis")).get("yellow"));  
-			
-			HSSFCell yellow_driver = yellow_row.getCell(8);
-			yellow_driver.setCellValue(((Map<String, Integer>) values.get("driver")).get("yellow"));  
-			
-			HSSFCell yellow_electronik = yellow_row.getCell(9);
-			yellow_electronik.setCellValue(((Map<String, Integer>) values.get("electronik")).get("yellow"));  
-			
-			HSSFCell yellow_total = yellow_row.getCell(10);
-			yellow_total.setCellFormula("SUM(D27:J27)");  
-			
-			HSSFRow green_row = sheet.getRow(27);
-			HSSFCell green_front = green_row.getCell(3);
-			green_front.setCellValue(((Map<String, Integer>) values.get("front")).get("green"));  
-			
-			HSSFCell green_back = green_row.getCell(4);
-			green_back.setCellValue(((Map<String, Integer>) values.get("behind")).get("green"));  
-			
-			HSSFCell green_door = green_row.getCell(5);
-			green_door.setCellValue(((Map<String, Integer>) values.get("door")).get("green"));  
-			
-			HSSFCell green_inner = green_row.getCell(6);
-			green_inner.setCellValue(((Map<String, Integer>) values.get("inner")).get("green"));  
-			
-			HSSFCell green_chassis = green_row.getCell(7);
-			green_chassis.setCellValue(((Map<String, Integer>) values.get("chassis")).get("green"));  
-			
-			HSSFCell green_driver = green_row.getCell(8);
-			green_driver.setCellValue(((Map<String, Integer>) values.get("driver")).get("green"));  
-			
-			HSSFCell green_electronik = green_row.getCell(9);
-			green_electronik.setCellValue(((Map<String, Integer>) values.get("electronik")).get("green"));  //$NON-NLS-2$
-			
-			HSSFCell green_total = green_row.getCell(10);
-			green_total.setCellFormula("SUM(D28:J28)");  
-			
-			System.out.println("写入按装车位置统计页"); 
-			
-		}
-	}
 }

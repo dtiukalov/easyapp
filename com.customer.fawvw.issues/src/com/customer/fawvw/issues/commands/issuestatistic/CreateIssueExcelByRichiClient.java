@@ -30,6 +30,11 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 
+import com.customer.fawvw.issues.commands.common.write.AssPlacement1Write;
+import com.customer.fawvw.issues.commands.common.write.AssPlacement2Write;
+import com.customer.fawvw.issues.commands.common.write.DeptWrite;
+import com.customer.fawvw.issues.commands.common.write.PartTypeStatusWrite;
+import com.customer.fawvw.issues.commands.common.write.TimeWrite;
 import com.teamcenter.rac.kernel.TCComponentProject;
 import com.teamcenter.rac.kernel.TCException;
 import com.teamcenter.rac.kernel.TCSession;
@@ -69,28 +74,28 @@ public class CreateIssueExcelByRichiClient {
 			
 			System.out.println("开始写入：按责任部门统计");			 
 			HSSFSheet sheetPage2 = workbook.getSheetAt(1);
-			DepartmentStatusWrite.importDataPage(workbook, sheetPage2, values);
+			DeptWrite.importDataPage(workbook, sheetPage2, values);
 			
 			System.out.println("开始写入：按问题类型统计"); 
 			HSSFSheet sheetPage3 = workbook.getSheetAt(2);
 			PartTypeStatusWrite.importDataPage(workbook, sheetPage3, values);
 			
 			
-//				System.out.println(Messages.CreateIssueExcel_write_major);			
+//				System.out.println("开始写入：按专业组统计");			
 //				HSSFSheet sheetPage3 = workbook.getSheetAt(2);
 //				MajorWrite.importDataPage(workbook, sheetPage3, values);
 	
-//				System.out.println(Messages.CreateIssueExcel_write_time);			
-//				HSSFSheet sheetPage4 = workbook.getSheetAt(3);
-//				TimeWrite.importDataPage(workbook, sheetPage4, values);
+			System.out.println("开始写入：按时间统计");			
+			HSSFSheet sheetPage4 = workbook.getSheetAt(3);
+			TimeWrite.importDataPage(workbook, sheetPage4, values);
 	
-//				System.out.println(Messages.CreateIssueExcel_write_assplacement1);			
-//				HSSFSheet sheetPage5 = workbook.getSheetAt(4);
-//				AssPlacementWrite.importDataPage(workbook, sheetPage5, values);
-	
-//				System.out.println(Messages.CreateIssueExcel_write_assplacement2);			
-//				HSSFSheet sheetPage6 = workbook.getSheetAt(5);
-//				AssPlacementWriteNew.importDataPage(workbook, sheetPage6, values);
+//			System.out.println("开始写入：按装车位置统计");			
+//			HSSFSheet sheetPage5 = workbook.getSheetAt(4);
+//			AssPlacement1Write.importDataPage(workbook, sheetPage5, values);
+//	
+//			System.out.println("开始写入：按新的装车位置统计");			
+//			HSSFSheet sheetPage6 = workbook.getSheetAt(5);
+//			AssPlacement2Write.importDataPage(workbook, sheetPage6, values);
 			
 			workbook.write(fileOut);
 			fileOut.close();

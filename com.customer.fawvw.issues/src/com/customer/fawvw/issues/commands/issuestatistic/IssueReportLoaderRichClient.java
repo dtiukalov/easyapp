@@ -8,6 +8,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.customer.fawvw.issues.commands.common.loader.DeptLoader;
+import com.customer.fawvw.issues.commands.common.loader.PartTypeStatusLoader;
+import com.customer.fawvw.issues.commands.common.loader.TimeLoader;
 import com.customer.fawvw.issues.exception.FawvmLoaderException;
 import com.customer.fawvw.issues.utils.ComponentUtils;
 import com.customer.fawvw.issues.utils.DateUtil;
@@ -74,7 +77,7 @@ public class IssueReportLoaderRichClient {
 						(TCSession)parameters.get("session"),  
 						"issues_RichClient", 
 						conditions, inputs);
-System.out.println("tcComponents.length = " + tcComponents.length);			 
+			
 			if (tcComponents.length > 0) {
 				
 				List<TCComponent> rightComponent = selectComponent(tcComponents, parameters);
@@ -94,36 +97,64 @@ System.out.println("tcComponents.length = " + tcComponents.length);
 						item.put("fv9IssueTempSolution", fv9IssueRevision.getProperty("fv9IssueTempSolution"));  
 						item.put("fv9TempSolutionDL", fv9IssueRevision.getDateProperty("fv9TempSolutionDL"));  
 						
-						item.put("fv9SolutionBS", fv9IssueRevision.getProperty("fv9SolutionBS"));
-						item.put("fv9SolutionCA", fv9IssueRevision.getProperty("fv9SolutionCA"));
+//						措施
 						item.put("fv9SolutionLO", fv9IssueRevision.getProperty("fv9SolutionLO"));
-						item.put("fv9SolutionPA", fv9IssueRevision.getProperty("fv9SolutionPA"));
 						item.put("fv9SolutionPL", fv9IssueRevision.getProperty("fv9SolutionPL"));
 						item.put("fv9SolutionQAPP", fv9IssueRevision.getProperty("fv9SolutionQAPP"));
 						item.put("fv9SolutionSU", fv9IssueRevision.getProperty("fv9SolutionSU"));
 						item.put("fv9SolutionVSC", fv9IssueRevision.getProperty("fv9SolutionVSC"));
 						item.put("fv9SolutionTE", fv9IssueRevision.getProperty("fv9SolutionTE"));
-						
-//						item.put("fv9SlResDepBS", fv9IssueRevision.getProperty("fv9SlResDepBS"));
-//						item.put("fv9SlResDepCA", fv9IssueRevision.getProperty("fv9SlResDepCA"));
-//						item.put("fv9SlResDepLO", fv9IssueRevision.getProperty("fv9SlResDepLO"));
-//						item.put("fv9SlResDepPA", fv9IssueRevision.getProperty("fv9SlResDepPA"));
-//						item.put("fv9SlResDepPL", fv9IssueRevision.getProperty("fv9SlResDepPL"));
-//						item.put("fv9SlResDepQAPP", fv9IssueRevision.getProperty("fv9SlResDepQAPP"));
-//						item.put("fv9SlResDepSU", fv9IssueRevision.getProperty("fv9SlResDepSU"));
-//						item.put("fv9SlResDepVSC", fv9IssueRevision.getProperty("fv9SlResDepVSC"));
-						
-						item.put("fv9SlResOwnerBS", fv9IssueRevision.getProperty("fv9SlResOwnerBS"));
-						item.put("fv9SlResOwnerCA", fv9IssueRevision.getProperty("fv9SlResOwnerCA"));
+						item.put("fv9SolutionCP1_ME", fv9IssueRevision.getProperty("fv9SolutionCP1_ME"));
+						item.put("fv9SolutionBS", fv9IssueRevision.getProperty("fv9SolutionBS"));
+						item.put("fv9SolutionCA", fv9IssueRevision.getProperty("fv9SolutionCA"));
+						item.put("fv9SolutionPA", fv9IssueRevision.getProperty("fv9SolutionPA"));
+						item.put("fv9SolutionCP2_ME", fv9IssueRevision.getProperty("fv9SolutionCP2_ME"));
+						item.put("fv9SolutionCP2BS", fv9IssueRevision.getProperty("fv9SolutionCP2BS"));
+						item.put("fv9SolutionCP2PA", fv9IssueRevision.getProperty("fv9SolutionCP2PA"));
+						item.put("fv9SolutionCP2CA", fv9IssueRevision.getProperty("fv9SolutionCP2CA"));
+
+//						措施责任部门
+						item.put("fv9SlResDepLO", fv9IssueRevision.getProperty("fv9SlResDepLO"));
+						item.put("fv9SlResDepPL", fv9IssueRevision.getProperty("fv9SlResDepPL"));
+						item.put("fv9SlResDepQAPP", fv9IssueRevision.getProperty("fv9SlResDepQAPP"));
+						item.put("fv9SlResDepSU", fv9IssueRevision.getProperty("fv9SlResDepSU"));
+						item.put("fv9SlResDepVSC", fv9IssueRevision.getProperty("fv9SlResDepVSC"));
+						item.put("fv9SlResDepTE", fv9IssueRevision.getProperty("fv9SlResDepTE"));
+						item.put("fv9SlResDepCP1_ME", fv9IssueRevision.getProperty("fv9SlResDepCP1_ME"));
+						item.put("fv9SlResDepBS", fv9IssueRevision.getProperty("fv9SlResDepBS"));
+						item.put("fv9SlResDepCA", fv9IssueRevision.getProperty("fv9SlResDepCA"));
+						item.put("fv9SlResDepPA", fv9IssueRevision.getProperty("fv9SlResDepPA"));
+						item.put("fv9SlResDepCP2_ME", fv9IssueRevision.getProperty("fv9SlResDepCP2_ME"));
+						item.put("fv9SlResDepCP2BS", fv9IssueRevision.getProperty("fv9SlResDepCP2BS"));
+						item.put("fv9SlResDepCP2PA", fv9IssueRevision.getProperty("fv9SlResDepCP2PA"));
+						item.put("fv9SlResDepCP2CA", fv9IssueRevision.getProperty("fv9SlResDepCP2CA"));
+			
+//						责任人
 						item.put("fv9SlResOwnerLO", fv9IssueRevision.getProperty("fv9SlResOwnerLO"));
-						item.put("fv9SlResOwnerPA", fv9IssueRevision.getProperty("fv9SlResOwnerPA"));
 						item.put("fv9SlResOwnerPL", fv9IssueRevision.getProperty("fv9SlResOwnerPL"));
 						item.put("fv9SlResOwnerQAPP", fv9IssueRevision.getProperty("fv9SlResOwnerQAPP"));
 						item.put("fv9SlResOwnerSU", fv9IssueRevision.getProperty("fv9SlResOwnerSU"));
 						item.put("fv9SlResOwnerVSC", fv9IssueRevision.getProperty("fv9SlResOwnerVSC"));
 						item.put("fv9SlResOwnerTE", fv9IssueRevision.getProperty("fv9SlResOwnerTE"));
+						item.put("fv9SlResOwnerCP1_ME", fv9IssueRevision.getProperty("fv9SlResOwnerCP1_ME"));
+						item.put("fv9SlResOwnerBS", fv9IssueRevision.getProperty("fv9SlResOwnerBS"));
+						item.put("fv9SlResOwnerCA", fv9IssueRevision.getProperty("fv9SlResOwnerCA"));
+						item.put("fv9SlResOwnerPA", fv9IssueRevision.getProperty("fv9SlResOwnerPA"));
+						item.put("fv9SlResOwnerCP2_ME", fv9IssueRevision.getProperty("fv9SlResOwnerCP2_ME"));
+						item.put("fv9SlResOwnerCP2BS", fv9IssueRevision.getProperty("fv9SlResOwnerCP2BS"));
+						item.put("fv9SlResOwnerCP2PA", fv9IssueRevision.getProperty("fv9SlResOwnerCP2PA"));
+						item.put("fv9SlResOwnerCP2CA", fv9IssueRevision.getProperty("fv9SlResOwnerCP2CA"));
 						
-						item.put("fv9SolDeadlineDate", fv9IssueRevision.getDateProperty("fv9SolDeadlineDate")); 
+						item.put("fv9TimeChangeRed", fv9IssueRevision.getProperty("fv9TimeChangeRed")); 
+						item.put("fv9TimeChangeGreen", fv9IssueRevision.getProperty("fv9TimeChangeGreen")); 
+						item.put("fv9TimeValidated", fv9IssueRevision.getProperty("fv9TimeValidated")); 
+						item.put("fv9TimeImplemented", fv9IssueRevision.getProperty("fv9TimeImplemented")); 
+						item.put("fv9TimeChangeYellow", fv9IssueRevision.getProperty("fv9TimeChangeYellow")); 
+						item.put("fv9TimeDispatched", fv9IssueRevision.getProperty("fv9TimeDispatched")); 
+						item.put("fv9TimeAnalyzed", fv9IssueRevision.getProperty("fv9TimeAnalyzed")); 
+						item.put("fv9SolDeadlineDate", fv9IssueRevision.getProperty("fv9SolDeadlineDate"));
+						item.put("fv9SolDeadlineDateKW", fv9IssueRevision.getDateProperty("fv9SolDeadlineDate"));
+						
 						item.put("fv9RGStatus", fv9IssueRevision.getProperty("fv9RGStatus")); 
 						item.put("fv9IssueType", fv9IssueRevision.getProperty("fv9IssueType")); 
 						
@@ -134,16 +165,8 @@ System.out.println("tcComponents.length = " + tcComponents.length);
 					//按照各个维度统计数据
 					//责任部门
 
-					Map<String,Object> department = DepartmentStatusLoader.load(issuelist);
-					System.out.println("按责任部门统计" 
-							+ "\r\n" + "BS:" + department.get("BS")  
-							+ "\r\n" + "CA:" + department.get("CA") 
-							+ "\r\n" + "LO:" + department.get("LO") 
-							+ "\r\n" + "PA:" + department.get("PA") 
-							+ "\r\n" + "PL:" + department.get("PL") 
-							+ "\r\n" + "QAPP:" + department.get("QAPP") 
-							+ "\r\n" + "SU:" + department.get("SU") 
-							+ "\r\n" + "VSC" + department.get("VSC")); 
+					Map<String,Object> department = DeptLoader.load(issuelist);
+					
 					
 					//零件类型
 					Map<String,Object> partType = PartTypeStatusLoader.load(issuelist);
@@ -168,7 +191,7 @@ System.out.println("tcComponents.length = " + tcComponents.length);
 //							+ "\r\n" + Messages.total + mMvalues.get("total")); 
 
 					//按时间统计
-//					Map<String, Object> TimeIssues = TimeLoader.load(issuelist);
+					Map<String, Object> TimeIssues = TimeLoader.load(issuelist);
 //					
 					//装车位置
 //					Map<String, Object> assPlacement = AssPlacementLoader.load(issuelist);
@@ -185,7 +208,7 @@ System.out.println("tcComponents.length = " + tcComponents.length);
 					values.put("department", department); 
 					values.put("partType", partType); 
 //					values.put("mMvalues", mMvalues); 
-//					values.put("TimeIssues", TimeIssues); 
+					values.put("TimeIssues", TimeIssues); 
 //					values.put("assPlacement", assPlacement); 
 					
 					System.out.println("获取数据结束"); 

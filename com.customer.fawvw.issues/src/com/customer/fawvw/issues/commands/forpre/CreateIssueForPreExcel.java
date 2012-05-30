@@ -138,41 +138,64 @@ public class CreateIssueForPreExcel {
 				//措施
 				String fv9Solution = ""; 
 				String slResDep = ""; //责任部门
+
 				if (!"".equals(Issue.get("fv9SolutionTE"))) {
 					fv9Solution += "TE:" + ((String)Issue.get("fv9SolutionTE")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
-					slResDep += "TE\r\n";
-				}
-				if (!"".equals(Issue.get("fv9SolutionBS"))) {  
-					fv9Solution += "\r\nBS:" + ((String)Issue.get("fv9SolutionBS")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
-					slResDep += "BS\r\n";
-				}
-				if (!"".equals(Issue.get("fv9SolutionCA"))) {  
-					fv9Solution += "\r\n" + "CA:" + ((String)Issue.get("fv9SolutionCA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-					slResDep += "CA\r\n";
-				}
-				if (!"".equals(Issue.get("fv9SolutionLO"))) {  
-					fv9Solution += "\r\n" + "LO:" + ((String)Issue.get("fv9SolutionLO")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-					slResDep += "LO\r\n";
-				}
-				if (!"".equals(Issue.get("fv9SolutionPA"))) {  
-					fv9Solution += "\r\n" + "PA:" + ((String)Issue.get("fv9SolutionPA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-					slResDep += "PA\r\n";
-				}
-				if (!"".equals(Issue.get("fv9SolutionPL"))) {  
-					fv9Solution += "\r\n" + "PL:" + ((String)Issue.get("fv9SolutionPL")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "TE";
 				}
 				if (!"".equals(Issue.get("fv9SolutionQAPP"))) {  
-					fv9Solution += "\r\n" + "QAPP:" + ((String)Issue.get("fv9SolutionQAPP")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-					slResDep += "QAPP\r\n";
+					fv9Solution += "\r\n" + "QAPP:" + ((String)Issue.get("fv9SolutionQAPP")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
+					slResDep += "\r\nQAPP";
 				}
 				if (!"".equals(Issue.get("fv9SolutionSU"))) {  
 					fv9Solution += "\r\n" + "SU:" + ((String)Issue.get("fv9SolutionSU")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-					slResDep += "SU\r\n";
+					slResDep += "\r\nSU";
+				}
+				if (!"".equals(Issue.get("fv9SolutionPL"))) {  
+					fv9Solution += "\r\n" + "PL:" + ((String)Issue.get("fv9SolutionPL")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "\r\nPL";
 				}
 				if (!"".equals(Issue.get("fv9SolutionVSC"))) {  
 					fv9Solution += "\r\n" + "VSC:" + ((String)Issue.get("fv9SolutionVSC")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-					slResDep += "VSC";
+					slResDep += "\r\nVSC";
 				}
+				if (!"".equals(Issue.get("fv9SolutionLO"))) {  
+					fv9Solution += "\r\n" + "LO:" + ((String)Issue.get("fv9SolutionLO")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$
+					slResDep += "\r\nLO"; //$NON-NLS-5$ 
+				}
+				if (!"".equals(Issue.get("fv9SolutionCP1_ME"))) {  
+					fv9Solution += "\r\n" + "CP1-ME:" + ((String)Issue.get("fv9SolutionCP1_ME")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "\r\nCP1-ME";
+				}
+				if (!"".equals(Issue.get("fv9SolutionCP2_ME"))) {  
+					fv9Solution += "\r\n" + "CP2-ME:" + ((String)Issue.get("fv9SolutionCP2_ME")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "\r\nCP2-ME";
+				}
+				if (!"".equals(Issue.get("fv9SolutionBS"))) {  
+					fv9Solution += "\r\n" + "CP1-BS:" + ((String)Issue.get("fv9SolutionBS")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "\r\nCP1-BS";
+				}
+				if (!"".equals(Issue.get("fv9SolutionPA"))) {  
+					fv9Solution += "\r\n" + "CP1-PA:" + ((String)Issue.get("fv9SolutionPA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "\r\nCP1-PA";
+				}
+				if (!"".equals(Issue.get("fv9SolutionCA"))) {  
+					fv9Solution += "\r\n" + "CP1-CA:" + ((String)Issue.get("fv9SolutionCA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "\r\nCP1-CA";
+				}
+				if (!"".equals(Issue.get("fv9SolutionCP2BS"))) {  
+					fv9Solution += "\r\n" + "CP2-BS:" + ((String)Issue.get("fv9SolutionCP2BS")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "\r\nCP2-BS";
+				}
+				if (!"".equals(Issue.get("fv9SolutionCP2PA"))) {  
+					fv9Solution += "\r\n" + "CP2-PA:" + ((String)Issue.get("fv9SolutionCP2PA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "\r\nCP2-PA";
+				}
+				if (!"".equals(Issue.get("fv9SolutionCP2CA"))) {  
+					fv9Solution += "\r\n" + "CP2-CA:" + ((String)Issue.get("fv9SolutionCP2CA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+					slResDep += "\r\nCP2-CA";
+				}
+				
 				row.createCell(2).setCellValue(
 								new HSSFRichTextString(fv9Solution));
 				row.getCell(2).setCellStyle(rowStyle.getCell(2).getCellStyle());

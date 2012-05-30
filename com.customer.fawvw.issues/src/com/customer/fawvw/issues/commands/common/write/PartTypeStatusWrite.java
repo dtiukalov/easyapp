@@ -1,4 +1,4 @@
-package com.customer.fawvw.issues.commands.issuestatistic;
+package com.customer.fawvw.issues.commands.common.write;
 
 import java.util.Map;
 
@@ -12,7 +12,7 @@ public class PartTypeStatusWrite {
 	/**
 	 *写入“按零件类型统计”页
 	 */
-	static void importDataPage(HSSFWorkbook workbook,
+	public static void importDataPage(HSSFWorkbook workbook,
 			HSSFSheet sheetPage, Map<String, Object> values) {
 		
 		if (values.get("partType") != null) { 

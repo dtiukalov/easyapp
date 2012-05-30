@@ -52,36 +52,6 @@ public class ReportIssueSingleInfoLoader {
 			System.out.println("涉及零件名称：" + fv9IssueRevisio  //$NON-NLS-1$
 					.getProperty("fv9PartName")); //$NON-NLS-1$
 			
-			values.put("fv9IssueDesc", fv9IssueRevisio //$NON-NLS-1$
-					.getProperty("fv9IssueDesc")); //$NON-NLS-1$
-			System.out.println("问题描述：" + fv9IssueRevisio  //$NON-NLS-1$
-					.getProperty("fv9IssueDesc")); //$NON-NLS-1$
-			
-			values.put("fv9Solution1", fv9IssueRevisio //$NON-NLS-1$
-					.getProperty("fv9Solution1")); //$NON-NLS-1$
-			System.out.println("措施1：" + fv9IssueRevisio  //$NON-NLS-1$
-					.getProperty("fv9Solution1")); //$NON-NLS-1$
-			
-			values.put("fv9Solution2", fv9IssueRevisio //$NON-NLS-1$
-					.getProperty("fv9Solution2")); //$NON-NLS-1$
-			System.out.println("措施2：" + fv9IssueRevisio  //$NON-NLS-1$
-					.getProperty("fv9Solution2")); //$NON-NLS-1$
-			
-			values.put("fv9Solution3", fv9IssueRevisio //$NON-NLS-1$
-					.getProperty("fv9Solution3")); //$NON-NLS-1$
-			System.out.println("措施3：" + fv9IssueRevisio  //$NON-NLS-1$
-					.getProperty("fv9Solution3")); //$NON-NLS-1$
-			
-			values.put("fv9Solution4", fv9IssueRevisio //$NON-NLS-1$
-					.getProperty("fv9Solution4")); //$NON-NLS-1$
-			System.out.println("措施4：" + fv9IssueRevisio  //$NON-NLS-1$
-					.getProperty("fv9Solution4")); //$NON-NLS-1$
-			
-			values.put("fv9Solution5", fv9IssueRevisio //$NON-NLS-1$
-					.getProperty("fv9Solution5")); //$NON-NLS-1$
-			System.out.println("措施5：" + fv9IssueRevisio  //$NON-NLS-1$
-					.getProperty("fv9Solution5")); //$NON-NLS-1$
-			
 			values.put("fv9IssueReqCarNo", fv9IssueRevisio //$NON-NLS-1$
 					.getProperty("fv9IssueReqCarNo")); //$NON-NLS-1$
 			System.out.println("涉及车辆编号：" + fv9IssueRevisio  //$NON-NLS-1$
@@ -107,35 +77,240 @@ public class ReportIssueSingleInfoLoader {
 			System.out.println("解决期限：" + fv9IssueRevisio  //$NON-NLS-1$
 					.getProperty("fv9SolDeadlineDate")); //$NON-NLS-1$
 			
-			values.put("fv9SlResOwner1", fv9IssueRevisio //$NON-NLS-1$
-					.getProperty("fv9SlResOwner1")); //$NON-NLS-1$
-			System.out.println("措施1责任人:" +  //$NON-NLS-1$
-					fv9IssueRevisio.getProperty("fv9SlResOwner1")); //$NON-NLS-1$
-			
-			values.put("fv9SlResOwner2", fv9IssueRevisio //$NON-NLS-1$
-					.getProperty("fv9SlResOwner2")); //$NON-NLS-1$
-			System.out.println("措施2责任人:" +  //$NON-NLS-1$
-					fv9IssueRevisio.getProperty("fv9SlResOwner2")); //$NON-NLS-1$
-			
-			values.put("fv9SlResOwner3", fv9IssueRevisio //$NON-NLS-1$
-					.getProperty("fv9SlResOwner3")); //$NON-NLS-1$
-			System.out.println("措施3责任人:" +  //$NON-NLS-1$
-					fv9IssueRevisio.getProperty("fv9SlResOwner3")); //$NON-NLS-1$
-			
-			values.put("fv9SlResOwner4", fv9IssueRevisio //$NON-NLS-1$
-					.getProperty("fv9SlResOwner4")); //$NON-NLS-1$
-			System.out.println("措施4责任人:" +  //$NON-NLS-1$
-					fv9IssueRevisio.getProperty("fv9SlResOwner4")); //$NON-NLS-1$
-			
-			values.put("fv9SlResOwner5", fv9IssueRevisio //$NON-NLS-1$
-					.getProperty("fv9SlResOwner5")); //$NON-NLS-1$
-			System.out.println("措施5责任人:" +  //$NON-NLS-1$
-					fv9IssueRevisio.getProperty("fv9SlResOwner5")); //$NON-NLS-1$
-			
 			values.put("fv9Verifier", fv9IssueRevisio //$NON-NLS-1$
 					.getProperty("fv9Verifier")); //$NON-NLS-1$
 			System.out.println("验证人：" + fv9IssueRevisio  //$NON-NLS-1$
 					.getProperty("fv9Verifier")); //$NON-NLS-1$
+			
+			values.put("fv9IssueTempSolution", fv9IssueRevisio 
+					.getProperty("fv9IssueTempSolution")); 
+			System.out.println("临时措施：" + fv9IssueRevisio 
+					.getProperty("fv9IssueTempSolution")); 
+			
+			values.put("fv9TempSolutionDL", fv9IssueRevisio 
+					.getProperty("fv9TempSolutionDL")); 
+			System.out.println("临时措施完成期限：" + fv9IssueRevisio 
+					.getProperty("fv9TempSolutionDL")); 
+			
+			values.put("fv9TempSolutionImpOwner", fv9IssueRevisio 
+					.getProperty("fv9TempSolutionImpOwner")); 
+			System.out.println("临时措施负责人：" + fv9IssueRevisio 
+					.getProperty("fv9TempSolutionImpOwner")); 
+							
+			values.put("fv9SolutionLO", fv9IssueRevisio 
+					.getProperty("fv9SolutionLO")); 
+			System.out.println("LO措施：" + fv9IssueRevisio  
+					.getProperty("fv9SolutionLO")); 
+			
+			values.put("fv9SlDLDateLO", fv9IssueRevisio 
+					.getProperty("fv9SlDLDateLO")); 
+			System.out.println("LO措施完成期限：" + fv9IssueRevisio  
+					.getProperty("fv9SlDLDateLO")); 
+			
+			values.put("fv9SlResOwnerLO", fv9IssueRevisio 
+					.getProperty("fv9SlResOwnerLO")); 
+			System.out.println("LO措施责任人：" + fv9IssueRevisio  
+					.getProperty("fv9SlResOwnerLO")); 
+			
+			values.put("fv9SolutionPL", fv9IssueRevisio 
+					.getProperty("fv9SolutionPL")); 
+			System.out.println("PL措施：" + fv9IssueRevisio  
+					.getProperty("fv9SolutionPL")); 
+			
+			values.put("fv9SlDLDatePL", fv9IssueRevisio 
+					.getProperty("fv9SlDLDatePL")); 
+			System.out.println("PL措施完成期限：" + fv9IssueRevisio  
+					.getProperty("fv9SlDLDatePL")); 
+			
+			values.put("fv9SlResOwnerPL", fv9IssueRevisio 
+					.getProperty("fv9SlResOwnerPL")); 
+			System.out.println("PL措施责任人：" + fv9IssueRevisio  
+					.getProperty("fv9SlResOwnerPL")); 
+			
+			values.put("fv9SolutionQAPP", fv9IssueRevisio 
+					.getProperty("fv9SolutionQAPP")); 
+			System.out.println("QAPP措施：" + fv9IssueRevisio  
+					.getProperty("fv9SolutionQAPP")); 
+			
+			values.put("fv9SlDLDateQAPP", fv9IssueRevisio 
+					.getProperty("fv9SlDLDateQAPP")); 
+			System.out.println("QAPP措施完成期限：" + fv9IssueRevisio  
+					.getProperty("fv9SlDLDateQAPP")); 
+			
+			values.put("fv9SlResOwnerQAPP", fv9IssueRevisio 
+					.getProperty("fv9SlResOwnerQAPP")); 
+			System.out.println("QAPP措施责任人：" + fv9IssueRevisio  
+					.getProperty("fv9SlResOwnerQAPP")); 
+			
+			values.put("fv9SolutionSU", fv9IssueRevisio 
+					.getProperty("fv9SolutionSU")); 
+			System.out.println("SU措施：" + fv9IssueRevisio  
+					.getProperty("fv9SolutionSU")); 
+			
+			values.put("fv9SlDLDateSU", fv9IssueRevisio 
+					.getProperty("fv9SlDLDateSU")); 
+			System.out.println("SU措施完成期限：" + fv9IssueRevisio  
+					.getProperty("fv9SlDLDateSU")); 
+			
+			values.put("fv9SlResOwnerSU", fv9IssueRevisio 
+					.getProperty("fv9SlResOwnerSU")); 
+			System.out.println("SU措施责任人：" + fv9IssueRevisio  
+					.getProperty("fv9SlResOwnerSU")); 
+			
+			values.put("fv9SolutionVSC", fv9IssueRevisio 
+					.getProperty("fv9SolutionVSC")); 
+			System.out.println("VSC措施：" + fv9IssueRevisio  
+					.getProperty("fv9SolutionVSC")); 
+			
+			values.put("fv9SlDLDateVSC", fv9IssueRevisio 
+					.getProperty("fv9SlDLDateVSC")); 
+			System.out.println("VSC措施完成期限：" + fv9IssueRevisio  
+					.getProperty("fv9SlDLDateVSC")); 
+			
+			values.put("fv9SlResOwnerVSC", fv9IssueRevisio 
+					.getProperty("fv9SlResOwnerVSC")); 
+			System.out.println("VSC措施责任人：" + fv9IssueRevisio  
+					.getProperty("fv9SlResOwnerVSC")); 
+
+			values.put("fv9SolutionTE", fv9IssueRevisio 
+					.getProperty("fv9SolutionTE")); 
+			System.out.println("TE措施：" + fv9IssueRevisio  
+					.getProperty("fv9SolutionTE")); 
+			
+			values.put("fv9SlDLDateTE", fv9IssueRevisio 
+					.getProperty("fv9SlDLDateTE")); 
+			System.out.println("TE措施完成期限：" + fv9IssueRevisio  
+					.getProperty("fv9SlDLDateTE")); 
+			
+			values.put("fv9SlResOwnerTE", fv9IssueRevisio 
+					.getProperty("fv9SlResOwnerTE")); 
+			System.out.println("TE措施责任人：" + fv9IssueRevisio  
+					.getProperty("fv9SlResOwnerTE")); 
+			
+			values.put("fv9SolutionCP1_ME", fv9IssueRevisio 
+					.getProperty("fv9SolutionCP1_ME"));
+			System.out.println("CP1-ME措施：" + fv9IssueRevisio  
+					.getProperty("fv9SolutionCP1_ME")); 
+			
+			values.put("fv9SlDLDateCP1_ME", fv9IssueRevisio 
+					.getProperty("fv9SlDLDateCP1_ME"));
+			System.out.println("CP1-ME措施解决期限：" + fv9IssueRevisio  
+					.getProperty("fv9SlDLDateCP1_ME")); 
+			
+			values.put("fv9SlResOwnerCP1_ME", fv9IssueRevisio 
+					.getProperty("fv9SlResOwnerCP1_ME")); 
+			System.out.println("CP1-ME措施负责人： " + fv9IssueRevisio  
+					.getProperty("fv9SlResOwnerCP1_ME")); 
+			
+			values.put("fv9SolutionBS", fv9IssueRevisio 
+					.getProperty("fv9SolutionBS")); 
+			System.out.println("CP1-BS措施：" + fv9IssueRevisio  
+					.getProperty("fv9SolutionBS")); 
+			
+			values.put("fv9SlDLDateBS", fv9IssueRevisio 
+					.getProperty("fv9SlDLDateBS")); 
+			System.out.println("CP1-BS措施完成期限： " + fv9IssueRevisio  
+					.getProperty("fv9SlDLDateBS")); 
+			
+			values.put("fv9SlResOwnerBS", fv9IssueRevisio 
+					.getProperty("fv9SlResOwnerBS")); 
+			System.out.println("CP1-BS措施负责人： " + fv9IssueRevisio  
+					.getProperty("fv9SlResOwnerBS")); 
+		
+			values.put("fv9SolutionCA", fv9IssueRevisio 
+					.getProperty("fv9SolutionCA")); 
+			System.out.println("CP1-CA措施：" + fv9IssueRevisio  
+					.getProperty("fv9SolutionCA")); 
+			
+			values.put("fv9SlDLDateCA", fv9IssueRevisio 
+					.getProperty("fv9SlDLDateCA")); 
+			System.out.println("CP1-CA措施完成期限：" + fv9IssueRevisio  
+					.getProperty("fv9SlDLDateCA")); 
+			
+			values.put("fv9SlResOwnerCA", fv9IssueRevisio 
+					.getProperty("fv9SlResOwnerCA")); 
+			System.out.println("CP1-CA措施负责人： " + fv9IssueRevisio  
+					.getProperty("fv9SlResOwnerCA")); 
+			
+			values.put("fv9SolutionPA", fv9IssueRevisio 
+					.getProperty("fv9SolutionPA")); 
+			System.out.println("CP1-PA措施：" + fv9IssueRevisio  
+					.getProperty("fv9SolutionPA")); 
+			
+			values.put("fv9SlDLDatePA", fv9IssueRevisio 
+					.getProperty("fv9SlDLDatePA")); 
+			System.out.println("CP1-PA措施完成期限： " + fv9IssueRevisio  
+					.getProperty("fv9SlDLDatePA")); 
+			
+			values.put("fv9SlResOwnerPA", fv9IssueRevisio 
+					.getProperty("fv9SlResOwnerPA")); 
+			System.out.println("CP1-PA措施负责人： " + fv9IssueRevisio  
+					.getProperty("fv9SlResOwnerPA")); 
+			
+			values.put("fv9SolutionCP2_ME", fv9IssueRevisio 
+					.getProperty("fv9SolutionCP2_ME"));
+			System.out.println("CP2-ME措施：" + fv9IssueRevisio  
+					.getProperty("fv9SolutionCP2_ME")); 
+			
+			values.put("fv9SlDLDateCP2_ME", fv9IssueRevisio 
+					.getProperty("fv9SlDLDateCP2_ME"));
+			System.out.println("CP2-ME措施解决期限：" + fv9IssueRevisio  
+					.getProperty("fv9SlDLDateCP2_ME")); 
+			
+			values.put("fv9SlResOwnerCP2_ME", fv9IssueRevisio 
+					.getProperty("fv9SlResOwnerCP2_ME")); 
+			System.out.println("CP2-ME措施负责人： " + fv9IssueRevisio  
+					.getProperty("fv9SlResOwnerCP2_ME")); 
+			
+			values.put("fv9SolutionCP2BS", fv9IssueRevisio 
+					.getProperty("fv9SolutionCP2BS"));
+			System.out.println("CP2-BS措施：" + fv9IssueRevisio  
+					.getProperty("fv9SolutionCP2BS")); 
+			
+			values.put("fv9SlDLDateCP2BS", fv9IssueRevisio 
+					.getProperty("fv9SlDLDateCP2BS"));
+			System.out.println("CP2-BS措施解决期限：" + fv9IssueRevisio  
+					.getProperty("fv9SlDLDateCP2BS")); 
+			
+			values.put("fv9SlResOwnerCP2BS", fv9IssueRevisio 
+					.getProperty("fv9SlResOwnerCP2BS"));
+			System.out.println("CP2-BS措施负责人：" + fv9IssueRevisio  
+					.getProperty("fv9SlResOwnerCP2BS")); 
+			
+			values.put("fv9SolutionCP2PA", fv9IssueRevisio 
+					.getProperty("fv9SolutionCP2PA"));
+			System.out.println("CP2-PA措施：" + fv9IssueRevisio  
+					.getProperty("fv9SolutionCP2PA")); 
+			
+			values.put("fv9SlDLDateCP2PA", fv9IssueRevisio 
+					.getProperty("fv9SlDLDateCP2PA"));
+			System.out.println("CP2-PA措施解决期限：" + fv9IssueRevisio  
+					.getProperty("fv9SlDLDateCP2PA")); 
+			
+			values.put("fv9SlResOwnerCP2PA", fv9IssueRevisio 
+					.getProperty("fv9SlResOwnerCP2PA"));
+			System.out.println("CP2-PA措施负责人：" + fv9IssueRevisio  
+					.getProperty("fv9SlResOwnerCP2PA")); 
+			
+			values.put("fv9SolutionCP2CA", fv9IssueRevisio 
+					.getProperty("fv9SolutionCP2CA"));
+			System.out.println("CP2-CA措施：" + fv9IssueRevisio  
+					.getProperty("fv9SolutionCP2CA")); 
+			
+			values.put("fv9SlDLDateCP2CA", fv9IssueRevisio 
+					.getProperty("fv9SlDLDateCP2CA"));
+			System.out.println("CP2-CA措施解决期限：" + fv9IssueRevisio  
+					.getProperty("fv9SlDLDateCP2CA")); 
+			
+			values.put("fv9SlResOwnerCP2CA", fv9IssueRevisio 
+					.getProperty("fv9SlResOwnerCP2CA"));
+			System.out.println("CP2-CA措施负责人：" + fv9IssueRevisio  
+					.getProperty("fv9SlResOwnerCP2CA")); 
+			
+			values.put("fv9IssueDesc", fv9IssueRevisio 
+					.getProperty("fv9IssueDesc"));
+			System.out.println("问题描述：" + fv9IssueRevisio  
+					.getProperty("fv9IssueDesc")); 
 			
 			values.put("project_ids", fv9IssueRevisio.getProperty("project_ids")); //$NON-NLS-1$ //$NON-NLS-2$
 			

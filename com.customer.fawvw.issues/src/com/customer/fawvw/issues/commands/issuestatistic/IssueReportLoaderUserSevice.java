@@ -11,6 +11,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.customer.fawvw.issues.commands.common.loader.DeptLoader;
+import com.customer.fawvw.issues.commands.common.loader.MajorLoader;
+import com.customer.fawvw.issues.commands.common.loader.TimeLoader;
+
 public class IssueReportLoaderUserSevice {
 	
 	public static HashMap<String, Object> loadTxtData(File txt) {
@@ -32,7 +36,7 @@ public class IssueReportLoaderUserSevice {
 			String printstr = result.toString();
 			issuelist = stringToList(printstr);
 			
-			Map<String,Object> department = DepartmentStatusLoader.load(issuelist);
+			Map<String,Object> department = DeptLoader.load(issuelist);
 			Map<String,Object> mMvalues = MajorLoader.load(issuelist);
 			Map<String, Object> TimeIssues = TimeLoader.load(issuelist);
 			Map<String, Object> assPlacement = AssPlacementLoader.load(issuelist);

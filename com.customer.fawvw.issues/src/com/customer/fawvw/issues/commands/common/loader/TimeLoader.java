@@ -1,4 +1,4 @@
-package com.customer.fawvw.issues.commands.issuestatistic;
+package com.customer.fawvw.issues.commands.common.loader;
 
 import java.text.Format;
 import java.text.ParseException;

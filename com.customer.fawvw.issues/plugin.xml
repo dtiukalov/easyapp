@@ -102,8 +102,7 @@
             commandId="com.customer.fawvw.search.SearchCommand">
       </handler>
    </extension>
-   <extension
-         point="org.eclipse.ui.bindings">
+   <extension point="org.eclipse.ui.bindings">
       <key
             commandId="com.customer.fawvw.issue.TCPprojectCommand"
             contextId="org.eclipse.ui.contexts.window"
@@ -132,17 +131,15 @@
 	                     icon="platform:/plugin/com.customer.fawvw.issues/coins/issueMenu.png"
 	                     id="IssueReport1">
 	               </command>
-	               <!--
 	               <command
 	                     commandId="com.customer.fawvw.issues.IssueSingleInfoReportCommand"
 	                     icon="platform:/plugin/com.customer.fawvw.issues/coins/issueMenu.png"
 	                     id="IssueReport2">
 	               </command>
-	               -->
 				   <command
                      	commandId="com.customer.fawvw.issues.IssueReportCommand"
-                     icon="platform:/plugin/com.customer.fawvw.issues/coins/issueMenu.png"
-                     id="IssueReport3">
+	                     icon="platform:/plugin/com.customer.fawvw.issues/coins/issueMenu.png"
+	                     id="IssueReport3">
               	   </command>
 		           <command
 	                     commandId="com.customer.fawvw.issues.IssueForPreReportCommand"

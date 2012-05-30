@@ -1,10 +1,10 @@
-package com.customer.fawvw.issues.commands.issueRel;
+package com.customer.fawvw.issues.commands.common.loader;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class IssueRelComponentReportAssPlacementLoader {
+public class AssPlacementLoader {
 
 private static HashMap<String, Object> assPlacement = new HashMap<String, Object>();
 	
@@ -57,31 +57,31 @@ private static HashMap<String, Object> assPlacement = new HashMap<String, Object
 		for(int k=0; k<values.size(); k++) {
 			
 			if ("前端 Vor-derwagen".equals((String)(values.get(k)).get("assPlacement"))) { //$NON-NLS-2$ //$NON-NLS-1$
-				front = sumLightStatue(front, (String)(values.get(k)).get("RGStatus")); //$NON-NLS-1$
+				front = sumLightStatue(front, (String)(values.get(k)).get("fv9RGStatus")); //$NON-NLS-1$
 			}
 			
 			if ("后端 Heck".equals((String)(values.get(k)).get("assPlacement"))) { //$NON-NLS-2$ //$NON-NLS-1$
-				behind = sumLightStatue(behind, (String)(values.get(k)).get("RGStatus")); //$NON-NLS-1$
+				behind = sumLightStatue(behind, (String)(values.get(k)).get("fv9RGStatus")); //$NON-NLS-1$
 			}
 			
 			if ("车门 Tueren".equals((String)(values.get(k)).get("assPlacement"))) { //$NON-NLS-2$ //$NON-NLS-1$
-				door = sumLightStatue(door, (String)(values.get(k)).get("RGStatus")); //$NON-NLS-1$
+				door = sumLightStatue(door, (String)(values.get(k)).get("fv9RGStatus")); //$NON-NLS-1$
 			}
 			
 			if ("内饰 Innenraum".equals((String)(values.get(k)).get("assPlacement"))) { //$NON-NLS-2$ //$NON-NLS-1$
-				inner = sumLightStatue(inner, (String)(values.get(k)).get("RGStatus")); //$NON-NLS-1$
+				inner = sumLightStatue(inner, (String)(values.get(k)).get("fv9RGStatus")); //$NON-NLS-1$
 			}
 			
 			if ("底盘 Boden".equals((String)(values.get(k)).get("assPlacement"))) { //$NON-NLS-2$ //$NON-NLS-1$
-				chassis = sumLightStatue(chassis, (String)(values.get(k)).get("RGStatus")); //$NON-NLS-1$
+				chassis = sumLightStatue(chassis, (String)(values.get(k)).get("fv9RGStatus")); //$NON-NLS-1$
 			}
 			
 			if ("驾驶模块 Cockpit".equals((String)(values.get(k)).get("assPlacement"))) { //$NON-NLS-2$ //$NON-NLS-1$
-				driver = sumLightStatue(driver, (String)(values.get(k)).get("RGStatus")); //$NON-NLS-1$
+				driver = sumLightStatue(driver, (String)(values.get(k)).get("fv9RGStatus")); //$NON-NLS-1$
 			}
 			
 			if ("电器 Elektronik".equals((String)(values.get(k)).get("assPlacement"))) { //$NON-NLS-2$ //$NON-NLS-1$
-				electronik = sumLightStatue(electronik, (String)(values.get(k)).get("RGStatus")); //$NON-NLS-1$
+				electronik = sumLightStatue(electronik, (String)(values.get(k)).get("fv9RGStatus")); //$NON-NLS-1$
 			}
 			
 		}

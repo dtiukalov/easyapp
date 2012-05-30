@@ -1,4 +1,4 @@
-package com.customer.fawvw.issues.commands.issuestatistic;
+package com.customer.fawvw.issues.commands.common.write;
 
 import java.util.Iterator;
 import java.util.List;
@@ -14,6 +14,7 @@ public class TimeWrite {
 	 * 写入“按时间统计”页
 	 */
 	@SuppressWarnings({ "unchecked", "deprecation" })
+	public
 	static void importDataPage(HSSFWorkbook workbook,
 			HSSFSheet sheetPage, Map<String, Object> values) {
 		

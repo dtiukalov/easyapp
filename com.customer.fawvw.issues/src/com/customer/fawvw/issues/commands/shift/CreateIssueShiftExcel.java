@@ -148,41 +148,61 @@ public class CreateIssueShiftExcel {
 						//措施
 						String fv9Solution = ""; 
 						String slResDep = "";
-						if (!"".equals(planIssue.get("fv9SolutionTE"))) {  
+						if (!"".equals(planIssue.get("fv9SolutionTE"))) {
 							fv9Solution += "TE:" + ((String)planIssue.get("fv9SolutionTE")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
-							slResDep += "TE\r\n";
-						}
-						if (!"".equals(planIssue.get("fv9SolutionBS"))) {  
-							fv9Solution += "\r\nBS:" + ((String)planIssue.get("fv9SolutionBS")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
-							slResDep += "BS\r\n";
-						}
-						if (!"".equals(planIssue.get("fv9SolutionCA"))) {  
-							fv9Solution += "\r\n" + "CA:" + ((String)planIssue.get("fv9SolutionCA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-							slResDep += "CA\r\n";
-						}
-						if (!"".equals(planIssue.get("fv9SolutionLO"))) {  
-							fv9Solution += "\r\n" + "LO:" + ((String)planIssue.get("fv9SolutionLO")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-							slResDep += "LO\r\n";
-						}
-						if (!"".equals(planIssue.get("fv9SolutionPA"))) {  
-							fv9Solution += "\r\n" + "PA:" + ((String)planIssue.get("fv9SolutionPA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-							slResDep += "PA\r\n";
-						}
-						if (!"".equals(planIssue.get("fv9SolutionPL"))) {  
-							fv9Solution += "\r\n" + "PL:" + ((String)planIssue.get("fv9SolutionPL")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-							slResDep += "PL\r\n";
+							slResDep += "TE";
 						}
 						if (!"".equals(planIssue.get("fv9SolutionQAPP"))) {  
-							fv9Solution += "\r\n" + "QAPP:" + ((String)planIssue.get("fv9SolutionQAPP")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-							slResDep += "QAPP\r\n";
+							fv9Solution += "\r\n" + "QAPP:" + ((String)planIssue.get("fv9SolutionQAPP")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
+							slResDep += "\r\nQAPP";
 						}
 						if (!"".equals(planIssue.get("fv9SolutionSU"))) {  
 							fv9Solution += "\r\n" + "SU:" + ((String)planIssue.get("fv9SolutionSU")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-							slResDep += "SU\r\n";
+							slResDep += "\r\nSU";
+						}
+						if (!"".equals(planIssue.get("fv9SolutionPL"))) {  
+							fv9Solution += "\r\n" + "PL:" + ((String)planIssue.get("fv9SolutionPL")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+							slResDep += "\r\nPL";
 						}
 						if (!"".equals(planIssue.get("fv9SolutionVSC"))) {  
 							fv9Solution += "\r\n" + "VSC:" + ((String)planIssue.get("fv9SolutionVSC")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-							slResDep += "VSC";
+							slResDep += "\r\nVSC";
+						}
+						if (!"".equals(planIssue.get("fv9SolutionLO"))) {  
+							fv9Solution += "\r\n" + "LO:" + ((String)planIssue.get("fv9SolutionLO")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$
+							slResDep += "\r\nLO"; //$NON-NLS-5$ 
+						}
+						if (!"".equals(planIssue.get("fv9SolutionCP1_ME"))) {  
+							fv9Solution += "\r\n" + "CP1-ME:" + ((String)planIssue.get("fv9SolutionCP1_ME")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+							slResDep += "\r\nCP1-ME";
+						}
+						if (!"".equals(planIssue.get("fv9SolutionCP2_ME"))) {  
+							fv9Solution += "\r\n" + "CP2-ME:" + ((String)planIssue.get("fv9SolutionCP2_ME")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+							slResDep += "\r\nCP2-ME";
+						}
+						if (!"".equals(planIssue.get("fv9SolutionBS"))) {  
+							fv9Solution += "\r\n" + "CP1-BS:" + ((String)planIssue.get("fv9SolutionBS")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+							slResDep += "\r\nCP1-BS";
+						}
+						if (!"".equals(planIssue.get("fv9SolutionPA"))) {  
+							fv9Solution += "\r\n" + "CP1-PA:" + ((String)planIssue.get("fv9SolutionPA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+							slResDep += "\r\nCP1-PA";
+						}
+						if (!"".equals(planIssue.get("fv9SolutionCA"))) {  
+							fv9Solution += "\r\n" + "CP1-CA:" + ((String)planIssue.get("fv9SolutionCA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+							slResDep += "\r\nCP1-CA";
+						}
+						if (!"".equals(planIssue.get("fv9SolutionCP2BS"))) {  
+							fv9Solution += "\r\n" + "CP2-BS:" + ((String)planIssue.get("fv9SolutionCP2BS")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+							slResDep += "\r\nCP2-BS";
+						}
+						if (!"".equals(planIssue.get("fv9SolutionCP2PA"))) {  
+							fv9Solution += "\r\n" + "CP2-PA:" + ((String)planIssue.get("fv9SolutionCP2PA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+							slResDep += "\r\nCP2-PA";
+						}
+						if (!"".equals(planIssue.get("fv9SolutionCP2CA"))) {  
+							fv9Solution += "\r\n" + "CP2-CA:" + ((String)planIssue.get("fv9SolutionCP2CA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+							slResDep += "\r\nCP2-CA";
 						}
 						
 						if (!"".equals(fv9Solution)) { //$NON-NLS-1$ //$NON-NLS-2$
@@ -338,29 +358,62 @@ public class CreateIssueShiftExcel {
 						
 						//措施
 						String fv9Solution = ""; 
-						if (!"".equals(actualIssue.get("fv9SolutionBS"))) {  
-							fv9Solution += "BS:" + ((String)actualIssue.get("fv9SolutionBS")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
-						}
-						if (!"".equals(actualIssue.get("fv9SolutionCA"))) {  
-							fv9Solution += "\r\n" + "CA:" + ((String)actualIssue.get("fv9SolutionCA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-						}
-						if (!"".equals(actualIssue.get("fv9SolutionLO"))) {  
-							fv9Solution += "\r\n" + "LO:" + ((String)actualIssue.get("fv9SolutionLO")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-						}
-						if (!"".equals(actualIssue.get("fv9SolutionPA"))) {  
-							fv9Solution += "\r\n" + "PA:" + ((String)actualIssue.get("fv9SolutionPA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-						}
-						if (!"".equals(actualIssue.get("fv9SolutionPL"))) {  
-							fv9Solution += "\r\n" + "PL:" + ((String)actualIssue.get("fv9SolutionPL")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+						String slResDep = "";
+						if (!"".equals(actualIssue.get("fv9SolutionTE"))) {
+							fv9Solution += "TE:" + ((String)actualIssue.get("fv9SolutionTE")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
+							slResDep += "TE";
 						}
 						if (!"".equals(actualIssue.get("fv9SolutionQAPP"))) {  
-							fv9Solution += "\r\n" + "QAPP:" + ((String)actualIssue.get("fv9SolutionQAPP")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+							fv9Solution += "\r\n" + "QAPP:" + ((String)actualIssue.get("fv9SolutionQAPP")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
+							slResDep += "\r\nQAPP";
 						}
 						if (!"".equals(actualIssue.get("fv9SolutionSU"))) {  
 							fv9Solution += "\r\n" + "SU:" + ((String)actualIssue.get("fv9SolutionSU")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+							slResDep += "\r\nSU";
+						}
+						if (!"".equals(actualIssue.get("fv9SolutionPL"))) {  
+							fv9Solution += "\r\n" + "PL:" + ((String)actualIssue.get("fv9SolutionPL")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+							slResDep += "\r\nPL";
 						}
 						if (!"".equals(actualIssue.get("fv9SolutionVSC"))) {  
 							fv9Solution += "\r\n" + "VSC:" + ((String)actualIssue.get("fv9SolutionVSC")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+							slResDep += "\r\nVSC";
+						}
+						if (!"".equals(actualIssue.get("fv9SolutionLO"))) {  
+							fv9Solution += "\r\n" + "LO:" + ((String)actualIssue.get("fv9SolutionLO")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$
+							slResDep += "\r\nLO"; //$NON-NLS-5$ 
+						}
+						if (!"".equals(actualIssue.get("fv9SolutionCP1_ME"))) {  
+							fv9Solution += "\r\n" + "CP1-ME:" + ((String)actualIssue.get("fv9SolutionCP1_ME")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+							slResDep += "\r\nCP1-ME";
+						}
+						if (!"".equals(actualIssue.get("fv9SolutionCP2_ME"))) {  
+							fv9Solution += "\r\n" + "CP2-ME:" + ((String)actualIssue.get("fv9SolutionCP2_ME")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+							slResDep += "\r\nCP2-ME";
+						}
+						if (!"".equals(actualIssue.get("fv9SolutionBS"))) {  
+							fv9Solution += "\r\n" + "CP1-BS:" + ((String)actualIssue.get("fv9SolutionBS")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+							slResDep += "\r\nCP1-BS";
+						}
+						if (!"".equals(actualIssue.get("fv9SolutionPA"))) {  
+							fv9Solution += "\r\n" + "CP1-PA:" + ((String)actualIssue.get("fv9SolutionPA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+							slResDep += "\r\nCP1-PA";
+						}
+						if (!"".equals(actualIssue.get("fv9SolutionCA"))) {  
+							fv9Solution += "\r\n" + "CP1-CA:" + ((String)actualIssue.get("fv9SolutionCA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+							slResDep += "\r\nCP1-CA";
+						}
+						if (!"".equals(actualIssue.get("fv9SolutionCP2BS"))) {  
+							fv9Solution += "\r\n" + "CP2-BS:" + ((String)actualIssue.get("fv9SolutionCP2BS")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+							slResDep += "\r\nCP2-BS";
+						}
+						if (!"".equals(actualIssue.get("fv9SolutionCP2PA"))) {  
+							fv9Solution += "\r\n" + "CP2-PA:" + ((String)actualIssue.get("fv9SolutionCP2PA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+							slResDep += "\r\nCP2-PA";
+						}
+						if (!"".equals(actualIssue.get("fv9SolutionCP2CA"))) {  
+							fv9Solution += "\r\n" + "CP2-CA:" + ((String)actualIssue.get("fv9SolutionCP2CA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
+							slResDep += "\r\nCP2-CA";
 						}
 						if (!"".equals(fv9Solution)) { //$NON-NLS-1$ //$NON-NLS-2$
 							row.createCell(2).setCellValue(
@@ -447,31 +500,6 @@ public class CreateIssueShiftExcel {
 						row.getCell(9).setCellStyle(rowStyle.getCell(9).getCellStyle());
 						
 						//责任部门
-						String slResDep = "";
-						if (!"".equals(actualIssue.get("fv9SlResDepBS"))) {  
-							slResDep += ((String)actualIssue.get("fv9SlResDepBS")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ 
-						}
-						if (!"".equals(actualIssue.get("fv9SlResDepCA"))) {  
-							slResDep += "\r\n" + ((String)actualIssue.get("fv9SlResDepCA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-						}
-						if (!"".equals(actualIssue.get("fv9SlResDepLO"))) {  
-							slResDep += "\r\n" + ((String)actualIssue.get("fv9SlResDepLO")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-						}
-						if (!"".equals(actualIssue.get("fv9SlResDepPA"))) {  
-							slResDep += "\r\n" + ((String)actualIssue.get("fv9SlResDepPA")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-						}
-						if (!"".equals(actualIssue.get("fv9SlResDepPL"))) {  
-							slResDep += "\r\n" + ((String)actualIssue.get("fv9SlResDepPL")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-						}
-						if (!"".equals(actualIssue.get("fv9SlResDepQAPP"))) {  
-							slResDep += "\r\n" + ((String)actualIssue.get("fv9SlResDepQAPP")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-						}
-						if (!"".equals(actualIssue.get("fv9SlResDepSU"))) {  
-							slResDep += "\r\n" + ((String)actualIssue.get("fv9SlResDepSU")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-						}
-						if (!"".equals(actualIssue.get("fv9SlResDepVSC"))) {  
-							slResDep += "\r\n" +  ((String)actualIssue.get("fv9SlResDepVSC")).replaceAll("\n", ";");   //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ 
-						}
 						if (!"".equals(slResDep)) { //$NON-NLS-1$ //$NON-NLS-2$
 							row.createCell(10).setCellValue(slResDep);
 						} else {

@@ -62,26 +62,22 @@ public class IssueRelComponentReportLoader {
 						tempData.put("issueReqCarNo", itemRevision.getProperty("fv9IssueReqCarNo"));
 						tempData.put("issueCause", itemRevision.getProperty("fv9IssueCause"));
 						
-						tempData.put("fv9SolutionBS", itemRevision.getProperty("fv9SolutionBS"));
-						tempData.put("fv9SolutionCA", itemRevision.getProperty("fv9SolutionCA"));
 						tempData.put("fv9SolutionLO", itemRevision.getProperty("fv9SolutionLO"));
-						tempData.put("fv9SolutionPA", itemRevision.getProperty("fv9SolutionPA"));
 						tempData.put("fv9SolutionPL", itemRevision.getProperty("fv9SolutionPL"));
 						tempData.put("fv9SolutionQAPP", itemRevision.getProperty("fv9SolutionQAPP"));
 						tempData.put("fv9SolutionSU", itemRevision.getProperty("fv9SolutionSU"));
 						tempData.put("fv9SolutionVSC", itemRevision.getProperty("fv9SolutionVSC"));
 						tempData.put("fv9SolutionTE", itemRevision.getProperty("fv9SolutionTE"));
+						tempData.put("fv9SolutionCP1_ME", itemRevision.getProperty("fv9SolutionCP1_ME"));
+						tempData.put("fv9SolutionBS", itemRevision.getProperty("fv9SolutionBS"));
+						tempData.put("fv9SolutionCA", itemRevision.getProperty("fv9SolutionCA"));
+						tempData.put("fv9SolutionPA", itemRevision.getProperty("fv9SolutionPA"));
+						tempData.put("fv9SolutionCP2_ME", itemRevision.getProperty("fv9SolutionCP2_ME"));
+						tempData.put("fv9SolutionCP2BS", itemRevision.getProperty("fv9SolutionCP2BS"));
+						tempData.put("fv9SolutionCP2PA", itemRevision.getProperty("fv9SolutionCP2PA"));
+						tempData.put("fv9SolutionCP2CA", itemRevision.getProperty("fv9SolutionCP2CA"));
 						
-//						tempData.put("fv9SlResDepBS", itemRevision.getProperty("fv9SlResDepBS"));
-//						tempData.put("fv9SlResDepCA", itemRevision.getProperty("fv9SlResDepCA"));
-//						tempData.put("fv9SlResDepLO", itemRevision.getProperty("fv9SlResDepLO"));
-//						tempData.put("fv9SlResDepPA", itemRevision.getProperty("fv9SlResDepPA"));
-//						tempData.put("fv9SlResDepPL", itemRevision.getProperty("fv9SlResDepPL"));
-//						tempData.put("fv9SlResDepQAPP", itemRevision.getProperty("fv9SlResDepQAPP"));
-//						tempData.put("fv9SlResDepSU", itemRevision.getProperty("fv9SlResDepSU"));
-//						tempData.put("fv9SlResDepVSC", itemRevision.getProperty("fv9SlResDepVSC"));
-						
-						tempData.put("RGStatus", itemRevision.getProperty("fv9RGStatus"));
+						tempData.put("fv9RGStatus", itemRevision.getProperty("fv9RGStatus"));
 						tempData.put("SolDeadlineDate", itemRevision.getProperty("fv9SolDeadlineDate"));
 						tempData.put("CompletedDate", itemRevision.getProperty("fv9CompletedDate"));
 						tempData.put("IssueStatus", itemRevision.getProperty("fv9IssueStatus"));

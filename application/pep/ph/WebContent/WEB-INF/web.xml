@@ -32,8 +32,8 @@
 		<description>tc路径</description>
 		<param-name>url</param-name>
 		<!--  <param-value>http://168.168.16.18:9080/tc</param-value>  -->
-		
-		<param-value>http://192.168.1.102:7001/tc</param-value>
+		<!--  <param-value>http://192.168.1.102:7001/tc</param-value> -->
+		<param-value>http://192.168.7.13:7001/tc</param-value>
 	</context-param>
 	
 	<listener>

@@ -13,7 +13,7 @@ public class FV9_35FehlerDenGewForm extends Form {
 		"fv9KaufteileNum", "fv9KaufteileProg",
 		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
 		"fv9PlatformType","fv9otherUid", "fv9IsBackup", "object_type",
-		"fv9DisplayRule"
+		"fv9DisplayRule","fv9SortNum"
 	};
 
 	public String[] getAttributes() {

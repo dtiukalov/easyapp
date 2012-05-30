@@ -18,6 +18,7 @@ import com.saturn.ph.PH;
 import com.saturn.ph.PHBuffer;
 import com.saturn.ph.PHManager;
 import com.saturn.ph.PHResource;
+import com.saturn.ph.PHSortManager;
 import com.saturn.tc.utils.ItemUtils;
 import com.teamcenter.soa.client.model.ModelObject;
 import com.teamcenter.soa.client.model.strong.Item;
@@ -72,7 +73,7 @@ public class LoadAction implements IAction {
 		
 		String project = "";
 		String roadmap = "";
-		Map<String, Object> formIds = new HashMap<String, Object>();
+		Map<Integer, Object> formIds = new HashMap<Integer, Object>();
 		List<String> indexes = new ArrayList<String>();
 		
 		if (item != null) {
@@ -110,10 +111,11 @@ public class LoadAction implements IAction {
 					request.getSession().setAttribute("fv9FrontSubTitle", fv9FrontSubTitle);
 					request.getSession().setAttribute("fv9ProjectCode", fv9ProjectCode);
 					
-					formIds = ItemUtils.getLastRevisionFormIds(itemRev, relations ,request);
-					
+					//	formIds = ItemUtils.getLastRevisionFormIds(itemRev, relations ,request);
+					formIds = ItemUtils.getFormIds(itemRev, relations ,request);
 					if(formIds.size() > 0){
-						indexes = PHManager.getIndexes(roadmap, formIds);
+						//indexes = PHManager.getIndexes(roadmap, formIds);
+						indexes = PHSortManager.getIndexes(formIds);
 						//PHManager.doBuffer(formIds, buffer);
 					}
 					request.getSession().setAttribute("indexes", indexes);

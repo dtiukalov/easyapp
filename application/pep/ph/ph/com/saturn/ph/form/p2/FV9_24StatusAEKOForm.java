@@ -9,7 +9,7 @@ public class FV9_24StatusAEKOForm extends Form {
 		"fv9PronoseAbgesch", "fv9PronoseSmall2Woch", "fv9PronoseBig2Woch",
 		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName", 
 		"fv9PlatformType","fv9otherUid", "fv9IsBackup", "object_type",
-		"fv9DisplayRule"
+		"fv9DisplayRule","fv9SortNum"
 	};
 
 	public String[] getAttributes() {

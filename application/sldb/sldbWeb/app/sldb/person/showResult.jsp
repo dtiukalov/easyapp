@@ -80,7 +80,33 @@
 						window.location.href='<%=request.getContextPath()%>/app/sldb/person/checkOk.jsp';
 						return false;
 					}
+				},{
+					id : 'btnadd',
+					text : '户主',
+					iconCls : 'icon-author',
+					handler : function() {
+						queryVO('<%=request.getContextPath()%>/app/sldb/check/list.action?pid=<%=pid%>');
+						return false;//解决IE6的不跳转的bug
+					}
 				}
+				<%
+					if (subs != null) {
+						for (int i = 0; i < subs.size(); ++i) {
+							PersonSub sub = (PersonSub)subs.get(i);
+				%>
+				, {
+					id : 'btnadd',
+					text : '<%=sub.getName()%>',
+					iconCls : 'icon-add',
+					handler : function() {
+						queryVO('<%=request.getContextPath()%>/app/sldb/check/listSub.action?pid=<%=sub.getId()%>');
+						return false;//解决IE6的不跳转的bug
+					}
+				}
+				<% 
+						}
+					}
+				%>
 				]
 			});
 		});

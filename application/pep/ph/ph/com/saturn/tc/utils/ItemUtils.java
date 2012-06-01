@@ -143,12 +143,16 @@ public class ItemUtils {
 	/*
 	 * 
 	 */
-	public static Map<Integer, Object> getFormIds(
+	public static List<Map<String, Object>> getFormIds(
 			ItemRevision itemRev,
 			String[] relations,
 			HttpServletRequest request) {
-		Map<Integer, Object> ids = new HashMap<Integer, Object>();
 		
+		List<Map<String, Object>> list = new ArrayList<Map<String,Object>>();
+		Map<String, Object> currentIds = new HashMap<String, Object>();
+		Map<String, Object> backUpIds = new HashMap<String, Object>();
+		Map<String, Object> pageNameNullIds = new HashMap<String, Object>();
+		int pageNameNulltempCont = 0; 
 		try {
 			for (String relation : relations) {
 				ModelObject[] objects = itemRev.getProperty(relation).getModelObjectArrayValue();
@@ -156,43 +160,69 @@ public class ItemUtils {
 				PH.getDataService().getProperties(objects, "object_name");
 				PH.getDataService().getProperties(objects, "fv9PreRelesed");
 				PH.getDataService().getProperties(objects, "fv9IsBackup");
-				PH.getDataService().getProperties(objects, "fv9SortNum");
+			//	PH.getDataService().getProperties(objects, "fv9SortNum");
+				PH.getDataService().getProperties(objects, "fv9PageName");
 				
 				for (ModelObject modelObject : objects) {
 					PH.getDataService().refreshObjects(modelObject);
 					String uid = modelObject.getUid();				//获取对象Uid
 					String type = modelObject.getType().getName();	//获取FormType名称
-					Integer fv9sortnum = modelObject.getProperty("fv9SortNum").getIntValue();//获取排序属性值
+				//	String fv9sortnum = modelObject.getProperty("fv9SortNum").getStringValue();//获取排序属性值
 					String isPublic = modelObject.getPropertyDisplayableValue("fv9PreRelesed");//获取对象是否预发布，如果预发布则在Web端显示 
-					
-					if ("yes".equalsIgnoreCase(isPublic) && fv9sortnum != null && fv9sortnum != 0) {
-						if (ids.containsKey(fv9sortnum)) {
-							Object obj = ids.get(fv9sortnum);
-							if (obj instanceof List) {
-								((List)obj).add(uid);
+					String isBackup = modelObject.getPropertyDisplayableValue("fv9IsBackup");//获取对象是否BackUp 
+					String pageName = modelObject.getPropertyDisplayableValue("fv9PageName");//获取对象是否BackUp 
+			
+					if ("yes".equalsIgnoreCase(isPublic)) {
+						if(pageName!= null && !"".equalsIgnoreCase(pageName)){
+							if(!isBackup.equalsIgnoreCase("yes") && type != WorkspaceUtils.BackUpType){
+								if (currentIds.containsKey(pageName)) {
+									Object obj = currentIds.get(pageName);
+									if (obj instanceof List) {
+										((List)obj).add(uid);
+									} else {
+										List<String> arr = new ArrayList<String>();
+										arr.add((String)obj);
+										arr.add(uid);
+										currentIds.put(pageName, arr);
+									}
+								} else {
+									currentIds.put(pageName, uid);
+								}
 							} else {
-								List<String> arr = new ArrayList<String>();
-								arr.add((String)obj);
-								arr.add(uid);
-								ids.put(fv9sortnum, arr);
+								if (backUpIds.containsKey(pageName)) {
+									Object obj = backUpIds.get(pageName);
+									if (obj instanceof List) {
+										((List)obj).add(uid);
+									} else {
+										List<String> arr = new ArrayList<String>();
+										arr.add((String)obj);
+										arr.add(uid);
+										backUpIds.put(pageName, arr);
+									}
+								} else {
+									backUpIds.put(pageName, uid);
+								}
 							}
 						} else {
-							ids.put(fv9sortnum, uid);
+							pageNameNulltempCont++;
+							pageNameNullIds.put("pageNameBull " + pageNameNulltempCont, uid);
 						}
-						
+					
 						//将3.4 Funktionsmaße nach Bauteilen的UID放在session中，
 						//供3.4 Funktionsmaße 获取公差尺寸的总数
 						if ("FV9_34FuntNachBaut".equals(type)) {
 							request.getSession().setAttribute("FuntionsmasseUID", uid);
 						}
 					}
-					
 				}
 			}
 		} catch (NotLoadedException e) {
 			e.printStackTrace();
 			return null;
 		}
-		return ids;
+		
+		list.add(currentIds);
+		list.add(backUpIds);
+		return list;
 	}
 }

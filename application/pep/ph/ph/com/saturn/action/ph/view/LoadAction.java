@@ -1,7 +1,6 @@
 package com.saturn.action.ph.view;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,8 +14,6 @@ import com.saturn.app.web.view.JspErrorView;
 import com.saturn.app.web.view.JspView;
 import com.saturn.ph.IndexManager;
 import com.saturn.ph.PH;
-import com.saturn.ph.PHBuffer;
-import com.saturn.ph.PHManager;
 import com.saturn.ph.PHResource;
 import com.saturn.ph.PHSortManager;
 import com.saturn.tc.utils.ItemUtils;
@@ -73,7 +70,8 @@ public class LoadAction implements IAction {
 		
 		String project = "";
 		String roadmap = "";
-		Map<Integer, Object> formIds = new HashMap<Integer, Object>();
+	//	Map<String, Object> formIds = new HashMap<String, Object>();
+		List<Map<String, Object>> list = new ArrayList<Map<String,Object>>();
 		List<String> indexes = new ArrayList<String>();
 		
 		if (item != null) {
@@ -112,10 +110,10 @@ public class LoadAction implements IAction {
 					request.getSession().setAttribute("fv9ProjectCode", fv9ProjectCode);
 					
 					//	formIds = ItemUtils.getLastRevisionFormIds(itemRev, relations ,request);
-					formIds = ItemUtils.getFormIds(itemRev, relations ,request);
-					if(formIds.size() > 0){
+					list = ItemUtils.getFormIds(itemRev, relations ,request);
+					if(list!= null && list.size() > 0){
 						//indexes = PHManager.getIndexes(roadmap, formIds);
-						indexes = PHSortManager.getIndexes(formIds);
+						indexes = PHSortManager.getIndexs(list);
 						//PHManager.doBuffer(formIds, buffer);
 					}
 					request.getSession().setAttribute("indexes", indexes);

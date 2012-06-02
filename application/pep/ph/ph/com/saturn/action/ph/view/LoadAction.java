@@ -1,6 +1,7 @@
 package com.saturn.action.ph.view;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -14,9 +15,12 @@ import com.saturn.app.web.view.JspErrorView;
 import com.saturn.app.web.view.JspView;
 import com.saturn.ph.IndexManager;
 import com.saturn.ph.PH;
+import com.saturn.ph.PHManager;
 import com.saturn.ph.PHResource;
 import com.saturn.ph.PHSortManager;
+import com.saturn.ph.ReportPage;
 import com.saturn.tc.utils.ItemUtils;
+import com.saturn.tc.utils.SortUtils;
 import com.teamcenter.soa.client.model.ModelObject;
 import com.teamcenter.soa.client.model.strong.Item;
 import com.teamcenter.soa.client.model.strong.ItemRevision;
@@ -70,9 +74,9 @@ public class LoadAction implements IAction {
 		
 		String project = "";
 		String roadmap = "";
-	//	Map<String, Object> formIds = new HashMap<String, Object>();
-		List<Map<String, Object>> list = new ArrayList<Map<String,Object>>();
-		List<String> indexes = new ArrayList<String>();
+		Map<String, Object> formIds = new HashMap<String, Object>();
+//		List<Map<String, Object>> list = new ArrayList<Map<String,Object>>();
+		List<ReportPage> indexes = new ArrayList<ReportPage>();
 		
 		if (item != null) {
 			try {
@@ -109,14 +113,24 @@ public class LoadAction implements IAction {
 					request.getSession().setAttribute("fv9FrontSubTitle", fv9FrontSubTitle);
 					request.getSession().setAttribute("fv9ProjectCode", fv9ProjectCode);
 					
-					//	formIds = ItemUtils.getLastRevisionFormIds(itemRev, relations ,request);
-					list = ItemUtils.getFormIds(itemRev, relations ,request);
-					if(list!= null && list.size() > 0){
-						//indexes = PHManager.getIndexes(roadmap, formIds);
-						indexes = PHSortManager.getIndexs(list);
+//					加载PHReportRevision下各个关系下的FV9PHForm/FV9PHImage/FV9PHBackup
+					formIds = ItemUtils.getLastRevisionFormIds(itemRev, relations ,request);
+					
+//					list = ItemUtils.getFormIds(itemRev, relations ,request);
+					
+					if(formIds!= null && formIds.size() > 0){
+//					if(list!= null && list.size() > 0){
+//						加载符合条件的数据
+						indexes = PHManager.getIndexes(roadmap, formIds);
+//						汇报页排序
+						indexes = SortUtils.phSort(indexes);
+						
+//						indexes = PHSortManager.getIndexs(list);
 						//PHManager.doBuffer(formIds, buffer);
 					}
-					request.getSession().setAttribute("indexes", indexes);
+					
+					
+					
 					String fv9ReportKW = (String)itemRev.getPropertyDisplayableValue("fv9ReportKW");
 					
 					if(fv9ReportKW != null && !"".equals(fv9ReportKW)){
@@ -124,7 +138,7 @@ public class LoadAction implements IAction {
 					}
 					
 					request.getSession().setAttribute("fv9ReportKW", fv9ReportKW);
-					
+					request.getSession().setAttribute("indexes", indexes);
 					request.setAttribute("current", "1");
 				}
 			} catch (NotLoadedException e1) {
@@ -142,7 +156,7 @@ System.out.println("indexes.get(0) = " + indexes.get(0));
 			List<PHResource> indexList = IndexManager.getListTree(indexes);
 			request.getSession().setAttribute("indexList", indexList);
 		
-			return new JspView(indexes.get(0));
+			return new JspView(indexes.get(0).getPath());
 	//		return new JspView("/app/pep/show.jsp");
 		}
 		//PH下不存在符合条件的数据

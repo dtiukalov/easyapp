@@ -16,24 +16,38 @@ public class PHSortManager {
 		String path = "/app/pep/do/preview.do";
 		List<String> indexes = new ArrayList<String>();
 		indexes.add("/app/pep/titlePage.jsp");
-		Map<String, Object> currentIds = list.get(0);
-		Map<String, Object> backUpIds = list.get(1);
-		Map<String, Object> pageNameNullIds = list.get(2);
 		
-		TreeSet<String> currentkeys = sortFormKeySet(currentIds);//对currentIds进行key排序
-		TreeSet<String> backUpkeys = sortFormKeySet(backUpIds);	//对backUpIds进行key排序
+		Map<String, Object> currentIds = null;
+		Map<String, Object> backUpIds = null;
+		Map<String, Object> pageNameNullIds = null;
 		
-		sort(path, indexes, currentIds, currentkeys);//对currentIds里value 是list类型的数据进行排序 
-		sort(path, indexes, backUpIds, backUpkeys);//对backUpIds里value 是list类型的数据进行排序 
-
-		if(pageNameNullIds.size() > 0) {//对fv9pageName是Null或者没填值的用户放在最后边
-			Iterator<String> keys = pageNameNullIds.keySet().iterator();
-			while(keys.hasNext()){
-				String key = keys.next();
-				indexes.add(path + "?uid=" + pageNameNullIds.get(key)+ " key : " + key);
+		if (list.size() >= 1) {
+			currentIds = list.get(0);
+			//对currentIds进行key排序
+			TreeSet<String> currentkeys = sortFormKeySet(currentIds);
+			//对currentIds里value 是list类型的数据进行排序 
+			sort(path, indexes, currentIds, currentkeys);
+		}
+		if (list.size() >= 2) {
+			backUpIds = list.get(1);
+			//对backUpIds进行key排序
+			TreeSet<String> backUpkeys = sortFormKeySet(backUpIds);	
+			//对backUpIds里value 是list类型的数据进行排序 
+			sort(path, indexes, backUpIds, backUpkeys);
+		}
+		if (list.size() >= 3) {
+			pageNameNullIds = list.get(2);
+			
+//			对fv9pageName是Null或者没填值的用户放在最后边
+			if(pageNameNullIds != null && pageNameNullIds.size() > 0) {
+				Iterator<String> keys = pageNameNullIds.keySet().iterator();
+				while(keys.hasNext()){
+					String key = keys.next();
+					indexes.add(path + "?uid=" + pageNameNullIds.get(key)+ " key : " + key);
+				}
 			}
 		}
-
+		
 		return indexes;
 	}
 	/*		

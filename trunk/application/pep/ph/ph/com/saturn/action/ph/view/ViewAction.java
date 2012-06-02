@@ -9,6 +9,7 @@ import com.saturn.app.web.IAction;
 import com.saturn.app.web.IView;
 import com.saturn.app.web.WebHelper;
 import com.saturn.app.web.view.JspView;
+import com.saturn.ph.ReportPage;
 
 public class ViewAction implements IAction {
 
@@ -21,13 +22,13 @@ public class ViewAction implements IAction {
 		String result = WebHelper.ERROR_JSP;
 		
 		String current = (String)request.getParameter("current");
-		List<String> indexes = (List<String>)request.getSession().getAttribute("indexes");
+		List<ReportPage> indexes = (List<ReportPage>)request.getSession().getAttribute("indexes");
 		
 		int cur = Integer.parseInt(current);
 		request.setAttribute("current", current);
 		
 		if(indexes != null){
-			result = indexes.get(cur-1);
+			result = indexes.get(cur-1).getPath();
 		} else {
 			return new JspView("/app/pep/login.jsp?flag=1");
 //			request.setAttribute(WebHelper.ERROR_MESSAGE, "Session过期  重新登陆 !!");

@@ -172,9 +172,19 @@ public class ItemUtils {
 					String isBackup = modelObject.getPropertyDisplayableValue("fv9IsBackup");//获取对象是否BackUp 
 					String pageName = modelObject.getPropertyDisplayableValue("fv9PageName");//获取对象是否BackUp 
 			
+					//将3.4 Funktionsmaße nach Bauteilen的UID放在session中，
+					//供3.4 Funktionsmaße 获取公差尺寸的总数
+					if ("FV9_34FuntNachBaut".equals(type)) {
+						request.getSession().setAttribute("FuntionsmasseUID", uid);
+					}
+					
+//					首要条件是“预发布”
 					if ("yes".equalsIgnoreCase(isPublic)) {
+//						标题不为空
 						if(pageName!= null && !"".equalsIgnoreCase(pageName)){
+//							主文件
 							if(!isBackup.equalsIgnoreCase("yes") && type != WorkspaceUtils.BackUpType){
+//								存在多个相同类型或者相同标题的表单
 								if (currentIds.containsKey(pageName)) {
 									Object obj = currentIds.get(pageName);
 									if (obj instanceof List) {
@@ -185,10 +195,14 @@ public class ItemUtils {
 										arr.add(uid);
 										currentIds.put(pageName, arr);
 									}
+//								仅有一个相同类型或者相同标题的表单
 								} else {
 									currentIds.put(pageName, uid);
 								}
+								
+//							Backup
 							} else {
+//								存在多个相同类型或者相同标题的Backup
 								if (backUpIds.containsKey(pageName)) {
 									Object obj = backUpIds.get(pageName);
 									if (obj instanceof List) {
@@ -199,20 +213,17 @@ public class ItemUtils {
 										arr.add(uid);
 										backUpIds.put(pageName, arr);
 									}
+//								仅有一个相同类型或者相同标题的Backup
 								} else {
 									backUpIds.put(pageName, uid);
 								}
 							}
 						} else {
+//							标题为空
 							pageNameNulltempCont++;
-							pageNameNullIds.put("pageNameBull " + pageNameNulltempCont, uid);
+							pageNameNullIds.put("pageNameBull_" + pageNameNulltempCont, uid);
 						}
-					
-						//将3.4 Funktionsmaße nach Bauteilen的UID放在session中，
-						//供3.4 Funktionsmaße 获取公差尺寸的总数
-						if ("FV9_34FuntNachBaut".equals(type)) {
-							request.getSession().setAttribute("FuntionsmasseUID", uid);
-						}
+						
 					}
 				}
 			}

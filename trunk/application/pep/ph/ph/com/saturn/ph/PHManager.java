@@ -87,7 +87,6 @@ public class PHManager {
 
 			"FV9_51PrKarLacMon", 
 			"FV9_51KarosserStat", 
-		//	"5.1 Status Karosseriebau",
 			"FV9_52Logiskonzept",
 
 			"6.1 Launchplanung",
@@ -114,15 +113,22 @@ public class PHManager {
 	}
 
 	@SuppressWarnings("unchecked")
-	public static List<String> getIndexes(String roadmap,
+	public static List<ReportPage> getIndexes(String roadmap,
 			Map<String, Object> forms) {
 		String path = "/app/pep/do/preview.do";// FormManager.getJspPath(type);
 		//	String path = "/app/pep/do/bufferview.do";// FormManager.getJspPath(type);
 		
-		List<String> indexes = new ArrayList<String>();
+		List<ReportPage> indexes = new ArrayList<ReportPage>();
 		
-		indexes.add("/app/pep/titlePage.jsp");
-		// if (roadmaps.containsKey(roadmap)) {
+		ReportPage firstPage = new ReportPage();
+		firstPage.setUid(null);
+		firstPage.setPageName("主页");
+		firstPage.setBackup(false);
+		firstPage.setType(null);
+		firstPage.setPath("/app/pep/titlePage.jsp");
+		firstPage.setSortNum("0.0.0");
+		indexes.add(firstPage);
+		
 		String[] types = roadmaps.get("ALL");
 
 		for (String type : types) {
@@ -155,22 +161,51 @@ public class PHManager {
 	 * object为某个类型的数据对象 1-n个
 	 * path 页面路径
 	 * */
-	public static void addIndex(List<String> indexes, String uid, String path) {
+	public static void addIndex(List<ReportPage> indexes, String uid, String path) {
 		try {
 			//根据UID获取对象
 			ModelObject form = PH.getDataService().loadModelObjectRefresh(uid);
-			String form_type = form.getProperty("object_type").getStringValue();
+			PH.getDataService().getProperties(form, "object_type", 
+					"fv9PageName", "fv9IsBackup", "fv9SortNum");
+			
+			String formType = form.getProperty("object_type").getStringValue();
+			String pageName = form.getProperty("fv9PageName").getStringValue();
+			String isBackup = form.getProperty("fv9IsBackup").getStringValue();
+			String sortNum = form.getProperty("fv9SortNum").getStringValue();
+			
 			//FV9PHImage 和 FV9PHBackup  不做任何处理
-			if ("FV9PHImage".equals(form_type) || "FV9PHBackup".equals(form_type)) {
-				indexes.add(path + "?uid=" + uid);
+			if ("FV9PHImage".equals(formType)) {
+				boolean backup = false;
+				if ("yes".equalsIgnoreCase(isBackup))
+					backup = true;
+				
+				ReportPage rp = new ReportPage();
+				rp.setUid(uid);
+				rp.setPageName(pageName);
+				rp.setBackup(backup);
+				rp.setType(formType);
+				rp.setPath(path + "?uid=" + uid);
+				rp.setSortNum(sortNum);
+				indexes.add(rp);
+				
+			} else if ("FV9PHBackup".equals(formType)) {
+				
+				ReportPage rp = new ReportPage();
+				rp.setUid(uid);
+				rp.setPageName(pageName);
+				rp.setBackup(true);
+				rp.setType(formType);
+				rp.setPath(path + "?uid=" + uid);
+				rp.setSortNum(sortNum);
+				indexes.add(rp);
+				
 			} else {
 				//非FV9PHImage 和 FV9PHBackup 要判断关系下是否存在数据集
 				PH.getDataService().getProperties(form, "fv9DisplayRule", "FV9Options");
 				
 				String displayRules = (String)form.getPropertyDisplayableValue("fv9DisplayRule");
-				//显示规则为Form或者为空,只显示Form
+				
 				//显示规则为Image,只显示数据集
-				//显示规则为Both,先显示Form,再显示数据集
 				if ("Image".equals(displayRules)) {
 					ModelObject[] images = form.getProperty("FV9Options").getModelObjectArrayValue();
 					PH.getDataService().getProperties(images, "object_type", "fv9PreRelesed");
@@ -178,29 +213,86 @@ public class PHManager {
 					for (ModelObject model : images){
 						//FV9Options关系下的对象为FV9PHImage类型 且 已经预发布
 						PH.getDataService().refreshObjects(model);
+						PH.getDataService().getProperties(model, "object_type", 
+								"fv9PageName", "fv9IsBackup", "fv9PreRelesed", "fv9SortNum");
 						if ("FV9PHImage".equals(model.getProperty("object_type").getStringValue()) &&
 								"Yes".equalsIgnoreCase(model.getPropertyDisplayableValue("fv9PreRelesed"))) {
-							indexes.add(path + "?uid=" + model.getUid());
+							
+							boolean backup = false;
+							if ("yes".equalsIgnoreCase(model.getProperty("fv9IsBackup").getStringValue()))
+								backup = true;
+							
+							ReportPage rp = new ReportPage();
+							rp.setUid(uid);
+							rp.setPageName(model.getProperty("fv9PageName").getStringValue());
+							rp.setBackup(backup);
+							rp.setType(formType);
+							rp.setPath(path + "?uid=" + model.getUid());
+							rp.setSortNum(model.getProperty("fv9SortNum").getStringValue());
+							indexes.add(rp);
+							
 						}
 					}
 					
-				} else if ("Both".equals(displayRules)) {
+				} 
+				
+				//显示规则为Both,先显示Form,再显示数据集
+				if ("Both".equals(displayRules)) {
 					
-					indexes.add(path + "?uid=" + uid);
+					boolean backup = false;
+					if ("yes".equalsIgnoreCase(isBackup))
+						backup = true;
+					
+					ReportPage rp = new ReportPage();
+					rp.setUid(uid);
+					rp.setPageName(pageName);
+					rp.setBackup(backup);
+					rp.setType(formType);
+					rp.setPath(path + "?uid=" + uid);
+					rp.setSortNum(sortNum);
+					indexes.add(rp);
 					
 					ModelObject[] images = form.getProperty("FV9Options").getModelObjectArrayValue();
 					PH.getDataService().getProperties(images, "object_type", "fv9PreRelesed");
 					
 					for (ModelObject model : images){
 						PH.getDataService().refreshObjects(model);
+						PH.getDataService().getProperties(model, "object_type", 
+								"fv9PageName", "fv9IsBackup", "fv9PreRelesed", "fv9SortNum");
 						//FV9Options关系下的对象为FV9PHImage类型 且 已经预发布
 						if ("FV9PHImage".equals(model.getProperty("object_type").getStringValue()) &&
 								"Yes".equalsIgnoreCase(model.getPropertyDisplayableValue("fv9PreRelesed"))) {
-							indexes.add(path + "?uid=" + model.getUid());
+							
+							boolean backup1 = false;
+							if ("yes".equalsIgnoreCase(model.getProperty("fv9IsBackup").getStringValue()))
+								backup1 = true;
+							
+							ReportPage rp1 = new ReportPage();
+							rp1.setUid(uid);
+							rp1.setPageName(model.getProperty("fv9PageName").getStringValue());
+							rp1.setBackup(backup1);
+							rp1.setType(formType);
+							rp1.setPath(path + "?uid=" + model.getUid());
+							rp1.setSortNum(model.getProperty("fv9SortNum").getStringValue());
+							indexes.add(rp1);
 						}
 					}
-				} else {
-					indexes.add(path + "?uid=" + uid);
+				} 
+				
+				//显示规则为Form或者为空,只显示Form
+				if ("Form".equals(displayRules) || "".equals(displayRules)) {
+					boolean backup = false;
+					if ("yes".equalsIgnoreCase(isBackup))
+						backup = true;
+					
+					ReportPage rp = new ReportPage();
+					rp.setUid(uid);
+					rp.setPageName(pageName);
+					rp.setBackup(backup);
+					rp.setType(formType);
+					rp.setPath(path + "?uid=" + uid);
+					rp.setSortNum(sortNum);
+					indexes.add(rp);
 				}
 
 			}

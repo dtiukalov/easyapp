@@ -31,7 +31,7 @@
 			<div id="nr">
 				<div id="top"><h1>PH汇报</h1></div>
 		    	<div id="content">
-		    		<div style="width: 800px; height: 500px; margin-top: 50px; text-align: center;">
+		    		<div style="width: 800px; height: 500px; margin-top: 40px; margin-left: 100px; text-align: center; overflow-y: auto;">
 		    		<%
 					if(itemList == null || itemList.size() <= 0){
 					%>
@@ -39,27 +39,23 @@
 					<%
 					} else {
 					%>
-						<table border="1" style="width: 700xp; margin-left: 100px;">
+						<table border="1" width="700" >
 							
 							<%
 							for (Map<String,Item> map : itemList) {
 								String key =  map.keySet().iterator().next().toString();
 								Item item = map.get(key);
-								
-								PH.getDataService().getProperties(item, "object_name",
-									"fv9PlatformType");
-								
+								PH.getDataService().getProperties(item, "object_name", "fv9PlatformType");
 							%>	
 							<form id="showPHForm" name="showPHForm" method="post" action="<%=request.getContextPath()%>/app/pep/view/load.do">
-							
 							<tr>
 								<td style="width: 130px; height: 30px;">
 									PH汇报项：
 								</td>
-								<td style="width: 470px; text-align: left;">
+								<td style="width: 470px; height: 30px; text-align: left;">
 									&nbsp;&nbsp;<%=item.getPropertyDisplayableValue("object_name")%>
 								</td>
-								<td style="width: 150px;">
+								<td style="width: 150px; height: 30px;">
 									<input type="Submit" value="开始汇报" />
 								</td>
 								<input name="name" type="hidden" value="<%=item.getPropertyDisplayableValue("object_name")%>"/> 

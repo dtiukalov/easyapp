@@ -40,20 +40,9 @@ public class SortUtils {
 			public int compare(ReportPage rp1, ReportPage rp2) {
 				int result = 0;
 				
-				String sortNum1 = "";
-				if (rp1.getSortNum().split(".").length > 0) {
-					for (int l=0; l<rp1.getSortNum().split(".").length-1; l++) {
-						sortNum1 += rp1.getSortNum().split(".")[l];
-					}
-				}
-				
-				String sortNum2 = rp2.getSortNum();
-				if (rp2.getSortNum().split(".").length > 0) {
-					for (int l=0; l<rp2.getSortNum().split(".").length-1; l++) {
-						sortNum2 += rp2.getSortNum().split(".")[l];
-					}
-				}
-		System.out.println("sortNum1 = " + sortNum1 + " sortNum2 = " + sortNum2);
+				String sortNum1 = rp1.getSortNum().replaceAll("\\D", "");
+				String sortNum2 = rp2.getSortNum().replaceAll("\\D", "");
+System.out.println("sortNum1 = " + sortNum1 + "\nsortNum2 = " + sortNum2);
 
 				if (!"".equals(sortNum1) &&
 						!"".equals(sortNum2)) {
@@ -86,32 +75,18 @@ public class SortUtils {
 				
 				String pageName1 = rp1.getPageName();
 				String pageName2 = rp2.getPageName();
-				
 				if (pageName1.compareTo(pageName2) == 0) {
-			System.out.println("pageName相同");
-					String sortNum1 = "";
-					if (rp1.getSortNum().split(".").length > 0) {
-						for (int l=0; l<rp1.getSortNum().split(".").length-1; l++) {
-							sortNum1 += rp1.getSortNum().split(".")[l];
-						}
-					}
 					
-					String sortNum2 = rp2.getSortNum();
-					if (rp2.getSortNum().split(".").length > 0) {
-						for (int l=0; l<rp2.getSortNum().split(".").length-1; l++) {
-							sortNum2 += rp2.getSortNum().split(".")[l];
-						}
-					}
+					String sortNum1 = rp1.getSortNum().replaceAll("\\D", "");
+					String sortNum2 = rp2.getSortNum().replaceAll("\\D", "");
 					
 					if (!"".equals(sortNum1) &&
-							!"".equals(sortNum2) && 
-							pageName1.equalsIgnoreCase(pageName2)) {
+							!"".equals(sortNum2)) {
 						int num1 = Integer.parseInt(sortNum1);
 						int num2 = Integer.parseInt(sortNum2);
 						result = num1 - num2;
 					}
 				} else {
-					System.out.println("pageName不相同");
 					result = pageName1.compareTo(pageName2);
 				}
 				

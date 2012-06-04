@@ -35,7 +35,7 @@
 		if(fv9StyleName.size()>0 && fv9StyleNum.size()> 0 &&fv9StyleName.size() == fv9StyleNum.size()){
 		
 			int index1 = fv9StyleName.indexOf("Planungs durchlauf");
-			int index2 = fv9StyleName.indexOf("Status 701");
+			int index2 = fv9StyleName.indexOf("Status 710");
 			int index3 = fv9StyleName.indexOf("Status 485");
 			int index4 = fv9StyleName.indexOf("Status 487/496");
 			int index5 = fv9StyleName.indexOf("Status 800");
@@ -66,7 +66,7 @@
 			
 			keys[0] = "Gesamt"; values[0] = num1+num2+num3+num4+num5; lows[0] = 0;
 			keys[index1+1] = "Planungs durchlauf"; values[index1+1] = num1; lows[index1+1] = values[0]-values[index1+1];
-			keys[index2+1] = "Status 701"; values[index2+1] = num2; lows[index2+1] = lows[index1+1]-values[index2+1];
+			keys[index2+1] = "Status 710"; values[index2+1] = num2; lows[index2+1] = lows[index1+1]-values[index2+1];
 			keys[index3+1] = "Status 485"; values[index3+1] = num3; lows[index3+1] = lows[index2+1]-values[index3+1];
 			keys[index4+1] = "Status 487/496"; values[index4+1] = num4; lows[index4+1] = lows[index3+1]-values[index4+1];
 			keys[index5+1] = "Status 800"; values[index5+1] = num5; lows[index5+1] = lows[index4+1]-values[index5+1];

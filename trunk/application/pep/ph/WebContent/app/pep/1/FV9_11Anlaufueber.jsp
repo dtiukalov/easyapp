@@ -206,65 +206,178 @@
 								((String)sopList.get(l)).split("-")[0] + "-" + ((String)sopList.get(l)).split("-")[1] + "-15");
 						
 						System.out.println("vffIndex = " + vffIndex + " pvsIndex = " + pvsIndex + " osIndex = " + osIndex + " sopIndex = " + sopIndex);
+						
+						double top = 220.0 + 52*l;
+						
+						int ten_vff = DateUtils.getThreeTenDays((String)vffList.get(l));
+						int ten_pvs = DateUtils.getThreeTenDays((String)pvsList.get(l));
+						int ten_os = DateUtils.getThreeTenDays((String)osList.get(l));
+						int ten_sop = DateUtils.getThreeTenDays((String)sopList.get(l));
 				%>
+					
 					<tr>
 						<td class="<%=row_class %>" style="width:93px; height: <%=height%>px; border: 1px solid;" ><%=project %></td>
 						<td class="<%=row_class %>" style="width: 120px; height: <%=height%>px; border: 1px solid;"><%=(String)derviantList.get(l) %></td>
 						<td class="<%=row_class %>" style="width: 50px; height: <%=height%>px; border: 1px solid;"><%=(String)stufeList.get(l) %></td>
-						<td class="<%=row_class %>" style="53px; height: <%=height%>px; border: 1px solid;"><%=vffshow %></td>
-						<td class="<%=row_class %>" style="53px; height: <%=height%>px; border: 1px solid;"><%=pvsshow %></td>
-						<td class="<%=row_class %>" style="53px; height: <%=height%>px; border: 1px solid;"><%=osshow %></td>
-						<td class="<%=row_class %>" style="53px; height: <%=height%>px; border: 1px solid;"><%=sopshow %></td>
-						<td class="<%=row_class %>" style="57px; height: <%=height%>px; border: 1px solid;"><%=(String)mixList.get(l) %>%</td>
+						<td class="<%=row_class %>" style="width: 53px; height: <%=height%>px; border: 1px solid;"><%=vffshow %></td>
+						<td class="<%=row_class %>" style="width: 53px; height: <%=height%>px; border: 1px solid;"><%=pvsshow %></td>
+						<td class="<%=row_class %>" style="width: 53px; height: <%=height%>px; border: 1px solid;"><%=osshow %></td>
+						<td class="<%=row_class %>" style="width: 53px; height: <%=height%>px; border: 1px solid;"><%=sopshow %></td>
+						<td class="<%=row_class %>" style="width: 57px; height: <%=height%>px; border: 1px solid;"><%=(String)mixList.get(l) %>%</td>
 						
 					<%
 						for (int m=0; m<24; m++) {
+							double left = 527 + 19.5*m;
+							
+							if (vffIndex == m) {
+								String text = "";
+								if (ten_vff == 1) {
+									text += "	<div style='color:black; font-size:10px; vertical-align: top; position: absolute; top:" 
+										+ top + "px; left:" + (left-9.75) + "px;'>VFF</div>";
+									text += "<div style=\"width: 19.5px; height:" + (height/3) + "px; position: absolute; top:" 
+										+ (top+11) + "px; left:" + (left-9.75) + "px; float: left; vertical-align: middle; padding-top: 5px; "
+										+ "filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" 
+										+ request.getContextPath() 
+										+ "/app/pep/images/rectangle.png', sizingMethod='scale'); \">";
+									text += "</div>";
+								}
+								if (ten_vff == 2) {
+									text += "	<div style='color:black; font-size:10px; vertical-align: top; position: absolute; top:" 
+										+ top + "px; left:" + (left) + "px;'>VFF</div>";
+									text += "<div style=\"width: 19.5px; height:" + (height/3) + "px; position: absolute; top:" 
+										+ (top+11) + "px; left:" + (left) + "px; float: left; vertical-align: middle; padding-top: 5px; "
+										+ "filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" 
+										+ request.getContextPath() 
+										+ "/app/pep/images/rectangle.png', sizingMethod='scale'); \">";
+									text += "</div>";
+								}
+								if (ten_vff == 3) {
+									text += "	<div style='color:black; font-size:10px; vertical-align: top; position: absolute; top:" 
+										+ top + "px; left:" + (left+9.75) + "px;'>VFF</div>";
+									text += "<div style=\"width: 19.5px; height:" + (height/3) + "px; position: absolute; top:" 
+										+ (top+11) + "px; left:" + (left+9.75) + "px; float: left; vertical-align: middle; padding-top: 5px; "
+										+ "filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" 
+										+ request.getContextPath() 
+										+ "/app/pep/images/rectangle.png', sizingMethod='scale'); \">";
+									text += "</div>";
+								}
+								out.print(text);
+							}
+							
+							if (pvsIndex == m) {
+								String text = "";
+								if (ten_pvs == 1) {
+									text += "	<div style='color:black; font-size:10px; vertical-align: top; position: absolute; top:" 
+										+ top + "px; left:" + (left-9.75) + "px;'>PVS</div>";
+									text += "<div style=\"width: 19.5px; height:" + (height/3) + "px; position: absolute; top:" 
+										+ (top+11) + "px; left:" + (left-9.75) + "px; float: left; vertical-align: middle; padding-top: 5px; "
+										+ "filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" 
+										+ request.getContextPath() 
+										+ "/app/pep/images/rectangle.png', sizingMethod='scale'); \">";
+									text += "</div>";
+								}
+								if (ten_pvs == 2) {
+									text += "	<div style='color:black; font-size:10px; vertical-align: top; position: absolute; top:" 
+										+ top + "px; left:" + (left) + "px;'>PVS</div>";
+									text += "<div style=\"width: 19.5px; height:" + (height/3) + "px; position: absolute; top:" 
+										+ (top+11) + "px; left:" + (left) + "px; float: left; vertical-align: middle; padding-top: 5px; "
+										+ "filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" 
+										+ request.getContextPath() 
+										+ "/app/pep/images/rectangle.png', sizingMethod='scale'); \">";
+									text += "</div>";
+								}
+								if (ten_pvs == 3) {
+									text += "	<div style='color:black; font-size:10px; vertical-align: top; position: absolute; top:" 
+										+ top + "px; left:" + (left+9.75) + "px;'>PVS</div>";
+									text += "<div style=\"width: 19.5px; height:" + (height/3) + "px; position: absolute; top:" 
+										+ (top+11) + "px; left:" + (left+9.75) + "px; float: left; vertical-align: middle; padding-top: 5px; "
+										+ "filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" 
+										+ request.getContextPath() 
+										+ "/app/pep/images/rectangle.png', sizingMethod='scale'); \">";
+									text += "</div>";
+								}
+								out.print(text);
+							}
+							
+							if (osIndex == m) {
+								String text = "";
+								if (ten_os == 1) {
+									text += "	<div style='color:black; font-size:10px; vertical-align: top; position: absolute; top:" 
+										+ top + "px; left:" + (left-9.75) + "px;'>&nbsp;0S</div>";
+									text += "<div style=\"width: 19.5px; height:" + (height/3) + "px; position: absolute; top:" 
+										+ (top+11) + "px; left:" + (left-9.75) + "px; float: left; vertical-align: middle; padding-top: 5px; "
+										+ "filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" 
+										+ request.getContextPath() 
+										+ "/app/pep/images/rectangle.png', sizingMethod='scale'); \">";
+									text += "</div>";
+								}
+								if (ten_os == 2) {
+									text += "	<div style='color:black; font-size:10px; vertical-align: top; position: absolute; top:" 
+										+ top + "px; left:" + (left) + "px;'>&nbsp;0S</div>";
+									text += "<div style=\"width: 19.5px; height:" + (height/3) + "px; position: absolute; top:" 
+										+ (top+11) + "px; left:" + (left) + "px; float: left; vertical-align: middle; padding-top: 5px; "
+										+ "filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" 
+										+ request.getContextPath() 
+										+ "/app/pep/images/rectangle.png', sizingMethod='scale'); \">";
+									text += "</div>";
+								}
+								if (ten_os == 3) {
+									text += "	<div style='color:black; font-size:10px; vertical-align: top; position: absolute; top:" 
+										+ top + "px; left:" + (left+9.75) + "px;'>&nbsp;0S</div>";
+									text += "<div style=\"width: 19.5px; height:" + (height/3) + "px; position: absolute; top:" 
+										+ (top+11) + "px; left:" + (left+9.75) + "px; float: left; vertical-align: middle; padding-top: 5px; "
+										+ "filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" 
+										+ request.getContextPath() 
+										+ "/app/pep/images/rectangle.png', sizingMethod='scale'); \">";
+									text += "</div>";
+								}
+								out.print(text);
+							}
+							
+							if (sopIndex == m) {
+								String text = "";
+								if (ten_sop == 1) {
+									text += "	<div style='color:black; font-size:10px; vertical-align: top; position: absolute; top:" 
+										+ top + "px; left:" + (left-9.75) + "px;'>SOP</div>";
+									text += "<div style=\"width: 19.5px; height:" + (height/3) + "px; position: absolute; top:" 
+										+ (top+11) + "px; left:" + (left-9.75) + "px; float: left; vertical-align: middle; padding-top: 5px; "
+										+ "filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" 
+										+ request.getContextPath() 
+										+ "/app/pep/images/diamond_red.png', sizingMethod='scale'); \">";
+									text += "</div>";
+								}
+								if (ten_sop == 2) {
+									text += "	<div style='color:black; font-size:10px; vertical-align: top; position: absolute; top:" 
+										+ top + "px; left:" + (left) + "px;'>SOP</div>";
+									text += "<div style=\"width: 19.5px; height:" + (height/3) + "px; position: absolute; top:" 
+										+ (top+11) + "px; left:" + (left) + "px; float: left; vertical-align: middle; padding-top: 5px; "
+										+ "filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" 
+										+ request.getContextPath() 
+										+ "/app/pep/images/diamond_red.png', sizingMethod='scale'); \">";
+									text += "</div>";
+								}
+								if (ten_sop == 3) {
+									text += "	<div style='color:black; font-size:10px; vertical-align: top; position: absolute; top:" 
+										+ top + "px; left:" + (left+9.75) + "px;'>SOP</div>";
+									text += "<div style=\"width: 19.5px; height:" + (height/3) + "px; position: absolute; top:" 
+										+ (top+11) + "px; left:" + (left+9.75) + "px; float: left; vertical-align: middle; padding-top: 5px; "
+										+ "filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" 
+										+ request.getContextPath() 
+										+ "/app/pep/images/diamond_red.png', sizingMethod='scale'); \">";
+									text += "</div>";
+								}
+								out.print(text);
+							}
 					%>
-						<td class="<%=row_class %>" style="border: 1px solid; height: <%=height%>px; width: 19.5px;">
-					<%
-					if (vffIndex == m) {
-						String text = "	<span style='color:black; font-size:10px; vertical-align: top;'>VFF</span>";
-						text += "<div style=\"width: 100%; height:" + (height/3) + "px; float: left; vertical-align: middle; padding-top: 5px;"
-							+ "filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" 
-							+ request.getContextPath() 
-							+ "/app/pep/images/rectangle.png', sizingMethod='scale'); \">";
-						text += "</div>";
-						out.print(text);
-					}
-					if (pvsIndex == m) {
-						String text = "<span style='color:black; font-size:10px; vertical-align: top;'>PVS</span>";
-						text += "<div style=\"width: 100%; height:" + (height/3) + "px; float: left; vertical-align: middle; padding-top: 5px;"
-							+ "filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" 
-							+ request.getContextPath() 
-							+ "/app/pep/images/rectangle.png', sizingMethod='scale'); \">";
-						text += "</div>";
-						out.print(text);
-					}
-					if (osIndex == m) {
-						String text = "<span style='color:black; font-size:10px; vertical-align: top;'>0S</span>";
-						text += "<div style=\"width: 100%; height:" + (height/3) + "px; float: left; vertical-align: middle; padding-top: 5px;"
-							+ "filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" 
-							+ request.getContextPath() 
-							+ "/app/pep/images/rectangle.png', sizingMethod='scale'); \">";
-						text += "</div>";
-						out.print(text);
-					}
-					if (sopIndex == m) {
-						String text = "	<span style='color:black; font-size:10px; vertical-align: top;'>SOP</span>";
-						text += "<div style=\"width: 100%; height:" + (height/2.5) + "px; float: left; vertical-align: middle; padding-top: 5px;"
-							+ "filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" 
-							+ request.getContextPath() 
-							+ "/app/pep/images/diamond_red.png', sizingMethod='scale'); \">";
-						text += "</div>";
-						out.print(text);
-					}
-					%>
-						</td>
+						<td class="<%=row_class %>" style="border: 1px solid; height: <%=height%>px; width: 19.5px;"></td>
+						
 					<%		
 						}
 					%>
 						
 					</tr>
+					
+					
 				<%
 					}
 				}

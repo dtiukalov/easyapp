@@ -587,7 +587,7 @@ public class DateUtils {
 	 * 判断一个日期在上旬、下旬
 	 * 输入：字符串-日期(yyyy-MM-dd)
 	 * 输出：1 - 上旬   默认为上旬
-	 * 输出：2 - 中旬
+	 * 输出：2 - 下旬
 	 */
 	public static int getTenDays(String datestr) {
 		int day = Integer.parseInt(datestr.split("-")[2]);
@@ -599,5 +599,23 @@ public class DateUtils {
 		return 1;
 	}
 	
+	/*
+	 * 判断一个日期在上旬、中旬、下旬
+	 * 输入：字符串-日期(yyyy-MM-dd)
+	 * 输出：1 - 上旬   默认为上旬
+	 * 输出：2 - 中旬
+	 * 输出：3 - 下旬
+	 */
+	public static int getThreeTenDays(String datestr) {
+		int day = Integer.parseInt(datestr.split("-")[2]);
+		if (day >= 1 && day <= 10) 
+			return 1;
+		if (day >= 11 && day <= 20) 
+			return 2;
+		if (day >= 21 && day <= 31) 
+			return 3;
+		
+		return 1;
+	}
 	
 }

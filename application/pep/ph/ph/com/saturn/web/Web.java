@@ -187,16 +187,21 @@ public class Web {
 			String formType = (String)form.get("object_type");
 			System.out.println("formType = " + formType);
 			
-			if (releaseList != null && releaseList.size() > 0) {
-				isRelease = (String) releaseList.get(0);
-				// 正式发布之后——数据冻结
-				if ("TCM Released".equalsIgnoreCase(isRelease)) {
-					//BackUp或是FV9PHBackup类型的数据
-					if("yes".equalsIgnoreCase(isBackup) || "FV9PHBackup".equalsIgnoreCase(formType)){
-						return "<div id='backup'><br><br><img width='190' height='80' src='/ph/app/pep/images/backup.png'></div>";
-					}
-					return "<div id='no-state'>&nbsp;</div>";
+			// 正式发布之后——数据冻结
+			boolean release = false;
+			for (Object obj : releaseList){
+				if ("TCM Released".equalsIgnoreCase((String)obj) ||
+						"Approved".equalsIgnoreCase((String)obj)) {
+					release = true;
+					break;
 				}
+			}
+			if (release == true) {
+				//BackUp或是FV9PHBackup类型的数据
+				if("yes".equalsIgnoreCase(isBackup) || "FV9PHBackup".equalsIgnoreCase(formType)){
+					return "<div id='backup'><br><br><img width='190' height='80' src='/ph/app/pep/images/backup.png'></div>";
+				}
+				return "<div id='no-state'>&nbsp;</div>";
 			}
 
 			/*

@@ -39,15 +39,16 @@ public class SortUtils {
 		Collections.sort(mainList, new Comparator<ReportPage>() {
 			public int compare(ReportPage rp1, ReportPage rp2) {
 				int result = 0;
-				
 				String sortNum1 = rp1.getSortNum().replaceAll("\\D", "");
 				String sortNum2 = rp2.getSortNum().replaceAll("\\D", "");
-System.out.println("sortNum1 = " + sortNum1 + "\nsortNum2 = " + sortNum2);
+				
+System.out.println("sortNum1 = " + sortNum1 + "  sortNum2 = " + sortNum2);
 
 				if (!"".equals(sortNum1) &&
 						!"".equals(sortNum2)) {
 					int num1 = Integer.parseInt(sortNum1);
 					int num2 = Integer.parseInt(sortNum2);
+System.out.println("num1 = " + num1 + "  num2 = " + num2);
 					result = num1 - num2;
 				}
 				return result;

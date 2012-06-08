@@ -1,5 +1,6 @@
 package com.customer.fawvw.issues.commands.common.loader;
 
+import java.text.DateFormat;
 import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -58,17 +59,17 @@ public class TimeLoader  {
 				time = getTime(values);
 			}
 			
-			String startTime = time.get("start") + ""; //$NON-NLS-1$ //$NON-NLS-2$
-			String endTime = time.get("end") + ""; //$NON-NLS-1$ //$NON-NLS-2$
+			String startTime = time.get("start") + "";  
+			String endTime = time.get("end") + "";  
 
-//	System.out.println("startTime" + startTime); //$NON-NLS-1$
-//	System.out.println("endTime" + endTime); //$NON-NLS-1$
+//	System.out.println("startTime" + startTime); 
+//	System.out.println("endTime" + endTime); 
 
 			//获取时间轴
 
 			List<Map<String, Integer>> weeks = new ArrayList<Map<String, Integer>>();
-			if (!"".equals(startTime) && !"null".equals(startTime) //$NON-NLS-1$ //$NON-NLS-2$
-					&& !"".equals(endTime) && !"null".equals(endTime)) { //$NON-NLS-1$ //$NON-NLS-2$
+			if (!"".equals(startTime) && !"null".equals(startTime)  
+					&& !"".equals(endTime) && !"null".equals(endTime)) {  
 
 				weeks = collectWeek(startTime, endTime);
 
@@ -83,11 +84,11 @@ public class TimeLoader  {
 				for (Iterator iterator = weeks.iterator(); iterator.hasNext();) {
 
 					Map<String, Integer> week = (Map<String, Integer>) iterator.next();
-					Date sunday = getSunDayOfWeek(week.get("year"),week.get("week")); //$NON-NLS-1$ //$NON-NLS-2$
+					Date sunday = getSunDayOfWeek(week.get("year"),week.get("week"));  
 					
-					Format format = new SimpleDateFormat("yyyy-MM-dd"); //$NON-NLS-1$
+					Format format = new SimpleDateFormat("yyyy-MM-dd"); 
 					String weekSunday = format.format(sunday);
-					weekSunday += " 23:59"; //$NON-NLS-1$
+					weekSunday += " 23:59"; 
 
 					
 //		System.out.println(week.get("year") + "year and " + week.get("week") + "week");
@@ -108,7 +109,7 @@ public class TimeLoader  {
 //						+ "closed = " + closed);
 
 					
-					if(!"".equals(weekSunday)) { //$NON-NLS-1$
+					if(!"".equals(weekSunday)) { 
 						operateTime(values, weekSunday, i);
 					}
 					i++;
@@ -117,23 +118,23 @@ public class TimeLoader  {
 			}
 			
 //		System.out.println("timeValues = " + timeValues);
-			System.out.println("按时间统计\n" //$NON-NLS-1$
-					+ "已提交： " + submited + "\n" //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-1$
-					+ "已分析： " + analysed + "\n" //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-1$
-					+ "已分派：" + apportioned + "\n" //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-1$
-					+ "有方案：" + excogitation + "\n" //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-1$
-					+ "已实施：" + operation + "\n" //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-1$
-					+ "已验证：" + validated + "\n" //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-1$
-					+ "已关闭：" + closed); //$NON-NLS-1$
+			System.out.println("按时间统计\n" 
+					+ "已提交： " + submited + "\n"   
+					+ "已分析： " + analysed + "\n"   
+					+ "已分派：" + apportioned + "\n"   
+					+ "有方案：" + excogitation + "\n"   
+					+ "已实施：" + operation + "\n"   
+					+ "已验证：" + validated + "\n"   
+					+ "已关闭：" + closed); 
 			
-			timeValues.put("weeks", weeks); //$NON-NLS-1$
-			timeValues.put("submited", submited); //$NON-NLS-1$
-			timeValues.put("analysed", analysed); //$NON-NLS-1$
-			timeValues.put("apportioned", apportioned); //$NON-NLS-1$
-			timeValues.put("excogitation", excogitation); //$NON-NLS-1$
-			timeValues.put("operation", operation); //$NON-NLS-1$
-			timeValues.put("validated", validated); //$NON-NLS-1$
-			timeValues.put("closed", closed); //$NON-NLS-1$
+			timeValues.put("weeks", weeks); 
+			timeValues.put("submited", submited); 
+			timeValues.put("analysed", analysed); 
+			timeValues.put("apportioned", apportioned); 
+			timeValues.put("excogitation", excogitation); 
+			timeValues.put("operation", operation); 
+			timeValues.put("validated", validated); 
+			timeValues.put("closed", closed); 
 	
 			return timeValues;
 			
@@ -175,8 +176,8 @@ public class TimeLoader  {
 					for (int i = 0; i <= endWeek - startWeek; i++) {
 						week = null;
 						week = new HashMap<String, Integer>();
-						week.put("week", startWeek + i); //$NON-NLS-1$
-						week.put("year", endYear); //$NON-NLS-1$
+						week.put("week", startWeek + i); 
+						week.put("year", endYear); 
 						times.add(week);
 					}
 				} else if ((endYear - startYear) == 1) {
@@ -186,16 +187,16 @@ public class TimeLoader  {
 					for (int i = startWeek; i <= maxWeek; i++) {
 						week = null;
 						week = new HashMap<String, Integer>();
-						week.put("week", i); //$NON-NLS-1$
-						week.put("year", startYear); //$NON-NLS-1$
+						week.put("week", i); 
+						week.put("year", startYear); 
 						times.add(week);
 					}
 					// 跨年的后半年(周是从零开始的吗？？？)
 					for (int i = 1; i <= endWeek; i++) {
 						week = null;
 						week = new HashMap<String, Integer>();
-						week.put("week", i); //$NON-NLS-1$
-						week.put("year", endYear); //$NON-NLS-1$
+						week.put("week", i); 
+						week.put("year", endYear); 
 						times.add(week);
 					}
 				} else {
@@ -205,8 +206,8 @@ public class TimeLoader  {
 					for (int i = startWeek; i <= maxWeek; i++) {
 						week = null;
 						week = new HashMap<String, Integer>();
-						week.put("week", i); //$NON-NLS-1$
-						week.put("year", startYear); //$NON-NLS-1$
+						week.put("week", i); 
+						week.put("year", startYear); 
 						times.add(week);
 					}
 					// 中间段的时间计算
@@ -216,17 +217,17 @@ public class TimeLoader  {
 						for (int j = 1; j <= getMaxWeekNumOfYear(currentYear); j++) {
 							week = null;
 							week = new HashMap<String, Integer>();
-							week.put("week", j); //$NON-NLS-1$
-							week.put("year", currentYear); //$NON-NLS-1$
+							week.put("week", j); 
+							week.put("year", currentYear); 
 							times.add(week);
 						}
 					}
-					// 跨年的后半年(周是从零开始的吗？？？)
+					// 跨年的后半年()
 					for (int i = 1; i <= endWeek; i++) {
 						week = null;
 						week = new HashMap<String, Integer>();
-						week.put("week", i); //$NON-NLS-1$
-						week.put("year", endYear); //$NON-NLS-1$
+						week.put("week", i); 
+						week.put("year", endYear); 
 						times.add(week);
 					}
 
@@ -261,156 +262,156 @@ public class TimeLoader  {
 //System.out.println("[" + i + "]--------begin cal time-------");
 //System.out.println(values.get(k));
 				//选中周的周日大于问题关闭日期，已关闭+1
-				if (!"0-1-00 00:00".equals((String)(values.get(k)).get("fv9TimeChangeGreen")) && //$NON-NLS-1$ //$NON-NLS-2$
-						compareTime((String)(values.get(k)).get("fv9TimeChangeGreen"), sunday)){ //$NON-NLS-1$
+				if (!"".equals((String)(values.get(k)).get("fv9TimeChangeGreen")) &&  
+						compareTime((String)(values.get(k)).get("fv9TimeChangeGreen"), sunday)){ 
 					
 					closed.add(i, closed.get(i) + 1);
 					closed.remove(i+1);
 					
-//System.out.println("closed--ture"); //$NON-NLS-1$
-//System.out.println("closed" + closed); //$NON-NLS-1$
+//System.out.println("closed--ture"); 
+//System.out.println("closed" + closed); 
 				}
 				
 				//选中周的周日大于方案验证日期，小于问题关闭日期，已验证+1
 				//问题没有关闭，但已验证，则已验证
-				if ("0-1-00 00:00".equals((String)(values.get(k)).get("fv9TimeChangeGreen")) && //$NON-NLS-1$ //$NON-NLS-2$
-						!"0-1-00 00:00".equals((String)(values.get(k)).get("fv9TimeValidated")) && //$NON-NLS-1$ //$NON-NLS-2$
-						compareTime((String)(values.get(k)).get("fv9TimeValidated"), sunday)) { //$NON-NLS-1$
+				if ("".equals((String)(values.get(k)).get("fv9TimeChangeGreen")) &&  
+						!"".equals((String)(values.get(k)).get("fv9TimeValidated")) &&  
+						compareTime((String)(values.get(k)).get("fv9TimeValidated"), sunday)) { 
 					
 					validated.add(i, validated.get(i) + 1);
 					validated.remove(i+1);
 					
-//System.out.println("validated--ture"); //$NON-NLS-1$
-//System.out.println("validated" + validated); //$NON-NLS-1$
+//System.out.println("validated--ture"); 
+//System.out.println("validated" + validated); 
 					
 				} 
 				
-				if (!"0-1-00 00:00".equals((String)(values.get(k)).get("fv9TimeValidated")) && //$NON-NLS-1$ //$NON-NLS-2$
-						!"0-1-00 00:00".equals((String)(values.get(k)).get("fv9TimeChangeGreen")) &&							 //$NON-NLS-1$ //$NON-NLS-2$
-						compareTime(sunday, (String)(values.get(k)).get("fv9TimeChangeGreen")) && //$NON-NLS-1$
-						compareTime((String)(values.get(k)).get("fv9TimeValidated"), sunday)) { //$NON-NLS-1$
+				if (!"".equals((String)(values.get(k)).get("fv9TimeValidated")) &&  
+						!"".equals((String)(values.get(k)).get("fv9TimeChangeGreen")) &&							  
+						compareTime(sunday, (String)(values.get(k)).get("fv9TimeChangeGreen")) && 
+						compareTime((String)(values.get(k)).get("fv9TimeValidated"), sunday)) { 
 					
 					validated.add(i, validated.get(i) + 1);
 					validated.remove(i+1);
 					
-//System.out.println("validated--ture"); //$NON-NLS-1$
-//System.out.println("validated" + validated); //$NON-NLS-1$
+//System.out.println("validated--ture"); 
+//System.out.println("validated" + validated); 
 				}
 				
 				
 				
 				//选中周的星期日大于方案实施日期，小于方案验证日期，则已实施+1
-				if ("0-1-00 00:00".equals((String)(values.get(k)).get("fv9TimeValidated")) && //$NON-NLS-1$ //$NON-NLS-2$  
-						!"0-1-00 00:00".equals((String)(values.get(k)).get("fv9TimeImplemented")) &&  //$NON-NLS-1$ //$NON-NLS-2$
-						compareTime((String)(values.get(k)).get("fv9TimeImplemented"), sunday)) { //$NON-NLS-1$
+				if ("".equals((String)(values.get(k)).get("fv9TimeValidated")) &&    
+						!"".equals((String)(values.get(k)).get("fv9TimeImplemented")) &&   
+						compareTime((String)(values.get(k)).get("fv9TimeImplemented"), sunday)) { 
 					operation.add(i, operation.get(i) + 1);
 					operation.remove(i+1);
 
-//System.out.println("operation--ture"); //$NON-NLS-1$
-//System.out.println("operation" + operation);			 //$NON-NLS-1$
+//System.out.println("operation--ture"); 
+//System.out.println("operation" + operation);			 
 					
 				}
 				
-				if (!"0-1-00 00:00".equals((String)(values.get(k)).get("fv9TimeImplemented")) && //$NON-NLS-1$ //$NON-NLS-2$
-						!"0-1-00 00:00".equals((String)(values.get(k)).get("fv9TimeValidated")) && //$NON-NLS-1$ //$NON-NLS-2$
-						compareTime(sunday, (String)(values.get(k)).get("fv9TimeValidated")) && //$NON-NLS-1$
-						compareTime((String)(values.get(k)).get("fv9TimeImplemented"), sunday)) { //$NON-NLS-1$
+				if (!"".equals((String)(values.get(k)).get("fv9TimeImplemented")) &&  
+						!"".equals((String)(values.get(k)).get("fv9TimeValidated")) &&  
+						compareTime(sunday, (String)(values.get(k)).get("fv9TimeValidated")) && 
+						compareTime((String)(values.get(k)).get("fv9TimeImplemented"), sunday)) { 
 					
 					operation.add(i, operation.get(i) + 1);
 					operation.remove(i+1);
 
-//System.out.println("operation--ture"); //$NON-NLS-1$
-//System.out.println("operation" + operation);			 //$NON-NLS-1$
+//System.out.println("operation--ture"); 
+//System.out.println("operation" + operation);			 
 				}
 				
 				//选中周的星期日大于问题的提出方案日期，小于问题已实施日期，则有方案+1
-				if ("0-1-00 00:00".equals((String)(values.get(k)).get("fv9TimeImplemented")) && //$NON-NLS-1$ //$NON-NLS-2$
-						!"0-1-00 00:00".equals((String)(values.get(k)).get("fv9TimeChangeYellow")) && //$NON-NLS-1$ //$NON-NLS-2$
-						compareTime((String)(values.get(k)).get("fv9TimeChangeYellow"), sunday)) { //$NON-NLS-1$
+				if ("".equals((String)(values.get(k)).get("fv9TimeImplemented")) &&  
+						!"".equals((String)(values.get(k)).get("fv9TimeChangeYellow")) &&  
+						compareTime((String)(values.get(k)).get("fv9TimeChangeYellow"), sunday)) { 
 					excogitation.add(i, excogitation.get(i) + 1);
 					excogitation.remove(i+1);
 
-//System.out.println("excogitation--ture"); //$NON-NLS-1$
-//System.out.println("excogitation" + excogitation); //$NON-NLS-1$
+//System.out.println("excogitation--ture"); 
+//System.out.println("excogitation" + excogitation); 
 					
 				}
-				if (!"0-1-00 00:00".equals((String)(values.get(k)).get("fv9TimeChangeYellow")) && //$NON-NLS-1$ //$NON-NLS-2$
-						!"0-1-00 00:00".equals((String)(values.get(k)).get("fv9TimeImplemented")) && //$NON-NLS-1$ //$NON-NLS-2$  
-						compareTime(sunday, (String)(values.get(k)).get("fv9TimeImplemented")) && //$NON-NLS-1$
-						compareTime((String)(values.get(k)).get("fv9TimeChangeYellow"), sunday)) { //$NON-NLS-1$
+				if (!"".equals((String)(values.get(k)).get("fv9TimeChangeYellow")) &&  
+						!"".equals((String)(values.get(k)).get("fv9TimeImplemented")) &&    
+						compareTime(sunday, (String)(values.get(k)).get("fv9TimeImplemented")) && 
+						compareTime((String)(values.get(k)).get("fv9TimeChangeYellow"), sunday)) { 
 					
 					excogitation.add(i, excogitation.get(i) + 1);
 					excogitation.remove(i+1);
 
-//System.out.println("excogitation--ture"); //$NON-NLS-1$
-//System.out.println("excogitation" + excogitation); //$NON-NLS-1$
+//System.out.println("excogitation--ture"); 
+//System.out.println("excogitation" + excogitation); 
 				}
 				
 				//选中周的星期日大于问题的分派日期，小于问题提出方案日期，则已分派+1
-				if ("0-1-00 00:00".equals((String)(values.get(k)).get("fv9TimeChangeYellow")) && //$NON-NLS-1$ //$NON-NLS-2$
-						!"0-1-00 00:00".equals((String)(values.get(k)).get("fv9TimeDispatched")) && //$NON-NLS-1$ //$NON-NLS-2$
-						compareTime((String)(values.get(k)).get("fv9TimeDispatched"), sunday)) { //$NON-NLS-1$
+				if ("".equals((String)(values.get(k)).get("fv9TimeChangeYellow")) &&  
+						!"".equals((String)(values.get(k)).get("fv9TimeDispatched")) &&  
+						compareTime((String)(values.get(k)).get("fv9TimeDispatched"), sunday)) { 
 					apportioned.add(i, apportioned.get(i) + 1);
 					apportioned.remove(i+1);
 
-//System.out.println("apportioned - ture"); //$NON-NLS-1$
-//System.out.println("apportioned" + apportioned); //$NON-NLS-1$
+//System.out.println("apportioned - ture"); 
+//System.out.println("apportioned" + apportioned); 
 					
 				}
-				if (!"0-1-00 00:00".equals((String)(values.get(k)).get("fv9TimeDispatched")) && //$NON-NLS-1$ //$NON-NLS-2$
-						!"0-1-00 00:00".equals((String)(values.get(k)).get("fv9TimeChangeYellow")) && //$NON-NLS-1$ //$NON-NLS-2$
-						compareTime(sunday, (String)(values.get(k)).get("fv9TimeChangeYellow")) && //$NON-NLS-1$
-						compareTime((String)(values.get(k)).get("fv9TimeDispatched"), sunday)) { //$NON-NLS-1$
+				if (!"".equals((String)(values.get(k)).get("fv9TimeDispatched")) &&  
+						!"".equals((String)(values.get(k)).get("fv9TimeChangeYellow")) &&  
+						compareTime(sunday, (String)(values.get(k)).get("fv9TimeChangeYellow")) && 
+						compareTime((String)(values.get(k)).get("fv9TimeDispatched"), sunday)) { 
 					apportioned.add(i, apportioned.get(i) + 1);
 					apportioned.remove(i+1);
 
-//System.out.println("apportioned - ture"); //$NON-NLS-1$
-//System.out.println("apportioned" + apportioned); //$NON-NLS-1$
+//System.out.println("apportioned - ture"); 
+//System.out.println("apportioned" + apportioned); 
 				}
 				
 				//选中周的星期日大于问题的分析日期，小于问题的分派日期，则已分析+1
-				if ("0-1-00 00:00".equals((String)(values.get(k)).get("fv9TimeDispatched")) && //$NON-NLS-1$ //$NON-NLS-2$  
-						!"0-1-00 00:00".equals((String)(values.get(k)).get("fv9TimeAnalyzed")) && //$NON-NLS-1$ //$NON-NLS-2$  
-						compareTime((String)(values.get(k)).get("fv9TimeAnalyzed"), sunday)) { //$NON-NLS-1$
+				if ("".equals((String)(values.get(k)).get("fv9TimeDispatched")) &&    
+						!"".equals((String)(values.get(k)).get("fv9TimeAnalyzed")) &&    
+						compareTime((String)(values.get(k)).get("fv9TimeAnalyzed"), sunday)) { 
 					analysed.add(i, analysed.get(i) + 1);
 					analysed.remove(i+1);
 
-//System.out.println("analysed - ture"); //$NON-NLS-1$
-//System.out.println("analysed-ss-"+ analysed); //$NON-NLS-1$
+//System.out.println("analysed - ture"); 
+//System.out.println("analysed-ss-"+ analysed); 
 					
 				}
-				if (!"0-1-00 00:00".equals((String)(values.get(k)).get("fv9TimeAnalyzed")) && //$NON-NLS-1$ //$NON-NLS-2$
-						!"0-1-00 00:00".equals((String)(values.get(k)).get("fv9TimeDispatched")) && //$NON-NLS-1$ //$NON-NLS-2$
-						compareTime(sunday, (String)(values.get(k)).get("fv9TimeDispatched")) && //$NON-NLS-1$
-						compareTime((String)(values.get(k)).get("fv9TimeAnalyzed"), sunday)) { //$NON-NLS-1$
+				if (!"".equals((String)(values.get(k)).get("fv9TimeAnalyzed")) &&  
+						!"".equals((String)(values.get(k)).get("fv9TimeDispatched")) &&  
+						compareTime(sunday, (String)(values.get(k)).get("fv9TimeDispatched")) && 
+						compareTime((String)(values.get(k)).get("fv9TimeAnalyzed"), sunday)) { 
 
 					analysed.add(i, analysed.get(i) + 1);
 					analysed.remove(i+1);
 
-//System.out.println("analysed - ture"); //$NON-NLS-1$
-//System.out.println("analysed-ss-"+ analysed); //$NON-NLS-1$
+//System.out.println("analysed - ture"); 
+//System.out.println("analysed-ss-"+ analysed); 
 				}
 				
 				
 				//选中周的星期日大于问题提出日期，小于问题的分析日期，则已提交+1
-				if ("0-1-00 00:00".equals((String)(values.get(k)).get("fv9TimeAnalyzed")) && //$NON-NLS-1$ //$NON-NLS-2$  
-						!"0-1-00 00:00".equals((String)(values.get(k)).get("fv9TimeChangeRed")) && //$NON-NLS-1$ //$NON-NLS-2$
-						compareTime((String)(values.get(k)).get("fv9TimeChangeRed"), sunday)) { //$NON-NLS-1$
+				if ("".equals((String)(values.get(k)).get("fv9TimeAnalyzed")) &&    
+						!"".equals((String)(values.get(k)).get("fv9TimeChangeRed")) &&  
+						compareTime((String)(values.get(k)).get("fv9TimeChangeRed"), sunday)) { 
 					submited.add(i, submited.get(i) + 1);
 					submited.remove(i+1);
 					
-//System.out.println("submited--ture");			 //$NON-NLS-1$
-//System.out.println("submited-ss-" + submited); //$NON-NLS-1$
+//System.out.println("submited--ture");			 
+//System.out.println("submited-ss-" + submited); 
 				}
-				if (!"0-1-00 00:00".equals((String)(values.get(k)).get("fv9TimeChangeRed")) && //$NON-NLS-1$ //$NON-NLS-2$
-						compareTime(sunday, (String)(values.get(k)).get("fv9TimeAnalyzed")) && //$NON-NLS-1$
-						compareTime((String)(values.get(k)).get("fv9TimeChangeRed"), sunday)) { //$NON-NLS-1$
+				if (!"".equals((String)(values.get(k)).get("fv9TimeChangeRed")) &&  
+						compareTime(sunday, (String)(values.get(k)).get("fv9TimeAnalyzed")) && 
+						compareTime((String)(values.get(k)).get("fv9TimeChangeRed"), sunday)) { 
 
 					submited.add(i, submited.get(i) + 1);
 					submited.remove(i+1);
 					
-//System.out.println("submited--ture");			 //$NON-NLS-1$
-//System.out.println("submited-ss-" + submited); //$NON-NLS-1$
+//System.out.println("submited--ture");			 
+//System.out.println("submited-ss-" + submited); 
 				}
 //System.out.println("[" + i + "]--------end cal time-------");				
 				
@@ -435,37 +436,50 @@ public class TimeLoader  {
 	 */
 	public static Map<String, String> getTime(ArrayList<HashMap<String, Object>> values) throws Exception {
 		Map<String, String> time = new HashMap<String, String>();
-		String start = ""; //问题提交日期 //$NON-NLS-1$
-		String end = ""; // 问题实际完成日期 //$NON-NLS-1$
-		
-		for (int i=0; i<values.size(); i++) {
-//System.out.println(i + " start =" + start + "-------- end = " + end);
+		String start = ""; //问题提交日期 
+		String end = ""; // 问题实际完成日期 
 
+		for (int i=0; i<values.size(); i++) {
+
+System.out.println("fv9TimeChangeRed = " + (String)(values.get(i)).get("fv9TimeChangeRed"));
 			//找到最小的问题提交日期
-			if ("".equals(start) && !"0-1-00 00:00".equals((String)(values.get(i)).get("fv9TimeChangeRed"))) { //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				start = (String)(values.get(i)).get("fv9TimeChangeRed"); //$NON-NLS-1$
+			if ("".equals(start) && !"".equals((String)(values.get(i)).get("fv9TimeChangeRed"))) {   
+System.out.println("start == null && fv9TimeChangeRed != null");
+				start = (String)(values.get(i)).get("fv9TimeChangeRed"); 
 			}
-			if (!"".equals(start) && !"0-1-00 00:00".equals((String)(values.get(i)).get("fv9TimeChangeRed")) && //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-					!compareTime(start, (String)(values.get(i)).get("fv9TimeChangeRed") )) { //$NON-NLS-1$
-				start = (String)(values.get(i)).get("fv9TimeChangeRed"); //$NON-NLS-1$
+			if (!"".equals(start) && !"".equals((String)(values.get(i)).get("fv9TimeChangeRed")) &&   
+					!compareTime(start, (String)(values.get(i)).get("fv9TimeChangeRed") )) { 
+System.out.println("start != null && fv9TimeChangeRed != null && start > fv9TimeChangeRed");
+				start = (String)(values.get(i)).get("fv9TimeChangeRed"); 
 			}
 			
 			//找出最大的问题实际完成日期
-			if ("".equals(end) && !"0-1-00 00:00".equals((String)(values.get(i)).get("fv9SolDeadlineDate"))) { //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				end = (String)(values.get(i)).get("fv9SolDeadlineDate"); //$NON-NLS-1$
+System.out.println("fv9SolDeadlineDate = " + (String)(values.get(i)).get("fv9SolDeadlineDate"));
+			if ("".equals(end) && !"".equals((String)(values.get(i)).get("fv9SolDeadlineDate"))) {   
+System.out.println("end == null && fv9SolDeadlineDate != null");
+				end = (String)(values.get(i)).get("fv9SolDeadlineDate"); 
 			}
-			if(!"".equals(end) && !"0-1-00 00:00".equals((String)(values.get(i)).get("fv9SolDeadlineDate")) && //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-					compareTime(end, (String)(values.get(i)).get("fv9SolDeadlineDate"))) { //$NON-NLS-1$
-				end = (String)(values.get(i)).get("fv9SolDeadlineDate"); //$NON-NLS-1$
+			if(!"".equals(end) && !"".equals((String)(values.get(i)).get("fv9SolDeadlineDate")) &&   
+					compareTime(end, (String)(values.get(i)).get("fv9SolDeadlineDate"))) { 
+System.out.println("end != null && fv9SolDeadlineDate != null && end < fv9SolDeadlineDate");
+				end = (String)(values.get(i)).get("fv9SolDeadlineDate"); 
 			}
 			
-//	System.out.println("start = " + start + "\t" + "end = " + end);
+System.out.println(i + " start = " + start + "\t" + "end = " + end);
 
 
 		}
-//System.out.println("LAST start = " + start + "\t" + "end = " + end);
-		time.put("start", start); //$NON-NLS-1$
-		time.put("end", end); //$NON-NLS-1$
+//		若是不存在实际完成日期，取当前日期作为结束日期
+		if ("".equals(end)) {
+	System.out.println("若是不存在实际完成日期，取当前日期作为结束日期");
+	
+			Date now = new Date();
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+			end = sdf.format(now);
+		}
+System.out.println("LAST start = " + start + "\t" + "end = " + end);
+		time.put("start", start); 
+		time.put("end", end); 
 
 		return time;
 
@@ -483,36 +497,36 @@ public class TimeLoader  {
 		try {
 			Date startDate = new Date();
 			Date endDate = new Date();
-			if (!"".equals(date1)) { //$NON-NLS-1$
-				startDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(date1); //$NON-NLS-1$
+			if (!"".equals(date1)) { 
+				startDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(date1); 
 			}
-			if (!"".equals(date2)) { //$NON-NLS-1$
-				endDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(date2); //$NON-NLS-1$
+			if (!"".equals(date2)) { 
+				endDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(date2); 
 			}
 			
 			//date1与date2均不为空，比较大小
-			if (!"".equals(date1) && !"".equals(date2)) { //$NON-NLS-1$ //$NON-NLS-2$
+			if (!"".equals(date1) && !"".equals(date2)) {  
 				if ((startDate.getTime() - endDate.getTime()) / 24 / 1000 <= 0) {
 					return true;
 				}
 			}
 			//date1为空，date2不为空，返回true
-			if ("".equals(date1) && !"".equals(date2)) { //$NON-NLS-1$ //$NON-NLS-2$
+			if ("".equals(date1) && !"".equals(date2)) {  
 				return true;
 			}
 			//date1不为空，date2为空，返回
-			if (!"".equals(date1) && "".equals(date2)) { //$NON-NLS-1$ //$NON-NLS-2$
+			if (!"".equals(date1) && "".equals(date2)) {  
 				return false;
 			}
 			//date1 date2均为空
-			if ("".equals(date1) && "".equals(date2)) { //$NON-NLS-1$ //$NON-NLS-2$
+			if ("".equals(date1) && "".equals(date2)) {  
 				return false;
 			}
 		
 			
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
-			throw new FawvmLoaderException("比较时间失败，请参考日志"); //$NON-NLS-1$
+			throw new FawvmLoaderException("比较时间失败，请参考日志"); 
 		}
 		return false;
 	}
@@ -549,7 +563,7 @@ public class TimeLoader  {
 	public static String getWeekOfYear(String dateStr) {
 		Calendar c = null;
 		try {
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm"); //$NON-NLS-1$
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm"); 
 			Date date = sdf.parse(dateStr);
 
 			c = new GregorianCalendar();
@@ -561,7 +575,7 @@ public class TimeLoader  {
 			e.printStackTrace();
 		}
 
-		return "KW" + String.valueOf(c.get(Calendar.WEEK_OF_YEAR)); //$NON-NLS-1$
+		return "KW" + String.valueOf(c.get(Calendar.WEEK_OF_YEAR)); 
 	}
 
 	/**
@@ -595,7 +609,7 @@ public class TimeLoader  {
 	public static int getIntegerDateOfYear(String dateStr) {
 		Calendar c = null;
 		try {
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm"); //$NON-NLS-1$
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm"); 
 			Date date = sdf.parse(dateStr);
 
 			c = new GregorianCalendar();
@@ -616,7 +630,7 @@ public class TimeLoader  {
 	public static int getIntegerWeekOfYear(String dateStr) {
 		Calendar c = null;
 		try {
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm"); //$NON-NLS-1$
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm"); 
 			Date date = sdf.parse(dateStr);
 
 			c = new GregorianCalendar();

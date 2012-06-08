@@ -218,7 +218,7 @@ public class CreateIssueSingleExcel {
 				
 				//临时措施
 				if ((String)values.get("fv9IssueTempSolution") != null &&
-						!"".equals((String)values.get("fv9IssueTempSolution"))) {
+						!"".equals(((String)values.get("fv9IssueTempSolution")).replaceAll(" ", ""))) {
 					Solution solution = new Solution();
 					solution.sol = "临时措施:" + (String)values.get("fv9IssueTempSolution");
 					
@@ -233,7 +233,7 @@ public class CreateIssueSingleExcel {
 				
 				//TE措施
 				if ((String)values.get("fv9SolutionTE") != null && 
-						!"".equals((String)values.get("fv9SolutionTE"))) {
+						!"".equals(((String)values.get("fv9SolutionTE")).replaceAll(" ", ""))) {
 					Solution solution = new Solution();
 					solution.sol = "TE措施:" + (String)values.get("fv9SolutionTE");
 					if (!"".equals((String)values.get("fv9SlDLDateTE"))) { 
@@ -247,7 +247,7 @@ public class CreateIssueSingleExcel {
 				
 				//QAPP措施
 				if ((String)values.get("fv9SolutionQAPP") != null && 
-						!"".equals((String)values.get("fv9SolutionQAPP"))) {
+						!"".equals(((String)values.get("fv9SolutionQAPP")).replaceAll(" ", ""))) {
 					Solution solution = new Solution();
 					solution.sol = "QAPP措施:" + (String)values.get("fv9SolutionQAPP");
 					if (!"".equals((String)values.get("fv9SlDLDateQAPP"))) { 
@@ -261,7 +261,7 @@ public class CreateIssueSingleExcel {
 				
 				//SU措施
 				if ((String)values.get("fv9SolutionSU") != null && 
-						!"".equals((String)values.get("fv9SolutionSU"))) {
+						!"".equals(((String)values.get("fv9SolutionSU")).replaceAll(" ", ""))) {
 					Solution solution = new Solution();
 					solution.sol = "SU措施:" + (String)values.get("fv9SolutionSU");
 					if (!"".equals((String)values.get("fv9SlDLDateSU"))) { 
@@ -275,7 +275,7 @@ public class CreateIssueSingleExcel {
 				
 				//PL措施
 				if ((String)values.get("fv9SolutionPL") != null && 
-						!"".equals((String)values.get("fv9SolutionPL"))) {
+						!"".equals(((String)values.get("fv9SolutionPL")).replaceAll(" ", ""))) {
 					Solution solution = new Solution();
 					solution.sol = "PL措施:" + (String)values.get("fv9SolutionPL");
 					if (!"".equals((String)values.get("fv9SlDLDatePL"))) { 
@@ -289,7 +289,7 @@ public class CreateIssueSingleExcel {
 				
 				//VSC措施
 				if ((String)values.get("fv9SolutionVSC") != null && 
-						!"".equals((String)values.get("fv9SolutionVSC"))) {
+						!"".equals(((String)values.get("fv9SolutionVSC")).replaceAll(" ", ""))) {
 					Solution solution = new Solution();
 					solution.sol = "VSC措施:" + (String)values.get("fv9SolutionVSC");
 					if (!"".equals((String)values.get("fv9SlDLDateVSC"))) { 
@@ -303,7 +303,7 @@ public class CreateIssueSingleExcel {
 				
 				//LO措施
 				if ((String)values.get("fv9SolutionLO") != null && 
-						!"".equals((String)values.get("fv9SolutionLO"))) {
+						!"".equals(((String)values.get("fv9SolutionLO")).replaceAll(" ", ""))) {
 					Solution solution = new Solution();
 					solution.sol = "LO措施:" + (String)values.get("fv9SolutionLO");
 					if (!"".equals((String)values.get("fv9SlDLDateLO"))) { 
@@ -317,7 +317,7 @@ public class CreateIssueSingleExcel {
 				
 				//CP1-ME措施
 				if ((String)values.get("fv9SolutionCP1_ME") != null && 
-						!"".equals((String)values.get("fv9SolutionCP1_ME"))) {
+						!"".equals(((String)values.get("fv9SolutionCP1_ME")).replaceAll(" ", ""))) {
 //			System.out.println("CP1-ME措施");
 					Solution solution = new Solution();
 					solution.sol = "CP1-ME措施:" + (String)values.get("fv9SolutionCP1_ME");
@@ -332,7 +332,7 @@ public class CreateIssueSingleExcel {
 				
 				//CP2-ME措施
 				if ((String)values.get("fv9SolutionCP2_ME") != null && 
-						!"".equals((String)values.get("fv9SolutionCP2_ME"))) {
+						!"".equals(((String)values.get("fv9SolutionCP2_ME")).replaceAll(" ", ""))) {
 //			System.out.println("CP2-ME措施");
 					Solution solution = new Solution();
 					solution.sol = "CP2-ME措施:" + (String)values.get("fv9SolutionCP2_ME");
@@ -347,7 +347,7 @@ public class CreateIssueSingleExcel {
 				
 				//CP1-BS措施
 				if ((String)values.get("fv9SolutionBS") != null && 
-						!"".equals((String)values.get("fv9SolutionBS"))) {
+						!"".equals(((String)values.get("fv9SolutionBS")).replaceAll(" ", ""))) {
 					Solution solution = new Solution();
 					solution.sol = "CP1-BS措施:" + (String)values.get("fv9SolutionBS");
 					if (!"".equals((String)values.get("fv9SlDLDateBS"))) { 
@@ -361,7 +361,7 @@ public class CreateIssueSingleExcel {
 				
 				//CP1-PA措施
 				if ((String)values.get("fv9SolutionPA") != null && 
-						!"".equals((String)values.get("fv9SolutionPA"))) {
+						!"".equals(((String)values.get("fv9SolutionPA")).replaceAll(" ", ""))) {
 					Solution solution = new Solution();
 					solution.sol = "CP1-PA措施:" + (String)values.get("fv9SolutionPA");
 					if (!"".equals((String)values.get("fv9SlDLDatePA"))) { 
@@ -375,7 +375,7 @@ public class CreateIssueSingleExcel {
 
 				//CP1-CA措施
 				if ((String)values.get("fv9SolutionCA") != null && 
-						!"".equals((String)values.get("fv9SolutionCA"))) {
+						!"".equals(((String)values.get("fv9SolutionCA")).replaceAll(" ", ""))) {
 					Solution solution = new Solution();
 					solution.sol = "CP1-CA措施:" + (String)values.get("fv9SolutionCA");
 					if (!"".equals((String)values.get("fv9SlDLDateCA"))) { 
@@ -389,7 +389,7 @@ public class CreateIssueSingleExcel {
 				
 				//CP2-BS措施
 				if ((String)values.get("fv9SolutionCP2BS") != null && 
-						!"".equals((String)values.get("fv9SolutionCP2BS"))) {
+						!"".equals(((String)values.get("fv9SolutionCP2BS")).replaceAll(" ", ""))) {
 					Solution solution = new Solution();
 					solution.sol = "CP2-BS措施:" + (String)values.get("fv9SolutionCP2BS");
 					if (!"".equals((String)values.get("fv9SlDLDateCP2BS"))) { 
@@ -403,7 +403,7 @@ public class CreateIssueSingleExcel {
 				
 				//CP2-PA措施
 				if ((String)values.get("fv9SolutionCP2PA") != null && 
-						!"".equals((String)values.get("fv9SolutionCP2PA"))) {
+						!"".equals(((String)values.get("fv9SolutionCP2PA")).replaceAll(" ", ""))) {
 					Solution solution = new Solution();
 					solution.sol = "CP2-PA措施:" + (String)values.get("fv9SolutionCP2PA");
 					if (!"".equals((String)values.get("fv9SlDLDateCP2PA"))) { 
@@ -417,7 +417,7 @@ public class CreateIssueSingleExcel {
 
 				//CP2-CA措施
 				if ((String)values.get("fv9SolutionCP2CA") != null && 
-						!"".equals((String)values.get("fv9SolutionCP2CA"))) {
+						!"".equals(((String)values.get("fv9SolutionCP2CA")).replaceAll(" ", ""))) {
 					Solution solution = new Solution();
 					solution.sol = "CP2-CA措施:" + (String)values.get("fv9SolutionCP2CA");
 					if (!"".equals((String)values.get("fv9SlDLDateCP2CA"))) { 

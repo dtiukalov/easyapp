@@ -229,12 +229,12 @@ public class ImageUtil {
 	
 	public static BufferedImage getRYW() throws Exception {
 		try {
-			File image = new File(LOGO_FILE_PATH);
+			File image = new File(RYW);
 			InputStream ins = new FileInputStream(image);
 			return readBufferedImg(ins);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			throw new FawvmLoaderException("logo.jpg不存在"); //$NON-NLS-1$
+			throw new FawvmLoaderException("r_y_w.jpg不存在"); //$NON-NLS-1$
 		}
 	}
 	public static BufferedImage getRWG() throws Exception {
@@ -244,7 +244,7 @@ public class ImageUtil {
 			return readBufferedImg(ins);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			throw new FawvmLoaderException("logo.jpg不存在"); //$NON-NLS-1$
+			throw new FawvmLoaderException("r_w_g.jpg不存在"); //$NON-NLS-1$
 		}
 	}
 	public static BufferedImage getRWW() throws Exception {
@@ -254,7 +254,7 @@ public class ImageUtil {
 			return readBufferedImg(ins);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			throw new FawvmLoaderException("logo.jpg不存在"); //$NON-NLS-1$
+			throw new FawvmLoaderException("r_w_w.jpg不存在"); //$NON-NLS-1$
 		}
 	}
 	public static BufferedImage getWYG() throws Exception {
@@ -264,7 +264,7 @@ public class ImageUtil {
 			return readBufferedImg(ins);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			throw new FawvmLoaderException("logo.jpg不存在"); //$NON-NLS-1$
+			throw new FawvmLoaderException("w_y_g.jpg不存在"); //$NON-NLS-1$
 		}
 	}
 	public static BufferedImage getWYW() throws Exception {
@@ -274,7 +274,7 @@ public class ImageUtil {
 			return readBufferedImg(ins);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			throw new FawvmLoaderException("logo.jpg不存在"); //$NON-NLS-1$
+			throw new FawvmLoaderException("w_y_w.jpg不存在"); //$NON-NLS-1$
 		}
 	}
 	public static BufferedImage getWWG() throws Exception {
@@ -284,7 +284,7 @@ public class ImageUtil {
 			return readBufferedImg(ins);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			throw new FawvmLoaderException("logo.jpg不存在"); //$NON-NLS-1$
+			throw new FawvmLoaderException("w_w_g.jpg不存在"); //$NON-NLS-1$
 		}
 	}
 	public static BufferedImage getWWW() throws Exception {
@@ -294,7 +294,7 @@ public class ImageUtil {
 			return readBufferedImg(ins);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			throw new FawvmLoaderException("logo.jpg不存在"); //$NON-NLS-1$
+			throw new FawvmLoaderException("w_w_w.jpg不存在"); //$NON-NLS-1$
 		}
 	}
 	

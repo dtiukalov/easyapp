@@ -191,7 +191,6 @@ public class AssPlacementWrite {
 				inner.get("red") + inner.get("yellow") + inner.get("green") +   
 				behind.get("red") + behind.get("yellow") + behind.get("green");  
 			
-
 			int sum_yellow = front.get("yellow") + chassis.get("yellow") +   
 						electronik.get("yellow") + driver.get("yellow") +   
 						door.get("yellow") + inner.get("yellow") +   
@@ -206,18 +205,19 @@ public class AssPlacementWrite {
 //			textStyle.setWrapText(true);   
 //			textStyle.setAlignment(HSSFCellStyle.ALIGN_LEFT);
 //			textStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_TOP);
-			
-			
-			//写入问题总数Gesamt
+
 			HSSFRow row0 = sheetPage.getRow(0);
+//			Gesamt —— 总数
 			HSSFCell gesamtCell = row0.createCell(5);
 			gesamtCell.setCellValue(sum);
 			
+//			Rotpunkte —— 红灯
 			HSSFCell yellowCell = row0.createCell(10);
-			yellowCell.setCellValue(sum_yellow);
+			yellowCell.setCellValue(sum_red);
 			
+//			Gelbpunkte —— 黄灯
 			HSSFCell redCell = row0.createCell(15);
-			redCell.setCellValue(sum_red);
+			redCell.setCellValue(sum_yellow);
 			
 			try {
 //				ImageCellInfo carTopCell = new ImageCellInfo(10, 9, 13, 29);

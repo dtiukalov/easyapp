@@ -12,8 +12,30 @@
 <script type="text/javascript">
 	var code = __getTestCode();
 
+	function press(e) {
+		if(e.keyCode == 13)
+			{login();}
+	}
 	function login() {
 		var testCode = $('#testCode').val();
+		
+		/*  判断用户名和密码是否为空
+		var userName = $('#name').val();
+		var pwd = $('#pwd').val();
+		
+		if (userName == "") {
+			alert('用户名不能为空');
+			
+			$('#name').focus();
+			return;			
+		}
+		
+		if (pwd == "") {
+			alert('密码不能为空');
+			
+			$('#pwd').focus();
+			return;			
+		} */ 
 		
 		if (testCode.toLowerCase() != code.toLowerCase()) {
 			alert('验证码不正确');
@@ -55,11 +77,10 @@ img {
 		<div class="login_text">
 			<form id="loginForm" name="form1" method="post"
 				action="<%=request.getContextPath()%>/app/auth/user/login.do">
-				用户名： <input name="id" type="text" class="login_input" value=""/> <br />
-				密&nbsp;&nbsp;码： <input name="password" type="password" class="login_input" value="" /><br />
-				验证码： <input id="testCode" name="testCode" type="text" class="login_input" value="" /><br /> <br /> 
-				<input name="Submit" type="button" class="login_ok" onclick="login()"
-					value="登录" /> <img id="testCodeImage" alt="验证码" onclick="reload()" style="cursor:hand">
+				用户名： <input name="id" id="name" type="text" class="login_input" value="" onkeydown="javascript:press(event);"/> <br />
+				密&nbsp;&nbsp;码： <input name="password" id="pwd" type="password" class="login_input" value="" onkeydown="javascript:press(event);"/><br />
+				验证码： <input id="testCode" name="testCode" type="text" class="login_input" value="" onkeydown="javascript:press(event);"onkeydown="javascript:press(event);"/><br /> <br /> 
+				<input name="Submit" type="button" class="login_ok" onclick="login()"value="登录" /> <img id="testCodeImage" alt="验证码" onclick="reload()" style="cursor:hand">
 					<div style="text-align:right;margin-right:30px;"><a href="<%=request.getContextPath()%>/app/login2.jsp" style="text-decoration: none;color: black;">指纹登录</a></div>
 			</form>
 		</div>

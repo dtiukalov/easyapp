@@ -35,7 +35,7 @@
 			height:25px;
 			width:200px;
 			text-align:left;
-			border-color:#000;
+			border-color:#D3D3D3;
 			
 		}
 		.a {
@@ -46,9 +46,9 @@
 </head>
 <body>
 		<div id="accordion" fit="true" style="overflow:auto;">
-		<div id="tab" class="easyui-accordion" fit="true" style="width:300px;height:540px;">
+		<div id="tab" class="easyui-accordion" fit="true" style="width:300px;height:480px;">
 			<div title="家庭信息" selected="true" style="overflow:auto;padding:10px;">
-				<div class="easyui-tabs"  plain="true" fit="true" style="height:600px;width:500px;">
+				<div class="easyui-tabs"  plain="true" fit="true" style="height:480px;width:500px;">
 				<div title="${person.name}-户主">
 				<table class="table" border="1"; style="width:100%; border-collapse:collapse;">
 					<tr>
@@ -133,94 +133,74 @@
 						for (PersonSub personTab : voPerson) { //增强的FOR循环  将LIST VOPERSON 中每一个元素拿出来放到变量personTab
 				%>
 								<div title="<%=personTab.getName()%>-<%=personTab.getPersonRelation()%>">
-									<table class="table-form" style="margin-left:20px;">
+									<table class="table" border="1"; style="width:100%; border-collapse:collapse;">
 										<tr>
-											<td style="text-align:right">类型：</td>
+											<td class="a" style="text-align:right">姓名：</td>
+											<td><%=personTab.getName()%></td>
+											<td class="a" style="text-align:right">类型：</td>
 											<td><%=personTab.getType()%></td>
 										</tr>
 										<tr>
-											<td style="text-align:right">姓名：</td>
-											<td><%=personTab.getName()%></td>
-										</tr>
-										<tr>
-											<td style="text-align:right">性别：</td>
+											<td class="a" style="text-align:right">性别：</td>
 											<td><%=personTab.getGender()%></td>
-										</tr>
-										<tr>
-											<td style="text-align:right">身份证号：</td>
+											<td class="a" style="text-align:right">身份证号：</td>
 											<td><%=personTab.getIdentify()%></td>
 										</tr>
 										<tr>
-											<td style="text-align:right">与户主关系：</td>
+											<td class="a" style="text-align:right">与户主关系：</td>
 											<td><%=personTab.getPersonRelation()%></td>
-										</tr>
-										<tr>
-											<td style="text-align:right">民族：</td>
+											<td class="a" style="text-align:right">民族：</td>
 											<td><%=personTab.getRace()%></td>
 										</tr>
 										<tr>
-											<td style="text-align:right">户口类别：</td>
+											<td class="a" style="text-align:right">户口类别：</td>
 											<td><%=personTab.getHukou()%></td>
-										</tr>
-										<tr>
-											<td style="text-align:right">婚姻状况：</td>
+											<td class="a" style="text-align:right">婚姻状况：</td>
 											<td><%=personTab.getMarry()%></td>
 										</tr>
 										<tr>
-											<td style="text-align:right">劳动能力：</td>
+											<td class="a" style="text-align:right">劳动能力：</td>
 											<td><%=personTab.getWorkable()%></td>
-										</tr>
-										<tr>
-											<td style="text-align:right">身份类别：</td>
+											<td class="a" style="text-align:right">身份类别：</td>
 											<td><%=personTab.getIdType()%></td>
 										</tr>
 										<tr>
-											<td style="text-align:right">是否优抚对象：</td>
+											<td class="a" style="text-align:right">是否优抚对象：</td>
 											<td><%=personTab.getFirst()%></td>
-										</tr>
-										<tr>
-											<td style="text-align:right">患病种类：</td>
+											<td class="a" style="text-align:right">患病种类：</td>
 											<td><%=personTab.getIll()%></td>
 										</tr>
 										<tr>
-											<td style="text-align:right">残疾类型：</td>
+											<td class="a" style="text-align:right">残疾类型：</td>
 											<td><%=personTab.getDeformity()%></td>
-										</tr>
-										<tr>
-											<td style="text-align:right">残疾等级：</td>
+											<td class="a" style="text-align:right">残疾等级：</td>
 											<td><%=personTab.getDeformityLevel()%></td>
 										</tr>
 										<tr>
-											<td style="text-align:right">企业类型：</td>
+											<td class="a" style="text-align:right">企业类型：</td>
 											<td><%=personTab.getCompanyType()%></td>
-										</tr>
-										<tr>
-											<td style="text-align:right">所属企业：</td>
+											<td class="a" style="text-align:right">所属企业：</td>
 											<td><%=personTab.getTrade()%></td>
 										</tr>
 										<tr>
-											<td style="text-align:right">参加保险类别：</td>
+											<td class="a" style="text-align:right">参加保险类别：</td>
 											<td><%=personTab.getInsurance()%></td>
-										</tr>
-										<tr>
-											<td style="text-align:right">工作单位：</td>
+											<td class="a" style="text-align:right">工作单位：</td>
 											<td><%=personTab.getCompany()%></td>
 										</tr>
 										<tr>
-											<td style="text-align:right">联系方式：</td>
+											<td class="a" style="text-align:right">联系方式：</td>
 											<td><%=personTab.getContact()%></td>
-										</tr>
-										<tr>
-											<td style="text-align:right">所属街道：</td>
+											<td class="a" style="text-align:right">所属街道：</td>
 											<td><%=personTab.getStreet()%></td>
 										</tr>
 										<tr>
-											<td style="text-align:right">地址：</td>
-											<td><%=personTab.getAddress()%></td>
+											<td class="a" style="text-align:right">地址：</td>
+											<td colspan="3"><%=personTab.getAddress()%></td>
 										</tr>
 										<tr>
-											<td style="text-align:right">备注：</td>
-											<td><%=personTab.getDesc()%></td>
+											<td class="a" style="text-align:right">备注：</td>
+											<td colspan="3"><%=personTab.getDesc()%></td>
 										</tr>
 									</table>
 								</div>
@@ -232,29 +212,6 @@
 				</div>
 			
 			</div>
-			<%-- <div title="评审信息" style="padding: 10px; width: 500; height: 200px;">
-				<div>
-					<form id="pass" name="pass" method="post"
-						action="<%=request.getContextPath()%>/app/sldb/person/confirm.action">
-						<input type="hidden" id="id" name="id"
-							value="<%=request.getParameter("id")%>">
-						<table>
-							<tr align="right">
-								<td>原因:</td>
-								<td><textarea id="note" name="note"
-										style="width: 500px; height: 100px;"></textarea>
-								</td>
-							</tr>
-						</table>
-						<div style="padding: 40px;">
-							<a href="#" class="easyui-linkbutton" onclick="submit();"
-								iconCls="icon-ok">通过</a> 
-							<a href="javascript:history.back(-1)" class="easyui-linkbutton" 
-								iconCls="icon-back">返回</a>
-						</div>
-					</form>
-				</div>
-			</div> --%>
 		</div>
 	</div>
 </body>

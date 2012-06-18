@@ -12,7 +12,8 @@
 
 	<% 
 		String pid = request.getParameter("pid");
-	
+		String createTime = request.getParameter("createTime");
+		
 		Person person = Person.get(pid);
 		List subs = PersonSub.getByPid(pid);
 	%>
@@ -20,7 +21,7 @@
 	<script type="text/javascript">
 		$(function() {
 			$('#queryTable').datagrid({
-				title : '核对结果',
+				title : '结果',
 				iconCls : 'icon-datalist',
 				nowrap : false,
 				striped : true, //数据条纹显示
@@ -72,15 +73,7 @@
 				} ] ],
 				pagination : true,
 				rownumbers : true,
-				toolbar : [ {
-					id : 'btnback',
-					text : '返回',
-					iconCls : 'icon-back',
-					handler : function() {
-						window.location.href='<%=request.getContextPath()%>/app/sldb/person/checkOk.jsp';
-						return false;
-					}
-				},{
+				toolbar : [{
 					id : 'btnadd',
 					text : '户主',
 					iconCls : 'icon-author',
@@ -106,7 +99,16 @@
 				<% 
 						}
 					}
-				%>
+				%>,
+				{
+					id : 'btnback',
+					text : '返回',
+					iconCls : 'icon-back',
+					handler : function() {
+						window.location.href='<%=request.getContextPath()%>/app/sldb/person/checkOk.jsp';
+						return false;
+					}
+				}
 				]
 			});
 		});
@@ -125,13 +127,38 @@
 			window.location.href='<%=request.getContextPath()%>/app/sldb/check/show.action?num='+ num;
 			return false;
 		}
+		
+		function check() {
+			$.ajax({
+				url : '<%=request.getContextPath()%>/app/sldb/check/checkByDate.action?pid=<%=pid%>&createTime=<%=createTime%>',
+				type : 'post',         
+				dataType : 'json',     
+				data : '',         
+				success : function(data) {
+					if (data) {
+						$.messager.show({
+							title:'信息',
+							msg:'查询成功',
+							showType:'show'
+						});
+						queryVO();
+					} else {
+						$.messager.show({
+							title:'信息',
+							msg:'查询失败',
+							showType:'show'
+						});
+					}
+				} 
+			});
+		}
 	</script>
 </head>
 <body>
-	<div id="panel" class="easyui-panel" title="户主信息"
+<div id="panel" class="easyui-panel" title="核对结果信息"
 		icon="icon-query-form" collapsible="true" style="padding: 10px;">
-		<table id="queryTable"></table>
+		<input type="button" value="查看结果" onclick="check()"/>
     </div>
-	
+		<table id="queryTable"></table>
 </body>
 </html>

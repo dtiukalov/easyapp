@@ -98,7 +98,7 @@
 						return '<span><a href="#" onclick="confirmVO(\'' + rec.id + '\');"><img src="<%=request.getContextPath()%>/app/themes/icons/ok.png" width="16" height="16" border="0" /></a>'+
 						'&nbsp&nbsp<a href="#" onclick="showVO(\'' + rec.id + '\');"><img src="<%=request.getContextPath()%>/app/themes/icons/author.png" width="16" height="16" border="0" /></a>'+
 						'&nbsp&nbsp<a href="#" onclick="deleteVO(\'' + rec.id + '\');"><img src="<%=request.getContextPath()%>/app/themes/icons/back.png" width="14" height="14" border="0" /></a>'+
-						'&nbsp&nbsp<a href="#" onclick="showResultVO(\'' + rec.id + '\');">查看结果</a></span>';
+						'&nbsp&nbsp<a href="#" onclick="showResultVO(\'' + rec.id + '\',\'' + rec.createTime + '\');">查看结果</a></span>';
 					}
 				} ] ],
 				pagination : true,
@@ -191,19 +191,10 @@
 			window.location.href='<%=request.getContextPath()%>/app/sldb/person/sub/queryPersonTab.action?id='+ id;
 			return false;	
 		}
-		function showResultVO(id) {
-			window.location.href='<%=request.getContextPath()%>/app/sldb/person/showResult.jsp?pid='+ id;
+		function showResultVO(id,createTime) {
+			window.location.href='<%=request.getContextPath()%>/app/sldb/person/showResult.jsp?pid='+ id +'&createTime='+createTime;
 			return false;	
 		}
-		
-		<%-- function endVO(id){
-			$.messager.confirm('确认通过', '确认通过该选项', function(result){
-				if (result){
-					window.location.href='<%=request.getContextPath()%>/app/sldb/person/checkPass.jsp?ids=' + id;
-				}
-			});
-			return false;
-		} --%>
 		
 		function confirmVO(id){
 			$.messager.confirm('确认核对', '确认核对该选项', function(result){

@@ -1,0 +1,41 @@
+# Note:
+# Regexp back references within .hgignore have to be named,
+# since these lines will by converted into a single regexp by Mercurial
+
+
+
+
+
+syntax: regexp
+
+
+# Mercurial produced intermediate files
+\.orig$
+\.orig\..*$
+\.chg\..*$
+\.rej$
+\.conflict\~$
+
+
+
+# Derived files
+^bin/
+^classes/
+^nosense/
+^docs/
+
+
+# Mostly derived files, manually add files of interest
+
+
+
+# Files generally no need to track, manually add files of interest
+\.bat$
+\.bak$
+\.scc$
+\.jar$
+^nbproject/private/
+^\.racproject$
+
+Thumbs.db$
+

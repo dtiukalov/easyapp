@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.5"?>
+<plugin>
+
+   <extension-point id="CustomScriptHelper" name="Custom Helper Class" schema="schema/CustomScriptHelper.exsd"/>
+
+   <extension-point id="CustomDecisionScript" name="Custom Decision Script" schema="schema/CustomDecisionScript.exsd"/>
+   <extension-point id="CustomCompletionScript" name="Custom Completion Script" schema="schema/CustomCompletionScript.exsd"/>
+
+   <extension-point id="CustomAutoScript" name="Custom Automation Script" schema="schema/CustomAutoScript.exsd"/>
+
+</plugin>

@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Workflow Customization for FAWVW
+Bundle-SymbolicName: fawvw.wf;singleton:=true
+Bundle-Version: 1.0.0.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: tc.wfcf;bundle-version="8.3.3"
+

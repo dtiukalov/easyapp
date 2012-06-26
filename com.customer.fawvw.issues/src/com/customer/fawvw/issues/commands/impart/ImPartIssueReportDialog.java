@@ -102,7 +102,7 @@ public class ImPartIssueReportDialog extends AbstractFawvwPepDialog {
 		
 		System.out.println("重点件验证问题报表");
 		
-		String tempPath = System.getProperty("java.io.tmpdir"); //$NON-NLS-1$
+//		String tempPath = System.getProperty("java.io.tmpdir"); //$NON-NLS-1$
 		
 		String file = this.path
 					+"\\" + command.getSession().getUserName() +  //$NON-NLS-1$
@@ -119,7 +119,7 @@ public class ImPartIssueReportDialog extends AbstractFawvwPepDialog {
 			
 			if (CreateImPartIssuesExcel.createExcel(command.getSession(), parameters)){
 				file = "\"" + file + "\""; //$NON-NLS-1$ //$NON-NLS-2$
-				Runtime.getRuntime().exec("cmd  /c  start excel " + file); //$NON-NLS-1$
+				Runtime.getRuntime().exec("cmd  /c " + file); //$NON-NLS-1$
 			} else {
 				MessageBox.post(
 						"不存在符合条件的数据", 

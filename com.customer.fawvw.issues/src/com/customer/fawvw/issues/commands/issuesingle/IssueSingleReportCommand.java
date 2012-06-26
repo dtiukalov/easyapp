@@ -66,8 +66,8 @@ public class IssueSingleReportCommand extends AbstractAIFCommand implements
 
 	public void createExcel(InterfaceAIFComponent targetcompontent) throws Exception{
 		
-		String tempPath = System.getProperty("java.io.tmpdir"); //$NON-NLS-1$
-		String file = tempPath + session.getUserName() + "_ProblemReport" + Math.abs(new Random().nextInt())+ ".xls";  //$NON-NLS-1$ //$NON-NLS-2$
+//		String tempPath = System.getProperty("java.io.tmpdir"); //$NON-NLS-1$
+		String file = System.getenv("TPR") + "\\temp\\" + session.getUserName() + "_ProblemReport" + Math.abs(new Random().nextInt())+ ".xls";  //$NON-NLS-1$ //$NON-NLS-2$
 		try {
 			//判断选中的是Item还是ItemRevision
 			if (targetcompontent instanceof TCComponentItem) {
@@ -80,8 +80,9 @@ public class IssueSingleReportCommand extends AbstractAIFCommand implements
 			//创建报表
 			CreateIssueSingleExcel.createExcel(targetcompontent, file, session);
 			
+			file = "\"" + file + "\"";
 			//打开报表
-			Runtime.getRuntime().exec("cmd  /c  start excel " + file); //$NON-NLS-1$
+			Runtime.getRuntime().exec("cmd  /c " + file); //$NON-NLS-1$
  
 		} catch (Exception e) {
 			e.printStackTrace();

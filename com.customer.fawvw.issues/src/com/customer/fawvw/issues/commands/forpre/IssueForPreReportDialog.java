@@ -155,7 +155,7 @@ public class IssueForPreReportDialog extends AbstractFawvwPepDialog {
 		if (flag == true) {
 			this.path = "\"" + this.path + "\""; //$NON-NLS-1$ //$NON-NLS-2$
 			//打开报表
-			Runtime.getRuntime().exec("cmd  /c  start excel " + this.path);  //$NON-NLS-1$
+			Runtime.getRuntime().exec("cmd  /c" + this.path);  //$NON-NLS-1$
 		} 
 		
 	}

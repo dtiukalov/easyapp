@@ -222,8 +222,8 @@ public class IssueStatusReportDialog extends AbstractFawvwPepDialog{
 		if (CreateIssueExcel.createExcel(parameters, path1, path2, projectID)) {
 			path1 = "\"" + path1 + "\"";   
 			path2 = "\"" + path2 + "\"";   
-			Runtime.getRuntime().exec("cmd  /c  start excel " + path1); 
-			Runtime.getRuntime().exec("cmd  /c  start excel " + path2); 
+			Runtime.getRuntime().exec("cmd  /c " + path1); 
+			Runtime.getRuntime().exec("cmd  /c " + path2); 
 //			AIFShell sh = new AIFShell("application/vnd.ms-excel", path1);
 //			sh.setFileExtension(".xls");
 //			sh.start();

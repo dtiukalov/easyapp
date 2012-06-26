@@ -220,7 +220,7 @@ public class IssueRelComponentReportDialog  extends AbstractFawvwPepDialog{
 		} else {
 			IssueRelComponentReportExcel.createExcel(excelList, parameters);
 			file = "\"" + file + "\""; //$NON-NLS-1$ //$NON-NLS-2$
-			Runtime.getRuntime().exec("cmd  /c  start excel " + file);  //$NON-NLS-1$
+			Runtime.getRuntime().exec("cmd  /c " + file);  //$NON-NLS-1$
 		}
 	}
 	

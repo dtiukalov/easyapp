@@ -65,8 +65,8 @@ public class IssueSingleInfoReportCommand extends AbstractAIFCommand implements
 	private void createExcel(InterfaceAIFComponent targetcompontent) throws Exception{
 		try {
 			
-			String tempPath = System.getProperty("java.io.tmpdir"); //$NON-NLS-1$
-			String file = tempPath + session.getUserName() + "_ProblemReport" + Math.abs(new Random().nextInt())+ ".xls";  //$NON-NLS-1$ //$NON-NLS-2$
+//			String tempPath = System.getProperty("java.io.tmpdir"); //$NON-NLS-1$
+			String file = System.getenv("TPR") + "\\temp\\" + session.getUserName() + "_ProblemReport" + Math.abs(new Random().nextInt())+ ".xls";  //$NON-NLS-1$ //$NON-NLS-2$
 			
 			if (targetcompontent instanceof TCComponentItem) {
 				targetcompontent = (TCComponentItem)targetcompontent;
@@ -77,8 +77,8 @@ public class IssueSingleInfoReportCommand extends AbstractAIFCommand implements
 			}
 			
 			CreateIssueSingleInfoExcel.createExcel(targetcompontent, file, session);
-			
-			Runtime.getRuntime().exec("cmd  /c  start excel " + file); //$NON-NLS-1$
+			file = "\"" + file + "\"";
+			Runtime.getRuntime().exec("cmd  /c " + file); //$NON-NLS-1$
 
 		} catch (TCException e) {
 			// TODO Auto-generated catch block

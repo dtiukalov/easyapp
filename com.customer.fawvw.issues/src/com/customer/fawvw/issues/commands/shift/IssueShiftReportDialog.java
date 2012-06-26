@@ -154,7 +154,7 @@ public class IssueShiftReportDialog extends AbstractFawvwPepDialog {
 		Boolean flag = CreateIssueShiftExcel.createExcel(parameters, path);//生成报表后自动打开
 		if (flag == true) {
 			path = "\"" + path + "\""; //$NON-NLS-1$ //$NON-NLS-2$
-			Runtime.getRuntime().exec("cmd  /c  start excel " + path);  	 //$NON-NLS-1$
+			Runtime.getRuntime().exec("cmd  /c " + path);  	 //$NON-NLS-1$
 		}
 		
 	}

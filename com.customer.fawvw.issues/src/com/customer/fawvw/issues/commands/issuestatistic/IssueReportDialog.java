@@ -161,7 +161,7 @@ public class IssueReportDialog extends AbstractFawvwPepDialog {
 			//打开报表
 			if (CreateIssueExcelByRichiClient.createExcel(parameters, path, super.getSession())) {
 				path = "\"" + path + "\""; //$NON-NLS-1$ //$NON-NLS-2$
-				Runtime.getRuntime().exec("cmd  /c  start excel " + path); //$NON-NLS-1$
+				Runtime.getRuntime().exec("cmd  /c " + path); //$NON-NLS-1$
 			}
 			
 		} catch (Exception e) {

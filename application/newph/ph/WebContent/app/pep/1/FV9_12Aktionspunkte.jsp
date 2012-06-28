@@ -24,7 +24,7 @@
 		
 		List<String> fv9Verantwortlich = new ArrayList<String>();
 		if(form.get("fv9Verantwortlich") != null){
-			fv9Verantwortlich =(List<String>)form.get("fv9Verantwortlich");  //责任人
+			fv9Verantwortlich =(List<String>)form.get("fv9Verantwortlich");  //责任�?
 		}
 		
 		List<String> fv9Termin = new ArrayList<String>();
@@ -34,7 +34,7 @@
 		
 		List<String> fv9Status = new ArrayList<String>();
 		if(form.get("fv9Status") != null){
-			fv9Status = (List<String>)form.get("fv9Status"); //状态
+			fv9Status = (List<String>)form.get("fv9Status"); //状�?
 		}
 	%>
 </head>
@@ -55,18 +55,18 @@
 				<div id="datatable1" style="height: 500px; margin: 30px 50px; font-size: 18px;">
 					<table width="100%" cellspacing="2" rules="rows">
 						<tr style="border-bottom:2px solid #333333; font-weight:bold;">
-							<td width="35%">Aktion</td>
+							<td width="40%">Aktion</td>
 							<td width="30%">Verantwortlich</td>
-							<td width="18%">Termin</td>
+							<td width="13%">Termin</td>
 							<td width="17%">Status</td>	
-						</tr><br>
+						</tr>
 						 <%
 						 if(fv9Aktion_GM.size() > 0){
 							 for(int i=0; i < fv9Aktion_GM.size(); i++){
 						%>
 								<tr style="border-collapse: collapse; height: 85px;">
-								<td><br>
-									Auftrag <%=i+1 %>: <br><%=fv9Aktion_GM.get(i)%><br>
+								<td>
+									Auftrag <%=i+1 %>: <br><%=fv9Aktion_GM.get(i)%>
 								</td>
 								<td><br>
 									<%=fv9Verantwortlich.get(i) %>
@@ -88,19 +88,19 @@
 				<div id="datatable2" style=" height: 500px; margin: 30px 50px; font-size:18px; display: none; ">
 					<table width="100%" cellspacing="2" rules="rows">
 						<tr style="border-bottom:2px solid #333333;font-weight:bold;">
-							<td width="35%">Aktion</td>
+							<td width="40%">Aktion</td>
 							<td width="30%">Verantwortlich</td>
-							<td width="18%">Termin</td>
+							<td width="13%">Termin</td>
 							<td width="17%">Status</td>	
 						</tr>
-						<br>
+						
 						 <%
 						 if(fv9Aktion_CN.size() > 0){
 							 for(int i=0; i < fv9Aktion_CN.size(); i++){
 						%>
 						<tr style="border-collapse: collapse; height: 85px;">
 							<td>
-								<br>Auftrag <%=i+1 %>: <br><%=fv9Aktion_CN.get(i)%><br>
+								Auftrag <%=i+1 %>: <br><%=fv9Aktion_CN.get(i)%>
 							</td>
 							<td>
 								<br><%=fv9Verantwortlich.get(i) %>

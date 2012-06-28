@@ -89,8 +89,11 @@
 					/* 最后一列去掉,	 */			
 					if (m == fv9BMGKWNo.size()-1) {
 						BMGType.append("{y:0, low:0, color:'#FFFFFF'}");
-						BFAWE.append("{y:" + BFAWENUM + ", low:0, color:'#FFFFCC'}");
-						BFInArbeirt.append("{y:" + BFInArbeirtNUM + ", low:" + BFAWENUM + ", color:'#F9A700'}");
+						
+						BFInArbeirt.append("{y:" + BFInArbeirtNUM + ", low: 0, color:'#F9A700'}");
+						
+						BFAWE.append("{y:" + BFAWENUM + ", low:" + BFInArbeirtNUM + ", color:'#FFFFCC'}");
+						
 						BFreiSoll.append("{y:" + BFreiSollNUM + ", low:" + (BFInArbeirtNUM+BFAWENUM) + ", color:'#009C0E'}");
 						
 						if (bmgprognose == 0) {
@@ -101,8 +104,11 @@
 						
 					} else {
 						BMGType.append("{y:0, low:0, color:'#FFFFFF'},");
-						BFAWE.append("{y:" + BFAWENUM + ", low:0, color:'#FFFFCC'},");
-						BFInArbeirt.append("{y:" + BFInArbeirtNUM + ", low:" + BFAWENUM + ", color:'#F9A700'},");
+						
+						BFInArbeirt.append("{y:" + BFInArbeirtNUM + ", low:0, color:'#F9A700'},");
+						
+						BFAWE.append("{y:" + BFAWENUM + ", low:" + BFInArbeirtNUM + ", color:'#FFFFCC'},");
+						
 						BFreiSoll.append("{y:" + BFreiSollNUM + ", low:" + (BFInArbeirtNUM+BFAWENUM) + ", color:'#009C0E'},");
 						
 						if (bmgprognose == 0) {
@@ -288,23 +294,6 @@
 						},
 						color: 'white'
 					}
-				},{
-					name: 'in Arbeit',
-					data: <%=BFInArbeirt%>,
-					color: '#F9A700',
-					type: 'column',
-					dashStyle: 'dash',
-					marker: {enabled: false},
-					lineWidth: 1,
-					shadow: false,
-					enableMouseTracking: false,
-					dataLabels: {
-						enabled: true,
-						style : {
-							fontSize:'10px'
-						},
-						color: 'white'
-					}
 				}, {
 					name: 'AWE',
 					data: <%=BFAWE%>,
@@ -321,6 +310,23 @@
 							fontSize:'10px'
 						},
 						color: 'black'
+					}
+				}, {
+					name: 'in Arbeit',
+					data: <%=BFInArbeirt%>,
+					color: '#F9A700',
+					type: 'column',
+					dashStyle: 'dash',
+					marker: {enabled: false},
+					lineWidth: 1,
+					shadow: false,
+					enableMouseTracking: false,
+					dataLabels: {
+						enabled: true,
+						style : {
+							fontSize:'10px'
+						},
+						color: 'white'
 					}
 				}, {
 					type: 'line',
@@ -457,10 +463,9 @@
 		List<String> fv9Teil = (List<String>)form.get("fv9Tei"); //零件名称
 		List<String> fv9TeilNum = (List<String>)form.get("fv9TeilNum"); //零件数量
 		
-		int n = fv9KWNo.size() + 3;
-		double tdHeight = 170.0/n;
-		
 		if (Web.getListYesOrNo(fv9KWNo)) {
+			int n = fv9KWNo.size() + 3;
+			double tdHeight = 170.0/n;
 			
 			int teilSumNum = 0; //总零件数
 			String tempKWNo = ""; //临时周数

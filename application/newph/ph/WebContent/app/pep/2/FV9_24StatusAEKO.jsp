@@ -1,4 +1,4 @@
-<%@page import="com.saturn.tc.utils.DateUtils"%>
+﻿<%@page import="com.saturn.tc.utils.DateUtils"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="com.saturn.web.Web"%>
@@ -281,7 +281,13 @@
 									enabled: true,
 									formatter: function() {
 										return "<%=max%>";
-									}
+									},
+									style : {
+										fontSize:'10px',
+										fontWeight: 'bold'
+									},
+									x:-8,
+									y:10
 								}
 							}]
 			},function(chart) { 

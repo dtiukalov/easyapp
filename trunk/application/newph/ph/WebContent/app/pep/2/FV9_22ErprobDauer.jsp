@@ -1,4 +1,4 @@
-<%@page import="java.util.Iterator"%>
+﻿<%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
@@ -54,7 +54,7 @@
 				</h1>
 			</div>
 			<div id="content">
-				<div id="datatable1" style="margin:10px 10px auto; font-size: 14px;">
+				<div id="datatable1" style="margin:10px 10px auto; font-size: 12px;">
 					<table width="96%" border="0" cellspacing="5" cellpadding="0" class="ed">
 				        <tr>
 				        	<td width="18%">&nbsp;</td>
@@ -125,7 +125,7 @@
 				       
 				      </table>
 			      </div>
-			      <div id="datatable2" style=" display: none; margin:10px 10px auto; font-size: 14px;">
+			      <div id="datatable2" style=" display: none; margin:10px 10px auto; font-size: 12px;">
 					<table width="96%" border="0" cellspacing="5" cellpadding="0" class="ed">
 				        <tr>
 				        	<td width="18%">&nbsp;</td>

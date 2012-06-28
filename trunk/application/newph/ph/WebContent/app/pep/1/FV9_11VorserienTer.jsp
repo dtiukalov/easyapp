@@ -324,8 +324,8 @@ System.out.println("fv90SAbsEnd = " + fv90SAbsEnd);
 					<tr>
 						<!-- 合并单元格，写入一汽大众logo+项目以及sop时间+状态 -->
 						<td style="border: 1px solid; width: <%=totalWidth%>px; height:60px;" colspan="<%=weeks%>">
-							<div style="float: left; width: 20%; height: 100%; margin: 0px; padding: 0px; overflow: hidden;">
-								<img src="<%=request.getContextPath()%>/app/pep/images/FAWVW-logo.jpg">
+							<div style="float: left; width: 20%; height: 100%; margin: 0px; padding: 0px; overflow: hidden; text-align: left;">
+								&nbsp;&nbsp;&nbsp;&nbsp;<img src="<%=request.getContextPath()%>/app/pep/images/FAWVW-logo.jpg" width="62" height="50">
 							</div>
 							<div style="float: left; width: 60%; height: 100%; margin: 0px; padding: 0px; 
 								text-align: center; font-size: 24px;">

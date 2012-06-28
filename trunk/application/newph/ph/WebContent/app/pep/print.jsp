@@ -10,6 +10,7 @@
 <%@page import="java.text.SimpleDateFormat"%>	
 <%@page import="java.text.DateFormat"%>	
 <%@page import="com.saturn.tc.utils.DateUtils"%>    
+<%@page import="com.saturn.ph.ReportPage"%>    
 <html>
 <head>
 	<title>Pilothallengesprch Print</title>
@@ -22,11 +23,11 @@
 <body>
 	<center>
 	<%
-		List<String> indexes = (List<String>)request.getSession().getAttribute("indexes");
+		List<ReportPage> indexes = (List<ReportPage>)request.getSession().getAttribute("indexes");
 	
 	
 		for (int i = 0; i < indexes.size(); ++i) {
-			String url = (String)indexes.get(i);
+			String url = ((ReportPage)indexes.get(i)).getPath();
 			if (i > 0) {
 				url += "&pageNo=" + (i+1);
 			}

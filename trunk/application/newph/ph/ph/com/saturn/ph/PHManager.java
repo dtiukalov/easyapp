@@ -47,6 +47,7 @@ public class PHManager {
 			"FV9_34Funtionsmasse", 
 			"FV9_34FuntNachBaut",
 			"FV9_34FuntAussTol", 
+			"3.4 Stellblaetter zu Konzept/Funktionsmassen",
 			"FV9_35AuditNoteZP8", 
 			"FV9_35FehlerDenGew",
 			"3.5 Audit Reduzierungsprognose", 

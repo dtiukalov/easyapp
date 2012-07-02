@@ -35,6 +35,7 @@ import com.saturn.ph.form.p3.FV9_33ProblemblattForm;
 import com.saturn.ph.form.p3.FV9_34FuntAussTolForm;
 import com.saturn.ph.form.p3.FV9_34FuntNachBautForm;
 import com.saturn.ph.form.p3.FV9_34FuntionsmasseForm;
+import com.saturn.ph.form.p3.FV9_34Stellblaetter;
 import com.saturn.ph.form.p3.FV9_35AuditNoteZP8Form;
 import com.saturn.ph.form.p3.FV9_35AuditZP8KarossForm;
 import com.saturn.ph.form.p3.FV9_35AuditZP8KaufForm;
@@ -205,6 +206,7 @@ public class FormManager {
 		add(new FV9_34FuntionsmasseForm());
 		add(new FV9_34FuntNachBautForm());
 		add(new FV9_34FuntAussTolForm());
+		add(new FV9_34Stellblaetter());
 		add(new FV9_35AuditNoteZP8Form());
 		add(new FV9_35FehlerDenGewForm());
 		add(new FV9_35ReduzierungsprognoseForm());

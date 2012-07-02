@@ -234,11 +234,6 @@
 							//里程碑时间处于中旬，从一个月的三分之一处开始画一个月
 							//里程碑时间处于下旬，从一个月的三分之二处开始画一个月
 							
-							//SOP
-							//里程碑时间处于上旬，菱形的尖对应一个月的开始处
-							//里程碑时间处于中旬，菱形的尖对应一个月的二分之一处
-							//里程碑时间处于下旬，菱形的尖对应一个月的结束处
-							
 							
 							if (vffIndex == m) {
 								String text = "";
@@ -344,7 +339,7 @@
 								}
 								out.print(text);
 							}
-							
+							/*
 							if (sopIndex == m) {
 								String text = "";
 								if (ten_sop == 1) {
@@ -378,9 +373,29 @@
 									text += "</div>";
 								}
 								out.print(text);
-							}
+							}*/
 					%>
-						<td class="<%=row_class %>" style="border: 1px solid; height: <%=height%>px; width: 19.5px;"></td>
+						<td class="<%=row_class %>" style="border: 1px solid; height: <%=height%>px; width: 19.5px;">
+					<%
+					//SOP - 计划
+					//里程碑时间处于上旬，菱形的尖对应一个月的开始处
+					//里程碑时间处于中旬，菱形的尖对应一个月的二分之一处
+					//里程碑时间处于下旬，菱形的尖对应一个月的结束处
+					
+					//SOP - 实际
+					//菱形的尖对应一个月的二分之一处
+					if (sopIndex == m) {
+						String text = "";
+						text += "	<span style='color:black; font-size:10px; vertical-align: top;'>SOP</span>";
+						text += "<div style=\"width: 100%; height:" + (height/2.5) + "px; float: left; vertical-align: middle; padding-top: 5px;"
+							+ "filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" 
+							+ request.getContextPath() 
+							+ "/app/pep/images/diamond_red.png', sizingMethod='scale'); \">";
+						text += "</div>";
+						out.print(text);
+					}
+					%>
+						</td>
 						
 					<%		
 						}

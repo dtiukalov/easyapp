@@ -142,6 +142,7 @@
 		
 		String fv9MEMLDate = (String)form.get("fv9MEMLDate");//	里程碑日期_ME
 		String fv9MEMLOrg = (String)form.get("fv9MEMLOrg");//	验收机构_ME
+System.out.println("fv9PMMLDate = " + fv9PMMLDate);		
 		
 		//默认为开始时间为PM时间
 		if (!"1900-01-01 00:00:00".equals(fv9PMMLDate)) {
@@ -161,7 +162,7 @@
 		startDate = getBorderDate(startDate, fv90SMLDate);
 		startDate = getBorderDate(startDate, fv9SOPMLDate);
 		startDate = getBorderDate(startDate, fv9MEMLDate);
-		
+
 		//默认为结束时间为ME时间
 		if (!"1900-01-01 00:00:00".equals(fv9MEMLDate)) {
 			endDate = fv9MEMLDate;
@@ -451,7 +452,7 @@
 			} else if (DFExtIndex == DEIndex) {
 				DFExtDiv = "";
 			} else {
-				DFExtDiv = getDiv(request, "DFExt<br>&nbsp;<br>DF<span style=\"font-size:8px;\">Int</span>", fv9DFExtMLDate, fv9DFExtMLOrg, DFExtIndex, tdWidth, marginLeft);
+				DFExtDiv = getDiv(request, "DF<span style=\"font-size:8px;\">Ext</span><br>&nbsp;<br>DF<span style=\"font-size:8px;\">Int</span>", fv9DFExtMLDate, fv9DFExtMLOrg, DFExtIndex, tdWidth, marginLeft);
 			}
 			//DFInt
 			if (DFIntIndex != DFExtIndex && DFIntIndex != BFIndex) {
@@ -538,17 +539,26 @@
 			<%
 			
 			//写入里程碑间距
+			//PF及以后的里程碑时间必须输入
 			int beginPF = PFIndex; //从PF里程碑
-			//如果PF在下旬,从下个月的线开始			
-			if (DateUtils.getTenDays(fv9PFMLDate) == 2) {
-				beginPF = beginPF + 1;
+			double width1 = 0.0, width2 = 0.0;
+			int month01 = 0, month02 = 0;
+			if (beginPF != 0) {
+				
+				//如果PF在下旬,从下个月的线开始
+				System.out.println("fv9PFMLDate = " + fv9PFMLDate);
+					if (DateUtils.getTenDays(fv9PFMLDate) == 2) {
+						beginPF = beginPF + 1;
+					}
+					width1 = getLeftWidth(0, tdWidth, LFIndex, fv9LFMLDate) - 
+								getLeftWidth(0, tdWidth, PFIndex, fv9PFMLDate);
+					month01 = (int)(width1/tdWidth);
+					width2 = getLeftWidth(0, tdWidth, SOPIndex, fv9SOPMLDate) - 
+								getLeftWidth(0, tdWidth, LFIndex, fv9LFMLDate);
+					month02 = (int)(width2/tdWidth);
 			}
-			double width1 = getLeftWidth(0, tdWidth, LFIndex, fv9LFMLDate) - 
-						getLeftWidth(0, tdWidth, PFIndex, fv9PFMLDate);
-			int month01 = (int)(width1/tdWidth);
-			double width2 = getLeftWidth(0, tdWidth, SOPIndex, fv9SOPMLDate) - 
-						getLeftWidth(0, tdWidth, LFIndex, fv9LFMLDate);
-			int month02 = (int)(width2/tdWidth);
+			
+			
 
 		
 			%>

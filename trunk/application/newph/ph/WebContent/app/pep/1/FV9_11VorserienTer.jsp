@@ -171,15 +171,24 @@ System.out.println("fv90SAbsEnd = " + fv90SAbsEnd);
 			int TPPA_ME = 0; int QFTPPA_Kunde = 0;
 			
 			//开始时间为VFF TBT ZP5时间前4个月
-			//结束时间为SOP后四个月
+			//若PVS或0S装车结束时间早于SOP时间，则以SOP后一个月作为结束时间
+			//若PVS或0S装车结束时间晚于SOP时间，则以ME后一个月作为结束时间
 			String startDate = "";
 			String endDate = "";
-			if (!"1900-01-01 00:00:00".equals(fv9VFFTBTZP5) && !"".equals(fv9VFFTBTZP5)) {
+			if (!"1900-01-01 00:00:00".equals(fv9VFFTBTZP5) && !"".equals(fv9VFFTBTZP5)) 
 				startDate = DateUtils.getDateAddMonth(fv9VFFTBTZP5, 1, "-");
-			}
-			if (!"1900-01-01 00:00:00".equals(DATE_ME) && !"".equals(DATE_ME)) {
+			
+			//date1 < date2 返回 true
+			String flag = "sop";
+			if (!DateUtils.compareTime(fv9PVSAbsEnd + " 00:00", DATE_SOP + " 00:00")) 
+				flag = "me";
+			
+			if ("sop".equals(flag) && !"1900-01-01 00:00:00".equals(DATE_SOP) && !"".equals(DATE_SOP)) 
+				endDate = DateUtils.getDateAddMonth(DATE_SOP, 1, "+");
+			
+			if ("me".equals(flag) && !"1900-01-01 00:00:00".equals(DATE_ME) && !"".equals(DATE_ME)) 
 				endDate = DateUtils.getDateAddMonth(DATE_ME, 1, "+");
-			}
+			
 			System.out.println("startDate = " + startDate);
 			System.out.println("endDate = " + endDate);
 			//转换成日期

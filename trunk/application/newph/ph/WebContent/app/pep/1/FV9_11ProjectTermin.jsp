@@ -326,11 +326,18 @@ System.out.println("fv9PMMLDate = " + fv9PMMLDate);
 					<%
 					//当前月上加红线
 						if (m == currentIndex) {
+							double currentWidth = 0.0;
+							if (!"".equals(currentDate) && DateUtils.getThreeTenDays(currentDate) == 1)
+								currentWidth = tdWidth/3;
+							if (!"".equals(currentDate) && DateUtils.getThreeTenDays(currentDate) == 2)
+								currentWidth = tdWidth/2;
+							if (!"".equals(currentDate) && DateUtils.getThreeTenDays(currentDate) == 3)
+								currentWidth = 2*tdWidth/3;
 							%>
 							<div style="width: 2px; background-color: #FF00FF; 
 								height: 170px; 
 								position: absolute;
-								margin-left:<%=tdWidth/2%>px;">
+								margin-left:<%=currentWidth%>px;">
 							</div>
 							<%
 						}

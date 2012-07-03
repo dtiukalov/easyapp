@@ -176,9 +176,10 @@ public class PHFragmentCreInfo {
 			return null;
 
 		TCProperty[] props = newCmp.getTCProperties(new String[] {
-				"fv9PreRelesed", "fv9PlatformType" });
+				"fv9PreRelesed", "fv9PlatformType", "fv9IsBackup" });
 		props[0].setStringValueData("");
 		props[1].setStringValueData(report.fv9PlatformType);
+		props[2].setStringValueData("No");
 		newCmp.setTCProperties(props);
 
 		return newCmp;

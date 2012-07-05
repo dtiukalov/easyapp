@@ -78,6 +78,7 @@ where To_Days(dutypredelivtime)-To_Days(dutyintime)&lt;=3
 and substr(dutyintime,1,10)=substr('${dutyintime}',1,10)
 and dutypredelivtime is not null and dutypredelivtime!='' 
 and (dutydelivtime is null or dutydelivtime='')
+and (deltime is null or deltime='')
 order by dutyintime
 		</sql>
 		<sql id="tworesult">
@@ -86,6 +87,7 @@ where To_Days(dutypredelivtime)-To_Days(dutyintime)&gt;3 and To_Days(dutypredeli
 and substr(dutyintime,1,10)=substr('${dutyintime}',1,10)
 and dutypredelivtime is not null and dutypredelivtime!='' 
 and (dutydelivtime is null or dutydelivtime='')
+and (deltime is null or deltime='')
 order by dutyintime
 		</sql>
 		<sql id="threeresult">
@@ -93,6 +95,31 @@ order by dutyintime
 where (To_Days(dutypredelivtime)-To_Days(dutyintime)&gt;7 or dutypredelivtime is null or dutypredelivtime='')
 and substr(dutyintime,1,10)=substr('${dutyintime}',1,10)
 and (dutydelivtime is null or dutydelivtime='')
+and (deltime is null or deltime='')
+order by dutyintime
+		</sql>
+		<sql id="allresult">
+		select * from crm_duty 
+		where 1=1
+		<isNotEmpty prepend="AND" property="min_dutyintime">
+				 substr(dutyintime,1,10)>=substr('${min_dutyintime}',1,10)
+		</isNotEmpty>
+		<isNotEmpty prepend="AND" property="max_dutyintime">
+				 (substr(dutyintime,1,10)&lt;substr('${max_dutyintime}',1,10)
+				 or substr(dutyintime,1,10)=substr('${max_dutyintime}',1,10))
+		</isNotEmpty>
+		<isNotEmpty prepend="AND" property="min_dutypredelivtime">
+				 substr(dutypredelivtime,1,10)>=substr('${min_dutypredelivtime}',1,10)
+		</isNotEmpty>
+		<isNotEmpty prepend="AND" property="max_dutypredelivtime">
+				 (substr(dutypredelivtime,1,10)&lt;substr('${max_dutypredelivtime}',1,10)
+				 or substr(dutypredelivtime,1,10)=substr('${max_dutypredelivtime}',1,10))
+		</isNotEmpty>
+		<isNotEmpty prepend="AND" property="dutystaff">
+				 dutystaff='${dutystaff}'
+		</isNotEmpty>
+		and (dutydelivtime is null or dutydelivtime='')
+and (deltime is null or deltime='')
 order by dutyintime
 		</sql>
 	</sqls>

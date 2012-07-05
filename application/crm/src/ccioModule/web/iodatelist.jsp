@@ -95,6 +95,7 @@
 	                    <tr>
 	                        <th>到店类型</th>
 	                        <th>VIN</th>
+	                        <th>车牌</th>
 	                        <th>到店时间</th>
 	                        <th>离店时间</th>
 	                        <th>创建时间</th>   
@@ -114,6 +115,7 @@
                         <script type="text/javascript">getVin("vin_"+${sta.index},'${var.i_card}');</script>
                          -->
                         </td>
+                        <td>${var.i_carln}</td>
                         <td>${var.i_indate}</td>
                         <td>${var.i_outdate}</td>
                         <td>${var.i_date}</td>

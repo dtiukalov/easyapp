@@ -108,6 +108,16 @@
 				<scope>2</scope>
 				<description></description>
 			</parameter>
+			<parameter id="18" name="" classType="java.lang.String" passingType="in-out">
+				<value-key>servorderid</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="19" name="" classType="java.lang.String" passingType="in-out">
+				<value-key>flag</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
 		</parameters>
 		<description>查询存油列表</description>
 	</logic>

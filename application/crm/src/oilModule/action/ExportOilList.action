@@ -67,6 +67,16 @@
 				<scope>2</scope>
 				<description>返回SaturnData结果集</description>
 			</parameter>
+			<parameter id="10" name="" classType="java.lang.String" passingType="in">
+				<value-key>servorderid</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="11" name="" classType="java.lang.String" passingType="in">
+				<value-key>flag</value-key>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
 		</parameters>
 		<description></description>
 	</logic>

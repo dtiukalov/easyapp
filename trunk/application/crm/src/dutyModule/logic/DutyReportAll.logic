@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saturn-logic>
+	<information id="0" next="" x="0" y="0">
+		<key>/dutyModule/logic/DutyReportAll.logic</key>
+		<name>总值综合报</name>
+		<loadstart>flase</loadstart>
+		<description></description>
+	</information>
+	<connection source="6" target="7" style="1" name=""></connection>
+	<connection source="7" target="3" style="1" name=""></connection>
+	<end id="3" next="" x="546" y="162">
+		<name>结束</name>
+		<parameters></parameters>
+		<description></description>
+	</end>
+	<component exception="" id="5" next="4" x="193" y="305">
+		<key>crm::/coreModule/component/GetDateString.component</key>
+		<name>GetDateString</name>
+		<parameters>
+			<parameter id="1" name="servintime" classType="java.lang.String" passingType="in-out">
+				<value-key>dutyintime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="servintime" classType="java.lang.String" passingType="in-out">
+				<value-key>servintime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description></description>
+	</component>
+	<component exception="" id="4" next="3" x="268" y="140">
+		<key>edu.ccut.saturn.basecomponent::/databaseComponent/QueryBySaturnSQLComponent.component</key>
+		<name>依SQL查询</name>
+		<parameters>
+			<parameter id="1" name="fullkey" classType="java.lang.String" passingType="in">
+				<value-key>'http://crm/coreModule/data::crm_duty'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="sqlkey" classType="java.lang.String" passingType="in">
+				<value-key>'allresult'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="result" classType="java.util.ArrayList" passingType="out">
+				<value-key>allresult</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="4" name="servintime" classType="java.lang.String" passingType="in">
+				<value-key>'min_dutyintime = ${min_dutyintime}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="5" name="" classType="java.lang.String" passingType="in">
+				<value-key>'max_dutyintime = ${max_dutyintime}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="6" name="" classType="java.lang.String" passingType="in">
+				<value-key>'min_dutypredelivtime = ${min_dutypredelivtime}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="7" name="" classType="java.lang.String" passingType="in">
+				<value-key>'max_dutypredelivtime = ${max_dutypredelivtime}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="8" name="" classType="java.lang.String" passingType="in">
+				<value-key>'dutystaff=${dutystaff}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description></description>
+	</component>
+	<start id="1" next="4" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
+		<parameters>
+			<parameter id="1" name="result" classType="java.util.ArrayList" passingType="out">
+				<value-key>allresult</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="2" name="dutyintime" classType="java.lang.String" passingType="in">
+				<value-key>min_dutyintime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="3" name="" classType="java.lang.String" passingType="in">
+				<value-key>max_dutyintime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="4" name="" classType="java.lang.String" passingType="in">
+				<value-key>min_dutypredelivtime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="5" name="" classType="java.lang.String" passingType="in">
+				<value-key>max_dutypredelivtime</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="6" name="" classType="java.lang.String" passingType="in">
+				<value-key>dutystaff</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+		</parameters>
+		<description></description>
+	</start>
+	<connection source="5" target="4" style="1" name=""></connection>
+	<connection source="4" target="3" style="1" name=""></connection>
+	<connection source="1" target="4" style="1" name=""></connection>
+</saturn-logic>

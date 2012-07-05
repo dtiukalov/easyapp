@@ -62,17 +62,22 @@
 	 
 	 cell = row.createCell(5);
 	 cell.setCellStyle(cellStyle);
-	 cell.setCellValue("存油种类");		
+	 cell.setCellValue("工单号");
+	 
 	 
 	 cell = row.createCell(6);
 	 cell.setCellStyle(cellStyle);
-	 cell.setCellValue("存油量");
+	 cell.setCellValue("存油种类");		
 	 
 	 cell = row.createCell(7);
 	 cell.setCellStyle(cellStyle);
-	 cell.setCellValue("出油时间");
+	 cell.setCellValue("存油量");
 	 
 	 cell = row.createCell(8);
+	 cell.setCellStyle(cellStyle);
+	 cell.setCellValue("出油时间");
+	 
+	 cell = row.createCell(9);
 	 cell.setCellStyle(cellStyle);
 	 cell.setCellValue("存油接待");		 		 
 	 
@@ -133,6 +138,14 @@
 			 
 			 cell = row.createCell(5);
 			 cell.setCellStyle(cellStyle);
+			 String servorderid = (String)data.get("servorderid");
+			 if(servorderid!=null&&!"".equals(servorderid)){
+				 cell.setCellValue("'"+servorderid);
+			 }
+			 cell.setCellValue(servorderid);
+			 
+			 cell = row.createCell(6);
+			 cell.setCellStyle(cellStyle);
 			 String oiltype = (String)data.get("oiltype");
 			 if(oiltype!=null&&!"".equals(oiltype)){
 				try{
@@ -143,18 +156,18 @@
 			 }
 			 cell.setCellValue(oiltype);	 	
 			 
-			 cell = row.createCell(6);
+			 cell = row.createCell(7);
 			 cell.setCellStyle(cellStyle);
 			 cell.setCellValue(String.valueOf(data.get("oilamount")));	
 			 
-			 cell = row.createCell(7);	
+			 cell = row.createCell(8);	
 			 cell.setCellStyle(cellStyle);
 			 String oilouttime = String.valueOf(data.get("oilouttime"));
 			 if(oilouttime!=null&&!"".equals(oilouttime)&&!"null".equals(oilouttime)){
 				 cell.setCellValue(oilouttime);	
 			 }
 		 
-			 cell = row.createCell(8);
+			 cell = row.createCell(9);
 			 cell.setCellStyle(cellStyle);
 			 String oilstaff = (String)data.get("oilstaff");
 			 if(oilstaff!=null&&!"".equals(oilstaff)){
@@ -178,11 +191,11 @@
 	   centerstyle.setBorderLeft((short)1);
 	   centerstyle.setBorderRight((short)1);
 	   HSSFCell footRowcell = footRow.createCell(0);
-	   CellRangeAddress range = new CellRangeAddress(footRownumber + 1, footRownumber + 1, 0, 8);   
+	   CellRangeAddress range = new CellRangeAddress(footRownumber + 1, footRownumber + 1, 0, 9);   
 	   sheet.addMergedRegion(range); 
 	   footRowcell.setCellStyle(centerstyle);
 	   footRowcell.setCellValue(new HSSFRichTextString("记录数："+result.size()));
-	   for(int i=1;i<9;i++){
+	   for(int i=1;i<10;i++){
 		   footRowcell = footRow.createCell(i);
 		   footRowcell.setCellValue("");
 		   footRowcell.setCellStyle(centerstyle);

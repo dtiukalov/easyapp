@@ -6,7 +6,7 @@
 <%@page import="java.util.HashMap"%>	
 <%@page import="com.saturn.web.Web"%>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <%@ include file="/app/pep/include/header.jsp"%>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -24,7 +24,7 @@
 		
 		List<String> fv9Verantwortlich = new ArrayList<String>();
 		if(form.get("fv9Verantwortlich") != null){
-			fv9Verantwortlich =(List<String>)form.get("fv9Verantwortlich");  //责任�?
+			fv9Verantwortlich =(List<String>)form.get("fv9Verantwortlich");  //责任�?
 		}
 		
 		List<String> fv9Termin = new ArrayList<String>();
@@ -34,7 +34,7 @@
 		
 		List<String> fv9Status = new ArrayList<String>();
 		if(form.get("fv9Status") != null){
-			fv9Status = (List<String>)form.get("fv9Status"); //状�?
+			fv9Status = (List<String>)form.get("fv9Status"); //状�?
 		}
 	%>
 </head>

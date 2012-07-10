@@ -6,7 +6,8 @@
 <%@page import="com.saturn.ph.PH" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -56,7 +57,7 @@
 									&nbsp;&nbsp;<%=item.getPropertyDisplayableValue("object_name")%>
 								</td>
 								<td style="width: 150px; height: 30px;">
-									<input type="Submit" value="开始汇报" />
+									<input type="submit" value="开始汇报" />
 								</td>
 								<input name="name" type="hidden" value="<%=item.getPropertyDisplayableValue("object_name")%>"/> 
 								<input name="uid" type="hidden" value="<%=key%>"/> 

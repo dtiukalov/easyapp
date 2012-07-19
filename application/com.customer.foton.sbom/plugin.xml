@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="SBOM"
+            id="com.customer.foton.sbom.commands.category">
+      </category>
+      <command
+            name="搭建SBOM结构"
+            categoryId="com.customer.foton.sbom.commands.category"
+            id="com.customer.foton.sbom.commands.createsbom">
+      </command>
+      <command
+            name="添加配件属性"
+            categoryId="com.customer.foton.sbom.commands.category"
+            id="com.customer.foton.sbom.commands.addProperties">
+      </command>
+      <command
+            name="添加更改属性"
+            categoryId="com.customer.foton.sbom.commands.category"
+            id="com.customer.foton.sbom.commands.updProperties">
+      </command>
+      <command
+            name="四大总成结构导入"
+            categoryId="com.customer.foton.sbom.commands.category"
+            id="com.customer.foton.sbom.commands.importCFPart">
+      </command>
+      <command
+            name="零件变更历史查询"
+            categoryId="com.customer.foton.sbom.commands.category"
+            id="com.customer.foton.sbom.commands.partChangeHistory">
+      </command>
+      <command
+            name="整车零件变更查询"
+            categoryId="com.customer.foton.sbom.commands.category"
+            id="com.customer.foton.sbom.commands.sbomChangeHistory">
+      </command>
+      
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="com.customer.foton.sbom.commands.createsbom"
+            class="com.customer.foton.sbom.handlers.CreateBOMHandler">
+      </handler>
+      <handler
+            commandId="com.customer.foton.sbom.commands.addProperties"
+            class="com.customer.foton.sbom.handlers.CreateBOMHandler">
+      </handler>
+      <handler
+            commandId="com.customer.foton.sbom.commands.updProperties"
+            class="com.customer.foton.sbom.handlers.CreateBOMHandler">
+      </handler>
+      <handler
+            commandId="com.customer.foton.sbom.commands.importCFPart"
+            class="com.customer.foton.sbom.handlers.CreateBOMHandler">
+      </handler>
+      <handler
+            commandId="com.customer.foton.sbom.commands.partChangeHistory"
+            class="com.customer.foton.sbom.handlers.CreateBOMHandler">
+      </handler>
+      <handler
+            commandId="com.customer.foton.sbom.commands.sbomChangeHistory"
+            class="com.customer.foton.sbom.handlers.CreateBOMHandler">
+      </handler>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="com.customer.foton.sbom.commands.createsbom"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="Ctrl+2"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="SBOM与图册"
+               mnemonic="M"
+               id="com.customer.foton.sbom.menus.sampleMenu">
+            <command
+                  commandId="com.customer.foton.sbom.commands.createsbom"
+                  mnemonic="S"
+                  id="com.customer.foton.sbom.menus.createbomCommand"
+                  icon="platform:/plugin/com.customer.foton.sbom/icons/icon_func.png">
+                  <visibleWhen>
+					<and>
+						<or>
+							<reference definitionId="com.teamcenter.rac.pse.inMainView" /> 
+						</or>
+					</and>
+ 				 </visibleWhen>
+            </command>
+            
+            <command
+                  commandId="com.customer.foton.sbom.commands.importCFPart"
+                  mnemonic="S"
+                  id="com.customer.foton.sbom.commands.importCFPartCommand"
+                  icon="platform:/plugin/com.customer.foton.sbom/icons/icon_func.png">
+                  <visibleWhen>
+					<and>
+						<or>
+							<reference definitionId="com.teamcenter.rac.pse.inMainView" /> 
+						</or>
+					</and>
+ 				 </visibleWhen>
+            </command>
+            
+            <command
+                  commandId="com.customer.foton.sbom.commands.partChangeHistory"
+                  mnemonic="S"
+                  id="com.customer.foton.sbom.commands.partChangeHistoryCommand"
+                  icon="platform:/plugin/com.customer.foton.sbom/icons/icon_func.png">
+                  <visibleWhen>
+					<and>
+						<or>
+							<reference definitionId="com.teamcenter.rac.pse.inMainView" /> 
+						</or>
+					</and>
+ 				 </visibleWhen>
+            </command>
+            
+            <command
+                  commandId="com.customer.foton.sbom.commands.sbomChangeHistory"
+                  mnemonic="S"
+                  id="com.customer.foton.sbom.commands.sbomChangeHistoryCommand"
+                  icon="platform:/plugin/com.customer.foton.sbom/icons/icon_func.png">
+                  <visibleWhen>
+					<and>
+						<or>
+							<reference definitionId="com.teamcenter.rac.pse.inMainView" /> 
+						</or>
+					</and>
+ 				 </visibleWhen>
+            </command>
+         </menu>
+      </menuContribution>
+      
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="com.customer.foton.sbom.toolbars.sampleToolbar">
+               
+           <command
+                  commandId="com.customer.foton.sbom.commands.addProperties"
+                  mnemonic="S"
+                  id="com.customer.foton.sbom.menus.addPropertiesCommand"
+                  icon="platform:/plugin/com.customer.foton.sbom/icons/icon_add.png">
+                  <visibleWhen>
+					<and>
+						<or>
+							<reference definitionId="com.teamcenter.rac.pse.inMainView" /> 
+						</or>
+					</and>
+ 				 </visibleWhen>
+            </command>
+            
+            <command
+                  commandId="com.customer.foton.sbom.commands.updProperties"
+                  mnemonic="S"
+                  id="com.customer.foton.sbom.menus.updPropertiesCommand"
+                  icon="platform:/plugin/com.customer.foton.sbom/icons/icon_edit.png">
+                  <visibleWhen>
+					<and>
+						<or>
+							<reference definitionId="com.teamcenter.rac.pse.inMainView" /> 
+						</or>
+					</and>
+ 				 </visibleWhen>
+            </command>
+            
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>

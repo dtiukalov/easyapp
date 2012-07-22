@@ -39,7 +39,7 @@
 	%>
   	</ul>
     <div class="bq">
-<p>版权所有融展雪弗兰专营店</p>
+<p>版权所有融展雪佛兰专营店</p>
 <p>地址:吉林省通化市新胜北路5838号</p>
 <p>电话:0435-3450018&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%@ include file="../../include/flux.jsp" %></p>
     </div>

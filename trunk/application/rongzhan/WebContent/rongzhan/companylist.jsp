@@ -196,7 +196,7 @@
 	                        <div class="right1">
 	                        	<div class="tupian"><a href="../xuefulan/index.jsp" target="_blank"><img src="images/suihua.jpg" /></a></div>
 	                            <div class="mingcheng">
-	                            <p><a href="../xuefulan/index.jsp" target="_blank"><span>融展雪弗兰专营店</span></a></p>
+	                            <p><a href="../xuefulan/index.jsp" target="_blank"><span>融展雪佛兰专营店</span></a></p>
 	                            <p>地址：吉林省通化市新胜北路5838号</p>
 	                            <p>销售：</p>
 	                            <p>客服：0435-3450018</p>

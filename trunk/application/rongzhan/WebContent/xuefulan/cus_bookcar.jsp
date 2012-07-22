@@ -100,7 +100,7 @@ var saturnServerPath = '<%=request.getContextPath()%>';
 				brand : 'car.xuefulan',  
 				model : $('#model option:selected').val(),  
 				series : $('#series option:selected').val(), 
-				brandName : '雪弗兰',  
+				brandName : '雪佛兰',  
 				modelName : $('#model option:selected').text(),  
 				seriesName : $('#series option:selected').text(),
 				state : 'bookcar.state.false',

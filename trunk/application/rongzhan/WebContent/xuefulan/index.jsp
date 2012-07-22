@@ -12,7 +12,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="../include/include.jsp" %>
-<title>融展雪弗兰专营店</title>
+<title>融展雪佛兰专营店</title>
 <link href="css/base.css" rel="stylesheet" type="text/css" />
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/app/js/jquery-1.4.4.min.js"></script>
@@ -27,7 +27,7 @@
 	<div class="con1">
     	<div class="gyyfnd">
     		<div class="yfnd">
-        		<h1>关于雪弗兰</h1>
+        		<h1>关于雪佛兰</h1>
                 <span><a href="<%="content.jsp?cid="+rootcid+".about&aid="+rootcid+".about.introduce" %>">更多</a></span>
        		</div>
         	<div class="yfndbg">

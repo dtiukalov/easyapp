@@ -44,7 +44,7 @@
 	    	
 	    	<div  class="user-info">
 	    		<table>
-	    			<tr><td><%=International.get(request, "username") %>:<%=user.get_user_name()%>[<a href=""><%=International.get(request, "help")%></a>][<a href="<%=request.getContextPath()%>/app/tc/logout.do"><%=International.get(request, "logout") %></a>] </td></tr>
+	    			<tr><td><%=International.get(request, "username") %>:<%=user.get_user_name()%>[<a href="<%=request.getContextPath()%>/gyshelp.pdf"><%=International.get(request, "help")%></a>][<a href="<%=request.getContextPath()%>/app/tc/logout.do"><%=International.get(request, "logout") %></a>] </td></tr>
 	    		</table>
 	    	</div>
 	    	

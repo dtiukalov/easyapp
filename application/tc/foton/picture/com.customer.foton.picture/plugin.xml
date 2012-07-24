@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension 
+   		point="com.teamcenter.rac.util.tc_properties">
+   		
+        <plugin_properties pluginName="com.customer.foton.picture"/>
+   </extension>
+  
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Sample Category"
+            id="com.customer.foton.picture">
+      </category>
+      
+      <command
+            id="com.customer.foton.picture.stylepicture.PictureUploadCommand"
+            categoryId="com.customer.foton.picture"
+            name="%quantityUpload">
+      </command>      
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.customer.foton.picture.handler.PictureUploadHandler"
+            commandId="com.customer.foton.picture.stylepicture.PictureUploadCommand">
+      </handler>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.menus">
+	      <menuContribution
+	            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+	         <menu
+	               label="%stylePicture"
+	               mnemonic="M"
+	               id="com.customer.rac.foton.menus.sampleMenu">
+	            <command
+	                  commandId="com.customer.foton.picture.stylepicture.PictureUploadCommand"
+	                  icon="platform:/plugin/com.customer.foton.picture/coins/BiaoTi_16.png"
+	                  id="com.customer.foton.picture.PictureUploadCommand1"
+	                  style="push">
+	            </command>
+	         </menu>
+	      </menuContribution>
+   </extension>
+
+</plugin>

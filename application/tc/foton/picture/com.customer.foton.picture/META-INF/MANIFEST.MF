@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Picture Plug-in
+Bundle-SymbolicName: com.customer.foton.picture;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: com.customer.foton.picture.Activator
+Bundle-Vendor: CUSTOMER
+Bundle-Localization: plugin
+Eclipse-RegisterBuddy: com.teamcenter.rac.util
+Eclipse-LazyStart: true
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ com.teamcenter.rac.aifrcp,
+ com.teamcenter.rac.external,
+ com.teamcenter.rac.neva,
+ com.teamcenter.rac.tcapps,
+ com.teamcenter.rac.util,
+ com.teamcenter.rac.kernel,
+ com.teamcenter.rac.common,
+ TcSoaCoreRac,
+ TcSoaClient
+Bundle-ClassPath: lib/jxl.jar,
+ .

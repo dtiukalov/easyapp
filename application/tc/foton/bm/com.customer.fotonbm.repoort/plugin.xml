@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+   <category
+         name="BM"
+         id="com.customer.fotonbm.report.commands.category">
+   </category>      
+   		<command
+            name="竞品车拆车"
+            categoryId="com.customer.fotonbm.report.commands.category"
+            id="com.customer.fotonbm.report.createbom">
+      	</command> 
+      	
+      	<command
+            name="竞品车质量评价表"
+            categoryId="com.customer.fotonbm.report.commands.category"
+            id="com.customer.fotonbm.report.qa">
+      	</command> 
+      	
+      	<command
+            name="竞品车整体造型评价表"
+            categoryId="com.customer.fotonbm.report.commands.category"
+            id="com.customer.fotonbm.report.sty">
+      	</command> 
+      	
+      	    	<command
+            name="Test分类"
+            categoryId="com.customer.fotonbm.report.commands.category"
+            id="com.customer.fotonbm.report.test">
+      	</command> 
+
+   </extension>
+   
+    <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="com.customer.fotonbm.report.createbom"
+            class="com.customer.fotonbm.report.createbom.CreateBOMHandler">
+      </handler>
+      
+      <handler
+            commandId="com.customer.fotonbm.report.qa"
+            class="com.customer.fotonbm.report.qa.QAHandler">
+      </handler>
+      
+       <handler
+            commandId="com.customer.fotonbm.report.sty"
+            class="com.customer.fotonbm.report.sty.StyHandler">
+      </handler>
+      
+       <handler
+            commandId="com.customer.fotonbm.report.test"
+            class="com.customer.fotonbm.report.test.TestHandler">
+      </handler>
+     
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="竞品数据导出"
+               mnemonic="M"
+               id="com.customer.fotonbm.report.menus.sampleMenu">
+            <command
+                  commandId="com.customer.fotonbm.report.createbom"
+                  mnemonic="S"
+                  id="com.customer.fotonbm.report.menus.createbomCommand"
+                  icon="platform:/plugin/com.customer.foton.sbom/icons/icon_func.png">
+               <!--   <visibleWhen>
+					<and>
+						<or>
+							<reference definitionId="com.teamcenter.rac.pse.inMainView" /> 
+						</or>
+					</and>
+ 				 </visibleWhen>-->
+            </command>
+            
+             <command
+                  commandId="com.customer.fotonbm.report.qa"
+                  mnemonic="S"
+                  id="com.customer.fotonbm.report.menus.qaCommand"
+                  icon="platform:/plugin/com.customer.foton.sbom/icons/icon_func.png">
+            </command>
+            
+               <command
+                  commandId="com.customer.fotonbm.report.sty"
+                  mnemonic="S"
+                  id="com.customer.fotonbm.report.menus.styCommand"
+                  icon="platform:/plugin/com.customer.foton.sbom/icons/icon_func.png">
+            </command>
+            
+             <command
+                  commandId="com.customer.fotonbm.report.test"
+                  mnemonic="S"
+                  id="com.customer.fotonbm.report.menus.testCommand"
+                  icon="platform:/plugin/com.customer.foton.sbom/icons/icon_func.png">
+            </command>
+           
+         </menu>
+     </menuContribution>
+   </extension>
+
+</plugin>

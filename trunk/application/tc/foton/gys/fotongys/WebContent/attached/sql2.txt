@@ -1,0 +1,3 @@
+alter table "download" add "revUid"  VARCHAR2(50);
+alter table "download" add "revItemid"  VARCHAR2(50); 
+alter table "download" add "userUid"  VARCHAR2(50); 

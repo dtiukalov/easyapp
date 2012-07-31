@@ -127,16 +127,34 @@
                       </td>
                       <td class="colName">废弃或出油</td>
                       <td class="detailColVal">
+                      <select name="flag" id="flag">
+				      	<option value="1" ${flag==1?'selected':''}>废弃</option>
+				      	<option value="0" ${empty flag||flag==0?'selected':''}>存油</option>
+				      	<option value="2" ${flag==2?'selected':''}>出油</option>
+				      	<option value="3" ${flag==3?'selected':''}>带走或外销</option>
+				      	</select>
+				      	<!-- 
                       <c:if test="${flag=='1'}">
                       <input id="flag" name="flag" type="checkbox" value="1" checked="checked"/>
                       </c:if>
                       	<c:if test="${flag!='1'}">
                       <input id="flag" name="flag" type="checkbox" value="1"/>
                       </c:if>
+                       -->
                       </td>
-                      <td class="colName">&nbsp;</td>
+                      <td class="colName">地区:</td>
                       <td class="detailColVal" style="width:35%;">
-                      	&nbsp;
+                      	<select id="cararea" name="cararea">
+                        	<option value=""></option>
+                           	<c:forEach items="${dict.crm_carArea$}" var="var">	
+                           		<c:if test="${cararea==var.key}">
+                           			<option value="${var.key}" selected="selected">${var.value}</option>
+                           		</c:if>	
+                           		<c:if test="${cararea!=var.key}">
+                           			<option value="${var.key}">${var.value}</option>
+                           		</c:if>			
+				           	</c:forEach>
+                        </select>
                       </td>
                     </tr>
               </table>   
@@ -166,7 +184,7 @@
 	                        <th>工单号</th>
 	                        <th>存油种类</th>
 	                        <th>存油量</th>
-	                        <th>出油时间</th>
+	                        <th>使用时间</th>
 	                        <th>存油接待</th>
 	                        <th>基本操作</th>                                   
 	                    </tr>
@@ -210,6 +228,8 @@
 		<input type="hidden" name="pageValue" value='${pageValue}'>
 		<input type="hidden" name="servorderid" value='${servorderid}'>
 		<input type="flag" name="flag" value='${flag}'>
+		<input type="cararea" name="cararea" value='${cararea}'>
+		
 	</form>
 </div>
 </body>

@@ -75,7 +75,7 @@
 	 
 	 cell = row.createCell(8);
 	 cell.setCellStyle(cellStyle);
-	 cell.setCellValue("出油时间");
+	 cell.setCellValue("使用时间");
 	 
 	 cell = row.createCell(9);
 	 cell.setCellStyle(cellStyle);

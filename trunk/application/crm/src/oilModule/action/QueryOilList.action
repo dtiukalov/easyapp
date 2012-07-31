@@ -118,6 +118,11 @@
 				<scope>1</scope>
 				<description></description>
 			</parameter>
+			<parameter id="20" name="cararea" classType="java.lang.String" passingType="in-out">
+				<value-key>cararea</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
 		</parameters>
 		<description>查询存油列表</description>
 	</logic>

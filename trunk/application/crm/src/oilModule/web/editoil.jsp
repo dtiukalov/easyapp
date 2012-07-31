@@ -120,9 +120,25 @@
 		<input type="hidden" name="endIndex" value="${empty endIndex?'9':endIndex}">
 		<input type="hidden" name="pageValue" value='${pageValue}'>
 	  </td>
-	  <td class="colName">出油时间:</td>
+	  <td class="colName">使用时间:</td>
       <td class="detailColVal">
          <input type="text" name="oil_oilouttime" id="oil_oilouttime" value="${saturnData.oilouttime}" onfocus="dayCalender(this)" class="Wdate"/>
+	  </td>
+    </tr>
+    <tr class="rowClass">
+      <td class="colName">状态:</td>
+      <td class="detailColVal">
+      	<select name="oil_flag" id="oil_flag">
+      	<option value="1" ${saturnData.flag==1?'selected':''}>废弃</option>
+      	<option value="0" ${empty saturnData.flag||saturnData.flag==0?'selected':''}>存油</option>
+      	<option value="2" ${saturnData.flag==2?'selected':''}>出油</option>
+      	<option value="3" ${saturnData.flag==3?'selected':''}>带走或外销</option>
+      	</select>
+	 </td>
+
+      <td class="colName">&nbsp;</td>
+      <td class="detailColVal">
+      	 &nbsp;
 	  </td>
     </tr>
   </table>

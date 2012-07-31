@@ -95,7 +95,7 @@
       <td class="detailColVal">
          <select name="oil_oilstaff" id="oil_oilstaff"></select>
 	  </td>
-	  <td class="colName">出油时间:</td>
+	  <td class="colName">使用时间:</td>
       <td class="detailColVal">
          <input type="text" name="oil_oilouttime" id="oil_oilouttime" onfocus="dayCalender(this)" class="Wdate"/>
 	  </td>

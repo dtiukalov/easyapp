@@ -1098,7 +1098,7 @@ function updateMile(){
 	  		<input type="button" style="background-color:#ccc;width:140px;cursor:pointer;" onclick="javascript:addCareWin();" value="养护"/>
 	  	</td>
 	  	<td style="text-align:center;width:150px;">
-	    	<input type="button" style="background-color:#ccc;width:140px;cursor:pointer;" onclick="javascript:addOilWin();" value="存油"/>
+	    	<input type="button" style="background-color:#ccc;width:140px;cursor:pointer;" onclick="javascript:addOilWin();" value="小桶油出库"/>
 	  	</td>
 	  </tr>
   </table>

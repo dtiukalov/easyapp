@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Tableviewer
+Bundle-SymbolicName: com.mycom.tableviewer; singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.mycom.tableviewer.Activator
+Bundle-Vendor: MYCOM
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Import-Package: com.teamcenter.rac.aif,
+ com.teamcenter.rac.aifrcp,
+ com.teamcenter.rac.common,
+ com.teamcenter.rac.kernel,
+ com.teamcenter.rac.util
+Export-Package: com.mycom.tableviewer,
+ com.mycom.tableviewer.handlers

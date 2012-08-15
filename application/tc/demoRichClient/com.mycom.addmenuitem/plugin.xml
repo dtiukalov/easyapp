@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Sample Category"
+            id="com.mycom.addmenuitem.commands.category">
+      </category>
+      <command
+            name="EasyTC"
+            categoryId="com.mycom.addmenuitem.commands.category"
+            id="com.mycom.addmenuitem.commands.sampleCommand">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="com.mycom.addmenuitem.commands.sampleCommand"
+            class="com.mycom.addmenuitem.handlers.SampleHandler">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="com.mycom.addmenuitem.commands.sampleCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+         <!-- 扩展主菜单栏-->
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="EasyTC"
+               mnemonic="M"
+               id="com.mycom.addmenuitem.menus.sampleMenu">
+            <command
+                  commandId="com.mycom.addmenuitem.commands.sampleCommand"
+                  mnemonic="S"
+                  id="com.mycom.addmenuitem.menus.sampleCommand">
+                  <visibleWhen>
+                  	<reference
+                  		definitionId="com.teamcenter.rac.ui.inMainPerspective">
+                  	</reference>
+                  </visibleWhen>
+            </command>
+         </menu>
+      </menuContribution>
+      
+       <!-- 扩展主工具条-->
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="com.mycom.addmenuitem.toolbars.sampleToolbar">
+            <command
+                  commandId="com.mycom.addmenuitem.commands.sampleCommand"
+                  icon="icons/sample.gif"
+                  tooltip="Say hello Tc world"
+                  id="com.mycom.addmenuitem.toolbars.sampleCommand">
+                  <visibleWhen>
+                  	<reference
+                  		definitionId="com.teamcenter.rac.ui.inMainPerspective">
+                  	</reference>
+                  </visibleWhen>
+            </command>
+         </toolbar>
+      </menuContribution>
+      
+       <!-- 扩展主工具条中导航条下-->
+      <menuContribution
+            locationURI="toolbar:navigator_Toolbar?after=additions">
+            <command
+                  commandId="com.mycom.addmenuitem.commands.sampleCommand"
+                  icon="icons/sample.gif"
+                  tooltip="Say hello Tc world"
+                  id="com.mycom.addmenuitem.toolbars.sampleCommand">
+                  <visibleWhen>
+                  	<reference
+                  		definitionId="com.teamcenter.rac.ui.inMainPerspective">
+                  	</reference>
+                  </visibleWhen>
+            </command>
+      </menuContribution>
+      
+      <!-- 扩展主菜单栏的工具项下-->
+      <menuContribution
+            locationURI="menu:tools?after=additions">
+            <command
+                  commandId="com.mycom.addmenuitem.commands.sampleCommand"
+                  mnemonic="S"
+                  icon="icons/sample.gif"
+                  id="com.mycom.addmenuitem.menus.sampleCommand">
+                  
+                  <visibleWhen>
+                  	<reference
+                  		definitionId="com.teamcenter.rac.ui.inMainPerspective">
+                  	</reference>
+                  </visibleWhen>
+            </command>
+      </menuContribution>
+      
+       <!-- 扩展右键弹出菜单-->
+      <menuContribution
+            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+            <command
+                  commandId="com.mycom.addmenuitem.commands.sampleCommand"
+                  mnemonic="S"
+                  icon="icons/sample.gif"
+                  id="com.mycom.addmenuitem.menus.sampleCommand">
+                  
+                  <visibleWhen>
+                  	<reference
+                  		definitionId="com.teamcenter.rac.ui.inMainPerspective">
+                  	</reference>
+                  </visibleWhen>
+            </command>
+      </menuContribution>
+      
+     <!-- 调用剪切命令-->
+     <menuContribution locationURI="menu:edit?after=cut.ext">
+		<command commandId="org.eclipse.ui.edit.cut" id="org.eclipse.ui.edit.cut"
+			label="TEST1">
+			<visibleWhen>
+				<with variable="rac_command_suppression">
+					<not>
+						<iterate operator="or">
+							<equals value="org.eclipse.ui.edit.cut"/>
+						</iterate>
+					</not>
+				</with>
+			</visibleWhen>
+			
+		</command>
+	</menuContribution>
+	
+      <!-- 调用访问管理器中的导入命令-->
+       <menuContribution locationURI="menu:file?after=save.ext">
+			<command commandId="com.teamcenter.rac.importAMRuleTree"
+				icon="icons/importamruletree_16.png" mnemonic="%importAMRuleTreeAction.MNEMONIC">
+				<visibleWhen>
+					<and>
+						
+						<with variable="rac_command_suppression">
+							<not>
+								<iterate operator="or">
+									<equals value="com.teamcenter.rac.importAMRuleTree"/>
+								</iterate>
+							</not>
+						</with>
+					</and>
+				</visibleWhen>
+			</command>
+		</menuContribution>
+		<!-- 无效的例子-->
+		<menuContribution locationURI="menu:file?after=save.ext">
+			<command commandId="com.mycom.myapp.sampleCommand"
+				tooltip="%sampleCommand.TIP">
+					<visibleWhen>
+						<and>
+							<reference definitionId="com.mycom.myapp.inMainPerspective"/>
+							<with variable="rac_command_suppression">
+								<not>
+									<iterate operator="or">
+										<equals value="com.mycom.myapp.sampleCommand"/>
+									</iterate>
+								</not>
+							</with>
+						</and>
+					</visibleWhen>
+			</command>
+	</menuContribution>
+	
+	
+	<!-- 无效的例子-->
+	<menuContribution locationURI="popup:org.eclipse.ui.popup.any?after=org.eclipse.ui.edit.paste">
+		<command commandId="com.teamcenter.rac.pasteDuplicate">
+			<visibleWhen>
+				<and>
+					<reference definitionId="com.teamcenter.rac.pse.inMainView"/>
+					<reference definitionId="com.teamcenter.rac.cme.mpp.inMainView"/>
+					<reference definitionId="com.teamcenter.rac.tcapps.isPasteDuplicateAllowed"/>
+						<with variable="rac_command_suppression">
+							<not>
+								<iterate operator="or">
+									<equals value="com.teamcenter.rac.pasteDuplicate"/>
+								</iterate>
+							</not>
+						</with>
+				</and>
+			</visibleWhen>
+		</command>
+	</menuContribution>	
+
+		
+      
+   </extension>
+
+</plugin>

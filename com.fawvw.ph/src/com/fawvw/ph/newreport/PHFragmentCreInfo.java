@@ -35,12 +35,12 @@ public class PHFragmentCreInfo {
 		if (sameMS != null) {
 			System.err.println("  ** Searching same milestone "
 					+ report.fv9MLName + " ...");
-			int typeIdx = 0;
-			while (typeIdx < policy.config.types2CopyInSameMS.size()
+			//int typeIdx = 0;
+			/*while (typeIdx < policy.config.types2CopyInSameMS.size()
 					&& report.fv9PHType.equals(policy.config.types2CopyInSameMS
 							.get(typeIdx)))
-				typeIdx++;
-			search_sc: for (typeIdx++; typeIdx < policy.config.types2CopyInSameMS
+				typeIdx++;*/
+			search_sc: for (int typeIdx=0; typeIdx < policy.config.types2CopyInSameMS
 					.size(); typeIdx++) {
 				String tryType = policy.config.types2CopyInSameMS.get(typeIdx);
 				TCComponentItemRevision tryRpt = sameMS.get(tryType);

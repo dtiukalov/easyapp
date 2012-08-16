@@ -20,18 +20,26 @@ import com.teamcenter.rac.kernel.TCSession;
 
 public class PHReportCreInfo {
 
+//	既有已发布报告又有未发布报告时，优先选用已发布报告；
+//	都是已发布报告时，优先选用发布时间晚的报告。
 	public static boolean isReportMorePreferable(TCComponentItemRevision rpt,
 			TCComponentItemRevision thanRpt) throws TCException {
 		if (thanRpt == null)
 			return true;
 		Date thanRelDate = thanRpt.getDateProperty("date_released");
+		System.out.println("thanRelDate date_released = " + thanRelDate);
 		Date relDate = rpt.getDateProperty("date_released");
-		if (relDate != null && thanRelDate == null) {
-			return true;
-		}
-		Date creDate = rpt.getDateProperty("creation_date");
-		Date thanCreDate = thanRpt.getDateProperty("creation_date");
-		return creDate.getTime() > thanCreDate.getTime();
+		System.out.println("relDate date_released = " + relDate);
+		
+        if (relDate != null) {                                                
+        	if(thanRelDate == null)                                                                
+        		return true;                                                
+        	return relDate.getTime() > thanRelDate.getTime();                                
+        }                                
+        Date creDate = rpt.getDateProperty("creation_date");                                
+        Date thanCreDate = thanRpt.getDateProperty("creation_date");                                
+        return creDate.getTime() > thanCreDate.getTime();
+
 	}
 
 	public final PHReportConfig config;
@@ -86,12 +94,17 @@ public class PHReportCreInfo {
 		prj.clearCache();
 		prj.refresh();
 		Map<String, Map<String, TCComponentItemRevision>> msm = new HashMap<String, Map<String, TCComponentItemRevision>>();
+		int count = 0;
+//		查找当前项目的数据
 		for (TCComponent c : prj.getRelatedComponents("project_data")) {
+//			如果不是PH汇报，继续查找
 			if (!c.isTypeOf("FV9PHReportRevision"))
 				continue;
 			TCComponentItemRevision rpt = (TCComponentItemRevision) c;
 			int active_seq = rpt.getIntProperty("active_seq");
 			if (active_seq != 1)
+				continue;
+			if(null == rpt.getDateProperty("date_released"))
 				continue;
 			String ms = rpt.getStringProperty("fv9MLName");
 			String t = rpt.getStringProperty("fv9PHType");
@@ -100,7 +113,8 @@ public class PHReportCreInfo {
 				tm = new HashMap<String, TCComponentItemRevision>();
 				msm.put(ms, tm);
 			}
-			if (isReportMorePreferable(rpt, tm.get(tm))) {
+			
+			if (isReportMorePreferable(rpt, tm.get(t))) {
 				tm.put(t, rpt);
 			}
 		}
@@ -126,14 +140,16 @@ public class PHReportCreInfo {
 	protected TCComponentItemRevision findLastReport(
 			Map<String, Map<String, TCComponentItemRevision>> msm) {
 		Map<String, TCComponentItemRevision> sameMS = msm.get(fv9MLName);
+		
 		if (sameMS != null) {
 			System.err.println("  ** Searching last rpt in same milestone "
 					+ fv9MLName + " ...");
-			int typeIdx = 0;
-			while (typeIdx < config.types2CopyInSameMS.size()
-					&& fv9PHType.equals(config.types2CopyInSameMS.get(typeIdx)))
-				typeIdx++;
-			for (typeIdx++; typeIdx < config.types2CopyInSameMS.size(); typeIdx++) {
+//			int typeIdx = 0;
+//			while (typeIdx < config.types2CopyInSameMS.size()
+//					&& fv9PHType.equals(config.types2CopyInSameMS.get(typeIdx)))
+//				typeIdx++;
+//			for (typeIdx++; typeIdx < config.types2CopyInSameMS.size(); typeIdx++) {
+			for (int typeIdx=0; typeIdx < config.types2CopyInSameMS.size(); typeIdx++) {
 				String tryType = config.types2CopyInSameMS.get(typeIdx);
 				TCComponentItemRevision lastRpt = sameMS.get(tryType);
 				if (lastRpt == null) {

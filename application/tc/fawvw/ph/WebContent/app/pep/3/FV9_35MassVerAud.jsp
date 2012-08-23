@@ -3,6 +3,14 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
+<style type="text/css">
+	#ybanckground{
+		background:url(<%=request.getContextPath()%>/app/pep/images/bgRound.jpg) no-repeat;
+		width:35px; 
+		height:24px; 
+		padding-top:5px;
+	}
+</style>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<%@ include file="/app/pep/include/header.jsp"%>
@@ -62,7 +70,7 @@
 		//把Audit的分值加在相应的周上
 		StringBuffer kwbuffer = new StringBuffer();
 		kwbuffer.append("[");
-		if (fv9KWNo != null && fv9KWNo.size() > 0) {
+		/* if (fv9KWNo != null && fv9KWNo.size() > 0) {
 			for (int k=0; k<fv9KWNo.size()-1; k++) {
 				if (k==0) {
 					kwbuffer.append("'" + fv9KWNo.get(k)+ "<br>( " + audit_ist + " )'");
@@ -76,7 +84,13 @@
 				}
 			}
 			
-		}
+		} */
+		if(fv9KWNo != null && fv9KWNo.size() > 0){
+			for(int k=0; k<fv9KWNo.size(); k++){
+				kwbuffer.append("'" + fv9KWNo.get(k)+ "'");
+				kwbuffer.append(",");
+			}
+		} 
 		if (kwbuffer.toString().contains(",")) {
 			kwbuffer.substring(0, kwbuffer.lastIndexOf(","));
 		}
@@ -278,6 +292,20 @@
 						style: {
 							color: 'black',
 							fontSize:'14px'
+						},
+						y: -30,
+						formatter:function() {
+							/*ie下打印背景图片或者颜色的时候，需要设置
+							ie 文件->页面设置->打印背景颜色和图片，选中。
+							Internet选项->高级下设置里找到->打印->选中打印背景颜色和图片
+							*/
+							if(this.x == 0){
+								return '<div id="ybanckground">2.1</div>' + this.total;
+							}
+							if(this.x == <%=fv9KWNo.size()%>-1){
+								return '<div id="ybanckground">1.5</div>' + this.total;
+							}
+							return this.total;
 						}
 					}
 				},
@@ -412,8 +440,8 @@
 			}, function(chart) { 
 				chart.renderer.text(
 		                '<span style="font-size:12px;">KW</span>', 
-		               	0, 
-		                450
+		               	10, 
+		                455
 		            ).attr({
 		                zIndex: 6
 		            }).add();

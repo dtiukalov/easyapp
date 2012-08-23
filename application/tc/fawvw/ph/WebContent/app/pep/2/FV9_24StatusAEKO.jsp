@@ -81,10 +81,25 @@
 			int second = 0;
 			int second_year = 0;
 			String show_year = DateUtils.getCurrentYear();
+			System.out.print(show_year);
 			if(Web.getListYesOrNo((List<String>)form.get("fv9KWNo"))){
 				List weeks = ((List<String>)form.get("fv9KWNo"));
 				int n = weeks.size();
 				length = weeks.size();
+			 	System.out.print("n++="+n);
+				for(int i = 1 ;i<n;i++){
+
+					String k  = (String)weeks.get(i);
+					int lastWeek = Integer.parseInt(k);
+
+					String l = (String)weeks.get(i-1);
+					int previousWeek = Integer.parseInt(l);
+					
+					if(lastWeek<previousWeek){
+						second=i-1;
+						break;
+					}
+				} 
 				if (n >= 2) {
 					if (Integer.parseInt((String)weeks.get(0)) >= Integer.parseInt((String)weeks.get(n-1))) {
 						first_year = Integer.parseInt((String)DateUtils.getCurrentYear()) - 1;
@@ -93,7 +108,7 @@
 							
 							if (Integer.parseInt((String)weeks.get(m)) > Integer.parseInt((String)weeks.get(m-1))) {
 								second_year = Integer.parseInt((String)DateUtils.getCurrentYear());
-								second = m-2;
+								//second =m-2;
 							} 
 						}
 						
@@ -154,7 +169,8 @@
 					linkedTo: 0,
 					lineWidth:2,
 					title: {
-						text: '<%=show_year%>',
+						enabled:false,
+						text: '<div style="width:30px; height:13px;">&nbsp;</div>',
 						style:{
 							color:'white',
 							fontSize:'14px'

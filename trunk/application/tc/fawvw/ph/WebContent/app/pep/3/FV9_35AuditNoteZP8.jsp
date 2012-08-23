@@ -54,7 +54,8 @@
 				} else {
 					anzahl = "&nbsp;";
 				}
-				anzahl = "<span style='writing-mode: bt-lr; height:" + (8 * maxHeight) + "px;'>" + anzahl + "</span>";
+				/* anzahl = "<span style='writing-Mode:tb-rl ;  height:" + (8 * maxHeight) + "px;'>" + anzahl + "</span>";  */
+				anzahl = "<span style='position:absolute;filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3) ; margin-left:-5px;margin-top:-16px;'>" + anzahl + "</span>";
 				if (i == kw_list.size()-1) {
 					x.append("\"" + anzahl + "<br>" + kw_list.get(i)+ "\"");
 				} else { 
@@ -88,7 +89,7 @@
 						lineColor:'gray',
 						tickColor:'gray',
 						labels: {
-							y:25,
+							y:32,
 							//x:-6,
 							style: {
 								color:'black',

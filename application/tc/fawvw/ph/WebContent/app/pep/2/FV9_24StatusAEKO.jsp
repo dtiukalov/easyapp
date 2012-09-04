@@ -283,8 +283,8 @@
 						color: 'white'
 					}
 				},{
-					data: [[0, <%=max%>], [<%=length+10%>, <%=max%>]],
-					//			color: 'black',
+					data: [[1, <%=max%>], [<%=length+13%>, <%=max%>]],
+								color: 'black',
 								dashStyle: 'dash',
 								lineWidth: 2,
 								marker: {enabled: false},
@@ -299,7 +299,7 @@
 										return "<%=max%>";
 									},
 									style : {
-										fontSize:'10px',
+										fontSize:'14px',
 										fontWeight: 'bold'
 									},
 									x:-8,

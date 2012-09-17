@@ -157,6 +157,20 @@
                         </select>
                       </td>
                     </tr>
+                    <tr>
+                      <td class="colName">存油编号:</td>
+                      <td class="detailColVal">
+                      	<input type="text" name="oilnumber" id="oilnumber" value="${oilnumber}"/>
+                      </td>
+                      <td class="colName">&nbsp;</td>
+                      <td class="detailColVal">
+                      	&nbsp;
+                      </td>
+                      <td class="colName">&nbsp;</td>
+                      <td class="detailColVal" style="width:35%;">
+                      	&nbsp;
+                      </td>
+                    </tr>
               </table>   
               <div style="margin-buttom:10px;text-align:center;">
                     <input type="submit" value="查询" />
@@ -181,8 +195,8 @@
 	                        <th>车牌号</th>
 	                        <th>存油时间</th>
 	                        <th>存油编号</th>
-	                        <th>工单号</th>
 	                        <th>存油种类</th>
+	                        <th>工单号</th>
 	                        <th>存油量</th>
 	                        <th>使用时间</th>
 	                        <th>存油接待</th>
@@ -199,8 +213,8 @@
                         <td>${var.carlicenceno}</td>
                         <td>${fn:substring(var.oilstoretime,0,10)}</td>
                         <td>${var.oilnumber}</td>
-                        <td>${var.servorderid}</td>
                         <td>${var.oiltype_dict}</td>
+                        <td>${var.servorderid}</td>
                         <td>${var.oilamount}</td>
                         <td>${fn:substring(var.oilouttime,0,10)}</td>
                         <td>${var.oilstaff_dict}</td>
@@ -227,8 +241,9 @@
 		<input type="hidden" name="endIndex" value='${endIndex}'>
 		<input type="hidden" name="pageValue" value='${pageValue}'>
 		<input type="hidden" name="servorderid" value='${servorderid}'>
-		<input type="flag" name="flag" value='${flag}'>
-		<input type="cararea" name="cararea" value='${cararea}'>
+		<input type="hidden" id="flag" name="flag" value='${flag}'>
+		<input type="hidden" id="cararea" name="cararea" value='${cararea}'>
+		<input type="hidden" name="oilnumber" id="oilnumber" value="${oilnumber}"/>
 		
 	</form>
 </div>

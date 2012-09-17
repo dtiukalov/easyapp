@@ -47,102 +47,64 @@ function findExcel(){
 		public String type;
 		
 		//0：正常, 1:保险
-		public int[][] dayNumStatic = new int[2][7]; //CIVIC, CR-V, SPIRIOR, 广本, 其他, 总计
-		public float[][] dayMoneyStatic = new float[2][7]; //CIVIC, CR-V, SPIRIOR, 广本, 其他, 总计
-		public int[][] monthNumStatic = new int[2][7]; //CIVIC, CR-V, SPIRIOR, 广本, 其他, 总计
-		public float[][] monthMoneyStatic = new float[2][7]; //CIVIC, CR-V, SPIRIOR, 广本, 其他, 总计
-		
-		//车型集合
-		List civic = new ArrayList();
-		List crv = new ArrayList();
-		List spirior = new ArrayList();
-		List dfhonda = new ArrayList();
-		List gzhonda = new ArrayList();
-		
+		public int[][] dayNumStatic = new int[2][6]; //CIVIC, CR-V, SPIRIOR, 广本, 其他, 总计
+		public float[][] dayMoneyStatic = new float[2][6]; //CIVIC, CR-V, SPIRIOR, 广本, 其他, 总计
+		public int[][] monthNumStatic = new int[2][6]; //CIVIC, CR-V, SPIRIOR, 广本, 其他, 总计
+		public float[][] monthMoneyStatic = new float[2][6]; //CIVIC, CR-V, SPIRIOR, 广本, 其他, 总计
 		
 		public FlowStatic(String type) {
 			this.type = type;
-			
-			civic.add("105006");
-			crv.add("105007");
-			spirior.add("105008");
-			dfhonda.add("105014");
-			dfhonda.add("105018");
-			dfhonda.add("105020");
-			dfhonda.add("106073");
-			gzhonda.add("105002");
-			gzhonda.add("105003");
-			gzhonda.add("105004");
-			gzhonda.add("105019");
 		}
 		
 		public void add(Map vo, String currentDay) {
 			String level = (String)vo.get("carCardLevel");
 			String series = (String)vo.get("carSeries");
-			String servInTime = (String)vo.get("servInTime");
 			String servOutTime = (String)vo.get("servOutTime");
 			String servType = (String)vo.get("servType");
-			float smoney = ((Float)vo.get("servrepairexp")).floatValue();
-			//float servRepairExp = ((Float)vo.get("servRepairExp")).floatValue();
-			//float servInsureExp = ((Float)vo.get("servInsureExp")).floatValue();
+			float smoney = ((Float)vo.get("servAmountExp")).floatValue();
 			
 			int type = 0;//0：正常, 1:保险
-			if ("112003".equals(servType)) {
+			if ("112011".equals(servType)) {
 				type = 1;
-				smoney = ((Float)vo.get("servinsureexp")).floatValue();
 			}
 			
 			if (servOutTime.startsWith(currentDay)) {//日统计
 				if (series != null && series.length() == 6) {
-					if (civic.contains(series)) {	
-						dayNumStatic[type][0]++;
-						dayMoneyStatic[type][0] += smoney;
-					} else if (crv.contains(series)) {
-						dayNumStatic[type][1]++;
-						dayMoneyStatic[type][1] += smoney;
-					} else if (spirior.contains(series)) {
-						dayNumStatic[type][2]++;
-						dayMoneyStatic[type][2] += smoney;
-					} else if (dfhonda.contains(series)) {
+					int index = series.charAt(5) - '6';
+					if (index >= 0 && index <= 2) {
+						dayNumStatic[type][index]++;
+						dayMoneyStatic[type][index] += smoney;
+					} else if (index == -4) {
 						dayNumStatic[type][3]++;
 						dayMoneyStatic[type][3] += smoney;
-					} else if (gzhonda.contains(series)) {
+					} else {
 						dayNumStatic[type][4]++;
 						dayMoneyStatic[type][4] += smoney;
-					} else {
-						dayNumStatic[type][5]++;
-						dayMoneyStatic[type][5] += smoney;
 					}
 					//
-					dayNumStatic[0][6]++;
-					dayMoneyStatic[0][6] += smoney;
+					//dayNumStatic[type][5]++;
+					//dayMoneyStatic[type][5] += smoney;
 				}
 			}
 			//月统计
 			if (series != null && series.length() == 6) {
-				if (civic.contains(series)) {	
-					monthNumStatic[type][0]++;
-					monthMoneyStatic[type][0] += smoney;
-				} else if (crv.contains(series)) {
-					monthNumStatic[type][1]++;
-					monthMoneyStatic[type][1] += smoney;
-				} else if (spirior.contains(series)) {
-					monthNumStatic[type][2]++;
-					monthMoneyStatic[type][2] += smoney;
-				} else if (dfhonda.contains(series)) {
+				int index = series.charAt(5) - '6';
+				if (index >= 0 && index <= 2) {
+					monthNumStatic[type][index]++;
+					monthMoneyStatic[type][index] += smoney;
+				} else if (index == -4) {
 					monthNumStatic[type][3]++;
 					monthMoneyStatic[type][3] += smoney;
-				} else if (gzhonda.contains(series)) {
+				} else {
 					monthNumStatic[type][4]++;
 					monthMoneyStatic[type][4] += smoney;
-				} else {
-					monthNumStatic[type][5]++;
-					monthMoneyStatic[type][5] += smoney;
 				}
-				monthNumStatic[0][6]++;
-				monthMoneyStatic[0][6] += smoney;
+				//monthNumStatic[type][5]++;
+				//monthMoneyStatic[type][5] += smoney;
 			}
 			
+			dayNumStatic[0][5]++;
+			dayMoneyStatic[0][5] += smoney;
 		}
 		
 		public int getDaySum(int type) {
@@ -166,13 +128,13 @@ function findExcel(){
 		public String toTdStr() {
 			StringBuffer buffer = new StringBuffer();
 			
-			buffer.append("<td>" + this.dayNumStatic[0][6]+ "</td>");
-			buffer.append("<td>" + this.dayMoneyStatic[0][6]+ "</td>");
-			buffer.append("<td>" + this.monthNumStatic[0][6]+ "</td>");
-			buffer.append("<td>" + this.monthMoneyStatic[0][6]+ "</td>");
+			buffer.append("<td>" + this.dayNumStatic[0][5]+ "</td>");
+			buffer.append("<td>" + this.dayMoneyStatic[0][5]+ "</td>");
+			buffer.append("<td>" + this.monthNumStatic[0][5]+ "</td>");
+			buffer.append("<td>" + this.monthMoneyStatic[0][5]+ "</td>");
 			
 			for (int i = 0; i < 2; ++i) {
-				for (int j = 0; j < 6; ++j) {
+				for (int j = 0; j < 5; ++j) {
 					buffer.append("<td>" + this.dayNumStatic[i][j]+ "</td>");
 					buffer.append("<td>" + this.dayMoneyStatic[i][j]+ "</td>");
 					buffer.append("<td>" + this.monthNumStatic[i][j]+ "</td>");
@@ -211,96 +173,30 @@ function findExcel(){
 	
 	if (result != null) {
 		String currentVin = null;
-		String currentInTime = null;
 		String currentTime = null;
 		for (int i = 0; i < result.size(); ++i) {
 			Map vo = (Map) result.get(i);
-			if ("112003".equals((String)vo.get("servType"))) {
-				continue;
-			}
 			String carVin = (String)vo.get("carVin");
-			String servInTime = ((String)vo.get("servInTime")).substring(0, 10);//2010-11-11
 			String servOutTime = ((String)vo.get("servOutTime")).substring(0, 10);//2010-11-11
 			
-			if (currentVin == null || !currentVin.equals(carVin) || (currentVin.equals(carVin)&&(!currentInTime.equals(servInTime)||!currentTime.equals(servOutTime)))) {
-				Float voSmoney = (Float)vo.get("servrepairexp"); 
-				Float voSmoney_tick = new Float(0);
-				if(vo.get("servticketexp")!=null&&!"".equals(vo.get("servticketexp"))){
-					voSmoney_tick = (Float)vo.get("servticketexp"); 
-					vo.put("servrepairexp",new Float(voSmoney.floatValue() - voSmoney_tick.floatValue()));
-				}
+			if (currentVin == null || !currentVin.equals(carVin)) {
 				filter.add(vo);
-				currentInTime = servInTime;
 				currentTime = servOutTime;
 				currentVin = carVin;
 			} else {
 				Map last = (Map)filter.get(filter.size()-1);
 				if (last != null && vo != null) {
-					//Float smoney = (Float)last.get("servAmountExp"); 
-					//Float voSmoney = (Float)vo.get("servAmountExp"); 
-					//last.put("servAmountExp", new Float(smoney.floatValue() + voSmoney.floatValue()));
-					Float smoney = (Float)last.get("servrepairexp"); 
-					Float voSmoney = (Float)vo.get("servrepairexp"); 
-					Float voSmoney_tick = new Float(0);
-					if(vo.get("servticketexp")!=null&&!"".equals(vo.get("servticketexp"))){
-						voSmoney_tick = (Float)vo.get("servticketexp"); 
-					}
-					
-					last.put("servrepairexp", new Float(smoney.floatValue() + voSmoney.floatValue() - voSmoney_tick.floatValue()));
-					
-					//Float smoney1 = (Float)last.get("servinsureexp"); 
-					//Float voSmoney1 = (Float)vo.get("servinsureexp"); 
-					//last.put("servinsureexp", new Float(smoney1.floatValue() + voSmoney1.floatValue()));
-					
+					Float smoney = (Float)last.get("servAmountExp"); 
+					Float voSmoney = (Float)vo.get("servAmountExp"); 
+					last.put("servAmountExp", new Float(smoney.floatValue() + voSmoney.floatValue()));
 				}
 			}
 		}
-		for (int i = 0; i < result.size(); ++i) {
-			Map vo = (Map) result.get(i);
-			if (!"112003".equals((String)vo.get("servType"))) {
-				continue;
-			}
-			String carVin = (String)vo.get("carVin");
-			String servInTime = ((String)vo.get("servInTime")).substring(0, 10);//2010-11-11
-			String servOutTime = ((String)vo.get("servOutTime")).substring(0, 10);//2010-11-11
-			
-			if (currentVin == null || !currentVin.equals(carVin) || (currentVin.equals(carVin)&&(!currentInTime.equals(servInTime)||!currentTime.equals(servOutTime)))) {
-				Float voSmoney = (Float)vo.get("servinsureexp"); 
-				Float voSmoney_tick = new Float(0);
-				if(vo.get("servticketexp")!=null&&!"".equals(vo.get("servticketexp"))){
-					voSmoney_tick = (Float)vo.get("servticketexp"); 
-					vo.put("servinsureexp",new Float(voSmoney.floatValue() - voSmoney_tick.floatValue()));
-				}
-				filter.add(vo);
-				currentInTime = servInTime;
-				currentTime = servOutTime;
-				currentVin = carVin;
-			} else {
-				Map last = (Map)filter.get(filter.size()-1);
-				if (last != null && vo != null) {
-					//Float smoney = (Float)last.get("servAmountExp"); 
-					//Float voSmoney = (Float)vo.get("servAmountExp"); 
-					//last.put("servAmountExp", new Float(smoney.floatValue() + voSmoney.floatValue()));
-					//Float smoney = (Float)last.get("servrepairexp"); 
-					//Float voSmoney = (Float)vo.get("servrepairexp"); 
-					//last.put("servrepairexp", new Float(smoney.floatValue() + voSmoney.floatValue()));
-					
-					Float smoney1 = (Float)last.get("servinsureexp"); 
-					Float voSmoney1 = (Float)vo.get("servinsureexp"); 
-					
-					Float voSmoney_tick = new Float(0);
-					if(vo.get("servticketexp")!=null&&!"".equals(vo.get("servticketexp"))){
-						voSmoney_tick = (Float)vo.get("servticketexp"); 
-					}
-					last.put("servinsureexp", new Float(smoney1.floatValue() + voSmoney1.floatValue() - voSmoney_tick.floatValue()));
-					
-				}
-			}
-		}
+		
 		for (int i = 0; i < filter.size(); ++i) {
 			Map vo = (Map) filter.get(i);
 			
-			sum.add(vo, statisticdate);///------
+			sum.add(vo, statisticdate);
 			
 			String source = (String)vo.get("carSource");
 			String area = (String)vo.get("carArea");
@@ -316,7 +212,6 @@ function findExcel(){
 			} else {
 				((FlowStatic)areaMap.get("其他")).add(vo, statisticdate);
 			}
-			
 		}
 	}
 	
@@ -385,9 +280,9 @@ function findExcel(){
 		<tr>
 			<td rowspan="4" colspan='2' style="width: 80px;"></td>
 			<td rowspan='2' colspan='4' style="width: 160px;">小计</td>
-			<td colspan='24'
+			<td colspan='20'
 				style="line-height: 18px; text-align: center; width: 800px;">正常维修保养</td>
-			<td colspan='24'
+			<td colspan='20'
 				style="line-height: 18px; text-align: center; width: 800px;">保险车辆</td>
 			<!--  <td colspan='4'
 				style="line-height: 18px; text-align: center; width: 160px;">其他</td>-->
@@ -396,20 +291,18 @@ function findExcel(){
 			<td colspan='4' class="">CIVIC</td>
 			<td colspan='4' class="">CRV</td>
 			<td colspan='4' class="">SPIRIOR</td>
-			<td colspan='4' class="">东本其他</td>
 			<td colspan='4' class="">广本</td>
 			<td colspan='4' class="">其他</td>
 			<td colspan='4' class="">CIVIC</td>
 			<td colspan='4' class="">CRV</td>
 			<td colspan='4' class="">SPIRIOR</td>
-			<td colspan='4' class="">东本其他</td>
 			<td colspan='4' class="">广本</td>
 			<td colspan='4' class="">其他</td>
 			<td colspan='4' class="">其他</td>
 		</tr>
 		<tr>
 			<%
-			for (int i = 0; i < 14; i++) {
+			for (int i = 0; i < 12; i++) {
 			%>
 			<td colspan='2' class="">当日</td>
 			<td colspan='2' class="">月累计</td>
@@ -419,7 +312,7 @@ function findExcel(){
 		</tr>
 		<tr>
 			<%
-			for (int i = 0; i < 28; i++) {
+			for (int i = 0; i < 24; i++) {
 			%>
 			<td style="width: 30px; height: 18px;">台次</td>
 			<td style="width: 50px; height: 18px;">金额</td>

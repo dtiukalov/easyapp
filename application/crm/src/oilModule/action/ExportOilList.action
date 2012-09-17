@@ -79,7 +79,12 @@
 			</parameter>
 			<parameter id="12" name="" classType="java.lang.String" passingType="in">
 				<value-key>cararea</value-key>
-				<scope>1</scope>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="13" name="" classType="java.lang.String" passingType="in-out">
+				<value-key>oilnumber</value-key>
+				<scope>2</scope>
 				<description></description>
 			</parameter>
 		</parameters>

@@ -15,6 +15,9 @@
 	<field name="carVin" length="20" type="VARCHAR" column="carVin" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_HONDAFLOWSTATISTIC" javaType="java.lang.String">
 		<validates value-key="carVin" classType="java.lang.String" isValidate="false"></validates>
 	</field>
+	<field name="servInTime" length="20" type="VARCHAR" column="servInTime" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_HONDAFLOWSTATISTIC" javaType="java.lang.String">
+		<validates value-key="servInTime" classType="java.lang.String" isValidate="false"></validates>
+	</field>
 	<field name="servOutTime" length="20" type="VARCHAR" column="servOutTime" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_HONDAFLOWSTATISTIC" javaType="java.lang.String">
 		<validates value-key="servOutTime" classType="java.lang.String" isValidate="false"></validates>
 	</field>
@@ -30,10 +33,32 @@
 	<field name="statisticgrade" length="20" type="VARCHAR" column="STATISTICGRADE" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_BENEFITESTIMATES">
 		<validates value-key="STATISTICGRADE" classType="java.lang.String" isValidate="false"></validates>
 	</field>
+	<field name="servrepairexp" length="9" type="FLOAT" column="SERVREPAIREXP" javaType="java.lang.Float" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVEXP">
+		<validates value-key="SERVREPAIREXP" classType="java.lang.Float" isValidate="false"></validates>
+	</field>
+	<field name="servinsureexp" length="12" type="FLOAT" column="SERVINSUREEXP" javaType="java.lang.Float" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVEXP">
+		<validates value-key="SERVINSUREEXP" classType="java.lang.Float" isValidate="false"></validates>
+	</field>
+	<field name="servorderid" length="30" type="VARCHAR" column="SERVORDERID" javaType="java.lang.String" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVEXP">
+		<validates value-key="SERVORDERID" classType="java.lang.String" isValidate="false"></validates>
+	</field>
+	<field name="servticketexp" length="9" type="FLOAT" column="SERVTICKETEXP" javaType="java.lang.Float" showName="" defaultValue="" dictTypeId="" datetimeFormat="" numberFormat="" columnAlias="" isPrimaryKey="" sequenceName="" tableName="CRM_SERVEXP">
+		<validates value-key="SERVTICKETEXP" classType="java.lang.Float" isValidate="false"></validates>
+	</field>
 </fields>
 <description>'http://crm/coreModule/data::crm_BeneFitestimates'</description></data>
 <sqls>
 	<sql id="crm_BeneFitestimates2">
+		select c.carArea carArea, c.carSource ,c.carSeries, s.carVin, s.servInTime, s.servOutTime, c.carCardLevel, s.servAmountExp,sxp.servOrderId,sxp.servType,sxp.servRepairExp,sxp.servInsureExp,sxp.servTicketExp
+		from `crm_car` c,crm_service s,crm_servexp sxp
+		where 1=1
+		and c.`carVin`= s.`carVin`
+		and s.`servOrderId`= sxp.`servOrderId`
+		and SUBSTR(s.`servOutTime`, 1, 7)  = SUBSTR('${statisticdate}',1,7)
+		and SUBSTR('${statisticdate}',1,10)>=SUBSTR(s.`servOutTime`,1,10)
+		order by carVin asc, servOutTime desc, s.servInTime desc
+	</sql>
+	<sql id="crm_BeneFitestimates3">
 		select c.carArea carArea, c.carSource ,c.carSeries, s.carVin, s.servOutTime, c.carCardLevel, s.servAmountExp, s.servType
 		from `crm_car` c,crm_service s
 		where 1=1

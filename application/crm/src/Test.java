@@ -106,7 +106,9 @@ public class Test {
 	        //String name = (String) d[1];   
 	        //String prefix = (String) d[2];   
 	    }   */
-		System.out.println(Arrays.toString("0000000a".split("")));
+		//System.out.println(Arrays.toString("0000000a".split("")));
+		
+		System.out.println("2012-09-1100:00:00.0".startsWith("2012-09-11"));
 	}
 	/*
 	public static void main(String[] args) {

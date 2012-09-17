@@ -46,29 +46,6 @@
 		<parameters></parameters>
 		<description></description>
 	</end>
-	<component exception="" id="8" next="3" x="560" y="273">
-		<key>edu.ccut.saturn.basecomponent::/databaseComponent/UpdateByPrimaryKeyComponent.component</key>
-		<name>依主键更新</name>
-		<parameters>
-			<parameter id="1" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
-				<value-key>saturnData</value-key>
-				<scope>1</scope>
-				<description>操作的saturnData</description>
-			</parameter>
-			<parameter id="2" name="result" classType="java.lang.Integer" passingType="out">
-				<value-key>result</value-key>
-				<scope>1</scope>
-				<description>sql执行所修改的记录条数</description>
-			</parameter>
-			<parameter id="3" name="specialcolumn" classType="java.lang.String" passingType="in">
-				<value-key>'oilnumber'</value-key>
-				<scope>1</scope>
-				<description>需要插入0 和 null 的属性列表 形如： 'column1,column2,column5'</description>
-			</parameter>
-		</parameters>
-		<configuration type="SaturnComponentNode"></configuration>
-		<description>依主键更新数据组件</description>
-	</component>
 	<component exception="" id="6" next="7" x="326" y="104">
 		<key>edu.ccut.saturn.basecomponent::/dataOperationComponent/SetDataValues.component</key>
 		<name>批量设置SaturnData中的字段的值</name>
@@ -166,11 +143,34 @@
 		<configuration type="SaturnComponentNode"></configuration>
 		<description>依主键更新数据组件</description>
 	</component>
+	<component exception="" id="8" next="3" x="560" y="273">
+		<key>edu.ccut.saturn.basecomponent::/databaseComponent/UpdateByPrimaryKeyComponent.component</key>
+		<name>依主键更新</name>
+		<parameters>
+			<parameter id="1" name="saturnData" classType="edu.ccut.saturn.component.SaturnData" passingType="in">
+				<value-key>saturnData</value-key>
+				<scope>1</scope>
+				<description>操作的saturnData</description>
+			</parameter>
+			<parameter id="2" name="result" classType="java.lang.Integer" passingType="out">
+				<value-key>result</value-key>
+				<scope>1</scope>
+				<description>sql执行所修改的记录条数</description>
+			</parameter>
+			<parameter id="3" name="specialcolumn" classType="java.lang.String" passingType="in">
+				<value-key>specialcolumn</value-key>
+				<scope>1</scope>
+				<description>需要插入0 和 null 的属性列表 形如： 'column1,column2,column5'</description>
+			</parameter>
+		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
+		<description>依主键更新数据组件</description>
+	</component>
 	<connection source="4" target="6" style="1" name=""></connection>
-	<connection source="5" target="3" style="1" name=""></connection>
-	<connection source="9" target="8" style="1" name=""></connection>
-	<connection source="6" target="7" style="1" name=""></connection>
 	<connection source="8" target="3" style="1" name=""></connection>
+	<connection source="6" target="7" style="1" name=""></connection>
+	<connection source="9" target="8" style="1" name=""></connection>
+	<connection source="5" target="3" style="1" name=""></connection>
 	<connection source="1" target="4" style="1" name=""></connection>
 	<connection source="7" target="5" style="1" name="未命名"></connection>
 	<connection source="7" target="8" style="2" name="未命名"></connection>

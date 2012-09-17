@@ -115,12 +115,17 @@
 			</parameter>
 			<parameter id="19" name="" classType="java.lang.String" passingType="in-out">
 				<value-key>flag</value-key>
-				<scope>1</scope>
+				<scope>2</scope>
 				<description></description>
 			</parameter>
 			<parameter id="20" name="cararea" classType="java.lang.String" passingType="in-out">
 				<value-key>cararea</value-key>
-				<scope>1</scope>
+				<scope>2</scope>
+				<description></description>
+			</parameter>
+			<parameter id="21" name="" classType="java.lang.String" passingType="in-out">
+				<value-key>oilnumber</value-key>
+				<scope>2</scope>
 				<description></description>
 			</parameter>
 		</parameters>

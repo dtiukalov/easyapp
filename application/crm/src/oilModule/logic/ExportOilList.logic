@@ -47,84 +47,78 @@
 		<parameters></parameters>
 		<description></description>
 	</decision>
-	<component exception="" id="4" next="3" x="333" y="176">
-		<key>edu.ccut.saturn.basecomponent::/databaseComponent/QueryByConditionExtComponent.component</key>
-		<name>依动态条件查询</name>
+	<start id="1" next="5" x="81" y="161">
+		<name>开始</name>
+		<transaction autorollback="false"></transaction>
 		<parameters>
-			<parameter id="1" name="fullkey" classType="java.lang.String" passingType="in">
-				<value-key>'http://crm/coreModule/data::crm_oil_view'</value-key>
+			<parameter id="1" name="" classType="java.lang.String" passingType="in">
+				<value-key>carvin</value-key>
 				<scope>1</scope>
-				<description>生成SaturnData所需的fullkey</description>
+				<description></description>
 			</parameter>
-			<parameter id="2" name="logicContext" classType="java.util.HashMap" passingType="in">
-				<value-key>${context}</value-key>
+			<parameter id="2" name="" classType="java.lang.String" passingType="in">
+				<value-key>carcardid</value-key>
 				<scope>1</scope>
-				<description>logicContext</description>
+				<description></description>
 			</parameter>
-			<parameter id="3" name="result" classType="java.util.ArrayList" passingType="out">
-				<value-key>result</value-key>
+			<parameter id="3" name="" classType="java.lang.String" passingType="in">
+				<value-key>max_oilouttime</value-key>
 				<scope>1</scope>
-				<description>返回SaturnData结果集</description>
+				<description></description>
 			</parameter>
 			<parameter id="4" name="" classType="java.lang.String" passingType="in">
-				<value-key>'carcardid=${carcardid}'</value-key>
+				<value-key>min_oilouttime</value-key>
 				<scope>1</scope>
 				<description></description>
 			</parameter>
 			<parameter id="5" name="" classType="java.lang.String" passingType="in">
-				<value-key>'carvin like '%${carvin}%''</value-key>
+				<value-key>max_oilstoretime</value-key>
 				<scope>1</scope>
 				<description></description>
 			</parameter>
 			<parameter id="6" name="" classType="java.lang.String" passingType="in">
-				<value-key>'oilstoretime &lt;= ${max_oilstoretime}'</value-key>
+				<value-key>min_oilstoretime</value-key>
 				<scope>1</scope>
 				<description></description>
 			</parameter>
 			<parameter id="7" name="" classType="java.lang.String" passingType="in">
-				<value-key>'oilstoretime &gt;= ${min_oilstoretime}'</value-key>
+				<value-key>oilstate</value-key>
 				<scope>1</scope>
 				<description></description>
 			</parameter>
 			<parameter id="8" name="" classType="java.lang.String" passingType="in">
-				<value-key>'oilstaff=${oilstaff}'</value-key>
+				<value-key>oilstaff</value-key>
 				<scope>1</scope>
 				<description></description>
 			</parameter>
-			<parameter id="9" name="" classType="java.lang.String" passingType="in">
-				<value-key>'oilouttime &gt;= ${min_oilouttime}'</value-key>
+			<parameter id="9" name="result" classType="java.util.ArrayList" passingType="out">
+				<value-key>result</value-key>
 				<scope>1</scope>
-				<description></description>
+				<description>返回SaturnData结果集</description>
 			</parameter>
 			<parameter id="10" name="" classType="java.lang.String" passingType="in">
-				<value-key>'oilouttime &lt;= ${max_oilouttime}'</value-key>
+				<value-key>servorderid</value-key>
 				<scope>1</scope>
 				<description></description>
 			</parameter>
 			<parameter id="11" name="" classType="java.lang.String" passingType="in">
-				<value-key>'oilstate=${oilstate}'</value-key>
+				<value-key>flag</value-key>
 				<scope>1</scope>
 				<description></description>
 			</parameter>
 			<parameter id="12" name="" classType="java.lang.String" passingType="in">
-				<value-key>'servorderid = '${servorderid}''</value-key>
+				<value-key>cararea</value-key>
 				<scope>1</scope>
 				<description></description>
 			</parameter>
 			<parameter id="13" name="" classType="java.lang.String" passingType="in">
-				<value-key>'(flag='0' or flag is null)'</value-key>
-				<scope>1</scope>
-				<description></description>
-			</parameter>
-			<parameter id="14" name="" classType="java.lang.String" passingType="in">
-				<value-key>'cararea = '${cararea}''</value-key>
+				<value-key>oilnumber</value-key>
 				<scope>1</scope>
 				<description></description>
 			</parameter>
 		</parameters>
-		<configuration type="SaturnComponentNode"></configuration>
 		<description></description>
-	</component>
+	</start>
 	<component exception="" id="7" next="3" x="513" y="269">
 		<key>edu.ccut.saturn.basecomponent::/databaseComponent/QueryByConditionExtComponent.component</key>
 		<name>依动态条件查询</name>
@@ -199,77 +193,98 @@
 				<scope>1</scope>
 				<description></description>
 			</parameter>
+			<parameter id="15" name="" classType="java.lang.String" passingType="in">
+				<value-key>'oilnumber = '${oilnumber}''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
 		</parameters>
 		<configuration type="SaturnComponentNode"></configuration>
 		<description></description>
 	</component>
-	<start id="1" next="5" x="81" y="161">
-		<name>开始</name>
-		<transaction autorollback="false"></transaction>
+	<component exception="" id="4" next="3" x="333" y="176">
+		<key>edu.ccut.saturn.basecomponent::/databaseComponent/QueryByConditionExtComponent.component</key>
+		<name>依动态条件查询</name>
 		<parameters>
-			<parameter id="1" name="" classType="java.lang.String" passingType="in">
-				<value-key>carvin</value-key>
+			<parameter id="1" name="fullkey" classType="java.lang.String" passingType="in">
+				<value-key>'http://crm/coreModule/data::crm_oil_view'</value-key>
 				<scope>1</scope>
-				<description></description>
+				<description>生成SaturnData所需的fullkey</description>
 			</parameter>
-			<parameter id="2" name="" classType="java.lang.String" passingType="in">
-				<value-key>carcardid</value-key>
+			<parameter id="2" name="logicContext" classType="java.util.HashMap" passingType="in">
+				<value-key>${context}</value-key>
 				<scope>1</scope>
-				<description></description>
+				<description>logicContext</description>
 			</parameter>
-			<parameter id="3" name="" classType="java.lang.String" passingType="in">
-				<value-key>max_oilouttime</value-key>
-				<scope>1</scope>
-				<description></description>
-			</parameter>
-			<parameter id="4" name="" classType="java.lang.String" passingType="in">
-				<value-key>min_oilouttime</value-key>
-				<scope>1</scope>
-				<description></description>
-			</parameter>
-			<parameter id="5" name="" classType="java.lang.String" passingType="in">
-				<value-key>max_oilstoretime</value-key>
-				<scope>1</scope>
-				<description></description>
-			</parameter>
-			<parameter id="6" name="" classType="java.lang.String" passingType="in">
-				<value-key>min_oilstoretime</value-key>
-				<scope>1</scope>
-				<description></description>
-			</parameter>
-			<parameter id="7" name="" classType="java.lang.String" passingType="in">
-				<value-key>oilstate</value-key>
-				<scope>1</scope>
-				<description></description>
-			</parameter>
-			<parameter id="8" name="" classType="java.lang.String" passingType="in">
-				<value-key>oilstaff</value-key>
-				<scope>1</scope>
-				<description></description>
-			</parameter>
-			<parameter id="9" name="result" classType="java.util.ArrayList" passingType="out">
+			<parameter id="3" name="result" classType="java.util.ArrayList" passingType="out">
 				<value-key>result</value-key>
 				<scope>1</scope>
 				<description>返回SaturnData结果集</description>
 			</parameter>
+			<parameter id="4" name="" classType="java.lang.String" passingType="in">
+				<value-key>'carcardid=${carcardid}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="5" name="" classType="java.lang.String" passingType="in">
+				<value-key>'carvin like '%${carvin}%''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="6" name="" classType="java.lang.String" passingType="in">
+				<value-key>'oilstoretime &lt;= ${max_oilstoretime}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="7" name="" classType="java.lang.String" passingType="in">
+				<value-key>'oilstoretime &gt;= ${min_oilstoretime}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="8" name="" classType="java.lang.String" passingType="in">
+				<value-key>'oilstaff=${oilstaff}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="9" name="" classType="java.lang.String" passingType="in">
+				<value-key>'oilouttime &gt;= ${min_oilouttime}'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
 			<parameter id="10" name="" classType="java.lang.String" passingType="in">
-				<value-key>servorderid</value-key>
+				<value-key>'oilouttime &lt;= ${max_oilouttime}'</value-key>
 				<scope>1</scope>
 				<description></description>
 			</parameter>
 			<parameter id="11" name="" classType="java.lang.String" passingType="in">
-				<value-key>flag</value-key>
+				<value-key>'oilstate=${oilstate}'</value-key>
 				<scope>1</scope>
 				<description></description>
 			</parameter>
 			<parameter id="12" name="" classType="java.lang.String" passingType="in">
-				<value-key>cararea</value-key>
+				<value-key>'servorderid = '${servorderid}''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="13" name="" classType="java.lang.String" passingType="in">
+				<value-key>'(flag='0' or flag is null)'</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="14" name="" classType="java.lang.String" passingType="in">
+				<value-key>'cararea = '${cararea}''</value-key>
+				<scope>1</scope>
+				<description></description>
+			</parameter>
+			<parameter id="15" name="" classType="java.lang.String" passingType="in">
+				<value-key>'oilnumber = '${oilnumber}''</value-key>
 				<scope>1</scope>
 				<description></description>
 			</parameter>
 		</parameters>
+		<configuration type="SaturnComponentNode"></configuration>
 		<description></description>
-	</start>
+	</component>
 	<connection source="5" target="6" style="1" name=""></connection>
 	<connection source="4" target="3" style="1" name=""></connection>
 	<connection source="7" target="3" style="1" name=""></connection>

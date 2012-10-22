@@ -1,2 +1,0 @@
-* Upgrade to CodeIgniter 2.1.0
-* Various small improvements

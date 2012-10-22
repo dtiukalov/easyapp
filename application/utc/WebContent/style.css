@@ -108,7 +108,7 @@ dl.news dt a {color:#5db2e9;text-decoration:none}
 dl.news dt a:hover {text-decoration:underline}
 dl.news dd {margin-bottom:20px}
 .img-list li {width:100%;overflow:hidden;padding-bottom:4px}
-.img-list li img {float:left;margin-right:9px}
+.img-list li img {float:left;margin-right:9px;}
 .img-list li h3 {padding-top:5px}
 .img-list-alt {margin-bottom:-25px}
 .img-list-alt li {width:100%;overflow:hidden;padding-bottom:25px}

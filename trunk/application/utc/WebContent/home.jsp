@@ -58,10 +58,10 @@
 							<span>
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Siemens PLM Software是全球领先的产品生命周期管理（PLM）软件与服务提供商，
 							主要产品包括
-							<a href="teamcenter.jsp" style="color: #00853E; text-decoration: none; font-weight: bolder;">Teamcenter</a>，
-							<a href="nxintroduction.jsp" style="color: #D30F44; text-decoration: none; font-weight: bolder;">NX</a>，
-							<a href="velocity.jsp" style="color: #004579; text-decoration: none; font-weight: bolder;">Velocity Series</a>，和
-							<a href="tecnomatix.jsp" style="color: #F38023; text-decoration: none; font-weight: bolder;">Tecnomatix</a>，
+							<a href="teamcenter.jsp" target="_blank" style="color: #00853E; text-decoration: none; font-weight: bolder;">Teamcenter</a>，
+							<a href="nxintroduction.jsp" target="_blank" style="color: #D30F44; text-decoration: none; font-weight: bolder;">NX</a>，
+							<a href="velocity.jsp" target="_blank" style="color: #004579; text-decoration: none; font-weight: bolder;">Velocity Series</a>，和
+							<a href="tecnomatix.jsp" target="_blank" style="color: #F38023; text-decoration: none; font-weight: bolder;">Tecnomatix</a>，
 							使命是与企业协同合作，提供开放式解决方案，
 							可以助力企业及其合作伙伴通过全球化创新网络进行协作，帮助企业把更多创意转化为成功产品，以提供世界级的产品和服务。
 							</span>

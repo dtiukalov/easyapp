@@ -18,12 +18,12 @@
 				<div class="mainContent maxheight">
 					<div class="indent">
 						<ul class="img-list">
-						<li><div style="font-size: 20px;padding:15px;">公司名称：吉林省优泰科技有限公司</div></li>
+						<li><h2>&nbsp;&nbsp;吉林省优泰科技有限公司(Uni-Technology Co.,Ltd.)</h2></li>
 						<li><div style="font-size: 20px;padding:15px;">地址：吉林省长春市光谷大街1799号 </div></li>
-						<li><div style="font-size: 20px;padding:15px;">电话：0431-88602101</div></li>
-						<li><div style="font-size: 20px;padding:15px;">邮箱：utc@utc-plm.com</div></li>
 						<li><div style="font-size: 20px;padding:15px;">邮编：130012</div></li>
+						<li><div style="font-size: 20px;padding:15px;">电话：0431-88602101</div></li>
 						<li><div style="font-size: 20px;padding:15px;">传真：0431-88602100</div></li>
+						<li><div style="font-size: 20px;padding:15px;">邮箱：jie.yu@utc-plm.com</div></li>
 						<li><div style="padding:15px;"><img src="images/map.png" alt="map" /></div></li>
 						</ul>
 					</div>

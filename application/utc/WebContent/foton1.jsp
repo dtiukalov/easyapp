@@ -37,7 +37,7 @@
 <br><br>
 <div class="tit">基于Teamcenter的供应商图纸发放系统	</div>		
 
-以Teamcenter为基础平台，向供应商开放网络接口，为近一千多名供应商发放图纸下载入口。
+以Teamcenter为基础平台，向供应商开放网络接口，为近一千多名供应商提供发放图纸下载入口。
 
 											
 						</div>

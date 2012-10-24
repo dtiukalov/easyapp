@@ -30,8 +30,9 @@
 
 <br>
 <br>
-<div class="tit">PLM产品管理平台</div>
+<div class="tit">PDM 产品数据管理平台</div>
 解决方案/服务：
+<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Teamcenter PDM  产品数据管理与工作协同
 <br>
 <span style="font-size: 13px; ">业务挑战：</span>

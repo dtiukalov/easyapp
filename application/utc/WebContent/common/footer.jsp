@@ -11,7 +11,7 @@
 				</a> -->
 				&nbsp;&nbsp;&nbsp;
 				邮编：130012<br />
-				电话：0431-88602101&nbsp;&nbsp;&nbsp;传真：0431-88602100&nbsp;&nbsp;&nbsp;邮箱：utc@utc-plm.com
+				电话：0431-88602101&nbsp;&nbsp;&nbsp;传真：0431-88602100&nbsp;&nbsp;&nbsp;邮箱：jie.yu@utc-plm.com
 				
 			</div>	
 		</div>

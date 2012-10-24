@@ -45,7 +45,7 @@
 								整个产品生产周期的协同合作，使客户感到最大的满意。
 								</p>
 						</div>
-						<div style="width: 50%; float: left; margin: 0px;">
+						<div style="width: 48%; float: left; margin: 0px; margin-right: 20px;">
 							<!-- <h2>技术合作伙伴</h2> -->
 							<center>
 								<a href="http://www.plm.automation.siemens.com/zh_cn/" target="_blank">
@@ -56,7 +56,7 @@
 							<!-- <h3><a href="#">High Technologies</a></h3> -->
 							<br>
 							<span>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Siemens PLM Software是全球领先的产品生命周期管理（PLM）软件与服务提供商，
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Siemens PLM Software是全球领先的产品生命周期管理软件与服务提供商，
 							主要产品包括
 							<a href="teamcenter.jsp" target="_blank" style="color: #00853E; text-decoration: none; font-weight: bolder;">Teamcenter</a>，
 							<a href="nxintroduction.jsp" target="_blank" style="color: #D30F44; text-decoration: none; font-weight: bolder;">NX</a>，
@@ -67,7 +67,7 @@
 							</span>
 							
 						</div>
-						<div style="width: 50%; float: left; margin: 0px;">
+						<div style="width: 48%; float: left; margin: 0px;">
 							<!-- <h2>咨询合作伙伴</h2> -->
 							<center>
 								<a href="http://www.prtm.com/" target="_blank">

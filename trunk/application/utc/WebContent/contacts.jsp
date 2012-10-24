@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -15,28 +17,15 @@
 				<%@ include file="/common/aside.jsp"%>
 				<div class="mainContent maxheight">
 					<div class="indent">
-						<h2>Contact Us</h2>
-						<form id="contacts-form" action="" method="post">
-							 <fieldset>
-								 <div class="field">
-									 <label>Your Name:</label>
-									 <input type="text" value=""/>
-								 </div>
-								 <div class="field">
-									 <label>Your E-mail:</label>
-									 <input type="text" value=""/>
-								 </div>
-								 <div class="field">
-									 <label>Your Website:</label>
-									 <input type="text" value=""/>
-								 </div>
-								 <div class="field">
-									 <label>Your Message:</label>
-									 <textarea cols="1" rows="1"></textarea>
-								 </div>
-								 <div class="alignright"><a href="#" onclick="document.getElementById('contacts-form').submit()">Send Your Message</a></div>
-							 </fieldset>
-						</form>
+						<ul class="img-list">
+						<li><div style="font-size: 20px;">公司名称：吉林省优泰科技有限公司</div></li>
+						<li><div style="font-size: 20px;">地址：吉林省长春市光谷大街1799号 </div></li>
+						<li><div style="font-size: 20px;">电话：0431-88602101</div></li>
+						<li><div style="font-size: 20px;">邮箱：utc@utc-plm.com</div></li>
+						<li><div style="font-size: 20px;">邮编：130012</div></li>
+						<li><div style="font-size: 20px;">传真：0431-88602100</div></li>
+						<li><img src="images/map.png" alt="map" /></li>
+						</ul>
 					</div>
 				</div>
 			</div>

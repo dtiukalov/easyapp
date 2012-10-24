@@ -4,7 +4,7 @@
 	<%@ include file="/common/include.jsp"%>
 	<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Support - Support Page</title>
+	<title>吉林省优泰科技有限公司</title>
 </head>
 
 <body id="page4" onload="new ElementMaxHeight();">
@@ -21,7 +21,7 @@
 						<ul class="img-list">
 							<li>
 								<img src="images/NX.jpg" alt="NX" width="180"/>
-								<h2><a href="nxintroduction.jsp" style="color: #D30F44;">NX</a></h2>
+								<h2><a href="nxintroduction.jsp" target="_blank" style="color: #D30F44;">NX</a></h2>
 								<b>数字化产品开发</b><br><br>
 								&nbsp;&nbsp;&nbsp;&nbsp;◆更快速地设计开发创新产品...
 							
@@ -29,21 +29,21 @@
 							<li>&nbsp;</li>
 							<li>
 								<img src="images/TECNOMATIX.jpg" alt="TECNOMATIX" width="180"/>
-								<h2><a href="tecnomatix.jsp" style="color: #F38023;">TECNOMATIX</a></h2>
+								<h2><a href="tecnomatix.jsp" target="_blank" style="color: #F38023;">TECNOMATIX</a></h2>
 								<b>数字化制造</b><br><br>
 								&nbsp;&nbsp;&nbsp;&nbsp;◆更高效地生产制造并提供支持...
 							</li>
 							<li>&nbsp;</li>
 							<li>
 								<img src="images/TEAMCENTER.jpg" alt="TEAMCENTER" width="180"/>
-								<h2><a href="teamcenter.jsp" style="color: #00853E;">TEAMCENTER</a></h2>
+								<h2><a href="teamcenter.jsp" target="_blank" style="color: #00853E;">TEAMCENTER</a></h2>
 								<b>数字化生命周期管理</b><br><br>
 								&nbsp;&nbsp;&nbsp;&nbsp;◆更加聪明地进行协同与创新...
 							</li>
 							<li>&nbsp;</li>
 							<li>
 								<img src="images/VELOCITY.jpg" alt="VELOCITY SERIES" width="180"/>
-								<h2><a href="velocity.jsp" style="color: #004579;">VELOCITY SERIES</a></h2>
+								<h2><a href="velocity.jsp" target="_blank" style="color: #004579;">VELOCITY SERIES</a></h2>
 								<b>面向中端企业的PLM</b><br><br>
 								&nbsp;&nbsp;&nbsp;&nbsp;◆快速实施PLM 战略...
 						</ul>

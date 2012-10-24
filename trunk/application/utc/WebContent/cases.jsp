@@ -36,53 +36,21 @@
 						<!-- <h2>合作客户</h2> -->
 						<ul class="img-list">
 							<li>
-								<img src="images/faw-vw.png" alt="" style="width: 150px; height: 120px; border: 2px solid gray;"/>
-								<h3>
-									<img src="images/dot.gif" alt="" />
-									<a href="FAWCase1.jsp">Team Member One</a>
-								</h3>
-								<h3>
-									<img src="images/dot.gif" alt="" />
-									<a href="FAWCase2.jsp">Team Member One</a>
-								</h3>
+								<a href="FAWCase1.jsp"><img src="images/faw-vw.png" alt="" style="width: 150px; height: 120px; border: 2px solid gray;" /></a>
+								<a href="fcc1.jsp"><img src="images/fcc.png" alt="" style="width: 150px; height: 120px; border: 2px solid gray;"/></a>
 							</li>
 							<br>
-							<li>
-								<img src="images/fcc.png" alt="" style="width: 150px; height: 120px; border: 2px solid gray;"/>
-								<h3>
-									<img src="images/dot.gif" alt="" />
-									<a href="fcc1.jsp">Team Member One</a>
-								</h3>
-								<h3>
-									<img src="images/dot.gif" alt="" />
-									<a href="fcc1.jsp">Team Member One</a>
-								</h3>
-							</li>
-							<br>
-							<li>
-								<img src="images/faw-fuao.png" alt="" style="width: 150px; height: 120px; border: 2px solid gray;"/>
-								<h3>
-									<img src="images/dot.gif" alt="" />
-									<a href="FawFuao1.jsp">Team Member One</a>
-								</h3>
-								<h3>
-									<img src="images/dot.gif" alt="" />
-									<a href="FawFuao2.jsp">Team Member One</a>
-								</h3>	
-							</li>
-							<br>
-							<li>
-								<img src="images/foton.png" alt="" style="width: 150px; height: 120px; border: 2px solid gray;"/>
-								<h3>
-									<img src="images/dot.gif" alt="" />
-									<a href="#">Team Member One</a>
-								</h3>
-								<h3>
-									<img src="images/dot.gif" alt="" />
-									<a href="#">Team Member One</a>
-								</h3>
-							</li>
 							
+							<li>
+								<a href="FawFuao1.jsp"><img src="images/faw-fuao.png" alt="" style="width: 150px; height: 120px; border: 2px solid gray;"/></a>
+								<a href="foton1.jsp"><img src="images/foton.png" alt="" style="width: 150px; height: 120px; border: 2px solid gray;"/></a>
+							</li>
+							<br>
+							
+							<li>
+								<a href="qimeng.jsp"><img src="images/qimenglogo.png" alt="" style="width: 150px; height: 120px; border: 2px solid gray;"/></a>
+							</li>
+							<br>
 						</ul>
 					</div>
 				</div>

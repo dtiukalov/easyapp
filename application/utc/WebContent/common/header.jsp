@@ -32,7 +32,7 @@
 				<span style="color: #9FDDFF; font-size: 24px;">Uni-Technology Co.,Ltd.</span><br>
 				<p>吉林省优泰科技有限公司成立于2006年11月，从事于制造业信息化工具以及解决方案的高科技软件销售服务公司，主要为中国第一汽车集团公司下属企业及客户提供多级化的、集成的、企业级的包括CAD/CAE/CAM/DM/PLM/SRM等软件工具和系统产品与服务在内的完整的数字化产品工程解决方案。</p>
 				<form action="" id="search-form">
-					<fieldset><input type="text" class="text" value="" /><input type="submit" class="submit" value="" /></fieldset>
+					<fieldset></fieldset>
 				</form>
 			</div>
 		</div>

@@ -5,6 +5,11 @@
 	<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>About - About Page</title>
+	<style>
+	.tit {
+		height: 20px; color: rgb(0, 58, 99); line-height: 20px; padding-left: 15px; clear: both; font-weight: bold; margin-bottom: 20px; background-image: url("images/tit_bg.gif"); background-repeat: repeat-y;
+	}
+	</style>
 </head>
 
 <body id="page4" onload="new ElementMaxHeight();">
@@ -17,7 +22,16 @@
 					<%@ include file="/common/aside.jsp"%>
 					<div class="mainContent maxheight">
 						<div class="indent">
-														
+<div class="tit">公司简介</div>
+<div style="padding-left:10px; font-family:微软雅黑; font-size: 12px;" >
+<p style="margin-bottom;10px;"><img src="images/faw-fuao.png" alt="" style="width: 150px; height: 100px; border: 2px solid gray; float: left;" />
+<div style="text-indent:2em;padding-left: 170px; padding-top: 8px;" >
+</div>
+
+<br>
+<br>
+<div class="tit"></div>
+															
 						</div>
 					</div>
 				</div>

@@ -16,6 +16,29 @@
 				<div class="wrapper">
 					<%@ include file="/common/aside.jsp"%>
 					<div class="mainContent maxheight">
+						<div class="indent">
+							<h2>Teamcenter 数字化生命周期管理</h2>
+							<h3>用知识连接人员与过程</h3>
+							<div style="width: 45%; float: left;">
+								<img src="images/teamcenter_img.jpg" alt="" style="width: 295px; height: 295px;"/>
+							</div>
+							<div style="width: 45%; float: left; margin-left: 50px;">
+								<p>
+									Siemens PLM Software 的 Teamcenter 通过把人员与过程连接起来改善创新与生产力。
+								</p>					
+								<ul>
+									<li>产品开发与制造的事实上的标准</li>
+									<li>建立在开放的 PLM 基础之上  </li>
+									<li>可在全球各地对产品和过程知识进行安全访问 </li>
+									<li>扩展的应用程序，支持完整的产品生命周期</li>
+								</ul>
+							</div>
+							<div style="width: 100%; float: left; margin-top: 30px;">
+								<h2>Teamcenter 数字化生命周期管理解决方案</h2>
+								<img src="images/teamcenter_solution.jpg" alt="" style="width: 590px; height: 380px;"/>
+							</div>
+							
+						</div>
 					</div>
 				</div>
 			</div>

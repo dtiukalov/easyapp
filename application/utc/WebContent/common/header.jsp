@@ -13,7 +13,7 @@
 					<ul class="top-links">
 						<li class="first"><a href="home.jsp" class="home-current"></a></li>
 						<li><a href="contacts.jsp" class="mail"></a></li>
-						<li class="last"><a href="sitemap.jsp" class="sitemap"></a></li>
+						
 					</ul>
 				</div>
 			</div>

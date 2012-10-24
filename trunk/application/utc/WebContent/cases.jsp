@@ -36,19 +36,19 @@
 						<!-- <h2>合作客户</h2> -->
 						<ul class="img-list">
 							<li>
-								<a href="FAWCase1.jsp"><img src="images/faw-vw.png" alt="" style="width: 150px; height: 120px; border: 2px solid gray;" /></a>
-								<a href="fcc1.jsp"><img src="images/fcc.png" alt="" style="width: 150px; height: 120px; border: 2px solid gray;"/></a>
+								<a href="FAWCase1.jsp"><img src="images/faw-vw.png" alt="" style="width: 150px; height: 100px; border: 2px solid gray; margin-left: 70px;margin-right: 100px;" /></a>
+								<a href="fcc1.jsp"><img src="images/fcc.png" alt="" style="width: 150px; height: 100px; border: 2px solid gray;"/></a>
 							</li>
 							<br>
 							
 							<li>
-								<a href="FawFuao1.jsp"><img src="images/faw-fuao.png" alt="" style="width: 150px; height: 120px; border: 2px solid gray;"/></a>
-								<a href="foton1.jsp"><img src="images/foton.png" alt="" style="width: 150px; height: 120px; border: 2px solid gray;"/></a>
+								<a href="FawFuao1.jsp"><img src="images/faw-fuao.png" alt="" style="width: 150px; height: 100px; border: 2px solid gray;margin-left: 70px;margin-right: 100px;"/></a>
+								<a href="foton1.jsp"><img src="images/foton.png" alt="" style="width: 150px; height: 100px; border: 2px solid gray;"/></a>
 							</li>
 							<br>
 							
 							<li>
-								<a href="qimeng.jsp"><img src="images/qimenglogo.png" alt="" style="width: 150px; height: 120px; border: 2px solid gray;"/></a>
+								<a href="qimeng.jsp"><img src="images/qimenglogo.png" alt="" style="width: 150px; height: 100px; border: 2px solid gray; margin-left: 70px;margin-right: 100px;"/></a>
 							</li>
 							<br>
 						</ul>

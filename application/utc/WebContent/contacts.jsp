@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<%@ include file="/common/include.jsp"%>
-	<title>Contacts - Contacts Page | High Technologies - Free Website Template from Templates.com</title>
+	<title>吉林省优泰科技有限公司</title>
 </head>
 
 <body id="page5" onload="new ElementMaxHeight();">

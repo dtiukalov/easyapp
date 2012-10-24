@@ -4,7 +4,7 @@
 	<%@ include file="/common/include.jsp"%>
 	<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>About - About Page</title>
+	<title>吉林省优泰科技有限公司</title>
 </head>
 
 <body id="page2" onload="new ElementMaxHeight();">
@@ -34,24 +34,56 @@
 							</p>
 						</div>
 						<!-- <h2>合作客户</h2> -->
-						<ul class="img-list">
+						<div style="width: 100%; float: left;">
+						<center>
+							<div style="width: 154px; height: 104px; border: 1px solid gray; margin-left: 70px;margin-right: 100px; padding: 1px; float: left;">
+								<a href="FAWCase1.jsp" target="_blank">
+									<img src="images/faw-vw.png" alt="" style="width: 150px; height: 100px; border: 1px solid gray; padding: 1px;" />
+								</a>
+							</div>
+							<div style="width: 154px; height: 104px; border: 1px solid gray; padding: 1px;  float: left;">
+								<a href="fcc1.jsp" target="_blank">
+									<img src="images/fcc.png" alt="" style="width: 150px; height: 100px; border: 1px solid gray; padding: 1px;" />
+								</a>
+							</div>
+							
+							<div style="width: 154px; height: 104px; border: 1px solid gray; margin-left: 70px;margin-right: 100px; padding: 1px; float: left; margin-top: 30px;">
+								<a href="FawFuao1.jsp" target="_blank">
+									<img src="images/faw-fuao.png" alt="" style="width: 150px; height: 100px; border: 1px solid gray; padding: 1px;" />
+								</a>
+							</div>
+							<div style="width: 154px; height: 104px; border: 1px solid gray; padding: 1px;  float: left; margin-top: 30px;">
+								<a href="foton1.jsp" target="_blank">
+									<img src="images/foton.png" alt="" style="width: 150px; height: 100px; border: 1px solid gray; padding: 1px;" />
+								</a>
+							</div>
+							
+							<div style="width: 154px; height: 104px; border: 1px solid gray; margin-left: 70px;margin-right: 100px; padding: 1px; float: left; margin-top: 30px;">
+								<a href="qimeng.jsp" target="_blank">
+									<img src="images/qimenglogo.png" alt="" style="width: 150px; height: 100px; border: 1px solid gray; padding: 1px;" />
+								</a>
+							</div>
+						</center>
+							
+						</div>
+						<!-- <ul class="img-list">
 							<li>
-								<a href="FAWCase1.jsp"><img src="images/faw-vw.png" alt="" style="width: 150px; height: 100px; border: 2px solid gray; margin-left: 70px;margin-right: 100px;" /></a>
-								<a href="fcc1.jsp"><img src="images/fcc.png" alt="" style="width: 150px; height: 100px; border: 2px solid gray;"/></a>
+								<a href="FAWCase1.jsp"><img src="images/faw-vw.png" alt="" style="width: 150px; height: 100px; border: 1px solid gray; margin-left: 70px;margin-right: 100px; padding: 1px;" /></a>
+								<a href="fcc1.jsp"><img src="images/fcc.png" alt="" style="width: 150px; height: 100px; border: 1px solid gray;"/></a>
 							</li>
 							<br>
 							
 							<li>
-								<a href="FawFuao1.jsp"><img src="images/faw-fuao.png" alt="" style="width: 150px; height: 100px; border: 2px solid gray;margin-left: 70px;margin-right: 100px;"/></a>
-								<a href="foton1.jsp"><img src="images/foton.png" alt="" style="width: 150px; height: 100px; border: 2px solid gray;"/></a>
+								<a href="FawFuao1.jsp"><img src="images/faw-fuao.png" alt="" style="width: 150px; height: 100px; border: 1px solid gray;margin-left: 70px;margin-right: 100px;"/></a>
+								<a href="foton1.jsp"><img src="images/foton.png" alt="" style="width: 150px; height: 100px; border: 1px solid gray;"/></a>
 							</li>
 							<br>
 							
 							<li>
-								<a href="qimeng.jsp"><img src="images/qimenglogo.png" alt="" style="width: 150px; height: 100px; border: 2px solid gray; margin-left: 70px;margin-right: 100px;"/></a>
+								<a href="qimeng.jsp"><img src="images/qimenglogo.png" alt="" style="width: 150px; height: 100px; border: 1px solid gray; margin-left: 70px;margin-right: 100px;"/></a>
 							</li>
 							<br>
-						</ul>
+						</ul> -->
 					</div>
 				</div>
 			</div>

@@ -4,7 +4,7 @@
 
 <head>
 	<%@ include file="/common/include.jsp"%>
-	<title>Home - 主页 Page</title>
+	<title>吉林省优泰科技有限公司</title>
 
 </head>
 

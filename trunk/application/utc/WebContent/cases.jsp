@@ -39,11 +39,11 @@
 								<img src="images/faw-vw.png" alt="" style="width: 150px; height: 120px; border: 2px solid gray;"/>
 								<h3>
 									<img src="images/dot.gif" alt="" />
-									<a href="#">Team Member One</a>
+									<a href="FAWCase1.jsp">Team Member One</a>
 								</h3>
 								<h3>
 									<img src="images/dot.gif" alt="" />
-									<a href="#">Team Member One</a>
+									<a href="FAWCase2.jsp">Team Member One</a>
 								</h3>
 							</li>
 							<br>
@@ -51,11 +51,11 @@
 								<img src="images/fcc.png" alt="" style="width: 150px; height: 120px; border: 2px solid gray;"/>
 								<h3>
 									<img src="images/dot.gif" alt="" />
-									<a href="#">Team Member One</a>
+									<a href="fcc1.jsp">Team Member One</a>
 								</h3>
 								<h3>
 									<img src="images/dot.gif" alt="" />
-									<a href="#">Team Member One</a>
+									<a href="fcc1.jsp">Team Member One</a>
 								</h3>
 							</li>
 							<br>
@@ -63,11 +63,11 @@
 								<img src="images/faw-fuao.png" alt="" style="width: 150px; height: 120px; border: 2px solid gray;"/>
 								<h3>
 									<img src="images/dot.gif" alt="" />
-									<a href="#">Team Member One</a>
+									<a href="FawFuao1.jsp">Team Member One</a>
 								</h3>
 								<h3>
 									<img src="images/dot.gif" alt="" />
-									<a href="#">Team Member One</a>
+									<a href="FawFuao2.jsp">Team Member One</a>
 								</h3>	
 							</li>
 							<br>

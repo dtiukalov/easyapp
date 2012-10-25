@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
 
+import com.saturn.app.db.DatabaseManager;
 
 public class BeanUtils {
 	private static Logger logger = LogManager.getLogger(LogManager.LOG_KEY_APP);
@@ -27,7 +28,7 @@ public class BeanUtils {
 				for (Field field : fields) {
 					String name = field.getName();
 					String value = request.getParameter(name);
-					
+
 					invokeSet(t, name, value);
 				}
 			}
@@ -42,15 +43,16 @@ public class BeanUtils {
 	public static <T> void mapppingBean(ResultSet rs, T t) {
 		try {
 			ResultSetMetaData metaData = rs.getMetaData();
-			
+
 			if (metaData != null) {
 				int size = metaData.getColumnCount();
 				for (int i = 1; i <= size; ++i) {
 					String name = metaData.getColumnName(i);
-					
+
 					try {
 						String value = rs.getString(name);
-						invokeSet(t, name, value);
+
+						invokeSet(t, getFieldName(t, name), value);
 					} catch (Exception e) {
 						logger.debug(e);
 					}
@@ -60,15 +62,34 @@ public class BeanUtils {
 			e.printStackTrace();
 		}
 
-		logger.debug("Result Mapping Object[" + t.getClass().getSimpleName() + "]:" + t);
+		logger.debug("Result Mapping Object[" + t.getClass().getSimpleName()
+				+ "]:" + t);
 	}
-	
+
+	public static <T> String getFieldName(T t, String field) {
+		String dbType = DatabaseManager.getInstance().getDataConfig()
+				.getDbType();
+
+		if ("oracle".equals(dbType)) {
+			Field[] fs = t.getClass().getDeclaredFields();
+
+			for (Field f : fs) {
+				String name = f.getName();
+				if (name.toLowerCase().equals(field.toLowerCase())) {
+					return name;
+				}
+			}
+		}
+
+		return field;
+	}
+
 	public static <T> void invokeSet(T t, String field, String value) {
 		Method method = null;
 		try {
 			method = t.getClass().getMethod(getMethodName("set", field),
 					String.class);
-			
+
 			if (method != null && value != null) {
 				method.invoke(t, value);
 			}
@@ -76,29 +97,30 @@ public class BeanUtils {
 			logger.debug(e);
 		}
 	}
-	
+
 	public static <T> String invokeGet(T t, String field) {
 		Method method = null;
 		Object value = null;
 		try {
 			method = t.getClass().getMethod(getMethodName("get", field));
-			
+
 			if (method != null) {
 				value = method.invoke(t);
 			}
 		} catch (Exception e) {
 			logger.debug(e);
 		}
-		
+
 		if (value != null) {
 			return value.toString();
-		} 
-		
+		}
+
 		return null;
 	}
 
 	private static String getMethodName(String suffix, String fieldName) {
 		return suffix + fieldName.toUpperCase().substring(0, 1)
 				+ fieldName.substring(1);
+		// + fieldName.toLowerCase().substring(1);
 	}
 }

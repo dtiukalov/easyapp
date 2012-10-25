@@ -25,12 +25,16 @@ public class ActionManager {
 		if (actionNames != null) {
 			for (String name : actionNames) {
 				try {
+					if (name.indexOf("$") >= 0) {
+						continue;//不加载子类
+					}
+
 					Class<?> clazz = Class.forName(name);
 					if (clazz.isLocalClass() || clazz.isMemberClass()) {
 						continue;
 					}
 					Object object = clazz.newInstance();
-
+					
 					if (object instanceof IAction) {
 						IAction action = (IAction) object;
 						String key = action.requestMapping();
@@ -38,6 +42,20 @@ public class ActionManager {
 
 						logger.debug("Load Action [requestMapping=\"" + key
 								+ "\", name=\"" + name + "\"]");
+					} else if (object instanceof IActionLoader) {
+						IActionLoader loader = (IActionLoader) object;
+						
+						List<IAction> actions = loader.getActions();
+						if (actions != null) {
+							for (IAction action : actions) {
+								String key = action.requestMapping();
+								String actionName = action.getClass().getName();
+								add(key, action);
+
+								logger.debug("Load Action [requestMapping=\"" + key
+										+ "\", name=\"" + actionName + "\"]");
+							}
+						}
 					}
 				} catch (Exception e) {
 					logger.error("Load Action Failed with name:" + name, e);

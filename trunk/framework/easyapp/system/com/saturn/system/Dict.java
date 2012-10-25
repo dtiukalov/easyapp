@@ -13,8 +13,13 @@ import com.saturn.app.db.ListData;
 import com.saturn.app.db.ORMapping;
 import com.saturn.app.db.ResultORMapping;
 import com.saturn.app.db.SimpleDaoTemplate;
+import com.saturn.app.utils.BeanUtils;
+import com.saturn.app.utils.SqlUtils;
 
 public class Dict {
+	
+	private static final String[] fields = BeanUtils.getFields(Dict.class, "id");
+	private static final String TABLE_NAME = "app_dict";
 	
 	private String id;
 	private String key;
@@ -24,35 +29,29 @@ public class Dict {
 
 	private static ORMapping<Dict> mapping = new ResultORMapping<Dict>();
 
-	public static int add(Dict dict) {
+	public static int add(Dict vo) {
 		return SimpleDaoTemplate.update(
-				"INSERT INTO app_dict(`key`, value, type, pinyin) VALUES(?, ?, ?, ?)", dict.getKey(),
-				dict.getValue(), dict.getType(), dict.getPinyin());
+				SqlUtils.getInsertSql(TABLE_NAME, fields), BeanUtils.getFieldValues(vo, fields, (String)null));
 	}
 
 	public static Dict get(String id) {
-		//指定值对象类型(VOClass)。例子VOClass=User
-		//指定表主键(key)。例子:key=id
-		//指定插入表名称(tableName)。例子：如user表，tableName=user
-		//指定O-R映射规则对象。默认mapping
 		return SimpleDaoTemplate.queryOne(
-				"SELECT * FROM app_dict WHERE 1 = 1 and id = '" + id + "'",
+				SqlUtils.getSelectSql(TABLE_NAME) + " AND id = " + id,
 				null, mapping, Dict.class);
 	}
 
-	public static int edit(Dict dict) {
+	public static int edit(Dict vo) {
 		return SimpleDaoTemplate
-				.update("UPDATE app_dict SET `key` = ?, value = ?, type = ?, pinyin = ? WHERE id = ?",
-						dict.getKey(), dict.getValue(), dict.getType(), dict.getPinyin(),
-						dict.getId());
+				.update(SqlUtils.getUpdateSql(TABLE_NAME, fields),
+						BeanUtils.getFieldValues(vo, fields, "id"));
 	}
 
-	public static ListData<Dict> getDicts(Dict dict, String start,
+	public static ListData<Dict> getDicts(Dict vo, String start,
 			String offset, String orderBy, String order) {
 
 		return SimpleDaoTemplate.query(
-				"SELECT * FROM app_dict WHERE 1 = 1", new DymaticCondition()
-				.addSimpleCondition(dict, "key", "value", "pinyin").addCondition(" AND type = '?'", dict.type)
+				SqlUtils.getSelectSql(TABLE_NAME), new DymaticCondition()
+				.addSimpleCondition(vo, "key", "value", "pinyin").addCondition(" AND type = '?'", vo.type)
 						.addCondition("ORDER BY {0} {1}", orderBy, order),
 				mapping, Dict.class, start, offset);
 	}
@@ -76,20 +75,20 @@ public class Dict {
 				Dict i1 = get(firstId);
 				Dict i2 = get(secondId);
 
-				String key1 = i1.getKey();
-				String key2 = i2.getKey();
+				String key1 = i1.key;
+				String key2 = i2.key;
 
 				SimpleDaoTemplate.update(connection,
-						"UPDATE app_dict SET id = ? WHERE `key` = ?", "-1",
-						key2);
+						"UPDATE app_dict SET id = ? WHERE `key` = ? AND type = ?", "-1",
+						key2, i2.type);
 
 				SimpleDaoTemplate.update(connection,
-						"UPDATE app_dict SET id = ? WHERE `key` = ?",
-						secondId, key1);
+						"UPDATE app_dict SET id = ? WHERE `key` = ? AND type = ?",
+						secondId, key1, i1.type);
 
 				SimpleDaoTemplate.update(connection,
-						"UPDATE app_dict SET id = ? WHERE `key` = ?",
-						firstId, key2);
+						"UPDATE app_dict SET id = ? WHERE `key` = ? AND type = ?",
+						firstId, key2, i2.type);
 
 				return 0;
 			}
@@ -97,25 +96,22 @@ public class Dict {
 	}
 	
 	public static List<Dict> getDictByType(String type) {
-		//指定值对象类型(VOClass)。例子VOClass=User
-		//指定插入表名称(tableName)。例子：如user表，tableName=user
-		//指定O-R映射规则对象。默认mapping
-		return SimpleDaoTemplate.query("SELECT * FROM app_dict WHERE 1 = 1",
+		return SimpleDaoTemplate.query(SqlUtils.getSelectSql(TABLE_NAME),
 				new DymaticCondition().addCondition("AND type = '?' order by id desc", type),
 				mapping, Dict.class);
 	}
 	
 	public static String getDictJSONByType(String type) {
-		List<Dict> dicts = getDictByType(type);
+		List<Dict> vos = getDictByType(type);
 		
 		StringBuffer buffer = new StringBuffer("[");
 
-		for (Dict dict : dicts) {
-			buffer.append("{\"id\":\"").append(dict.getKey()).append("\", \"text\":\"")
-					.append(dict.getValue()).append("\", \"name\":\"")
-					.append(dict.getValue()).append("\"},");
+		for (Dict vo : vos) {
+			buffer.append("{\"id\":\"").append(vo.key).append("\", \"text\":\"")
+					.append(vo.value).append("\", \"name\":\"")
+					.append(vo.value).append("\"},");
 		}
-		if (!dicts.isEmpty()) {
+		if (!vos.isEmpty()) {
 			buffer.deleteCharAt(buffer.length() - 1);
 		}
 		buffer.append("]");
@@ -143,7 +139,7 @@ public class Dict {
 
 	public static int remove(final String id) {
 		return SimpleDaoTemplate
-				.update("DELETE FROM app_dict WHERE id = ?", id);
+				.update(SqlUtils.getDeleteSql(TABLE_NAME), id);
 	}
 
 	public static void removes(String[] ids) {

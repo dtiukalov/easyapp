@@ -16,7 +16,6 @@ import com.saturn.app.db.ORMapping;
 import com.saturn.app.db.SimpleDaoTemplate;
 import com.saturn.app.utils.LogManager;
 
-@SuppressWarnings("rawtypes")
 public class TableDao {
 	private static Logger Logger = LogManager.getLogger(LogManager.LOG_KEY_APP);
 

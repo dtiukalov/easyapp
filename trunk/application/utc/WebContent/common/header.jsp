@@ -21,7 +21,7 @@
 				<!-- .nav -->
 				<ul class="nav">
 					<li><a href="home.jsp" class="current">公司首页</a></li>
-		 			<li><a href="products.jsp">产品组合</a></li>
+		 			<li><a href="products.jsp">产品服务</a></li>
 					<li><a href="cases.jsp">成功案例</a></li>	
 					<li><a href="recruiting.jsp">人才招聘</a></li>
 					<li><a href="contacts.jsp">联系我们</a></li>		

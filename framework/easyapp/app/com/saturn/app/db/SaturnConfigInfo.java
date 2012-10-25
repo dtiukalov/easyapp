@@ -1,6 +1,6 @@
 package com.saturn.app.db;
 
-class SaturnConfigInfo {
+public class SaturnConfigInfo {
 
 	private String dbType = "oracle";
 	private String connectType = "jdbc";

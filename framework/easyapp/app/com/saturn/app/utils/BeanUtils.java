@@ -2,8 +2,11 @@ package com.saturn.app.utils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -18,6 +21,64 @@ public class BeanUtils {
 
 	}
 
+	public static <T> String[] getFields(Class<T> clazz, String ...args) {
+		Field[] fields = clazz.getDeclaredFields();
+		
+		List<String> list = new ArrayList<String>();
+		
+		for (Field field : fields) {
+			String name = field.getName();
+			
+			if (!hasFiled(args, name) && !Modifier.isStatic(field.getModifiers())) {
+				list.add(name);
+			}
+		}
+		
+		return list.toArray(new String[0]);
+	}
+	
+	public static <T> String[] getFieldValues(T t, String[] fields, String ...args) {
+		int length = 0;
+		if (fields != null) {
+			length += fields.length;
+		}
+		
+		if (args != null) {
+			length += args.length;
+		}
+		
+		String[] values = new String[length];
+		int i = 0;
+		
+		if (fields != null) {
+			for (String f : fields) {
+				values[i++] = invokeGet(t, f);
+			}
+		}
+		
+		if (args != null) {
+			for (String f : args) {
+				values[i++] = invokeGet(t, f);
+			}
+		}
+		
+		return values;
+	}
+	
+	private static boolean hasFiled(String[] fields, String field) {
+		if (fields == null) {
+			return true;
+		}
+		
+		for (String f : fields) {
+			if (f != null && f.equals(field)) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
 	public static <T> T getBean(HttpServletRequest request, Class<T> clazz) {
 		Field[] fields = clazz.getDeclaredFields();
 		T t = null;

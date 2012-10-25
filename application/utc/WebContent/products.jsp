@@ -17,7 +17,6 @@
 				<%@ include file="/common/product_list.jsp"%>
 				<div class="mainContent maxheight">
 					<div class="indent">
-						<h2>产品组合</h2>
 						<ul class="img-list">
 							<li>
 								<img src="images/NX.jpg" alt="NX" width="180"/>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<%@ include file="/common/include.jsp"%>
-	<title>Sitemap - Sitemap Page</title>
+	<title>吉林省优泰科技有限公司</title>
 </head>
 
 <body id="page6" onload="new ElementMaxHeight();">

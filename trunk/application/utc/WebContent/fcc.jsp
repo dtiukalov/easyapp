@@ -5,7 +5,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>About - About Page</title>
+<title>吉林省优泰科技有限公司</title>
 <style>
 .tit {
 	height: 20px;

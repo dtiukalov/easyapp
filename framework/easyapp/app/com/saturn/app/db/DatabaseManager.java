@@ -63,12 +63,13 @@ public class DatabaseManager {
 		dbManager = new DatabaseManager();
 	}
 
+	private SaturnConfigInfo dataConfig;
 	private DatabaseManager() {
 		initalDataSource();
 	}
 
 	/**
-	 * è·å¾—DatabaseManagerçš„å•æ€å®ä¾‹
+	 * »ñµÃDatabaseManagerµÄµ¥Ì¬ÊµÀı
 	 * 
 	 * @return
 	 */
@@ -77,7 +78,7 @@ public class DatabaseManager {
 	}
 
 	/**
-	 * è·å¾—æ•°æ®æº
+	 * »ñµÃÊı¾İÔ´
 	 * 
 	 * @return
 	 */
@@ -86,7 +87,7 @@ public class DatabaseManager {
 	}
 	
 	/**
-	 * è·å¾—é»˜è®¤é…ç½®çš„æ•°æ®åº“è¿æ¥
+	 * »ñµÃÄ¬ÈÏÅäÖÃµÄÊı¾İ¿âÁ¬½Ó
 	 * 
 	 * @return
 	 */
@@ -106,10 +107,10 @@ public class DatabaseManager {
 	}
 
 	/**
-	 * åˆå§‹åŒ–é»˜è®¤çš„æ•°æ®æºå¯¹è±¡ã€‚
+	 * ³õÊ¼»¯Ä¬ÈÏµÄÊı¾İÔ´¶ÔÏó¡£
 	 */
 	private void initalDataSource() {
-		SaturnConfigInfo dataConfig = getSaturnConfigInfo(DBDATA_SOURCE_CONFIG_FILE);
+		this.dataConfig = getSaturnConfigInfo(DBDATA_SOURCE_CONFIG_FILE);
 
 		Connection connection = null;
 
@@ -195,7 +196,7 @@ public class DatabaseManager {
 	}
 
 	/**
-	 * é€šè¿‡è¯»å–æ•°æ®åº“è¿æ¥æ± çš„é…ç½®æ–‡ä»¶è·å¾—æ•°æ®åº“è¿æ¥æ± çš„é…ç½®ä¿¡æ¯ã€‚ å¦‚æœæ²¡èƒ½è§£æé…ç½®æ–‡ä»¶åˆ™æŒ‰ç…§ç¨‹åºä¸­çš„é»˜è®¤å€¼ç”Ÿæˆé…ç½®ä¿¡æ¯ã€‚
+	 * Í¨¹ı¶ÁÈ¡Êı¾İ¿âÁ¬½Ó³ØµÄÅäÖÃÎÄ¼ş»ñµÃÊı¾İ¿âÁ¬½Ó³ØµÄÅäÖÃĞÅÏ¢¡£ Èç¹ûÃ»ÄÜ½âÎöÅäÖÃÎÄ¼şÔò°´ÕÕ³ÌĞòÖĞµÄÄ¬ÈÏÖµÉú³ÉÅäÖÃĞÅÏ¢¡£
 	 * 
 	 * @param file
 	 * @return
@@ -262,4 +263,9 @@ public class DatabaseManager {
 
 		return dataBaseConfig;
 	}
+
+	public SaturnConfigInfo getDataConfig() {
+		return dataConfig;
+	}
+	
 }

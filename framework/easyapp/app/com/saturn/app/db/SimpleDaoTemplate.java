@@ -155,6 +155,19 @@ public class SimpleDaoTemplate {
 		return results;
 	}
 
+	/*
+	 * public static <T extends Object> ListData<T> query(String sql,
+	 * DymaticCondition dymaticCondition, ORMapping<T> mapping, Class<T> clazzT,
+	 * String start, String offset) {
+	 * 
+	 * int total = SimpleDaoTemplate.queryCount(getCountSql(sql),
+	 * dymaticCondition);
+	 * 
+	 * List<T> list = query(sql, dymaticCondition.addCondition("LIMIT {0}, {1}",
+	 * start, offset), mapping, clazzT);
+	 * 
+	 * return new ListData<T>(total, list); }
+	 */
 	public static <T extends Object> ListData<T> query(String sql,
 			DymaticCondition dymaticCondition, ORMapping<T> mapping,
 			Class<T> clazzT, String start, String offset) {
@@ -162,9 +175,28 @@ public class SimpleDaoTemplate {
 		int total = SimpleDaoTemplate.queryCount(getCountSql(sql),
 				dymaticCondition);
 
-		List<T> list = query(sql,
-				dymaticCondition.addCondition("LIMIT {0}, {1}", start, offset),
-				mapping, clazzT);
+		List<T> list = null;
+
+		String dbType = DatabaseManager.getInstance().getDataConfig()
+				.getDbType();
+
+		if ("oracle".equals(dbType)) {
+			if (dymaticCondition != null) {
+				sql = sql + dymaticCondition.toString();
+			}
+
+			if (sql != null && offset != null) {
+				sql = "select * from (select A.*, rownum rn from (" + sql
+						+ ") A where rownum <= "
+						+ (Integer.parseInt(start) + Integer.parseInt(offset))
+						+ " )where rn >=" + start;
+			}
+
+			list = query(sql, null, mapping, clazzT);
+		} else {//mysql
+			list = query(sql, dymaticCondition.addCondition("LIMIT {0}, {1}",
+					start, offset), mapping, clazzT);
+		}
 
 		return new ListData<T>(total, list);
 	}

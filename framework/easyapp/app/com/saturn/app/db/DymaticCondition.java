@@ -54,7 +54,14 @@ public class DymaticCondition {
 				
 				if (value != null && !"".equals(value.trim())) {
 					
-					buffer.append("AND ").append("`" + field + "`").append(" like '%").append(value).append("%' ");
+					//buffer.append("AND ").append("`" + field + "`").append(" like '%").append(value).append("%' ");
+					String dbType = DatabaseManager.getInstance().getDataConfig()
+							.getDbType();
+
+					if ("mysql".equals(dbType)) {
+						field = "`" + field + "`";
+					}
+					buffer.append("AND ").append(field).append(" like '%").append(value).append("%' ");
 				}
 			}
 		}

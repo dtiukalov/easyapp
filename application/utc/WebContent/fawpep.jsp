@@ -4,7 +4,7 @@
 	<%@ include file="/common/include.jsp"%>
 	<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>About - About Page</title>	
+	<title>吉林省优泰科技有限公司</title>	
 	<style>
 	.tit {
 		height: 20px; color: rgb(0, 58, 99); line-height: 20px; padding-left: 15px; clear: both; font-weight: bold; margin-bottom: 20px; background-image: url("images/tit_bg.gif"); background-repeat: repeat-y;

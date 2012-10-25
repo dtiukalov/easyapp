@@ -14,7 +14,7 @@
 	<div id="content"><div class="inner_copy">More <a href="http://www.templates.com/">Website Templates</a> @ Templates.com!</div>
 		<div class="container">
 			<div class="wrapper">
-				<%@ include file="/common/aside.jsp"%>
+				<%@ include file="/common/caseaside.jsp"%>
 				<div class="mainContent maxheight">
 					<div class="indent">
 						<div class="section">
@@ -36,54 +36,15 @@
 						<!-- <h2>合作客户</h2> -->
 						<div style="width: 100%; float: left;">
 						<center>
-							<div style="width: 154px; height: 104px; border: 1px solid gray; margin-left: 70px;margin-right: 100px; padding: 1px; float: left;">
-								<a href="FAWCase1.jsp" target="_blank">
-									<img src="images/faw-vw.png" alt="" style="width: 150px; height: 100px; border: 1px solid gray; padding: 1px;" />
-								</a>
-							</div>
-							<div style="width: 154px; height: 104px; border: 1px solid gray; padding: 1px;  float: left;">
-								<a href="fcc1.jsp" target="_blank">
-									<img src="images/fcc.png" alt="" style="width: 150px; height: 100px; border: 1px solid gray; padding: 1px;" />
-								</a>
-							</div>
-							
-							<div style="width: 154px; height: 104px; border: 1px solid gray; margin-left: 70px;margin-right: 100px; padding: 1px; float: left; margin-top: 30px;">
-								<a href="FawFuao1.jsp" target="_blank">
-									<img src="images/faw-fuao.png" alt="" style="width: 150px; height: 100px; border: 1px solid gray; padding: 1px;" />
-								</a>
-							</div>
-							<div style="width: 154px; height: 104px; border: 1px solid gray; padding: 1px;  float: left; margin-top: 30px;">
-								<a href="foton1.jsp" target="_blank">
-									<img src="images/foton.png" alt="" style="width: 150px; height: 100px; border: 1px solid gray; padding: 1px;" />
-								</a>
-							</div>
-							
-							<div style="width: 154px; height: 104px; border: 1px solid gray; margin-left: 70px;margin-right: 100px; padding: 1px; float: left; margin-top: 30px;">
-								<a href="qimeng.jsp" target="_blank">
-									<img src="images/qimenglogo.png" alt="" style="width: 150px; height: 100px; border: 1px solid gray; padding: 1px;" />
-								</a>
-							</div>
+							<img src="images/faw-vw.png" alt="" style="width: 100px; height: 50px; border: 1px solid gray; padding: 1px;" />
+							<img src="images/fcc.png" alt="" style="width: 100px; height: 50px; border: 1px solid gray; padding: 1px;" />
+							<img src="images/faw-fuao.png" alt="" style="width: 100px; height: 50px; border: 1px solid gray; padding: 1px;" />
+							<br><br>
+							<img src="images/foton.png" alt="" style="width: 100px; height: 50px; border: 1px solid gray; padding: 1px;" />
+							<img src="images/qimenglogo.png" alt="" style="width: 100px; height: 50px; border: 1px solid gray; padding: 1px;" />
+							<img src="images/fuwei.png" alt="" style="width: 100px; height: 50px; border: 1px solid gray; padding: 1px;" />
 						</center>
-							
 						</div>
-						<!-- <ul class="img-list">
-							<li>
-								<a href="FAWCase1.jsp"><img src="images/faw-vw.png" alt="" style="width: 150px; height: 100px; border: 1px solid gray; margin-left: 70px;margin-right: 100px; padding: 1px;" /></a>
-								<a href="fcc1.jsp"><img src="images/fcc.png" alt="" style="width: 150px; height: 100px; border: 1px solid gray;"/></a>
-							</li>
-							<br>
-							
-							<li>
-								<a href="FawFuao1.jsp"><img src="images/faw-fuao.png" alt="" style="width: 150px; height: 100px; border: 1px solid gray;margin-left: 70px;margin-right: 100px;"/></a>
-								<a href="foton1.jsp"><img src="images/foton.png" alt="" style="width: 150px; height: 100px; border: 1px solid gray;"/></a>
-							</li>
-							<br>
-							
-							<li>
-								<a href="qimeng.jsp"><img src="images/qimenglogo.png" alt="" style="width: 150px; height: 100px; border: 1px solid gray; margin-left: 70px;margin-right: 100px;"/></a>
-							</li>
-							<br>
-						</ul> -->
 					</div>
 				</div>
 			</div>

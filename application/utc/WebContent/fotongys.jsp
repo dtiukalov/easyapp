@@ -19,25 +19,28 @@
 		<div id="content"><div class="inner_copy">More <a href="http://www.templates.com/">Website Templates</a> @ Templates.com!</div>
 			<div class="container">
 				<div class="wrapper">
-					<%@ include file="/common/aside.jsp"%>
+					<%@ include file="/common/caseaside.jsp"%>
 					<div class="mainContent maxheight">
 						<div class="indent">
 						
-<div class="tit">公司简介：</div>
 <div style="padding-left:10px; font-family:微软雅黑; font-size: 12px;" >
 <p style="margin-bottom;10px;"><img src="images/foton.png" alt="" style="width: 150px; height: 100px; border: 2px solid gray; float: left;" />
-<div style="text-indent:2em;padding-left: 170px; padding-top: 8px;" >北汽福田汽车股份有限公司（简称福田汽车），是一家跨地区、跨行业、跨所有制的国有控股上市公司。总部位于北京市昌平区，是一个以北京为管理中心，在京、津、鲁、冀、湘、鄂、辽、粤、新等9个省市区拥有整车和零部件事业部，研发分支机构分布在中国大陆、日本、德国、中国台湾等国家和地区的大型企业集团。						
 </div>
 
-<br>
-<br>
-<div class="tit">基于Teamcenter的造型图片管理系统</div>
+<br><br><br><br><br><br>
+<div class="tit">基于Teamcenter的供应商图纸发放系统</div>
+						<br>解决方案/服务： <br> 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;以Teamcenter为基础平台，向供应商开放网络接口，为近一千多名供应商提供发放图纸下载入口。 <br>
+<span style="font-size: 13px;">业务挑战： <br> </span>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;图纸发放系统提供供应商入口访问Teamcenter数据库，便于整车厂向供应商们发放图纸数据，操作简单、方便、安全易用，供应商按需登录系统下载图纸，减少了沟通时间和成本。<br>
+<span style="font-size: 13px;">业务举措： <br> </span>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;供应商图纸发放系统与Teamcenter软件的集成<br>
+<span style="font-size: 13px;">成功关键： <br> </span>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;集成Teamcenter软件来管理发放提供给供应商的图纸<br>
+<span style="font-size: 13px;">结果： <br> </span> 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;充分发挥了系统的安全、快速、高效特性，使传统的发放图纸过程简单化，通过系统让供应商自行登录按需下载，将复杂的图纸发放沟通过程效率提高了60% 便于终端用户通过网页方式下载图纸，保障数据安全，更好的控制项目<br>
 
-以Teamcenter为基础平台，存储整车及零部件图片信息，由造型图片管理系统为终端用户实现批量导入，分类查询，造型对比，图片下载等功能。
-<br><br>
-<div class="tit">基于Teamcenter的供应商图纸发放系统	</div>		
 
-以Teamcenter为基础平台，向供应商开放网络接口，为近一千多名供应商提供发放图纸下载入口。
 
 											
 						</div>

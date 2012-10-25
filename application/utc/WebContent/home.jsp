@@ -23,14 +23,14 @@
 							<p>
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								吉林省优泰科技有限公司（Uni-Technology Co.,Ltd.，以下简称UTC）成立于2006年11月，
-								从事于制造业信息化工具以及解决方案的高科技软件销售服务公司，主要为中国第一汽车集团公司
+								致力于制造业信息化工具以及解决方案的高科技软件销售服务公司，主要为中国第一汽车集团公司
 								下属企业及客户提供多级化的、集成的、企业级的包括CAD/CAE/CAM等软件工具和系统
 								产品与服务在内的完整的数字化产品工程解决方案。
 							</p>
 							<p>
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								UTC是西门子产品管理软件代理商，负责西门子产品管理软件公司的全线产品销售与技术服务，专业
-								代理销售西门子公司的NX， I-deas， NX Imageware， Velocity Solid Edge， Femap，NX Nastran， 
+								UTC是全球最大的PLM领域软件与服务的市场领导者——Siemens PLM Software公司在中国业务授权的代理服务商，
+								专业代理销售西门子公司的NX， I-deas， NX Imageware， Velocity Solid Edge， Femap，NX Nastran， 
 								Tecnomatix, Teamcenter等全线产品，并提供售后培训和专项技术服务。
 							</p> 
 						</div>

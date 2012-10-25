@@ -14,7 +14,7 @@
 		<div id="content"><div class="inner_copy">More <a href="http://www.templates.com/">Website Templates</a> @ Templates.com!</div>
 			<div class="container">
 				<div class="wrapper">
-					<%@ include file="/common/aside.jsp"%>
+					<%@ include file="/common/product_list.jsp"%>
 					<div class="mainContent maxheight">
 						<div class="indent">
 							<h2>Tecnomatix 数字化制造</h2>

@@ -37,14 +37,10 @@
 							
 							<br><br>
 							
-							<div class="tit">解决方案？</div>
-							
-							<br><br>
-							
 							<div class="tit">成功案例</div>		
 							<div style="width: 100%; float: left; margin-left: 30px;">
-								<dt><a href="#" style="color: #D30F44;">PEP流程咨询</a></dt>
-								<dt><a href="#" style="color: #F38023;">集团公司产品诞生流程</a></dt>
+								<dt><a href="pepconsult.jsp" style="color: #D30F44;">PEP流程咨询</a></dt>
+								<dt><a href="groupconsult.jsp" style="color: #F38023;">集团公司产品诞生流程</a></dt>
 							</div>	
 							
 											

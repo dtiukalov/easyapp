@@ -45,6 +45,8 @@
 							<li>8. 具有Teamcenter软件技术背景优先</li>
 							
 						</ul>
+						<br><br>
+						有意者请于近期将简历、学历证书及身份证复印件E-Mail至：jie.yu@utc-plm.com。请在简历中注明薪资要求及工作地点。初审合格者将通知面试。
 					</div>
 				</div>
 			</div>

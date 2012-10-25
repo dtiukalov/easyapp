@@ -36,16 +36,15 @@
 							
 							<br><br>
 							
-							<div class="tit">解决方案？</div>
-							
-							<br><br>
-							
-							<div class="tit">成功案例？</div>	
+							<div class="tit">成功案例</div>	
 							<div style="width: 100%; float: left; margin-left: 30px;">
-								<dt><a href="#" style="color: #D30F44;">PLM产品管理平台</a></dt>
-								<dt><a href="#" style="color: #F38023;">基于Teamcenter的竞品分析</a></dt>
-								<dt><a href="#" style="color: #00853E;">PDM 产品数据管理平台</a></dt>
-								<dt><a href="#" style="color: #004579;">vsa</a></dt>
+								<dt><a href="fawpep.jsp" style="color: #D30F44;">产品诞生流程管理</a></dt>
+								<dt><a href="fawbm.jsp" style="color: #F38023;">基于Teamcenter的竞品分析</a></dt>
+								<dt><a href="fcc.jsp" style="color: #00853E;">尺寸工程分析（vsa）</a></dt>
+								<dt><a href="qimeng.jsp" style="color: #D30F44;;">启萌PDM 产品数据管理平台</a></dt>
+								<dt><a href="fotonpicture.jsp" style="color: #F38023;">基于Teamcenter的造型图片管理系统</a></dt>
+								<dt><a href="fotongys.jsp" style="color: #00853E;">基于Teamcenter的供应商图纸发放系统</a></dt>
+							
 							</div>	
 						</div>
 					</div>

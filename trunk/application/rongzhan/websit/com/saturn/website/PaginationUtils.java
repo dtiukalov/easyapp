@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PaginationUtils {
-	private static final int LIST_PAGINATION_NUM = 12;
+	public static int LIST_PAGINATION_NUM = 12;
 
 	public static String getPageText(String text, String indexStr) {
 		int index = 1;
@@ -93,7 +93,7 @@ public class PaginationUtils {
 			buffer.append(getLink(url, "1", "首页"));
 			buffer.append(getLink(url, current - 1 + "", "上一页"));
 		}
-
+/*
 		for (int i = 1; i <= size; ++i) {
 			if (current == i) {
 				buffer.append("[" + i + "]&nbsp;");
@@ -101,7 +101,7 @@ public class PaginationUtils {
 				buffer.append(getLink(url, i + "", "[" + i + "]"));
 			}
 		}
-
+*/
 		if (current == size) {
 			buffer.append("下一页&nbsp;");
 			buffer.append("尾页&nbsp;");
@@ -113,7 +113,7 @@ public class PaginationUtils {
 		if (sum == 0) {
 			buffer.append("共计" + size + "页&nbsp;");
 		} else {
-			buffer.append("共计" + sum + "条&nbsp" + size + "页&nbsp;");
+			buffer.append("共计" + sum + "条&nbsp" + current+"/"+size + "页&nbsp;");
 		}
 		
 		return buffer.toString();

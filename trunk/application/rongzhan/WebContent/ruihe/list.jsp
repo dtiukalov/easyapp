@@ -29,6 +29,7 @@
         	  <table cellspacing="5" cellpadding="5" width="95%"  height="337px" align="center" border="0">
         	    <tbody>
         	    <%
+        	    PaginationUtils.LIST_PAGINATION_NUM=12;
         	    List all = Article.getByCid(__aid);
         		String indexStr = request.getParameter("index");
         		List articles = PaginationUtils.getPaginationList(all, indexStr);
@@ -75,7 +76,7 @@
 				%>
       	      </tbody>
       	    </table>
-      	      <div style="text-align: center"><%=PaginationUtils.getPagination("list.jsp?cid=" + __cid, indexStr, all) %></div>
+      	      <div style="text-align: center"><%=PaginationUtils.getPagination("list.jsp?cid=" + __cid+"&aid=" + __aid, indexStr, all) %></div>
         	</div>
         </div>
         <div class="nrdi"><img src="image/nr_xia.gif" /></div>

@@ -7,7 +7,7 @@
 	<div class="top">
     	<div class="logo"><img src="images/logo.gif" /></div>
 		<div class="xs">通化融晟奥迪专营店</div>
-		<div class="rzlogo"><a href="../rongzhan/index.jsp"><img src="images/lor.jpg" /></a></div>
+		<div class="rzlogo"><a href="../rongzhan/index.jsp"><img src="images/lor.png" /></a></div>
     </div><!--上部分-->
     <div class="nav">
     <ul>

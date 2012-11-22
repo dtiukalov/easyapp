@@ -956,7 +956,7 @@
 					top: <%=level1%>px; margin-left: <%=VFFTBTZP5 * tdWidth - tdWidth / 4%>px; word-wrap:break-word;
 					filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath()%>/app/pep/images/diamond_pink.png', 
 					sizingMethod='scale');">
-					TBT<br>ZP5
+					TBT ZP5
 					</div>
 				<%
 					if (VFFTBTZP7 != 0)
@@ -1003,7 +1003,7 @@
 						top: <%=level3%>px; margin-left: <%=PVSTBTZP5 * tdWidth - tdWidth / 4%>px; word-wrap:break-word;
 						filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath()%>/app/pep/images/diamond_pink.png', 
 						sizingMethod='scale');">
-						TBT ZP7
+						TBT ZP5
 						</div>
 				<%
 					if (PVSTBTZP7 != 0)
@@ -1050,7 +1050,7 @@
 						top: <%=level5%>px; margin-left: <%=OSTBTZP5 * tdWidth - tdWidth / 4%>px; word-wrap:break-word;
 						filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%=request.getContextPath()%>/app/pep/images/diamond_pink.png', 
 						sizingMethod='scale');">
-						TBT ZP7
+						TBT ZP5
 						</div>
 				<%
 					if (OSTBTZP7 != 0)

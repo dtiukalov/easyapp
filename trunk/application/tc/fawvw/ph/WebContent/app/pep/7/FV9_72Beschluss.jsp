@@ -30,7 +30,7 @@
 	    <div id="content" >
 		    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="overflow: hidden;padding-left: 5%; padding-right: 5%;">
 		    	<tr>
-		    		<td colspan="4" style="height:35px; font-size: 16px; font-weight: bolder; border-bottom: 3px solid;">
+		    		<td colspan="4" style="height:30px; font-size: 16px; font-weight: bolder; border-bottom: 3px solid;">
 		    			Bisherige Pilothallen
 		    		</td>
 		    	</tr>
@@ -40,7 +40,7 @@
 		    		</td>
 		    	</tr>
 		    	<tr>
-		    		<td colspan="4" style="height:35px; font-size: 16px; font-weight: bolder; border-bottom: 3px solid;">
+		    		<td colspan="4" style="height:30px; font-size: 16px; font-weight: bolder; border-bottom: 3px solid;">
 		    			Beschlussantrag
 		    		</td>
 		    	</tr>
@@ -50,12 +50,12 @@
 		    		</td>
 		    	</tr>
 		    	<tr>
-		    		<td colspan="4" style="height:35px; font-size: 16px; font-weight: bolder; border-bottom: 3px solid;">
+		    		<td colspan="4" style="height:30px; font-size: 16px; font-weight: bolder; border-bottom: 3px solid;">
 		    			<%=fv9BeschlussTitle %> 
 		    		</td>
 		    	</tr>
 		    	<tr>
-		    		<td colspan="4" style="height:38px; font-size: 16px; ">
+		    		<td colspan="4" style="height:30px; font-size: 16px; ">
 		    			<%=fv9BeschlussStatus %>
 		    		</td>
 		    	</tr>

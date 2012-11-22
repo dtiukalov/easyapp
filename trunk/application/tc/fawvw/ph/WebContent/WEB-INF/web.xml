@@ -34,7 +34,7 @@
 		<!--  <param-value>http://168.168.16.18:9080/tc</param-value>  -->
 		<!--  <param-value>http://168.168.16.17:9080/tc</param-value>  -->
 		<!--  <param-value>http://192.168.1.102:7001/tc</param-value> -->
-		<param-value>http://192.168.1.102:7001/tc</param-value>
+		<param-value>http://192.168.1.109:9080/tc</param-value>
 	</context-param>
 	
 	<listener>

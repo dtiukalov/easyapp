@@ -1,3 +1,4 @@
+<%@page import="org.apache.commons.lang.StringUtils"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="java.util.Arrays"%>
@@ -58,11 +59,19 @@
 			topLine = fv9TotalNum;
 		} else {
 			if (Web.getListYesOrNo(teilestName)) {
-				topLine = Integer.parseInt(((List<String>)form.get("fv9TeileAusSerien")).get(0)) + 
-						Integer.parseInt(((List<String>)form.get("fv9TeileFehlend")).get(0)) + 
-						Integer.parseInt(((List<String>)form.get("fv9TeileNote3")).get(0)) + 
-						Integer.parseInt(((List<String>)form.get("fv9TeileNote1")).get(0)) + 
-						Integer.parseInt(((List<String>)form.get("fv9TeileNote6")).get(0));
+				int num1 = 0, num2 = 0, num3 = 0, num4 = 0, num5 = 0;
+				if (StringUtils.isNotEmpty(((List<String>)form.get("fv9TeileAusSerien")).get(0)))
+					num1 = Integer.parseInt(((List<String>)form.get("fv9TeileAusSerien")).get(0));
+				if (StringUtils.isNotEmpty(((List<String>)form.get("fv9TeileFehlend")).get(0)))
+					num2 = Integer.parseInt(((List<String>)form.get("fv9TeileFehlend")).get(0));
+				if (StringUtils.isNotEmpty(((List<String>)form.get("fv9TeileNote3")).get(0)))
+					num3 = Integer.parseInt(((List<String>)form.get("fv9TeileNote3")).get(0));
+				if (StringUtils.isNotEmpty(((List<String>)form.get("fv9TeileNote1")).get(0)))
+					num4 = Integer.parseInt(((List<String>)form.get("fv9TeileNote1")).get(0));
+				if (StringUtils.isNotEmpty(((List<String>)form.get("fv9TeileNote6")).get(0)))
+					num5 = Integer.parseInt(((List<String>)form.get("fv9TeileNote6")).get(0));
+				
+				topLine = num1 + num2 + num3 + num4 + num5;
 			}
 			
 		}

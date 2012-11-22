@@ -200,21 +200,24 @@ public class DateUtils {
 	 * 取得输入日期是多少周 输入为字符串类型
 	 */
 	public static int getWeekOfYear(String dateStr) {
-		Calendar c = null;
-		try {
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-			Date date = sdf.parse(dateStr);
+		if (!"".equals(dateStr)) {
+			Calendar c = null;
+			try {
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+				Date date = sdf.parse(dateStr);
 
-			c = new GregorianCalendar();
-			c.setFirstDayOfWeek(Calendar.MONDAY);
-			c.setMinimalDaysInFirstWeek(7);
-			c.setTime(date);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+				c = new GregorianCalendar();
+				c.setFirstDayOfWeek(Calendar.MONDAY);
+				c.setMinimalDaysInFirstWeek(7);
+				c.setTime(date);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			return c.get(Calendar.WEEK_OF_YEAR);
 		}
-
-		return c.get(Calendar.WEEK_OF_YEAR);
+		return 0;
 	}
 
 	public static Date getDate(int year, int month, int date) {

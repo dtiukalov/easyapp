@@ -99,6 +99,7 @@ public class PreviewAction implements IAction {
 							true);
 					
 					if ("FV9_11ProjectTermin".equals(public_type)) {
+			System.out.println("获取到FV9_11ProjectTermin的otherUid");
 						request.getSession().setAttribute(public_type, otherForm);
 						
 						//里程碑开始时间
@@ -151,6 +152,7 @@ public class PreviewAction implements IAction {
 					}
 					
 					if ("FV9_11VorserienTer".equals(public_type)) {
+			System.out.println("获取到FV9_11VorserienTer的otherUid");
 						request.getSession().setAttribute(public_type, otherForm);
 						
 						String fv9VFFTBTZP5 = getDateValue(otherForm.get("fv9VFFTBTZP5")) + " 00:00"; //2011-12-10

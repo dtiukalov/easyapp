@@ -932,8 +932,8 @@
 				//关键点的绝对高度
 				//int baseTop = 110 + 20 + 60 + 18 + 15 + 15; 
 				//title(100) + 表格与上面的空白（20） + 表格LOGO（60） + 年（18） + 周（15） + 与SOP倒数的周数（15）
-				//最后的20px是我的机器与大众服务器的差异
-						int baseTop = 110 + 20 + 60 + 18 + 15 + 5 + 20;
+				//最后的数字是我的机器与大众服务器的差异
+						int baseTop = 110 + 20 + 60 + 18 + 15 + 5 - 5;
 						int level1 = baseTop + 20;
 						int level2 = level1;
 						if (VFFABSSTART != 0 && VFFABSEND != 0)

@@ -191,7 +191,7 @@
 							dataLabels: {
 								enabled: true,
 								style : {
-									fontSize:'12px'
+									fontSize:'16px'
 								},
 								color: 'black',
 								formatter: function() {
@@ -224,7 +224,7 @@
 							dataLabels: {
 								enabled: true,
 								style : {
-									fontSize:'12px'
+									fontSize:'16px'
 								},
 								color: 'black'
 							}
@@ -235,7 +235,7 @@
 							dataLabels: {
 								enabled: true,
 								style : {
-									fontSize:'12px'
+									fontSize:'16px'
 								},
 								color: 'white'
 							}
@@ -262,7 +262,7 @@
 								enabled: true,
 								color: 'white',
 								style : {
-									fontSize:'12px'
+									fontSize:'16px'
 								}
 								
 							}
@@ -281,7 +281,8 @@
 								enabled: true,
 								formatter: function() {
 									return "<%=topLine%>";
-								}
+								},
+								fontSize:'16px'
 							}
 						}]
 				});

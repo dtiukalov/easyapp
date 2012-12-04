@@ -154,7 +154,7 @@
 					text: 'In Prozent',
 					style:{
 						color:'black',
-						fontSize:'16px'
+						fontSize:'18px'
 					},
 					align:'left'
 				},
@@ -162,7 +162,7 @@
 					text: 'Gesamt: <%=gesamt%> Funktionsmasse',
 					style:{
 						color:'black',
-						fontSize:'10px'
+						fontSize:'14px'
 					},
 					align:'left'
 				}, 
@@ -180,7 +180,7 @@
 						y:20,
 						style: {
 							 padding:'5px',
-							 fontSize: '12px',
+							 fontSize: '14px',
 							 color:'black'
 						}
 					},
@@ -241,7 +241,7 @@
 						dataLabels: {
 							enabled: true,
 							style : {
-								fontSize:'12px'
+								fontSize:'14px'
 							},
 							color: 'black',
 							formatter: function() {
@@ -260,9 +260,9 @@
 					dataLabels: {
 						enabled: true,
 						style : {
-							fontSize:'12px'
+							fontSize:'14px'
 						},
-						color: 'white'
+						color: 'black'
 					}
 				}, {
 					name: 'BK: 75% < Abweichung Toleranz < 100 %',
@@ -274,7 +274,7 @@
 					dataLabels: {
 						enabled: true,
 						style : {
-							fontSize:'12px'
+							fontSize:'14px'
 						},
 						color: 'white'
 					},
@@ -455,7 +455,7 @@
 				%>	
 				<div id="legent" style="width: 130px; height: 100px; 
 				position: absolute; margin-left: 300px; margin-top: -500px; padding-left: 60px;
-				font-size: 12px;">
+				font-size: 13px;">
 					Konzernziele<br>
 					(max. rot)<br>
 					VFF	30 %<br>

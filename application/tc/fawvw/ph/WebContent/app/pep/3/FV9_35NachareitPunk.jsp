@@ -133,7 +133,23 @@
 						data: <%=fv9Karosseriebau%>,
 						color: '#AED4F8',
 						dataLabels: {
-							enabled: false,
+							enabled: true,
+							color: 'black',
+							formatter: function() {
+								if (this.y == 0 || this.y == 0.0 || this.y == null) {
+									return '';
+								}
+								return this.y + '';
+							}
+						}
+					}, {
+						type: 'column',
+						name: 'Kaufteile',
+						data: <%=fv9Kaufteile%>,
+						color: '#91AFFF',
+						dataLabels: {
+							enabled: true,
+							color: 'white',
 							formatter: function() {
 								if (this.y == 0 || this.y == 0.0 || this.y == null) {
 									return '';
@@ -147,7 +163,8 @@
 						data: <%=fv9Lack%>,
 						color: '#BBC2C5',
 						dataLabels: {
-							enabled:false,
+							enabled: true,
+							color: 'black',
 							formatter: function() {
 								if (this.y == 0 || this.y == 0.0 || this.y == null) {
 									return '';
@@ -161,7 +178,7 @@
 						data: <%=fv9Montage%>,
 						color: '#00235A',
 						dataLabels: {
-							enabled:false,
+							enabled: true,
 							formatter: function() {
 								if (this.y == 0 || this.y == 0.0 || this.y == null) {
 									return '';
@@ -175,7 +192,7 @@
 						data: <%=fv9Prognose%>,
 						color: '#A6DD00',
 						marker: {
-							enabled: false,
+							enabled: true,
 							shadow:false,
 							states: {
 								hover: {

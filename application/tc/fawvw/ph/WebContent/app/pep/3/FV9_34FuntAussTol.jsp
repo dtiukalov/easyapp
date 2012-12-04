@@ -107,7 +107,7 @@
 					text: 'Gesamt: <%=gesamt%> Funktionsmasse',
 					style:{
 						color:'black',
-						fontSize: '14px'
+						fontSize: '18px'
 					},
 					align:'left'
 				},
@@ -164,7 +164,7 @@
 							/* verticalAlign: 'top', */
 							y:-10,
 							style:{
-								fontSize:'14px'
+								fontSize:'18px'
 							},
 							formatter: function() {
 								if (this.y == 0 || this.y == 0.0 || this.y == null) {
@@ -238,12 +238,15 @@
 					data: [{ 
 						y: <%=fv9FuncInTolGreen%>, 
 						low: 0,
-						color: '#009C0E'
+						color: '#009C0E',
+						style:{
+							fontSize:'18px'
+						},
 					}],
 					dataLabels: {
 						enabled: true,
 						style : {
-							fontSize:'12px'
+							fontSize:'18px'
 						},
 						color: 'white'
 					}
@@ -264,7 +267,7 @@
 			
 			<div id="content">
 				<div id="chart" style="width: 1000px; height: 500px; margin: 5px auto; margin-top: 30px;"></div>
-				<div style = "font-size: 12px; overflow: hidden;">
+				<div style = "font-size: 14px; overflow: hidden;">
 					<!-- 
 					<div style="position: absolute; width: 1px; height: 20px; top:330px; margin-left: 252px; border-left: 1px solid;"></div>
 					 -->

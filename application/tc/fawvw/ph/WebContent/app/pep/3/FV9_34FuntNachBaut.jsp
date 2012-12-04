@@ -69,7 +69,7 @@
 						categories: <%=fv9FunctionStyle%>,
 						labels:{
 							style:{
-								fontSize:'14px',
+								fontSize:'16px',
 								color:'black'
 							}
 						}
@@ -86,7 +86,7 @@
 							enabled: true,
 							style: {
 								color: 'black',
-								fontSize:'14px'
+								fontSize:'16px'
 							},
 							x:17,
 							y:10
@@ -122,7 +122,7 @@
 								align: 'center',
 								y:7,
 								style : {
-									fontSize:'12px'
+									fontSize:'16px'
 								},
 								color: 'black',
 								formatter: function() {
@@ -140,7 +140,7 @@
 						dataLabels: {
 							enabled: true,
 							style : {
-								fontSize:'12px'
+								fontSize:'16px'
 							},
 							color: 'white'
 						}
@@ -155,7 +155,7 @@
 						dataLabels: {
 							enabled: true,
 							style : {
-								fontSize:'12px'
+								fontSize:'16px'
 							},
 							color: 'white'
 						}
@@ -179,7 +179,7 @@
 			<div id="content">
 				<div style="width: 1000px; height: 50px; padding-left: 30px; padding-top: 10px;">
 					<span style="font-size: 18px;">Zusammenbauteile (Anzahl FM/Anzahl Messungen)</span><br>
-					<span style="font-size: 14px;">Gesamt: <%=gesamt %> Funktionsmasse</span>
+					<span style="font-size: 16px;">Gesamt: <%=gesamt %> Funktionsmasse</span>
 				</div>
 				
 				<div id="chart" style="width: 1000px; height: 500px; margin: 0px 30px auto; float: left;"></div>

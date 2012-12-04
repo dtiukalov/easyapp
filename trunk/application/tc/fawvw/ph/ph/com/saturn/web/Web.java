@@ -216,9 +216,9 @@ public class Web {
 			if ("yes".equalsIgnoreCase(isPublic)) {
 				//BackUp或是FV9PHBackup类型的数据
 				if("yes".equalsIgnoreCase(isBackup) || "FV9PHBackup".equalsIgnoreCase(formType)){
-					return "<div id='backup'>资料已发布<br><br><img width='190' height='80' src='/ph/app/pep/images/backup.png'></div>";
+					return "<div id='backup'>Pre-Release<br><br><img width='190' height='80' src='/ph/app/pep/images/backup.png'></div>";
 				}
-				return "<div id='no-state'>资料已发布</div>";
+				return "<div id='no-state'>Pre-Release</div>";
 			}
 			
 			

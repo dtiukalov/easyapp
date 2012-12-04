@@ -3,8 +3,14 @@
 	pageEncoding="UTF-8"%>
 <%@page import="java.util.Arrays"%>
 <%@page import="java.util.Map"%>
+<%@page import="java.util.Set"%>
+<%@page import="java.util.HashSet"%>
 <%@page import="java.util.List"%>
+<%@page import="java.util.Iterator"%>
 <%@page import="java.util.HashMap"%>
+<%@page import="java.util.Collections"%>
+<%@page import="java.util.Comparator"%>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -215,6 +221,11 @@
 					int currentIndex = 0;
 					String currentDate = DateUtils.getSysDate();
 					System.out.println("currentDate = " + currentDate);
+					
+					List<Integer> index_list = new ArrayList<Integer>();
+					List<Map<String, Integer>> mmIndex = new ArrayList<Map<String, Integer>>();
+					List<Map<String, String>> mmDate = new ArrayList<Map<String, String>>();
+					List<Map<String, String>> mmOrg = new ArrayList<Map<String, String>>();
 
 					if (tdNum > 0) {
 						double tdWidth = 780.0 / tdNum;
@@ -223,42 +234,252 @@
 						int[] year = new int[tdNum + 1]; //多写一年为了合并单元格时做比较
 						int[] month = new int[tdNum];
 						String temp_date = "";
+						
 						for (int n = 0; n < tdNum; n++) {
 							temp_date = DateUtils.getDateAddMonth(startDate, n, "+"); //循环增加一个月
 							year[n] = Integer.parseInt(temp_date.split("-")[0]);
 							month[n] = Integer.parseInt(temp_date.split("-")[1]);
 
 							//获得每个里程碑所在TD的索引
-							if (getMLIndex(fv9PMMLDate, temp_date))
-								PMIndex = n;
-							if (getMLIndex(fv9PPMLDate, temp_date))
-								PPIndex = n;
-							if (getMLIndex(fv9PDMLDate, temp_date))
-								PDIndex = n;
-							if (getMLIndex(fv9PFMLDate, temp_date))
-								PFIndex = n;
-							if (getMLIndex(fv9KEMLDate, temp_date))
-								KEIndex = n;
-							if (getMLIndex(fv9DEMLDate, temp_date))
+							if (getMLIndex(fv9PMMLDate, temp_date)) {
+								PMIndex = n; 
+								if (n != 0) {
+									index_list.add(PMIndex);
+									Map map1 = new HashMap<String, Integer>();
+									map1.put(n, "PM");
+									mmIndex.add(map1);
+									Map map2 = new HashMap<String, String>();
+									map2.put(n, fv9PMMLDate);
+									mmDate.add(map2);
+									Map map3 = new HashMap<String, String>();
+									map3.put(n, fv9PMMLOrg);
+									mmOrg.add(map3);
+								}
+							}
+							
+							if (getMLIndex(fv9PPMLDate, temp_date)) {
+								PPIndex = n; 
+								if (n != 0) {
+									Map map = new HashMap<String, Integer>();
+									map.put(n, "PP");
+									mmIndex.add(map);
+									index_list.add(PPIndex);
+									Map map2 = new HashMap<String, String>();
+									map2.put(n, fv9PPMLDate);
+									mmDate.add(map2);
+									Map map3 = new HashMap<String, String>();
+									map3.put(n, fv9PPMLOrg);
+									mmOrg.add(map3);
+								}
+							}
+								
+							if (getMLIndex(fv9PDMLDate, temp_date)) {
+								PDIndex = n; 
+								if (n != 0) {
+									Map map = new HashMap<String, Integer>();
+									map.put(n, "PD");
+									mmIndex.add(map);
+									index_list.add(PDIndex);
+									Map map2 = new HashMap<String, String>();
+									map2.put(n, fv9PDMLDate);
+									mmDate.add(map2);
+									Map map3 = new HashMap<String, String>();
+									map3.put(n, fv9PDMLOrg);
+									mmOrg.add(map3);
+								}
+							}
+								
+							if (getMLIndex(fv9PFMLDate, temp_date)) {
+								PFIndex = n; 
+								if (n != 0) {
+									Map map = new HashMap<String, Integer>();
+									map.put(n, "PF");
+									mmIndex.add(map);
+									index_list.add(PFIndex);
+									Map map2 = new HashMap<String, String>();
+									map2.put(n, fv9PFMLDate);
+									mmDate.add(map2);
+									Map map3 = new HashMap<String, String>();
+									map3.put(n, fv9PFMLOrg);
+									mmOrg.add(map3);
+								}
+							}
+								
+							if (getMLIndex(fv9KEMLDate, temp_date)) {
+								KEIndex = n; 
+								if (n != 0) {
+									Map map = new HashMap<String, Integer>();
+									map.put(n, "KE");
+									mmIndex.add(map);
+									index_list.add(KEIndex);
+									Map map2 = new HashMap<String, String>();
+									map2.put(n, fv9KEMLDate);
+									mmDate.add(map2);
+									Map map3 = new HashMap<String, String>();
+									map3.put(n, fv9KEMLOrg);
+									mmOrg.add(map3);
+								}
+							}
+								
+							if (getMLIndex(fv9DEMLDate, temp_date)) {
 								DEIndex = n;
-							if (getMLIndex(fv9DFExtMLDate, temp_date))
+								if (n != 0) {
+									Map map = new HashMap<String, Integer>();
+									map.put(n, "DE");
+									mmIndex.add(map);
+									index_list.add(DEIndex);
+									Map map2 = new HashMap<String, String>();
+									map2.put(n, fv9DEMLDate);
+									mmDate.add(map2);
+									Map map3 = new HashMap<String, String>();
+									map3.put(n, fv9DEMLOrg);
+									mmOrg.add(map3);
+								}
+							}
+								
+							if (getMLIndex(fv9DFExtMLDate, temp_date)) {
 								DFExtIndex = n;
-							if (getMLIndex(fv9DFIntMLDate, temp_date))
+								if (n != 0) {
+									Map map = new HashMap<String, Integer>();
+									map.put(n, "DF"); //DFExt
+									mmIndex.add(map);
+									index_list.add(DFExtIndex);
+									Map map2 = new HashMap<String, String>();
+									map2.put(n, fv9DFExtMLDate);
+									mmDate.add(map2);
+									Map map3 = new HashMap<String, String>();
+									map3.put(n, fv9DFExtMLOrg);
+									mmOrg.add(map3);
+								}
+							}
+								
+							if (getMLIndex(fv9DFIntMLDate, temp_date)) {
 								DFIntIndex = n;
-							if (getMLIndex(fv9BFMLDate, temp_date))
+								if (n != 0) {
+									Map map = new HashMap<String, Integer>();
+									map.put(n, "DF"); //DFInt
+									mmIndex.add(map);
+									index_list.add(DFIntIndex);
+									Map map2 = new HashMap<String, String>();
+									map2.put(n, fv9DFIntMLDate);
+									mmDate.add(map2);
+									Map map3 = new HashMap<String, String>();
+									map3.put(n, fv9DFIntMLOrg);
+									mmOrg.add(map3);
+								}
+							}
+								
+							if (getMLIndex(fv9BFMLDate, temp_date)) {
 								BFIndex = n;
-							if (getMLIndex(fv9LFMLDate, temp_date))
-								LFIndex = n;
-							if (getMLIndex(fv9VFFMLDate, temp_date))
-								VFFIndex = n;
-							if (getMLIndex(fv9PVSMLDate, temp_date))
+								if (n != 0) {
+									Map map = new HashMap<String, Integer>();
+									map.put(n, "BF");
+									mmIndex.add(map);
+									index_list.add(BFIndex);
+									Map map2 = new HashMap<String, String>();
+									map2.put(n, fv9BFMLDate);
+									mmDate.add(map2);
+									Map map3 = new HashMap<String, String>();
+									map3.put(n, fv9BFMLOrg);
+									mmOrg.add(map3);
+								}
+							}
+								
+							if (getMLIndex(fv9LFMLDate, temp_date)) {
+								LFIndex = n; 
+								if (n != 0) {
+									Map map = new HashMap<String, Integer>();
+									map.put(n, "LF");
+									mmIndex.add(map);
+									index_list.add(LFIndex);
+									Map map2 = new HashMap<String, String>();
+									map2.put(n, fv9LFMLDate);
+									mmDate.add(map2);
+									Map map3 = new HashMap<String, String>();
+									map3.put(n, fv9LFMLOrg);
+									mmOrg.add(map3);
+								}
+							}
+								
+							if (getMLIndex(fv9VFFMLDate, temp_date)) {
+								VFFIndex = n; 
+								if (n != 0) {
+									Map map = new HashMap<String, Integer>();
+									map.put(n, "VFF");
+									mmIndex.add(map);
+									index_list.add(VFFIndex);
+									Map map2 = new HashMap<String, String>();
+									map2.put(n, fv9VFFMLDate);
+									mmDate.add(map2);
+									Map map3 = new HashMap<String, String>();
+									map3.put(n, fv9VFFMLOrg);
+									mmOrg.add(map3);
+								}
+							}
+								
+							if (getMLIndex(fv9PVSMLDate, temp_date)) {
 								PVSIndex = n;
-							if (getMLIndex(fv90SMLDate, temp_date))
-								OSIndex = n;
-							if (getMLIndex(fv9SOPMLDate, temp_date))
-								SOPIndex = n;
-							if (getMLIndex(fv9MEMLDate, temp_date))
+								if (n != 0) {
+									Map map = new HashMap<String, Integer>();
+									map.put(n, "PVS");
+									mmIndex.add(map);
+									index_list.add(PVSIndex);
+									Map map2 = new HashMap<String, String>();
+									map2.put(n, fv9PVSMLDate);
+									mmDate.add(map2);
+									Map map3 = new HashMap<String, String>();
+									map3.put(n, fv9PVSMLOrg);
+									mmOrg.add(map3);
+								}
+							}
+								
+							if (getMLIndex(fv90SMLDate, temp_date)) {
+								OSIndex = n; 
+								if (n != 0) {
+									Map map = new HashMap<String, Integer>();
+									map.put(n, "OS");
+									mmIndex.add(map);
+									index_list.add(OSIndex);
+									Map map2 = new HashMap<String, String>();
+									map2.put(n, fv90SMLDate);
+									mmDate.add(map2);
+									Map map3 = new HashMap<String, String>();
+									map3.put(n, fv90SMLOrg);
+									mmOrg.add(map3);
+								}
+							}
+								
+							if (getMLIndex(fv9SOPMLDate, temp_date)) {
+								SOPIndex = n; 
+								if (n != 0) {
+									Map map = new HashMap<String, Integer>();
+									map.put(n, "SOP");
+									mmIndex.add(map);
+									index_list.add(SOPIndex);
+									Map map2 = new HashMap<String, String>();
+									map2.put(n, fv9SOPMLDate);
+									mmDate.add(map2);
+									Map map3 = new HashMap<String, String>();
+									map3.put(n, fv9SOPMLOrg);
+									mmOrg.add(map3);
+								}
+							}
+								
+							if (getMLIndex(fv9MEMLDate, temp_date)) {
 								MEIndex = n;
+								if (n != 0) {
+									Map map = new HashMap<String, Integer>();
+									map.put(n, "ME");
+									mmIndex.add(map);
+									index_list.add(MEIndex);
+									Map map2 = new HashMap<String, String>();
+									map2.put(n, fv9MEMLDate);
+									mmDate.add(map2);
+									Map map3 = new HashMap<String, String>();
+									map3.put(n, fv9MEMLOrg);
+									mmOrg.add(map3);
+								}
+							}
 
 							if (getMLIndex(currentDate, temp_date)) {
 								currentIndex = n;
@@ -387,249 +608,142 @@
 
 
 				</table>
+				<%!
+				/*
+				input:mmIndex 为里程碑所在表格的index（index!=0）
+				output:每个里程碑DIV的字符串
+				*/
+				public List<String> getMMDiv(
+						HttpServletRequest request,
+						HttpServletResponse response,
+						int SOPIndex,
+						List<Integer> index, 
+						List<Map<String, Integer>> mmIndex,
+						List<Map<String, String>> mmDate,
+						List<Map<String, String>> mmOrg,
+						double tdWidth,
+						double marginLeft
+				) {
+					
+					//去掉重复值
+					List<Integer> new_index = removeDuplicate(index);
+					List<String> div_str = new ArrayList<String>();
+					if(new_index != null && new_index.size() > 0) {
+						for (int i=0; i<new_index.size()-1; i++) {
+							int pos = new_index.get(i);
+							System.out.println(pos);
+							String mm = "&nbsp;<br>&nbsp;<br>"; //
+							String mldate = "";
+							String mlorg = "";
+							int standIndex = 0; //以哪个index为基准
+							int count = 0;
+							for (int j=0; j<mmIndex.size()-1; j++) {
+								Map map1 = mmIndex.get(j);
+								Map map2 = mmDate.get(j);
+								Map map3 = mmOrg.get(j);
+								
+								if (map1.containsKey(pos) && map2.containsKey(pos) && map3.containsKey(pos)) {
+									System.out.println(map1);
+									count++;
+									if (count > 1){
+										mm = mm.replace("&nbsp;<br>&nbsp;<br>", "");
+										mm += "<br>";
+									}
+									if (SOPIndex == pos) {
+										mm = mm.replace("&nbsp;<br>&nbsp;<br>", "");
+										mm += map1.get(pos) + "<br><br>" +
+												map2.get(pos).toString().split("-")[1] + "/" + 
+												map2.get(pos).toString().split("-")[0].substring(2, 4) + "<br>";
+									} else {
+										mm += map1.get(pos) + "<br>";
+									}
+									
+									standIndex = pos;
+									mldate = map2.get(pos).toString();
+									mlorg = map3.get(pos).toString();
+									
+									
+								}
+							}
+							count = 0;
+		
+							String div = getDiv(
+									request, 
+									mm,
+									mldate,
+									mlorg,
+									standIndex, 
+									tdWidth,
+									marginLeft);
+							div_str.add(div); 
+							
+						}
+					}
+					System.out.println(div_str);
+					
+					return div_str;
+				}
+				
+				//去掉重复值
+				public List<Integer> removeDuplicate(List list) {
+					Set set = new HashSet();  
+					List newList = new ArrayList();  
+					for (Iterator iter = list.iterator(); iter.hasNext();) {  
+						Object element = iter.next();  
+						if (set.add(element))  
+							newList.add(element);  
+					}  
+					return newList;  
+				}
+				
+				
+				%>
 				<%
 					//开始写入里程碑，计算绝对位置
 						double marginLeft = 180.0;
 
-						String PMDiv = "", PPDiv = "", PDDiv = "", PFDiv = "";
-						String KEDiv = "", DEDiv = "", DFExtDiv = "", DFIntDiv = "";
-						String BFDiv = "", LFDiv = "", VFFDiv = "", PVSDiv = "";
-						String OSDiv = "", SOPDiv = "", MEDiv = "";
-
-						//判断每个里程碑是否与后一个里程碑在同一个月
-						//如果两个里程碑在同一个月，则取前一个里程碑的责任部门显示
-						//如果一个里程碑与前面的里程碑在同一个月内，那么不显示后一个里程碑
-						//PM
-						if (PMIndex != PPIndex) {
-							PMDiv = getDiv(request, "&nbsp;<br>&nbsp;<br>PM",
-									fv9PMMLDate, fv9PMMLOrg, PMIndex, tdWidth,
-									marginLeft);
-						} else {
-							PMDiv = getDiv(request, "PM<br>nbsp;<br>PP", fv9PMMLDate,
-									fv9PMMLOrg, PMIndex, tdWidth, marginLeft);
-						}
-						//PP
-						if (PPIndex != PDIndex && PPIndex != PMIndex) {
-							//不与后面的里程碑在相同月份
-							PPDiv = getDiv(request, "sp;<br>&nbsp;<br>PP", fv9PPMLDate,
-									fv9PPMLOrg, PPIndex, tdWidth, marginLeft);
-						} else if (PPIndex == PMIndex) {
-							//与前面里程碑在相同月份
-							PPDiv = "";
-						} else {
-							//其他情况-前后里程碑在同一月份内
-							PPDiv = getDiv(request, "PP<br>&nbsp;<br>PD", fv9PPMLDate,
-									fv9PPMLOrg, PPIndex, tdWidth, marginLeft);
-						}
-						//PD
-						if (PDIndex != PFIndex && PDIndex != PPIndex) {
-							PDDiv = getDiv(request, "&nbsp;<br>&nbsp;<br>PD",
-									fv9PDMLDate, fv9PDMLOrg, PDIndex, tdWidth,
-									marginLeft);
-						} else if (PDIndex == PPIndex) {
-							PDDiv = "";
-						} else {
-							PDDiv = getDiv(request, "PD<br>&nbsp;<br>PF", fv9PDMLDate,
-									fv9PDMLOrg, PDIndex, tdWidth, marginLeft);
-						}
-						//PF
-						if (PFIndex != KEIndex && PFIndex != PDIndex) {
-							PFDiv = getDiv(request, "&nbsp;<br>&nbsp;<br>PF",
-									fv9PFMLDate, fv9PFMLOrg, PFIndex, tdWidth,
-									marginLeft);
-						} else if (PFIndex == PDIndex) {
-							PFDiv = "";
-						} else {
-							PFDiv = getDiv(request, "PF<br>&nbsp;<br>KE", fv9PFMLDate,
-									fv9PFMLOrg, PFIndex, tdWidth, marginLeft);
-						}
-						//KE
-						if (KEIndex != DEIndex && KEIndex != PFIndex) {
-							KEDiv = getDiv(request, "&nbsp;<br>&nbsp;<br>KE",
-									fv9KEMLDate, fv9KEMLOrg, KEIndex, tdWidth,
-									marginLeft);
-						} else if (KEIndex == PFIndex) {
-							KEDiv = "";
-						} else {
-							KEDiv = getDiv(request, "KE<br>&nbsp;<br>DE", fv9KEMLDate,
-									fv9KEMLOrg, KEIndex, tdWidth, marginLeft);
-						}
-						//DE
-						if (DEIndex != DFExtIndex && DEIndex != KEIndex) {
-							DEDiv = getDiv(request, "&nbsp;<br>&nbsp;<br>DE",
-									fv9DEMLDate, fv9DEMLOrg, DEIndex, tdWidth,
-									marginLeft);
-						} else if (DEIndex == KEIndex) {
-							DEDiv = "";
-						} else {
-							DEDiv = getDiv(
-									request,
-									"DE<br>&nbsp;<br>DF<span style=\"font-size:8px;\">Ext</span>",
-									fv9DEMLDate, fv9DEMLOrg, DEIndex, tdWidth,
-									marginLeft);
-						}
-						//DFExt
-						if (DFExtIndex != DFIntIndex && DFExtIndex != DEIndex) {
-							DFExtDiv = getDiv(
-									request,
-									"&nbsp;<br>&nbsp;<br>DF<span style=\"font-size:8px;\">Ext</span>",
-									fv9DFExtMLDate, fv9DFExtMLOrg, DFExtIndex, tdWidth,
-									marginLeft);
-						} else if (DFExtIndex == DEIndex) {
-							DFExtDiv = "";
-						} else {
-							DFExtDiv = getDiv(
-									request,
-									"DF<span style=\"font-size:8px;\">Ext</span><br>&nbsp;<br>DF<span style=\"font-size:8px;\">Int</span>",
-									fv9DFExtMLDate, fv9DFExtMLOrg, DFExtIndex, tdWidth,
-									marginLeft);
-						}
-						//DFInt
-						if (DFIntIndex != DFExtIndex && DFIntIndex != BFIndex) {
-							DFIntDiv = getDiv(
-									request,
-									"&nbsp;<br>&nbsp;<br>DF<span style=\"font-size:8px;\">Int</span>",
-									fv9DFIntMLDate, fv9DFIntMLOrg, DFIntIndex, tdWidth,
-									marginLeft);
-						} else if (DFIntIndex == DFExtIndex) {
-							DFIntDiv = "";
-						} else {
-							DFIntDiv = getDiv(request, "DFInt<br>&nbsp;<br>BF",
-									fv9DFIntMLDate, fv9DFIntMLOrg, DFIntIndex, tdWidth,
-									marginLeft);
-						}
-						//BF
-						if (BFIndex != LFIndex && BFIndex != DFIntIndex) {
-							BFDiv = getDiv(request, "&nbsp;<br>&nbsp;<br>BF",
-									fv9BFMLDate, fv9BFMLOrg, BFIndex, tdWidth,
-									marginLeft);
-						} else if (BFIndex == DFIntIndex) {
-							BFDiv = "";
-						} else {
-							BFDiv = getDiv(request, "BF<br>&nbsp;<br>LF", fv9BFMLDate,
-									fv9BFMLOrg, BFIndex, tdWidth, marginLeft);
-						}
-						//LF
-						if (LFIndex != VFFIndex && LFIndex != BFIndex) {
-							LFDiv = getDiv(request, "&nbsp;<br>&nbsp;<br>LF",
-									fv9LFMLDate, fv9LFMLOrg, LFIndex, tdWidth,
-									marginLeft);
-						} else if (LFIndex == BFIndex) {
-							LFDiv = "";
-						} else {
-							LFDiv = getDiv(request, "LF<br>&nbsp;<br>VFF", fv9LFMLDate,
-									fv9LFMLOrg, LFIndex, tdWidth, marginLeft);
-						}
-						//VFF
-						if (VFFIndex != PVSIndex && VFFIndex != LFIndex) {
-							VFFDiv = getDiv(request, "&nbsp;<br>&nbsp;<br>VFF",
-									fv9VFFMLDate, fv9VFFMLOrg, VFFIndex, tdWidth,
-									marginLeft);
-						} else if (LFIndex == BFIndex) {
-							VFFDiv = "";
-						} else {
-							VFFDiv = getDiv(request, "VFF<br>&nbsp;<br>PVS",
-									fv9VFFMLDate, fv9VFFMLOrg, VFFIndex, tdWidth,
-									marginLeft);
-						}
-						//PVS
-						if (PVSIndex != OSIndex && PVSIndex != VFFIndex) {
-							PVSDiv = getDiv(request, "&nbsp;<br>&nbsp;<br>PVS",
-									fv9PVSMLDate, fv9PVSMLOrg, PVSIndex, tdWidth,
-									marginLeft);
-						} else if (PVSIndex == VFFIndex) {
-							PVSDiv = "";
-						} else {
-							PVSDiv = getDiv(request, "PVS<br>&nbsp;<br>0S",
-									fv9PVSMLDate, fv9PVSMLOrg, PVSIndex, tdWidth,
-									marginLeft);
-						}
-						//0S
-						if (OSIndex != SOPIndex && OSIndex != PVSIndex) {
-							OSDiv = getDiv(request, "&nbsp;<br>&nbsp;<br>0S",
-									fv90SMLDate, fv90SMLOrg, OSIndex, tdWidth,
-									marginLeft);
-						} else if (OSIndex == PVSIndex) {
-							OSDiv = "";
-						} else {
-							OSDiv = getDiv(request, "0S<br>&nbsp;<br>SOP", fv90SMLDate,
-									fv90SMLOrg, OSIndex, tdWidth, marginLeft);
-						}
-						//SOP
-						System.out.println("fv9SOPMLDate = " + fv9SOPMLDate);
-						String sop_time = fv9SOPMLDate.split("-")[1] + "/"
-								+ fv9SOPMLDate.split("-")[0].substring(2, 4);
-						if (SOPIndex != MEIndex && SOPIndex != OSIndex) {
-							SOPDiv = getDiv(request, "SOP<br>&nbsp;<br>" + sop_time,
-									fv9SOPMLDate, fv9SOPMLOrg, SOPIndex, tdWidth,
-									marginLeft);
-						} else if (SOPIndex == OSIndex) {
-							SOPDiv = "";
-						} else {
-							SOPDiv = getDiv(request, "SOP<br>&nbsp;<br>ME",
-									fv9SOPMLDate, fv9SOPMLOrg, SOPIndex, tdWidth,
-									marginLeft);
-						}
-						//ME
-						if (MEIndex != SOPIndex) {
-							MEDiv = getDiv(request, "&nbsp;<br>&nbsp;<br>ME",
-									fv9MEMLDate, fv9MEMLOrg, MEIndex, tdWidth,
-									marginLeft);
-						} else {
-							MEDiv = "";
-						}
+				List<String> test_list = getMMDiv(request, response, SOPIndex, index_list, mmIndex, mmDate, mmOrg, tdWidth, marginLeft);
+				if (test_list != null && test_list.size() > 0) {
+					for (String str : test_list) {
+				%>
+					<%=str %>
+				<%
+					}
+				}
+						
 				%>
 
-				<%=PMDiv%>
-				<%=PPDiv%>
-				<%=PDDiv%>
-				<%=PFDiv%>
-				<%=KEDiv%>
-				<%=DEDiv%>
-				<%=DFExtDiv%>
-				<%=DFIntDiv%>
-				<%=BFDiv%>
-				<%=LFDiv%>
-				<%=VFFDiv%>
-				<%=PVSDiv%>
-				<%=OSDiv%>
-				<%=SOPDiv%>
-				<%=MEDiv%>
+				
 				<%
-					//写入里程碑间距
+					//写入里程碑间距 
 						//PF及以后的里程碑时间必须输入
 						int beginPM = PMIndex; //从pm里程碑开始
 						double width0 = 0.0, width1 = 0.0, width2 = 0.0;
 						int month00 = 0, month01 = 0, month02 = 0;
-						/* 		if (beginPF != 0) {
-									
-									//如果PF在下旬,从下个月的线开始
-									System.out.println("fv9PFMLDate = " + fv9PFMLDate);
-										if (DateUtils.getTenDays(fv9PFMLDate) == 2) {
-											beginPF = beginPF + 1;
-										}
-										width1 = getLeftWidth(0, tdWidth, LFIndex, fv9LFMLDate) - 
-													getLeftWidth(0, tdWidth, PFIndex, fv9PFMLDate);
-										month01 = (int)(width1/tdWidth);
-										width2 = getLeftWidth(0, tdWidth, SOPIndex, fv9SOPMLDate) - 
-													getLeftWidth(0, tdWidth, LFIndex, fv9LFMLDate);
-										month02 = (int)(width2/tdWidth);
-								} */
+						
+						int BeginIndex = PFIndex;
+						String date_string = fv9PFMLDate;
+						if (PFIndex == 0 && KEIndex != 0) {
+							BeginIndex = KEIndex;
+							date_string = fv9KEMLDate;
+						}
+							
+						
 						if (beginPM != 0) {
 							System.out.print("fv9PMMLDate+++++++++++ = " + fv9PMMLDate);
 							if (DateUtils.getTenDays(fv9PMMLDate) == 2) {
 								beginPM = beginPM + 1;
 							}
-							if (PFIndex != 0) {
-								width0 = getLeftWidth(0, tdWidth, PFIndex, fv9PFMLDate)
+							if (BeginIndex != 0) {
+								width0 = getLeftWidth(0, tdWidth, BeginIndex, date_string)
 										- getLeftWidth(0, tdWidth, PMIndex, fv9PMMLDate);
 								month00 = (int) (width0 / tdWidth);
 								if (LFIndex != 0 && SOPIndex != 0) {
 
 									width1 = getLeftWidth(0, tdWidth, LFIndex,
 											fv9LFMLDate)
-											- getLeftWidth(0, tdWidth, PFIndex,
-													fv9PFMLDate);
+											- getLeftWidth(0, tdWidth, BeginIndex,
+													date_string);
 									month01 = (int) (width1 / tdWidth);
 									width2 = getLeftWidth(0, tdWidth, SOPIndex,
 											fv9SOPMLDate)
@@ -638,11 +752,11 @@
 									month02 = (int) (width2 / tdWidth);
 								}
 								if (LFIndex != 0 && SOPIndex == 0) {
-									;
+									
 									width1 = getLeftWidth(0, tdWidth, LFIndex,
 											fv9LFMLDate)
-											- getLeftWidth(0, tdWidth, PFIndex,
-													fv9PFMLDate);
+											- getLeftWidth(0, tdWidth, BeginIndex,
+													date_string);
 									month01 = (int) (width1 / tdWidth);
 									width2 = 0.0;
 									month02 = 0;
@@ -677,13 +791,13 @@
 						} else {
 							width0 = 0.0;
 							month00 = 0;
-							if (PFIndex != 0) {
+							if (BeginIndex != 0) {
 								if (LFIndex != 0) {
 									if (SOPIndex != 0) {
 										width1 = getLeftWidth(0, tdWidth, LFIndex,
 												fv9LFMLDate)
-												- getLeftWidth(0, tdWidth, PFIndex,
-														fv9PFMLDate);
+												- getLeftWidth(0, tdWidth, BeginIndex,
+														date_string);
 										month01 = (int) (width1 / tdWidth);
 										width2 = getLeftWidth(0, tdWidth, SOPIndex,
 												fv9SOPMLDate)
@@ -693,8 +807,8 @@
 									} else {
 										width1 = getLeftWidth(0, tdWidth, LFIndex,
 												fv9LFMLDate)
-												- getLeftWidth(0, tdWidth, PFIndex,
-														fv9PFMLDate);
+												- getLeftWidth(0, tdWidth, BeginIndex,
+														date_string);
 										month01 = (int) (width1 / tdWidth);
 										width2 = 0.0;
 										month02 = 0;
@@ -729,7 +843,7 @@
 				<div
 					style="width: 100%; float: left; position: absolute; top: 422px; margin: 0px; padding: 0px;">
 					<%
-						if (beginPM != 0 && PFIndex !=0) {
+						if (beginPM != 0 && BeginIndex !=0) {
 					%><div
 						style="background-color: #F3F3F3; color: black; border: 1px white; font-size: 12px; font-weight: bolder;
 					text-align: center; float: left;
@@ -741,18 +855,18 @@
 					%>
 					<%
 						}
-							if (PMIndex == 0 && PFIndex != 0) {
+							if (PMIndex == 0 && BeginIndex != 0) {
 					%><div
 						style="background-color: #B0B0B0; color: white; border: 1px solid; font-size: 12px; font-weight: bolder;
 					text-align: center; float: left;
-					width: <%=width1%>px; height: 16px; margin-left: <%=180 + PFIndex * tdWidth%>px;">
+					width: <%=width1%>px; height: 16px; margin-left: <%=180 + BeginIndex * tdWidth%>px;">
 						<%=month01%>&nbsp;Mo.
 					</div>
 					<%
 						}else {
 					%>
 					<%
-						} if (PMIndex != 0 && PFIndex != 0) {
+						} if (PMIndex != 0 && BeginIndex != 0) {
 					%><div
 						style="background-color: #B0B0B0; color: white; border: 1px solid; font-size: 12px; font-weight: bolder;
 					text-align: center; float: left;
@@ -767,7 +881,7 @@
 					<div
 						style="background-color: #808080; color: white; border: 1px solid; font-size: 12px; font-weight: bolder;
 					text-align: center; float: left;
-					width: <%=width2%>px; height: 16px; margin-left: <%if ((PMIndex == 0 && PFIndex == 0 && LFIndex != 0)||(PMIndex != 0 && PFIndex == 0 && LFIndex != 0)) {%><%=220 + LFIndex * tdWidth%><%} else {%>0<%}%>px;">
+					width: <%=width2%>px; height: 16px; margin-left: <%if ((PMIndex == 0 && BeginIndex == 0 && LFIndex != 0)||(PMIndex != 0 && BeginIndex == 0 && LFIndex != 0)) {%><%=220 + LFIndex * tdWidth%><%} else {%>0<%}%>px;">
 						<%=month02%>&nbsp;Mo.
 					</div>
 				</div>

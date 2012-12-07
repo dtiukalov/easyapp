@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="PDM"
+            id="com.customer.foton.pdm.commands.category">
+      </category>
+      <command
+            name="审计"
+            categoryId="com.customer.foton.pdm.commands.category"
+            id="com.customer.foton.pdm.commands.auditfile">
+      </command>
+	  <command
+            name="签发报告"
+            categoryId="com.customer.foton.pdm.commands.category"
+            id="com.customer.foton.pdm.commands.signoff_report">
+      </command>
+      
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="com.customer.foton.pdm.commands.auditfile"
+            class="com.customer.foton.pdm.audit.audit.SelectAuditFileHandler">
+      </handler>
+      
+      <handler
+            commandId="com.customer.foton.pdm.commands.signoff_report"
+            class="com.customer.foton.pdm.audit.signoff.SelectSignoffReportHandler">
+      </handler>
+    
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="com.customer.foton.pdm.commands.auditfile"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="Ctrl+2"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension>
+   
+	<extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="福田PDM"
+               mnemonic="M"
+               id="com.customer.foton.pdm.menus.sampleMenu">
+           
+       		<menu label="审计管理">
+	            <command
+	                  commandId="com.customer.foton.pdm.commands.auditfile"
+	                  mnemonic="S"
+	                  id="com.customer.foton.pdm.menus.auditfileCommand" >     
+	            </command>
+	            
+	            <command
+	                  commandId="com.customer.foton.pdm.commands.signoff_report"
+	                  mnemonic="S"
+	                  id="com.customer.foton.pdm.menus.signoffReportCommand" >     
+	            </command>
+            </menu>
+            
+             
+          
+         </menu>
+     </menuContribution>
+   
+   </extension>
+      
+      <!--
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="com.customer.foton.pdm.toolbars.sampleToolbar">
+               
+           <command
+                  commandId="com.customer.foton.pdm.commands.addProperties"
+                  mnemonic="S"
+                  id="com.customer.foton.pdm.menus.addPropertiesCommand"
+                  icon="platform:/plugin/com.customer.foton.pdm/icons/icon_add.png">
+                  <visibleWhen>
+					<and>
+						<or>
+							<reference definitionId="com.teamcenter.rac.pse.inMainView" /> 
+						</or>
+					</and>
+ 				 </visibleWhen>
+            </command>
+            
+            
+            
+         </toolbar>
+      </menuContribution>
+      -->
+
+
+</plugin>

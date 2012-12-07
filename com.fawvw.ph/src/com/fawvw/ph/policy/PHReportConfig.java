@@ -10,14 +10,17 @@ import java.util.Map;
 import javax.swing.JComboBox;
 import javax.swing.SwingUtilities;
 
+import org.apache.axis.utils.StringUtils;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.util.StringUtil;
 
 import tc.util.excel.WorkbookPOI;
 
 import com.teamcenter.rac.aif.AbstractAIFOperation;
 import com.teamcenter.rac.aif.kernel.AIFComponentContext;
 import com.teamcenter.rac.kernel.TCComponent;
+import com.teamcenter.rac.kernel.TCComponentAuditReport;
 import com.teamcenter.rac.kernel.TCComponentDataset;
 import com.teamcenter.rac.kernel.TCComponentFolder;
 import com.teamcenter.rac.kernel.TCComponentGroup;
@@ -65,6 +68,30 @@ public class PHReportConfig {
 
 	public static AIFComponentContext findConfigDataset(TCSession session)
 			throws TCException {
+//		获取用户信息
+		TCComponentGroup group = session.getCurrentGroup();
+		String current_group = group.getFullName();
+		
+		String templateName = "PHReportConf";
+//		根据平台获取模板
+		if (current_group != null && !"".equals(current_group)) {
+			
+			if (current_group.startsWith("AudiPlat"))
+				templateName += "_Audi";
+			
+			if (current_group.startsWith("PQ32_34Plat"))
+				templateName += "_PQ32_34";
+			
+			if (current_group.startsWith("PQ35Plat"))
+				templateName += "_PQ35";
+			
+			if (current_group.startsWith("PQ46Plat"))
+				templateName += "_PQ46";
+
+		}
+
+		
+//		获取模板
 		TCPreferenceService prefs = session.getPreferenceService();
 		String adminUserID = prefs.getString(
 				TCPreferenceService.TC_preference_site, "WSTemplateOwner",
@@ -87,7 +114,8 @@ public class PHReportConfig {
 			if (!c.isTypeOf("MSExcel"))
 				continue;
 			String dsName = c.getProperty("object_name");
-			if ("PHReprotConf".equals(dsName) || "PHReportConf".equals(dsName)) {
+			if (templateName.equals(dsName) || templateName.equals(dsName)) {
+System.out.println("模板匹配成功：templateName = " + templateName + " dsName = " + dsName);
 				return new AIFComponentContext(templateArea, c, null);
 			}
 		}

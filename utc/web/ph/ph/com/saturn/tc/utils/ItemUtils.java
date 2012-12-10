@@ -41,13 +41,15 @@ public class ItemUtils {
 					String type = modelObject.getType().getName();	//获取FormType名称
 					String isPublic = modelObject.getPropertyDisplayableValue("fv9PreRelesed");//获取对象是否预发布，如果预发布则在Web端显示 
 					if ("yes".equalsIgnoreCase(isPublic)) {
-						if(type.equalsIgnoreCase(WorkspaceUtils.DatasetType)){//如果是数据集FV9PHImage 获取数据集页面名称作为Type
+						//如果是数据集FV9PHImage Type为FV9PHImage
+						if(type.equalsIgnoreCase(WorkspaceUtils.DatasetType)){
 							PH.getDataService().getProperties(modelObject, "fv9PageName");
-							try {
-								type = modelObject.getProperty("fv9PageName").getDisplayableValue();
-							} catch (NotLoadedException e) {
-								e.printStackTrace();
-							}
+							type = WorkspaceUtils.DatasetType;
+//							try {
+//								type = modelObject.getProperty("fv9PageName").getDisplayableValue();
+//							} catch (NotLoadedException e) {
+//								e.printStackTrace();
+//							}
 						}
 						
 						if (ids.containsKey(type)) {

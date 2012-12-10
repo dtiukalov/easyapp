@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.saturn.tc.utils.WorkspaceUtils;
 import com.teamcenter.soa.client.model.ModelObject;
 import com.teamcenter.soa.client.model.Property;
 import com.teamcenter.soa.client.model.Type;
@@ -18,8 +19,8 @@ public class PHManager {
 			"FV9_11Anlaufueber",
 			"FV9_11VorserienTer", 
 			"FV9_12Aktionspunkte",
-			"1.3 Anlauforganisation - Fahrzeugbau", 
-			"1.4 Anlaufkurve",
+//			"1.3 Anlauforganisation - Fahrzeugbau", 
+//			"1.4 Anlaufkurve",
 			"FV9_15BauprogVFF", 
 			"FV9_15BauprogPVS", 
 			"FV9_15Bauprog0S", 
@@ -41,17 +42,17 @@ public class PHManager {
 
 			"FV9_31PrufMBCub", 
 			"FV9_32FugenRad",
-			"3.3 Baubarkeit Gesamtfahrzeug", 
-			"3.3 Baubarkeit Gesamtfahrzeug\n",
-			"3.3 Problemblatt", 
+//			"3.3 Baubarkeit Gesamtfahrzeug", 
+//			"3.3 Baubarkeit Gesamtfahrzeug\n",
+//			"3.3 Problemblatt", 
 			"FV9_34Funtionsmasse", 
 			"FV9_34FuntNachBaut",
 			"FV9_34FuntAussTol", 
-			"3.4 Stellblaetter zu Konzept/Funktionsmassen",
+//			"3.4 Stellblaetter zu Konzept/Funktionsmassen",
 			"FV9_35AuditNoteZP8", 
 			"FV9_35FehlerDenGew",
-			"3.5 Audit Reduzierungsprognose", 
-			"3.5 Fehlerpunkte in den Gewerken",
+//			"3.5 Audit Reduzierungsprognose", 
+//			"3.5 Fehlerpunkte in den Gewerken",
 			"FV9_35NachareitPunk", 
 			"FV9_35MassnAbarBF", 
 			"FV9_35MassVerAud",
@@ -64,39 +65,39 @@ public class PHManager {
 			"FV9_36Vorch2Tag",
 
 			"FV9_41NominLiefer", 
-			"4.2 Teilequalitaet ZP5 (HT)",
+//			"4.2 Teilequalitaet ZP5 (HT)",
 			"FV9_42TeileStatVFFHT", 
 			"FV9_42TeileStatPVSHT",
 			"FV9_42TeileStat0SHT", 
-			"4.2 Terminuebersicht ZP5 (HT)",
-			"4.2 Problemblatt",
+//			"4.2 Terminuebersicht ZP5 (HT)",
+//			"4.2 Problemblatt",
 
-			"4.2 Teilequalitaet ZP5 (KT)", 
+//			"4.2 Teilequalitaet ZP5 (KT)", 
 			"FV9_42TeileStatVFFKT",
 			"FV9_42TeileStatPVSKT", 
 			"FV9_42TeileStat0SKT",
-			"4.2 Terminuebersicht ZP5 (KT)", 
-			"4.2 Problemblatt\n",
+//			"4.2 Terminuebersicht ZP5 (KT)", 
+//			"4.2 Problemblatt\n",
 
-			"4.3 Teilequalitaet ZP7 (KT)", 
+//			"4.3 Teilequalitaet ZP7 (KT)", 
 			"FV9_43TeileStatVFFKT",
 			"FV9_43TeileStatPVSKT", 
 			"FV9_43TeileStat0SKT",
-			"4.3 Terminuebersicht ZP7 (KT)", 
-			"4.3 Problemblatt",
+//			"4.3 Terminuebersicht ZP7 (KT)", 
+//			"4.3 Problemblatt",
 			"FV9_44Aggregateverf",
 
 			"FV9_51PrKarLacMon", 
 			"FV9_51KarosserStat", 
 			"FV9_52Logiskonzept",
 
-			"6.1 Launchplanung",
+//			"6.1 Launchplanung",
 
 			"FV9_71Reifegrads", 
 			"FV9_72Beschluss",
-			"7.2 Uebersicht zukunftige Termine",
-
-			"FV9PHBackup" };
+//			"7.2 Uebersicht zukunftige Termine",
+			WorkspaceUtils.DatasetType,
+			WorkspaceUtils.BackUpType };
 
 	private static final Map<String, String[]> roadmaps = new HashMap<String, String[]>();
 

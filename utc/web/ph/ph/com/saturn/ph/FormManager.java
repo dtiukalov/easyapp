@@ -28,6 +28,8 @@ import com.saturn.ph.form.p2.FV9_21PFreigabeForm;
 import com.saturn.ph.form.p2.FV9_22ErprobDauerForm;
 import com.saturn.ph.form.p2.FV9_23FehlerabbausForm;
 import com.saturn.ph.form.p2.FV9_24AEKOUmsetzForm;
+import com.saturn.ph.form.p2.FV9_24AEKOUmsetzLOForm;
+import com.saturn.ph.form.p2.FV9_24AEKOUmsetzTEForm;
 import com.saturn.ph.form.p2.FV9_24StatusAEKOForm;
 import com.saturn.ph.form.p3.FV9_31PrufMBCubForm;
 import com.saturn.ph.form.p3.FV9_32FugenRadForm;
@@ -198,6 +200,8 @@ public class FormManager {
 		add(new FV9_23FehlerabbausForm());
 		add(new FV9_24StatusAEKOForm());
 		add(new FV9_24AEKOUmsetzForm());
+		add(new FV9_24AEKOUmsetzTEForm());
+		add(new FV9_24AEKOUmsetzLOForm());
 
 		add(new FV9_31PrufMBCubForm());
 		add(new FV9_32FugenRadForm());

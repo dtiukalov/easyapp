@@ -23,7 +23,6 @@ public class TCLogoutAction implements IAction {
 
 	public IView execute(HttpServletRequest request,
 			HttpServletResponse response) {
-		
 		TCSession session = (TCSession) request.getSession().getAttribute(
 				"TC_session");
 		
@@ -87,15 +86,16 @@ public class TCLogoutAction implements IAction {
 		Object userUid = request.getSession().getAttribute("TC_USER_UID");
 		Object defaultUserUid = request.getSession().getAttribute("TC_DEFAULT_USER_UID");
 		
-		if(!Web.getObjectYesOrNo(userUid)){
+//		都不存在，即返回
+		if(!Web.getObjectYesOrNo(userUid) && !Web.getObjectYesOrNo(defaultUserUid)){
 			return ;
 		}
-		if(!Web.getObjectYesOrNo(defaultUserUid)){
-			return ;
-		}
+//		if(!Web.getObjectYesOrNo(defaultUserUid)){
+//			return ;
+//		}
 		
-		String datasetpath = "attachment" + File.separator + DateUtils.getSysTime() + File.separator + userUid + File.separator;
-		String defaultdatasetpath = "attachment" + File.separator + DateUtils.getSysTime() + File.separator + userUid + File.separator;
+		String datasetpath = "attachment" + File.separator + userUid + File.separator;
+		String defaultdatasetpath = "attachment" + File.separator + userUid + File.separator;
 		
 		String path = request.getRealPath("/") ;
 		//判断realPath后有没有 “/”没有就加上
@@ -107,7 +107,11 @@ public class TCLogoutAction implements IAction {
 		}
 
 		try {
+			//清理缓存
+			System.out.println("清理缓存");
+			System.out.println(path + datasetpath);
 			deleteFile(path + datasetpath);
+			System.out.println(path + defaultdatasetpath);
 			deleteFile(path + defaultdatasetpath);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

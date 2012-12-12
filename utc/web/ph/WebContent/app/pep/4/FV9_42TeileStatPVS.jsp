@@ -119,7 +119,7 @@
 			border-bottom-style: solid;
 			border-bottom-color: #000000;
 			font-family: Arial;
-			font-size: 12px;
+			font-size: 15px;
 			line-height: 35px;
 			color: #000000;
 			text-align: left;
@@ -311,7 +311,7 @@
 			<div id="content">
 				
 				<div id="left">
-					<div id="chart"></div>
+					<div id="chart" style="margin-top: 60px;"></div>
 					<%
 					int tbt_vff_kwno = 0; 
 					double KWTBT = 0.0;

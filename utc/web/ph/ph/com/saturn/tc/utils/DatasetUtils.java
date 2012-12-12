@@ -29,9 +29,11 @@ public class DatasetUtils {
 			Dataset dataset = (Dataset)PH.getDataService().loadModelObject(uid);
 			String datasetpath = "";
 			if (userUid != null && !"".equals((String)userUid)) {
-				datasetpath = "attachment" + File.separator +  DateUtils.getSysTime() + File.separator + userUid.toString() + File.separator;
+//				datasetpath = "attachment" + File.separator +  DateUtils.getSysTime() + File.separator + userUid.toString() + File.separator;
+				datasetpath = "attachment" + File.separator + userUid.toString() + File.separator;
 			} else {
-				datasetpath = "attachment" + File.separator +  DateUtils.getSysTime() + File.separator + "tempUser" + File.separator;
+//				datasetpath = "attachment" + File.separator +  DateUtils.getSysTime() + File.separator + "tempUser" + File.separator;
+				datasetpath = "attachment" + File.separator + "tempUser" + File.separator;
 			}
 			
 			String path = request.getRealPath("/") ;
@@ -45,6 +47,7 @@ public class DatasetUtils {
 			String downloadDatasetName = downloadDatasetFromTc(dataset ,path);
 			if(!downloadDatasetName.equals("")){
 				src =  request.getContextPath()+ File.separator + datasetpath + downloadDatasetName;
+				System.out.println("src = " + src);
 			}
 		}
 		System.out.println("src = " + src);
@@ -73,12 +76,14 @@ public class DatasetUtils {
 				}
 				
 				if (file != null) {
-					String location = directory + File.separator + file.get_original_file_name();
+					String file_rename = DateUtils.getSysTime("yyyyMMddHHmmss") + "_" + file.get_original_file_name();
+					String location = directory + File.separator + file_rename;//文件重命名
 					File f = new File(location);
 					if(!f.exists()){
 						fileUtility.getFileToLocation(file, location, null, null);
 					}
-					result = file.get_original_file_name();
+//					result = file.get_original_file_name();
+					result = file_rename;
 				}
 			}
 		} catch (NotLoadedException e) {

@@ -71,8 +71,8 @@
 							}
 						},
 						stackLabels: {
-							enabled: false,
-							y:-15,
+							enabled: true,
+							y:-10,
 							style: {
 								color: 'black',
 								fontSize:'12px'

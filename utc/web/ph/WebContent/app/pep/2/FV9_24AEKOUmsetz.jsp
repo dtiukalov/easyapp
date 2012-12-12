@@ -17,77 +17,99 @@
 		<%@ include file="/app/pep/include/header.jsp"%>
 		<title><%=title %></title>
 		<%
-		String categories ="[]";
-		String data = "[]";	
+		//分两个图表，左侧为TE负责部分，右侧为LO负责部分
+		double sepline = 0.0; //两个图表中间的分割线		
+		String categories =""; //X轴
+		String data = "";	//Y轴
+		String[] colors1 = {"'#0000FF'", "'#F9A700'", "'#339966'"}; //TE图表 - 第三个柱子以后的颜色均为一样的
+		String[] colors2 = {"'#0000FF'", "'#00FF00'", "'#00CCFF'"}; //LO图表 - 第三个柱子以后的颜色均为一样的
+		
+		int total = 0;
+		
+		//TE负责部分
 		List<String> fv9StyleName = new ArrayList<String>();
 		List<String> fv9StyleNum = new ArrayList<String>(); 
-		
+				
 		if(form.get("fv9StyleName") != null){
-			 fv9StyleName = (List<String>)form.get("fv9StyleName");
+			fv9StyleName = (List<String>)form.get("fv9StyleName");
+			categories += "'Gesamt',";
+			for (String x:fv9StyleName) {
+				categories += "'" + x + "',";
+			}
+			categories = categories.substring(0, categories.length()-1);
 		}
 		
 		if(form.get("fv9StyleNum") != null){
 			fv9StyleNum = (List<String>)form.get("fv9StyleNum");
-		}
-		
-		int total = 25;// TODO:计算total的值   
-		int max = 0;
 			
-		if(fv9StyleName.size()>0 && fv9StyleNum.size()> 0 &&fv9StyleName.size() == fv9StyleNum.size()){
-		
-			int index1 = fv9StyleName.indexOf("Planungs durchlauf");
-			int index2 = fv9StyleName.indexOf("Status 710");
-			int index3 = fv9StyleName.indexOf("Status 485");
-			int index4 = fv9StyleName.indexOf("Status 487/496");
-			int index5 = fv9StyleName.indexOf("Status 800");
-			int index6 = fv9StyleName.indexOf("VFF");
-			int index7 = fv9StyleName.indexOf("PVS");
-			int index8 = fv9StyleName.indexOf("0-Serie");
-			int index9 = fv9StyleName.indexOf("SOP");
-			int index10 = fv9StyleName.indexOf("Offen");
+			sepline = fv9StyleNum.size() + 0.5;
+			//gesamt
+			total = Web.getTotalNum(fv9StyleNum);
+			data += "{ y:" + total + ", low:0, color: " + colors1[0] + "},";
+			int low1 = total;
 			
-			
-			int num1 = Integer.parseInt(fv9StyleNum.get(index1));
-			int num2 = Integer.parseInt(fv9StyleNum.get(index2));
-			int num3 = Integer.parseInt(fv9StyleNum.get(index3));
-			int num4 = Integer.parseInt(fv9StyleNum.get(index4));
-			int num5 = Integer.parseInt(fv9StyleNum.get(index5));
-			int num6 = Integer.parseInt(fv9StyleNum.get(index6));
-			int num7 = Integer.parseInt(fv9StyleNum.get(index7));
-			int num8 = Integer.parseInt(fv9StyleNum.get(index8));
-			int num9 = Integer.parseInt(fv9StyleNum.get(index9));
-			int num10 = Integer.parseInt(fv9StyleNum.get(index10));
-			
-			
-			String[] keys = new String[fv9StyleName.size() + 2];
-			int[] lows = new int[fv9StyleName.size() + 2];
-			int[] values = new int[fv9StyleName.size() + 2];
-			String[] colors = {"'#0000FF'", "'#F9A700'", "'#339966'", "'#339966'", "'#339966'", "'#339966'", 
-					"'#0000FF'", "'#00FF00'", "'#00CCFF'", "'#00CCFF'", "'#00CCFF'", "'#00CCFF'"};
-			
-			keys[0] = "Gesamt"; values[0] = num1+num2+num3+num4+num5; lows[0] = 0;
-			keys[index1+1] = "Planungs durchlauf"; values[index1+1] = num1; lows[index1+1] = values[0]-values[index1+1];
-			keys[index2+1] = "Status 710"; values[index2+1] = num2; lows[index2+1] = lows[index1+1]-values[index2+1];
-			keys[index3+1] = "Status 485"; values[index3+1] = num3; lows[index3+1] = lows[index2+1]-values[index3+1];
-			keys[index4+1] = "Status 487/496"; values[index4+1] = num4; lows[index4+1] = lows[index3+1]-values[index4+1];
-			keys[index5+1] = "Status 800"; values[index5+1] = num5; lows[index5+1] = lows[index4+1]-values[index5+1];
-			
-			keys[6] = "genehmigt/ techn.i.O."; values[6] = num6+num7+num8+num9+num10; lows[6] = 0;
-			keys[index6+2] = "VFF"; values[index6+2] = num6; lows[index6+2] = values[6] - values[index6+2];
-			keys[index7+2] = "PVS"; values[index7+2] = num7; lows[index7+2] = lows[index6+2]-values[index7+2];
-			keys[index8+2] = "0-Serie"; values[index8+2] = num8; lows[index8+2] = lows[index7+2]-values[index8+2];
-			keys[index9+2] = "SOP"; values[index9+2] = num9; lows[index9+2] = lows[index8+2]-values[index9+2];
-			keys[index10+2] = "Offen"; values[index10+2] = num10; lows[index10+2] = lows[index9+2]-values[index10+2];
-			
-			categories = Web.getStrFromStringArray(keys);
-			data = "";	
-			for(int i=0; i<keys.length-1; i++){
-				data += "{ y:" + values[i] + ", low:" + lows[i] + ", color:" + colors[i] + "}, ";
+			for (int i=0; i<fv9StyleNum.size(); i++) {
+				int num = Integer.parseInt(fv9StyleNum.get(i));
+				low1 = low1 - num;
+				String color = colors1[2];
+				if (i == 0)
+					color = colors1[1];
+				
+				if (i == fv9StyleNum.size()-1){
+					data += "{ y:" + num + ", low:" + low1 + ", color:" + color + "}";
+				} else {
+					data += "{ y:" + num + ", low:" + low1 + ", color:" + color + "},";
+				}
+					
 			}
-			data += "{ y:" + values[keys.length-1] + ", low:" + lows[keys.length-1] + ", color:" + colors[keys.length-1] + "}";
-			total = values[0] + 5;
-			
 		}
+
+			
+		
+		//LO负责部分
+		List<String> fv9MMStyleName = new ArrayList<String>();
+		List<String> fv9MMStyleNum = new ArrayList<String>(); 
+		if(form.get("fv9MMStyleName") != null){
+			fv9MMStyleName = (List<String>)form.get("fv9MMStyleName");
+			if (fv9StyleName != null && fv9StyleName.size() > 0) {
+				//如果TE部分存在数据，则在X轴数据前添加一个,
+				categories += ",";
+			}
+			categories += "'genehmigt/<br>techn.i.O.',";
+			for (String x : fv9MMStyleName) {
+				categories += "'" + x + "',";
+			}
+			categories = categories.substring(0, categories.length()-1);
+		}
+			
+		if(form.get("fv9MMStyleNum") != null){
+			fv9MMStyleNum = (List<String>)form.get("fv9MMStyleNum");
+			if (fv9MMStyleName != null && fv9MMStyleName.size() > 0) {
+				//如果TE部分存在数据，则在Y轴数据前添加一个,
+				data += ",";
+			}
+
+			//genehmigt/techn.i.O.
+			int total2 = Web.getTotalNum(fv9MMStyleNum);
+			data += "{ y:" + total2 + ", low:0, color: " + colors2[0] + "},";
+			int low1 = total2;
+			
+			for (int i=0; i<fv9MMStyleNum.size(); i++) {
+				int num = Integer.parseInt(fv9MMStyleNum.get(i));
+				low1 = low1 - num;
+				String color = colors2[2];
+				if (i == 0)
+					color = colors2[1];
+				
+				if (i == fv9MMStyleNum.size()-1){
+					data += "{ y:" + num + ", low:" + low1 + ", color:" + color + "}";
+				} else {
+					data += "{ y:" + num + ", low:" + low1 + ", color:" + color + "},";
+				}
+					
+			}
+		}
+	
 		%>
 		<script type="text/javascript">
 		var chart;
@@ -116,7 +138,7 @@
 							fontSize:'14px'
 						}
 					},
-					categories: <%=categories%>
+					categories: [<%=categories%>]
 				},
 				yAxis: {
 					min: 0,
@@ -183,11 +205,11 @@
 						}
 					}
 				},
-			    series: [{
+				series: [{
 					name: 'Anzahl Aenderungen',
 					data: [<%=data%>]
 				},{
-					data: [[5.5, 0], [ 5.501, <%=total%>]],
+					data: [[<%=sepline%>, 0], [ <%=sepline%>, <%=total + 5%>]],
 					color: '#5762A0',
 					dashStyle: 'dash',
 					lineWidth: 1,
@@ -223,7 +245,7 @@
 						Status 487/496&nbsp;&nbsp;&nbsp;&nbsp;genehmigt  <br>
 						Status 800&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Terminfindung
 					</div>
-					<div id="chart" style="width: 900px; height: 470px; margin:0px 30px auto;"></div>
+					<div id="chart" style="width: 900px; height: 470px; margin:0px 30px auto; float: left;"></div>
 				</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 			</div>	

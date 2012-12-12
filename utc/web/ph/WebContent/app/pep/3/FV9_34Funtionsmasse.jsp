@@ -13,8 +13,9 @@
 		<title><%=title %></title>
 		<%
 			String FuntionsmasseUID = (String)session.getAttribute("FuntionsmasseUID");
-			System.out.println("FuntionsmasseUID = " + FuntionsmasseUID);
+
 			int gesamt = 0;
+			
 			if (!"".equals(FuntionsmasseUID) && FuntionsmasseUID != null) {
 				Map<String, Object> Funtionsmasse = FormManager.getFormValue("FV9_34FuntNachBaut", FuntionsmasseUID, true);
 				List<String> aK = (List<String>)Funtionsmasse.get("fv9FunctionAK");
@@ -30,7 +31,6 @@
 				}
 			
 			}
-			System.out.println("gesamt = " + gesamt);
 			
 			double sum1 = 0;
 			List<String> kwno = null;
@@ -216,6 +216,12 @@
 					x: 200,
 					y: 0,
 					width: 270
+					/* ,
+					style: {
+						color:'#000000',
+						fontSize:'18px'
+					} */
+					
 				},
 				tooltip: {
 					formatter: function() {
@@ -455,7 +461,7 @@
 				%>	
 				<div id="legent" style="width: 130px; height: 100px; 
 				position: absolute; margin-left: 300px; margin-top: -500px; padding-left: 60px;
-				font-size: 13px;">
+				font-size: 14px;">
 					Konzernziele<br>
 					(max. rot)<br>
 					VFF	30 %<br>

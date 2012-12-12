@@ -2,14 +2,14 @@ package com.saturn.ph.form.p2;
 
 import com.saturn.ph.Form;
 
-public class FV9_24AEKOUmsetzForm extends Form {
+public class FV9_24AEKOUmsetzTEForm extends Form {
 	
 	private static final String[] attr = {
-		"fv9StyleName", "fv9StyleNum",
-		"fv9MMStyleName", "fv9MMStyleNum",
 		"fv9PreRelesed", "fv9Oraganization", "release_status_list", "fv9PageName",
 		"fv9PlatformType","fv9otherUid", "fv9IsBackup", "object_type",
-		"fv9DisplayRule","fv9SortNum"
+		"fv9DisplayRule","fv9SortNum",
+		"fv9TEStyleName", "fv9TEStyleNum",
+		"fv9ChartTitle"
 	};
 
 	public String[] getAttributes() {
@@ -17,16 +17,18 @@ public class FV9_24AEKOUmsetzForm extends Form {
 	}
 
 	public String getJspPath() {
-		return "/app/pep/2/FV9_24AEKOUmsetz.jsp";
+		return "/app/pep/2/FV9_24AEKOUmsetzTE.jsp";
 	}
 
 	@Override
 	public String getType() {
-		return "FV9_24AEKOUmsetz";
+		return "FV9_24AEKOUmsetzTE";
 	}
 
 	@Override
 	public String getTitle() {
-		return "2.4 AEKO-Umsetzungsstatus";
+		return "2.4 Status Aeko";
 	}
+
+
 }

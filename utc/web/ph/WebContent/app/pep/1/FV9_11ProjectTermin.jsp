@@ -516,7 +516,7 @@
 						}
 				%>
 				<table
-					style="border: 1px solid; width: 1000px; height: 230px; margin: 150px 0px auto; font-size: 9px; text-align: center; padding: 0px; border-collapse: collapse; border: none; border-bottom: 1px solid;">
+					style="border: 1px solid; width: 1000px; height: 230px; margin: 150px 0px auto; font-size: 12px; text-align: center; padding: 0px; border-collapse: collapse; border: none; border-bottom: 1px solid;">
 					<!-- 时间轴 - 年 -->
 					<tr>
 						<td

@@ -230,6 +230,11 @@ public class DateUtils {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
 		return format.format(new Date());
 	}
+	
+	public static String getSysTime(String pattern) {
+		SimpleDateFormat format = new SimpleDateFormat(pattern);
+		return format.format(new Date());
+	}
 
 	public static String getSysDate() {
 		Date now = new Date();

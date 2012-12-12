@@ -39,6 +39,8 @@ public class PHManager {
 			"FV9_23Fehlerabbaus",
 			"FV9_24StatusAEKO", 
 			"FV9_24AEKOUmsetz",
+			"FV9_24AEKOUmsetzTE",
+			"FV9_24AEKOUmsetzLO",
 
 			"FV9_31PrufMBCub", 
 			"FV9_32FugenRad",

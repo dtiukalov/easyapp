@@ -12,6 +12,17 @@ import com.saturn.tc.utils.DateUtils;
 
 public class Web {
 
+	public static int getTotalNum(List<String> list) {
+		int total = 0;
+		if (list != null && list.size() > 0) {
+			for(int i=0; i<list.size(); i++) {
+				if (list.get(i) != null) {
+					total += Integer.parseInt(list.get(i));
+				}
+			}
+		}
+		return total;
+	}
 
 	public static String compareByKW(List<String> list) {
 		if (list == null) {

@@ -89,7 +89,7 @@
 								fontSize:'16px'
 							},
 							x:17,
-							y:10
+							y:15
 						}
 					},
 					legend: {
@@ -120,7 +120,9 @@
 							dataLabels: {
 								enabled: true,
 								align: 'center',
-								y:7,
+								verticalAlign: null,
+								x:0,
+								y:15,
 								style : {
 									fontSize:'16px'
 								},

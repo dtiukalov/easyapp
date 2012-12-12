@@ -38,6 +38,15 @@
 			if(form.get("fv9ErprobNachSch_CN") != null){
 				fv9ErprobNachSch_CN = (List)form.get("fv9ErprobNachSch_CN"); //下一步工作描述-中文
 			}
+			
+			int fontSize = 14; //表格默认字体14
+			for (String str : fv9ErprobStCom_GM) { 
+				if (str.length() >= 300){ //如果字符超过300时，字体调整为12
+					fontSize = 12;
+					break;
+				}
+			}
+			
 		%>
 		<style type="text/css">
 		td {word-break: break-all; word-wrap: break-word;}
@@ -55,7 +64,7 @@
 				</h1>
 			</div>
 			<div id="content">
-				<div id="datatable1" style="margin:10px 10px auto; font-size: 12px;">
+				<div id="datatable1" style="margin:10px 10px auto; font-size: <%=fontSize%>px;">
 					<table width="96%" border="0" cellspacing="5" cellpadding="0" class="ed">
 				        <tr>
 				        	<td width="18%">&nbsp;</td>
@@ -126,7 +135,7 @@
 				       
 				      </table>
 			      </div>
-			      <div id="datatable2" style=" display: none; margin:10px 10px auto; font-size: 12px;">
+			      <div id="datatable2" style=" display: none; margin:10px 10px auto; font-size: <%=fontSize%>px;">
 					<table width="96%" border="0" cellspacing="5" cellpadding="0" class="ed">
 				        <tr>
 				        	<td width="18%">&nbsp;</td>

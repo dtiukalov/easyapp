@@ -53,45 +53,58 @@
 				<h1><%=title %></h1>
 			</div>
 			<div id="content">
-				<table style="width: 900px; height: 500px; margin-top: 20px; overflow: hidden; margin-left: 50px; font-size: 12px;">
-					<tr style="height: 20px;">
-						<td colspan="9" style="padding-left: 530px; ">
-							<div style="width: 18px; height: 15px; background-color: <%=ColorUtils.Backup %>; float: left; border: 1px solid;">&nbsp;</div>
-							<div style="width: 60px; height: 15px; float: left; margin-left: 5px;">Backup&nbsp;&nbsp;</div>
-							<div style="width: 18px; height: 15px; background-color: <%=ColorUtils.Erforderlich %>; float: left; border: 1px solid;">&nbsp;</div>
-							<div style="width: 90px; height: 15px; float: left; margin-left: 5px;">Erforderlich&nbsp;&nbsp;</div>
-							<div style="width: 18px; height: 15px; background-color: <%=ColorUtils.NichtRelevant %>; float: left; border: 1px solid;">&nbsp;</div>
-							<div style="width: 100px; height: 15px; float: left; margin-left: 5px;">nicht relevant&nbsp;&nbsp;</div>
+				<%
+				double height = 11.5;//400.0/fv9ThemaNoList.size(); //每行高度
+				double mm = height; //里程碑方框的边长
+				double fontsize = 11.5;//字体大小
+				%>
+				<table style="width: 900px; overflow: hidden; margin-left: 50px; font-size: <%=fontsize %>px;">
+<%-- 					<tr>
+						<td colspan="9" style="padding-left: 550px; ">
+							<div style="width: <%=mm%>px; height: <%=mm%>px; background-color: <%=ColorUtils.Backup %>; float: left; border: 1px solid;">&nbsp;</div>
+							<div style="width: 60px; height: <%=mm%>px; float: left; margin-left: 5px;">Backup&nbsp;&nbsp;</div>
+							<div style="width: <%=mm%>px; height: <%=mm%>px; background-color: <%=ColorUtils.Erforderlich %>; float: left; border: 1px solid;">&nbsp;</div>
+							<div style="width: 90px; height: <%=mm%>px; float: left; margin-left: 5px;">Erforderlich&nbsp;&nbsp;</div>
+							<div style="width: <%=mm%>px; height: <%=mm%>px; background-color: <%=ColorUtils.NichtRelevant %>; float: left; border: 1px solid;">&nbsp;</div>
+							<div style="width: 100px; height: <%=mm%>px; float: left; margin-left: 5px;">nicht relevant&nbsp;&nbsp;</div>
 						</td>
 					</tr>
-					<tr style="height: 20px;">
-						<td style="width: 50px;">&nbsp;</td>
-						<td style="width: 350px;">&nbsp;</td>
-						<td style="width: 200px;">&nbsp;</td>
-						<td colspan="6" style="border-bottom: 1px solid;">Phase bis...</td>
+					<tr>
+						<td style="width: 50px; height: <%=height%>px;">&nbsp;</td>
+						<td style="width: 350px; height: <%=height%>px;">&nbsp;</td>
+						<td style="width: 200px; height: <%=height%>px;">&nbsp;</td>
+						<td colspan="6" style="border-bottom: 1px solid; height: <%=height%>px;">Phase bis...</td>
 					</tr>
-					<tr style="height: 20px;">
-						<td style="width: 40px;">&nbsp;</td>
-						<td style="width: 430px; text-align: left;">Thema</td>
-						<td style="width: 250px; text-align: left;">Vortragender</td>
-						<td style="width: 30px; text-align: center;">BF</td>
-						<td style="width: 30px; text-align: center;">LF</td>
-						<td style="width: 30px; text-align: center;">VFF</td>
-						<td style="width: 30px; text-align: center;">PVS</td>
-						<td style="width: 30px; text-align: center;">0-S</td>
-						<td style="width: 30px; text-align: center;">SOP</td>
+					 --%>
+					<tr>
+						<td style="width: 40px; height: <%=height%>px;">&nbsp;</td>
+						<td style="width: 430px; height: <%=height%>px; ">Thema</td>
+						<td style="width: 250px; height: <%=height%>px; ">Vortragender</td>
+						<td style="width: 30px; height: <%=height%>px; ">BF</td>
+						<td style="width: 30px; height: <%=height%>px; ">LF</td>
+						<td style="width: 30px; height: <%=height%>px; ">VFF</td>
+						<td style="width: 30px; height: <%=height%>px; ">PVS</td>
+						<td style="width: 30px; height: <%=height%>px; ">0-S</td>
+						<td style="width: 30px; height: <%=height%>px; ">SOP</td>
 					</tr>
 					<tr>
 						<td colspan="9" style="border-bottom: 1px solid; height: 1px;"></td>
 					</tr>
 					<%
 					if (fv9ThemaNoList != null && fv9ThemaNoList.size() > 0) {
-						double height = 400.0/fv9ThemaNoList.size();
-						double mm = height-2; //里程碑方框的边长
+						
 						for (int i=0; i<fv9ThemaNoList.size(); i++) {
+							//标题编号不含小数点，表示大标题，上方需要虚线
+							if (i != 0 && !fv9ThemaNoList.get(i).contains(".")){
 					%>
 					<tr>
-						<td style="height: <%=height%>px;"><%=fv9ThemaNoList.get(i) %></td>
+						<td colspan="9" style="border-bottom: 1px dashed; height: 1px;"></td>
+					</tr>
+					<%			
+							}
+					%>
+					<tr>
+						<td style="height: <%=height%>px; text-align: right; padding-right: 15px;"><%=fv9ThemaNoList.get(i) %></td>
 						<td style="height: <%=height%>px;"><%=fv9ThemaList.get(i) %></td>
 						<td style="height: <%=height%>px;"><%=fv9VortragenderList.get(i) %></td>
 						<td style="height: <%=height%>px;">
@@ -173,6 +186,9 @@
 					<%
 					}
 					%>
+					<tr>
+						<td colspan="9" style="border-bottom: 1px solid; height: 1px;"></td>
+					</tr>
 				</table>
 			</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>

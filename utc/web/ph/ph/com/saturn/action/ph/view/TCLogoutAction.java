@@ -113,10 +113,7 @@ public class TCLogoutAction implements IAction {
 
 		try {
 			//清理缓存
-			System.out.println("清理缓存");
-			System.out.println(path + datasetpath);
 			deleteFile(path + datasetpath);
-			System.out.println(path + defaultdatasetpath);
 			deleteFile(path + defaultdatasetpath);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

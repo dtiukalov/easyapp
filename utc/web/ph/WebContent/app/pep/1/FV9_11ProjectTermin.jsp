@@ -10,6 +10,7 @@
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Collections"%>
 <%@page import="java.util.Comparator"%>
+<%@page import="com.saturn.tc.utils.ListUtils"%>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -18,7 +19,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<%@ include file="/app/pep/include/header.jsp"%>
-	<title><%=title%></title> <%!public static String getBorderDate(String date, String mlDate) {
+	<title><%=title%></title> 
+	<%!
+	//获取两边的时间
+	public static String getBorderDate(String date, String mlDate) {
 		if ("".equals(date) && !"1900-01-01 00:00:00".equals(mlDate)) {
 			date = mlDate;
 		}
@@ -31,6 +35,7 @@
 		int cols;
 	}
 
+	//获取里程碑是否在此列中
 	public static boolean getMLIndex(String MLDate, String compareDate) {
 		if (!"".equals(MLDate) && !"".equals(compareDate)) {
 			int MLYear = Integer.parseInt(MLDate.split("-")[0]);
@@ -46,6 +51,7 @@
 		return false;
 	}
 
+	//拼接里程碑所在DIV的字符串
 	public static String getDiv(HttpServletRequest request, String ML,
 			String MLDate, String MLOrg, int MLIndex, double tdWidth,
 			double marginLeft) {
@@ -84,6 +90,7 @@
 		return div_class;
 	}
 
+	//根据里程碑所在列和上下旬获取里程碑距离页面左边的绝对宽度
 	public static double getLeftWidth(double marginLeft, double tdWidth,
 			int MLIndex, String MLDate) {
 		double left = 0.0;
@@ -207,8 +214,8 @@
 					//最早时间与最晚时间前后各加2个月
 					startDate = DateUtils.getDateAddMonth(startDate, 2, "-");
 					endDate = DateUtils.getDateAddMonth(endDate, 2, "+");
-					System.out.println("startDate = " + startDate);
-					System.out.println("endDate = " + endDate);
+			System.out.println("startDate = " + startDate);
+			System.out.println("endDate = " + endDate);
 
 					int tdNum = 0;
 					if (!"".equals(startDate) && !"".endsWith(endDate)) {
@@ -218,9 +225,10 @@
 					int DFExtIndex = 0, DFIntIndex = 0, BFIndex = 0, LFIndex = 0, VFFIndex = 0, PVSIndex = 0;
 					int OSIndex = 0, SOPIndex = 0, MEIndex = 0;
 
+					//系统当前时间
 					int currentIndex = 0;
 					String currentDate = DateUtils.getSysDate();
-					System.out.println("currentDate = " + currentDate);
+			System.out.println("currentDate = " + currentDate);
 					
 					List<Integer> index_list = new ArrayList<Integer>();
 					List<Map<String, Integer>> mmIndex = new ArrayList<Map<String, Integer>>();
@@ -341,7 +349,22 @@
 								DFExtIndex = n;
 								if (n != 0) {
 									Map map = new HashMap<String, Integer>();
-									map.put(n, "DF"); //DFExt
+									if (session.getAttribute("CURR_USER_GROUP") != null && 
+											!"".equals(session.getAttribute("CURR_USER_GROUP"))) {
+										//PQ32_34区分内饰和外饰
+										if ("PQ32_34Plat".equals(session.getAttribute("CURR_USER_GROUP").toString()))
+											map.put(n, "DF<span style=\"font-size: 8px;\">Ext</span>"); //DFExt
+										//PQ46不区分内饰和外饰
+										if ("PQ46Plat".equals(session.getAttribute("CURR_USER_GROUP").toString()))
+											map.put(n, "DF"); //DFExt
+										//PQ35和Audi平台暂以PQ46为准
+										if ("PQ35Plat".equals(session.getAttribute("CURR_USER_GROUP").toString()))
+											map.put(n, "DF"); //DFExt
+										if ("AudiPlat".equals(session.getAttribute("CURR_USER_GROUP").toString()))
+											map.put(n, "DF"); //DFExt
+									} else {
+										map.put(n, "DF<span style=\"font-size: 8px;\">Ext</span>"); //DFExt
+									}
 									mmIndex.add(map);
 									index_list.add(DFExtIndex);
 									Map map2 = new HashMap<String, String>();
@@ -357,7 +380,22 @@
 								DFIntIndex = n;
 								if (n != 0) {
 									Map map = new HashMap<String, Integer>();
-									map.put(n, "DF"); //DFInt
+									if (session.getAttribute("CURR_USER_GROUP") != null && 
+											!"".equals(session.getAttribute("CURR_USER_GROUP"))) {
+										//PQ32_34区分内饰和外饰
+										if ("PQ32_34Plat".equals(session.getAttribute("CURR_USER_GROUP").toString())) 
+											map.put(n, "DF<span style=\"font-size: 8px;\">Int</span>"); //DFInt
+										//PQ46不区分内饰和外饰
+										if ("PQ46Plat".equals(session.getAttribute("CURR_USER_GROUP").toString())) 
+											map.put(n, "DF"); //DFInt
+										//PQ35和Audi平台暂以PQ46为准
+										if ("PQ35Plat".equals(session.getAttribute("CURR_USER_GROUP").toString()))
+											map.put(n, "DF"); //DFExt
+										if ("AudiPlat".equals(session.getAttribute("CURR_USER_GROUP").toString()))
+											map.put(n, "DF"); //DFExt
+									} else {
+										map.put(n, "DF<span style=\"font-size: 8px;\">Int</span>"); //DFInt
+									}
 									mmIndex.add(map);
 									index_list.add(DFIntIndex);
 									Map map2 = new HashMap<String, String>();
@@ -543,18 +581,18 @@
 							style="width: <%=tdWidth%>; height:20px; 
 							border: 1px solid; background-color: #FFFFC0;">
 							<%=month[m]%> <%
- 	//当前月上加红线
+ 	//当前月上加红线，区分上中下旬
  			if (m == currentIndex) {
  				double currentWidth = 0.0;
  				if (!"".equals(currentDate)
  						&& DateUtils.getThreeTenDays(currentDate) == 1)
- 					currentWidth = tdWidth / 3;
+ 					currentWidth = tdWidth / 3; //上旬
  				if (!"".equals(currentDate)
  						&& DateUtils.getThreeTenDays(currentDate) == 2)
- 					currentWidth = tdWidth / 2;
+ 					currentWidth = tdWidth / 2; //中旬
  				if (!"".equals(currentDate)
  						&& DateUtils.getThreeTenDays(currentDate) == 3)
- 					currentWidth = 2 * tdWidth / 3;
+ 					currentWidth = 2 * tdWidth / 3;//下旬
  %>
 							<div
 								style="width: 2px; background-color: #FF00FF; 
@@ -585,22 +623,19 @@
 									if (month[m] == 12)
 										flag = true;
 						%>
-						<td
-							style="width: <%=tdWidth%>px; height: 110px;
-						border-top: 1px solid white;
-						border-left: 1px solid #E0E0E0; 
-						
-						<%if (flag) {
-						out.print("border-right: 1px solid;");
-					} else if (m == month.length - 1) {
-						out.print("border-right: 1px solid;");
-					} else {
-						out.print("border-right: 1px solid #E0E0E0;");
-					}%>
-						">
-							&nbsp;&nbsp;&nbsp;&nbsp;</td>
-
-
+						<td style="width: <%=tdWidth%>px; height: 110px; border-top: 1px solid white; border-left: 1px solid #E0E0E0; 
+							<%
+							if (flag) {
+								out.print("border-right: 1px solid;");
+							} else if (m == month.length - 1) {
+								out.print("border-right: 1px solid;");
+							} else {
+								out.print("border-right: 1px solid #E0E0E0;");
+							}
+							%>
+							">
+							&nbsp;&nbsp;&nbsp;&nbsp;
+						</td>
 						<%
 							}
 						%>
@@ -626,35 +661,36 @@
 				) {
 					
 					//去掉重复值
-					List<Integer> new_index = removeDuplicate(index);
+					List<Integer> new_index = ListUtils.removeDuplicate(index);
 					List<String> div_str = new ArrayList<String>();
 					if(new_index != null && new_index.size() > 0) {
 						for (int i=0; i<new_index.size()-1; i++) {
 							int pos = new_index.get(i);
-							System.out.println(pos);
-							String mm = "&nbsp;<br>&nbsp;<br>"; //
-							String mldate = "";
-							String mlorg = "";
+	System.out.println(pos);
+							String mm = "&nbsp;<br>&nbsp;<br>"; //默认的情况添加两行空格
+							String mldate = "";//里程碑时间
+							String mlorg = "";//里程碑验收部门
 							int standIndex = 0; //以哪个index为基准
 							int count = 0;
 							for (int j=0; j<mmIndex.size()-1; j++) {
-								Map map1 = mmIndex.get(j);
-								Map map2 = mmDate.get(j);
-								Map map3 = mmOrg.get(j);
+								Map map1 = mmIndex.get(j); //里程碑所在td索引
+								Map map2 = mmDate.get(j);//里程碑时间
+								Map map3 = mmOrg.get(j);//里程碑验收机构
 								
+								//里程碑所在列匹配
 								if (map1.containsKey(pos) && map2.containsKey(pos) && map3.containsKey(pos)) {
-									System.out.println(map1);
+	System.out.println(map1);
 									count++;
-									if (count > 1){
-										mm = mm.replace("&nbsp;<br>&nbsp;<br>", "");
+									if (count > 1){ //同一列内含一个以上的里程碑
+										mm = mm.replace("&nbsp;<br>&nbsp;<br>", ""); 
 										mm += "<br>";
 									}
-									if (SOPIndex == pos) {
+									if (SOPIndex == pos) { //sop格式特殊
 										mm = mm.replace("&nbsp;<br>&nbsp;<br>", "");
 										mm += map1.get(pos) + "<br><br>" +
 												map2.get(pos).toString().split("-")[1] + "/" + 
 												map2.get(pos).toString().split("-")[0].substring(2, 4) + "<br>";
-									} else {
+									} else {//正常情况
 										mm += map1.get(pos) + "<br>";
 									}
 									
@@ -684,17 +720,6 @@
 					return div_str;
 				}
 				
-				//去掉重复值
-				public List<Integer> removeDuplicate(List list) {
-					Set set = new HashSet();  
-					List newList = new ArrayList();  
-					for (Iterator iter = list.iterator(); iter.hasNext();) {  
-						Object element = iter.next();  
-						if (set.add(element))  
-							newList.add(element);  
-					}  
-					return newList;  
-				}
 				
 				
 				%>

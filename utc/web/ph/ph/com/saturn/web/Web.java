@@ -186,19 +186,18 @@ public class Web {
 	}
 
 	@SuppressWarnings("rawtypes")
+	//页面右上角的Form状态：Pre-released——>正式冻结
 	public static String getFormState(Map form) {
 		if (form != null) {
-			String isPublic = (String) form.get("fv9PreRelesed");
-			List releaseList = (List) form.get("release_status_list");
-			String isBackup = (String)form.get("fv9IsBackup");
+			String isPublic = (String) form.get("fv9PreRelesed"); //是否已发布
+			List releaseList = (List) form.get("release_status_list"); //状态列表
+			String isBackup = (String)form.get("fv9IsBackup"); //是否BACKUP
+			String formType = (String)form.get("object_type");//form类型
+			System.out.println("formType = " + formType);
+			System.out.println("pageName = " + form.get("fv9PageName"));
 			System.out.println("isBackup = " + isBackup);
 			
-			String isRelease = "";
-			
-			String formType = (String)form.get("object_type");
-			System.out.println("formType = " + formType);
-			
-			// 正式发布之后——数据冻结
+			// 判断数据是否正式发放
 			boolean release = false;
 			if (releaseList != null && releaseList.size() > 0) {
 				for (Object obj : releaseList){
@@ -210,29 +209,29 @@ public class Web {
 				}
 			}
 			
+			//正式发放
 			if (release == true) {
 				//BackUp或是FV9PHBackup类型的数据
 				if("yes".equalsIgnoreCase(isBackup) || "FV9PHBackup".equalsIgnoreCase(formType)){
 					return "<div id='backup'><br><br><img width='190' height='80' src='/ph/app/pep/images/backup.png'></div>";
 				}
 				return "<div id='no-state'>&nbsp;</div>";
-			}
-
-			/*
-			 * //预发布之前 if ("".equalsIgnoreCase(isPublic)) { return
-			 * "<div id='no-state'>资料整理中...</div>"; }
-			 */
-
-			// 预发布之后
-			if ("yes".equalsIgnoreCase(isPublic)) {
+			} else {// 仅仅预发布，未正式发放
 				//BackUp或是FV9PHBackup类型的数据
 				if("yes".equalsIgnoreCase(isBackup) || "FV9PHBackup".equalsIgnoreCase(formType)){
 					return "<div id='backup'>Pre-Release<br><br><img width='190' height='80' src='/ph/app/pep/images/backup.png'></div>";
 				}
 				return "<div id='no-state'>Pre-Release</div>";
 			}
-			
-			
+
+//			// 预发布之后
+//			if ("yes".equalsIgnoreCase(isPublic)) {
+//				//BackUp或是FV9PHBackup类型的数据
+//				if("yes".equalsIgnoreCase(isBackup) || "FV9PHBackup".equalsIgnoreCase(formType)){
+//					return "<div id='backup'>Pre-Release<br><br><img width='190' height='80' src='/ph/app/pep/images/backup.png'></div>";
+//				}
+//				return "<div id='no-state'>Pre-Release</div>";
+//			}
 
 		}
 

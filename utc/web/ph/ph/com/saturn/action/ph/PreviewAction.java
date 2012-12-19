@@ -48,18 +48,19 @@ public class PreviewAction implements IAction {
 		String oraganization = "";
 		System.out.println("type = " + type);
 		if(type.equalsIgnoreCase(WorkspaceUtils.DatasetType)){
-			try {
-				PH.getDataService().getProperties(object, WorkspaceUtils.DatasetPageName);
-				PH.getDataService().getProperties(object, "fv9Oraganization");
-				type = object.getProperty(WorkspaceUtils.DatasetPageName).getDisplayableValue();
-				oraganization = object.getProperty("fv9Oraganization").getDisplayableValue();
-			} catch (NotLoadedException e) {
-				e.printStackTrace();
-			}
+			type = WorkspaceUtils.DatasetType;
+//			try {
+//				PH.getDataService().getProperties(object, WorkspaceUtils.DatasetPageName);
+//				PH.getDataService().getProperties(object, "fv9Oraganization");
+//				type = object.getProperty(WorkspaceUtils.DatasetPageName).getDisplayableValue();
+//				oraganization = object.getProperty("fv9Oraganization").getDisplayableValue();
+//			} catch (NotLoadedException e) {
+//				e.printStackTrace();
+//			}
 		}
 		
 		if(type.equalsIgnoreCase(WorkspaceUtils.BackUpType)){
-			type = "FV9PHBackup";
+			type = WorkspaceUtils.BackUpType;
 		}
 		
 		Map<String, Object> form = FormManager.getFormValue(type, uid, true);

@@ -6,6 +6,8 @@ function fawvwPreleasePH(task) {
 $path:[
   "root_target_attachments:FV9PHReportRevision/FV9LOPH_Rel:Form",
   "root_target_attachments:FV9PHReportRevision/FV9LOPH_Rel:Dataset",
+  "root_target_attachments:FV9PHReportRevision/FV9SCPH_Rel:Form",
+  "root_target_attachments:FV9PHReportRevision/FV9SCPH_Rel:Dataset",
   "root_target_attachments:FV9PHReportRevision/FV9PMPH_Rel:Form",
   "root_target_attachments:FV9PHReportRevision/FV9PMPH_Rel:Dataset",
   "root_target_attachments:FV9PHReportRevision/FV9CP1PH_Rel:Form",
@@ -21,7 +23,13 @@ $path:[
   "root_target_attachments:FV9PHReportRevision/FV9QAPH_Rel:Form",
   "root_target_attachments:FV9PHReportRevision/FV9QAPH_Rel:Dataset",
   "root_target_attachments:FV9PHReportRevision/FV9PHBackup_Rel:Form",
-  "root_target_attachments:FV9PHReportRevision/FV9PHBackup_Rel:Dataset"
+  "root_target_attachments:FV9PHReportRevision/FV9PHBackup_Rel:Dataset",
+  "root_target_attachments:FV9PHReportRevision/FV9CP1MEPH_Rel:Form",
+  "root_target_attachments:FV9PHReportRevision/FV9CP1MEPH_Rel:Dataset",
+  "root_target_attachments:FV9PHReportRevision/FV9CP2MEPH_Rel:Form",
+  "root_target_attachments:FV9PHReportRevision/FV9CP2MEPH_Rel:Dataset",
+  "root_target_attachments:FV9PHReportRevision/FV9CP2PH_Rel:Form",
+  "root_target_attachments:FV9PHReportRevision/FV9CP2PH_Rel:Dataset"
 
 ],
 $match:[ [

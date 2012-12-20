@@ -190,7 +190,6 @@ public class LoadAction implements IAction {
 		//PH下存在数据
 		if (indexes != null && indexes.size() > 0) {
 System.out.println("indexes size = " + indexes.size());
-System.out.println("indexes.get(0) = " + indexes.get(0));		
 			List<PHResource> indexList = IndexManager.getListTree(indexes);
 			request.getSession().setAttribute("indexList", indexList);
 		

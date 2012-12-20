@@ -11,7 +11,18 @@ import java.util.GregorianCalendar;
 import org.apache.commons.httpclient.util.DateUtil;
 
 public class DateUtils {
-	 
+	
+	/*
+	 * 获取对象的时间类型的属性
+	 */
+	public static String getDateValue(Object o){
+		String result = getSysDate();
+		if(o != null){
+			result = o.toString();
+		}
+		return result;
+	}
+	
 	 /*
 	  * 字符串转化为Date类型
 	  */

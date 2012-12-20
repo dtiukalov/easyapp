@@ -43,6 +43,23 @@
 			return color;
 		}
 		%>
+		<%!
+		public static int getMMIndex(String mm){
+			if (mm != null && "BF".equals(mm))
+				return 0;
+			if (mm != null && "LF".equals(mm))
+				return 1;
+			if (mm != null && "VFF".equals(mm))
+				return 2;
+			if (mm != null && "PVS".equals(mm))
+				return 3;
+			if (mm != null && "0S".equals(mm))
+				return 4;
+			if (mm != null && "SOP".equals(mm))
+				return 5;
+			return 0;
+		}
+		%>
 	</head>
 	<body>
 		<div id="container">
@@ -53,12 +70,27 @@
 				<h1><%=title %></h1>
 			</div>
 			<div id="content">
-				<%
-				double height = 11.5;//400.0/fv9ThemaNoList.size(); //每行高度
-				double mm = height; //里程碑方框的边长
-				double fontsize = 11.5;//字体大小
-				%>
-				<table style="width: 900px; overflow: hidden; margin-left: 50px; font-size: <%=fontsize %>px;">
+			<%
+			double height = 11.5;//400.0/fv9ThemaNoList.size(); //每行高度
+			double mm = height; //里程碑方框的边长
+			double fontsize = 11.5;//字体大小
+			double table_left = 50.0; //table距离页面左侧距离
+			double ThemaNoWidth = 40; //ThemaNo列宽度
+			double ThemaWidth = 430; //Thema列宽度
+			double VortragenderWidth = 250; //Thema列宽度
+			double mmWidth = 30; //里程碑列宽度
+			int cols = getMMIndex((String)session.getAttribute("milepost")); //第几个里程碑
+			double margin_left = table_left + ThemaNoWidth + ThemaWidth + VortragenderWidth + (mmWidth+1)*cols - mmWidth/2; //当前里程碑距离左侧的绝对距离
+			double currentMMDivWidth = mmWidth;
+			%>
+			<!-- 当前里程碑 -->
+			<div style="width: <%=currentMMDivWidth%>px; height: 580px; 
+				position: absolute; margin-top: 0px; margin-left: <%=margin_left%>px; 
+				border: 2px solid #003C65;">
+				&nbsp;
+			</div>
+			<!-- 表格 -->
+				<table style="width: 900px; overflow: hidden; margin-left: <%=table_left%>px; font-size: <%=fontsize %>px;">
 <%-- 					<tr>
 						<td colspan="9" style="padding-left: 550px; ">
 							<div style="width: <%=mm%>px; height: <%=mm%>px; background-color: <%=ColorUtils.Backup %>; float: left; border: 1px solid;">&nbsp;</div>
@@ -77,15 +109,15 @@
 					</tr>
 					 --%>
 					<tr>
-						<td style="width: 40px; height: <%=height%>px;">&nbsp;</td>
-						<td style="width: 430px; height: <%=height%>px; ">Thema</td>
-						<td style="width: 250px; height: <%=height%>px; ">Vortragender</td>
-						<td style="width: 30px; height: <%=height%>px; ">BF</td>
-						<td style="width: 30px; height: <%=height%>px; ">LF</td>
-						<td style="width: 30px; height: <%=height%>px; ">VFF</td>
-						<td style="width: 30px; height: <%=height%>px; ">PVS</td>
-						<td style="width: 30px; height: <%=height%>px; ">0-S</td>
-						<td style="width: 30px; height: <%=height%>px; ">SOP</td>
+						<td style="width: <%=ThemaNoWidth%>px; height: <%=height%>px;">&nbsp;</td>
+						<td style="width: <%=ThemaWidth%>px; height: <%=height%>px; ">Thema</td>
+						<td style="width: <%=VortragenderWidth%>px; height: <%=height%>px; ">Vortragender</td>
+						<td style="width: <%=mmWidth%>px; height: <%=height%>px; ">BF</td>
+						<td style="width: <%=mmWidth%>px; height: <%=height%>px; ">LF</td>
+						<td style="width: <%=mmWidth%>px; height: <%=height%>px; ">VFF</td>
+						<td style="width: <%=mmWidth%>px; height: <%=height%>px; ">PVS</td>
+						<td style="width: <%=mmWidth%>px; height: <%=height%>px; ">0-S</td>
+						<td style="width: <%=mmWidth%>px; height: <%=height%>px; ">SOP</td>
 					</tr>
 					<tr>
 						<td colspan="9" style="border-bottom: 1px solid; height: 1px;"></td>

@@ -204,7 +204,29 @@ public class PHManager {
 				rp.setSortNum(sortNum);
 				indexes.add(rp);
 				
-			} else {
+			} else { //form
+				
+				boolean backup = false;
+				if ("yes".equalsIgnoreCase(isBackup))
+					backup = true;
+				
+				ReportPage rp = new ReportPage();
+				rp.setUid(uid);
+				rp.setPageName(pageName);
+				rp.setBackup(backup);
+				rp.setType(formType);
+				rp.setPath(path + "?uid=" + uid);
+				rp.setSortNum(sortNum);
+				indexes.add(rp);
+				
+				
+//				20121220：liule
+//				加载方式改变：				
+//				所有FV9PHImage和FV9PHBackup类型的数据集均已加载，不在需要使用“备选图片”方案，
+//				只要添加FV9PHImage即可
+				
+				
+				/*
 				//非FV9PHImage 和 FV9PHBackup 要判断关系下是否存在数据集
 				PH.getDataService().getProperties(form, "fv9DisplayRule", "FV9Options");
 				
@@ -299,7 +321,7 @@ public class PHManager {
 					rp.setSortNum(sortNum);
 					indexes.add(rp);
 				}
-
+				 */
 			}
 			
 		} catch (NotLoadedException e) {

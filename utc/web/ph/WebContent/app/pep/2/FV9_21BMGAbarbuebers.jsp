@@ -169,12 +169,11 @@
 %>	
 
 		<script type="text/javascript">
-		var chart1;
-		var chart2;
+		var chart;
 		$(document).ready(function() {
-			chart1 = new Highcharts.Chart({
+			chart = new Highcharts.Chart({
 				chart: {
-					renderTo: 'chart1',
+					renderTo: 'chart',
 					defaultSeriesType: 'column'
 				},
 				title: {
@@ -185,11 +184,14 @@
 					tickPosition:'inside',
 					tickColor:'black',
 					categories: <%=cat%>,
+					x:0,
+					y:0,
 					labels:{
 						rotation: -45,
 						enabled:true,
-						y:20,
+						//y:20,
 						style:{
+							fontWeight: 'bold',
 							fontSize:'12px',
 							color:'black'
 						}
@@ -209,7 +211,8 @@
 					},
 					labels:{
 						style:{
-							color:'white'
+							color:'white',
+							fontSize:'14px'
 						}
 					}
 				},
@@ -273,7 +276,7 @@
 					dataLabels: {
 						enabled: true,
 						style : {
-							fontSize:'10px'
+							fontSize:'12px'
 						},
 						verticalAlign: 'top',
 						color: 'black',
@@ -292,7 +295,7 @@
 					dataLabels: {
 						enabled: true,
 						style : {
-							fontSize:'10px'
+							fontSize:'12px'
 						},
 						color: 'black'
 						//y: -10
@@ -310,7 +313,7 @@
 					dataLabels: {
 						enabled: true,
 						style : {
-							fontSize:'10px'
+							fontSize:'12px'
 						},
 						color: 'black'
 					}
@@ -327,7 +330,7 @@
 					dataLabels: {
 						enabled: true,
 						style : {
-							fontSize:'10px'
+							fontSize:'12px'
 						},
 						color: 'white'
 					}
@@ -532,7 +535,7 @@
 		
 		
 
-			<div id="chart1" style="width: 950px; height: 340px; float: left; margin: 0px;  margin-left: 30px;"></div>
+			<div id="chart" style="width: 950px; height: 340px; float: left; margin: 0px;  margin-left: 30px;"></div>
 		</div>
 		<%@ include file="/app/pep/include/foot.jsp"%>
 	</div>	

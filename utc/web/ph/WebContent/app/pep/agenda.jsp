@@ -84,14 +84,14 @@
 			double currentMMDivWidth = mmWidth;
 			%>
 			<!-- 当前里程碑 -->
-			<div style="width: <%=currentMMDivWidth%>px; height: 580px; 
-				position: absolute; margin-top: 0px; margin-left: <%=margin_left%>px; 
+			<div style="width: <%=currentMMDivWidth%>px; height: 570px; 
+				position: absolute; margin-top: <%=2*height%>px; margin-left: <%=margin_left%>px; 
 				border: 2px solid #003C65;">
 				&nbsp;
 			</div>
 			<!-- 表格 -->
 				<table style="width: 900px; overflow: hidden; margin-left: <%=table_left%>px; font-size: <%=fontsize %>px;">
-<%-- 					<tr>
+ 					<tr>
 						<td colspan="9" style="padding-left: 550px; ">
 							<div style="width: <%=mm%>px; height: <%=mm%>px; background-color: <%=ColorUtils.Backup %>; float: left; border: 1px solid;">&nbsp;</div>
 							<div style="width: 60px; height: <%=mm%>px; float: left; margin-left: 5px;">Backup&nbsp;&nbsp;</div>
@@ -107,7 +107,7 @@
 						<td style="width: 200px; height: <%=height%>px;">&nbsp;</td>
 						<td colspan="6" style="border-bottom: 1px solid; height: <%=height%>px;">Phase bis...</td>
 					</tr>
-					 --%>
+					
 					<tr>
 						<td style="width: <%=ThemaNoWidth%>px; height: <%=height%>px;">&nbsp;</td>
 						<td style="width: <%=ThemaWidth%>px; height: <%=height%>px; ">Thema</td>

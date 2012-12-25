@@ -177,17 +177,29 @@
 					<h1><%=title %></h1>
 				</div>
 				<div id="content">
-					<div style="width: 900px; height: 250px; margin: 10px 30px auto; float: left;">
 					<%
-					double height = 240.0;
 					
+					double height_total = 550; //content总高度
+					double height_table = 0; //表格所占高度
+
 					List<String> fv9AekoNo = (List<String>)form.get("fv9AekoNo"); //Aeko号
 					List<String> fv9AekoContent = (List<String>)form.get("fv9AekoContent"); //Aeko内容
 					List<String> fv9AekoStatus = (List<String>)form.get("fv9AekoStatus"); //状态
 					
 					if (fv9AekoNo != null && fv9AekoNo.size() > 0) {
+						//表格存在，超过10行，高度为250
+						if (fv9AekoNo.size() >= 10)
+							height_table = 250;
+						//表格存在，超过介于5-10之间，高度为200
+						if (fv9AekoNo.size() < 10 && fv9AekoNo.size() >= 5)
+							height_table = 200;
+						//表格存在，未超过5行，高度为130
+						if (fv9AekoNo.size() < 5) 
+							height_table = 130;
+						double height = height_table-10;
 						double h = height/(fv9AekoNo.size()+1);
 					%>
+					<div style="width: 900px; height: <%=height_table%>px; margin: 10px 30px auto; float: left;">
 					<table style="border: none; border-collapse: collapse; 
 						width: 500px; height: <%=height%>px; margin: 0px; margin-left: 430px; 
 						float: left;  overflow: hidden; text-align: center; font-size:12px;">
@@ -206,14 +218,11 @@
 						}
 					%>
 					</table>
+					</div>
 					<%
 					}
 					%>
-						
-					
-					
-					</div>
-					<div id="chart" style="width: 900px; height: 300px; margin:0px 0px auto; float: left;"></div>
+					<div id="chart" style="width: 900px; height: <%=(height_total - height_table)%>px; margin:0px 0px auto; float: left;"></div>
 				</div>
 			<%@ include file="/app/pep/include/foot.jsp"%>
 			</div>	

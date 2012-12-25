@@ -117,7 +117,7 @@
 		String string_left = "Problemblattzu - und - ablauf<br>"; //左侧字符 串
 		string_left += project + "(" + fv9SOPKW + ")" + ", AB-Fehler, KW " + reportYear + "-" + reportKW;
 		
-		String string_right = "Offnen:" + offen_num; //右侧字符 串
+		String string_right = "Offen:" + offen_num; //右侧字符 串
 		%>
 		<script type="text/javascript">
 		var chart;

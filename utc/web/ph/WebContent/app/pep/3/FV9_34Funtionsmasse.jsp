@@ -38,9 +38,9 @@
 				kwno = (List<String>)form.get("fv9KWNo");
 				
 				if (Web.getObjectYesOrNo(form.get("fv9PrognoseKW"))) {
-					kwno.add("<span style='font-size: 8px;'>Prognose zu Meilenstein SOP KW </span>" + form.get("fv9PrognoseKW") + "");
+					kwno.add("<span style='font-size: 10px;'>Prognose zu Meilenstein SOP KW </span>" + form.get("fv9PrognoseKW") + "");
 				} else {
-					kwno.add("<span style='font-size: 8px;'>Prognose zu Meilenstein SOP KW XXX</span>");
+					kwno.add("<span style='font-size: 10px;'>Prognose zu Meilenstein SOP KW XXX</span>");
 				}
 			}
 			String fv9KWNo = Web.getStrListStr(kwno);
@@ -209,6 +209,7 @@
 					}
 				},
 				legend:{
+					enabled:false,
 					borderWidth:0,
 					layout: 'vertical',
 					align: 'center',
@@ -405,7 +406,7 @@
 				chart.renderer.text(
 		                '<span style="font-size:12px;">KW</span>', 
 		               	20, 
-		                375
+		                395
 		            ).attr({
 		                zIndex: 6
 		            }).add();
@@ -468,6 +469,30 @@
 					PVS	15 %<br>
 					0&nbsp;-&nbsp;S	10 %<br>
 					SOP	5 %
+				</div>
+				<div style="width: 300px; height: 100px; 
+				position: absolute; margin-left: 530px; margin-top: -480px; 
+				font-size: 14px;">
+					<div style="width: 300px">
+						<div style="width: 14px; height: 12px; float: left; background-color: #E63110; border: 1px solid black;">&nbsp;</div>
+						<div style="width: 270px; height: 12px; float: left; font-size: 14px;">&nbsp;AK:Abweichung Toleranz>100%</div>
+					</div>
+					<br>
+					<div style="width: 300px">
+						<div style="width: 14px; height: 12px; float: left; background-color: #F9A700; border: 1px solid black;">&nbsp;</div>
+						<div style="width: 270px; height: 12px; float: left; font-size: 14px;">&nbsp;BK: 75% < Abweichung Toleranz < 100 %</div>
+					</div>
+					<br>
+					<div style="width: 300px">
+						<div style="width: 14px; height: 12px; float: left; background-color: #009C0E; border: 1px solid black;">&nbsp;</div>
+						<div style="width: 270px; height: 12px; float: left; font-size: 14px;">&nbsp;i.O.: Abweichung Toleranz < 75 %</div>
+					</div>
+					<br>
+					<div style="width: 300px">
+						<div style="width: 14px; height: 12px; float: left; color: #E63110; font-weight: bolder;">—</div>
+						<div style="width: 270px; height: 12px; float: left; font-size: 14px;">&nbsp;Zielwert</div>
+					</div>
+					
 				</div>
 			</div>
 			

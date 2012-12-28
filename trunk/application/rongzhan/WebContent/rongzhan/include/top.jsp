@@ -3,7 +3,11 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<SCRIPT FOR='EccoolAd' EVENT='fscommand()' LANGUAGE='javascript'>
+AdLayer1.style.visibility='hidden';
+AdLayer2.style.visibility='hidden';
+</script>
+<script type="text/javascript" src="./js/duilian.js"></script>
 <div id="header">
 	<div class="logo">
 		<img src="images/logo.jpg" />
